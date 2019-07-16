@@ -1,2 +1,3 @@
-# pounce
-A collection of re-usable UI primitive components for all Panther projects
+### Description
+
+This repo holds common UI components for building dashboards in Panther Labs
