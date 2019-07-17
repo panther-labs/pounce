@@ -2,7 +2,9 @@
 
 # Webstorm
 .idea
-.idea/
+
+# Deployment
+dist
 
 # Docs
 .styleguidist
@@ -14,9 +16,6 @@
 
 # testing
 /coverage
-
-# production
-/build
 
 # misc
 .DS_Store
