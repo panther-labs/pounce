@@ -5,4 +5,11 @@ phases:
     runtime-versions:
       nodejs: 10
     commands:
-    - npm i
+      - npm i
+  build:
+    commands:
+      - npm run lint
+      - npm run build
+  postbuild:
+    commands:
+      - aws s3 sync ./dist s3://staging.runpanther.xyz/pounce"
