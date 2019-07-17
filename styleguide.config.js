@@ -5,7 +5,6 @@ module.exports = {
   title: 'Pounce UI Docs',
   usageMode: 'expand',
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
-  skipComponentsWithoutExample: true,
   components: 'src/components/**/[A-Z]*.{ts,tsx}',
   styleguideDir: '.styleguidist',
   serverPort: 9000,
