@@ -10,6 +10,7 @@ phases:
     commands:
       - npm run lint
       - npm run build
+      - npm run docs
   postbuild:
     commands:
-      - aws s3 sync ./dist s3://staging.runpanther.xyz/pounce"
+      - aws s3 sync ./dist s3://staging.runpanther.xyz/pounce

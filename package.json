@@ -24,7 +24,9 @@
   },
   "scripts": {
     "start": "npx styleguidist server",
-    "build": "rollup  -c && npx styleguidist build",
+    "prepare": "npm run build",
+    "build": "rollup  -c",
+    "docs": "npx styleguidist build",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p ."
   },
   "repository": "https://github.com/panther-labs/pounce",
