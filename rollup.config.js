@@ -13,7 +13,16 @@ export default {
   input: 'src/index.tsx',
 
   // create 2 builds; one for commonJS and one for ES6 modules
-  output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }],
+  output: [
+    { file: pkg.main, format: 'cjs' },
+    { file: pkg.module, format: 'es', sourcemap: true },
+    {
+      file: pkg.browser,
+      format: 'umd',
+      name: pkg.name,
+      sourcemap: true,
+    },
+  ],
   plugins: [
     // don't bundle any peer dependency
     peerDepsExternal(),
