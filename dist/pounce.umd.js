@@ -1,0 +1,2 @@
+!function(e,t){"object"===typeof exports&&"undefined"!==typeof module?t(exports,require("react")):"function"===typeof define&&define.amd?define(["exports","react"],t):t((e=e||self).pouncejs={},e.React)}(this,function(e,t){"use strict";var o=function(e){return t.createElement("button",e,"hello world")};o.defaultProps={color:"black",shape:"pill"},e.Button=o,Object.defineProperty(e,"__esModule",{value:!0})});
+//# sourceMappingURL=pounce.umd.js.map
