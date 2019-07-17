@@ -4,6 +4,9 @@
 .idea
 .idea/
 
+# Docs
+.styleguidist
+
 # dependencies
 /node_modules
 /.pnp

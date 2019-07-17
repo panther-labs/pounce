@@ -2,8 +2,9 @@
   "name": "pouncejs",
   "description": "A collection of UI components from Panther labs",
   "version": "0.1.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/pounce.cjs.js",
+  "module": "dist/pounce.esm.js",
+  "browser": "dist/pounce.umd.js",
   "private": true,
   "keywords": [
     "react",
@@ -22,10 +23,9 @@
     "react-dom": "^16.8.6"
   },
   "scripts": {
-    "build": "rollup -c",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p .",
-    "docs-start": "npx styleguidist server",
-    "docs-build": "npx styleguidist build"
+    "start": "npx styleguidist server",
+    "build": "rollup  -c && npx styleguidist build",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p ."
   },
   "repository": "https://github.com/panther-labs/pounce",
   "bugs": {

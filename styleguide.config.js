@@ -7,7 +7,7 @@ module.exports = {
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
   skipComponentsWithoutExample: true,
   components: 'src/components/**/[A-Z]*.{ts,tsx}',
-  styleguideDir: 'dist/styleguidist',
+  styleguideDir: '.styleguidist',
   serverPort: 9000,
   webpackConfig: {
     module: {
