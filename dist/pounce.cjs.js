@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var React=require("react"),Button=function(t){return React.createElement("button",t,"hello world")};Button.defaultProps={color:"black",shape:"pill"},exports.Button=Button;
