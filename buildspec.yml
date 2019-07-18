@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     CI: 'true'
-  
+
 phases:
   install:
     runtime-versions:
@@ -15,6 +15,6 @@ phases:
       - npm run lint
       - npm run build
       - npm run docs
-  postbuild:
+  post_build:
     commands:
       - aws s3 sync ./dist s3://staging.runpanther.xyz/pounce
