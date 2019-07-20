@@ -1,10 +1,84 @@
+const path = require('path');
+
+const BoxProps = [
+  'as',
+  'm',
+  'margin',
+  'mt',
+  'marginTop',
+  'mr',
+  'marginRight',
+  'mb',
+  'marginBottom',
+  'ml',
+  'marginLeft',
+  'mx',
+  'marginX',
+  'my',
+  'marginY',
+  'p',
+  'padding',
+  'pt',
+  'paddingTop',
+  'pr',
+  'paddingRight',
+  'pb',
+  'paddingBottom',
+  'pl',
+  'paddingLeft',
+  'px',
+  'paddingX',
+  'py',
+  'paddingY',
+  'width',
+  'fontSize',
+  'color',
+  'bg',
+  'flex',
+  'order',
+  'alignSelf',
+];
+
 module.exports = {
   template: {
     favicon: 'https://dashboard.runpanther.io/favicon.ico',
+    head: {
+      links: [
+        // google fonts
+        {
+          href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap',
+          rel: 'stylesheet',
+        },
+
+        // global browser stylesheet rule reset
+        {
+          href: 'https://meyerweb.com/eric/tools/css/reset/reset.css',
+          rel: 'stylesheet',
+        },
+      ],
+    },
+  },
+  styleguideComponents: {
+    // Component to wrap around every individual example
+    Wrapper: path.join(__dirname, 'src/utils/ThemeInjector'),
   },
   title: 'Pounce UI Docs',
+  pagePerSection: true,
   usageMode: 'expand',
-  propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
+  propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
+    propFilter: (prop, component) => {
+      // filter out any component `prop` that doesn't have a description tied to it. We also want
+      // to exclude all the `aria` descriptions
+      if (!prop.description || prop.name.includes('aria-')) {
+        return false;
+      }
+
+      // The Box is the main component so we want to show a big list of all prop.
+      // On all the other components that extend Box, we don't want to show all inherited prop,
+      // but only the additional ones
+      return component.name === 'Box' || !BoxProps.includes(prop.name);
+    },
+  }).parse,
   components: 'src/components/**/[A-Z]*.{ts,tsx}',
   styleguideDir: '.styleguidist',
   serverPort: 9000,
@@ -16,7 +90,32 @@ module.exports = {
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
+        {
+          test: /\.svg$/,
+          loader: 'react-svg-loader',
+          options: {
+            svgo: {
+              plugins: [
+                { removeTitle: true },
+                { convertColors: { shorthex: false } },
+                { convertPathData: false },
+                { removeStyleElement: true },
+                { mergePaths: true },
+                { removeAttrs: { attrs: 'path:fill' } },
+              ],
+              multipass: true,
+            },
+
+            // whether to output jsx
+            jsx: false,
+            include: /icons/,
+            exclude: /node_modules/,
+          },
+        },
       ],
+    },
+    resolve: {
+      modules: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src')],
     },
   },
 };

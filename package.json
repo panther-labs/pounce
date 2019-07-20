@@ -16,7 +16,10 @@
     "Panther"
   ],
   "dependencies": {
-    "rebass": "^3.1.1"
+    "@rebass/emotion": "^3.1.1",
+    "polished": "^3.4.1",
+    "rebass": "^3.1.1",
+    "styled-system": "^5.0.15"
   },
   "peerDependencies": {
     "react": "^16.8.6",
@@ -50,6 +53,8 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@types/react": "^16.8.23",
+    "@types/rebass": "^3.0.4",
+    "@types/styled-system": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.12.0",
     "babel-loader": "^8.0.6",
@@ -65,12 +70,15 @@
     "react-docgen-typescript": "^1.12.5",
     "react-dom": "^16.8.6",
     "react-styleguidist": "^9.1.11",
+    "react-svg-loader": "^3.0.3",
     "rollup": "^1.17.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-react-svg": "^3.0.3",
     "rollup-plugin-terser": "^5.1.1",
+    "styled-components": "^5.0.0-beta.8",
     "typescript": "^3.5.3",
     "webpack": "^4.35.3"
   }
