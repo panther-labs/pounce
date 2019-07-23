@@ -1,23 +1,28 @@
-A button can be a pill:
+A button can be primary:
 
 ```jsx harmony
-<Button pShape="pill" pVariant="primary">
-  Hey there
-</Button>
-```
-
-A button can be a rect:
-
-```jsx harmony
-<Button pShape="rect" pVariant="default">
-  Hey there
-</Button>
+<Button variant="primary">Hey there</Button>
 ```
 
 A button can be small:
 
 ```jsx harmony
-<Button pShape="pill" pVariant="primary" pSize="small">
+<Button variant="secondary" size="small">
   Hey there
 </Button>
+```
+
+A button can contain an icon:
+
+```jsx harmony
+import Icon from './Icon';
+import Flex from './Flex';
+import Text from './Text';
+
+<Button variant="primary" size="small">
+  <Flex alignItems="center">
+    <Icon type="arrow-back" size="small" mr={1} />
+    <Text>Take me back</Text>
+  </Flex>
+</Button>;
 ```

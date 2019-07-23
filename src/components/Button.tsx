@@ -1,83 +1,97 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import { Button as RebassButton, ButtonProps as RebassButtonProps } from 'rebass';
+import css from '@styled-system/css';
+import BaseButton, { BaseButtonProps } from './BaseButton';
+import Text from './Text';
 
-interface ButtonProps extends RebassButtonProps {
-  /** The shape of the button */
-  pShape?: 'pill' | 'rect';
-
+interface ButtonProps extends BaseButtonProps {
   /** The size of the button */
-  pSize?: 'small' | 'large';
+  size: 'small' | 'large';
 
   /** The variant of the button that decides the colors */
-  pVariant?: 'primary' | 'default';
+  variant: 'primary' | 'default' | 'secondary';
 }
-
-const StyledRebassButton: React.FC = styled(RebassButton)`
-  text-transform: uppercase;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  font-weight: ${({ theme }) => theme.fontWeights.normal};
-  box-shadow: ${({ theme }) => theme.shadows[2]};
-
-  [disabled] {
-    opacity: 0.3;
-    pointer-events: none;
-  }
-
-  &:hover:not(:active) {
-    filter: brightness(120%);
-  }
-
-  &:hover,
-  &:active {
-    box-shadow: ${({ theme }) => theme.shadows[3]};
-  }
-`;
 
 /**
  * Extends <a href="/#/Box">Box</a>
  *
- * The core re-usable button that you will use in the app.
+ * The core re-usable button that you will use in the app. You can either add plain text (which will
+ * be wrapped in a `<Text>` element) or other React components (which will not be wrapped with
+ * anything).
  */
-const Button: React.FC<ButtonProps> = ({ pShape, pSize, pVariant, ...rest }) => {
-  const pShapeProps = (() => {
-    switch (pShape) {
-      case 'rect':
-        return { borderRadius: 'medium' };
-      case 'pill':
-      default:
-        return { borderRadius: 'large' };
-    }
-  })();
-
-  const pSizeProps = (() => {
-    switch (pSize) {
+const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => {
+  const sizeProps = (() => {
+    switch (size) {
       case 'small':
-        return { px: 5, py: 2, fontSize: 2 };
+        return { px: 4, py: 2, fontSize: 2 };
       case 'large':
       default:
         return { px: 5, py: 4, fontSize: 3 };
     }
   })();
 
-  const pVariantProps = (() => {
-    switch (pVariant) {
+  const variantProps = (() => {
+    switch (variant) {
+      case 'secondary':
+        return {
+          color: 'grey400',
+          bg: 'grey50',
+          css: css({
+            textTransform: 'uppercase',
+
+            ':hover': {
+              filter: 'brightness(90%)',
+            },
+          }),
+        };
       case 'default':
-        return { color: 'grey400', bg: 'transparent' };
+        return {
+          color: 'grey400',
+          bg: 'transparent',
+          boxShadow: 2,
+          css: css({
+            textTransform: 'uppercase',
+
+            ':hover': {
+              boxShadow: 3,
+              filter: 'brightness(120%)',
+            },
+          }),
+        };
       case 'primary':
       default:
-        return { color: 'white', bg: 'primary300' };
+        return {
+          color: 'white',
+          bg: 'primary300',
+          boxShadow: 2,
+          css: css({
+            textTransform: 'uppercase',
+
+            ':hover': {
+              boxShadow: 3,
+              filter: 'brightness(120%)',
+            },
+          }),
+        };
     }
   })();
 
-  return <StyledRebassButton {...pShapeProps} {...pSizeProps} {...pVariantProps} {...rest} />;
+  return (
+    <BaseButton
+      fontWeight="bold"
+      borderRadius="large"
+      css={variantProps.css}
+      {...sizeProps}
+      {...variantProps}
+      {...rest}
+    >
+      {typeof children === 'string' ? <Text>{children}</Text> : children}
+    </BaseButton>
+  );
 };
 
 Button.defaultProps = {
-  pShape: 'pill',
-  pSize: 'large',
-  pVariant: 'primary',
+  size: 'large',
+  variant: 'primary',
 };
 
 export default Button;

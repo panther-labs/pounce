@@ -5,6 +5,5 @@
   ],
   "*.{ts,tsx}": [
     "eslint",
-    "tsc -p ."
   ]
 }
