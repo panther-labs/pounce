@@ -3,7 +3,7 @@ import BaseText, { BaseTextProps } from './BaseText';
 
 export interface LabelProps extends BaseTextProps {
   /** The size of the font */
-  size: 'extra-small' | 'small' | 'medium' | 'large';
+  size?: 'extra-small' | 'small' | 'medium' | 'large';
 }
 
 /** Responsive typographic component. Use it within forms or wherever something needs to be labeled */

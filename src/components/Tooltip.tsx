@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactTooltipLite from 'react-tooltip-lite';
-import Text from './Text';
+import Box from './Box';
 
 export interface TooltipProps {
   /** The string or HTML that the tooltip will show*/
-  content: string;
+  content: string | React.ReactElement;
 
   /** The positioning of the Tooltip with regards to the visible element */
   positioning: 'up' | 'left' | 'down' | 'right';
@@ -35,17 +35,9 @@ const Tooltip: React.FC<TooltipProps> = ({
       tipContentHover={allowHover}
       hoverDelay={hoverDelay}
       content={
-        <Text
-          px={3}
-          py={2}
-          size="large"
-          bg="grey500"
-          color="white"
-          borderRadius="small"
-          fontWeight="normal"
-        >
+        <Box px={3} py={2} bg="grey500" color="white" borderRadius="small">
           {content}
-        </Text>
+        </Box>
       }
     >
       {children}
