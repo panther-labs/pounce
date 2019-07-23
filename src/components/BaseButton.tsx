@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as StyledSystem from 'styled-system';
 import Box, { BoxProps } from './Box';
 
-export interface BaseButtonProps extends BoxProps, StyledSystem.ShadowProps {}
+export { BoxProps as BaseButtonProps };
 
-const BaseButton = styled(props => <Box as="button" border="none" {...props} />)<BaseButtonProps>`
-  ${StyledSystem.shadow};
+const BaseButton = styled(props => <Box as="button" border="none" p={0} m={0} {...props} />)<
+  BoxProps
+>`
   cursor: pointer;
   transition: background-color 0.15s linear;
 
