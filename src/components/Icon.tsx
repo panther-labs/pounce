@@ -109,7 +109,7 @@ export const svgComponentMapping = {
   upload: Upload,
 };
 
-interface IconProps extends BoxProps {
+export interface IconProps extends BoxProps {
   /** The icon that you want to show */
   type: keyof typeof svgComponentMapping;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { convertHexToRgba } from 'utils/helpers';
 import BaseButton, { BaseButtonProps } from './BaseButton';
 
-interface IconButtonProps extends BaseButtonProps {
+export interface IconButtonProps extends BaseButtonProps {
   /** Whether the component should appear as "activated". Helpful for menus */
   active?: boolean;
 
@@ -14,8 +14,8 @@ interface IconButtonProps extends BaseButtonProps {
 /**
  * A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable
  */
-const IconButton: React.FC = styled(props => (
-  <BaseButton bg="transparent" p={3} borderRadius="circle" {...props} />
+export const IconButton = styled(props => (
+  <BaseButton bg="transparent" p={2} borderRadius="circle" {...props} />
 ))<IconButtonProps>`
   color: ${({ theme, active, variant }) =>
     active ? theme.colors[variant === 'primary' ? 'primary300' : 'grey400'] : theme.colors.grey400};
@@ -37,7 +37,7 @@ const IconButton: React.FC = styled(props => (
 
 IconButton.defaultProps = {
   active: false,
-  variant: 'primary',
+  variant: 'default',
 };
 
 export default IconButton;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Text from './Text';
 
-interface BadgeProps {
+export interface BadgeProps {
   /** The style of the badge */
   variant: 'info' | 'error-low' | 'error-medium' | 'error-high' | 'error-critical';
 }

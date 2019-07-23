@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as StyledSystem from 'styled-system';
 import Box, { BoxProps } from './Box';
 
-interface CardProps extends BoxProps, StyledSystem.BackgroundProps {}
+export interface CardProps extends BoxProps, StyledSystem.BackgroundProps {}
 
 const BaseCard = styled(Box)`
   ${StyledSystem.background}

@@ -1,7 +1,8 @@
 import React from 'react';
 import BaseText, { BaseTextProps } from './BaseText';
 
-interface HeadingProps extends BaseTextProps {
+export interface HeadingProps extends BaseTextProps {
+  /** The size of the font */
   size?: 'medium' | 'large';
 }
 

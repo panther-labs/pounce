@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as StyledSystem from 'styled-system';
 import Box, { BoxProps } from './Box';
 
-interface FlexProps extends BoxProps, StyledSystem.FlexboxProps, StyledSystem.DisplayProps {}
+export interface FlexProps extends BoxProps, StyledSystem.FlexboxProps, StyledSystem.DisplayProps {}
 
 const BaseFlex: React.FC<FlexProps> = styled(Box)`
   ${StyledSystem.flexbox}

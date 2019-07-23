@@ -5,12 +5,10 @@ import Box, { BoxProps } from './Box';
 
 export interface BaseButtonProps extends BoxProps, StyledSystem.ShadowProps {}
 
-const BaseButton: React.FC = styled(props => <Box as="button" border="none" {...props} />)<
-  BaseButtonProps
->`
+const BaseButton = styled(props => <Box as="button" border="none" {...props} />)<BaseButtonProps>`
   ${StyledSystem.shadow};
   cursor: pointer;
-  transition: background-color 0.1s linear;
+  transition: background-color 0.15s linear;
 
   [disabled] {
     opacity: 0.3;

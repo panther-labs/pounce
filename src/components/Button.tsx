@@ -3,7 +3,7 @@ import css from '@styled-system/css';
 import BaseButton, { BaseButtonProps } from './BaseButton';
 import Text from './Text';
 
-interface ButtonProps extends BaseButtonProps {
+export interface ButtonProps extends BaseButtonProps {
   /** The size of the button */
   size: 'small' | 'large';
 

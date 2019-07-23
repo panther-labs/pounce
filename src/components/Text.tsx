@@ -2,6 +2,7 @@ import React from 'react';
 import BaseText, { BaseTextProps } from './BaseText';
 
 export interface TextProps extends BaseTextProps {
+  /** The size of the font */
   size?: 'medium' | 'large';
 }
 /**

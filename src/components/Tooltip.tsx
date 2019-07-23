@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTooltipLite from 'react-tooltip-lite';
 import Text from './Text';
 
-interface TooltipProps {
+export interface TooltipProps {
   /** The string or HTML that the tooltip will show*/
   content: string;
 
