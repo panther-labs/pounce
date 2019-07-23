@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path'); // eslint-disable-line @typescript-eslint/no-var-requires
 
 const BoxProps = [
   'as',
@@ -52,7 +52,7 @@ module.exports = {
 
         // global browser stylesheet rule reset
         {
-          href: 'https://meyerweb.com/eric/tools/css/reset/reset.css',
+          href: './src/utils/reset.css',
           rel: 'stylesheet',
         },
       ],
@@ -80,6 +80,7 @@ module.exports = {
     },
   }).parse,
   components: 'src/components/**/[A-Z]*.{ts,tsx}',
+  ignore: ['src/components/**/Base[A-Z]*.{ts,tsx}'],
   styleguideDir: '.styleguidist',
   serverPort: 9000,
   webpackConfig: {
@@ -101,7 +102,9 @@ module.exports = {
                 { convertPathData: false },
                 { removeStyleElement: true },
                 { mergePaths: true },
+                { removeDimensions: true },
                 { removeAttrs: { attrs: 'path:fill' } },
+                { addAttributesToSVGElement: { attributes: [{ display: 'block' }] } },
               ],
               multipass: true,
             },
