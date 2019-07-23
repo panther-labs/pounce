@@ -80,7 +80,7 @@ module.exports = {
 
         // global browser stylesheet rule reset
         {
-          href: './src/utils/reset.css',
+          href: 'https://meyerweb.com/eric/tools/css/reset/reset.css',
           rel: 'stylesheet',
         },
       ],
