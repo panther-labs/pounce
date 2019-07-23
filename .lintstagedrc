@@ -4,6 +4,7 @@
     "git add"
   ],
   "*.{ts,tsx}": [
-    "eslint"
+    "eslint",
+    "tsc --noEmit"
   ]
 }
