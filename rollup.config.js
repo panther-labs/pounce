@@ -65,13 +65,8 @@ export default {
     // When creating a commonJS build, allow the following items to be exported independently
     commonjs({
       namedExports: {
-        'node_modules/react/index.js': [
-          'Component',
-          'PureComponent',
-          'Fragment',
-          'Children',
-          'createElement',
-        ],
+        'node_modules/react/index.js': ['Component', 'PureComponent', 'Fragment', 'Children'],
+        'node_modules/react-is/index.js': ['isElement', 'isValidElementType', 'ForwardRef'],
       },
     }),
 
