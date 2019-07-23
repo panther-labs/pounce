@@ -35,6 +35,7 @@ const BoxProps = [
   'bg',
   'fontSize',
   'fontWeight',
+  'minWidth',
   'width',
   'height',
   'gridRow',
