@@ -4,7 +4,7 @@
  * @param opacity a value between [0,1]
  * @returns The rgba representation
  */
-export function convertHex(hex: string, opacity: number) {
+export function convertHexToRgba(hex: string, opacity: number) {
   const hexWithoutHash = hex.replace('#', '');
   const r = parseInt(hexWithoutHash.substring(0, 2), 16);
   const g = parseInt(hexWithoutHash.substring(2, 4), 16);
