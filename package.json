@@ -16,6 +16,7 @@
     "Panther"
   ],
   "dependencies": {
+    "react-tooltip-lite": "^1.9.5",
     "styled-components": "^5.0.0-beta.8",
     "styled-system": "^5.0.15"
   },
@@ -28,7 +29,7 @@
     "prepare": "npm run build",
     "build": "rollup  -c",
     "docs": "npx styleguidist build",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p ."
+    "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p . --noEmit"
   },
   "repository": "https://github.com/panther-labs/pounce",
   "bugs": {

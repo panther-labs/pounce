@@ -5,6 +5,6 @@
   ],
   "*.{ts,tsx}": [
     "eslint",
-    "tsc --noEmit"
+    "tsc -p . --noEmit"
   ]
 }
