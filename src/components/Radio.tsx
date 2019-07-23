@@ -8,8 +8,6 @@ const StyledRadio = styled.input`
   opacity: 0;
 `;
 
-//<input type="checkbox" name="vehicle3" value="Boat" checked> I have a boat<br>
-
 export interface RadioProps {
   /** Whether the checkbox should be checked or not */
   checked: boolean;
