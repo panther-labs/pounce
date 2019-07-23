@@ -22,6 +22,9 @@ export default {
       format: 'umd',
       name: pkg.name,
       sourcemap: true,
+      globals: {
+        react: 'React',
+      },
     },
   ],
   plugins: [
