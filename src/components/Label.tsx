@@ -1,5 +1,6 @@
 import React from 'react';
 import BaseText, { BaseTextProps } from './BaseText';
+import { Theme } from 'themes/default';
 
 export interface LabelProps extends BaseTextProps {
   /** The size of the font */
@@ -11,16 +12,16 @@ const Label: React.FC<LabelProps> = ({ size, ...rest }) => {
   const sizeProps = (function() {
     switch (size) {
       case 'large':
-        return { fontWeight: 'normal', fontSize: 3 };
+        return { fontWeight: 'medium', fontSize: 3 };
       case 'medium':
-        return { fontWeight: 'normal', fontSize: 2 };
+        return { fontWeight: 'medium', fontSize: 2 };
       case 'small':
-        return { fontWeight: 'bold', fontSize: 1 };
+        return { fontWeight: 'bolder', fontSize: 1 };
       case 'extra-small':
       default:
-        return { fontWeight: 'normal', fontSize: 0 };
+        return { fontWeight: 'medium', fontSize: 0 };
     }
-  })() as { fontWeight: 'normal' | 'bold'; fontSize: number };
+  })() as { fontWeight: keyof Theme['fontWeights']; fontSize: number };
 
   return <BaseText as="label" {...sizeProps} {...rest} />;
 };
