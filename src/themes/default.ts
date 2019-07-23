@@ -3,8 +3,8 @@ import { Theme } from 'styled-system';
 const theme: Theme = {
   breakpoints: ['1200px'],
   fontSizes: [10, 12, 14, 16, 24, 40],
-  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
-  fontWeights: { normal: 400, medium: 500, bold: 700 },
+  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36],
+  fontWeights: { normal: 400, bold: 500, bolder: 700 },
   fonts: {
     primary: 'Roboto, system-ui, sans-serif',
   },
