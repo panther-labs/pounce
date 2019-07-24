@@ -39,13 +39,12 @@ const BaseTextInput: React.FC<
     )}
     <StyledBoxWithBorder
       id={label ? slugify(label) : undefined}
-      height={48}
       borderRadius="small"
       bg="grey50"
       color={!error ? 'grey400' : 'red300'}
       fontSize={3}
       px={5}
-      py={4}
+      py={3}
       {...rest}
     />
     {!!error && (
