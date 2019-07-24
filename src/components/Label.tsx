@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { LabelHTMLAttributes } from 'react';
 import BaseText, { BaseTextProps } from 'components/BaseText';
 import { Theme } from 'themes/default';
 
@@ -8,7 +8,7 @@ export interface LabelProps extends BaseTextProps {
 }
 
 /** Responsive typographic component. Use it within forms or wherever something needs to be labeled */
-const Label: React.FC<LabelProps> = ({ size, ...rest }) => {
+const Label: React.FC<LabelProps & LabelHTMLAttributes<'label'>> = ({ size, ...rest }) => {
   const sizeProps = (function() {
     switch (size) {
       case 'large':
