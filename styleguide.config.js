@@ -100,7 +100,7 @@ module.exports = {
       return component.name === 'Box' || !BoxProps.includes(prop.name);
     },
   }).parse,
-  components: 'src/components/**/[A-Z]*.{ts,tsx}',
+  components: 'src/(components|modules)/**/[A-Z]*.{ts,tsx}',
   ignore: ['src/components/**/Base[A-Z]*.{ts,tsx}'],
   styleguideDir: '.styleguidist',
   serverPort: 9000,

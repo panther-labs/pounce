@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { convertHexToRgba } from 'utils/helpers';
-import BaseButton, { BaseButtonProps } from './BaseButton';
+import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 
 export interface IconButtonProps extends BaseButtonProps {
   /** Whether the component should appear as "activated". Helpful for menus */

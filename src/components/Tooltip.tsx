@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactTooltipLite from 'react-tooltip-lite';
-import Box from './Box';
+import Box from 'components/Box';
 
 export interface TooltipProps {
   /** The string or HTML that the tooltip will show*/

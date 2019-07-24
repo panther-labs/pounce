@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'styled-components';
-import Box, { BoxProps } from './Box';
+import Box, { BoxProps } from 'components/Box';
 import Add from 'icons/ic-add.svg';
 import Adduser from 'icons/ic-adduser.svg';
 import ArrowDropDown from 'icons/ic-arrow_drop_down.svg';

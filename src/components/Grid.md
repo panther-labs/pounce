@@ -1,6 +1,6 @@
 ```jsx harmony
-import Box from './Box';
-import Text from './Text';
+import Box from 'components/Box';
+import Text from 'components/Text';
 
 <Grid gridColumnGap={10} gridTemplateColumns="repeat(2, 1fr)">
   <Box bg="primary300" py={3}>

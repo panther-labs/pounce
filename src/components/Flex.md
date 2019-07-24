@@ -1,6 +1,6 @@
 ```jsx harmony
-import Box from './Box';
-import Text from './Text';
+import Box from 'components/Box';
+import Text from 'components/Text';
 
 <Flex alignItems="center">
   <Box width={200} py={9} bg="primary300">

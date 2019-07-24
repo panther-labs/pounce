@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseButton from './BaseButton';
-import Label from './Label';
-import Box from './Box';
-import Flex from './Flex';
+import BaseButton from 'components/BaseButton';
+import Label from 'components/Label';
+import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 const StyledSwitch = styled.input`
   position: absolute;

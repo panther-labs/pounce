@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseText, { BaseTextProps } from './BaseText';
+import BaseText, { BaseTextProps } from 'components/BaseText';
 import { Theme } from 'themes/default';
 
 export interface LabelProps extends BaseTextProps {

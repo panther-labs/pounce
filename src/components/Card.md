@@ -1,6 +1,6 @@
 ```jsx
-import Box from './Box';
-import Text from './Text';
+import Box from 'components/Box';
+import Text from 'components/Text';
 
 <Box width={1} padding={9} bg="grey50">
   <Card width={150}>
