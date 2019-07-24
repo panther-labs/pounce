@@ -9,8 +9,6 @@ const StyledText = styled(Box)`
   ${StyledSystem.typography}
 `;
 
-const BaseText: React.FC<BaseTextProps> = props => (
-  <StyledText fontFamily="primary" color="inherit" {...props} />
-);
+const BaseText: React.FC<BaseTextProps> = props => <StyledText {...props} />;
 
 export default BaseText;

@@ -4,9 +4,7 @@ import Box, { BoxProps } from 'components/Box';
 
 export { BoxProps as BaseButtonProps };
 
-const BaseButton = styled(props => <Box as="button" border="none" p={0} m={0} {...props} />)<
-  BoxProps
->`
+const BaseButton = styled(props => <Box as="button" {...props} />)<BoxProps>`
   cursor: pointer;
   transition: background-color 0.15s linear;
 

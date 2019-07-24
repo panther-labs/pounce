@@ -70,12 +70,6 @@ module.exports = {
           href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap',
           rel: 'stylesheet',
         },
-
-        // global browser stylesheet rule reset
-        {
-          href: 'https://meyerweb.com/eric/tools/css/reset/reset.css',
-          rel: 'stylesheet',
-        },
       ],
     },
   },

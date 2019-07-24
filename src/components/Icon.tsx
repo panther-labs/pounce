@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Add from 'icons/ic-add.svg';
 import Adduser from 'icons/ic-adduser.svg';
@@ -124,18 +123,7 @@ const Icon: React.FC<IconProps> = ({ type, size, color, ...rest }) => {
   const Component = svgComponentMapping[type];
   const sizeInPx = size === 'small' ? 18 : 24;
 
-  return (
-    <Box
-      css={css`
-        fill: currentColor;
-      `}
-      color={color}
-      as={Component}
-      width={sizeInPx}
-      height={sizeInPx}
-      {...rest}
-    />
-  );
+  return <Box color={color} as={Component} width={sizeInPx} height={sizeInPx} {...rest} />;
 };
 
 Icon.defaultProps = {
