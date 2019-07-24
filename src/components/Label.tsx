@@ -12,14 +12,14 @@ const Label: React.FC<LabelProps & LabelHTMLAttributes<'label'>> = ({ size, ...r
   const sizeProps = (function() {
     switch (size) {
       case 'large':
-        return { fontWeight: 'medium', fontSize: 3 };
+        return { fontWeight: 'bold', fontSize: 3 };
       case 'medium':
-        return { fontWeight: 'medium', fontSize: 2 };
+        return { fontWeight: 'bold', fontSize: 2 };
       case 'small':
         return { fontWeight: 'bolder', fontSize: 1 };
       case 'extra-small':
       default:
-        return { fontWeight: 'medium', fontSize: 0 };
+        return { fontWeight: 'bold', fontSize: 0 };
     }
   })() as { fontWeight: keyof Theme['fontWeights']; fontSize: number };
 

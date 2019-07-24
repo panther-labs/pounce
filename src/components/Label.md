@@ -17,13 +17,13 @@ const Example = () => {
   return (
     <Box>
       <Flex alignItems="center">
-        <Label size="small" mr={2} for="checkbox1">
+        <Label size="small" mr={2} htmlFor="checkbox1">
           Toggle first
         </Label>
         <Checkbox id="checkbox1" checked={isFirstChecked} onChange={setFirstChecked} />
       </Flex>
       <Flex alignItems="center">
-        <Label size="small" mr={2} for="checkbox2">
+        <Label size="small" mr={2} htmlFor="checkbox2">
           Toggle second
         </Label>
         <Checkbox id="checkbox2" checked={isSecondChecked} onChange={setSecondChecked} />
