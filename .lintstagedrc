@@ -4,6 +4,6 @@
     "git add"
   ],
   "*.{ts,tsx}": [
-    "eslint"
+    "eslint",
   ]
 }

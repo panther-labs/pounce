@@ -16,7 +16,9 @@
     "Panther"
   ],
   "dependencies": {
-    "rebass": "^3.1.1"
+    "react-tooltip-lite": "^1.9.5",
+    "styled-components": "^5.0.0-beta.8",
+    "styled-system": "^5.0.15"
   },
   "peerDependencies": {
     "react": "^16.8.6",
@@ -27,7 +29,7 @@
     "prepare": "npm run build",
     "build": "rollup  -c",
     "docs": "npx styleguidist build",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p ."
+    "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p . --noEmit"
   },
   "repository": "https://github.com/panther-labs/pounce",
   "bugs": {
@@ -49,10 +51,15 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@styled-system/css": "^5.0.16",
     "@types/react": "^16.8.23",
+    "@types/styled-components": "^4.1.18",
+    "@types/styled-system": "^5.0.0",
+    "@types/styled-system__css": "^5.0.2",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.12.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -65,11 +72,13 @@
     "react-docgen-typescript": "^1.12.5",
     "react-dom": "^16.8.6",
     "react-styleguidist": "^9.1.11",
+    "react-svg-loader": "^3.0.3",
     "rollup": "^1.17.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-react-svg": "^3.0.3",
     "rollup-plugin-terser": "^5.1.1",
     "typescript": "^3.5.3",
     "webpack": "^4.35.3"
