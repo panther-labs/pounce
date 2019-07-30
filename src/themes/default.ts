@@ -34,12 +34,13 @@ export interface Theme extends StyledSystemTheme {
   radii: { [key in radii]: number };
   fonts: { [key in fontFamilies]: string };
   colors: { [key in colors]: string };
+  lineHeights: string[];
 }
 
 const theme: Theme = {
   breakpoints: ['1200px'],
   fontSizes: [10, 12, 14, 16, 24, 40],
-  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36],
+  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
   fontWeights: { normal: 400, bold: 500, bolder: 700 },
   fonts: {
     primary: 'Roboto, system-ui, sans-serif',
