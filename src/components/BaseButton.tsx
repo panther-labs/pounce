@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 
-export { BoxProps as BaseButtonProps };
+export interface BaseButtonProps extends BoxProps {
+  /** Whether the element should be disabled */
+  disabled?: boolean;
+}
 
-const BaseButton = styled(props => <Box as="button" {...props} />)<BoxProps>`
+const BaseButton = styled(props => <Box as="button" {...props} />)<BaseButtonProps>`
   cursor: pointer;
   transition: background-color 0.15s linear;
 
@@ -13,5 +16,9 @@ const BaseButton = styled(props => <Box as="button" {...props} />)<BoxProps>`
     pointer-events: none;
   }
 `;
+
+BaseButton.defaultProps = {
+  disabled: false,
+};
 
 export default BaseButton;

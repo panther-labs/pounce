@@ -7,9 +7,14 @@ import Flex from 'components/Flex';
 import { slugify } from 'utils/helpers';
 import Label, { LabelProps } from 'components/Label';
 
+type InputElementOuterBoxProps = BoxProps & {
+  /** Whether the element should be disabled */
+  disabled?: boolean;
+};
+
 export const InputElementOuterBox = styled(props => (
   <Box borderRadius="small" bg="grey50" {...props} />
-))<BoxProps>`
+))<InputElementOuterBoxProps>`
   overflow: hidden;
   border: ${({ theme }) => `1px solid ${theme.colors.transparent}`};
 
@@ -17,6 +22,11 @@ export const InputElementOuterBox = styled(props => (
   &:focus-within,
   &:active {
     border: ${({ theme }) => `1px solid ${theme.colors.grey100}`};
+  }
+
+  [disabled] {
+    opacity: 0.3;
+    pointer-events: none;
   }
 `;
 
@@ -34,15 +44,16 @@ export const InputElementLabel: React.FC<LabelProps> = ({ children, ...rest }) =
   </Box>
 );
 
-export type BaseInputElementProps = InputElementInnerBoxProps & {
-  /** The label that is associated with this input */
-  label?: string;
+export type BaseInputElementProps = InputElementOuterBoxProps &
+  InputElementInnerBoxProps & {
+    /** The label that is associated with this input */
+    label?: string;
 
-  /** Whether the input has an error. If the value is not falsy, then its value will
-   * be shown below the input. If the value is falsy, then the TextInput is considered fully valid
-   */
-  error?: string;
-};
+    /** Whether the input has an error. If the value is not falsy, then its value will
+     * be shown below the input. If the value is falsy, then the TextInput is considered fully valid
+     */
+    error?: string;
+  };
 
 const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, ...rest }) => (
   <Box>
