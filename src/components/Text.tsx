@@ -3,7 +3,7 @@ import BaseText, { BaseTextProps } from 'components/BaseText';
 
 export interface TextProps extends BaseTextProps {
   /** The size of the font */
-  size?: 'medium' | 'large' | 'inherit';
+  size?: 'medium' | 'large';
 }
 /**
  * Extends <a href="/#/Box">Box</a>
@@ -16,9 +16,8 @@ const Text: React.FC<TextProps> = ({ size, ...rest }) => {
       case 'large':
         return { fontSize: 3 };
       case 'medium':
-        return { fontSize: 2 };
       default:
-        return { fontSize: 'inherit' };
+        return { fontSize: 2 };
     }
   })();
 
@@ -26,7 +25,7 @@ const Text: React.FC<TextProps> = ({ size, ...rest }) => {
 };
 
 Text.defaultProps = {
-  size: 'inherit',
+  size: 'medium',
 };
 
 export default Text;
