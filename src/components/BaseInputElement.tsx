@@ -23,7 +23,7 @@ export const InputElementOuterBox = styled(props => (
 export type InputElementInnerBoxProps = BoxProps & React.HTMLProps<HTMLInputElement>;
 
 export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props => (
-  <Box px={4} py={3} fontSize={3} {...props} border={0} bg="transparent" />
+  <Box px={4} py={3} fontSize={3} border={0} bg="transparent" {...props} />
 );
 
 export const InputElementLabel: React.FC<LabelProps> = ({ children, ...rest }) => (
