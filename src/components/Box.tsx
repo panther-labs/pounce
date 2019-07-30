@@ -14,9 +14,14 @@ import { Theme } from 'styled-system';
 interface BoxPropsWithHTMLAttributesAdapter
   extends StyledSystem.ColorProps,
     React.HTMLAttributes<HTMLDivElement> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  as?: any;
   color?: any;
+  height?: any;
+  width?: any;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 }
+
 export interface BoxProps
   extends BoxPropsWithHTMLAttributesAdapter,
     StyledSystem.SpaceProps,
@@ -24,7 +29,6 @@ export interface BoxProps
     StyledSystem.FontSizeProps,
     StyledSystem.FontWeightProps,
     StyledSystem.WidthProps,
-    StyledSystem.MinWidthProps,
     StyledSystem.HeightProps,
     StyledSystem.GridRowProps,
     StyledSystem.GridColumnProps,
@@ -52,6 +56,24 @@ export interface BoxProps
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)
    */
   color?: StyledSystem.ColorProps['color'];
+
+  /**
+   *   The width utility parses a component's `width` prop and converts it into a CSS width declaration.
+   *
+   *   - Numbers from 0-1 are converted to percentage widths.
+   *   - Numbers greater than 1 are converted to pixel values.
+   *   - String values are passed as raw CSS values.
+   *   - And arrays are converted to responsive width styles.
+   */
+  width?: StyledSystem.WidthProps['width'];
+
+  /**
+   * The height CSS property specifies the height of an element. By default, the property defines the height of the
+   * content area. If box-sizing is set to border-box, however, it instead determines the height of the border area.
+   *
+   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/height)
+   */
+  height?: StyledSystem.HeightProps['height'];
 }
 
 /** Responsive box-model layout component. Apart from the defined props,
@@ -63,7 +85,6 @@ const Box: React.FC<BoxProps> = styled.div`
   ${StyledSystem.fontSize}
   ${StyledSystem.fontWeight}
   ${StyledSystem.width}
-  ${StyledSystem.minWidth}
   ${StyledSystem.height}
   ${StyledSystem.gridRow}
   ${StyledSystem.gridColumn}
