@@ -4,6 +4,7 @@ import { Theme } from 'themes/default';
 const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
+    line-height: ${({ theme }) => theme.lineHeights[0]};
   }
 
   html, body, div, span, applet, object, iframe,
@@ -61,19 +62,19 @@ const GlobalStyles = createGlobalStyle`
   
   /* These commands can't be grouped into a single one. It's a browser limitation */
   input::-webkit-input-placeholder { 
-    color: ${({ theme }) => theme.colors.grey50};
+    color: ${({ theme }) => theme.colors.grey200};
   }
   input:-ms-input-placeholder { 
-    color: ${({ theme }) => theme.colors.grey50};
+    color: ${({ theme }) => theme.colors.grey200};
   }
   input::placeholder { 
-    color: ${({ theme }) => theme.colors.grey50};
+    color: ${({ theme }) => theme.colors.grey200};
   }
   textarea::-webkit-input-placeholder { 
-    color: ${({ theme }) => theme.colors.grey50};
+    color: ${({ theme }) => theme.colors.grey200};
   }
   textarea:-ms-input-placeholder { 
-    color: ${({ theme }) => theme.colors.grey50};
+    color: ${({ theme }) => theme.colors.grey200};
   }
   textarea::placeholder { 
     color: ${({ theme }) => theme.colors.grey200};
