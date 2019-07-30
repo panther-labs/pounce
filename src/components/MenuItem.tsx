@@ -21,7 +21,8 @@ interface MenuItemProps extends BoxProps {
   selected?: boolean;
 }
 
-/** A MenuItem is simply an entry in a list of menu options or dropdown options. In general, this
+/**
+ * A MenuItem is simply an entry in a list of menu options or dropdown options. In general, this
  * should be used only on autocompletes, comboboxes & menus.
  */
 const MenuItem: React.FC<MenuItemProps> = ({ highlighted, selected, ...rest }) => {

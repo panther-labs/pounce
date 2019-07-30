@@ -16,9 +16,7 @@ export interface TooltipProps {
   hoverDelay: number;
 }
 
-/**
- * A tooltip is a helper that shows some helping text when hovering or clicking something
- */
+/** A tooltip is a helper that shows some helping text when hovering or clicking something */
 const Tooltip: React.FC<TooltipProps> = ({
   positioning,
   allowHover,

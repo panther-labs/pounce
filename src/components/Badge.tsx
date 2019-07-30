@@ -6,9 +6,7 @@ export interface BadgeProps {
   variant: 'info' | 'error-low' | 'error-medium' | 'error-high' | 'error-critical';
 }
 
-/**
- * A badge is simply a visual label to associate with something else
- */
+/** A badge is simply a visual label to associate with something else */
 const Badge: React.FC<BadgeProps> = ({ variant, ...rest }) => {
   const variantProps = (function() {
     switch (variant) {

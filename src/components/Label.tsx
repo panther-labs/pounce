@@ -8,7 +8,9 @@ export type LabelProps = BaseTextProps &
     size?: 'extra-small' | 'small' | 'medium' | 'large';
   };
 
-/** Responsive typographic component. Use it within forms or wherever something needs to be labeled */
+/**
+ * Responsive typographic component. Use it within forms or wherever something needs to be labeled
+ * */
 const Label: React.FC<LabelProps> = ({ size, ...rest }) => {
   const sizeProps = (function() {
     switch (size) {

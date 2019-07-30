@@ -119,6 +119,7 @@ export interface IconProps extends BoxProps {
   size?: 'small' | 'large';
 }
 
+/** An simple SVG element exported as a React component. It renders a simple <svg> */
 const Icon: React.FC<IconProps> = ({ type, size, color, ...rest }) => {
   const Component = svgComponentMapping[type];
   const sizeInPx = size === 'small' ? 18 : 24;

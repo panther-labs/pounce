@@ -1,6 +1,3 @@
-A simple Combobox can be thought of as a typical `<select>` component. Whenerever you would
-use a normal select, you should now pass the `<Combobox>` component.
-
 A thing to remember is that all the comboboxes have a controlled state when
 it comes to the selected items. Thus, they do not maintain their own internal state
 but expect you to pass them explicitly the selected items.

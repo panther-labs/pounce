@@ -11,9 +11,7 @@ export interface IconButtonProps extends BaseButtonProps {
   variant?: 'primary' | 'default';
 }
 
-/**
- * A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable
- */
+/** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
 export const IconButton = styled(props => (
   <BaseButton bg="transparent" p={2} borderRadius="circle" {...props} />
 ))<IconButtonProps>`

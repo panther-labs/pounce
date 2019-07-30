@@ -7,7 +7,10 @@ export interface HeadingProps extends BaseTextProps {
   size?: 'medium' | 'large';
 }
 
-/** Responsive typographic component. Anywhere you want to add a title to something then you can use this */
+/**
+ * Responsive typographic component. Anywhere you want to add a title to something
+ * then you can use this
+ * */
 const Heading: React.FC<HeadingProps> = ({ size, ...rest }) => {
   const sizeProps = (function() {
     switch (size) {

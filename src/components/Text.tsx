@@ -8,8 +8,10 @@ export interface TextProps extends BaseTextProps {
 /**
  * Extends <a href="/#/Box">Box</a>
  *
- * Responsive typographic component. Anywhere you want to add some text that doesn't constitute a heading or a title,
- this component is what you need. */
+ * Responsive typographic component. Anywhere you want to add some text that doesn't constitute a
+ * heading or a title, this component is what you need.
+ *
+ * */
 const Text: React.FC<TextProps> = ({ size, ...rest }) => {
   const sizeProps = (function() {
     switch (size) {

@@ -88,6 +88,10 @@ const stateReducer = (
   }
 };
 
+/**
+ * A simple Combobox can be thought of as a typical `<select>` component. Whenerever you would
+ * use a normal select, you should now pass the `<Combobox>` component.
+ */
 const Combobox: React.FC<AutocompleteProps<Required<ComboboxItem>>> = ({
   onChange,
   selectedItem: selectedItems,

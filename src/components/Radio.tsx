@@ -16,6 +16,7 @@ export interface RadioProps {
   onChange: (checked: boolean) => void;
 }
 
+/** The typical Radio element that you know from school */
 const Radio: React.FC<RadioProps> = ({ checked, onChange, ...rest }) => {
   return (
     <IconButton role="radio" aria-checked={checked} onClick={() => onChange(!checked)}>

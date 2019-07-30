@@ -21,6 +21,7 @@ export interface SwitchProps {
   onChange: (checked: boolean) => void;
 }
 
+/** An alternative to <a href="/#/Checkbox">Checkbox</a>. A simple true/false component  */
 const Switch: React.FC<SwitchProps> = ({ checked, onChange, label, ...rest }) => {
   return (
     <BaseButton

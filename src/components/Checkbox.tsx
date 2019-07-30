@@ -16,6 +16,7 @@ export interface CheckboxProps {
   onChange: (checked: boolean) => void;
 }
 
+/* Your bread & butter checkbox element. Nothing new here */
 const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, ...rest }) => {
   return (
     <IconButton role="checkbox" aria-checked={checked} onClick={() => onChange(!checked)}>
