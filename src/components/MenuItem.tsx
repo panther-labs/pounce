@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Box, { BoxProps } from './Box';
-import Text from './Text';
+import Box, { BoxProps } from 'components/Box';
+import Text from 'components/Text';
 import { convertHexToRgba } from '../utils/helpers';
 
 const StyledBox = styled(Box)`
