@@ -258,4 +258,4 @@ Combobox.defaultProps = {
   ),
 };
 
-export default Combobox;
+export default React.memo(Combobox);
