@@ -99,6 +99,7 @@ module.exports = {
   styleguideDir: '.styleguidist',
   serverPort: 9000,
   webpackConfig: {
+    devtool: 'cheap-module-source-map',
     module: {
       rules: [
         {
