@@ -1,5 +1,5 @@
 import 'styled-components';
-import { ObjectOrArray, Theme as StyledSystemTheme } from 'styled-system';
+import { Theme as StyledSystemTheme } from 'styled-system';
 import * as CSS from 'csstype';
 
 type fontWeights = 'normal' | 'bold' | 'bolder';

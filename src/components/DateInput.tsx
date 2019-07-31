@@ -1,17 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import dayjs from 'dayjs';
 import TextInput, { TextInputProps } from 'components/TextInput';
-
-const afterOpen = 'after-open';
-const StyledDayPickerInput = styled(DayPickerInput).attrs({
-  afterOpenClassName: afterOpen,
-})`
-  .${afterOpen} {
-    // Something to do after opening
-  }
-`;
 
 export type DateInputProps = TextInputProps & {
   /**

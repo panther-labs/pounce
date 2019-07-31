@@ -17,7 +17,7 @@ import {
 
 export interface ComboboxItem {
   text: string;
-  value: any;
+  value: string | number | null;
 }
 
 export interface RenderItemProps<T> {
@@ -206,7 +206,7 @@ const Combobox: React.FC<AutocompleteProps<Required<ComboboxItem>>> = ({
                   {isMultiCombobox(value) &&
                     value.map(selectedItem => (
                       <Chip
-                        key={selectedItem.value}
+                        key={String(selectedItem.value)}
                         content={selectedItem.text}
                         onClick={() => removeItem(selectedItem)}
                         m={1}
