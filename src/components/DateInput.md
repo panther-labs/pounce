@@ -11,7 +11,7 @@ module.
 import React from 'react';
 
 const Example = () => {
-  const [dateStr, setDateStr] = React.useState(null);
+  const [dateStr, setDateStr] = React.useState('');
   return <DateInput onChange={setDateStr} value={dateStr} placeholder="Enter a date" />;
 };
 
