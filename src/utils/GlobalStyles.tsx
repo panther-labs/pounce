@@ -79,7 +79,8 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.grey200};
   }
 
-/* DayPicker styles */
+/* ***************** react-day-picker ***************** */
+
 
 .DayPicker {
   display: inline-block;
@@ -157,8 +158,6 @@ const GlobalStyles = createGlobalStyle`
   cursor: default;
 }
 
-/* Default modifiers */
-
 .DayPicker-Day--today {
   color: ${({ theme }) => theme.colors.red300};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
@@ -189,8 +188,6 @@ const GlobalStyles = createGlobalStyle`
   background-color: ${({ theme }) => theme.colors.primary50};
 }
 
-/* DayPickerInput */
-
 .DayPickerInput-OverlayWrapper {
   position: relative;
 }
@@ -203,6 +200,29 @@ const GlobalStyles = createGlobalStyle`
   background: white;
   box-shadow: ${({ theme }) => theme.shadows[3]};
   border-radius: ${({ theme }) => `${theme.radii.small}px`};
+}
+
+/* ***************** @reach/menu-button ***************** */
+
+/* Used to detect in JavaScript if apps have loaded styles or not. */
+:root {
+  --reach-menu-button: 1;
+}
+
+[data-reach-menu] {
+  position: absolute;
+}
+
+[data-reach-menu-list] {
+  white-space: nowrap;
+}
+
+[data-reach-menu-item] {
+  outline: none;
+  
+  &[data-selected] {
+    background: ${({ theme }) => theme.colors.grey50};;
+  }
 }
 `;
 
