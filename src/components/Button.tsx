@@ -47,12 +47,12 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
         return {
           color: 'grey400',
           bg: 'transparent',
-          boxShadow: 2,
+          boxShadow: 'dark150',
           css: css({
             textTransform: 'uppercase',
 
             ':hover': {
-              boxShadow: 3,
+              boxShadow: 'dark200',
               filter: 'brightness(120%)',
             },
           }),
@@ -62,12 +62,12 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
         return {
           color: 'white',
           bg: 'primary300',
-          boxShadow: 2,
+          boxShadow: 'dark150',
           css: css({
             textTransform: 'uppercase',
 
             ':hover': {
-              boxShadow: 3,
+              boxShadow: 'dark150',
               filter: 'brightness(120%)',
             },
           }),
