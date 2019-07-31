@@ -3,9 +3,9 @@ import styled, {
   CSSObject,
   FlattenSimpleInterpolation,
   FlattenInterpolation,
+  DefaultTheme,
 } from 'styled-components';
 import * as StyledSystem from 'styled-system';
-import { Theme } from 'styled-system';
 
 // We create an adapter interface cause we have 2 clashing interfaces with regards to the `color`
 // prop. To fix that we first convert it to "any" and then we explicitely re-define it as the type
@@ -44,7 +44,7 @@ export interface BoxProps
   /** Additional custom inline CSS to pass to the element
    * @default "{}"
    * */
-  css?: CSSObject | FlattenSimpleInterpolation | FlattenInterpolation<Theme> | string;
+  css?: CSSObject | FlattenSimpleInterpolation | FlattenInterpolation<DefaultTheme> | string;
 
   /**
    * The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.

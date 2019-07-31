@@ -1,43 +1,6 @@
-import { Theme as StyledSystemTheme } from 'styled-system';
+import { DefaultTheme } from 'styled-components';
 
-type fontWeights = 'normal' | 'bold' | 'bolder';
-type radii = 'none' | 'small' | 'medium' | 'large' | 'circle';
-type fontFamilies = 'primary';
-type colors =
-  | 'transparent'
-  | 'white'
-  | 'grey50'
-  | 'grey100'
-  | 'grey200'
-  | 'grey300'
-  | 'grey400'
-  | 'grey500'
-  | 'black'
-  | 'red100'
-  | 'red200'
-  | 'red300'
-  | 'orange300'
-  | 'yellow300'
-  | 'green100'
-  | 'green200'
-  | 'green300'
-  | 'blue100'
-  | 'blue200'
-  | 'blue300'
-  | 'primary50'
-  | 'primary100'
-  | 'primary200'
-  | 'primary300';
-
-export interface Theme extends StyledSystemTheme {
-  fontWeights: { [key in fontWeights]: number };
-  radii: { [key in radii]: number };
-  fonts: { [key in fontFamilies]: string };
-  colors: { [key in colors]: string };
-  lineHeights: string[];
-}
-
-const theme: Theme = {
+const theme: DefaultTheme = {
   breakpoints: ['1200px'],
   fontSizes: [10, 12, 14, 16, 24, 40],
   space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],

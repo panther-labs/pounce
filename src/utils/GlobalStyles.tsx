@@ -1,5 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
-import { Theme } from 'themes/default';
+import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -24,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font-family: ${({ theme }: { theme: Theme }) => theme.fonts.primary};
+    font-family: ${({ theme }) => theme.fonts.primary};
     color: inherit;
     vertical-align: baseline;
   }
