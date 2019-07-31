@@ -1,10 +1,11 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
-import BaseTextInput, { BaseTextInputProps } from 'components/BaseTextInput';
+import BaseInputElement, { BaseInputElementProps } from 'components/BaseInputElement';
 
-export { BaseTextInputProps as TextareaProps };
+export type TextareaProps = BaseInputElementProps;
 
-/** The typical text input that you are going to use in most forms */
-const Textarea = (props: BaseTextInputProps) => <BaseTextInput as={TextareaAutosize} {...props} />;
+/** A typical, dynamically sized textarea that you are going to use in most forms */
+// @ts-ignore Typescript thinks that this declaration doesn't properly extend React.Component
+const Textarea = (props: TextareaProps) => <BaseInputElement as={TextareaAutosize} {...props} />;
 
 export default Textarea;
