@@ -50,7 +50,7 @@ const theme: DefaultTheme = {
     primary200: '#918FFF',
     primary300: '#6967F4',
   },
-  lineHeights: ['normal'],
+  lineHeights: ['14px', '16px', '18px', '20px', '28px', '44px'],
   letterSpacings: ['normal'],
   shadows: [
     'none',

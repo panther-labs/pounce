@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
-    line-height: ${({ theme }) => theme.lineHeights[0]};
+    line-height: normal;
   }
 
   html, body, div, span, applet, object, iframe,
