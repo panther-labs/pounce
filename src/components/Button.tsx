@@ -67,7 +67,7 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
             textTransform: 'uppercase',
 
             ':hover': {
-              boxShadow: 'dark150',
+              boxShadow: 'dark200',
               filter: 'brightness(120%)',
             },
           }),
