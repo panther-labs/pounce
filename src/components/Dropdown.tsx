@@ -20,7 +20,7 @@ export interface DropdownProps {
  * similar to a popup with the difference that it's a menu which holds a set of clickable items
  * inside it.
  */
-const Dropdown: React.FC<DropdownProps> & { Item: typeof ReachMenuItem } = ({
+export const Dropdown: React.FC<DropdownProps> & { Item: typeof ReachMenuItem } = ({
   trigger,
   menuProps,
   children,
