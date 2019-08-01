@@ -31,7 +31,8 @@ type colors =
   | 'primary200'
   | 'primary300';
 
-// and extend them!
+// Override styled-component's DefaultTheme with our shape
+// https://www.styled-components.com/docs/api#create-a-declarations-file
 declare module 'styled-components' {
   export interface DefaultTheme extends StyledSystemTheme {
     fontSizes: CSS.FontSizeProperty<number>[];

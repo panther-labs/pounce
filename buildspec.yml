@@ -15,6 +15,3 @@ phases:
       - npm run lint
       - npm run build
       - npm run docs
-  post_build:
-    commands:
-      - aws s3 sync ./.styleguidist s3://panther-pounce-distribution --acl public-read
