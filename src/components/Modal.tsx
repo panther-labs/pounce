@@ -3,7 +3,8 @@ import MUIModal from '@material-ui/core/Modal';
 import Box from 'components/Box';
 import Card from 'components/Card';
 import Heading from 'components/Heading';
-import Flex from './Flex';
+import Flex from 'components/Flex';
+import { css } from 'styled-components';
 
 export interface ModalProps {
   /** Whether the modal should be visible or not */
@@ -66,7 +67,12 @@ const Modal: React.FC<ModalProps> = ({
         'aria-describedby': title,
       })}
     >
-      <Box height="100%">
+      <Box
+        height="100%"
+        css={css`
+          outline: none;
+        `}
+      >
         <Flex
           justifyContent="center"
           alignItems="center"

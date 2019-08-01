@@ -14,7 +14,7 @@ const Example = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Click #1</Button>
+      <Button onClick={() => setOpen(true)}>Open Modal No.1</Button>
       <Modal open={open}>
         <Flex alignItems="center" justifyContent="center" flexDirection="column">
           <Text>It works!</Text>
@@ -42,7 +42,7 @@ const Example = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Click #2</Button>
+      <Button onClick={() => setOpen(true)}>Open Modal No.2</Button>
       <Modal open={open} onClose={() => setOpen(false)}>
         <Text textAlign="center">It works!</Text>
       </Modal>
@@ -67,7 +67,7 @@ const Example = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Click #3</Button>
+      <Button onClick={() => setOpen(true)}>Open Modal No.3</Button>
       <Modal open={open} onClose={() => setOpen(false)} title="Are you sure?">
         <Text color="grey400">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
