@@ -4,10 +4,10 @@ Alerts can be simple:
 import Box from 'components/Box';
 
 <Box width={1} bg="grey50" p={5}>
-  <Alert variant="success" mb={3} content="This is an success alert" />
-  <Alert variant="info" mb={3} content="This is an info alert" />
-  <Alert variant="warning" mb={3} content="This is a warning alert" />
-  <Alert variant="error" content="This is an error alert" />
+  <Alert variant="success" mb={3} title="This is an success alert" />
+  <Alert variant="info" mb={3} title="This is an info alert" />
+  <Alert variant="warning" mb={3} title="This is a warning alert" />
+  <Alert variant="error" title="This is an error alert" />
 </Box>;
 ```
 
@@ -17,9 +17,45 @@ Alerts can also contain icons:
 import Box from 'components/Box';
 
 <Box width={1} bg="grey50" p={5}>
-  <Alert icon="check" variant="success" mb={3} content="This is an success alert" />
-  <Alert icon="edit" variant="info" mb={3} content="This is an info alert" />
-  <Alert icon="warning" variant="warning" mb={3} content="This is a warning alert" />
-  <Alert icon="delete" variant="error" content="This is an error alert" />
+  <Alert icon="check" variant="success" mb={3} title="This is an success alert" />
+  <Alert icon="edit" variant="info" mb={3} title="This is an info alert" />
+  <Alert icon="warning" variant="warning" mb={3} title="This is a warning alert" />
+  <Alert icon="delete" variant="error" title="This is an error alert" />
+</Box>;
+```
+
+Alerts can also have descriptions:
+
+```jsx harmony
+import Box from 'components/Box';
+
+<Box width={1} bg="grey50" p={5}>
+  <Alert
+    icon="check"
+    variant="success"
+    mb={3}
+    title="This is an success alert"
+    description="This is a nice description of the title"
+  />
+  <Alert
+    icon="edit"
+    variant="info"
+    mb={3}
+    title="This is an info alert"
+    description="This is a nice description of the title"
+  />
+  <Alert
+    icon="warning"
+    variant="warning"
+    mb={3}
+    title="This is a warning alert"
+    description="This is a nice description of the title"
+  />
+  <Alert
+    icon="delete"
+    variant="error"
+    title="This is an error alert"
+    description="This is a nice description of the title"
+  />
 </Box>;
 ```
