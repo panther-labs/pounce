@@ -35,20 +35,13 @@ const BoxProps = [
   'bg',
   'fontSize',
   'fontWeight',
-  'lineHeight',
-  'letterSpacing',
-  'fontStyle',
-  'textAlign',
+  'minWidth',
   'width',
   'height',
-  'minWidth',
-  'minHeight',
-  'maxWidth',
-  'maxHeight',
-  'display',
-  'verticalAlign',
   'gridRow',
   'gridColumn',
+  'boxShadow',
+  'textShadow',
   'border',
   'borderWidth',
   'borderStyle',
@@ -77,12 +70,6 @@ module.exports = {
           href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap',
           rel: 'stylesheet',
         },
-
-        // global browser stylesheet rule reset
-        {
-          href: 'https://meyerweb.com/eric/tools/css/reset/reset.css',
-          rel: 'stylesheet',
-        },
       ],
     },
   },
@@ -107,11 +94,12 @@ module.exports = {
       return component.name === 'Box' || !BoxProps.includes(prop.name);
     },
   }).parse,
-  components: 'src/components/**/[A-Z]*.{ts,tsx}',
+  components: 'src/{components,modules}/**/[A-Z]*.{ts,tsx}',
   ignore: ['src/components/**/Base[A-Z]*.{ts,tsx}'],
   styleguideDir: '.styleguidist',
   serverPort: 9000,
   webpackConfig: {
+    devtool: 'cheap-module-source-map',
     module: {
       rules: [
         {

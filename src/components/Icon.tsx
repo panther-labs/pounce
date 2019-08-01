@@ -1,6 +1,5 @@
 import React from 'react';
-import { css } from 'styled-components';
-import Box, { BoxProps } from './Box';
+import Box, { BoxProps } from 'components/Box';
 import Add from 'icons/ic-add.svg';
 import Adduser from 'icons/ic-adduser.svg';
 import ArrowDropDown from 'icons/ic-arrow_drop_down.svg';
@@ -109,7 +108,7 @@ export const svgComponentMapping = {
   upload: Upload,
 };
 
-interface IconProps extends BoxProps {
+export interface IconProps extends BoxProps {
   /** The icon that you want to show */
   type: keyof typeof svgComponentMapping;
 
@@ -120,22 +119,12 @@ interface IconProps extends BoxProps {
   size?: 'small' | 'large';
 }
 
+/** An simple SVG element exported as a React component. It renders a simple <svg> */
 const Icon: React.FC<IconProps> = ({ type, size, color, ...rest }) => {
   const Component = svgComponentMapping[type];
   const sizeInPx = size === 'small' ? 18 : 24;
 
-  return (
-    <Box
-      css={css`
-        fill: currentColor;
-      `}
-      color={color}
-      as={Component}
-      width={sizeInPx}
-      height={sizeInPx}
-      {...rest}
-    />
-  );
+  return <Box color={color} as={Component} width={sizeInPx} height={sizeInPx} {...rest} />;
 };
 
 Icon.defaultProps = {

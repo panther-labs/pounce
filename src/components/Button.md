@@ -15,9 +15,9 @@ A button can be small:
 A button can contain an icon:
 
 ```jsx harmony
-import Icon from './Icon';
-import Flex from './Flex';
-import Text from './Text';
+import Icon from 'components/Icon';
+import Flex from 'components/Flex';
+import Text from 'components/Text';
 
 <Button variant="primary" size="small">
   <Flex alignItems="center">

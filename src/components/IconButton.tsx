@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { convertHex } from 'utils/helpers';
-import BaseButton, { BaseButtonProps } from './BaseButton';
+import { convertHexToRgba } from 'utils/helpers';
+import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 
-interface IconButtonProps extends BaseButtonProps {
+export interface IconButtonProps extends BaseButtonProps {
   /** Whether the component should appear as "activated". Helpful for menus */
   active?: boolean;
 
@@ -11,32 +11,31 @@ interface IconButtonProps extends BaseButtonProps {
   variant?: 'primary' | 'default';
 }
 
-/**
- * A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable
- */
-const IconButton: React.FC = styled(props => (
-  <BaseButton bg="transparent" p={3} borderRadius="circle" {...props} />
+/** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
+export const IconButton = styled(props => (
+  <BaseButton bg="transparent" p={2} borderRadius="circle" {...props} />
 ))<IconButtonProps>`
   color: ${({ theme, active, variant }) =>
     active ? theme.colors[variant === 'primary' ? 'primary300' : 'grey400'] : theme.colors.grey400};
 
   background-color: ${({ theme, active, variant }) =>
-    active && convertHex(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
+    active && convertHexToRgba(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
 
   &:hover:not(:active) {
     background-color: ${({ theme, variant, active }) =>
-      !active && convertHex(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.1)};
+      !active &&
+      convertHexToRgba(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.1)};
   }
 
   &:active {
     background-color: ${({ theme, variant }) =>
-      convertHex(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
+      convertHexToRgba(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
   }
 `;
 
 IconButton.defaultProps = {
   active: false,
-  variant: 'primary',
+  variant: 'default',
 };
 
 export default IconButton;

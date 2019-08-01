@@ -1,21 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as StyledSystem from 'styled-system';
-import Box, { BoxProps } from './Box';
+import Box, { BoxProps } from 'components/Box';
 
-export interface BaseButtonProps extends BoxProps, StyledSystem.ShadowProps {}
+export interface BaseButtonProps extends BoxProps {
+  /** Whether the element should be disabled */
+  disabled?: boolean;
+}
 
-const BaseButton: React.FC = styled(props => <Box as="button" border="none" {...props} />)<
-  BaseButtonProps
->`
-  ${StyledSystem.shadow};
+const BaseButton = styled(props => <Box as="button" {...props} />)<BaseButtonProps>`
   cursor: pointer;
-  transition: background-color 0.1s linear;
+  transition: background-color 0.15s linear;
 
   [disabled] {
     opacity: 0.3;
     pointer-events: none;
   }
 `;
+
+BaseButton.defaultProps = {
+  disabled: false,
+};
 
 export default BaseButton;

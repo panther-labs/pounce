@@ -1,9 +1,9 @@
-import { Theme } from 'styled-system';
+import { DefaultTheme } from 'styled-components';
 
-const theme: Theme = {
+const theme: DefaultTheme = {
   breakpoints: ['1200px'],
-  fontSizes: [10, 12, 14, 16, 24, 40],
-  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36],
+  fontSizes: [10, 12, 14, 16, 24, 32],
+  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
   fontWeights: { normal: 400, bold: 500, bolder: 700 },
   fonts: {
     primary: 'Roboto, system-ui, sans-serif',
@@ -57,6 +57,7 @@ const theme: Theme = {
     '0px 2px 8px rgba(0, 0, 0, 0.05)',
     '0px 1px 6px rgba(0, 0, 0, 0.15)',
     '0px 2px 16px rgba(0, 0, 0, 0.20)',
+    '0px 1px 4px rgba(0, 0, 0, 0.25)',
   ],
 };
 

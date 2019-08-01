@@ -2,16 +2,16 @@
 import Box from 'components/Box';
 import Text from 'components/Text';
 
-<Flex alignItems="center">
-  <Box width={200} py={9} bg="primary300">
+<Grid gridColumnGap={10} gridTemplateColumns="repeat(2, 1fr)">
+  <Box bg="primary300" py={3}>
     <Text color="white" textAlign="center">
-      We are
+      We are put in
     </Text>
   </Box>
-  <Box width={300} py={4} bg="red200">
+  <Box bg="red200" py={3}>
     <Text color="white" textAlign="center">
-      vertically aligned
+      2 different columns
     </Text>
   </Box>
-</Flex>;
+</Grid>;
 ```
