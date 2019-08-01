@@ -30,3 +30,8 @@ export function slugify(text: string) {
     .replace(/^-+/, '') // Trim - from start of text
     .replace(/-+$/, ''); // Trim - from end of text
 }
+
+/**
+ * @returns True if current environment is a browser, false in any other case
+ */
+export const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
