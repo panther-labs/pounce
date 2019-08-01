@@ -27,7 +27,7 @@ const Example1 = () => {
         { text: 'Audi', value: 'audi' },
       ]}
       onChange={updateSelectedItems}
-      selectedItem={selectedItems}
+      value={selectedItems}
       inputProps={{ placeholder: 'Search for a manufacturer' }}
       rootProps={{ width: 400 }}
     />
@@ -59,7 +59,7 @@ const Example2 = () => {
         { text: 'Audi', value: 'audi' },
       ]}
       onChange={updateSelectedItems}
-      selectedItem={selectedItems}
+      value={selectedItems}
       inputProps={{ placeholder: 'Search for a manufacturer' }}
       rootProps={{ width: 400 }}
     />
@@ -90,7 +90,7 @@ const Example3 = () => {
         { text: 'Audi', value: 'audi' },
       ]}
       onChange={updateSelectedItems}
-      selectedItem={selectedItems}
+      value={selectedItems}
       inputProps={{ placeholder: 'Search for a manufacturer' }}
       rootProps={{ width: 400 }}
     />
@@ -122,7 +122,7 @@ const Example4 = () => {
         { text: 'Audi', value: 'audi' },
       ]}
       onChange={updateSelectedItems}
-      selectedItem={selectedItems}
+      value={selectedItems}
       inputProps={{ placeholder: 'Search for a manufacturer' }}
       rootProps={{ width: 400 }}
     />
