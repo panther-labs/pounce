@@ -38,7 +38,7 @@ const Alert: React.FC<AlertProps> = ({ content, variant, icon, ...rest }) => {
   );
 
   return (
-    <Card py={4} px={8} borderLeft="3px solid" borderColor={variantProps.borderColor} {...rest}>
+    <Card py={4} px={7} borderLeft="3px solid" borderColor={variantProps.borderColor} {...rest}>
       {icon ? (
         <Flex alignItems="center">
           <Icon type={icon} mr={4} color={variantProps.borderColor} />
