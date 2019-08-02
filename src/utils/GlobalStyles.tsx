@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: ${({ theme }) => theme.lineHeights[0]};
+    line-height: normal;
   }
 
   html, body, div, span, applet, object, iframe,

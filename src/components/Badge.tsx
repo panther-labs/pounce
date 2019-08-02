@@ -37,7 +37,6 @@ const Badge: React.FC<BadgeProps> = ({ variant, ...rest }) => {
       fontSize={0}
       fontWeight="bold"
       borderRadius="small"
-      lineHeight="12px"
       px={3}
       py={1}
       {...variantProps}
