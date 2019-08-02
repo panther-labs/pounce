@@ -16,6 +16,7 @@
     "Panther"
   ],
   "dependencies": {
+    "@material-ui/core": "^4.3.0",
     "dayjs": "^1.8.15",
     "downshift": "^3.2.10",
     "fuzzaldrin": "^2.1.0",
