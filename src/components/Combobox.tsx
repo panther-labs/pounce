@@ -15,14 +15,18 @@ import {
   InputElementInnerBox,
 } from 'components/BaseInputElement';
 
-export interface ComboboxItem {
+interface MandatoryComboboxItemKeys {
   text: string;
   value: string | number | null;
 }
 
-export interface RenderItemProps<T> {
+export interface ComboboxItem extends Required<MandatoryComboboxItemKeys> {
+  [key: string]: any;
+}
+
+export interface RenderItemProps {
   /** The item to render */
-  item: T;
+  item: ComboboxItem;
 
   /** Whether this item is selected **/
   selected: boolean;
@@ -31,26 +35,36 @@ export interface RenderItemProps<T> {
   highlighted: boolean;
 }
 
-export interface AutocompleteProps<T extends ComboboxItem> {
+export interface AutocompleteProps {
   /** Callback when the selection changes */
-  onChange: (value: T | T[] | null) => void;
+  onChange: (value: ComboboxItem | ComboboxItem[] | null) => void;
 
-  /** A list of <AutocompleteItem> that the dropdown will have as options */
-  items: T[];
+  /** A list of `AutocompleteItem` that the dropdown will have as options */
+  items: object[];
 
-  /** An optional function to override the default way that each item renders. In a
+  /**
+   * An optional function to override the default way that each item renders. In a
    * MultiSelectCombobox, the `selected` is always going to be `false`, since the selected values
-   * are not visible in the menu */
-  renderItem?: ({ item, selected, highlighted }: RenderItemProps<T>) => React.ReactElement;
+   * are not visible in the menu
+   * */
+  renderItem?: ({ item, selected, highlighted }: RenderItemProps) => React.ReactElement;
 
-  /** An optional function to transform each item's shape to an object that contains a `text` and
-   * a `value` prop that will be used by the combobox. This is useful if the original data is not
-   * already in this format and you don't wanna re-format it on your own */
-  transformItem?: (originalItem: T) => T;
+  /**
+   * An optional function to transform each item's shape to an object that contains a `text` and
+   * a `value` key. This is useful if the original data is not already in this format and you don't
+   * wanna re-format it on your own. The end object can have any shape, as long as it contains
+   * **at least** the `{text,value}` keys.
+   *
+   * If you don't define this prop, it's expect that these keys are already present in the
+   * `items` array that you are providing as options
+   * */
+  transformItem?: (originalItem: object) => ComboboxItem;
 
-  /** The value of the item that is currently selected. The component is a controlled one,
-   * so the the selected value should be provided explicitly to the dropdown */
-  value: T | T[];
+  /**
+   * The value of the item that is currently selected. The component is a controlled one,
+   * so the the selected value should be provided explicitly to the dropdown
+   * */
+  value: ComboboxItem | ComboboxItem[];
 
   /** The label associated with this dropdown form element */
   label?: string;
@@ -63,6 +77,18 @@ export interface AutocompleteProps<T extends ComboboxItem> {
 
   /** A set of props & attributes that will be given to the input */
   inputProps?: TextInputProps;
+
+  /**
+   * Allow the user to add custom entries to the dropdown instead of limiting selections to the
+   * predefined set of options. The `searchable` prop should be true in order for this to work.
+   * */
+  allowAdditions?: boolean;
+
+  /**
+   * A function that runs before a custom item is added by the user. If it returns `true`, then this
+   * item will be added to the selection. If not, then this item won't be added
+   * */
+  validateAddition?: (item: ComboboxItem) => boolean;
 
   /** A set of props & attributes to apply to the wrapping `Box` of the entire module */
   rootProps?: BoxProps;
@@ -86,6 +112,12 @@ const stateReducer = (
         highlightedIndex: state.highlightedIndex,
         isOpen: true,
       };
+    case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
+      return {
+        ...changes,
+        inputValue: '',
+      };
+
     default:
       return changes;
   }
@@ -95,7 +127,7 @@ const stateReducer = (
  * A simple Combobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<Combobox>` component.
  */
-const Combobox: React.FC<AutocompleteProps<Required<ComboboxItem>>> = ({
+const Combobox: React.FC<AutocompleteProps> = ({
   onChange,
   value,
   items: originalItems,
@@ -107,6 +139,8 @@ const Combobox: React.FC<AutocompleteProps<Required<ComboboxItem>>> = ({
   rootProps,
   menuProps,
   disabled,
+  allowAdditions,
+  validateAddition,
 }) => {
   // Normally we would want to check if we have a multicombobox only once and store it in a const,
   // but Typescript wouldn't understand that, since it would view that const as a simple "boolean"
@@ -146,10 +180,13 @@ const Combobox: React.FC<AutocompleteProps<Required<ComboboxItem>>> = ({
           isOpen,
           toggleMenu,
           getLabelProps,
+          selectItem,
         }) => {
           // Make sure to get the original items and transform them into {text, value} nodes, based
           // on the `transformItem` function that was passed as an argument
-          const items = originalItems.map(transformItem!);
+          const items = transformItem
+            ? originalItems.map(transformItem)
+            : (originalItems as ComboboxItem[]);
 
           // Initially we set the results to be all the items available. Results are the entries
           // that will end up being visible to the user
@@ -186,13 +223,26 @@ const Combobox: React.FC<AutocompleteProps<Required<ComboboxItem>>> = ({
             ...(!searchable && {
               style: { cursor: 'pointer' },
               onClick: toggleMenu,
+              onFocus: toggleMenu,
               readOnly: true,
               'aria-readonly': true,
             }),
             ...(isMultiCombobox(value) && {
               onKeyDown: (event: React.KeyboardEvent) => {
+                // Allow deletions of selections by pressing backspace
                 if (event.key === 'Backspace' && !inputValue) {
                   removeItem(value[value.length - 1]);
+                }
+
+                // Allow the user to add custom selections if both `searchable` and `allowAdditions`
+                // have a truthy value
+                if (event.key === 'Enter' && searchable && allowAdditions && inputValue) {
+                  // By default validateAddition always returns true. Can be overriden by the user
+                  // for fine-grained addition
+                  const itemToBeAdded: ComboboxItem = { text: inputValue, value: inputValue };
+                  if (validateAddition && validateAddition(itemToBeAdded)) {
+                    selectItem(itemToBeAdded);
+                  }
                 }
               },
             }),
@@ -218,9 +268,11 @@ const Combobox: React.FC<AutocompleteProps<Required<ComboboxItem>>> = ({
                     type="text"
                     flex="1 0 auto"
                   />
-                  <IconButton position="absolute" right={3} onClick={toggleMenu}>
-                    <Icon type={isOpen ? 'caret-up' : 'caret-down'} />
-                  </IconButton>
+                  {items.length > 0 && (
+                    <IconButton position="absolute" right={3} onClick={toggleMenu} tabIndex="-1">
+                      <Icon type={isOpen ? 'caret-up' : 'caret-down'} />
+                    </IconButton>
+                  )}
                 </Flex>
               </InputElementOuterBox>
               <Box {...getMenuProps()} {...menuProps}>
@@ -250,10 +302,12 @@ Combobox.defaultProps = {
   label: undefined,
   searchable: false,
   disabled: false,
+  allowAdditions: false,
+  validateAddition: () => true,
   inputProps: {},
   rootProps: {},
   menuProps: {},
-  transformItem: ({ text, value }) => ({ text, value }),
+  transformItem: undefined,
 
   // eslint-disable-next-line react/display-name
   renderItem: ({ item, selected, highlighted }) => (
