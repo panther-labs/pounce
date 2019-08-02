@@ -1,5 +1,15 @@
 - Each `Tab` button should be a **direct** child of a `TabList` component (for accessibility issues).
-- Each tab-content must be wraped with a `TabPanel` component.
+  This component accepts no props.
+
+- Each tab-content must be wraped with a `TabPanel` component. The `TabPanel` accepts the following
+  props:
+
+```text
+selected?: boolean /* Whether the tabpanel should be visible */
+shouldRender?: boolean /* Whether the content should mount even if the tab is not visible atm */
+```
+
+---
 
 As usual, this is a controlled component, meaning that you should manage the state that stores
 the index (or nickname) of the currently active `TabPanel`.
