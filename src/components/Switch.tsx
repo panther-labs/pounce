@@ -38,7 +38,7 @@ const Switch: React.FC<SwitchProps> = ({ checked, onChange, label, ...rest }) =>
             {label}
           </Label>
         )}
-        <Box width={20} height={20} borderRadius="circle" bg="white" boxShadow={4} m={1} />
+        <Box width={20} height={20} borderRadius="circle" bg="white" boxShadow="dark250" m={1} />
       </Flex>
       <StyledSwitch
         type="checkbox"

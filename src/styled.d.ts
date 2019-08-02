@@ -5,6 +5,7 @@ import * as CSS from 'csstype';
 type fontWeights = 'normal' | 'bold' | 'bolder';
 type radii = 'none' | 'small' | 'medium' | 'large' | 'circle';
 type fontFamilies = 'primary';
+type shadows = 'none' | 'dark50' | 'dark150' | 'dark200' | 'dark250';
 type colors =
   | 'transparent'
   | 'white'
@@ -42,6 +43,6 @@ declare module 'styled-components' {
     colors: { [key in colors]: string };
     radii: { [key in radii]: number };
     lineHeights: CSS.LineHeightProperty<{}>[];
-    shadows: CSS.BoxShadowProperty[];
+    shadows: { [key in shadows]: CSS.BoxShadowProperty };
   }
 }

@@ -4,6 +4,12 @@ A button can be primary:
 <Button variant="primary">Hey there</Button>
 ```
 
+A button can be default:
+
+```jsx harmony
+<Button variant="default">Hey there</Button>
+```
+
 A button can be small:
 
 ```jsx harmony
