@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   breakpoints: ['1200px'],
-  fontSizes: [10, 12, 14, 16, 24, 40],
+  fontSizes: [10, 12, 14, 16, 24, 32],
   space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
   fontWeights: { normal: 400, bold: 500, bolder: 700 },
   fonts: {
@@ -52,13 +52,13 @@ const theme: DefaultTheme = {
   },
   lineHeights: ['normal'],
   letterSpacings: ['normal'],
-  shadows: [
-    'none',
-    '0px 2px 8px rgba(0, 0, 0, 0.05)',
-    '0px 1px 6px rgba(0, 0, 0, 0.15)',
-    '0px 2px 16px rgba(0, 0, 0, 0.20)',
-    '0px 1px 4px rgba(0, 0, 0, 0.25)',
-  ],
+  shadows: {
+    none: 'none',
+    dark50: '0px 2px 8px rgba(0, 0, 0, 0.05)',
+    dark150: '0px 1px 6px rgba(0, 0, 0, 0.15)',
+    dark200: '0px 2px 16px rgba(0, 0, 0, 0.20)',
+    dark250: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+  },
 };
 
 export default theme;
