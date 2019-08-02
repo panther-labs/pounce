@@ -200,7 +200,7 @@ const GlobalStyles = createGlobalStyle`
   z-index: 100;
 
   background: white;
-  box-shadow: ${({ theme }) => theme.shadows[3]};
+  box-shadow: ${({ theme }) => theme.shadows.dark200};
   border-radius: ${({ theme }) => `${theme.radii.small}px`};
 }
 
