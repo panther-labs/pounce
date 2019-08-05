@@ -32,6 +32,8 @@ export interface BoxProps
     StyledSystem.MinWidthProps,
     StyledSystem.MaxWidthProps,
     StyledSystem.HeightProps,
+    StyledSystem.MinHeightProps,
+    StyledSystem.MaxHeightProps,
     StyledSystem.GridRowProps,
     StyledSystem.GridColumnProps,
     StyledSystem.ShadowProps,
@@ -90,6 +92,8 @@ const Box: React.FC<BoxProps> = styled.div`
   ${StyledSystem.minWidth}
   ${StyledSystem.maxWidth}
   ${StyledSystem.height}
+  ${StyledSystem.minHeight}
+  ${StyledSystem.maxHeight}
   ${StyledSystem.gridRow}
   ${StyledSystem.gridColumn}
   ${StyledSystem.shadow}
