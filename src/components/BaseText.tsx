@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import * as StyledSystem from 'styled-system';
 import Box, { BoxProps } from 'components/Box';
 
-export interface BaseTextProps extends BoxProps, StyledSystem.TypographyProps {}
+export interface BaseTextProps<T = HTMLDivElement>
+  extends BoxProps<T>,
+    StyledSystem.TypographyProps {}
 
 const StyledText = styled(Box)`
   ${StyledSystem.typography}

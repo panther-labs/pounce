@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 
-export interface BaseButtonProps extends BoxProps {
+export interface BaseButtonProps extends BoxProps<HTMLButtonElement> {
   /** Whether the element should be disabled */
   disabled?: boolean;
 }

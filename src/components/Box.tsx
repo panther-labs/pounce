@@ -11,9 +11,9 @@ import * as StyledSystem from 'styled-system';
 // prop. To fix that we first convert it to "any" and then we explicitely re-define it as the type
 // that we want.
 // WARNING: DO NOT USE THIS INTERFACE EVER
-interface BoxPropsWithHTMLAttributesAdapter
+interface BoxPropsWithHTMLAttributesAdapter<T>
   extends StyledSystem.ColorProps,
-    React.HTMLAttributes<HTMLDivElement> {
+    React.HTMLAttributes<T> {
   /* eslint-disable @typescript-eslint/no-explicit-any */
   as?: any;
   color?: any;
@@ -22,8 +22,8 @@ interface BoxPropsWithHTMLAttributesAdapter
   /* eslint-enable @typescript-eslint/no-explicit-any */
 }
 
-export interface BoxProps
-  extends BoxPropsWithHTMLAttributesAdapter,
+export interface BoxProps<T = HTMLElement>
+  extends BoxPropsWithHTMLAttributesAdapter<T>,
     StyledSystem.SpaceProps,
     StyledSystem.FontFamilyProps,
     StyledSystem.FontSizeProps,
