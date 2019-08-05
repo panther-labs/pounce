@@ -16,11 +16,12 @@
     "Panther"
   ],
   "dependencies": {
-    "@reach/menu-button": "^0.1.18",
     "@material-ui/core": "^4.3.0",
+    "@reach/menu-button": "^0.1.18",
     "dayjs": "^1.8.15",
     "downshift": "^3.2.10",
     "fuzzaldrin": "^2.1.0",
+    "lodash-es": "^4.17.15",
     "react-day-picker": "^7.3.0",
     "react-textarea-autosize": "^7.1.0",
     "react-tooltip-lite": "^1.9.5",
