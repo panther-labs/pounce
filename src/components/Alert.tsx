@@ -48,21 +48,43 @@ const Alert: React.FC<AlertProps> = ({
     }
   })();
 
-  // Main title
-  const textNode = (
-    <Box>
-      {title && (
-        <Text size="large" as="p" color={variantProps.color}>
-          {title}
-        </Text>
-      )}
-      {description && (
+  // Progressively override/enhance the rendered structure based on the optional props provided.
+  // Order of checks matters a lot here
+  let content = (
+    <Text size="large" as="p" color={variantProps.color}>
+      {title}
+    </Text>
+  );
+
+  if (description) {
+    content = (
+      <Box>
+        {content}
         <Text size="medium" as="p" color="grey200" mt={1}>
           {description}
         </Text>
-      )}
-    </Box>
-  );
+      </Box>
+    );
+  }
+
+  if (icon) {
+    content = (
+      <Flex alignItems="flex-start">
+        <Icon type={icon} mr={4} color={variantProps.borderColor} />
+        {content}
+      </Flex>
+    );
+  }
+  if (discardable) {
+    content = (
+      <Flex alignItems="center">
+        <Box flex="1 0 auto">{content}</Box>
+        <IconButton ml={7} onClick={() => setOpen(false)}>
+          <Icon type="close" size="large" color="grey200" />
+        </IconButton>
+      </Flex>
+    );
+  }
 
   return open ? (
     <Card
@@ -73,21 +95,7 @@ const Alert: React.FC<AlertProps> = ({
       borderColor={variantProps.borderColor}
       {...rest}
     >
-      {icon ? (
-        <Flex alignItems="flex-start">
-          <Icon type={icon} mr={4} color={variantProps.borderColor} />
-          {textNode}
-        </Flex>
-      ) : (
-        textNode
-      )}
-      {discardable && (
-        <Flex position="absolute" right={3} top={0} bottom={0} alignItems="center">
-          <IconButton onClick={() => setOpen(false)}>
-            <Icon type="close" size="large" color="grey200" />
-          </IconButton>
-        </Flex>
-      )}
+      {content}
     </Card>
   ) : null;
 };

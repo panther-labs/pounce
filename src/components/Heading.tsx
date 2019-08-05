@@ -15,10 +15,10 @@ const Heading: React.FC<HeadingProps> = ({ size, ...rest }) => {
   const sizeProps = (function() {
     switch (size) {
       case 'large':
-        return { fontWeight: 'bold', fontSize: 5 };
+        return { fontWeight: 'bold', fontSize: 5, lineHeight: 5 };
       case 'medium':
       default:
-        return { fontWeight: 'normal', fontSize: 4 };
+        return { fontWeight: 'normal', fontSize: 4, lineHeight: 4 };
     }
   })() as { fontWeight: keyof DefaultTheme['fontWeights']; fontSize: number };
 
