@@ -42,30 +42,26 @@ const useSelectableTableRows = ({ columns, onSelect, items }: UseSelectableTable
       {
         key: 'selection',
         flex: '0 1 auto',
-        renderColumnHeader: () => {
-          const allItemsAreSelected = selectedItems.length === items.length;
-          return (
-            <Checkbox
-              checked={allItemsAreSelected}
-              onChange={() => setSelectedItems(!allItemsAreSelected ? items : [])}
-            />
-          );
-        },
-        renderCell: item => {
-          const itemIsSelected = selectedItems.includes(item);
-          return (
-            <Checkbox
-              checked={itemIsSelected}
-              onChange={() =>
-                setSelectedItems(
-                  itemIsSelected
-                    ? selectedItems.filter(selectedItem => selectedItem !== item)
-                    : [...selectedItems, item]
-                )
-              }
-            />
-          );
-        },
+        renderColumnHeader: () => (
+          <Checkbox
+            checked={selectedItems.length === items.length}
+            onChange={checked => setSelectedItems(checked ? items : [])}
+          />
+        ),
+        renderCell: item => (
+          <Checkbox
+            checked={selectedItems.includes(item)}
+            onChange={(checked, e) => {
+              e.stopPropagation();
+
+              setSelectedItems(
+                checked
+                  ? [...selectedItems, item]
+                  : selectedItems.filter(selectedItem => selectedItem !== item)
+              );
+            }}
+          />
+        ),
       },
       ...columns,
     ],
