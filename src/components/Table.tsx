@@ -1,6 +1,7 @@
 import React from 'react';
 import Label from 'components/Label';
 import Box from 'components/Box';
+import { css } from 'styled-components';
 import Flex, { FlexProps } from 'components/Flex';
 import Text from 'components/Text';
 import BaseButton from 'components/BaseButton';
@@ -89,6 +90,12 @@ export type TableProps = {
    * order (null). You can of course choose to only use `asc` and `desc`
    * */
   sortDir?: 'ascending' | 'descending' | undefined;
+
+  /**
+   * Callback that fires whenever the row is selected either through a click event. There are
+   * plans to support keyboard navigation.
+   * */
+  onSelect?: (item: TableItem) => void;
 };
 
 /**
@@ -117,10 +124,11 @@ const Table: React.FC<TableProps> = ({
   columns,
   getItemKey,
   showHeaders,
-  onSort,
+  onSort = () => {},
   alternateBg,
   sortKey,
   sortDir,
+  onSelect,
 }) => {
   const renderTableHeader = (column: ColumnProps) => {
     // Get the base component
@@ -135,7 +143,7 @@ const Table: React.FC<TableProps> = ({
     // wrap it in a button if we have a clickable column
     if (column.sortable) {
       content = (
-        <BaseButton onClick={() => onSort!(column.key)}>
+        <BaseButton onClick={() => onSort(column.key)}>
           <Flex alignItems="center">
             {content}
             {sortKey === column.key && sortDir && (
@@ -171,8 +179,12 @@ const Table: React.FC<TableProps> = ({
       {showHeaders && <Row>{columns.map(renderTableHeader)}</Row>}
       {items.map((item, itemIndex) => (
         <Row
+          onClick={() => onSelect && onSelect(item)}
           key={getItemKey ? getItemKey(item) : itemIndex}
           bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'transparent'}
+          css={css`
+            cursor: pointer;
+          `}
         >
           {columns.map(column => renderTableItem(column, item, itemIndex))}
         </Row>
@@ -182,7 +194,6 @@ const Table: React.FC<TableProps> = ({
 };
 
 Table.defaultProps = {
-  onSort: () => {},
   showHeaders: true,
   alternateBg: true,
 };

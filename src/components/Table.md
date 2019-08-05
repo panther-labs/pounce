@@ -391,6 +391,86 @@ const Example = () => {
 <Example />;
 ```
 
+A table can respond to row selections:
+
+```jsx harmony
+import React from 'react';
+import Card from 'components/Card';
+import useSelectableTableRows from 'utils/useSelectableTableRows';
+
+// as fetched from the API
+const items = [
+  {
+    id: 1,
+    name: 'AWS S3 Encryption Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 2,
+    name: 'AWS MFA Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 3,
+    name: 'AWS Cloudwatch with SSH enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 4,
+    name: 'AWS DynamoDB Table Encryption Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+];
+
+const columns = [
+  {
+    key: 'name',
+    header: 'Name',
+  },
+  {
+    key: 'resourceType',
+    header: 'Resource Type',
+  },
+  {
+    key: 'severity',
+    header: 'Severity',
+  },
+  {
+    key: 'status',
+    header: 'Status',
+  },
+];
+
+const Example = () => {
+  return (
+    <Card width="100%">
+      <Table
+        items={items}
+        getItemKey={item => item.id}
+        columns={columns}
+        onSelect={item => {
+          alert(item.name);
+        }}
+      />
+    </Card>
+  );
+};
+
+<Example />;
+```
+
 A table can have enumerable columns. Just use the `useEnumerableTableRows` hook which has
 the following signature:
 
