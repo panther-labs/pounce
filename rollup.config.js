@@ -1,13 +1,15 @@
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
 import commonjs from 'rollup-plugin-commonjs';
+import { terser } from 'rollup-plugin-terser';
+import includePaths from 'rollup-plugin-includepaths';
+import image from 'rollup-plugin-image';
 import reactSvg from 'rollup-plugin-react-svg';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import pkg from './package.json';
 
 // which files types to resolve
-const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+const extensions = ['.js', '.jsx', '.ts', '.tsx', '.svg'];
 
 export default {
   // Where the source input is
@@ -15,7 +17,6 @@ export default {
 
   // create 2 builds; one for commonJS and one for ES6 modules
   output: [
-    { file: pkg.main, format: 'cjs' },
     { file: pkg.module, format: 'es', sourcemap: true },
     {
       file: pkg.browser,
@@ -65,13 +66,29 @@ export default {
       exclude: /node_modules/,
     }),
 
-    // When creating a commonJS build, allow the following items to be exported independently
     commonjs({
       namedExports: {
         'node_modules/react/index.js': ['Component', 'PureComponent', 'Fragment', 'Children'],
-        'node_modules/react-is/index.js': ['isElement', 'isValidElementType', 'ForwardRef'],
+        'node_modules/prop-types/index.js': [
+          'object',
+          'func',
+          'oneOfType',
+          'node',
+          'bool',
+          'string',
+          'number',
+          'any',
+        ],
+        'node_modules/react-is/index.js': [
+          'isElement',
+          'isValidElementType',
+          'isForwardRef',
+          'ForwardRef',
+        ],
       },
     }),
+
+    image(),
 
     // minify and optimise the code
     terser({
@@ -91,6 +108,12 @@ export default {
         ecma: 5,
         comments: false,
       },
+    }),
+
+    // resolve absolute imports from below
+    includePaths({
+      paths: ['src'],
+      extensions,
     }),
   ],
 };

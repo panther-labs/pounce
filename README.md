@@ -11,7 +11,7 @@ have the proper credentials set up in your environment, then `npm install` will 
 since this is a private repository which requires a certain access.
 
 ```text
-    npm install git+https://github.com/panther-labs/pounce.git
+    npm install git://github.com/panther-labs/pounce.git
 ```
 
 ### Usage
