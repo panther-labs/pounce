@@ -1,38 +1,41 @@
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
 import commonjs from 'rollup-plugin-commonjs';
+import typescript from 'rollup-plugin-typescript2';
+import includePaths from 'rollup-plugin-includepaths';
+import image from 'rollup-plugin-image';
 import reactSvg from 'rollup-plugin-react-svg';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import pkg from './package.json';
 
 // which files types to resolve
-const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+const extensions = ['.js', '.jsx', '.ts', '.tsx', '.svg'];
 
 export default {
   // Where the source input is
   input: 'src/index.tsx',
 
   // create 2 builds; one for commonJS and one for ES6 modules
-  output: [
-    { file: pkg.main, format: 'cjs' },
-    { file: pkg.module, format: 'es', sourcemap: true },
-    {
-      file: pkg.browser,
-      format: 'umd',
-      name: pkg.name,
-      sourcemap: true,
-      globals: {
-        react: 'React',
-      },
-    },
-  ],
+  output: {
+    file: pkg.module,
+    format: 'esm',
+    sourcemap: true,
+    // Do not let Rollup call Object.freeze() on namespace import objects
+    // (i.e. import * as namespaceImportObject from...) that are accessed dynamically.
+    freeze: false,
+  },
   plugins: [
     // don't bundle any peer dependency
     peerDepsExternal(),
 
     // resolve only jsx? | tsx? files
     resolve({ extensions }),
+
+    // run the typescript compiler with options from tsconfig.json
+    typescript({
+      typescript: require('typescript'),
+      cacheRoot: `./.rts2_cache_esm`,
+    }),
 
     // using `.babelrc` configuration, run the files through babel while including a runtime helper
     // and excluding anything located under node_modules (the latter won't be ran through babel)
@@ -65,32 +68,34 @@ export default {
       exclude: /node_modules/,
     }),
 
-    // When creating a commonJS build, allow the following items to be exported independently
     commonjs({
       namedExports: {
         'node_modules/react/index.js': ['Component', 'PureComponent', 'Fragment', 'Children'],
-        'node_modules/react-is/index.js': ['isElement', 'isValidElementType', 'ForwardRef'],
+        'node_modules/prop-types/index.js': [
+          'object',
+          'func',
+          'oneOfType',
+          'node',
+          'bool',
+          'string',
+          'number',
+          'any',
+        ],
+        'node_modules/react-is/index.js': [
+          'isElement',
+          'isValidElementType',
+          'isForwardRef',
+          'ForwardRef',
+        ],
       },
     }),
 
-    // minify and optimise the code
-    terser({
-      parse: {
-        // we want terser to parse ecma 8 code. However, we don't want it
-        // to apply any minfication steps that turns valid ecma 5 code
-        // into invalid ecma 5 code.
-        ecma: 8,
-      },
-      compress: {
-        ecma: 5,
-        warnings: false,
-        comparisons: false,
-        inline: 2,
-      },
-      output: {
-        ecma: 5,
-        comments: false,
-      },
+    image(),
+
+    // resolve absolute imports from below
+    includePaths({
+      paths: ['src'],
+      extensions,
     }),
   ],
 };
