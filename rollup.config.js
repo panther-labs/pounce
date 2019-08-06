@@ -90,26 +90,6 @@ export default {
 
     image(),
 
-    // minify and optimise the code
-    terser({
-      parse: {
-        // we want terser to parse ecma 8 code. However, we don't want it
-        // to apply any minfication steps that turns valid ecma 5 code
-        // into invalid ecma 5 code.
-        ecma: 8,
-      },
-      compress: {
-        ecma: 5,
-        warnings: false,
-        comparisons: false,
-        inline: 2,
-      },
-      output: {
-        ecma: 5,
-        comments: false,
-      },
-    }),
-
     // resolve absolute imports from below
     includePaths({
       paths: ['src'],
