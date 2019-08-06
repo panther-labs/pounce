@@ -63,19 +63,10 @@ const BoxProps = [
 module.exports = {
   template: {
     favicon: 'https://dashboard.runpanther.io/favicon.ico',
-    head: {
-      links: [
-        // google fonts
-        {
-          href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap',
-          rel: 'stylesheet',
-        },
-      ],
-    },
   },
   styleguideComponents: {
     // Component to wrap around every individual example
-    Wrapper: path.join(__dirname, 'src/utils/ThemeInjector'),
+    Wrapper: path.join(__dirname, 'src/utils/StyleguidistWrapper'),
   },
   title: 'Pounce UI Docs',
   pagePerSection: true,
