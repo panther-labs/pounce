@@ -2,9 +2,8 @@
   "name": "pouncejs",
   "description": "A collection of UI components from Panther labs",
   "version": "0.1.0",
-  "main": "dist/pounce.cjs.js",
+  "main": "dist/pounce.esm.js",
   "module": "dist/pounce.esm.js",
-  "browser": "dist/pounce.umd.js",
   "private": true,
   "keywords": [
     "react",
@@ -96,6 +95,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-react-svg": "^3.0.3",
     "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-typescript2": "^0.22.1",
     "typescript": "^3.5.3",
     "webpack": "^4.35.3"
   }

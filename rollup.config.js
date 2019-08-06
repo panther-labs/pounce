@@ -1,7 +1,7 @@
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
+import typescript from 'rollup-plugin-typescript2';
 import includePaths from 'rollup-plugin-includepaths';
 import image from 'rollup-plugin-image';
 import reactSvg from 'rollup-plugin-react-svg';
@@ -16,24 +16,26 @@ export default {
   input: 'src/index.tsx',
 
   // create 2 builds; one for commonJS and one for ES6 modules
-  output: [
-    { file: pkg.module, format: 'es', sourcemap: true },
-    {
-      file: pkg.browser,
-      format: 'umd',
-      name: pkg.name,
-      sourcemap: true,
-      globals: {
-        react: 'React',
-      },
-    },
-  ],
+  output: {
+    file: pkg.module,
+    format: 'esm',
+    sourcemap: true,
+    // Do not let Rollup call Object.freeze() on namespace import objects
+    // (i.e. import * as namespaceImportObject from...) that are accessed dynamically.
+    freeze: false,
+  },
   plugins: [
     // don't bundle any peer dependency
     peerDepsExternal(),
 
     // resolve only jsx? | tsx? files
     resolve({ extensions }),
+
+    // run the typescript compiler with options from tsconfig.json
+    typescript({
+      typescript: require('typescript'),
+      cacheRoot: `./.rts2_cache_esm`,
+    }),
 
     // using `.babelrc` configuration, run the files through babel while including a runtime helper
     // and excluding anything located under node_modules (the latter won't be ran through babel)
