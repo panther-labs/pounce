@@ -2,8 +2,8 @@
   "name": "pouncejs",
   "description": "A collection of UI components from Panther labs",
   "version": "0.1.0",
-  "main": "dist/pounce.esm.js",
-  "module": "dist/pounce.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "private": true,
   "keywords": [
     "react",
