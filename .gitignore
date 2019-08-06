@@ -20,6 +20,9 @@ dist
 # misc
 .DS_Store
 
+# caches
+.rts2_cache_esm
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

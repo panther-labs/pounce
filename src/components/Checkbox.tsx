@@ -13,13 +13,17 @@ export interface CheckboxProps {
   checked: boolean;
 
   /** What happens when the value of the checkbox changes */
-  onChange: (checked: boolean) => void;
+  onChange: (checked: boolean, e: React.SyntheticEvent) => void;
 }
 
 /* Your bread & butter checkbox element. Nothing new here */
 const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, ...rest }) => {
   return (
-    <IconButton role="checkbox" aria-checked={checked} onClick={() => onChange(!checked)}>
+    <IconButton
+      role="checkbox"
+      aria-checked={checked}
+      onClick={(e: React.MouseEvent) => onChange(!checked, e)}
+    >
       <Icon
         type={checked ? 'checkbox-selected' : 'checkbox'}
         color={checked ? 'primary300' : 'grey400'}
@@ -27,7 +31,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, ...rest }) => {
       <StyledCheckbox
         type="checkbox"
         checked={checked}
-        onChange={e => onChange(e.target.checked)}
+        onChange={e => onChange(e.target.checked, e)}
         {...rest}
       />
     </IconButton>
