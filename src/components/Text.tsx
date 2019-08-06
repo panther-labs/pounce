@@ -16,10 +16,10 @@ const Text: React.FC<TextProps> = ({ size, ...rest }) => {
   const sizeProps = (function() {
     switch (size) {
       case 'large':
-        return { fontSize: 3 };
+        return { fontSize: 3, lineHeight: 3 };
       case 'medium':
       default:
-        return { fontSize: 2 };
+        return { fontSize: 2, lineHeight: 2 };
     }
   })();
 

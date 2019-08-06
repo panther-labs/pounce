@@ -1,6 +1,10 @@
 The Modal is a controlled component. This means that you should control its
 opening and closing from "outside".
 
+Whenever you don't provide the `title`, you should opt for providing the
+`aria-describedby` and `aria-labeledby` props yourself in all the Modal
+components within your app.
+
 A modal can persist when ESC or backdrop is clicked:
 
 ```jsx harmony

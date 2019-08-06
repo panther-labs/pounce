@@ -1,9 +1,21 @@
+A Badge should be used to render text like statuses:
+
 ```jsx harmony
 <div>
-  <Badge variant="info" mb={2} />
-  <Badge variant="error-low" mb={2} />
-  <Badge variant="error-medium" mb={2} />
-  <Badge variant="error-high" mb={2} />
-  <Badge variant="error-critical" mb={2} />
+  <Badge color="neutral" mb={2}>
+    INFO
+  </Badge>
+  <Badge color="grey" mb={2}>
+    LOW
+  </Badge>
+  <Badge color="blue" mb={2}>
+    MEDIUM
+  </Badge>
+  <Badge color="pink" mb={2}>
+    HIGH
+  </Badge>
+  <Badge color="red" mb={2}>
+    CRITICAL
+  </Badge>
 </div>
 ```
