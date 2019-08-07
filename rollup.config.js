@@ -3,8 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import includePaths from 'rollup-plugin-includepaths';
-import image from 'rollup-plugin-image';
-import reactSvg from 'rollup-plugin-react-svg';
+import svgr from '@svgr/rollup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import pkg from './package.json';
 
@@ -53,29 +52,6 @@ export default {
       exclude: 'node_modules/**',
     }),
 
-    // Allow SVGs to be loaded as react components
-    reactSvg({
-      // svgo options
-      svgo: {
-        plugins: [
-          { removeTitle: true },
-          { convertColors: { shorthex: false } },
-          { convertPathData: false },
-          { removeStyleElement: true },
-          { mergePaths: true },
-          { removeDimensions: true },
-          { removeAttrs: { attrs: 'path:fill' } },
-          { addAttributesToSVGElement: { attributes: [{ display: 'block' }] } },
-        ],
-        multipass: true,
-      },
-
-      // whether to output jsx
-      jsx: false,
-      include: /icons\/*.svg$/,
-      exclude: /node_modules/,
-    }),
-
     commonjs({
       namedExports: {
         'node_modules/react/index.js': ['Component', 'PureComponent', 'Fragment', 'Children'],
@@ -100,7 +76,22 @@ export default {
       },
     }),
 
-    image(),
+    svgr({
+      svgo: true,
+      svgoConfig: {
+        plugins: [
+          { removeTitle: true },
+          { convertColors: { shorthex: false } },
+          { convertPathData: false },
+          { removeStyleElement: true },
+          { mergePaths: true },
+          { removeDimensions: true },
+          { removeAttrs: { attrs: 'path:fill' } },
+          { addAttributesToSVGElement: { attributes: [{ display: 'block' }] } },
+        ],
+        multipass: true,
+      },
+    }),
 
     // resolve absolute imports from below
     includePaths({
