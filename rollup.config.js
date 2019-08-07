@@ -88,6 +88,8 @@ export default {
           'string',
           'number',
           'any',
+          'element',
+          'elementType',
         ],
         'node_modules/react-is/index.js': [
           'isElement',
