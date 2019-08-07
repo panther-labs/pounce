@@ -42,7 +42,7 @@ export default {
     // run the typescript compiler with options from tsconfig.json
     typescript({
       typescript: require('typescript'),
-      cacheRoot: `./.rts2_cache_esm`,
+      clean: true,
     }),
 
     // using `.babelrc` configuration, run the files through babel while including a runtime helper
