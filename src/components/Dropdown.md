@@ -24,7 +24,7 @@ import MenuItem from 'components/MenuItem';
 
 <Dropdown
   trigger={
-    <Button size="large" variant="default">
+    <Button as="div" size="large" variant="default">
       I'm composable
     </Button>
   }

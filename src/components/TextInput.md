@@ -7,11 +7,38 @@ An input can have a label:
 It can be valid:
 
 ```jsx harmony
-<TextInput placeholder="Type something..." value="I'm valid" />
+import React from 'react';
+
+const Example = () => {
+  const [value, setValue] = React.useState("I'm valid");
+  return (
+    <TextInput
+      onChange={e => setValue(e.target.value)}
+      placeholder="Type something..."
+      value={value}
+    />
+  );
+};
+
+<Example />;
 ```
 
 or invalid:
 
 ```jsx harmony
-<TextInput error="Oops this is wrong" placeholder="Type something..." value="I'm invalid" />
+import React from 'react';
+
+const Example = () => {
+  const [value, setValue] = React.useState("I'm invalid");
+  return (
+    <TextInput
+      error="Oops this is wrong"
+      onChange={e => setValue(e.target.value)}
+      placeholder="Type something..."
+      value={value}
+    />
+  );
+};
+
+<Example />;
 ```

@@ -32,6 +32,7 @@ const Example = () => {
       <TabList>
         {tabs.map((t, index) => (
           <Tab
+            key={t}
             selected={activeTab === index}
             onSelect={() => setActiveTab(index)}
             id={t}
@@ -43,7 +44,7 @@ const Example = () => {
         ))}
       </TabList>
       {tabs.map((t, index) => (
-        <TabPanel selected={activeTab === index} aria-labeled-by={t}>
+        <TabPanel key={t} selected={activeTab === index} aria-labelledby={t}>
           <Card p={9} mt={3}>
             Panel {t}
           </Card>
