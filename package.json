@@ -39,8 +39,7 @@
   "scripts": {
     "start": "npx styleguidist server",
     "prepare": "npm run build",
-    "prebuild": "rimraf dist",
-    "build": "rollup  -c",
+    "build": "rimraf dist && rollup  -c",
     "docs": "npx styleguidist build",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p . --noEmit"
   },
