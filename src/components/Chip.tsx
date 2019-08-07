@@ -23,7 +23,7 @@ const Chip: React.FC<ChipProps> = ({ content, onClick, ...rest }) => (
       <Text size="large">{content}</Text>
       {onClick && (
         <IconButton onClick={onClick} p={0} ml={2}>
-          <Icon type="remove" />
+          <Icon size="small" type="remove" />
         </IconButton>
       )}
     </Flex>

@@ -8,7 +8,7 @@ export interface IconButtonProps extends BaseButtonProps {
   active?: boolean;
 
   /** The color variant of the IconButton */
-  variant?: 'primary' | 'default';
+  variant: 'primary' | 'default';
 }
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
@@ -35,7 +35,6 @@ export const IconButton = styled(props => (
 
 IconButton.defaultProps = {
   active: false,
-  variant: 'default',
 };
 
 export default IconButton;

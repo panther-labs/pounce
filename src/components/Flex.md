@@ -4,12 +4,12 @@ import Text from 'components/Text';
 
 <Flex alignItems="center">
   <Box width={200} py={9} bg="primary300">
-    <Text color="white" textAlign="center">
+    <Text size="medium" color="white" textAlign="center">
       We are
     </Text>
   </Box>
   <Box width={300} py={4} bg="red200">
-    <Text color="white" textAlign="center">
+    <Text size="medium" color="white" textAlign="center">
       vertically aligned
     </Text>
   </Box>

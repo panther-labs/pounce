@@ -21,6 +21,7 @@ const Radio: React.FC<RadioProps> = ({ checked, onChange, ...rest }) => {
   return (
     <IconButton role="radio" aria-checked={checked} onClick={() => onChange(!checked)}>
       <Icon
+        size="small"
         type={checked ? 'radio-selected' : 'radio'}
         color={checked ? 'primary300' : 'grey400'}
       />

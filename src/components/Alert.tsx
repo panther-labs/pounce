@@ -70,7 +70,7 @@ const Alert: React.FC<AlertProps> = ({
   if (icon) {
     content = (
       <Flex alignItems="flex-start">
-        <Icon type={icon} mr={4} color={variantProps.borderColor} />
+        <Icon size="small" type={icon} mr={4} color={variantProps.borderColor} />
         {content}
       </Flex>
     );
@@ -101,8 +101,8 @@ const Alert: React.FC<AlertProps> = ({
 };
 
 Alert.defaultProps = {
+  description: null,
   icon: undefined,
-  description: undefined,
   discardable: false,
 };
 

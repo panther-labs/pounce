@@ -13,7 +13,7 @@ export interface TabProps extends BaseButtonProps {
   /**
    * When true, the tab is selected.
    */
-  selected: boolean;
+  selected?: boolean;
 }
 
 /**
@@ -79,6 +79,10 @@ export const Tab: React.FC<TabProps> = ({
       />
     </li>
   );
+};
+
+Tab.defaultProps = {
+  selected: false,
 };
 
 export type TabListProps = FlexProps;

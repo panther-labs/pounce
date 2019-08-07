@@ -25,6 +25,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, ...rest }) => {
       onClick={(e: React.MouseEvent) => onChange(!checked, e)}
     >
       <Icon
+        size="small"
         type={checked ? 'checkbox-selected' : 'checkbox'}
         color={checked ? 'primary300' : 'grey400'}
       />
@@ -36,10 +37,6 @@ const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, ...rest }) => {
       />
     </IconButton>
   );
-};
-
-Checkbox.defaultProps = {
-  checked: false,
 };
 
 export default Checkbox;

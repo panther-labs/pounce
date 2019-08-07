@@ -4,7 +4,7 @@ import { DefaultTheme } from 'styled-components';
 
 export interface HeadingProps extends BaseTextProps {
   /** The size of the font */
-  size?: 'medium' | 'large';
+  size: 'medium' | 'large';
 }
 
 /**
@@ -23,10 +23,6 @@ const Heading: React.FC<HeadingProps> = ({ size, ...rest }) => {
   })() as { fontWeight: keyof DefaultTheme['fontWeights']; fontSize: number };
 
   return <BaseText as="h1" {...sizeProps} {...rest} />;
-};
-
-Heading.defaultProps = {
-  size: 'medium',
 };
 
 export default Heading;

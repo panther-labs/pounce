@@ -96,6 +96,8 @@ const Modal: React.FC<ModalProps> = ({
 };
 
 Modal.defaultProps = {
+  onClose: undefined,
+  title: '',
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
 };

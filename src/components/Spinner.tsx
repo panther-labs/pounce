@@ -42,7 +42,7 @@ export interface SpinnerProps extends BoxProps {
   delay: number;
 
   /** The size of the spinner, */
-  size?: 'small' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large';
 }
 
 const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
@@ -82,7 +82,6 @@ const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
 };
 
 Spinner.defaultProps = {
-  size: 'medium',
   delay: 0,
 };
 

@@ -24,6 +24,8 @@ const Example = () => {
 
   return (
     <Button
+      size="large"
+      variant="primary"
       onClick={() =>
         pushSnackbar({ variant: 'success', title: 'Everything went perfectly', icon: 'check' })
       }

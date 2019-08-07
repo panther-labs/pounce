@@ -19,15 +19,17 @@ const Example = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Open Sidesheet</Button>
+      <Button size="large" variant="primary" onClick={() => setOpen(true)}>
+        Open Sidesheet
+      </Button>
       <SideSheet open={open} onClose={() => setOpen(false)}>
         <Flex alignItems="center" mb={8}>
           <IconButton mr={4}>
-            <Icon type="arrow-back" />
+            <Icon size="small" type="arrow-back" />
           </IconButton>
-          <Heading>Output settings</Heading>
+          <Heading size="medium">Output settings</Heading>
         </Flex>
-        <Text color="grey400">
+        <Text size="medium" color="grey400">
           Add a new output below to deliver alerts to a specific application for further triage.
         </Text>
       </SideSheet>

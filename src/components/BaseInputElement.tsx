@@ -30,6 +30,10 @@ export const InputElementOuterBox = styled(props => (
   }
 `;
 
+InputElementOuterBox.defaultProps = {
+  disabled: false,
+};
+
 export type InputElementInnerBoxProps = BoxProps<HTMLInputElement> &
   React.HTMLProps<HTMLInputElement>;
 
@@ -37,7 +41,7 @@ export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props =
   <Box px={4} py={3} fontSize={3} border={0} bg="transparent" {...props} />
 );
 
-export const InputElementLabel: React.FC<LabelProps> = ({ children, ...rest }) => (
+export const InputElementLabel: React.FC<Omit<LabelProps, 'size'>> = ({ children, ...rest }) => (
   <Box my={3}>
     <Label size="large" color="grey500" {...rest}>
       {children}
@@ -69,7 +73,7 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, ...re
     {!!error && (
       <Box py={4} px={4} color="red300">
         <Flex alignItems="center">
-          <Icon type="warning" mr={2} />
+          <Icon size="small" type="warning" mr={2} />
           <Text size="medium">{error}</Text>
         </Flex>
       </Box>

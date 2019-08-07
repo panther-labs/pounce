@@ -231,7 +231,11 @@ const columns = [
     sortable: true,
     key: 'severity',
     renderColumnHeader: () => <Chip content="Severity" />,
-    renderCell: item => <Text color="red300">{item.severity}</Text>,
+    renderCell: item => (
+      <Text size="medium" color="red300">
+        {item.severity}
+      </Text>
+    ),
   },
   {
     sortable: true,

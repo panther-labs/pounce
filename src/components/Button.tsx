@@ -84,14 +84,9 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
       {...variantProps}
       {...rest}
     >
-      {typeof children === 'string' ? <Text>{children}</Text> : children}
+      {typeof children === 'string' ? <Text size="medium">{children}</Text> : children}
     </BaseButton>
   );
-};
-
-Button.defaultProps = {
-  size: 'large',
-  variant: 'primary',
 };
 
 export default Button;

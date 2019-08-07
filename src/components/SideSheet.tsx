@@ -57,7 +57,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
     >
       <Box position="relative" p={2}>
         <IconButton position="absolute" top={0} right={0} onClick={onClose}>
-          <Icon type="close" />
+          <Icon size="small" type="close" />
         </IconButton>
         {children}
       </Box>
@@ -66,6 +66,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
 );
 
 SideSheet.defaultProps = {
+  onClose: undefined,
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
 };

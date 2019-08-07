@@ -42,4 +42,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ highlighted, selected, ...rest }) =
   );
 };
 
+MenuItem.defaultProps = {
+  highlighted: false,
+  selected: false,
+};
+
 export default MenuItem;
