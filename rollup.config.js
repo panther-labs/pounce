@@ -16,14 +16,22 @@ export default {
   input: 'src/index.tsx',
 
   // create 2 builds; one for commonJS and one for ES6 modules
-  output: {
-    file: pkg.module,
-    format: 'esm',
-    sourcemap: true,
-    // Do not let Rollup call Object.freeze() on namespace import objects
-    // (i.e. import * as namespaceImportObject from...) that are accessed dynamically.
-    freeze: false,
-  },
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true,
+      // Do not let Rollup call Object.freeze() on namespace import objects
+      // (i.e. import * as namespaceImportObject from...) that are accessed dynamically.
+      freeze: false,
+    },
+    {
+      file: pkg.module,
+      format: 'esm',
+      sourcemap: true,
+      freeze: false,
+    },
+  ],
   plugins: [
     // don't bundle any peer dependency
     peerDepsExternal(),
