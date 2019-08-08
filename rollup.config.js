@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import includePaths from 'rollup-plugin-includepaths';
+import transformPaths from '@zerollup/ts-transform-paths';
 import svgr from '@svgr/rollup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import pkg from './package.json';
@@ -42,6 +43,7 @@ export default {
     typescript({
       typescript: require('typescript'),
       clean: true,
+      transformers: [service => transformPaths(service.getProgram())],
     }),
 
     // using `.babelrc` configuration, run the files through babel while including a runtime helper
