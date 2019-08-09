@@ -39,7 +39,7 @@ const StyledCircle = styled.circle`
 
 export interface SpinnerProps extends BoxProps {
   /** Delay after which spinner should be visible. */
-  delay: number;
+  delay?: number;
 
   /** The size of the spinner, */
   size: 'small' | 'medium' | 'large';
@@ -50,7 +50,7 @@ const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
   const delayTimer = React.useRef(0);
 
   React.useEffect(() => {
-    if (delay > 0) {
+    if (delay) {
       delayTimer.current = window.setTimeout(() => setVisibility(true), delay);
     }
     return () => clearTimeout(delayTimer.current);
