@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import uuid from 'uuid/v4';
 import Flex from 'components/Flex';
 import Snackbar, { SnackbarProps } from 'components/Snackbar';
 import { isBrowser } from 'utils/helpers';
+
+const generateSnackbarId = () =>
+  Math.random()
+    .toString(36)
+    .substr(2, 5);
 
 const PUSH_SNACKBAR = 'PUSH_SNACKBAR';
 const REMOVE_SNACKBAR = 'REMOVE_SNACKBAR';
@@ -33,7 +37,7 @@ type SnackbarStateShape = SnackbarProps & { id: string };
 const snackbarStateReducer = (snackbars: SnackbarStateShape[], action: SnackbarStateAction) => {
   switch (action.type) {
     case PUSH_SNACKBAR:
-      return [...snackbars, { id: uuid(), ...action.payload.props }];
+      return [...snackbars, { id: generateSnackbarId(), ...action.payload.props }];
     case REMOVE_SNACKBAR:
       return snackbars.filter(s => s.id !== action.payload.id);
     default:
