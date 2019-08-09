@@ -4,7 +4,7 @@ import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
 import Icon from 'components/Icon';
 import Flex from 'components/Flex';
-import { slugify } from 'utils/helpers';
+import { separateStyledSystemProps, slugify } from 'utils/helpers';
 import Label, { LabelProps } from 'components/Label';
 
 type InputElementOuterBoxProps = BoxProps & {
@@ -60,30 +60,36 @@ export type BaseInputElementProps = InputElementOuterBoxProps &
     error?: string;
   };
 
-const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, ...rest }) => (
-  <Box>
-    {!!label && <InputElementLabel htmlFor={slugify(label)}>{label}</InputElementLabel>}
-    <InputElementOuterBox>
-      <InputElementInnerBox
-        id={label ? slugify(label) : undefined}
-        color={!error ? 'grey400' : 'red300'}
-        {...rest}
-      />
-    </InputElementOuterBox>
-    {!!error && (
-      <Box py={4} px={4} color="red300">
-        <Flex alignItems="center">
-          <Icon size="small" type="warning" mr={2} />
-          <Text size="medium">{error}</Text>
-        </Flex>
-      </Box>
-    )}
-  </Box>
-);
+const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, ...rest }) => {
+  const [styledSystemProps, nativeHtmlProps] = separateStyledSystemProps(rest);
+
+  return (
+    <Box {...styledSystemProps}>
+      {!!label && <InputElementLabel htmlFor={slugify(label)}>{label}</InputElementLabel>}
+      <InputElementOuterBox>
+        <InputElementInnerBox
+          as={as}
+          width={1}
+          id={label ? slugify(label) : undefined}
+          color={!error ? 'grey400' : 'red300'}
+          {...nativeHtmlProps}
+        />
+      </InputElementOuterBox>
+      {!!error && (
+        <Box py={4} px={4} color="red300">
+          <Flex alignItems="center">
+            <Icon size="small" type="warning" mr={2} />
+            <Text size="medium">{error}</Text>
+          </Flex>
+        </Box>
+      )}
+    </Box>
+  );
+};
 
 BaseInputElement.defaultProps = {
   label: '',
   error: '',
 };
 
-export default BaseInputElement;
+export default React.memo(BaseInputElement);
