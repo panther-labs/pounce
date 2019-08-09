@@ -145,7 +145,9 @@ const Combobox: React.FC<AutocompleteProps> = ({
   // When choosing to add an item we behave differently depending on whether we have multiple
   // values that can be selected at a time or just a single one
   const addSelectedItem = (item: ComboboxItem) => {
-    onChange([...value, item]);
+    if (item !== null) {
+      onChange(multiple ? [...value, item] : [item]);
+    }
   };
 
   return (
