@@ -2,7 +2,6 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
-import includePaths from 'rollup-plugin-includepaths';
 import transformPaths from '@zerollup/ts-transform-paths';
 import svgr from '@svgr/rollup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -37,7 +36,7 @@ export default {
     peerDepsExternal(),
 
     // resolve only jsx? | tsx? files
-    resolve({ extensions }),
+    resolve({ extensions, preferBuiltins: true }),
 
     // run the typescript compiler with options from tsconfig.json
     typescript({
@@ -93,12 +92,6 @@ export default {
         ],
         multipass: true,
       },
-    }),
-
-    // resolve absolute imports from below
-    includePaths({
-      paths: ['src'],
-      extensions,
     }),
   ],
 };
