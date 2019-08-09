@@ -79,7 +79,7 @@ const Alert: React.FC<AlertProps> = ({
     content = (
       <Flex alignItems="center">
         <Box flex="1 0 auto">{content}</Box>
-        <IconButton ml={7} onClick={() => setOpen(false)}>
+        <IconButton variant="default" ml={7} onClick={() => setOpen(false)}>
           <Icon type="close" size="large" color="grey200" />
         </IconButton>
       </Flex>

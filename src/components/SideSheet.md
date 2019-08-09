@@ -24,7 +24,7 @@ const Example = () => {
       </Button>
       <SideSheet open={open} onClose={() => setOpen(false)}>
         <Flex alignItems="center" mb={8}>
-          <IconButton mr={4}>
+          <IconButton variant="default" mr={4}>
             <Icon size="small" type="arrow-back" />
           </IconButton>
           <Heading size="medium">Output settings</Heading>

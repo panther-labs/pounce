@@ -20,6 +20,7 @@ export interface CheckboxProps {
 const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, ...rest }) => {
   return (
     <IconButton
+      variant="default"
       role="checkbox"
       aria-checked={checked}
       onClick={(e: React.MouseEvent) => onChange(!checked, e)}

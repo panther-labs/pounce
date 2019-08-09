@@ -21,7 +21,7 @@ const Example = () => {
       <Button size="large" variant="primary" onClick={() => setOpen(true)}>
         Open Modal No.1
       </Button>
-      <Modal open={open}>
+      <Modal open={open} onClose={() => setOpen(false)} disableEscapeKeyDown disableBackdropClick>
         <Flex alignItems="center" justifyContent="center" flexDirection="column">
           <Text size="medium">It works!</Text>
           <Button variant="primary" onClick={() => setOpen(false)} size="small" mt={3}>

@@ -147,7 +147,13 @@ const Combobox: React.FC<AutocompleteProps<any>> = ({
                     type="text"
                     flex="1 0 auto"
                   />
-                  <IconButton position="absolute" right={3} onClick={toggleMenu} tabIndex="-1">
+                  <IconButton
+                    variant="default"
+                    position="absolute"
+                    right={3}
+                    onClick={() => toggleMenu()}
+                    tabIndex={-1}
+                  >
                     <Icon size="small" type={isOpen ? 'caret-up' : 'caret-down'} />
                   </IconButton>
                 </Flex>

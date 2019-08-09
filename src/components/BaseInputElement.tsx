@@ -12,9 +12,9 @@ type InputElementOuterBoxProps = BoxProps & {
   disabled?: boolean;
 };
 
-export const InputElementOuterBox = styled(props => (
+export const InputElementOuterBox = styled<React.FC<InputElementOuterBoxProps>>(props => (
   <Box borderRadius="small" bg="grey50" {...props} />
-))<InputElementOuterBoxProps>`
+))`
   overflow: hidden;
   border: ${({ theme }) => `1px solid ${theme.colors.transparent}`};
 

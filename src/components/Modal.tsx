@@ -14,9 +14,7 @@ export interface ModalProps {
    * Callback fired when the component requests to be closed.
    * The `reason` parameter can optionally be used to control the response to `onClose`.
    */
-  onClose?: {
-    bivarianceHack(event: {}, reason: 'backdropClick' | 'escapeKeyDown'): void;
-  }['bivarianceHack'];
+  onClose: (event: {}, reason: 'backdropClick' | 'escapeKeyDown') => void;
 
   /** Whether the modal should close by clicking on the backdrop behind it */
   disableBackdropClick?: boolean;
@@ -50,7 +48,7 @@ const Modal: React.FC<ModalProps> = ({
       return;
     }
 
-    if (!disableBackdropClick && onClose) {
+    if (!disableBackdropClick) {
       onClose(event, 'backdropClick');
     }
   };
