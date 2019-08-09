@@ -2,7 +2,6 @@ import React from 'react';
 import { DefaultTheme, ThemeProvider as StyledThemeProvider } from 'styled-components';
 import Theme from 'themes/default';
 import GlobalStyles from 'utils/GlobalStyles';
-import Flex from 'components/Flex';
 
 interface ThemeProviderProps {
   /** The theme to pass down to the library components */
@@ -19,10 +18,10 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 
   return (
     <StyledThemeProvider theme={theme || Theme}>
-      <Flex>
+      <React.Fragment>
         <GlobalStyles />
         {children}
-      </Flex>
+      </React.Fragment>
     </StyledThemeProvider>
   );
 };
