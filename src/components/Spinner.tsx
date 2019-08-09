@@ -51,7 +51,7 @@ const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
 
   React.useEffect(() => {
     if (delay > 0) {
-      delayTimer.current = setTimeout(() => setVisibility(true), delay);
+      delayTimer.current = window.setTimeout(() => setVisibility(true), delay);
     }
     return () => clearTimeout(delayTimer.current);
   }, []);
