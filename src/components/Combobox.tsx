@@ -15,14 +15,15 @@ import {
   InputElementInnerBox,
 } from 'components/BaseInputElement';
 
-interface MandatoryComboboxItemKeys {
-  text: string;
-  value: string | number | null;
-}
-
-export interface ComboboxItem extends Required<MandatoryComboboxItemKeys> {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export interface ComboboxItem
+  extends Required<{
+    text: string;
+    value: any;
+  }> {
   [key: string]: any;
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 export interface RenderItemProps {
   /** The item to render */
@@ -37,10 +38,10 @@ export interface RenderItemProps {
 
 export interface AutocompleteProps {
   /** Callback when the selection changes */
-  onChange: (value: ComboboxItem | ComboboxItem[] | null) => void;
+  onChange: (value: ComboboxItem[]) => void;
 
   /** A list of `AutocompleteItem` that the dropdown will have as options */
-  items: object[];
+  items: ComboboxItem[];
 
   /**
    * An optional function to override the default way that each item renders. In a
@@ -50,27 +51,19 @@ export interface AutocompleteProps {
   renderItem?: ({ item, selected, highlighted }: RenderItemProps) => React.ReactElement;
 
   /**
-   * An optional function to transform each item's shape to an object that contains a `text` and
-   * a `value` key. This is useful if the original data is not already in this format and you don't
-   * wanna re-format it on your own. The end object can have any shape, as long as it contains
-   * **at least** the `{text,value}` keys.
-   *
-   * If you don't define this prop, it's expect that these keys are already present in the
-   * `items` array that you are providing as options
-   * */
-  transformItem?: (originalItem: object) => ComboboxItem;
-
-  /**
    * The value of the item that is currently selected. The component is a controlled one,
    * so the the selected value should be provided explicitly to the dropdown
    * */
-  value: ComboboxItem | ComboboxItem[];
+  value: ComboboxItem[];
 
   /** The label associated with this dropdown form element */
   label?: string;
 
   /** Whether the Combobox should have an input to search results */
   searchable?: boolean;
+
+  /** Whether the Combobox should accept more than one values*/
+  multiple?: boolean;
 
   /** Whether the component should be disabled or not */
   disabled?: boolean;
@@ -80,7 +73,8 @@ export interface AutocompleteProps {
 
   /**
    * Allow the user to add custom entries to the dropdown instead of limiting selections to the
-   * predefined set of options. The `searchable` prop should be true in order for this to work.
+   * predefined set of options. The `searchable` & `multiple` prop should be true in order for
+   * this functionality to work.
    * */
   allowAdditions?: boolean;
 
@@ -130,11 +124,11 @@ const stateReducer = (
 const Combobox: React.FC<AutocompleteProps> = ({
   onChange,
   value,
-  items: originalItems,
-  transformItem,
+  items,
   renderItem,
   searchable,
   label,
+  multiple,
   inputProps,
   rootProps,
   menuProps,
@@ -142,30 +136,22 @@ const Combobox: React.FC<AutocompleteProps> = ({
   allowAdditions,
   validateAddition,
 }) => {
-  // Normally we would want to check if we have a multicombobox only once and store it in a const,
-  // but Typescript wouldn't understand that, since it would view that const as a simple "boolean"
-  // and not as a "check whether value is an array".
-  // https://github.com/Microsoft/TypeScript/issues/24865
-  // We use this alias for `Array.isArray` just so we can make it easier to the user to understand
-  // the code below.
-  const isMultiCombobox = Array.isArray;
-
   // When choosing to remove an item we behave differently depending on whether we have multiple
   // values or a single one
   const removeItem = (item: ComboboxItem) => {
-    onChange(isMultiCombobox(value) ? value.filter(i => i !== item) : null);
+    onChange(value.filter(i => i !== item));
   };
 
   // When choosing to add an item we behave differently depending on whether we have multiple
   // values that can be selected at a time or just a single one
   const addSelectedItem = (item: ComboboxItem) => {
-    onChange(isMultiCombobox(value) ? [...value, item] : item);
+    onChange([...value, item]);
   };
 
   return (
     <Box position="relative">
       <Downshift
-        stateReducer={isMultiCombobox(value) ? stateReducer : undefined}
+        stateReducer={multiple ? stateReducer : undefined}
         onChange={addSelectedItem}
         selectedItem={value}
         itemToString={item => (item === null ? '' : item.text)}
@@ -182,19 +168,13 @@ const Combobox: React.FC<AutocompleteProps> = ({
           getLabelProps,
           selectItem,
         }) => {
-          // Make sure to get the original items and transform them into {text, value} nodes, based
-          // on the `transformItem` function that was passed as an argument
-          const items = transformItem
-            ? originalItems.map(transformItem)
-            : (originalItems as ComboboxItem[]);
-
           // Initially we set the results to be all the items available. Results are the entries
           // that will end up being visible to the user
           let results = items;
 
           // If it's a multicombobox we want to not include the results already selected and we want
           // to make sure that the results get filtered by the search term of the user
-          if (isMultiCombobox(value)) {
+          if (multiple) {
             const nonSelectedItems = items.filter(
               item => !value.map(s => s.value).includes(item.value)
             );
@@ -207,7 +187,7 @@ const Combobox: React.FC<AutocompleteProps> = ({
           // If it's not a multicombobox, only filter results by search term when the searching
           // functionality is available. If it's not searchable, then we *always* want to display
           // all results
-          if (!isMultiCombobox(value) && searchable) {
+          if (!multiple && searchable) {
             results = fuzzySearch(items, inputValue || '', { key: 'text' });
           }
 
@@ -227,7 +207,7 @@ const Combobox: React.FC<AutocompleteProps> = ({
               readOnly: true,
               'aria-readonly': true,
             }),
-            ...(isMultiCombobox(value) && {
+            ...(multiple && {
               onKeyDown: (event: React.KeyboardEvent) => {
                 // Allow deletions of selections by pressing backspace
                 if (event.key === 'Backspace' && !inputValue) {
@@ -253,7 +233,7 @@ const Combobox: React.FC<AutocompleteProps> = ({
               {!!label && <InputElementLabel {...getLabelProps()}>{label}</InputElementLabel>}
               <InputElementOuterBox position="relative" pr={10} disabled={disabled}>
                 <Flex alignItems="center" flexWrap="wrap">
-                  {isMultiCombobox(value) &&
+                  {multiple &&
                     value.map(selectedItem => (
                       <Chip
                         key={String(selectedItem.value)}
@@ -302,12 +282,12 @@ Combobox.defaultProps = {
   label: '',
   searchable: false,
   disabled: false,
+  multiple: false,
   allowAdditions: false,
   validateAddition: () => true,
   inputProps: {},
   rootProps: {},
   menuProps: {},
-  transformItem: undefined,
 
   // eslint-disable-next-line react/display-name
   renderItem: ({ item, selected, highlighted }) => (

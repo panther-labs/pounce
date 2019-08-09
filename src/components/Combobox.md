@@ -12,7 +12,7 @@ A Combobox can be basic:
 import React from 'react';
 
 const Example1 = () => {
-  const [selectedItems, updateSelectedItems] = React.useState(null);
+  const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Combobox
       label="Choose a car manufacturer"
@@ -43,7 +43,7 @@ A Combobox can have search functionality:
 import React from 'react';
 
 const Example2 = () => {
-  const [selectedItems, updateSelectedItems] = React.useState(null);
+  const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Combobox
       searchable
@@ -78,6 +78,7 @@ const Example3 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Combobox
+      multiple
       label="Choose a car manufacturer"
       items={[
         { text: 'Toyota', value: 'toyota' },
@@ -109,6 +110,7 @@ const Example4 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Combobox
+      multiple
       searchable
       label="Choose a car manufacturer"
       items={[
@@ -141,6 +143,7 @@ const Example4 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Combobox
+      multiple
       allowAdditions
       searchable
       label="Choose a car manufacturer"
@@ -165,6 +168,7 @@ const Example4 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Combobox
+      multiple
       allowAdditions
       searchable
       label="Only words that contain the word Panther"
