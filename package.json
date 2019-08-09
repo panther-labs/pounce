@@ -24,7 +24,7 @@
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.5",
     "@types/react-textarea-autosize": "^4.3.4",
-    "@types/styled-components": "^4.1.8",
+    "@types/styled-components": "4.1.8",
     "@types/styled-system": "^5.0.0",
     "@types/styled-system__css": "^5.0.2",
     "@material-ui/core": "^4.3.0",
