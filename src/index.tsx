@@ -16,6 +16,7 @@ export { default as Icon } from 'components/Icon';
 export { default as IconButton } from 'components/IconButton';
 export { default as Label } from 'components/Label';
 export { default as MenuItem } from 'components/MenuItem';
+export { default as MultiCombobox } from 'components/MultiCombobox';
 export { default as Modal } from 'components/Modal';
 export { default as Pill } from 'components/Pill';
 export { default as Radio } from 'components/Radio';
