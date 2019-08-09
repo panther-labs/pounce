@@ -9,7 +9,7 @@ import * as StyledSystem from 'styled-system';
 // WARNING: DO NOT USE THIS INTERFACE EVER
 interface BoxPropsWithHTMLAttributesAdapter<T>
   extends StyledSystem.ColorProps,
-    React.HTMLAttributes<T> {
+    Omit<React.AllHTMLAttributes<T>, 'size'> {
   /* eslint-disable @typescript-eslint/no-explicit-any */
   as?: any;
   color?: any;
