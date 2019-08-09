@@ -165,6 +165,7 @@ const Combobox: React.FC<AutocompleteProps> = ({
           inputValue,
           isOpen,
           toggleMenu,
+          openMenu,
           getLabelProps,
           selectItem,
         }) => {
@@ -202,8 +203,8 @@ const Combobox: React.FC<AutocompleteProps> = ({
             ...inputProps,
             ...(!searchable && {
               style: { cursor: 'pointer' },
-              onClick: toggleMenu,
-              onFocus: toggleMenu,
+              onMouseDown: toggleMenu,
+              onFocus: openMenu,
               readOnly: true,
               'aria-readonly': true,
             }),
