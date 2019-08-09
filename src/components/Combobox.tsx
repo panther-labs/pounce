@@ -157,7 +157,8 @@ const Combobox: React.FC<AutocompleteProps> = ({
         stateReducer={multiple ? stateReducer : undefined}
         onChange={addSelectedItem}
         selectedItem={value}
-        itemToString={item => (item === null ? '' : item.text)}
+        itemToString={item => (item ? item.text : '')}
+        initialInputValue={value.length ? value[0].text : ''}
       >
         {({
           getRootProps,
