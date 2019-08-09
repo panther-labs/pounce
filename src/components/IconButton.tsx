@@ -12,9 +12,9 @@ export interface IconButtonProps extends BaseButtonProps {
 }
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
-export const IconButton = styled(props => (
+export const IconButton = styled<React.FC<IconButtonProps>>(props => (
   <BaseButton bg="transparent" p={2} borderRadius="circle" {...props} />
-))<IconButtonProps>`
+))`
   color: ${({ theme, active, variant }) =>
     active ? theme.colors[variant === 'primary' ? 'primary300' : 'grey400'] : theme.colors.grey400};
 

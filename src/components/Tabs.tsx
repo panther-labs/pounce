@@ -52,7 +52,6 @@ export const Tab: React.FC<TabProps> = ({
   return (
     <li>
       <BaseButton
-        outline="none"
         borderRadius="small"
         border="1px solid"
         fontSize={3}

@@ -13,9 +13,7 @@ export interface SideSheetProps {
    * Callback fired when the component requests to be closed.
    * The `reason` parameter can optionally be used to control the response to `onClose`.
    */
-  onClose?: {
-    bivarianceHack(event: {}, reason: 'backdropClick' | 'escapeKeyDown'): void;
-  }['bivarianceHack'];
+  onClose: (event: {}, reason: 'backdropClick' | 'escapeKeyDown' | 'closeButtonClick') => void;
 
   /** Whether the modal should close by clicking on the backdrop behind it */
   disableBackdropClick?: boolean;
@@ -56,7 +54,13 @@ const SideSheet: React.FC<SideSheetProps> = ({
       `}
     >
       <Box position="relative" p={2}>
-        <IconButton position="absolute" top={0} right={0} onClick={onClose}>
+        <IconButton
+          variant="default"
+          position="absolute"
+          top={0}
+          right={0}
+          onClick={() => onClose({}, 'closeButtonClick')}
+        >
           <Icon size="small" type="close" />
         </IconButton>
         {children}
