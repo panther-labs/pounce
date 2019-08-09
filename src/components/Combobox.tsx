@@ -15,7 +15,7 @@ import {
   InputElementInnerBox,
 } from 'components/BaseInputElement';
 
-export interface RenderItemProps<T> {
+export interface RenderComboboxItemProps<T> {
   /** The item to render */
   item: T;
 
@@ -26,7 +26,7 @@ export interface RenderItemProps<T> {
   highlighted: boolean;
 }
 
-export interface AutocompleteProps<T> {
+export interface ComboboxProps<T> {
   /** Callback when the selection changes */
   onChange: (value: T | null) => void;
 
@@ -45,7 +45,7 @@ export interface AutocompleteProps<T> {
    * MultiSelectCombobox, the `selected` is always going to be `false`, since the selected values
    * are not visible in the menu
    * */
-  renderItem?: ({ item, selected, highlighted }: RenderItemProps<T>) => React.ReactElement;
+  renderItem?: ({ item, selected, highlighted }: RenderComboboxItemProps<T>) => React.ReactElement;
 
   /**
    * The value of the item that is currently selected. The component is a controlled one,
@@ -76,7 +76,7 @@ export interface AutocompleteProps<T> {
  * A simple Combobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<Combobox>` component.
  */
-const Combobox: React.FC<AutocompleteProps<any>> = ({
+const Combobox: React.FC<ComboboxProps<any>> = ({
   onChange,
   value,
   items,
