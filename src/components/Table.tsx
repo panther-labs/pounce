@@ -126,6 +126,7 @@ const Table: React.FC<TableProps> = ({
   sortKey,
   sortDir,
   onSelect,
+  ...rest
 }) => {
   const renderTableHeader = (column: ColumnProps) => {
     // Get the base component
@@ -176,7 +177,7 @@ const Table: React.FC<TableProps> = ({
   };
 
   return (
-    <Box flex="1 0 0" role="table">
+    <Box {...rest} flex="1 0 0" role="table">
       {showHeaders && <Row>{columns.map(renderTableHeader)}</Row>}
       {items.map((item, itemIndex) => (
         <Row

@@ -217,6 +217,11 @@ const GlobalStyles = createGlobalStyle`
 
 [data-reach-menu-list] {
   white-space: nowrap;
+  outline: none;
+}
+
+[data-reach-menu-button] {
+  cursor: pointer;
 }
 
 [data-reach-menu-item] {
