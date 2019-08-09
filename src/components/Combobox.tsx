@@ -107,6 +107,7 @@ const stateReducer = (
         isOpen: true,
       };
     case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
+    case Downshift.stateChangeTypes.blurInput:
       return {
         ...changes,
         inputValue: '',
