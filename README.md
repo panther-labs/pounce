@@ -125,6 +125,18 @@ a local server that is going to showcase you the docs. To do that type the follo
     npm run start
 ```
 
+### Performance
+
+Pounce is on its testing phase right now, which means that the performane is not optimised and the
+bundle size is not a core pillar of the development since it relies on 3rd-party packages for some
+of its modules.
+
+There is a plan to gradually migrate those away and to focus on the performance of the actual lib.
+
+As it stands, it utilises `styled-components@5.x.x` internally, so if you are using a CSS-in-JS
+library in your project, it would be recommended to utilise the same library at a similar major
+version in order to not have two separate versions of a CSS-in-JS library in your project
+
 ### Deployment
 
 When deploying a project with pounce, you will have to make sure that the CI that builds
