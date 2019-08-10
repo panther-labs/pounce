@@ -35,5 +35,5 @@ export { default as GlobalStyles } from 'utils/GlobalStyles';
 export { default as useEnumerableTableRows } from 'utils/useEnumerableTableRows';
 export { default as useSelectableTableRows } from 'utils/useSelectableTableRows';
 export { default as useClientPaginatedTable } from 'utils/useClientPaginatedTable';
-export { default as Theme } from 'themes/default';
+export { default as defaultTheme } from 'themes/default';
 export { default as ThemeProvider } from 'utils/ThemeProvider';

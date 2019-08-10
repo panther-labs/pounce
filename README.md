@@ -14,15 +14,11 @@ since this is a private repository which requires a certain access.
     npm install git://github.com/panther-labs/pounce.git
 ```
 
-### Usage
+### Quick Start
 
-To use the library you'll need to wrap your app with the `<ThemeProvider>` so that your
-components can have access to the theme. By default `<ThemeProvider>` utilises the default Theme
-that Pounce exposes, but you can easily override that by passing a `theme` prop to it.
+1. Wrap your app with the `ThemeProvider` components:
 
-Make sure to wrap your **entire** app with a `<ThemeProvider>` like so:
-
-```text
+```jsx
 import { ThemeProvider } from 'pouncejs';
 
 const App = () => (
@@ -32,13 +28,89 @@ const App = () => (
        </Router
     </ThemeProvider>
 )
-
 ```
 
-from the on you can simply import any modules directly from `pouncejs`. For example:
+2. Install Roboto:
 
-```text
+```html
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+/>
+```
+
+3.  Ready to go!
+
+```js
 import { Box, Button } from 'pouncejs';
+```
+
+### Advanced Usage
+
+To use the library you'll need to wrap your app with the `<ThemeProvider>` so that your
+components can have access to the theme. By default `<ThemeProvider>` utilises the default Theme
+that Pounce exposes, but you can easily override that by passing a `theme` prop to it.
+
+This can be done like so:
+
+```jsx
+import { ThemeProvider } from 'pouncejs';
+import theme from '../my/theme.js';
+
+const App = () => (
+    <ThemeProvider theme={theme}>
+       <Router>
+         ...
+       </Router
+    </ThemeProvider>
+)
+```
+
+Make sure to wrap your **entire** app with a `<ThemeProvider>` to avoid un-necessary reconsiliations
+and to gain in performance.
+
+The next step would be to make sure you have your selected font-family installed. By default,
+Pounce uses `Roboto` as it fits the default theme the best. If you are using the default theme,
+make sure you install Roboto in your prefered way. The easiest of them all is by adding
+a link tag in your html:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+/>
+```
+
+If you want to use another font-family, simply install it and make sure to mimic this
+change in the `theme` that you will provide to `<ThemeProvider />`. The change that
+you need to make is in the `fonts.primary` key of the theme. For example:
+
+```js
+import { defaultTheme } from 'pouncejs';
+
+export const myTheme = {
+  ...defaultTheme,
+  fonts: {
+    ...defaultTheme.fonts,
+    primary: 'Lato, sans-serif',
+  },
+};
+```
+
+This way you can keep all the defaults and only change the `font-family` exposed. You can also
+add keys to the theme if you want to have a centralised theme configuration that can also be used
+outside the context of pounce:
+
+```js
+import { defaultTheme } from 'pouncejs';
+
+export const myTheme = {
+  ...defaultTheme,
+  fonts: {
+    ...defaultTheme.fonts,
+    secondary: 'Inconsolata, monospace',
+  },
+};
 ```
 
 ### Documentation
