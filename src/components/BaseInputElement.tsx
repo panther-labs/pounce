@@ -78,7 +78,7 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, .
       {!!error && (
         <Box py={4} px={4} color="red300">
           <Flex alignItems="center">
-            <Icon size="small" type="warning" mr={2} flex="1 0 auto" />
+            <Icon size="small" type="warning" mr={2} flex="0 0 auto" />
             <Text size="medium">{error}</Text>
           </Flex>
         </Box>
