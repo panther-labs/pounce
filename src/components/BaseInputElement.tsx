@@ -65,7 +65,11 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, .
 
   return (
     <Box {...styledSystemProps}>
-      {!!label && <InputElementLabel htmlFor={slugify(label)}>{label}</InputElementLabel>}
+      {!!label && (
+        <InputElementLabel htmlFor={slugify(label)} color={error ? 'red300' : 'grey500'}>
+          {label}
+        </InputElementLabel>
+      )}
       <InputElementOuterBox>
         <InputElementInnerBox
           as={as}
@@ -75,7 +79,7 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, .
           {...nativeHtmlProps}
         />
       </InputElementOuterBox>
-      {!!error && (
+      {error && (
         <Box py={4} px={4} color="red300">
           <Flex alignItems="center">
             <Icon size="small" type="warning" mr={2} flex="0 0 auto" />
