@@ -24,7 +24,7 @@ export const InputElementOuterBox = styled<React.FC<InputElementOuterBoxProps>>(
     border: ${({ theme }) => `1px solid ${theme.colors.grey100}`};
   }
 
-  [disabled] {
+  &[disabled] {
     opacity: 0.3;
     pointer-events: none;
   }
@@ -78,7 +78,7 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, .
       {!!error && (
         <Box py={4} px={4} color="red300">
           <Flex alignItems="center">
-            <Icon size="small" type="warning" mr={2} />
+            <Icon size="small" type="warning" mr={2} flex="1 0 auto" />
             <Text size="medium">{error}</Text>
           </Flex>
         </Box>

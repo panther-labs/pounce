@@ -11,7 +11,7 @@ const BaseButton = styled<React.FC<BaseButtonProps>>(props => <Box as="button" {
   cursor: pointer;
   transition: background-color 0.15s linear;
 
-  [disabled] {
+  &[disabled] {
     opacity: 0.3;
     pointer-events: none;
   }
