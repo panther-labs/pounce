@@ -1,5 +1,5 @@
 import * as React from 'react';
-import css from '@styled-system/css';
+import { css } from 'styled-components';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 import Text from 'components/Text';
 
@@ -35,27 +35,27 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
         return {
           color: 'grey400',
           bg: 'grey50',
-          css: css({
-            textTransform: 'uppercase',
+          css: css`
+            text-transform: uppercase;
 
-            ':hover': {
-              filter: 'brightness(90%)',
+            &:hover {
+              filter: brightness(90%);
             },
-          }),
+          `,
         };
       case 'default':
         return {
           color: 'grey400',
           bg: 'transparent',
           boxShadow: 'dark150',
-          css: css({
-            textTransform: 'uppercase',
+          css: css`
+            text-transform: uppercase;
 
-            ':hover': {
-              boxShadow: 'dark200',
-              filter: 'brightness(120%)',
+            &:hover {
+              box-shadow: ${({ theme }) => theme.shadows.dark200};
+              filter: brightness(120%);
             },
-          }),
+          `,
         };
       case 'primary':
       default:
@@ -63,14 +63,14 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
           color: 'white',
           bg: 'primary300',
           boxShadow: 'dark150',
-          css: css({
-            textTransform: 'uppercase',
+          css: css`
+            text-transform: uppercase;
 
-            ':hover': {
-              boxShadow: 'dark200',
-              filter: 'brightness(120%)',
+            &:hover {
+              box-shadow: ${({ theme }) => theme.shadows.dark200};
+              filter: brightness(120%);
             },
-          }),
+          `,
         };
     }
   })();

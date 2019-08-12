@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { CSSProp } from 'styled-components';
-import { SystemStyleObject, CSSObject } from '@styled-system/css';
 import * as StyledSystem from 'styled-system';
 
 // We create an adapter interface cause we have 2 clashing interfaces with regards to the `color`
@@ -44,7 +43,7 @@ export interface BoxProps<T = HTMLElement>
   /** Additional custom inline CSS to pass to the element
    * @default "{}"
    * */
-  css?: CSSProp | ((input?: SystemStyleObject) => CSSObject);
+  css?: CSSProp;
 
   /**
    * The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.

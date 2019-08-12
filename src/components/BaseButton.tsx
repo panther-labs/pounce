@@ -9,7 +9,7 @@ export interface BaseButtonProps extends BoxProps<HTMLButtonElement> {
 
 const BaseButton = styled<React.FC<BaseButtonProps>>(props => <Box as="button" {...props} />)`
   cursor: pointer;
-  transition: background-color 0.15s linear;
+  transition: all 0.1s linear;
 
   &[disabled] {
     opacity: 0.3;

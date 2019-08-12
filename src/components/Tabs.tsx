@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '@styled-system/css';
+import { css } from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Flex, { FlexProps } from 'components/Flex';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
@@ -49,6 +49,18 @@ export const Tab: React.FC<TabProps> = ({
     }),
   };
 
+  // If we don't declare it here and declare it inline on the component below, then it won't have
+  // access to `selected` prop.
+  const inlineStyles = css`
+    outline: 0;
+    transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+
+    &:hover, &:focus {
+      border-color:  ${({ theme }) => (!selected ? theme.colors.grey300 : undefined)};
+      color: ${({ theme }) => (!selected ? theme.colors.grey400 : undefined)};
+    },
+  `;
+
   return (
     <li>
       <BaseButton
@@ -63,16 +75,7 @@ export const Tab: React.FC<TabProps> = ({
         py={3}
         onClick={handleClick}
         onKeyPress={handleKeyPress}
-        css={css({
-          outline: 0,
-          transition: 'color 0.1s ease-in-out, border-color 0.1s ease-in-out',
-
-          // @ts-ignore
-          ':hover, :focus': !selected && {
-            borderColor: 'grey300',
-            color: 'grey400',
-          },
-        })}
+        css={inlineStyles}
         {...rest}
         {...elementBasedProps}
       />
