@@ -37,7 +37,7 @@
     "react-day-picker": "^7.3.0",
     "react-textarea-autosize": "^7.1.0",
     "react-tooltip-lite": "^1.9.5",
-    "styled-components": "^5.0.0-beta.8",
+    "styled-components": "^4.3.2",
     "styled-system": "^5.0.15"
   },
   "peerDependencies": {
