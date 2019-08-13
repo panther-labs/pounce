@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 import Text from 'components/Text';
 import { convertHexToRgba } from 'utils/helpers';
+import forwardAs from 'utils/forwardAs';
 
 export interface ButtonProps extends BaseButtonProps {
   /** The size of the button */
@@ -103,4 +104,4 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
   );
 };
 
-export default Button;
+export default forwardAs(Button);
