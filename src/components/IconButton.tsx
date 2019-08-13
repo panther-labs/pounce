@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { convertHexToRgba } from 'utils/helpers';
+import forwardAs from 'utils/forwardAs';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 
 export interface IconButtonProps extends BaseButtonProps {
@@ -12,9 +13,9 @@ export interface IconButtonProps extends BaseButtonProps {
 }
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
-export const IconButton = styled<React.FC<IconButtonProps>>(props => (
-  <BaseButton bg="transparent" p={3} borderRadius="circle" {...props} />
-))`
+export const IconButton = forwardAs(styled<React.FC<IconButtonProps>>(
+  forwardAs(props => <BaseButton bg="transparent" p={3} borderRadius="circle" {...props} />)
+)`
   color: ${({ theme, active, variant }) =>
     active ? theme.colors[variant === 'primary' ? 'primary300' : 'grey400'] : theme.colors.grey400};
 
@@ -31,7 +32,7 @@ export const IconButton = styled<React.FC<IconButtonProps>>(props => (
     background-color: ${({ theme, variant }) =>
       convertHexToRgba(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
   }
-`;
+`);
 
 IconButton.defaultProps = {
   active: false,

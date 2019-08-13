@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
 import Icon from 'components/Icon';
@@ -12,23 +12,28 @@ type InputElementOuterBoxProps = BoxProps & {
   disabled?: boolean;
 };
 
-export const InputElementOuterBox = styled<React.FC<InputElementOuterBoxProps>>(props => (
-  <Box borderRadius="small" bg="grey50" {...props} />
-))`
-  overflow: hidden;
-  border: ${({ theme }) => `1px solid ${theme.colors.transparent}`};
+export const InputElementOuterBox: React.FC<InputElementOuterBoxProps> = props => (
+  <Box
+    borderRadius="small"
+    bg="grey50"
+    css={css`
+      overflow: hidden;
+      border: ${({ theme }) => `1px solid ${theme.colors.transparent}`};
 
-  &:focus,
-  &:focus-within,
-  &:active {
-    border: ${({ theme }) => `1px solid ${theme.colors.grey100}`};
-  }
+      &:focus,
+      &:focus-within,
+      &:active {
+        border: ${({ theme }) => `1px solid ${theme.colors.grey100}`};
+      }
 
-  &[disabled] {
-    opacity: 0.3;
-    pointer-events: none;
-  }
-`;
+      &[disabled] {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    `}
+    {...props}
+  />
+);
 
 InputElementOuterBox.defaultProps = {
   disabled: false,
