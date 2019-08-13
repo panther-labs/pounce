@@ -16,7 +16,7 @@ import {
   InputElementInnerBox,
 } from 'components/BaseInputElement';
 
-export interface RenderItemProps<T> {
+export interface RenderMultiComboboxItemProps<T> {
   /** The item to render */
   item: T;
 
@@ -27,7 +27,7 @@ export interface RenderItemProps<T> {
   highlighted: boolean;
 }
 
-export interface AutocompleteProps<T> {
+export interface MultiComboboxProps<T> {
   /** Callback when the selection changes */
   onChange: (value: T[]) => void;
 
@@ -46,7 +46,11 @@ export interface AutocompleteProps<T> {
    * MultiSelectMultiCombobox, the `selected` is always going to be `false`, since the selected values
    * are not visible in the menu
    * */
-  renderItem?: ({ item, selected, highlighted }: RenderItemProps<T>) => React.ReactElement;
+  renderItem?: ({
+    item,
+    selected,
+    highlighted,
+  }: RenderMultiComboboxItemProps<T>) => React.ReactElement;
 
   /**
    * The value of the item that is currently selected. The component is a controlled one,
@@ -114,7 +118,7 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
  * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
-const MultiCombobox: React.FC<AutocompleteProps<any>> = ({
+const MultiCombobox: React.FC<MultiComboboxProps<any>> = ({
   onChange,
   value,
   items,
