@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
-import { convertHexToRgba } from '../utils/helpers';
+import { convertHexToRgba } from 'utils/helpers';
 
 const StyledBox = styled(Box)`
   transition: background-color 0.1s ease-in-out;
