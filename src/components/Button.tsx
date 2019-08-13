@@ -2,6 +2,7 @@ import * as React from 'react';
 import { css } from 'styled-components';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 import Text from 'components/Text';
+import { convertHexToRgba } from 'utils/helpers';
 
 export interface ButtonProps extends BaseButtonProps {
   /** The size of the button */
@@ -39,22 +40,30 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
             text-transform: uppercase;
 
             &:hover {
-              filter: brightness(90%);
-            },
+              background-color: ${({ theme }) => theme.colors.grey100};
+            }
+
+            &:active {
+              background-color: ${({ theme }) => theme.colors.grey200};
+            }
           `,
         };
       case 'default':
         return {
           color: 'grey400',
-          bg: 'transparent',
+          bg: 'white',
           boxShadow: 'dark150',
           css: css`
             text-transform: uppercase;
 
             &:hover {
               box-shadow: ${({ theme }) => theme.shadows.dark200};
-              filter: brightness(120%);
-            },
+            }
+
+            &:active {
+              box-shadow: ${({ theme }) => theme.shadows.none};
+              background-color: ${({ theme }) => theme.colors.grey100};
+            }
           `,
         };
       case 'primary':
@@ -68,7 +77,12 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
 
             &:hover {
               box-shadow: ${({ theme }) => theme.shadows.dark200};
-              filter: brightness(120%);
+              background-color: ${({ theme }) => convertHexToRgba(theme.colors.primary300, 0.9)};
+            }
+            
+            &:active {
+              box-shadow: ${({ theme }) => theme.shadows.none};
+              background-color: ${({ theme }) => theme.colors.primary300};
             },
           `,
         };
