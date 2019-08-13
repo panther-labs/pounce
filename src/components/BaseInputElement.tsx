@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
 import Icon from 'components/Icon';
@@ -38,7 +38,17 @@ export type InputElementInnerBoxProps = BoxProps<HTMLInputElement> &
   React.HTMLProps<HTMLInputElement>;
 
 export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props => (
-  <Box px={4} py={3} fontSize={3} border={0} bg="transparent" {...props} />
+  <Box
+    css={css`
+      outline: none;
+    `}
+    px={4}
+    py={3}
+    fontSize={3}
+    border={0}
+    bg="transparent"
+    {...props}
+  />
 );
 
 export const InputElementLabel: React.FC<Omit<LabelProps, 'size'>> = ({ children, ...rest }) => (
