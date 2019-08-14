@@ -45,7 +45,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, itemRenderer }) => {
 
         return (
           <Flex key={item.href} as="li" alignItems="center">
-            <StyledHeading color={isLastBreadcrumb ? 'black' : 'grey300'} size="large">
+            <StyledHeading color={isLastBreadcrumb ? 'grey500' : 'grey300'} size="large">
               {itemRenderer && itemRenderer(item)}
             </StyledHeading>
             {!isLastBreadcrumb && <Icon type="chevron-right" mx={4} color="grey300" size="large" />}
