@@ -22,6 +22,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   highlighted,
   selected,
   variant,
+  css: userCssProp,
   children,
   ...rest
 }) => {
@@ -45,6 +46,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   })();
 
   const inlineStyles = css`
+    ${userCssProp};
     transition: background-color 0.1s ease-in-out;
     cursor: pointer;
 
