@@ -26,6 +26,7 @@ export const Tab: React.FC<TabProps> = ({
   selected,
   onKeyPress,
   disabled,
+  css: userCssProp,
   ...rest
 }) => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -52,6 +53,7 @@ export const Tab: React.FC<TabProps> = ({
   // If we don't declare it here and declare it inline on the component below, then it won't have
   // access to `selected` prop.
   const inlineStyles = css`
+    ${userCssProp};
     outline: 0;
     transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 

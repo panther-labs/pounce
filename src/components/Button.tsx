@@ -17,7 +17,7 @@ export interface ButtonProps extends BaseButtonProps {
  *
  * The core re-usable button that you will use in the app.
  */
-const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssProp, ...rest }) => {
   const sizeProps = (() => {
     switch (size) {
       case 'small':
@@ -91,7 +91,10 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
     <BaseButton
       fontWeight="bold"
       borderRadius="large"
-      css={variantProps.css}
+      css={`
+        ${userCssProp}
+        ${variantProps.css}
+      `}
       {...sizeProps}
       {...variantProps}
       {...rest}
