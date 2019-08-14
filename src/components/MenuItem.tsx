@@ -29,18 +29,18 @@ const MenuItem: React.FC<MenuItemProps> = ({
     if (selected) {
       return {
         bg: variant === 'primary' ? 'primary50' : 'grey100',
-        color: variant === 'primary' ? 'primary300' : 'grey400',
+        color: variant === 'primary' ? 'primary300' : 'grey500',
       };
     }
     if (highlighted) {
       return {
         bg: 'grey50',
-        color: 'grey400',
+        color: 'grey500',
       };
     }
     return {
       bg: 'transparent',
-      color: 'grey400',
+      color: 'grey500',
     };
   })();
 
