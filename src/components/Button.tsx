@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
-import Text from 'components/Text';
 import { convertHexToRgba } from 'utils/helpers';
 import forwardAs from 'utils/forwardAs';
 
@@ -16,9 +15,7 @@ export interface ButtonProps extends BaseButtonProps {
 /**
  * Extends <a href="/#/Box">Box</a>
  *
- * The core re-usable button that you will use in the app. You can either add plain text (which will
- * be wrapped in a `<Text>` element) or other React components (which will not be wrapped with
- * anything).
+ * The core re-usable button that you will use in the app.
  */
 const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => {
   const sizeProps = (() => {
@@ -99,7 +96,7 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
       {...variantProps}
       {...rest}
     >
-      {typeof children === 'string' ? <Text size="medium">{children}</Text> : children}
+      {children}
     </BaseButton>
   );
 };
