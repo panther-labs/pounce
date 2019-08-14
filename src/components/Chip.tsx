@@ -20,7 +20,9 @@ export interface ChipProps extends CardProps {
 const Chip: React.FC<ChipProps> = ({ content, onClick, ...rest }) => (
   <Card bg="grey100" px={2} py={1} {...rest}>
     <Flex alignItems="center">
-      <Text size="large">{content}</Text>
+      <Text size="large" color="grey500">
+        {content}
+      </Text>
       {onClick && (
         <IconButton variant="default" onClick={onClick} p={0} ml={2}>
           <Icon size="small" type="remove" />

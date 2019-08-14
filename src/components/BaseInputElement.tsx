@@ -52,6 +52,7 @@ export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props =
     fontSize={3}
     border={0}
     bg="transparent"
+    color="grey400"
     {...props}
   />
 );
