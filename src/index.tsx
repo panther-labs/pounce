@@ -70,3 +70,4 @@ export { default as useClientPaginatedTable } from 'utils/useClientPaginatedTabl
 export { default as defaultTheme } from 'themes/default';
 export { default as ThemeProvider } from 'utils/ThemeProvider';
 export { default as css } from '@styled-system/css';
+export { ThemeProvider as ThemeProviderS } from 'styled-components';
