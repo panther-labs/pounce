@@ -16,7 +16,7 @@ import {
   InputElementInnerBox,
 } from 'components/BaseInputElement';
 
-export interface RenderItemProps<T> {
+export interface RenderMultiComboboxItemProps<T> {
   /** The item to render */
   item: T;
 
@@ -27,7 +27,7 @@ export interface RenderItemProps<T> {
   highlighted: boolean;
 }
 
-export interface AutocompleteProps<T> {
+export interface MultiComboboxProps<T> {
   /** Callback when the selection changes */
   onChange: (value: T[]) => void;
 
@@ -46,7 +46,11 @@ export interface AutocompleteProps<T> {
    * MultiSelectMultiCombobox, the `selected` is always going to be `false`, since the selected values
    * are not visible in the menu
    * */
-  renderItem?: ({ item, selected, highlighted }: RenderItemProps<T>) => React.ReactElement;
+  renderItem?: ({
+    item,
+    selected,
+    highlighted,
+  }: RenderMultiComboboxItemProps<T>) => React.ReactElement;
 
   /**
    * The value of the item that is currently selected. The component is a controlled one,
@@ -114,20 +118,22 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
  * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
-const MultiCombobox: React.FC<AutocompleteProps<any>> = ({
+const MultiCombobox: <T = any>(
+  props: MultiComboboxProps<T>
+) => React.ReactElement<MultiComboboxProps<T>> = ({
   onChange,
   value,
   items,
   renderItem,
-  searchable,
-  label,
-  inputProps,
-  rootProps,
-  menuProps,
-  disabled,
-  allowAdditions,
-  validateAddition,
-  itemToString = item => item,
+  searchable = false,
+  label = '',
+  inputProps = {},
+  rootProps = {},
+  menuProps = {},
+  disabled = false,
+  itemToString = item => String(item),
+  allowAdditions = false,
+  validateAddition = () => true,
 }) => {
   const removeItem = (item: any) => {
     onChange(value.filter(i => i !== item));
@@ -267,19 +273,6 @@ const MultiCombobox: React.FC<AutocompleteProps<any>> = ({
       </Downshift>
     </Box>
   );
-};
-
-MultiCombobox.defaultProps = {
-  label: '',
-  itemToString: item => item,
-  searchable: false,
-  disabled: false,
-  allowAdditions: false,
-  validateAddition: () => true,
-  inputProps: {},
-  rootProps: {},
-  menuProps: {},
-  renderItem: undefined,
 };
 
 export default React.memo(MultiCombobox);
