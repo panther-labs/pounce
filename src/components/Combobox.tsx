@@ -170,7 +170,11 @@ const Combobox: <T = any>(props: ComboboxProps<T>) => React.ReactElement<Combobo
                             highlighted: highlightedIndex === index,
                           })
                         ) : (
-                          <MenuItem highlighted={highlightedIndex === index} selected={false}>
+                          <MenuItem
+                            variant="default"
+                            highlighted={highlightedIndex === index}
+                            selected={false}
+                          >
                             {itemToString(item)}
                           </MenuItem>
                         )}
