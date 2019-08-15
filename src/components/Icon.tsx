@@ -124,7 +124,7 @@ const Icon: React.FC<IconProps> = ({ type, size, color, ...rest }) => {
   const Component = svgComponentMapping[type];
   const sizeInPx = size === 'small' ? 18 : 24;
 
-  return <Box color={color} as={Component} width={sizeInPx} height={sizeInPx} {...rest} />;
+  return <Box color={color} is={Component} width={sizeInPx} height={sizeInPx} {...rest} />;
 };
 
 Icon.defaultProps = {

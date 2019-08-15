@@ -26,7 +26,7 @@ const Label: React.FC<LabelProps> = ({ size, ...rest }) => {
     }
   })() as { fontWeight: keyof DefaultTheme['fontWeights']; fontSize: number };
 
-  return <BaseText as="label" {...sizeProps} {...rest} />;
+  return <BaseText is="label" {...sizeProps} {...rest} />;
 };
 
 export default Label;

@@ -133,7 +133,7 @@ const Table: React.FC<TableProps> = ({
     let content = column.renderColumnHeader ? (
       column.renderColumnHeader(sortKey === column.key)
     ) : (
-      <Label as="h4" size="small" color="grey400">
+      <Label is="h4" size="small" color="grey400">
         {(column.header || '').toUpperCase()}
       </Label>
     );

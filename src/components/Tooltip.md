@@ -33,7 +33,7 @@ import Text from 'components/Text';
   allowHover
   positioning="down"
   content={
-    <Text size="medium" as="a" href="https://google.com">
+    <Text size="medium" is="a" href="https://google.com">
       Go to google!
     </Text>
   }

@@ -79,7 +79,7 @@ const Modal: React.FC<ModalProps> = ({
         >
           <Card py={5} px={8} minWidth="400px" maxWidth="700px">
             {title && (
-              <Box as="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
+              <Box is="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
                 <Heading size="medium" textAlign="center">
                   {title}
                 </Heading>

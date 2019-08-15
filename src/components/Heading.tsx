@@ -22,7 +22,7 @@ const Heading: React.FC<HeadingProps> = ({ size, ...rest }) => {
     }
   })() as { fontWeight: keyof DefaultTheme['fontWeights']; fontSize: number };
 
-  return <BaseText as="h1" {...sizeProps} {...rest} />;
+  return <BaseText is="h1" {...sizeProps} {...rest} />;
 };
 
 export default Heading;
