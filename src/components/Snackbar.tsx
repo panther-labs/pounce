@@ -25,7 +25,7 @@ const Snackbar: React.FC<SnackbarProps> = ({ destroy, duration, ...rest }) => {
     return () => clearTimeout(timeoutRef.current);
   }, []);
 
-  return <Alert discardable {...rest} />;
+  return <Alert py={2} discardable {...rest} />;
 };
 
 Snackbar.defaultProps = {
