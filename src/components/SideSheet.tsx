@@ -52,6 +52,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
       boxShadow="dark200"
       css={css`
         outline: none;
+        overflow: auto;
       `}
       {...rest}
     >
