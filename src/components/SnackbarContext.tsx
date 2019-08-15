@@ -77,9 +77,8 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     return ReactDOM.createPortal(
       <Flex
         position="fixed"
-        top={6}
-        left={0}
-        right={0}
+        bottom={4}
+        left={6}
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
