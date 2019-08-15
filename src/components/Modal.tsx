@@ -1,12 +1,12 @@
 import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
 import Box from 'components/Box';
-import Card from 'components/Card';
+import Card, { CardProps } from 'components/Card';
 import Heading from 'components/Heading';
 import Flex from 'components/Flex';
 import { css } from 'styled-components';
 
-export interface ModalProps {
+export interface ModalProps extends CardProps {
   /** Whether the modal should be visible or not */
   open: boolean;
 

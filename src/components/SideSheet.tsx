@@ -1,11 +1,11 @@
 import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
-import Box from 'components/Box';
+import Box, { BoxProps } from 'components/Box';
 import IconButton from 'components/IconButton';
 import Icon from 'components/Icon';
 import { css } from 'styled-components';
 
-export interface SideSheetProps {
+export interface SideSheetProps extends BoxProps {
   /** Whether the modal should be visible or not */
   open: boolean;
 
