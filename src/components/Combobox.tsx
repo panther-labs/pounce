@@ -143,7 +143,7 @@ const Combobox: <T = any>(props: ComboboxProps<T>) => React.ReactElement<Combobo
                 <Flex alignItems="center" flexWrap="wrap">
                   <InputElementInnerBox
                     {...getInputProps(additionalInputProps)}
-                    as="input"
+                    is="input"
                     type="text"
                     flex="1 0 auto"
                   />

@@ -29,7 +29,7 @@ import Icon from 'components/Icon';
 import Flex from 'components/Flex';
 import Text from 'components/Text';
 
-<Button variant="primary" size="small">
+<Button variant="primary" size="small" is="div">
   <Flex alignItems="center">
     <Icon type="arrow-back" size="small" mr={1} />
     <Text size="medium">Take me back</Text>

@@ -76,7 +76,7 @@ export type BaseInputElementProps = InputElementOuterBoxProps &
     error?: string;
   };
 
-const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, ...rest }) => {
+const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, is, ...rest }) => {
   const [styledSystemProps, nativeHtmlProps] = separateStyledSystemProps(rest);
 
   return (
@@ -88,7 +88,7 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, .
       )}
       <InputElementOuterBox>
         <InputElementInnerBox
-          as={as}
+          is={is}
           width={1}
           id={label ? slugify(label) : undefined}
           color={!error ? 'grey400' : 'red300'}

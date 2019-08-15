@@ -28,7 +28,7 @@ export const Dropdown: React.FC<DropdownProps> & { Item: typeof ReachMenuItem } 
   <ReachMenu>
     <ReachMenuButton>{trigger}</ReachMenuButton>
     <Card
-      as={ReachMenuList}
+      is={ReachMenuList}
       position="absolute"
       top="100%"
       left={0}

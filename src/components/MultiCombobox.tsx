@@ -228,7 +228,7 @@ const MultiCombobox: <T = any>(
                   ))}
                   <InputElementInnerBox
                     {...getInputProps(additionalInputProps)}
-                    as="input"
+                    is="input"
                     type="text"
                     flex="1 0 auto"
                   />
