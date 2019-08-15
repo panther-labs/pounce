@@ -5,14 +5,11 @@ import {
   MenuItem as ReachMenuItem,
   MenuButton as ReachMenuButton,
 } from '@reach/menu-button';
-import Card, { CardProps } from 'components/Card';
+import Card from 'components/Card';
 
 export interface DropdownProps {
   /** The element that will toggle (open/close) the dropdown.  */
   trigger: React.ReactNode;
-
-  /** A set of props & attributes to apply to the container of the dropdown options (the Menu) */
-  menuProps?: CardProps;
 }
 
 /**
@@ -22,28 +19,16 @@ export interface DropdownProps {
  */
 export const Dropdown: React.FC<DropdownProps> & { Item: typeof ReachMenuItem } = ({
   trigger,
-  menuProps,
   children,
+  ...rest
 }) => (
   <ReachMenu>
     <ReachMenuButton>{trigger}</ReachMenuButton>
-    <Card
-      is={ReachMenuList}
-      position="absolute"
-      top="100%"
-      left={0}
-      zIndex={99}
-      mt={2}
-      {...menuProps}
-    >
+    <Card is={ReachMenuList} position="absolute" top="100%" left={0} zIndex={99} mt={2} {...rest}>
       {children}
     </Card>
   </ReachMenu>
 );
-
-Dropdown.defaultProps = {
-  menuProps: {},
-};
 
 Dropdown.Item = ReachMenuItem;
 
