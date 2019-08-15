@@ -32,7 +32,6 @@ export const Dropdown: React.FC<DropdownProps> & { Item: typeof ReachMenuItem } 
       position="absolute"
       top="100%"
       left={0}
-      boxShadow={2}
       zIndex={99}
       mt={2}
       {...menuProps}
