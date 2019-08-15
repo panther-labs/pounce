@@ -82,6 +82,7 @@ export const SnackbarProvider: React.FC = ({ children }) => {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        zIndex={9999}
       >
         {snackbars.map(({ id, ...snackbarPublicProps }) => (
           <Snackbar mb={3} key={id} destroy={() => removeSnackbar(id)} {...snackbarPublicProps} />
