@@ -1,7 +1,17 @@
 import React from 'react';
-import { css } from 'styled-components';
+import styled from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
+
+const StyledBox = styled<React.FC<BoxProps>>(Box)`
+  transition: background-color 0.1s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme, ['aria-selected']: selected }) =>
+      !selected && theme.colors.grey50};
+  }
+`;
 
 interface MenuItemProps extends BoxProps {
   /** Whether the current item is highlighted through the keyboard **/
@@ -22,7 +32,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
   highlighted,
   selected,
   variant,
-  css: userCssProp,
   children,
   ...rest
 }) => {
@@ -31,6 +40,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       return {
         bg: variant === 'primary' ? 'primary50' : 'grey100',
         color: variant === 'primary' ? 'primary300' : 'grey500',
+        'aria-selected': true,
       };
     }
     if (highlighted) {
@@ -42,23 +52,14 @@ const MenuItem: React.FC<MenuItemProps> = ({
     return {
       bg: 'transparent',
       color: 'grey500',
+      'aria-selected': false,
     };
   })();
 
-  const inlineStyles = css`
-    ${userCssProp};
-    transition: background-color 0.1s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-      background-color: ${({ theme }) => !selected && theme.colors.grey50};
-    }
-  `;
-
   return (
-    <Box px={5} py={4} css={inlineStyles} {...styleProps} {...rest}>
+    <StyledBox px={5} py={4} {...styleProps} {...rest}>
       <Text size="large">{children}</Text>
-    </Box>
+    </StyledBox>
   );
 };
 
