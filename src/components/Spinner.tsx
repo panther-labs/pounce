@@ -29,7 +29,7 @@ const StyledCircleContainer = styled.svg`
 const StyledCircle = styled.circle`
   stroke-dashoffset: 600;
   stroke-dasharray: 300;
-  stroke-width: 12;
+  stroke-width: 13;
   stroke-miterlimit: 10;
   stroke-linecap: round;
   animation: ${circleKeyframes} 1.6s cubic-bezier(0.4, 0.15, 0.6, 0.85) infinite;
@@ -63,12 +63,12 @@ const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
   const sizeProps = (() => {
     switch (size) {
       case 'small':
-        return { width: '20px', height: '20px' };
+        return { width: '18px', height: '18px' };
       case 'medium':
-        return { width: '40px', height: '40px' };
+        return { width: '36px', height: '36px' };
       case 'large':
       default:
-        return { width: '60px', height: '60px' };
+        return { width: '54px', height: '54px' };
     }
   })();
 
