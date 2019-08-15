@@ -49,7 +49,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
       position="absolute"
       top="0"
       right="0"
-      boxShadow={3}
+      boxShadow="dark200"
       css={css`
         outline: none;
       `}
