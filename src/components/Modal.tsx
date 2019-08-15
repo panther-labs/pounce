@@ -40,6 +40,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   disableBackdropClick,
   disableEscapeKeyDown,
+  ...rest
 }) => {
   const handleBackdropClick = (event: React.MouseEvent) => {
     // Ignore the events not coming from the "backdrop"
@@ -77,7 +78,7 @@ const Modal: React.FC<ModalProps> = ({
           height="100%"
           onClick={handleBackdropClick}
         >
-          <Card py={5} px={8} minWidth="400px" maxWidth="700px">
+          <Card py={5} px={8} minWidth="400px" maxWidth="700px" {...rest}>
             {title && (
               <Box is="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
                 <Heading size="medium" textAlign="center">

@@ -32,6 +32,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
   onClose,
   disableBackdropClick,
   disableEscapeKeyDown,
+  ...rest
 }) => (
   <MUIModal
     role="dialog"
@@ -52,6 +53,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
       css={css`
         outline: none;
       `}
+      {...rest}
     >
       <Box position="relative" p={2}>
         <IconButton

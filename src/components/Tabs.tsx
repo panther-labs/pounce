@@ -1,8 +1,20 @@
 import React from 'react';
-import { css } from 'styled-components';
+import styled from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Flex, { FlexProps } from 'components/Flex';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
+
+const StyledTab = styled<React.FC<Omit<TabProps, 'onSelect'>>>(BaseButton)`
+    outline: 0;
+    transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+
+    &:hover, &:focus {
+      border-color:  ${({ theme, ['aria-selected']: selected }) =>
+        !selected ? theme.colors.grey300 : undefined};
+      color: ${({ theme, ['aria-selected']: selected }) =>
+        !selected ? theme.colors.grey400 : undefined};
+    },
+  `;
 
 export interface TabProps extends BaseButtonProps {
   /**
@@ -26,7 +38,6 @@ export const Tab: React.FC<TabProps> = ({
   selected,
   onKeyPress,
   disabled,
-  css: userCssProp,
   ...rest
 }) => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -50,22 +61,9 @@ export const Tab: React.FC<TabProps> = ({
     }),
   };
 
-  // If we don't declare it here and declare it inline on the component below, then it won't have
-  // access to `selected` prop.
-  const inlineStyles = css`
-    ${userCssProp};
-    outline: 0;
-    transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
-
-    &:hover, &:focus {
-      border-color:  ${({ theme }) => (!selected ? theme.colors.grey300 : undefined)};
-      color: ${({ theme }) => (!selected ? theme.colors.grey400 : undefined)};
-    },
-  `;
-
   return (
     <li>
-      <BaseButton
+      <StyledTab
         borderRadius="small"
         border="1px solid"
         fontSize={3}
@@ -77,7 +75,7 @@ export const Tab: React.FC<TabProps> = ({
         py={3}
         onClick={handleClick}
         onKeyPress={handleKeyPress}
-        css={inlineStyles}
+        selected={selected}
         {...rest}
         {...elementBasedProps}
       />
