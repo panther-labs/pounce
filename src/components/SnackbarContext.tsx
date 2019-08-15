@@ -45,7 +45,9 @@ const snackbarStateReducer = (snackbars: SnackbarStateShape[], action: SnackbarS
   }
 };
 
-const SnackbarContext = React.createContext({});
+const SnackbarContext = React.createContext<{ pushSnackbar: (props: SnackbarProps) => void }>({
+  pushSnackbar: () => {},
+});
 
 /**
  * A component that acts both as a state-manager and provider. It provides access to methods for
