@@ -64,7 +64,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
           right={0}
           onClick={() => onClose({}, 'closeButtonClick')}
         >
-          <Icon size="small" type="close" />
+          <Icon size="large" type="close" />
         </IconButton>
         {children}
       </Box>
