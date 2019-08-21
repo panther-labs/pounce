@@ -1,0 +1,30 @@
+version: 2.1
+executors:
+  node-env:
+    docker:
+      - image: circleci/node:10.16.3
+
+jobs:
+  install:
+    executor:
+      - name: node-env
+    steps:
+      - npm i
+
+  lint:
+    executor:
+      - name: node-env
+    steps:
+      - npm run lint
+
+  build:
+    executor:
+      - name: node-env
+    steps:
+      - npm run build
+
+  docs:
+    executor:
+      - name: node-env
+    steps:
+      - npm run docs
