@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Setup documentation deployment
           command: |
-            npm install -g  gh-pages@latest
+            sudo npm install -g  gh-pages@latest
             git config user.email "github-service-account@runpanther.io"
             git config user.name "panther-service-account"
       - run:
