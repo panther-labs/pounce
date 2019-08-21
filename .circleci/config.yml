@@ -9,25 +9,25 @@ jobs:
     executor:
       - name: node-env
     steps:
-      - npm i
+      - run: npm i
 
   lint:
     executor:
       - name: node-env
     steps:
-      - npm run lint
+      - run: npm run lint
 
   build:
     executor:
       - name: node-env
     steps:
-      - npm run build
+      - run: npm run build
 
   docs:
     executor:
       - name: node-env
     steps:
-      - npm run docs
+      - run: npm run docs
 
 workflows:
   version: 2
