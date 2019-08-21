@@ -1,8 +1,9 @@
 version: 2.1
 
-defaults:
-  docker:
-    - image: circleci/node:10.16.3
+executors:
+  node:
+    docker:
+      - image: circleci/node:10.16.3
 
 commands:
   setup:
@@ -16,6 +17,7 @@ commands:
 
 jobs:
   build:
+    executor: node
     steps:
       - checkout
       - setup
@@ -24,6 +26,7 @@ jobs:
           command: npm run build
 
   docs:
+    executor: node
     steps:
       - checkout
       - setup
