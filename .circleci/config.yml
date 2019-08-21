@@ -21,14 +21,18 @@ jobs:
     steps:
       - checkout
       - setup
-      - run: npm run build
+      - run:
+          name: Build the project
+          command: npm run build
 
   docs:
     executor: node-env
     steps:
       - checkout
       - setup
-      - run: npm run docs
+      - run:
+          name: Generate documentation
+          command: npm run docs
 
 workflows:
   version: 2
