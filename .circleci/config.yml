@@ -31,8 +31,17 @@ jobs:
       - checkout
       - setup
       - run:
-          name: Generate documentation
+          name: Generate documentation pages
           command: npm run docs
+      - run:
+          name: Setup documentation deployment
+          command: |
+            npm install -g --silent gh-pages@latest
+            git config user.email "github-service-account@runpanther.io"
+            git config user.name "panther-service-account"
+      - run:
+          name: Deploy documentation pages
+          command: gh-pages --dist .styleguidist
 
 workflows:
   version: 2
@@ -40,3 +49,6 @@ workflows:
     jobs:
       - build
       - docs
+#          filters:
+#            branches:
+#              only: master
