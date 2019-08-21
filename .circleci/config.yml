@@ -41,10 +41,7 @@ jobs:
             git config user.name "panther-service-account"
       - run:
           name: Deploy documentation pages
-          command: sudo gh-pages -d .styleguidist
-      - run:
-          name: Say yes prompt
-          command: yes
+          command: sudo yes | gh-pages -d .styleguidist
 
 workflows:
   version: 2
