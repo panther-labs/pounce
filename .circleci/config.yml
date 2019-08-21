@@ -8,8 +8,12 @@ commands:
   setup:
     executor: node-env
     steps:
-      - run: npm lint
-      - run: npm i
+      - run:
+          name: Lint project and run TS checks
+          command: npm run lint
+      - run:
+          name: Install js dependencies
+          command: npm i
 
 jobs:
   build:
