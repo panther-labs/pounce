@@ -28,3 +28,12 @@ jobs:
       - name: node-env
     steps:
       - npm run docs
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - install
+      - lint
+      - build
+      - docs
