@@ -5,35 +5,33 @@ executors:
       - image: circleci/node:10.16.3
 
 jobs:
-  install:
+  setup:
     executor:
       - name: node-env
     steps:
+      - checkout
+      - run: npm lint
       - run: npm i
-
-  lint:
-    executor:
-      - name: node-env
-    steps:
-      - run: npm run lint
 
   build:
     executor:
       - name: node-env
     steps:
+      - install
+      - lint
       - run: npm run build
 
   docs:
     executor:
       - name: node-env
     steps:
+      - install
       - run: npm run docs
 
 workflows:
   version: 2
   build:
     jobs:
-      - install
-      - lint
+      - setup
       - build
       - docs
