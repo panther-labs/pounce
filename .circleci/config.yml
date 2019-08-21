@@ -33,6 +33,8 @@ jobs:
       - run:
           name: Generate documentation pages
           command: npm run docs
+      - attach_workspace:
+          at: .styleguidist
       - run:
           name: Setup documentation deployment
           command: |
