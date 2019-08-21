@@ -6,24 +6,21 @@ executors:
 
 jobs:
   setup:
-    executor:
-      - name: node-env
+    executor: node-env
     steps:
       - checkout
       - run: npm lint
       - run: npm i
 
   build:
-    executor:
-      - name: node-env
+    executor: node-env
     steps:
       - install
       - lint
       - run: npm run build
 
   docs:
-    executor:
-      - name: node-env
+    executor: node-env
     steps:
       - install
       - run: npm run docs
