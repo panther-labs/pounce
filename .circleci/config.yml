@@ -9,11 +9,11 @@ commands:
   setup:
     steps:
       - run:
-          name: Lint project and run TS checks
-          command: npm run lint
-      - run:
           name: Install js dependencies
           command: npm i
+      - run:
+          name: Lint project and run TS checks
+          command: npm run lint
 
 jobs:
   build:
