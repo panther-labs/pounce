@@ -1,5 +1,4 @@
 import React from 'react';
-import { TableItem } from 'components/Table';
 import IconButton from '../components/IconButton';
 import Icon from 'components/Icon';
 import Label from 'components/Label';
@@ -8,13 +7,13 @@ import Flex from 'components/Flex';
 import Dropdown from 'components/Dropdown';
 import MenuItem from 'components/MenuItem';
 
-export interface UseClientPaginatedTable {
+export interface UsePaginatedTable {
   /**
-   * A list of items that are going to be showcased by the Table. TableItem extends the basic JS
-   * object, thus the shape of these items can by anything. Usually they keep the same
-   * shape as the one that was returned from the API.
+   * The total number of items that this table will show. This prop is only used to display the
+   * total number of pages that exist for a selected page size. You can omit it if you don't want
+   * the total number of pages to be shown
    */
-  items: TableItem[];
+  total?: number;
 
   /**
    * A list of page sizes that the user is going to be able to select from
@@ -31,11 +30,11 @@ export interface UseClientPaginatedTable {
  * A hook that extends the columns of a table in order to add an enumeration column to show the
  * serial number of each row
  * */
-const useEnumerableTableRows = ({
-  items,
+const usePaginatedTable = ({
+  total = 0,
   pageSizes = [25, 50, 75, 100],
   initialPageSizeIndex,
-}: UseClientPaginatedTable) => {
+}: UsePaginatedTable) => {
   const [activePageIndex, setActivePageIndex] = React.useState(0);
   const [activePageSizeIndex, setActivePageSizeIndex] = React.useState(initialPageSizeIndex || 0);
 
@@ -43,44 +42,51 @@ const useEnumerableTableRows = ({
 
   return React.useMemo(
     () => ({
-      items: items.slice(itemsPerPage * activePageIndex, itemsPerPage * (activePageIndex + 1)),
+      startIndex: itemsPerPage * activePageIndex,
+      endIndex: itemsPerPage * (activePageIndex + 1) - 1,
+      itemsPerPage,
+      activePageIndex,
       paginationElement: (
         <Flex alignItems="center" justifyContent="center">
           <Flex mr={9} alignItems="center">
             <IconButton variant="default" onClick={() => setActivePageIndex(activePageIndex - 1)}>
               <Icon size="small" type="chevron-left" />
             </IconButton>
-            <Label size="large" mx={4}>
-              {activePageIndex + 1} of {Math.ceil(items.length / itemsPerPage)}
-            </Label>
+            {total > 0 && (
+              <Label size="large" mx={4}>
+                {activePageIndex + 1} of {Math.ceil(total / itemsPerPage)}
+              </Label>
+            )}
             <IconButton variant="default" onClick={() => setActivePageIndex(activePageIndex + 1)}>
               <Icon size="small" type="chevron-right" />
             </IconButton>
           </Flex>
-          <Flex alignItems="center">
-            <Dropdown
-              trigger={
-                <Flex alignItems="center">
-                  <Text size="medium" mr={2}>
-                    {itemsPerPage} per page
-                  </Text>
-                  <Icon size="small" type="rules" />
-                </Flex>
-              }
-            >
-              {pageSizes.map((pageSize, index) => (
-                <Dropdown.Item
-                  key={pageSize}
-                  onSelect={() => {
-                    setActivePageSizeIndex(index);
-                    setActivePageIndex(0);
-                  }}
-                >
-                  <MenuItem>{pageSize} per page</MenuItem>
-                </Dropdown.Item>
-              ))}
-            </Dropdown>
-          </Flex>
+          {pageSizes.length > 1 && (
+            <Flex alignItems="center">
+              <Dropdown
+                trigger={
+                  <Flex alignItems="center">
+                    <Text size="medium" mr={2}>
+                      {itemsPerPage} per page
+                    </Text>
+                    <Icon size="small" type="rules" />
+                  </Flex>
+                }
+              >
+                {pageSizes.map((pageSize, index) => (
+                  <Dropdown.Item
+                    key={pageSize}
+                    onSelect={() => {
+                      setActivePageSizeIndex(index);
+                      setActivePageIndex(0);
+                    }}
+                  >
+                    <MenuItem>{pageSize} per page</MenuItem>
+                  </Dropdown.Item>
+                ))}
+              </Dropdown>
+            </Flex>
+          )}
         </Flex>
       ),
     }),
@@ -88,4 +94,4 @@ const useEnumerableTableRows = ({
   );
 };
 
-export default useEnumerableTableRows;
+export default usePaginatedTable;
