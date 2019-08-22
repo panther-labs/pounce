@@ -41,7 +41,7 @@ jobs:
             git config user.name "panther-service-account"
       - run:
           name: Deploy documentation pages
-          command: node .node_modules/gh-pages/bin/gh-pages --dist .styleguidist
+          command: node node_modules/gh-pages/bin/gh-pages --dist .styleguidist
 
 workflows:
   version: 2
