@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/panther-labs/pounce/tree/master.svg?style=svg)](https://circleci.com/gh/panther-labs/pounce/tree/master)
+
 ### Description
 
 This repo holds common UI components for building dashboards in Panther Labs. It's
