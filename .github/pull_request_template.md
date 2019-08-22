@@ -1,11 +1,11 @@
 ### Background
 
-<High level overview here>
+High level overview here
 
 ### Changes
 
-- <Describe changes here>
+- Describe changes here
 
 ### Testing
 
-- <Testing steps>
+- Testing steps
