@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/panther-labs/pounce/tree/master.svg?style=svg)](https://circleci.com/gh/panther-labs/pounce/tree/master)
+
 ### Description
 
 This repo holds common UI components for building dashboards in Panther Labs. It's
@@ -115,14 +117,8 @@ export const myTheme = {
 
 ### Documentation
 
-In order to know the names of the exposed components and to see their documentation,
-you should clone the project locally and run it's `start` command. This will spin up
-a local server that is going to showcase you the docs. To do that type the following:
+Documentation is available on [http://pouncejs.surge.sh/](http://pouncejs.surge.sh/)
 
-```text
-    git clone git@github.com:panther-labs/pounce.git
-    cd pounce
-    npm run start
 ```
 
 ### Performance
@@ -142,3 +138,4 @@ version in order to not have two separate versions of a CSS-in-JS library in you
 When deploying a project with pounce, you will have to make sure that the CI that builds
 the project (most likely Codebuild) has access to the organisation's github repo. This is
 most likely already happening, but bear that in mind regardless.
+```
