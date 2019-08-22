@@ -33,17 +33,15 @@ jobs:
       - run:
           name: Generate documentation pages
           command: npm run docs
-      - attach_workspace:
-          at: .styleguidist
       - run:
           name: Setup documentation deployment
           command: |
-            sudo npm install -g  gh-pages@latest --unsafe-perm=true --allow-root
+            npm install gh-pages@latest --unsafe-perm=true --allow-root
             git config user.email "github-service-account@runpanther.io"
             git config user.name "panther-service-account"
       - run:
           name: Deploy documentation pages
-          command: sudo yes | gh-pages -d .styleguidist
+          command: .node_modules/gh-pages --dist .styleguidist
 
 workflows:
   version: 2
