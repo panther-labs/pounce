@@ -51,7 +51,7 @@ const Alert: React.FC<AlertProps> = ({
   // Progressively override/enhance the rendered structure based on the optional props provided.
   // Order of checks matters a lot here
   let content = (
-    <Text size="large" as="p" color={variantProps.color}>
+    <Text size="large" is="p" color={variantProps.color}>
       {title}
     </Text>
   );
@@ -60,7 +60,7 @@ const Alert: React.FC<AlertProps> = ({
     content = (
       <Box>
         {content}
-        <Text size="medium" as="p" color="grey200" mt={1}>
+        <Text size="medium" is="p" color="grey200" mt={1}>
           {description}
         </Text>
       </Box>
@@ -70,7 +70,7 @@ const Alert: React.FC<AlertProps> = ({
   if (icon) {
     content = (
       <Flex alignItems="flex-start">
-        <Icon type={icon} mr={4} color={variantProps.borderColor} />
+        <Icon size="small" type={icon} mr={4} color={variantProps.borderColor} />
         {content}
       </Flex>
     );
@@ -79,7 +79,7 @@ const Alert: React.FC<AlertProps> = ({
     content = (
       <Flex alignItems="center">
         <Box flex="1 0 auto">{content}</Box>
-        <IconButton ml={7} onClick={() => setOpen(false)}>
+        <IconButton is="div" variant="default" ml={7} onClick={() => setOpen(false)}>
           <Icon type="close" size="large" color="grey200" />
         </IconButton>
       </Flex>
@@ -101,8 +101,8 @@ const Alert: React.FC<AlertProps> = ({
 };
 
 Alert.defaultProps = {
+  description: null,
   icon: undefined,
-  description: undefined,
   discardable: false,
 };
 

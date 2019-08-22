@@ -1,8 +1,20 @@
 import React from 'react';
-import css from '@styled-system/css';
+import styled from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Flex, { FlexProps } from 'components/Flex';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
+
+const StyledTab = styled<React.FC<Omit<TabProps, 'onSelect'>>>(BaseButton)`
+    outline: 0;
+    transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+
+    &:hover, &:focus {
+      border-color:  ${({ theme, ['aria-selected']: selected }) =>
+        !selected ? theme.colors.grey300 : undefined};
+      color: ${({ theme, ['aria-selected']: selected }) =>
+        !selected ? theme.colors.grey400 : undefined};
+    },
+  `;
 
 export interface TabProps extends BaseButtonProps {
   /**
@@ -13,7 +25,7 @@ export interface TabProps extends BaseButtonProps {
   /**
    * When true, the tab is selected.
    */
-  selected: boolean;
+  selected?: boolean;
 }
 
 /**
@@ -51,8 +63,7 @@ export const Tab: React.FC<TabProps> = ({
 
   return (
     <li>
-      <BaseButton
-        outline="none"
+      <StyledTab
         borderRadius="small"
         border="1px solid"
         fontSize={3}
@@ -60,20 +71,11 @@ export const Tab: React.FC<TabProps> = ({
         borderColor={selected ? 'primary300' : 'grey100'}
         bg="white"
         color={selected ? 'primary300' : 'grey300'}
-        px={8}
+        px={5}
         py={3}
         onClick={handleClick}
         onKeyPress={handleKeyPress}
-        css={css({
-          outline: 0,
-          transition: 'color 0.1s ease-in-out, border-color 0.1s ease-in-out',
-
-          // @ts-ignore
-          ':hover, :focus': !selected && {
-            borderColor: 'grey300',
-            color: 'grey400',
-          },
-        })}
+        selected={selected}
         {...rest}
         {...elementBasedProps}
       />
@@ -81,9 +83,13 @@ export const Tab: React.FC<TabProps> = ({
   );
 };
 
+Tab.defaultProps = {
+  selected: false,
+};
+
 export type TabListProps = FlexProps;
 
-export const TabList: React.FC<TabListProps> = props => <Flex as="ul" role="tablist" {...props} />;
+export const TabList: React.FC<TabListProps> = props => <Flex is="ul" role="tablist" {...props} />;
 
 export interface TabPanelProps extends BoxProps {
   /**

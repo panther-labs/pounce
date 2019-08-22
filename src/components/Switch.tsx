@@ -11,7 +11,7 @@ const StyledSwitch = styled.input`
 `;
 
 export interface SwitchProps {
-  /** What will the "ON" text be? */
+  /** The text that's going to be shown when the switch is activated */
   label?: string;
 
   /** Whether the checkbox should be checked or not */
@@ -34,7 +34,7 @@ const Switch: React.FC<SwitchProps> = ({ checked, onChange, label, ...rest }) =>
     >
       <Flex alignItems="center">
         {checked && (
-          <Label as="span" size="small" color="white" flex="1 0 auto" ml={2}>
+          <Label is="span" size="small" color="white" flex="1 0 auto" ml={2}>
             {label}
           </Label>
         )}
@@ -52,7 +52,6 @@ const Switch: React.FC<SwitchProps> = ({ checked, onChange, label, ...rest }) =>
 
 Switch.defaultProps = {
   label: 'ON',
-  checked: false,
 };
 
 export default Switch;

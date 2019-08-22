@@ -231,7 +231,11 @@ const columns = [
     sortable: true,
     key: 'severity',
     renderColumnHeader: () => <Chip content="Severity" />,
-    renderCell: item => <Text color="red300">{item.severity}</Text>,
+    renderCell: item => (
+      <Text size="medium" color="red300">
+        {item.severity}
+      </Text>
+    ),
   },
   {
     sortable: true,
@@ -560,15 +564,15 @@ the following signature:
 
 ```text
 {
+
   columns: TableProps['columns'];
-
   items: TableProps['items']
-
   onSelect: (selectedItems: TableProps['items]) => void;
+
 } => TableProps['columns']
 ```
 
-Essentially, you pass the existing columns & itemsl along with an `onSelect` callback and you get back
+Essentially, you pass the existing columns & items along with an `onSelect` callback and you get back
 a set of enhanced columns that you can use within the Table:
 
 ```jsx harmony
@@ -645,6 +649,110 @@ const Example = () => {
   return (
     <Card width="100%">
       <Table items={items} getItemKey={item => item.id} columns={selectableColumns} />
+    </Card>
+  );
+};
+
+<Example />;
+```
+
+A Table can have client side pagination. Just use the `useClientPaginatedTable` hook which has
+the following signature:
+
+```text
+{
+
+  items: TableProps['items'] // the total items of the table
+  pageSizes?: number[] // defaults to [25,50,75,100]
+  initialPageSizeIndex?: number // defaults to 0
+
+} => {
+
+  items: TableProps['items'] // the items to show in the current page
+  paginationElement: React.Element // a pre-rendered React element that controls pagination
+
+}
+```
+
+Essentially, you pass the existing items & optionally some parameters for the pagination and you
+get back a subset of the total items to show in the table and a React element that will control
+the pagination for you:
+
+```jsx harmony
+import React from 'react';
+import Card from 'components/Card';
+import Box from 'components/Box';
+import usePaginatedTable from 'utils/usePaginatedTable';
+
+// as fetched from the API
+const items = [
+  {
+    id: 1,
+    name: 'AWS S3 Encryption Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 2,
+    name: 'AWS MFA Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 3,
+    name: 'AWS Cloudwatch with SSH enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 4,
+    name: 'AWS DynamoDB Table Encryption Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+];
+
+const columns = [
+  {
+    key: 'name',
+    header: 'Name',
+  },
+  {
+    key: 'resourceType',
+    header: 'Resource Type',
+  },
+  {
+    key: 'severity',
+    header: 'Severity',
+  },
+  {
+    key: 'status',
+    header: 'Status',
+  },
+];
+
+const Example = () => {
+  const { startIndex, endIndex, paginationElement } = usePaginatedTable({
+    total: items.length,
+    pageSizes: [1, 2, 3, 4],
+  });
+
+  return (
+    <Card width="100%">
+      <Table
+        items={items.slice(startIndex, endIndex + 1)}
+        getItemKey={item => item.id}
+        columns={columns}
+      />
+      <Box my={5}>{paginationElement}</Box>
     </Card>
   );
 };

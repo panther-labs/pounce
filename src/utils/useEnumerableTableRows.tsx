@@ -22,7 +22,11 @@ const useEnumerableTableRows = ({ columns }: UseEnumerableTableRowsProps) => {
         key: 'enumeration',
         flex: '0 1 auto',
         renderColumnHeader: () => null,
-        renderCell: (item, index) => <Label ml={4}>{index + 1}</Label>,
+        renderCell: (item, index) => (
+          <Label size="medium" ml={4}>
+            {index + 1}
+          </Label>
+        ),
       },
       ...columns,
     ],

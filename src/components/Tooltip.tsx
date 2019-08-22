@@ -7,7 +7,7 @@ export interface TooltipProps {
   content: string | React.ReactElement;
 
   /** The positioning of the Tooltip with regards to the visible element */
-  positioning: 'up' | 'left' | 'down' | 'right';
+  positioning?: 'up' | 'left' | 'down' | 'right';
 
   /** Whether the toolip will stay visible while hovering over it */
   allowHover?: boolean;

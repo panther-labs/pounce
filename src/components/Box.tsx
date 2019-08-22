@@ -1,10 +1,5 @@
 import React from 'react';
-import styled, {
-  CSSObject,
-  FlattenSimpleInterpolation,
-  FlattenInterpolation,
-  DefaultTheme,
-} from 'styled-components';
+import styled, { CSSProp } from 'styled-components';
 import * as StyledSystem from 'styled-system';
 
 // We create an adapter interface cause we have 2 clashing interfaces with regards to the `color`
@@ -13,9 +8,9 @@ import * as StyledSystem from 'styled-system';
 // WARNING: DO NOT USE THIS INTERFACE EVER
 interface BoxPropsWithHTMLAttributesAdapter<T>
   extends StyledSystem.ColorProps,
-    React.HTMLAttributes<T> {
+    Omit<React.AllHTMLAttributes<T>, 'size'> {
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  as?: any;
+  is?: any;
   color?: any;
   height?: any;
   width?: any;
@@ -40,15 +35,27 @@ export interface BoxProps<T = HTMLElement>
     StyledSystem.BorderProps,
     StyledSystem.PositionProps,
     StyledSystem.FlexProps {
+  /** Useful for when you are integrating `Link` components from popular navigation libraries.
+   * Allows you to perform something like: `<Box as{Link} to="/home">Home</Box>`
+   * @ignore
+   * */
+  to?: string;
+
   /** The native HTML element to use for this component.
    * @default "div"
    * */
-  as?: React.ElementType;
+  is?: React.ElementType;
+
+  /**
+   * Disallow styled-component's `as` prop
+   * @ignore
+   */
+  as?: never;
 
   /** Additional custom inline CSS to pass to the element
    * @default "{}"
    * */
-  css?: CSSObject | FlattenSimpleInterpolation | FlattenInterpolation<DefaultTheme> | string;
+  css?: CSSProp;
 
   /**
    * The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
@@ -82,7 +89,7 @@ export interface BoxProps<T = HTMLElement>
 
 /** Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes. */
-const Box: React.FC<BoxProps> = styled.div`
+const BaseBox: React.FC<Omit<BoxProps, 'is' | 'as'> & { as?: React.ElementType }> = styled.div`
   ${StyledSystem.space}
   ${StyledSystem.color}
   ${StyledSystem.fontFamily}
@@ -101,5 +108,8 @@ const Box: React.FC<BoxProps> = styled.div`
   ${StyledSystem.position}
   ${StyledSystem.flex}
 `;
+
+const Box: React.FC<BoxProps> = ({ is, ...rest }) =>
+  is ? <BaseBox as={is} {...rest} /> : <BaseBox {...rest} />;
 
 export default Box;

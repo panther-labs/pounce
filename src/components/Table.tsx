@@ -80,15 +80,12 @@ export type TableProps = {
   onSort?: (key: ColumnProps['key']) => void;
 
   /**
-   * The currently active sort key. This should match the `key` prop defined in each column
-   * object
+   * The currently active sort key. This is a controlled prop that should match the `key` prop
+   * defined in each column object.
    * */
   sortKey?: ColumnProps['key'] | null;
 
-  /**
-   * The currently active sort direction. This can be ascending (asc), descending (desc) or original
-   * order (null). You can of course choose to only use `asc` and `desc`
-   * */
+  /** The currently active sort direction. This is a controlled prop. */
   sortDir?: 'ascending' | 'descending' | undefined;
 
   /**
@@ -129,13 +126,14 @@ const Table: React.FC<TableProps> = ({
   sortKey,
   sortDir,
   onSelect,
+  ...rest
 }) => {
   const renderTableHeader = (column: ColumnProps) => {
     // Get the base component
     let content = column.renderColumnHeader ? (
       column.renderColumnHeader(sortKey === column.key)
     ) : (
-      <Label as="h4" size="small" color="grey400">
+      <Label is="h4" size="small" color="grey400">
         {(column.header || '').toUpperCase()}
       </Label>
     );
@@ -147,7 +145,11 @@ const Table: React.FC<TableProps> = ({
           <Flex alignItems="center">
             {content}
             {sortKey === column.key && sortDir && (
-              <Icon color="grey400" type={sortDir === 'ascending' ? 'caret-up' : 'caret-down'} />
+              <Icon
+                size="small"
+                color="grey400"
+                type={sortDir === 'ascending' ? 'caret-up' : 'caret-down'}
+              />
             )}
           </Flex>
         </BaseButton>
@@ -175,7 +177,7 @@ const Table: React.FC<TableProps> = ({
   };
 
   return (
-    <Box flex="1 0 0" role="table">
+    <Box {...rest} flex="1 0 0" role="table">
       {showHeaders && <Row>{columns.map(renderTableHeader)}</Row>}
       {items.map((item, itemIndex) => (
         <Row
@@ -194,8 +196,12 @@ const Table: React.FC<TableProps> = ({
 };
 
 Table.defaultProps = {
+  getItemKey: undefined,
   showHeaders: true,
   alternateBg: true,
+  onSort: undefined,
+  sortKey: undefined,
+  onSelect: undefined,
 };
 
 export default React.memo(Table);

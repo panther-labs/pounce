@@ -18,10 +18,12 @@ const Example = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Open Modal No.1</Button>
-      <Modal open={open}>
+      <Button size="large" variant="primary" onClick={() => setOpen(true)}>
+        Open Modal No.1
+      </Button>
+      <Modal open={open} onClose={() => setOpen(false)} disableEscapeKeyDown disableBackdropClick>
         <Flex alignItems="center" justifyContent="center" flexDirection="column">
-          <Text>It works!</Text>
+          <Text size="medium">It works!</Text>
           <Button variant="primary" onClick={() => setOpen(false)} size="small" mt={3}>
             Click me to close
           </Button>
@@ -46,9 +48,13 @@ const Example = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Open Modal No.2</Button>
+      <Button size="large" onClick={() => setOpen(true)}>
+        Open Modal No.2
+      </Button>
       <Modal open={open} onClose={() => setOpen(false)}>
-        <Text textAlign="center">It works!</Text>
+        <Text size="medium" textAlign="center">
+          It works!
+        </Text>
       </Modal>
     </div>
   );
@@ -73,7 +79,7 @@ const Example = () => {
     <div>
       <Button onClick={() => setOpen(true)}>Open Modal No.3</Button>
       <Modal open={open} onClose={() => setOpen(false)} title="Are you sure?">
-        <Text color="grey400">
+        <Text size="medium" color="grey400">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
           been the industry's standard dummy text ever since the 1500s, when an unknown printer took
           a galley of type and scrambled it to make a type specimen book.

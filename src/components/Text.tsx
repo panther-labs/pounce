@@ -3,7 +3,7 @@ import BaseText, { BaseTextProps } from 'components/BaseText';
 
 export interface TextProps extends BaseTextProps {
   /** The size of the font */
-  size?: 'medium' | 'large';
+  size: 'medium' | 'large';
 }
 /**
  * Extends <a href="/#/Box">Box</a>
@@ -24,10 +24,6 @@ const Text: React.FC<TextProps> = ({ size, ...rest }) => {
   })();
 
   return <BaseText {...sizeProps} {...rest} />;
-};
-
-Text.defaultProps = {
-  size: 'medium',
 };
 
 export default Text;

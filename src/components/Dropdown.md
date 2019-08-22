@@ -22,7 +22,13 @@ A dropdown can be compose other elements :
 import Button from 'components/Button';
 import MenuItem from 'components/MenuItem';
 
-<Dropdown trigger={<Button variant="default">I'm composable</Button>}>
+<Dropdown
+  trigger={
+    <Button is="div" size="large" variant="default">
+      I'm composable
+    </Button>
+  }
+>
   <Dropdown.Item onSelect={() => alert('clicked first')}>
     <MenuItem>First option</MenuItem>
   </Dropdown.Item>
@@ -35,15 +41,14 @@ import MenuItem from 'components/MenuItem';
 A dropdown can contain anything. Even just `<Icon />` components:
 
 ```jsx harmony
-import Button from 'components/Button';
 import Icon from 'components/Icon';
 
-<Dropdown menuProps={{ p: 3 }} trigger={<Icon type="more" />}>
+<Dropdown p={3} trigger={<Icon size="small" type="more" />}>
   <Dropdown.Item onSelect={() => alert('clicked first')}>
-    <Icon type="add" />
+    <Icon size="small" type="add" />
   </Dropdown.Item>
   <Dropdown.Item onSelect={() => alert('clicked second')}>
-    <Icon type="addUser" />
+    <Icon size="small" type="addUser" />
   </Dropdown.Item>
 </Dropdown>;
 ```

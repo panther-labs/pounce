@@ -8,13 +8,13 @@ export interface IconButtonProps extends BaseButtonProps {
   active?: boolean;
 
   /** The color variant of the IconButton */
-  variant?: 'primary' | 'default';
+  variant: 'primary' | 'default';
 }
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
-export const IconButton = styled(props => (
-  <BaseButton bg="transparent" p={2} borderRadius="circle" {...props} />
-))<IconButtonProps>`
+export const IconButton = styled<React.FC<IconButtonProps>>(props => (
+  <BaseButton bg="transparent" p={3} borderRadius="circle" {...props} />
+))`
   color: ${({ theme, active, variant }) =>
     active ? theme.colors[variant === 'primary' ? 'primary300' : 'grey400'] : theme.colors.grey400};
 
@@ -35,7 +35,6 @@ export const IconButton = styled(props => (
 
 IconButton.defaultProps = {
   active: false,
-  variant: 'default',
 };
 
 export default IconButton;

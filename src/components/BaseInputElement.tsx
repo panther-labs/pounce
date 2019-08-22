@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import { css } from 'styled-components';
 import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
 import Icon from 'components/Icon';
 import Flex from 'components/Flex';
-import { slugify } from 'utils/helpers';
+import { separateStyledSystemProps, slugify } from 'utils/helpers';
 import Label, { LabelProps } from 'components/Label';
 
 type InputElementOuterBoxProps = BoxProps & {
@@ -12,32 +12,52 @@ type InputElementOuterBoxProps = BoxProps & {
   disabled?: boolean;
 };
 
-export const InputElementOuterBox = styled(props => (
-  <Box borderRadius="small" bg="grey50" {...props} />
-))<InputElementOuterBoxProps>`
-  overflow: hidden;
-  border: ${({ theme }) => `1px solid ${theme.colors.transparent}`};
+export const InputElementOuterBox: React.FC<InputElementOuterBoxProps> = props => (
+  <Box
+    borderRadius="small"
+    bg="grey50"
+    css={css`
+      overflow: hidden;
+      border: ${({ theme }) => `1px solid ${theme.colors.transparent}`};
 
-  &:focus,
-  &:focus-within,
-  &:active {
-    border: ${({ theme }) => `1px solid ${theme.colors.grey100}`};
-  }
+      &:focus,
+      &:focus-within,
+      &:active {
+        border: ${({ theme }) => `1px solid ${theme.colors.grey100}`};
+      }
 
-  [disabled] {
-    opacity: 0.3;
-    pointer-events: none;
-  }
-`;
+      &[disabled] {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    `}
+    {...props}
+  />
+);
+
+InputElementOuterBox.defaultProps = {
+  disabled: false,
+};
 
 export type InputElementInnerBoxProps = BoxProps<HTMLInputElement> &
   React.HTMLProps<HTMLInputElement>;
 
 export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props => (
-  <Box px={4} py={3} fontSize={3} border={0} bg="transparent" {...props} />
+  <Box
+    css={css`
+      outline: none;
+    `}
+    px={4}
+    py={3}
+    fontSize={3}
+    border={0}
+    bg="transparent"
+    color="grey400"
+    {...props}
+  />
 );
 
-export const InputElementLabel: React.FC<LabelProps> = ({ children, ...rest }) => (
+export const InputElementLabel: React.FC<Omit<LabelProps, 'size'>> = ({ children, ...rest }) => (
   <Box my={3}>
     <Label size="large" color="grey500" {...rest}>
       {children}
@@ -56,30 +76,47 @@ export type BaseInputElementProps = InputElementOuterBoxProps &
     error?: string;
   };
 
-const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, ...rest }) => (
-  <Box>
-    {!!label && <InputElementLabel htmlFor={slugify(label)}>{label}</InputElementLabel>}
-    <InputElementOuterBox>
-      <InputElementInnerBox
-        id={label ? slugify(label) : undefined}
-        color={!error ? 'grey400' : 'red300'}
-        {...rest}
-      />
-    </InputElementOuterBox>
-    {!!error && (
-      <Box py={4} px={4} color="red300">
-        <Flex alignItems="center">
-          <Icon type="warning" mr={2} />
-          <Text size="medium">{error}</Text>
-        </Flex>
-      </Box>
-    )}
-  </Box>
-);
+const BaseInputElement: React.FC<BaseInputElementProps> = ({
+  label,
+  error,
+  is,
+  disabled,
+  ...rest
+}) => {
+  const [styledSystemProps, nativeHtmlProps] = separateStyledSystemProps(rest);
+
+  return (
+    <Box {...styledSystemProps}>
+      {!!label && (
+        <InputElementLabel htmlFor={slugify(label)} color={error ? 'red300' : 'grey500'}>
+          {label}
+        </InputElementLabel>
+      )}
+      <InputElementOuterBox disabled={disabled}>
+        <InputElementInnerBox
+          is={is}
+          disabled={disabled}
+          width={1}
+          id={label ? slugify(label) : undefined}
+          color={!error ? 'grey400' : 'red300'}
+          {...nativeHtmlProps}
+        />
+      </InputElementOuterBox>
+      {error && (
+        <Box py={4} px={4} color="red300">
+          <Flex alignItems="center">
+            <Icon size="small" type="warning" mr={2} flex="0 0 auto" />
+            <Text size="medium">{error}</Text>
+          </Flex>
+        </Box>
+      )}
+    </Box>
+  );
+};
 
 BaseInputElement.defaultProps = {
   label: '',
   error: '',
 };
 
-export default BaseInputElement;
+export default React.memo(BaseInputElement);

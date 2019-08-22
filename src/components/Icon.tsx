@@ -116,7 +116,7 @@ export interface IconProps extends BoxProps<HTMLOrSVGElement> {
   color?: string;
 
   /** The size of the icon. Can be 18px or 24px */
-  size?: 'small' | 'large';
+  size: 'small' | 'large';
 }
 
 /** An simple SVG element exported as a React component. It renders a simple <svg> */
@@ -124,11 +124,10 @@ const Icon: React.FC<IconProps> = ({ type, size, color, ...rest }) => {
   const Component = svgComponentMapping[type];
   const sizeInPx = size === 'small' ? 18 : 24;
 
-  return <Box color={color} as={Component} width={sizeInPx} height={sizeInPx} {...rest} />;
+  return <Box color={color} is={Component} width={sizeInPx} height={sizeInPx} {...rest} />;
 };
 
 Icon.defaultProps = {
-  size: 'small',
   color: 'inherit',
 };
 

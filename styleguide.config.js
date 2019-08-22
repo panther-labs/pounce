@@ -1,4 +1,6 @@
-const path = require('path'); // eslint-disable-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
+const babelConfig = require('./babel.config');
 
 const BoxProps = [
   'as',
@@ -97,6 +99,10 @@ module.exports = {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
+          options: {
+            presets: [...babelConfig.presets, '@babel/preset-typescript'],
+            plugins: babelConfig.plugins,
+          },
         },
         {
           test: /\.svg$/,
