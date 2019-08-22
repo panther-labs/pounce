@@ -81,7 +81,7 @@ const usePaginatedTable = ({
                       setActivePageIndex(0);
                     }}
                   >
-                    <MenuItem>{pageSize} per page</MenuItem>
+                    <MenuItem variant="default">{pageSize} per page</MenuItem>
                   </Dropdown.Item>
                 ))}
               </Dropdown>

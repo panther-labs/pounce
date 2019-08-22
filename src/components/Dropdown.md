@@ -30,10 +30,10 @@ import MenuItem from 'components/MenuItem';
   }
 >
   <Dropdown.Item onSelect={() => alert('clicked first')}>
-    <MenuItem>First option</MenuItem>
+    <MenuItem variant="default">First option</MenuItem>
   </Dropdown.Item>
   <Dropdown.Item onSelect={() => alert('clicked second')}>
-    <MenuItem>Second option</MenuItem>
+    <MenuItem variant="default">Second option</MenuItem>
   </Dropdown.Item>
 </Dropdown>;
 ```

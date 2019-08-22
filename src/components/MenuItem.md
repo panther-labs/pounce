@@ -4,8 +4,8 @@ A MenuItem can have simple text as children:
 import Card from 'components/Card';
 
 <Card>
-  <MenuItem>Hello</MenuItem>
-  <MenuItem>Hello2</MenuItem>
+  <MenuItem variant="default">Hello</MenuItem>
+  <MenuItem variant="default">Hello2</MenuItem>
 </Card>;
 ```
 
@@ -16,7 +16,7 @@ import Icon from 'components/Icon';
 import Card from 'components/Card';
 
 <Card>
-  <MenuItem>
+  <MenuItem variant="default">
     <Icon size="small" type="addUser" color="red100" />
   </MenuItem>
 </Card>;
@@ -25,11 +25,15 @@ import Card from 'components/Card';
 A MenuItem can be highlighted:
 
 ```jsx harmony
-<MenuItem highlighted>I am highlighted</MenuItem>
+<MenuItem variant="default" highlighted>
+  I am highlighted
+</MenuItem>
 ```
 
 A MenuItem can be selected:
 
 ```jsx harmony
-<MenuItem selected>I am selected</MenuItem>
+<MenuItem variant="default" selected>
+  I am selected
+</MenuItem>
 ```
