@@ -36,9 +36,7 @@ jobs:
       - run:
           name: Setup documentation deployment
           command: |
-            npm install gh-pages@latest --unsafe-perm=true --allow-root
-            git config user.email "agg.arvanitakis@gmail.com"
-            git config user.name "3nvi"
+            sudo npm install -g surge@latest
       - run:
           name: Deploy documentation pages
           command: surge --project .styleguidist --domain pouncejs.surge.sh
