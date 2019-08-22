@@ -24,7 +24,7 @@ import MenuItem from 'components/MenuItem';
 
 <Dropdown
   trigger={
-    <Button as="div" size="large" variant="default">
+    <Button is="div" size="large" variant="default">
       I'm composable
     </Button>
   }
@@ -43,7 +43,7 @@ A dropdown can contain anything. Even just `<Icon />` components:
 ```jsx harmony
 import Icon from 'components/Icon';
 
-<Dropdown menuProps={{ p: 3 }} trigger={<Icon size="small" type="more" />}>
+<Dropdown p={3} trigger={<Icon size="small" type="more" />}>
   <Dropdown.Item onSelect={() => alert('clicked first')}>
     <Icon size="small" type="add" />
   </Dropdown.Item>

@@ -52,6 +52,7 @@ export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props =
     fontSize={3}
     border={0}
     bg="transparent"
+    color="grey400"
     {...props}
   />
 );
@@ -75,7 +76,13 @@ export type BaseInputElementProps = InputElementOuterBoxProps &
     error?: string;
   };
 
-const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, ...rest }) => {
+const BaseInputElement: React.FC<BaseInputElementProps> = ({
+  label,
+  error,
+  is,
+  disabled,
+  ...rest
+}) => {
   const [styledSystemProps, nativeHtmlProps] = separateStyledSystemProps(rest);
 
   return (
@@ -85,9 +92,10 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({ label, error, as, .
           {label}
         </InputElementLabel>
       )}
-      <InputElementOuterBox>
+      <InputElementOuterBox disabled={disabled}>
         <InputElementInnerBox
-          as={as}
+          is={is}
+          disabled={disabled}
           width={1}
           id={label ? slugify(label) : undefined}
           color={!error ? 'grey400' : 'red300'}

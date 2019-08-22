@@ -222,6 +222,7 @@ const GlobalStyles = createGlobalStyle`
 
 [data-reach-menu-button] {
   cursor: pointer;
+  background-color: inherit;
 }
 
 [data-reach-menu-item] {

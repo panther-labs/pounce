@@ -1,11 +1,11 @@
 import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
-import Box from 'components/Box';
+import Box, { BoxProps } from 'components/Box';
 import IconButton from 'components/IconButton';
 import Icon from 'components/Icon';
 import { css } from 'styled-components';
 
-export interface SideSheetProps {
+export interface SideSheetProps extends BoxProps {
   /** Whether the modal should be visible or not */
   open: boolean;
 
@@ -32,6 +32,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
   onClose,
   disableBackdropClick,
   disableEscapeKeyDown,
+  ...rest
 }) => (
   <MUIModal
     role="dialog"
@@ -48,10 +49,12 @@ const SideSheet: React.FC<SideSheetProps> = ({
       position="absolute"
       top="0"
       right="0"
-      boxShadow={3}
+      boxShadow="dark200"
       css={css`
         outline: none;
+        overflow: auto;
       `}
+      {...rest}
     >
       <Box position="relative" p={2}>
         <IconButton
@@ -61,7 +64,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
           right={0}
           onClick={() => onClose({}, 'closeButtonClick')}
         >
-          <Icon size="small" type="close" />
+          <Icon size="large" type="close" />
         </IconButton>
         {children}
       </Box>

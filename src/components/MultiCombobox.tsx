@@ -102,7 +102,6 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
         highlightedIndex: state.highlightedIndex,
         isOpen: true,
       };
-    case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
     case Downshift.stateChangeTypes.blurInput:
       return {
         ...changes,
@@ -208,7 +207,7 @@ const MultiCombobox: <T = any>(
                 // By default validateAddition always returns true. Can be overriden by the user
                 // for fine-grained addition
                 if (validateAddition && validateAddition(inputValue)) {
-                  selectItem(inputValue);
+                  selectItem(inputValue, { inputValue: '' });
                 }
               }
             },
@@ -229,7 +228,7 @@ const MultiCombobox: <T = any>(
                   ))}
                   <InputElementInnerBox
                     {...getInputProps(additionalInputProps)}
-                    as="input"
+                    is="input"
                     type="text"
                     flex="1 0 auto"
                   />

@@ -682,7 +682,7 @@ the pagination for you:
 import React from 'react';
 import Card from 'components/Card';
 import Box from 'components/Box';
-import useClientPaginatedTable from 'utils/useClientPaginatedTable';
+import usePaginatedTable from 'utils/usePaginatedTable';
 
 // as fetched from the API
 const items = [
@@ -740,14 +740,18 @@ const columns = [
 ];
 
 const Example = () => {
-  const { items: itemsInPage, paginationElement } = useClientPaginatedTable({
-    items,
+  const { startIndex, endIndex, paginationElement } = usePaginatedTable({
+    total: items.length,
     pageSizes: [1, 2, 3, 4],
   });
 
   return (
     <Card width="100%">
-      <Table items={itemsInPage} getItemKey={item => item.id} columns={columns} />
+      <Table
+        items={items.slice(startIndex, endIndex + 1)}
+        getItemKey={item => item.id}
+        columns={columns}
+      />
       <Box my={5}>{paginationElement}</Box>
     </Card>
   );

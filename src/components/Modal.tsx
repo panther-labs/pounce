@@ -1,12 +1,12 @@
 import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
 import Box from 'components/Box';
-import Card from 'components/Card';
+import Card, { CardProps } from 'components/Card';
 import Heading from 'components/Heading';
 import Flex from 'components/Flex';
 import { css } from 'styled-components';
 
-export interface ModalProps {
+export interface ModalProps extends CardProps {
   /** Whether the modal should be visible or not */
   open: boolean;
 
@@ -40,6 +40,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   disableBackdropClick,
   disableEscapeKeyDown,
+  ...rest
 }) => {
   const handleBackdropClick = (event: React.MouseEvent) => {
     // Ignore the events not coming from the "backdrop"
@@ -77,9 +78,9 @@ const Modal: React.FC<ModalProps> = ({
           height="100%"
           onClick={handleBackdropClick}
         >
-          <Card py={5} px={8} minWidth="400px" maxWidth="700px">
+          <Card py={5} px={8} minWidth="400px" maxWidth="700px" {...rest}>
             {title && (
-              <Box as="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
+              <Box is="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
                 <Heading size="medium" textAlign="center">
                   {title}
                 </Heading>

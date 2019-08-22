@@ -2,7 +2,6 @@ import * as React from 'react';
 import { css } from 'styled-components';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 import { convertHexToRgba } from 'utils/helpers';
-import forwardAs from 'utils/forwardAs';
 
 export interface ButtonProps extends BaseButtonProps {
   /** The size of the button */
@@ -17,7 +16,7 @@ export interface ButtonProps extends BaseButtonProps {
  *
  * The core re-usable button that you will use in the app.
  */
-const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssProp, ...rest }) => {
   const sizeProps = (() => {
     switch (size) {
       case 'small':
@@ -91,7 +90,10 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
     <BaseButton
       fontWeight="bold"
       borderRadius="large"
-      css={variantProps.css}
+      css={`
+        ${userCssProp}
+        ${variantProps.css}
+      `}
       {...sizeProps}
       {...variantProps}
       {...rest}
@@ -101,4 +103,4 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, ...rest }) => 
   );
 };
 
-export default forwardAs(Button);
+export default Button;

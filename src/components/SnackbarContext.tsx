@@ -20,7 +20,7 @@ type ReducerAction<T, V extends object> = {
 type PushSnackbarAction = ReducerAction<
   typeof PUSH_SNACKBAR,
   {
-    props: SnackbarProps;
+    props: SnackbarPublicProps;
   }
 >;
 
@@ -31,8 +31,9 @@ type RemoveSnackbarAction = ReducerAction<
   }
 >;
 
+type SnackbarPublicProps = Omit<SnackbarProps, 'destroy'>;
+type SnackbarStateShape = SnackbarPublicProps & { id: string };
 type SnackbarStateAction = PushSnackbarAction | RemoveSnackbarAction;
-type SnackbarStateShape = SnackbarProps & { id: string };
 
 const snackbarStateReducer = (snackbars: SnackbarStateShape[], action: SnackbarStateAction) => {
   switch (action.type) {
@@ -45,7 +46,11 @@ const snackbarStateReducer = (snackbars: SnackbarStateShape[], action: SnackbarS
   }
 };
 
-const SnackbarContext = React.createContext({});
+const SnackbarContext = React.createContext<{ pushSnackbar: (props: SnackbarPublicProps) => void }>(
+  {
+    pushSnackbar: () => {},
+  }
+);
 
 /**
  * A component that acts both as a state-manager and provider. It provides access to methods for
@@ -56,7 +61,7 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     React.Reducer<SnackbarStateShape[], SnackbarStateAction>
   >(snackbarStateReducer, []);
 
-  const pushSnackbar = (props: SnackbarProps) => {
+  const pushSnackbar = (props: SnackbarPublicProps) => {
     dispatch({ type: PUSH_SNACKBAR, payload: { props: props } });
   };
 
@@ -72,15 +77,15 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     return ReactDOM.createPortal(
       <Flex
         position="fixed"
-        top={6}
-        left={0}
-        right={0}
+        bottom={4}
+        left={6}
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        zIndex={9999}
       >
-        {snackbars.map(({ id, ...snackbarProps }) => (
-          <Snackbar mb={3} key={id} destroy={() => removeSnackbar(id)} {...snackbarProps} />
+        {snackbars.map(({ id, ...snackbarPublicProps }) => (
+          <Snackbar mb={3} key={id} destroy={() => removeSnackbar(id)} {...snackbarPublicProps} />
         ))}
       </Flex>,
       document.body

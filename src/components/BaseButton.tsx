@@ -7,7 +7,7 @@ export interface BaseButtonProps extends BoxProps<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-const BaseButton = styled<React.FC<BaseButtonProps>>(props => <Box as="button" {...props} />)`
+const BaseButton = styled<React.FC<BaseButtonProps>>(props => <Box is="button" {...props} />)`
   cursor: pointer;
   transition: all 0.1s linear;
 

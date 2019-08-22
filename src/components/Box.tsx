@@ -10,7 +10,7 @@ interface BoxPropsWithHTMLAttributesAdapter<T>
   extends StyledSystem.ColorProps,
     Omit<React.AllHTMLAttributes<T>, 'size'> {
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  as?: any;
+  is?: any;
   color?: any;
   height?: any;
   width?: any;
@@ -44,7 +44,13 @@ export interface BoxProps<T = HTMLElement>
   /** The native HTML element to use for this component.
    * @default "div"
    * */
-  as?: React.ElementType;
+  is?: React.ElementType;
+
+  /**
+   * Disallow styled-component's `as` prop
+   * @ignore
+   */
+  as?: never;
 
   /** Additional custom inline CSS to pass to the element
    * @default "{}"
@@ -83,7 +89,7 @@ export interface BoxProps<T = HTMLElement>
 
 /** Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes. */
-const Box: React.FC<BoxProps> = styled.div`
+const BaseBox: React.FC<Omit<BoxProps, 'is' | 'as'> & { as?: React.ElementType }> = styled.div`
   ${StyledSystem.space}
   ${StyledSystem.color}
   ${StyledSystem.fontFamily}
@@ -102,5 +108,8 @@ const Box: React.FC<BoxProps> = styled.div`
   ${StyledSystem.position}
   ${StyledSystem.flex}
 `;
+
+const Box: React.FC<BoxProps> = ({ is, ...rest }) =>
+  is ? <BaseBox as={is} {...rest} /> : <BaseBox {...rest} />;
 
 export default Box;

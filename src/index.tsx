@@ -66,7 +66,7 @@ export { default as Tooltip } from 'components/Tooltip';
 export { default as GlobalStyles } from 'utils/GlobalStyles';
 export { default as useEnumerableTableRows } from 'utils/useEnumerableTableRows';
 export { default as useSelectableTableRows } from 'utils/useSelectableTableRows';
-export { default as useClientPaginatedTable } from 'utils/useClientPaginatedTable';
+export { default as usePaginatedTable } from 'utils/usePaginatedTable';
 export { default as defaultTheme } from 'themes/default';
 export { default as ThemeProvider } from 'utils/ThemeProvider';
 export { default as css } from '@styled-system/css';
