@@ -32,7 +32,7 @@ const BaseBadge: React.FC<BaseBadgeProps> = ({ color, children, ...rest }) => {
 
   return (
     <Flex alignItems="center" justifyContent="center" {...colorProps} {...rest}>
-      <Text fontSize={0} lineHeight={0}>
+      <Text size="medium" fontSize={0} lineHeight={0}>
         {children}
       </Text>
     </Flex>

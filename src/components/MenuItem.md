@@ -17,7 +17,7 @@ import Card from 'components/Card';
 
 <Card>
   <MenuItem>
-    <Icon type="addUser" color="red100" />
+    <Icon size="small" type="addUser" color="red100" />
   </MenuItem>
 </Card>;
 ```

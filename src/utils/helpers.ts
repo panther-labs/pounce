@@ -1,3 +1,6 @@
+// @ts-ignore
+import shouldForwardProp from '@styled-system/should-forward-prop';
+
 /**
  *
  * @param hex A hex color string
@@ -17,8 +20,8 @@ export function convertHexToRgba(hex: string, opacity: number) {
  * A function that takes a text and returns a valid slug for it. Useful for filename and url
  * creation
  *
- * @param {String} text - A string to slugify
- * @returns {String} - A slugified string
+ * @param {String} text A string to slugify
+ * @returns {String} A slugified string
  */
 export function slugify(text: string) {
   return text
@@ -35,3 +38,28 @@ export function slugify(text: string) {
  * @returns True if current environment is a browser, false in any other case
  */
 export const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
+
+/**
+ * A function that takes an object of props and separates the one belonging to the styled-system
+ *
+ * @param {object} props - A set of props
+ * @returns {Array[object]} - An object containing the props belonging to
+ * styled system and the second the props that didn't belong to it and were native to React and/or
+ * HTML.
+ */
+export const separateStyledSystemProps = (props: object) => {
+  const styledSystemProps = {};
+  const nativeProps = {};
+
+  Object.keys(props).forEach((key: string) => {
+    if (shouldForwardProp(key)) {
+      // @ts-ignore
+      nativeProps[key] = props[key];
+    } else {
+      // @ts-ignore
+      styledSystemProps[key] = props[key];
+    }
+  });
+
+  return [styledSystemProps, nativeProps];
+};

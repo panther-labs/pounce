@@ -21,7 +21,7 @@ You can easily override that by providing your own custom renderer:
 const items = [
   {
     text: 'I am not',
-    href: '/#/Box',
+    href: '/#/Table',
   },
   {
     text: 'a Link',
@@ -33,7 +33,7 @@ const items = [
   },
   {
     text: 'a pretty div',
-    href: '/#/Flex',
+    href: '/#/Dropdown',
   },
 ];
 

@@ -29,7 +29,7 @@ const StyledCircleContainer = styled.svg`
 const StyledCircle = styled.circle`
   stroke-dashoffset: 600;
   stroke-dasharray: 300;
-  stroke-width: 12;
+  stroke-width: 13;
   stroke-miterlimit: 10;
   stroke-linecap: round;
   animation: ${circleKeyframes} 1.6s cubic-bezier(0.4, 0.15, 0.6, 0.85) infinite;
@@ -39,10 +39,10 @@ const StyledCircle = styled.circle`
 
 export interface SpinnerProps extends BoxProps {
   /** Delay after which spinner should be visible. */
-  delay: number;
+  delay?: number;
 
   /** The size of the spinner, */
-  size?: 'small' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large';
 }
 
 const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
@@ -50,8 +50,8 @@ const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
   const delayTimer = React.useRef(0);
 
   React.useEffect(() => {
-    if (delay > 0) {
-      delayTimer.current = setTimeout(() => setVisibility(true), delay);
+    if (delay && delay > 0) {
+      delayTimer.current = window.setTimeout(() => setVisibility(true), delay);
     }
     return () => clearTimeout(delayTimer.current);
   }, []);
@@ -63,12 +63,12 @@ const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
   const sizeProps = (() => {
     switch (size) {
       case 'small':
-        return { width: '20px', height: '20px' };
+        return { width: '18px', height: '18px' };
       case 'medium':
-        return { width: '40px', height: '40px' };
+        return { width: '36px', height: '36px' };
       case 'large':
       default:
-        return { width: '60px', height: '60px' };
+        return { width: '54px', height: '54px' };
     }
   })();
 
@@ -82,7 +82,6 @@ const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
 };
 
 Spinner.defaultProps = {
-  size: 'medium',
   delay: 0,
 };
 

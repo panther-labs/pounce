@@ -1,11 +1,11 @@
 import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
-import Box from 'components/Box';
+import Box, { BoxProps } from 'components/Box';
 import IconButton from 'components/IconButton';
 import Icon from 'components/Icon';
 import { css } from 'styled-components';
 
-export interface SideSheetProps {
+export interface SideSheetProps extends BoxProps {
   /** Whether the modal should be visible or not */
   open: boolean;
 
@@ -13,9 +13,7 @@ export interface SideSheetProps {
    * Callback fired when the component requests to be closed.
    * The `reason` parameter can optionally be used to control the response to `onClose`.
    */
-  onClose?: {
-    bivarianceHack(event: {}, reason: 'backdropClick' | 'escapeKeyDown'): void;
-  }['bivarianceHack'];
+  onClose: (event: {}, reason: 'backdropClick' | 'escapeKeyDown' | 'closeButtonClick') => void;
 
   /** Whether the modal should close by clicking on the backdrop behind it */
   disableBackdropClick?: boolean;
@@ -34,6 +32,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
   onClose,
   disableBackdropClick,
   disableEscapeKeyDown,
+  ...rest
 }) => (
   <MUIModal
     role="dialog"
@@ -50,14 +49,22 @@ const SideSheet: React.FC<SideSheetProps> = ({
       position="absolute"
       top="0"
       right="0"
-      boxShadow={3}
+      boxShadow="dark200"
       css={css`
         outline: none;
+        overflow: auto;
       `}
+      {...rest}
     >
       <Box position="relative" p={2}>
-        <IconButton position="absolute" top={0} right={0} onClick={onClose}>
-          <Icon type="close" />
+        <IconButton
+          variant="default"
+          position="absolute"
+          top={0}
+          right={0}
+          onClick={() => onClose({}, 'closeButtonClick')}
+        >
+          <Icon size="large" type="close" />
         </IconButton>
         {children}
       </Box>
@@ -66,6 +73,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
 );
 
 SideSheet.defaultProps = {
+  onClose: undefined,
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
 };

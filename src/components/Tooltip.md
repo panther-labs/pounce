@@ -5,7 +5,7 @@ import IconButton from 'components/IconButton';
 import Icon from 'components/Icon';
 import Label from 'components/Label';
 
-<Tooltip content={<Label>Let's add a user together!</Label>}>
+<Tooltip content={<Label size="medium">Let's add a user together!</Label>}>
   <IconButton variant="primary">
     <Icon type="user" size="large" />
   </IconButton>
@@ -18,7 +18,7 @@ but you can put other staff in there as well like an icon:
 import Icon from 'components/Icon';
 import Text from 'components/Text';
 
-<Tooltip positioning="down" content={<Icon type="company" />}>
+<Tooltip positioning="down" content={<Icon size="small" type="company" />}>
   <Text>Hover me to see a pretty icon</Text>
 </Tooltip>;
 ```
@@ -33,7 +33,7 @@ import Text from 'components/Text';
   allowHover
   positioning="down"
   content={
-    <Text as="a" href="https://google.com">
+    <Text size="medium" is="a" href="https://google.com">
       Go to google!
     </Text>
   }

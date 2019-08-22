@@ -1,12 +1,12 @@
 import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
 import Box from 'components/Box';
-import Card from 'components/Card';
+import Card, { CardProps } from 'components/Card';
 import Heading from 'components/Heading';
 import Flex from 'components/Flex';
 import { css } from 'styled-components';
 
-export interface ModalProps {
+export interface ModalProps extends CardProps {
   /** Whether the modal should be visible or not */
   open: boolean;
 
@@ -14,9 +14,7 @@ export interface ModalProps {
    * Callback fired when the component requests to be closed.
    * The `reason` parameter can optionally be used to control the response to `onClose`.
    */
-  onClose?: {
-    bivarianceHack(event: {}, reason: 'backdropClick' | 'escapeKeyDown'): void;
-  }['bivarianceHack'];
+  onClose: (event: {}, reason: 'backdropClick' | 'escapeKeyDown') => void;
 
   /** Whether the modal should close by clicking on the backdrop behind it */
   disableBackdropClick?: boolean;
@@ -42,6 +40,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   disableBackdropClick,
   disableEscapeKeyDown,
+  ...rest
 }) => {
   const handleBackdropClick = (event: React.MouseEvent) => {
     // Ignore the events not coming from the "backdrop"
@@ -50,7 +49,7 @@ const Modal: React.FC<ModalProps> = ({
       return;
     }
 
-    if (!disableBackdropClick && onClose) {
+    if (!disableBackdropClick) {
       onClose(event, 'backdropClick');
     }
   };
@@ -79,9 +78,9 @@ const Modal: React.FC<ModalProps> = ({
           height="100%"
           onClick={handleBackdropClick}
         >
-          <Card py={5} px={8} minWidth="400px" maxWidth="700px">
+          <Card py={5} px={8} minWidth="400px" maxWidth="700px" {...rest}>
             {title && (
-              <Box as="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
+              <Box is="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
                 <Heading size="medium" textAlign="center">
                   {title}
                 </Heading>
@@ -96,6 +95,8 @@ const Modal: React.FC<ModalProps> = ({
 };
 
 Modal.defaultProps = {
+  onClose: undefined,
+  title: '',
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
 };

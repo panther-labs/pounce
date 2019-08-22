@@ -5,7 +5,7 @@ import { DefaultTheme } from 'styled-components';
 export type LabelProps = BaseTextProps &
   LabelHTMLAttributes<'label'> & {
     /** The size of the font */
-    size?: 'extra-small' | 'small' | 'medium' | 'large';
+    size: 'extra-small' | 'small' | 'medium' | 'large';
   };
 
 /**
@@ -26,11 +26,7 @@ const Label: React.FC<LabelProps> = ({ size, ...rest }) => {
     }
   })() as { fontWeight: keyof DefaultTheme['fontWeights']; fontSize: number };
 
-  return <BaseText as="label" {...sizeProps} {...rest} />;
-};
-
-Label.defaultProps = {
-  size: 'medium',
+  return <BaseText is="label" {...sizeProps} {...rest} />;
 };
 
 export default Label;
