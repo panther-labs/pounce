@@ -41,7 +41,7 @@ jobs:
             git config user.name "3nvi"
       - run:
           name: Deploy documentation pages
-          command: node node_modules/gh-pages/bin/gh-pages --dist .styleguidist
+          command: surge --project .styleguidist --domain pouncejs.surge.sh
 
 workflows:
   version: 2
