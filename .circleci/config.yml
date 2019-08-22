@@ -46,7 +46,7 @@ workflows:
   pipeline:
     jobs:
       - build
-      - docs
-#          filters:
-#            branches:
-#              only: master
+      - docs:
+          filters:
+            branches:
+              only: master
