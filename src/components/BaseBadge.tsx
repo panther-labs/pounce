@@ -1,8 +1,9 @@
 import React from 'react';
 import Flex from 'components/Flex';
-import Text, { TextProps } from 'components/Text';
+import Text from 'components/Text';
+import { BaseTextProps } from 'components/BaseText';
 
-export interface BaseBadgeProps extends TextProps {
+export interface BaseBadgeProps extends BaseTextProps {
   /** The color theme of the badge */
   color: 'neutral' | 'grey' | 'blue' | 'pink' | 'red';
 }
