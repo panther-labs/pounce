@@ -96,7 +96,7 @@ export type TableProps<T> = {
  * Utility component to help code duplication
  * */
 const Cell: React.FC<FlexProps> = ({ children, flex, ...rest }) => (
-  <Flex alignItems="center" flexWrap="wrap" p={4} flex={flex || '1 0 0'} {...rest}>
+  <Flex alignItems="center" flexWrap="wrap" px={4} py={3} flex={flex || '1 0 0'} {...rest}>
     {children}
   </Flex>
 );
