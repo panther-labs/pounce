@@ -13,7 +13,7 @@ export interface TooltipProps {
   allowHover?: boolean;
 
   /** How much should it wait before showing the tooltip */
-  hoverDelay: number;
+  hoverDelay?: number;
 }
 
 /** A tooltip is a helper that shows some helping text when hovering or clicking something */

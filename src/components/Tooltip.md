@@ -41,3 +41,17 @@ import Text from 'components/Text';
   <Text>I'll allow you to hover my tooltip</Text>
 </Tooltip>;
 ```
+
+Lastly, by default the Tooltip appears after a brief delay, but you can make it appear instantly:
+
+```jsx harmony
+import IconButton from 'components/IconButton';
+import Icon from 'components/Icon';
+import Label from 'components/Label';
+
+<Tooltip hoverDelay={0} content={<Label size="medium">I appear instantly</Label>}>
+  <IconButton variant="primary">
+    <Icon type="user" size="large" />
+  </IconButton>
+</Tooltip>;
+```

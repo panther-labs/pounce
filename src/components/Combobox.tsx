@@ -76,7 +76,9 @@ export interface ComboboxProps<T> {
  * A simple Combobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<Combobox>` component.
  */
-const Combobox: <T = any>(props: ComboboxProps<T>) => React.ReactElement<ComboboxProps<T>> = ({
+const Combobox: <ItemShape>(
+  props: ComboboxProps<ItemShape>
+) => React.ReactElement<ComboboxProps<ItemShape>> = ({
   onChange,
   value,
   items,

@@ -2,21 +2,21 @@ import React from 'react';
 import { TableProps } from 'components/Table';
 import Label from 'components/Label';
 
-export interface UseEnumerableTableRowsProps {
+export interface UseEnumerableTableRowsProps<T> {
   /**
    * A list of column object that describe each column. More info on the shape of these objects
    * follows down below
    * */
-  columns: TableProps['columns'];
+  columns: TableProps<T>['columns'];
 }
 
 /**
  * A hook that extends the columns of a table in order to add an enumeration column to show the
  * serial number of each row
  * */
-const useEnumerableTableRows = ({ columns }: UseEnumerableTableRowsProps) => {
+function useEnumerableTableRows<ItemShape>({ columns }: UseEnumerableTableRowsProps<ItemShape>) {
   /* eslint-disable react/display-name */
-  const extendedColumns: TableProps['columns'] = React.useMemo(
+  const extendedColumns: TableProps<ItemShape>['columns'] = React.useMemo(
     () => [
       {
         key: 'enumeration',
@@ -35,6 +35,6 @@ const useEnumerableTableRows = ({ columns }: UseEnumerableTableRowsProps) => {
   /* eslint-enable react/display-name */
 
   return extendedColumns;
-};
+}
 
 export default useEnumerableTableRows;
