@@ -7,7 +7,7 @@ import Text from 'components/Text';
 import BaseButton from 'components/BaseButton';
 import Icon from 'components/Icon';
 
-export type TableItem = { [key: string]: string | number | null | undefined };
+export type TableItem = { [key: string]: any };
 
 export type TableItemKeyShape = number | string;
 
