@@ -134,11 +134,6 @@ export function Table<ItemShape extends { [key: string]: any }>({
       </Label>
     );
 
-    // respect the user defining a falsy value
-    if (!content) {
-      return null;
-    }
-
     // wrap it in a button if we have a clickable column
     if (column.sortable) {
       content = (
