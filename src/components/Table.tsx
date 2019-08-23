@@ -179,7 +179,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
         <Row
           onClick={() => onSelect && onSelect(item)}
           key={getItemKey ? getItemKey(item) : itemIndex}
-          bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'transparent'}
+          bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'white'}
           css={css`
             cursor: pointer;
           `}
