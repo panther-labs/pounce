@@ -69,4 +69,3 @@ export { default as useSelectableTableRows } from 'utils/useSelectableTableRows'
 export { default as usePaginatedTable } from 'utils/usePaginatedTable';
 export { default as defaultTheme } from 'themes/default';
 export { default as ThemeProvider } from 'utils/ThemeProvider';
-export { default as css } from '@styled-system/css';

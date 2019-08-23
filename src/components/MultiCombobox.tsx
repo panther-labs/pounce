@@ -257,7 +257,11 @@ const MultiCombobox: <T = any>(
                             highlighted: highlightedIndex === index,
                           })
                         ) : (
-                          <MenuItem highlighted={highlightedIndex === index} selected={false}>
+                          <MenuItem
+                            variant="default"
+                            highlighted={highlightedIndex === index}
+                            selected={false}
+                          >
                             {itemToString(item)}
                           </MenuItem>
                         )}
