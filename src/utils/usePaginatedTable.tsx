@@ -50,15 +50,15 @@ const usePaginatedTable = ({
         <Flex alignItems="center" justifyContent="center">
           <Flex mr={9} alignItems="center">
             <IconButton variant="default" onClick={() => setActivePageIndex(activePageIndex - 1)}>
-              <Icon size="small" type="chevron-left" />
+              <Icon size="large" type="chevron-left" />
             </IconButton>
             {total > 0 && (
-              <Label size="large" mx={4}>
+              <Label size="large" mx={4} color="grey400">
                 {activePageIndex + 1} of {Math.ceil(total / itemsPerPage)}
               </Label>
             )}
             <IconButton variant="default" onClick={() => setActivePageIndex(activePageIndex + 1)}>
-              <Icon size="small" type="chevron-right" />
+              <Icon size="large" type="chevron-right" />
             </IconButton>
           </Flex>
           {pageSizes.length > 1 && (
