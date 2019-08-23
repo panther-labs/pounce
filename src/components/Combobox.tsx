@@ -193,4 +193,4 @@ const Combobox: <ItemShape>(
   );
 };
 
-export default React.memo(Combobox);
+export default Combobox;
