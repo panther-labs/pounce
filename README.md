@@ -1,24 +1,32 @@
+# Pounce: A Set of Composable React Primitives for Building UI Dashboards
+
 [![CircleCI](https://circleci.com/gh/panther-labs/pounce/tree/master.svg?style=svg)](https://circleci.com/gh/panther-labs/pounce/tree/master)
 
-### Description
+## Description
 
-This repo holds common UI components for building dashboards in Panther Labs. It's
-work in progress and proper semver support will be added soon enough.
+This project contains common UI components for building dashboards written in TypeScript.
 
-### Installation
+**It is currently a work in progress**, and proper [SemVer](http://semver.org/) support will be added soon.
 
-To install the library, make sure you have proper access to the Panther Lab's
-github account from the environment that the `npm install` command is running. If you don't
-have the proper credentials set up in your environment, then `npm install` will fail
-since this is a private repository which requires a certain access.
+Documentation is available on [http://pouncejs.surge.sh/](http://pouncejs.surge.sh/).
+
+## Installation
 
 ```text
-    npm install git://github.com/panther-labs/pounce.git
+$ npm install github:panther-labs/pounce
 ```
+
+To install a specific version:
+
+```text
+$ npm install github:panther-labs/pounce#v0.2.0
+```
+
+## Usage
 
 ### Quick Start
 
-1. Wrap your app with the `ThemeProvider` components:
+1. To start, wrap your app with the `ThemeProvider` components:
 
 ```jsx
 import { ThemeProvider } from 'pouncejs';
@@ -41,13 +49,13 @@ const App = () => (
 />
 ```
 
-3.  Ready to go!
+3.  Then you are ready to go!
 
 ```js
 import { Box, Button } from 'pouncejs';
 ```
 
-### Advanced Usage
+### Advanced
 
 To use the library you'll need to wrap your app with the `<ThemeProvider>` so that your
 components can have access to the theme. By default `<ThemeProvider>` utilises the default Theme
@@ -115,27 +123,14 @@ export const myTheme = {
 };
 ```
 
-### Documentation
-
-Documentation is available on [http://pouncejs.surge.sh/](http://pouncejs.surge.sh/)
-
-```
-
 ### Performance
 
-Pounce is on its testing phase right now, which means that the performane is not optimised and the
+Pounce is on its testing phase right now, which means that the performance is not optimized and the
 bundle size is not a core pillar of the development since it relies on 3rd-party packages for some
 of its modules.
 
 There is a plan to gradually migrate those away and to focus on the performance of the actual lib.
 
-As it stands, it utilises `styled-components@5.x.x` internally, so if you are using a CSS-in-JS
-library in your project, it would be recommended to utilise the same library at a similar major
+As it stands, it utilizes `styled-components@5.x.x` internally, so if you are using a CSS-in-JS
+library in your project, it would be recommended to utilize the same library at a similar major
 version in order to not have two separate versions of a CSS-in-JS library in your project
-
-### Deployment
-
-When deploying a project with pounce, you will have to make sure that the CI that builds
-the project (most likely Codebuild) has access to the organisation's github repo. This is
-most likely already happening, but bear that in mind regardless.
-```
