@@ -21,7 +21,7 @@ function useEnumerableTableRows<ItemShape>({ columns }: UseEnumerableTableRowsPr
       {
         key: 'enumeration',
         flex: '0 1 auto',
-        renderColumnHeader: () => null,
+        renderColumnHeader: () => <Label size="medium" ml={4} />,
         renderCell: (item, index) => (
           <Label size="medium" ml={4}>
             {index + 1}
