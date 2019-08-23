@@ -7,8 +7,6 @@ import Text from 'components/Text';
 import BaseButton from 'components/BaseButton';
 import Icon from 'components/Icon';
 
-export type TableItem<T> = { [key: string]: T };
-
 export type ColumnProps<T> = {
   /** A unique identifier for this particular column */
   key: string;
@@ -40,7 +38,7 @@ export type ColumnProps<T> = {
    * will be put as the content of each cell in the column. If it's not defined then Table will use
    * the value of `item[key]`
    * */
-  renderCell?: (item: TableItem<T>, index: number) => React.ReactNode;
+  renderCell?: (item: T, index: number) => React.ReactNode;
 };
 
 export type TableProps<T> = {
@@ -49,7 +47,7 @@ export type TableProps<T> = {
    * any, thus it can have any shape. Usually it keeps the same shape as the one that was returned
    * from the API.
    */
-  items: TableItem<T>[];
+  items: T[];
 
   /** A function that gets an item as param and should return a unique identifier for each item. This
    * prop helps with uniquely identifying an item in the Table in order to optimise re-renders. If
@@ -57,7 +55,7 @@ export type TableProps<T> = {
    *
    * As a general rule, always try to define this prop
    * */
-  getItemKey?: (item: TableItem<T>) => number | string;
+  getItemKey?: (item: T) => number | string;
 
   /**
    * A list of column object that describe each column. More info on the shape of these objects
@@ -90,7 +88,7 @@ export type TableProps<T> = {
    * Callback that fires whenever the row is selected either through a click event. There are
    * plans to support keyboard navigation.
    * */
-  onSelect?: (item: TableItem<T>) => void;
+  onSelect?: (item: T) => void;
 };
 
 /**
@@ -114,7 +112,7 @@ const Row: React.FC<FlexProps> = ({ children, ...rest }) => (
 );
 
 /** The typical Table component with additional functionality */
-export function Table<ItemShape>({
+export function Table<ItemShape extends { [key: string]: any }>({
   items,
   columns,
   getItemKey,
@@ -162,11 +160,7 @@ export function Table<ItemShape>({
     );
   };
 
-  const renderTableItem = (
-    column: ColumnProps<ItemShape>,
-    item: TableItem<ItemShape>,
-    index: number
-  ) => {
+  const renderTableItem = (column: ColumnProps<ItemShape>, item: ItemShape, index: number) => {
     return (
       <Cell key={column.key} role="cell" flex={column.flex}>
         {column.renderCell ? (
