@@ -36,7 +36,7 @@ export type ColumnProps<T> = {
   /**
    * A function that takes an `item` and `index` as parameters and returns a React element that
    * will be put as the content of each cell in the column. If it's not defined then Table will use
-   * the value of `item[key]`
+   * the value of `item[key]` and wrap it in a <Text size="medium">...</Text> component
    * */
   renderCell?: (item: T, index: number) => React.ReactNode;
 };
