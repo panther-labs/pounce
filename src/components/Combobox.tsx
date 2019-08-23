@@ -191,4 +191,4 @@ const Combobox: <T = any>(props: ComboboxProps<T>) => React.ReactElement<Combobo
   );
 };
 
-export default React.memo(Combobox);
+export default Combobox;

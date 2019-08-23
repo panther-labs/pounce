@@ -278,4 +278,4 @@ const MultiCombobox: <T = any>(
   );
 };
 
-export default React.memo(MultiCombobox);
+export default MultiCombobox;
