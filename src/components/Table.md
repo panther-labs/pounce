@@ -1,6 +1,15 @@
 The Table is one of the non-trivial components due to the sheer amount of
 abilities it has. Study the API carefully and you will see that you have the ability to override
-almost all things:
+almost all things.
+
+You have to provide a `name` and a `key` to each column. The `name` is by
+default the label that each column header will show. The `key` is a unique identifier for the
+column. If you dont add a `renderCell` prop in a column, the Table attempts to show the value of the
+`key` field for a particular item. Thus, whenever you don't want to add a custom rendering (but
+just display the text as it is) you should make sure that the column `key` matches the "key" of the
+item that this column refers to.
+
+The examples below showcase that functionality.
 
 A table can be simple:
 

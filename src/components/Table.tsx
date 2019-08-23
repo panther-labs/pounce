@@ -7,11 +7,9 @@ import Text from 'components/Text';
 import BaseButton from 'components/BaseButton';
 import Icon from 'components/Icon';
 
-export type TableItem = { [key: string]: string | number | null | undefined };
+export type TableItem<T> = { [key: string]: T };
 
-export type TableItemKeyShape = number | string;
-
-export type ColumnProps = {
+export type ColumnProps<T> = {
   /** A unique identifier for this particular column */
   key: string;
 
@@ -42,16 +40,16 @@ export type ColumnProps = {
    * will be put as the content of each cell in the column. If it's not defined then Table will use
    * the value of `item[key]`
    * */
-  renderCell?: (item: TableItem, index: number) => React.ReactNode;
+  renderCell?: (item: TableItem<T>, index: number) => React.ReactNode;
 };
 
-export type TableProps = {
+export type TableProps<T> = {
   /**
-   * A list of items that are going to be showcased by the Table. TableItem extends the basic JS
-   * object, thus the shape of these items can by anything. Usually they keep the same
-   * shape as the one that was returned from the API.
+   * A list of items that are going to be showcased by the Table. TableItem has a default value of
+   * any, thus it can have any shape. Usually it keeps the same shape as the one that was returned
+   * from the API.
    */
-  items: TableItem[];
+  items: TableItem<T>[];
 
   /** A function that gets an item as param and should return a unique identifier for each item. This
    * prop helps with uniquely identifying an item in the Table in order to optimise re-renders. If
@@ -59,13 +57,13 @@ export type TableProps = {
    *
    * As a general rule, always try to define this prop
    * */
-  getItemKey?: (item: TableItem) => TableItemKeyShape;
+  getItemKey?: (item: TableItem<T>) => number | string;
 
   /**
    * A list of column object that describe each column. More info on the shape of these objects
    * follows down below
    * */
-  columns: ColumnProps[];
+  columns: ColumnProps<T>[];
 
   /** Whether the table should show the table's headers or not. */
   showHeaders?: boolean;
@@ -77,13 +75,13 @@ export type TableProps = {
    * This is a callback for when the user clicks on one of the headers of the columns that are
    * sortable. If the column is not sortable, then nothing happens.
    */
-  onSort?: (key: ColumnProps['key']) => void;
+  onSort?: (key: ColumnProps<T>['key']) => void;
 
   /**
    * The currently active sort key. This is a controlled prop that should match the `key` prop
    * defined in each column object.
    * */
-  sortKey?: ColumnProps['key'] | null;
+  sortKey?: ColumnProps<T>['key'] | null;
 
   /** The currently active sort direction. This is a controlled prop. */
   sortDir?: 'ascending' | 'descending' | undefined;
@@ -92,7 +90,7 @@ export type TableProps = {
    * Callback that fires whenever the row is selected either through a click event. There are
    * plans to support keyboard navigation.
    * */
-  onSelect?: (item: TableItem) => void;
+  onSelect?: (item: TableItem<T>) => void;
 };
 
 /**
@@ -116,7 +114,7 @@ const Row: React.FC<FlexProps> = ({ children, ...rest }) => (
 );
 
 /** The typical Table component with additional functionality */
-const Table: React.FC<TableProps> = ({
+export function Table<ItemShape>({
   items,
   columns,
   getItemKey,
@@ -127,8 +125,8 @@ const Table: React.FC<TableProps> = ({
   sortDir,
   onSelect,
   ...rest
-}) => {
-  const renderTableHeader = (column: ColumnProps) => {
+}: TableProps<ItemShape>): React.ReactElement<TableProps<ItemShape>> {
+  const renderTableHeader = (column: ColumnProps<ItemShape>) => {
     // Get the base component
     let content = column.renderColumnHeader ? (
       column.renderColumnHeader(sortKey === column.key)
@@ -164,7 +162,11 @@ const Table: React.FC<TableProps> = ({
     );
   };
 
-  const renderTableItem = (column: ColumnProps, item: TableItem, index: number) => {
+  const renderTableItem = (
+    column: ColumnProps<ItemShape>,
+    item: TableItem<ItemShape>,
+    index: number
+  ) => {
     return (
       <Cell key={column.key} role="cell" flex={column.flex}>
         {column.renderCell ? (
@@ -193,7 +195,7 @@ const Table: React.FC<TableProps> = ({
       ))}
     </Box>
   );
-};
+}
 
 Table.defaultProps = {
   getItemKey: undefined,
