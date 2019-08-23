@@ -16,7 +16,7 @@ function useSortableTableRows() {
     setSortKey(selectedKey);
   }, []);
 
-  return onSort;
+  return React.useMemo(() => ({ sortDir, sortKey, onSort }), [sortDir, sortKey]);
 }
 
 export default useSortableTableRows;
