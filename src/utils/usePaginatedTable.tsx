@@ -60,7 +60,8 @@ const usePaginatedTable = ({
           <Flex mr={9} alignItems="center">
             <IconButton
               variant="default"
-              onClick={() => activePageIndex > 0 && setActivePageIndex(activePageIndex - 1)}
+              disabled={activePageIndex <= 0}
+              onClick={() => setActivePageIndex(activePageIndex - 1)}
             >
               <Icon size="large" type="chevron-left" />
             </IconButton>
@@ -71,9 +72,8 @@ const usePaginatedTable = ({
             )}
             <IconButton
               variant="default"
-              onClick={() =>
-                activePageIndex < totalPages - 1 && setActivePageIndex(activePageIndex + 1)
-              }
+              disabled={activePageIndex >= totalPages - 1}
+              onClick={() => setActivePageIndex(activePageIndex + 1)}
             >
               <Icon size="large" type="chevron-right" />
             </IconButton>
