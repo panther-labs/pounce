@@ -36,7 +36,7 @@ export type ColumnProps<T> = {
   /**
    * A function that takes an `item` and `index` as parameters and returns a React element that
    * will be put as the content of each cell in the column. If it's not defined then Table will use
-   * the value of `item[key]`
+   * the value of `item[key]` and wrap it in a <Text size="medium">...</Text> component
    * */
   renderCell?: (item: T, index: number) => React.ReactNode;
 };
@@ -96,7 +96,7 @@ export type TableProps<T> = {
  * Utility component to help code duplication
  * */
 const Cell: React.FC<FlexProps> = ({ children, flex, ...rest }) => (
-  <Flex alignItems="center" flexWrap="wrap" p={4} flex={flex || '1 0 0'} {...rest}>
+  <Flex alignItems="center" flexWrap="wrap" px={4} py={3} flex={flex || '1 0 0'} {...rest}>
     {children}
   </Flex>
 );
@@ -179,7 +179,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
         <Row
           onClick={() => onSelect && onSelect(item)}
           key={getItemKey ? getItemKey(item) : itemIndex}
-          bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'transparent'}
+          bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'white'}
           css={css`
             cursor: pointer;
           `}

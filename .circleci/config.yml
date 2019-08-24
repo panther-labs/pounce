@@ -8,19 +8,19 @@ executors:
 commands:
   setup:
     steps:
+      - checkout
       - run:
           name: Install js dependencies
           command: npm i
-      - run:
-          name: Lint project and run TS checks
-          command: npm run lint
 
 jobs:
   build:
     executor: node
     steps:
-      - checkout
       - setup
+      - run:
+          name: Lint project and run TS checks
+          command: npm run lint
       - run:
           name: Build the project
           command: npm run build
@@ -28,7 +28,6 @@ jobs:
   docs:
     executor: node
     steps:
-      - checkout
       - setup
       - run:
           name: Generate documentation pages
