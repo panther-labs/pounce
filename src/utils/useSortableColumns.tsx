@@ -2,22 +2,19 @@ import React from 'react';
 
 export interface UseSortableTableRows {
   /** The initial value of the sort direction */
-  initialSortDir?: 'ascending' | 'descending' | null;
+  initialSortDir?: 'ascending' | 'descending';
 
   /**
    * The initial value of the sort key. The value must match the `keys` of one of the columns or be
    * null if the data is not currently being sorted under a certain column
    */
-  initialSortKey?: string | null;
+  initialSortKey?: string;
 }
 
 /**
  * A hook that adds the ability for columns to be sortable and handles state management for them
  * */
-function useSortableTableRows({
-  initialSortDir = null,
-  initialSortKey = null,
-}: UseSortableTableRows) {
+function useSortableTableRows({ initialSortDir, initialSortKey }: UseSortableTableRows) {
   const [sortDir, setSortDir] = React.useState(initialSortDir);
   const [sortKey, setSortKey] = React.useState(initialSortKey);
 
