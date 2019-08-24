@@ -1,6 +1,7 @@
 import React from 'react';
 import { TableProps } from 'components/Table';
 import Label from 'components/Label';
+import Box from 'components/Box';
 
 export interface UseEnumerableTableRowsProps<T> {
   /**
@@ -21,13 +22,9 @@ function useEnumerableTableRows<ItemShape>({ columns }: UseEnumerableTableRowsPr
       {
         key: 'enumeration',
         flex: '0 1 auto',
-        renderColumnHeader: () => (
-          <Label size="medium" ml={4}>
-            &nbsp;&nbsp;
-          </Label>
-        ),
+        renderColumnHeader: () => <Box ml={2} width={20} />,
         renderCell: (item, index) => (
-          <Label size="medium" ml={4}>
+          <Label size="medium" ml={2} width={20}>
             {index + 1}
           </Label>
         ),
