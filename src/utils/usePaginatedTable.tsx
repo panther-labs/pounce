@@ -46,25 +46,35 @@ const usePaginatedTable = ({
   const [activePageSizeIndex, setActivePageSizeIndex] = React.useState(initialPageSizeIndex);
 
   const itemsPerPage = pageSizes[activePageSizeIndex];
+  const totalPages = Math.ceil(total / itemsPerPage);
 
   return React.useMemo(
     () => ({
       startIndex: itemsPerPage * activePageIndex,
       endIndex: itemsPerPage * (activePageIndex + 1) - 1,
       itemsPerPage,
+      totalPages,
       activePageIndex,
       paginationElement: (
         <Flex alignItems="center" justifyContent="center">
           <Flex mr={9} alignItems="center">
-            <IconButton variant="default" onClick={() => setActivePageIndex(activePageIndex - 1)}>
+            <IconButton
+              variant="default"
+              onClick={() => activePageIndex > 0 && setActivePageIndex(activePageIndex - 1)}
+            >
               <Icon size="large" type="chevron-left" />
             </IconButton>
             {total > 0 && (
               <Label size="large" mx={4} color="grey400">
-                {activePageIndex + 1} of {Math.ceil(total / itemsPerPage)}
+                {activePageIndex + 1} of {totalPages}
               </Label>
             )}
-            <IconButton variant="default" onClick={() => setActivePageIndex(activePageIndex + 1)}>
+            <IconButton
+              variant="default"
+              onClick={() =>
+                activePageIndex < totalPages - 1 && setActivePageIndex(activePageIndex + 1)
+              }
+            >
               <Icon size="large" type="chevron-right" />
             </IconButton>
           </Flex>
