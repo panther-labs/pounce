@@ -7,14 +7,14 @@ function useSortableTableRows() {
   const [sortDir, setSortDir] = React.useState<'ascending' | 'descending' | null>(null);
   const [sortKey, setSortKey] = React.useState<string | null>(null);
 
-  const onSort = React.useCallback((selectedKey: string) => {
+  const onSort = (selectedKey: string) => {
     if (sortKey === selectedKey) {
       setSortDir(sortDir === 'ascending' ? 'descending' : 'ascending');
     } else {
       setSortDir('ascending');
     }
     setSortKey(selectedKey);
-  }, []);
+  };
 
   return React.useMemo(() => ({ sortDir, sortKey, onSort }), [sortDir, sortKey]);
 }
