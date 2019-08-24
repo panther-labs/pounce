@@ -24,6 +24,12 @@ export interface UsePaginatedTable {
    * The index of `pageSizes` that will initially be selected. This prop defaults to the 0.
    */
   initialPageSizeIndex?: number;
+
+  /**
+   * The page that will initially be selected. This prop defaults to the 0 (the first page, since
+   * numbering starts from `0` although `1` is displayed).
+   */
+  initialPageIndex?: number;
 }
 
 /**
@@ -33,10 +39,11 @@ export interface UsePaginatedTable {
 const usePaginatedTable = ({
   total = 0,
   pageSizes = [25, 50, 75, 100],
-  initialPageSizeIndex,
+  initialPageSizeIndex = 0,
+  initialPageIndex = 0,
 }: UsePaginatedTable) => {
-  const [activePageIndex, setActivePageIndex] = React.useState(0);
-  const [activePageSizeIndex, setActivePageSizeIndex] = React.useState(initialPageSizeIndex || 0);
+  const [activePageIndex, setActivePageIndex] = React.useState(initialPageIndex);
+  const [activePageSizeIndex, setActivePageSizeIndex] = React.useState(initialPageSizeIndex);
 
   const itemsPerPage = pageSizes[activePageSizeIndex];
 
