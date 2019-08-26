@@ -3,6 +3,7 @@ import Label from 'components/Label';
 import Box from 'components/Box';
 import { css } from 'styled-components';
 import Flex, { FlexProps } from 'components/Flex';
+import { BoxProps } from 'components/Box';
 import Text from 'components/Text';
 import BaseButton from 'components/BaseButton';
 import Icon from 'components/Icon';
@@ -41,7 +42,7 @@ export type ColumnProps<T> = {
   renderCell?: (item: T, index: number) => React.ReactNode;
 };
 
-export type TableProps<T> = {
+export interface TableProps<T> extends Omit<BoxProps, 'onSelect'> {
   /**
    * A list of items that are going to be showcased by the Table. TableItem has a default value of
    * any, thus it can have any shape. Usually it keeps the same shape as the one that was returned
@@ -89,7 +90,7 @@ export type TableProps<T> = {
    * plans to support keyboard navigation.
    * */
   onSelect?: (item: T) => void;
-};
+}
 
 /**
  * @private

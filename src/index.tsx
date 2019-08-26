@@ -64,7 +64,6 @@ export { default as Textarea } from 'components/Textarea';
 export { default as TextInput } from 'components/TextInput';
 export { default as Tooltip } from 'components/Tooltip';
 export { default as GlobalStyles } from 'utils/GlobalStyles';
-export { default as useEnumerableTableRows } from 'utils/useEnumerableTableRows';
 export { default as useSelectableTableRows } from 'utils/useSelectableTableRows';
 export { default as usePaginatedTable } from 'utils/usePaginatedTable';
 export { default as useSortableColumns } from 'utils/useSortableColumns';
