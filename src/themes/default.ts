@@ -55,6 +55,7 @@ const theme: DefaultTheme = {
   shadows: {
     none: 'none',
     dark50: '0px 2px 8px rgba(0, 0, 0, 0.05)',
+    dark100: '0px 2px 10px rgba(0, 0, 0, 0.1)',
     dark150: '0px 1px 6px rgba(0, 0, 0, 0.15)',
     dark200: '0px 2px 16px rgba(0, 0, 0, 0.20)',
     dark250: '0px 1px 4px rgba(0, 0, 0, 0.25)',
