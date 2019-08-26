@@ -76,9 +76,7 @@ export interface ComboboxProps<T> {
  * A simple Combobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<Combobox>` component.
  */
-const Combobox: <ItemShape>(
-  props: ComboboxProps<ItemShape>
-) => React.ReactElement<ComboboxProps<ItemShape>> = ({
+function Combobox<ItemShape>({
   onChange,
   value,
   items,
@@ -90,7 +88,7 @@ const Combobox: <ItemShape>(
   menuProps = {},
   disabled = false,
   itemToString = item => String(item),
-}) => {
+}: ComboboxProps<ItemShape>): React.ReactElement<ComboboxProps<ItemShape>> {
   return (
     <Box position="relative">
       <Downshift
@@ -191,6 +189,6 @@ const Combobox: <ItemShape>(
       </Downshift>
     </Box>
   );
-};
+}
 
 export default Combobox;

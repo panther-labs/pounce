@@ -117,9 +117,7 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
  * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
-const MultiCombobox: <ItemShape>(
-  props: MultiComboboxProps<ItemShape>
-) => React.ReactElement<MultiComboboxProps<ItemShape>> = ({
+function MultiCombobox<ItemShape>({
   onChange,
   value,
   items,
@@ -133,7 +131,7 @@ const MultiCombobox: <ItemShape>(
   itemToString = item => String(item),
   allowAdditions = false,
   validateAddition = () => true,
-}) => {
+}: MultiComboboxProps<ItemShape>): React.ReactElement<MultiComboboxProps<ItemShape>> {
   const removeItem = (item: any) => {
     onChange(value.filter(i => i !== item));
   };
@@ -276,6 +274,6 @@ const MultiCombobox: <ItemShape>(
       </Downshift>
     </Box>
   );
-};
+}
 
 export default MultiCombobox;
