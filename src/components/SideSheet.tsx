@@ -4,6 +4,7 @@ import Box, { BoxProps } from 'components/Box';
 import IconButton from 'components/IconButton';
 import Icon from 'components/Icon';
 import { css } from 'styled-components';
+import RefForwardingBox from 'utils/RefForwardingBox';
 
 export interface SideSheetProps extends BoxProps {
   /** Whether the modal should be visible or not */
@@ -41,7 +42,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
     disableBackdropClick={disableBackdropClick}
     disableEscapeKeyDown={disableEscapeKeyDown}
   >
-    <Box
+    <RefForwardingBox
       p={10}
       minWidth="560px"
       bg="white"
@@ -68,7 +69,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
         </IconButton>
         {children}
       </Box>
-    </Box>
+    </RefForwardingBox>
   </MUIModal>
 );
 
