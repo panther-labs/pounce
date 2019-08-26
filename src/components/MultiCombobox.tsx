@@ -125,8 +125,8 @@ function MultiCombobox<ItemShape>({
   searchable = false,
   label = '',
   inputProps = {},
-  rootProps = {},
-  menuProps = {},
+  rootProps: userRootProps = {},
+  menuProps: userMenuProps = {},
   disabled = false,
   itemToString = item => String(item),
   allowAdditions = false,
@@ -211,8 +211,17 @@ function MultiCombobox<ItemShape>({
             },
           };
 
+          const { innerRootRef, ...downshiftRootProps } = getRootProps(
+            { refKey: 'innerRootRef' },
+            { suppressRefError: true }
+          );
+          const { innerMenuRef, ...downshiftMenuProps } = getMenuProps(
+            { refKey: 'innerMenuRef' },
+            { suppressRefError: true }
+          );
+
           return (
-            <Box {...getRootProps()} {...rootProps}>
+            <Box {...downshiftRootProps} {...userRootProps} innerRef={innerRootRef}>
               {!!label && <InputElementLabel {...getLabelProps()}>{label}</InputElementLabel>}
               <InputElementOuterBox position="relative" pr={10} disabled={disabled}>
                 <Flex alignItems="center" flexWrap="wrap">
@@ -237,13 +246,14 @@ function MultiCombobox<ItemShape>({
                       right={3}
                       onClick={() => toggleMenu()}
                       tabIndex={-1}
+                      p={2}
                     >
                       <Icon size="small" type={isOpen ? 'caret-up' : 'caret-down'} />
                     </IconButton>
                   )}
                 </Flex>
               </InputElementOuterBox>
-              <Box {...getMenuProps()} {...menuProps}>
+              <Box {...downshiftMenuProps} {...userMenuProps} innerRef={innerMenuRef}>
                 {isOpen && (
                   <Card zIndex={1} mt={2} position="absolute" width={1}>
                     {results.map((item, index) => (
