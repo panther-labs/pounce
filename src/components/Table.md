@@ -594,7 +594,7 @@ the following signature:
 } => {
 
   items: TableProps['items'] // the items to show in the current page
-  paginationElement: React.Element // a pre-rendered React element that controls pagination
+  paginationElement: (total: number) => React.Element // a element that controls pagination given the total number of items
 
 }
 ```
@@ -665,8 +665,7 @@ const columns = [
 ];
 
 const Example = () => {
-  const { startIndex, endIndex, paginationElement } = usePaginatedTable({
-    total: items.length,
+  const { startIndex, endIndex, renderPaginationElement } = usePaginatedTable({
     pageSizes: [1, 2, 3, 4],
   });
 
@@ -677,7 +676,7 @@ const Example = () => {
         getItemKey={item => item.id}
         columns={columns}
       />
-      <Box my={5}>{paginationElement}</Box>
+      <Box my={5}>{renderPaginationElement(items.length)}</Box>
     </Card>
   );
 };

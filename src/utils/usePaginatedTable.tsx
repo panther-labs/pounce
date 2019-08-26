@@ -47,7 +47,7 @@ const usePaginatedTable = ({
       activePageIndex,
 
       // eslint-disable-next-line react/display-name
-      paginationElement: (total: number) => {
+      renderPaginationElement: (total: number) => {
         const totalPages = Math.ceil(total / itemsPerPage);
         return (
           <Flex alignItems="center" justifyContent="center">
