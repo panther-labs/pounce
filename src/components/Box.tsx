@@ -47,6 +47,13 @@ export interface BoxProps<T = HTMLElement>
   is?: React.ElementType;
 
   /**
+   * The `ref` that will be forwarded down to the base HTML component. For example if you want
+   * `Button` to forward its reference all the way down to the actual `<button>` element, you would
+   * use `<Button innerRef={myRef} />`
+   */
+  innerRef?: React.Ref<T>;
+
+  /**
    * Disallow styled-component's `as` prop
    * @ignore
    */
@@ -89,7 +96,9 @@ export interface BoxProps<T = HTMLElement>
 
 /** Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes. */
-const BaseBox: React.FC<Omit<BoxProps, 'is' | 'as'> & { as?: React.ElementType }> = styled.div`
+const BaseBox: React.FC<
+  Omit<BoxProps, 'is' | 'as'> & { as?: React.ElementType; ref?: React.Ref<HTMLOrSVGElement> }
+> = styled.div`
   ${StyledSystem.space}
   ${StyledSystem.color}
   ${StyledSystem.fontFamily}
@@ -109,7 +118,8 @@ const BaseBox: React.FC<Omit<BoxProps, 'is' | 'as'> & { as?: React.ElementType }
   ${StyledSystem.flex}
 `;
 
-const Box: React.FC<BoxProps> = ({ is, ...rest }) =>
-  is ? <BaseBox as={is} {...rest} /> : <BaseBox {...rest} />;
+const Box: React.FC<BoxProps> = ({ is, innerRef, ...rest }) => (
+  <BaseBox ref={innerRef} as={is} {...rest} />
+);
 
 export default Box;
