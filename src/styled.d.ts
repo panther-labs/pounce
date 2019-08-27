@@ -5,7 +5,7 @@ import * as CSS from 'csstype';
 type fontWeights = 'normal' | 'bold' | 'bolder';
 type radii = 'none' | 'small' | 'medium' | 'large' | 'circle';
 type fontFamilies = 'primary';
-type shadows = 'none' | 'dark50' | 'dark150' | 'dark200' | 'dark250';
+type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250';
 type colors =
   | 'transparent'
   | 'white'

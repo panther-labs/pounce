@@ -5,6 +5,7 @@ import Card, { CardProps } from 'components/Card';
 import Heading from 'components/Heading';
 import Flex from 'components/Flex';
 import { css } from 'styled-components';
+import RefForwardingBox from 'utils/RefForwardingBox';
 
 export interface ModalProps extends CardProps {
   /** Whether the modal should be visible or not */
@@ -66,7 +67,7 @@ const Modal: React.FC<ModalProps> = ({
         'aria-describedby': title,
       })}
     >
-      <Box
+      <RefForwardingBox
         height="100%"
         css={css`
           outline: none;
@@ -89,7 +90,7 @@ const Modal: React.FC<ModalProps> = ({
             {children}
           </Card>
         </Flex>
-      </Box>
+      </RefForwardingBox>
     </MUIModal>
   );
 };

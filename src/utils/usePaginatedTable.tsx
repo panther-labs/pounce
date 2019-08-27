@@ -19,10 +19,9 @@ export interface UsePaginatedTable {
   initialPageSizeIndex?: number;
 
   /**
-   * The page that will initially be selected. This prop defaults to the 0 (the first page, since
-   * numbering starts from `0` although `1` is displayed).
+   * The page that will initially be selected. This prop defaults to 1 (the first page)
    */
-  initialPageIndex?: number;
+  initialPage?: number;
 }
 
 /**
@@ -32,42 +31,42 @@ export interface UsePaginatedTable {
 const usePaginatedTable = ({
   pageSizes = [25, 50, 75, 100],
   initialPageSizeIndex = 0,
-  initialPageIndex = 0,
+  initialPage = 1,
 }: UsePaginatedTable) => {
-  const [activePageIndex, setActivePageIndex] = React.useState(initialPageIndex);
+  const [activePage, setActivePage] = React.useState(initialPage);
   const [activePageSizeIndex, setActivePageSizeIndex] = React.useState(initialPageSizeIndex);
 
   const itemsPerPage = pageSizes[activePageSizeIndex];
 
   return React.useMemo(
     () => ({
-      startIndex: itemsPerPage * activePageIndex,
-      endIndex: itemsPerPage * (activePageIndex + 1) - 1,
+      startIndex: itemsPerPage * (activePage - 1),
+      endIndex: itemsPerPage * activePage - 1,
       itemsPerPage,
-      activePageIndex,
+      activePage,
 
       // eslint-disable-next-line react/display-name
-      paginationElement: (total: number) => {
+      renderPaginationElement: (total: number) => {
         const totalPages = Math.ceil(total / itemsPerPage);
         return (
           <Flex alignItems="center" justifyContent="center">
             <Flex mr={9} alignItems="center">
               <IconButton
                 variant="default"
-                disabled={activePageIndex <= 0}
-                onClick={() => setActivePageIndex(activePageIndex - 1)}
+                disabled={activePage <= 1}
+                onClick={() => setActivePage(activePage - 1)}
               >
                 <Icon size="large" type="chevron-left" />
               </IconButton>
               {total > 0 && (
                 <Label size="large" mx={4} color="grey400">
-                  {activePageIndex + 1} of {Math.ceil(total / itemsPerPage)}
+                  {activePage + 1} of {Math.ceil(total / itemsPerPage)}
                 </Label>
               )}
               <IconButton
                 variant="default"
-                disabled={activePageIndex >= totalPages - 1}
-                onClick={() => setActivePageIndex(activePageIndex + 1)}
+                disabled={activePage >= totalPages}
+                onClick={() => setActivePage(activePage + 1)}
               >
                 <Icon size="large" type="chevron-right" />
               </IconButton>
@@ -89,7 +88,7 @@ const usePaginatedTable = ({
                       key={pageSize}
                       onSelect={() => {
                         setActivePageSizeIndex(index);
-                        setActivePageIndex(0);
+                        setActivePage(1);
                       }}
                     >
                       <MenuItem variant="default">{pageSize} per page</MenuItem>
@@ -102,7 +101,7 @@ const usePaginatedTable = ({
         );
       },
     }),
-    [itemsPerPage, activePageIndex]
+    [itemsPerPage, activePage]
   );
 };
 

@@ -76,9 +76,7 @@ export interface ComboboxProps<T> {
  * A simple Combobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<Combobox>` component.
  */
-const Combobox: <ItemShape>(
-  props: ComboboxProps<ItemShape>
-) => React.ReactElement<ComboboxProps<ItemShape>> = ({
+function Combobox<ItemShape>({
   onChange,
   value,
   items,
@@ -86,15 +84,15 @@ const Combobox: <ItemShape>(
   searchable = false,
   label = '',
   inputProps = {},
-  rootProps = {},
-  menuProps = {},
+  rootProps: userRootProps = {},
+  menuProps: userMenuProps = {},
   disabled = false,
   itemToString = item => String(item),
-}) => {
+}: ComboboxProps<ItemShape>): React.ReactElement<ComboboxProps<ItemShape>> {
   return (
     <Box position="relative">
       <Downshift
-        onChange={item => item && onChange(item)}
+        onChange={onChange}
         selectedItem={value}
         itemToString={item => (item ? itemToString(item) : '')}
       >
@@ -138,8 +136,17 @@ const Combobox: <ItemShape>(
             }),
           };
 
+          const { innerRootRef, ...downshiftRootProps } = getRootProps(
+            { refKey: 'innerRootRef' },
+            { suppressRefError: true }
+          );
+          const { innerMenuRef, ...downshiftMenuProps } = getMenuProps(
+            { refKey: 'innerMenuRef' },
+            { suppressRefError: true }
+          );
+
           return (
-            <Box {...getRootProps()} {...rootProps}>
+            <Box {...downshiftRootProps} {...userRootProps} innerRef={innerRootRef}>
               {!!label && <InputElementLabel {...getLabelProps()}>{label}</InputElementLabel>}
               <InputElementOuterBox position="relative" pr={10} disabled={disabled}>
                 <Flex alignItems="center" flexWrap="wrap">
@@ -155,12 +162,13 @@ const Combobox: <ItemShape>(
                     right={3}
                     onClick={() => toggleMenu()}
                     tabIndex={-1}
+                    p={2}
                   >
                     <Icon size="small" type={isOpen ? 'caret-up' : 'caret-down'} />
                   </IconButton>
                 </Flex>
               </InputElementOuterBox>
-              <Box {...getMenuProps()} {...menuProps}>
+              <Box {...downshiftMenuProps} {...userMenuProps} innerRef={innerMenuRef}>
                 {isOpen && (
                   <Card zIndex={1} mt={2} position="absolute" width={1}>
                     {results.map((item, index) => (
@@ -191,6 +199,6 @@ const Combobox: <ItemShape>(
       </Downshift>
     </Box>
   );
-};
+}
 
 export default Combobox;

@@ -117,9 +117,7 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
  * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
-const MultiCombobox: <ItemShape>(
-  props: MultiComboboxProps<ItemShape>
-) => React.ReactElement<MultiComboboxProps<ItemShape>> = ({
+function MultiCombobox<ItemShape>({
   onChange,
   value,
   items,
@@ -127,13 +125,13 @@ const MultiCombobox: <ItemShape>(
   searchable = false,
   label = '',
   inputProps = {},
-  rootProps = {},
-  menuProps = {},
+  rootProps: userRootProps = {},
+  menuProps: userMenuProps = {},
   disabled = false,
   itemToString = item => String(item),
   allowAdditions = false,
   validateAddition = () => true,
-}) => {
+}: MultiComboboxProps<ItemShape>): React.ReactElement<MultiComboboxProps<ItemShape>> {
   const removeItem = (item: any) => {
     onChange(value.filter(i => i !== item));
   };
@@ -213,8 +211,17 @@ const MultiCombobox: <ItemShape>(
             },
           };
 
+          const { innerRootRef, ...downshiftRootProps } = getRootProps(
+            { refKey: 'innerRootRef' },
+            { suppressRefError: true }
+          );
+          const { innerMenuRef, ...downshiftMenuProps } = getMenuProps(
+            { refKey: 'innerMenuRef' },
+            { suppressRefError: true }
+          );
+
           return (
-            <Box {...getRootProps()} {...rootProps}>
+            <Box {...downshiftRootProps} {...userRootProps} innerRef={innerRootRef}>
               {!!label && <InputElementLabel {...getLabelProps()}>{label}</InputElementLabel>}
               <InputElementOuterBox position="relative" pr={10} disabled={disabled}>
                 <Flex alignItems="center" flexWrap="wrap">
@@ -239,13 +246,14 @@ const MultiCombobox: <ItemShape>(
                       right={3}
                       onClick={() => toggleMenu()}
                       tabIndex={-1}
+                      p={2}
                     >
                       <Icon size="small" type={isOpen ? 'caret-up' : 'caret-down'} />
                     </IconButton>
                   )}
                 </Flex>
               </InputElementOuterBox>
-              <Box {...getMenuProps()} {...menuProps}>
+              <Box {...downshiftMenuProps} {...userMenuProps} innerRef={innerMenuRef}>
                 {isOpen && (
                   <Card zIndex={1} mt={2} position="absolute" width={1}>
                     {results.map((item, index) => (
@@ -276,6 +284,6 @@ const MultiCombobox: <ItemShape>(
       </Downshift>
     </Box>
   );
-};
+}
 
 export default MultiCombobox;

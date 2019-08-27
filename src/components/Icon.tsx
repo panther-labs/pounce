@@ -108,7 +108,7 @@ export const svgComponentMapping = {
   upload: Upload,
 };
 
-export interface IconProps extends BoxProps<HTMLOrSVGElement> {
+export interface IconProps extends Omit<BoxProps<HTMLOrSVGElement>, 'innerRef'> {
   /** The icon that you want to show */
   type: keyof typeof svgComponentMapping;
 
