@@ -103,7 +103,17 @@ export interface TableProps<T> extends Omit<BoxProps, 'onSelect'> {
  * Utility component to help code duplication
  * */
 const Cell: React.FC<FlexProps> = ({ children, flex, ...rest }) => (
-  <Flex alignItems="center" flexWrap="wrap" px={4} py={3} flex={flex || '1 0 0'} {...rest}>
+  <Flex
+    alignItems="center"
+    flexWrap="wrap"
+    px={4}
+    py={3}
+    flex={flex || '1 0 0'}
+    css={css`
+      word-break: break-word;
+    `}
+    {...rest}
+  >
     {children}
   </Flex>
 );
