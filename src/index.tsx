@@ -60,7 +60,7 @@ export { default as Switch } from 'components/Switch';
 export { default as Table } from 'components/Table';
 export * from 'components/Tabs';
 export { default as Text } from 'components/Text';
-export { default as Textarea } from 'components/Textarea';
+export { default as TextArea } from 'components/TextArea';
 export { default as TextInput } from 'components/TextInput';
 export { default as Tooltip } from 'components/Tooltip';
 export { default as GlobalStyles } from 'utils/GlobalStyles';
