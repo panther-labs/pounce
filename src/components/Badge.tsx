@@ -6,7 +6,15 @@ export type BadgeProps = BaseBadgeProps;
 /** A badge is simply a visual label to accompany & characterize a certain text*/
 const Badge: React.FC<BadgeProps> = props => {
   return (
-    <BaseBadge textAlign="center" fontWeight="bold" borderRadius="small" px={3} py={1} {...props} />
+    <BaseBadge
+      minWidth="62px"
+      textAlign="center"
+      fontWeight="bold"
+      borderRadius="small"
+      px={1}
+      py={1}
+      {...props}
+    />
   );
 };
 
