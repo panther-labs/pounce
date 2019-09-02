@@ -41,7 +41,7 @@ const usePaginatedTable = ({
   return React.useMemo(
     () => ({
       startIndex: itemsPerPage * (activePage - 1),
-      endIndex: itemsPerPage * activePage - 1,
+      endIndex: itemsPerPage * activePage,
       itemsPerPage,
       activePage,
 
