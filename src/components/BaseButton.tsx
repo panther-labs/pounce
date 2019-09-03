@@ -14,6 +14,7 @@ const BaseButton = styled<React.FC<BaseButtonProps>>(props => <Box is="button" {
   &[disabled] {
     opacity: 0.3;
     pointer-events: none;
+    cursor: default;
   }
 `;
 
