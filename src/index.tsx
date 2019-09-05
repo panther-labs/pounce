@@ -69,3 +69,5 @@ export { default as usePaginatedTable } from 'utils/usePaginatedTable';
 export { default as useSortableColumns } from 'utils/useSortableColumns';
 export { default as defaultTheme } from 'themes/default';
 export { default as ThemeProvider } from 'utils/ThemeProvider';
+
+export * from 'components/BaseInputElement';
