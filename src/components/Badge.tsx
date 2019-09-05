@@ -7,6 +7,7 @@ export type BadgeProps = BaseBadgeProps;
 const Badge: React.FC<BadgeProps> = props => {
   return (
     <BaseBadge
+      width="fit-content"
       minWidth="62px"
       textAlign="center"
       fontWeight="bold"
