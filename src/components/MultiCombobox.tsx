@@ -255,7 +255,14 @@ function MultiCombobox<ItemShape>({
               </InputElementOuterBox>
               <Box {...downshiftMenuProps} {...userMenuProps} innerRef={innerMenuRef}>
                 {isOpen && (
-                  <Card zIndex={1} mt={2} position="absolute" width={1}>
+                  <Card
+                    zIndex={1}
+                    mt={2}
+                    position="absolute"
+                    width={1}
+                    maxHeight={300}
+                    style={{ overflow: 'auto' }}
+                  >
                     {results.map((item, index) => (
                       <Box {...getItemProps({ item })} key={itemToString(item)}>
                         {renderItem ? (
