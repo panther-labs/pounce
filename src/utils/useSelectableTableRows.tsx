@@ -41,7 +41,7 @@ function useSelectableTableRows<ItemShape>({
   }, [selectedItems]);
 
   /* eslint-disable react/display-name */
-  const extendedColumns: TableProps<ItemShape>['columns'] = React.useMemo(
+  const extendedColumns: TableProps<ItemShape & { selection: number }>['columns'] = React.useMemo(
     () => [
       {
         key: 'selection',

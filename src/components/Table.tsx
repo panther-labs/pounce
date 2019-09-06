@@ -1,4 +1,5 @@
 import React from 'react';
+import * as CSS from 'csstype';
 import Label from 'components/Label';
 import Box from 'components/Box';
 import { css } from 'styled-components';
@@ -10,7 +11,7 @@ import Icon from 'components/Icon';
 
 export type ColumnProps<T> = {
   /** A unique identifier for this particular column */
-  key: string;
+  key: Extract<keyof T, string>;
 
   /**
    * The text that is going to be put as header for this column.
@@ -23,7 +24,7 @@ export type ColumnProps<T> = {
    * remaining space. A flex value of `0 1 200` makes sure that the item is 200 and can shrink if
    * needed.
    */
-  flex?: string;
+  flex?: CSS.StandardShorthandPropertiesHyphen['flex'];
 
   /** Whether the column should display a "caret", indicating that it is sortable */
   sortable?: boolean;
