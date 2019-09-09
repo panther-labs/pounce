@@ -234,4 +234,4 @@ Table.defaultProps = {
   onSelect: undefined,
 };
 
-export default React.memo(Table);
+export default Table;
