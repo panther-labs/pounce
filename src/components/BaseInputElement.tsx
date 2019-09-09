@@ -65,6 +65,15 @@ export const InputElementLabel: React.FC<Omit<LabelProps, 'size'>> = ({ children
   </Box>
 );
 
+export const InputElementErrorLabel: React.FC<BoxProps> = ({ children, ...rest }) => (
+  <Box color="red300" {...rest}>
+    <Flex alignItems="center">
+      <Icon size="small" type="warning" mr={2} flex="0 0 auto" />
+      <Text size="medium">{children}</Text>
+    </Flex>
+  </Box>
+);
+
 export type BaseInputElementProps = InputElementOuterBoxProps &
   InputElementInnerBoxProps & {
     /** The label that is associated with this input */
@@ -103,12 +112,9 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({
         />
       </InputElementOuterBox>
       {error && (
-        <Box py={4} px={4} color="red300">
-          <Flex alignItems="center">
-            <Icon size="small" type="warning" mr={2} flex="0 0 auto" />
-            <Text size="medium">{error}</Text>
-          </Flex>
-        </Box>
+        <InputElementErrorLabel py={4} px={4}>
+          {error}
+        </InputElementErrorLabel>
       )}
     </Box>
   );
