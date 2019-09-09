@@ -208,4 +208,4 @@ function Combobox<ItemShape>({
   );
 }
 
-export default Combobox;
+export default React.memo(Combobox);

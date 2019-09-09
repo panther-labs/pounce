@@ -295,4 +295,4 @@ function MultiCombobox<ItemShape>({
   );
 }
 
-export default MultiCombobox;
+export default React.memo(MultiCombobox);
