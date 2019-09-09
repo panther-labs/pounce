@@ -1,6 +1,6 @@
-import { DefaultTheme } from 'styled-components';
+import { Theme } from '../styled';
 
-const theme: DefaultTheme = {
+const theme: Theme = {
   breakpoints: ['1200px'],
   fontSizes: [10, 12, 14, 16, 24, 32],
   space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],

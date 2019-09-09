@@ -32,17 +32,19 @@ type colors =
   | 'primary200'
   | 'primary300';
 
+export interface Theme extends StyledSystemTheme {
+  fontSizes: CSS.FontSizeProperty<number>[];
+  space: number[];
+  fontWeights: { [key in fontWeights]: number };
+  fonts: { [key in fontFamilies]: string };
+  colors: { [key in colors]: string };
+  radii: { [key in radii]: number };
+  lineHeights: CSS.LineHeightProperty<{}>[];
+  shadows: { [key in shadows]: CSS.BoxShadowProperty };
+}
+
 // Override styled-component's DefaultTheme with our shape
 // https://www.styled-components.com/docs/api#create-a-declarations-file
 declare module 'styled-components' {
-  export interface DefaultTheme extends StyledSystemTheme {
-    fontSizes: CSS.FontSizeProperty<number>[];
-    space: number[];
-    fontWeights: { [key in fontWeights]: number };
-    fonts: { [key in fontFamilies]: string };
-    colors: { [key in colors]: string };
-    radii: { [key in radii]: number };
-    lineHeights: CSS.LineHeightProperty<{}>[];
-    shadows: { [key in shadows]: CSS.BoxShadowProperty };
-  }
+  export interface DefaultTheme extends Theme {} // eslint-disable-line
 }
