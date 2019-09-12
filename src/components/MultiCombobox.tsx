@@ -243,6 +243,7 @@ function MultiCombobox<ItemShape>({
                   />
                   {items.length > 0 && (
                     <IconButton
+                      type="button"
                       variant="default"
                       position="absolute"
                       right={3}

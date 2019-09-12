@@ -157,6 +157,7 @@ function Combobox<ItemShape>({
                     flex="1 0 auto"
                   />
                   <IconButton
+                    type="button"
                     variant="default"
                     position="absolute"
                     right={3}
