@@ -17,7 +17,7 @@ const StyledHeading = styled(Heading)`
   }
 `;
 
-interface BreadcrumbItem {
+export interface BreadcrumbItem {
   /** The URL that this Breadcrumbs should navigate to when clicked */
   href: string;
 
@@ -25,7 +25,7 @@ interface BreadcrumbItem {
   text: string;
 }
 
-interface BreadcrumbProps {
+export interface BreadcrumbProps {
   /** A list of `BreadcrumbsItem` objects ( `{href,text}` ) that will construct the Breadcrumb */
   items: BreadcrumbItem[];
 
