@@ -64,6 +64,7 @@ export const Tab: React.FC<TabProps> = ({
   return (
     <li>
       <StyledTab
+        type="button"
         borderRadius="small"
         border="1px solid"
         fontSize={3}
