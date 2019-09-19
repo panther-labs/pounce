@@ -20,6 +20,7 @@ export interface RadioProps {
 const Radio: React.FC<RadioProps> = ({ checked, onChange, ...rest }) => {
   return (
     <IconButton
+      type="button"
       variant="default"
       role="radio"
       aria-checked={checked}
