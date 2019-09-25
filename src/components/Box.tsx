@@ -1,8 +1,6 @@
 import React from 'react';
-import * as CSS from 'csstype';
 import styled, { CSSProp } from 'styled-components';
 import * as StyledSystem from 'styled-system';
-import { overflow } from '../extensions';
 
 // We create an adapter interface cause we have 2 clashing interfaces with regards to the `color`
 // prop. To fix that we first convert it to "any" and then we explicitely re-define it as the type
@@ -94,14 +92,6 @@ export interface BoxProps<T = HTMLElement>
    * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/height)
    */
   height?: StyledSystem.HeightProps['height'];
-
-  /**
-   * The overflow shorthand CSS property sets what to do when an element's content is too big to fit
-   * in its block formatting context. It is a shorthand for overflow-x and overflow-y.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
-   */
-  overflow?: CSS.StandardLonghandProperties['overflowBlock'];
 }
 
 /** Responsive box-model layout component. Apart from the defined props,
@@ -126,7 +116,6 @@ const BaseBox: React.FC<
   ${StyledSystem.border}
   ${StyledSystem.position}
   ${StyledSystem.flex}
-  ${overflow}
 `;
 
 const Box: React.FC<BoxProps> = ({ is, innerRef, ...rest }) => (
