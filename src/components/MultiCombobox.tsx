@@ -189,10 +189,10 @@ function MultiCombobox<ItemShape>({
             ...(!searchable && {
               style: { cursor: 'pointer' },
               onMouseDown: toggleMenu,
-              onFocus: openMenu,
               readOnly: true,
               'aria-readonly': true,
             }),
+            onFocus: openMenu,
             onKeyDown: (event: React.KeyboardEvent) => {
               // Allow deletions of selections by pressing backspace
               if (event.key === 'Backspace' && !inputValue) {
