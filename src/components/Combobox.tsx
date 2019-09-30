@@ -62,6 +62,14 @@ export interface ComboboxProps<T> {
   /** Whether the component should be disabled or not */
   disabled?: boolean;
 
+  /** The maximum number of results that the MultiCombobox should show. Default value is
+   * `undefined` to display which displays all of them.
+   * */
+  maxResults?: number;
+
+  /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
+  maxHeight?: number;
+
   /** A set of props & attributes that will be given to the input */
   inputProps?: TextInputProps;
 
@@ -88,6 +96,8 @@ function Combobox<ItemShape>({
   menuProps: userMenuProps = {},
   disabled = false,
   itemToString = item => String(item),
+  maxHeight = 300,
+  maxResults,
 }: ComboboxProps<ItemShape>): React.ReactElement<ComboboxProps<ItemShape>> {
   return (
     <Box position="relative">
@@ -115,8 +125,11 @@ function Combobox<ItemShape>({
           if (searchable) {
             const strResults = fuzzySearch(results.map(itemToString), inputValue || '');
 
-            // now convert those strings back to the original shape of the items
-            results = items.filter(item => strResults.includes(itemToString(item)));
+            // convert those strings back to the original shape of the items, while making
+            // sure to only display a (potentially) limited number of them
+            results = items
+              .filter(item => strResults.includes(itemToString(item)))
+              .slice(0, maxResults);
           }
 
           // Only show the items that have not been selected
@@ -176,7 +189,7 @@ function Combobox<ItemShape>({
                     mt={2}
                     position="absolute"
                     width={1}
-                    maxHeight={300}
+                    maxHeight={maxHeight}
                     style={{ overflow: 'auto' }}
                   >
                     {results.map((item, index) => (
