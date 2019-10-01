@@ -100,12 +100,21 @@ function Combobox<ItemShape>({
   maxHeight = 300,
   maxResults,
 }: ComboboxProps<ItemShape>): React.ReactElement<ComboboxProps<ItemShape>> {
+  // convert item to a string with a fallback of empty string
+  const safeItemToString = (item: ItemShape | null) => (item ? itemToString(item) : '');
+
+  // Due to the way we want our Combobox to behave, we want to control the input value ourselves.
+  // We make sure to update it on every selection made, on every keystroke within the search input,
+  // plus some focus/blur events that are tied to the searchable behaviour (see below)
+  const [inputValue, setInputValue] = React.useState(safeItemToString(value));
   return (
     <Box position="relative">
       <Downshift
+        onSelect={selectedItem => setInputValue(safeItemToString(selectedItem))}
         onChange={onChange}
         selectedItem={value}
-        itemToString={item => (item ? itemToString(item) : '')}
+        inputValue={inputValue}
+        itemToString={safeItemToString}
       >
         {({
           getRootProps,
@@ -113,10 +122,10 @@ function Combobox<ItemShape>({
           getItemProps,
           getMenuProps,
           highlightedIndex,
-          inputValue,
           isOpen,
           toggleMenu,
           openMenu,
+          closeMenu,
           getLabelProps,
         }) => {
           let results = items;
@@ -124,7 +133,7 @@ function Combobox<ItemShape>({
           // If it's searchable, only filter results by search term when the searching
           // functionality is available.
           if (searchable) {
-            const strResults = fuzzySearch(results.map(itemToString), inputValue || '');
+            const strResults = fuzzySearch(results.map(itemToString), inputValue);
 
             // convert those strings back to the original shape of the items, while making
             // sure to only display a (potentially) limited number of them
@@ -135,10 +144,14 @@ function Combobox<ItemShape>({
 
           // Only show the items that have not been selected
 
-          // We add 2 types of additional data to the input that is going to be renders:
+          // We add 3 types of additional data to the input that is going to be renders:
           // 1. `inputProps` that the user asked us to add
           // 2. When the combobox is not searchable, we make the input "behave" like a div. We
           // still want an input though for placeholder, spacings, etc.
+          // 3. When the combobox is searchable, we want it to behave like an empty input when
+          // focused (showcasing the current value through the placeholder) so that the user can
+          // see all the options even if he has already selected an option (to do that we need to
+          // clear the input). If the user blurs, then we revert back to a normal behaviour
           const additionalInputProps = {
             ...inputProps,
             ...(!searchable && {
@@ -147,6 +160,19 @@ function Combobox<ItemShape>({
               onFocus: openMenu,
               readOnly: true,
               'aria-readonly': true,
+            }),
+            ...(searchable && {
+              placeholder: value ? itemToString(value) : inputProps.placeholder,
+              onChange: (e: React.FormEvent<HTMLInputElement>) =>
+                setInputValue(e.currentTarget.value),
+              onFocus: () => {
+                openMenu();
+                setInputValue('');
+              },
+              onBlur: () => {
+                closeMenu();
+                setInputValue(safeItemToString(value));
+              },
             }),
           };
 
