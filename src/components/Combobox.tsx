@@ -62,7 +62,8 @@ export interface ComboboxProps<T> {
   /** Whether the component should be disabled or not */
   disabled?: boolean;
 
-  /** The maximum number of results that the MultiCombobox should show. Default value is
+  /**
+   * The maximum number of results that the MultiCombobox should show. Default value is
    * `undefined` to display which displays all of them.
    * */
   maxResults?: number;
