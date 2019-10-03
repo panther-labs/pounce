@@ -78,6 +78,15 @@ export interface MultiComboboxProps<T> {
   allowAdditions?: boolean;
 
   /**
+   * The maximum number of results that the MultiCombobox should show. Default value is
+   * `undefined` to display which displays all of them.
+   * */
+  maxResults?: number;
+
+  /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
+  maxHeight?: number;
+
+  /**
    * A function that runs before a custom item is added by the user. If it returns `true`, then this
    * item will be added to the selection. If not, then this item won't be added
    * */
@@ -131,6 +140,8 @@ function MultiCombobox<ItemShape>({
   itemToString = item => String(item),
   allowAdditions = false,
   validateAddition = () => true,
+  maxHeight = 300,
+  maxResults,
 }: MultiComboboxProps<ItemShape>): React.ReactElement<MultiComboboxProps<ItemShape>> {
   const removeItem = (item: any) => {
     onChange(value.filter(i => i !== item));
@@ -174,8 +185,11 @@ function MultiCombobox<ItemShape>({
           // search term. To do that we convert our items to their string representations
           const strResults = fuzzySearch(nonSelectedItems.map(itemToString), inputValue || '');
 
-          // and then convert those strings back to the original shape of the items
-          const results = items.filter(item => strResults.includes(itemToString(item)));
+          // and then convert those strings back to the original shape of the items, while making
+          // sure to only display a (potentially) limited number of them
+          const results = items
+            .filter(item => strResults.includes(itemToString(item)))
+            .slice(0, maxResults);
 
           // Only show the items that have not been selected
 
@@ -189,10 +203,10 @@ function MultiCombobox<ItemShape>({
             ...(!searchable && {
               style: { cursor: 'pointer' },
               onMouseDown: toggleMenu,
-              onFocus: openMenu,
               readOnly: true,
               'aria-readonly': true,
             }),
+            onFocus: openMenu,
             onKeyDown: (event: React.KeyboardEvent) => {
               // Allow deletions of selections by pressing backspace
               if (event.key === 'Backspace' && !inputValue) {
@@ -263,7 +277,7 @@ function MultiCombobox<ItemShape>({
                     mt={2}
                     position="absolute"
                     width={1}
-                    maxHeight={300}
+                    maxHeight={maxHeight}
                     style={{ overflow: 'auto' }}
                   >
                     {results.map((item, index) => (
