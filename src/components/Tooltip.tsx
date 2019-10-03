@@ -33,7 +33,15 @@ const Tooltip: React.FC<TooltipProps> = ({
       tipContentHover={allowHover}
       hoverDelay={hoverDelay}
       content={
-        <Box px={3} py={2} bg="grey500" color="white" borderRadius="small">
+        <Box
+          px={3}
+          py={2}
+          bg="grey500"
+          color="white"
+          borderRadius="small"
+          width="fit-content"
+          maxWidth={400}
+        >
           {content}
         </Box>
       }

@@ -64,6 +64,7 @@ export const Tab: React.FC<TabProps> = ({
   return (
     <li>
       <StyledTab
+        type="button"
         borderRadius="small"
         border="1px solid"
         fontSize={3}
@@ -89,7 +90,9 @@ Tab.defaultProps = {
 
 export type TabListProps = FlexProps;
 
-export const TabList: React.FC<TabListProps> = props => <Flex is="ul" role="tablist" {...props} />;
+export const TabList: React.FC<TabListProps> = props => (
+  <Flex is="ul" role="tablist" flexWrap="wrap" {...props} />
+);
 
 export interface TabPanelProps extends BoxProps {
   /**

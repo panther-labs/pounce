@@ -25,6 +25,7 @@ export interface SwitchProps {
 const Switch: React.FC<SwitchProps> = ({ checked, onChange, label, ...rest }) => {
   return (
     <BaseButton
+      type="button"
       role="switch"
       aria-checked={checked}
       onClick={() => onChange(!checked)}

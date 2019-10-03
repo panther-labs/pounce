@@ -90,6 +90,12 @@ export interface TableProps<T> extends Omit<BoxProps, 'onSelect'> {
    * plans to support keyboard navigation.
    * */
   onSelect?: (item: T) => void;
+
+  /**
+   * A function that should return a component to render as a placeholder when there are no items
+   * in the array. Defaults to the text "Nothing to show"
+   * */
+  renderPlaceholder?: () => React.ReactNode;
 }
 
 /**
@@ -97,7 +103,17 @@ export interface TableProps<T> extends Omit<BoxProps, 'onSelect'> {
  * Utility component to help code duplication
  * */
 const Cell: React.FC<FlexProps> = ({ children, flex, ...rest }) => (
-  <Flex alignItems="center" flexWrap="wrap" px={4} py={3} flex={flex || '1 0 0'} {...rest}>
+  <Flex
+    alignItems="center"
+    flexWrap="wrap"
+    px={4}
+    py={3}
+    flex={flex || '1 0 0'}
+    css={css`
+      word-break: break-word;
+    `}
+    {...rest}
+  >
     {children}
   </Flex>
 );
@@ -123,6 +139,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
   sortKey,
   sortDir,
   onSelect,
+  renderPlaceholder,
   ...rest
 }: TableProps<ItemShape>): React.ReactElement<TableProps<ItemShape>> {
   const renderTableHeader = (column: ColumnProps<ItemShape>) => {
@@ -173,21 +190,37 @@ export function Table<ItemShape extends { [key: string]: any }>({
     );
   };
 
+  const renderTablePlaceholder = () => {
+    if (renderPlaceholder) {
+      return renderPlaceholder();
+    }
+
+    return (
+      <Flex justifyContent="center" alignItems="center" width={1} height={100}>
+        <Text size="large" color="grey200">
+          Nothing to show
+        </Text>
+      </Flex>
+    );
+  };
+
   return (
     <Box {...rest} flex="1 0 0" role="table">
       {showHeaders && <Row>{columns.map(renderTableHeader)}</Row>}
-      {items.map((item, itemIndex) => (
-        <Row
-          onClick={() => onSelect && onSelect(item)}
-          key={getItemKey ? getItemKey(item) : itemIndex}
-          bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'white'}
-          css={css`
-            cursor: pointer;
-          `}
-        >
-          {columns.map(column => renderTableItem(column, item, itemIndex))}
-        </Row>
-      ))}
+      {!items.length
+        ? renderTablePlaceholder()
+        : items.map((item, itemIndex) => (
+            <Row
+              onClick={() => onSelect && onSelect(item)}
+              key={getItemKey ? getItemKey(item) : itemIndex}
+              bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'white'}
+              css={css`
+                cursor: pointer;
+              `}
+            >
+              {columns.map(column => renderTableItem(column, item, itemIndex))}
+            </Row>
+          ))}
     </Box>
   );
 }

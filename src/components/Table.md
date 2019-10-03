@@ -671,11 +671,7 @@ const Example = () => {
 
   return (
     <Card width="100%">
-      <Table
-        items={items.slice(startIndex, endIndex + 1)}
-        getItemKey={item => item.id}
-        columns={columns}
-      />
+      <Table items={[]} getItemKey={item => item.id} columns={columns} />
       <Box my={5}>{renderPaginationElement(items.length)}</Box>
     </Card>
   );

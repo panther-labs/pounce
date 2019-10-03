@@ -199,7 +199,7 @@ const GlobalStyles = createGlobalStyle`
   left: 0;
   z-index: 100;
 
-  background: white;
+  background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.shadows.dark200};
   border-radius: ${({ theme }) => `${theme.radii.small}px`};
 }

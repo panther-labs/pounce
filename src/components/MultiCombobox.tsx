@@ -202,6 +202,8 @@ function MultiCombobox<ItemShape>({
               // Allow the user to add custom selections if both `searchable` and `allowAdditions`
               // have a truthy value
               if (event.key === 'Enter' && searchable && allowAdditions && inputValue) {
+                event.preventDefault();
+
                 // By default validateAddition always returns true. Can be overriden by the user
                 // for fine-grained addition
                 if (validateAddition && validateAddition(inputValue)) {
@@ -241,6 +243,7 @@ function MultiCombobox<ItemShape>({
                   />
                   {items.length > 0 && (
                     <IconButton
+                      type="button"
                       variant="default"
                       position="absolute"
                       right={3}
@@ -255,7 +258,14 @@ function MultiCombobox<ItemShape>({
               </InputElementOuterBox>
               <Box {...downshiftMenuProps} {...userMenuProps} innerRef={innerMenuRef}>
                 {isOpen && (
-                  <Card zIndex={1} mt={2} position="absolute" width={1}>
+                  <Card
+                    zIndex={1}
+                    mt={2}
+                    position="absolute"
+                    width={1}
+                    maxHeight={300}
+                    style={{ overflow: 'auto' }}
+                  >
                     {results.map((item, index) => (
                       <Box {...getItemProps({ item })} key={itemToString(item)}>
                         {renderItem ? (

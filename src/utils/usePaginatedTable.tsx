@@ -41,7 +41,7 @@ const usePaginatedTable = ({
   return React.useMemo(
     () => ({
       startIndex: itemsPerPage * (activePage - 1),
-      endIndex: itemsPerPage * activePage - 1,
+      endIndex: itemsPerPage * activePage,
       itemsPerPage,
       activePage,
 
@@ -60,7 +60,7 @@ const usePaginatedTable = ({
               </IconButton>
               {total > 0 && (
                 <Label size="large" mx={4} color="grey400">
-                  {activePage + 1} of {Math.ceil(total / itemsPerPage)}
+                  {activePage} of {Math.ceil(total / itemsPerPage)}
                 </Label>
               )}
               <IconButton

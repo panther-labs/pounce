@@ -26,7 +26,7 @@ export * from 'components/Spinner';
 export * from 'components/Switch';
 export * from 'components/Table';
 export * from 'components/Text';
-export * from 'components/Textarea';
+export * from 'components/TextArea';
 export * from 'components/TextInput';
 export * from 'components/Tooltip';
 
@@ -60,7 +60,7 @@ export { default as Switch } from 'components/Switch';
 export { default as Table } from 'components/Table';
 export * from 'components/Tabs';
 export { default as Text } from 'components/Text';
-export { default as Textarea } from 'components/Textarea';
+export { default as TextArea } from 'components/TextArea';
 export { default as TextInput } from 'components/TextInput';
 export { default as Tooltip } from 'components/Tooltip';
 export { default as GlobalStyles } from 'utils/GlobalStyles';
@@ -69,3 +69,6 @@ export { default as usePaginatedTable } from 'utils/usePaginatedTable';
 export { default as useSortableColumns } from 'utils/useSortableColumns';
 export { default as defaultTheme } from 'themes/default';
 export { default as ThemeProvider } from 'utils/ThemeProvider';
+export { default as useTheme } from 'utils/useTheme';
+
+export * from 'components/BaseInputElement';
