@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, { CSSProp } from 'styled-components';
+import styled from '@emotion/styled';
+import { SerializedStyles } from '@emotion/core';
 import * as StyledSystem from 'styled-system';
 
 // We create an adapter interface cause we have 2 clashing interfaces with regards to the `color`
@@ -54,7 +55,7 @@ export interface BoxProps<T = HTMLElement>
   innerRef?: React.Ref<T>;
 
   /**
-   * Disallow styled-component's `as` prop
+   * Disallow emotion's `as` prop
    * @ignore
    */
   as?: never;
@@ -62,7 +63,7 @@ export interface BoxProps<T = HTMLElement>
   /** Additional custom inline CSS to pass to the element
    * @default "{}"
    * */
-  css?: CSSProp;
+  css?: SerializedStyles;
 
   /**
    * The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
@@ -96,9 +97,13 @@ export interface BoxProps<T = HTMLElement>
 
 /** Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes. */
-const BaseBox: React.FC<
-  Omit<BoxProps, 'is' | 'as'> & { as?: React.ElementType; ref?: React.Ref<HTMLOrSVGElement> }
-> = styled.div`
+const BaseBox: {
+  (
+    props: React.PropsWithChildren<
+      Omit<BoxProps, 'is' | 'as'> & { as?: React.ElementType; ref?: React.Ref<any> }
+    >
+  ): React.ReactElement | null;
+} = styled.div`
   ${StyledSystem.space}
   ${StyledSystem.color}
   ${StyledSystem.fontFamily}

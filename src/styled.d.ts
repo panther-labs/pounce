@@ -1,8 +1,8 @@
-import 'styled-components';
-import { Theme } from 'themes/default';
+declare module '@emotion/styled' {
+  import { Theme } from 'themes/default';
+  import { CreateStyled } from '@emotion/styled';
+  export * from '@emotion/styled/types/index';
 
-// Override styled-component's DefaultTheme with our shape
-// https://www.styled-components.com/docs/api#create-a-declarations-file
-declare module 'styled-components' {
-  export interface DefaultTheme extends Theme {} // eslint-disable-line
+  const styled: CreateStyled<Theme>;
+  export default styled;
 }

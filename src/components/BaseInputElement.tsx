@@ -1,39 +1,43 @@
 import React from 'react';
-import { css } from 'styled-components';
+import { css } from '@emotion/core';
 import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
 import Icon from 'components/Icon';
 import Flex from 'components/Flex';
 import { separateStyledSystemProps, slugify } from 'utils/helpers';
 import Label, { LabelProps } from 'components/Label';
+import useTheme from 'utils/useTheme';
 
 type InputElementOuterBoxProps = BoxProps & {
   /** Whether the element should be disabled */
   disabled?: boolean;
 };
 
-export const InputElementOuterBox: React.FC<InputElementOuterBoxProps> = props => (
-  <Box
-    borderRadius="small"
-    bg="grey50"
-    css={css`
-      overflow: hidden;
-      border: ${({ theme }) => `1px solid ${theme.colors.transparent}`};
+export const InputElementOuterBox: React.FC<InputElementOuterBoxProps> = props => {
+  const theme = useTheme();
+  return (
+    <Box
+      borderRadius="small"
+      bg="grey50"
+      css={css`
+        overflow: hidden;
+        border: 1px solid ${theme.colors.transparent};
 
-      &:focus,
-      &:focus-within,
-      &:active {
-        border: ${({ theme }) => `1px solid ${theme.colors.grey100}`};
-      }
+        &:focus,
+        &:focus-within,
+        &:active {
+          border: 1px solid ${theme.colors.grey100};
+        }
 
-      &[disabled] {
-        opacity: 0.3;
-        pointer-events: none;
-      }
-    `}
-    {...props}
-  />
-);
+        &[disabled] {
+          opacity: 0.3;
+          pointer-events: none;
+        }
+      `}
+      {...props}
+    />
+  );
+};
 
 InputElementOuterBox.defaultProps = {
   disabled: false,

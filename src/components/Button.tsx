@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { css } from 'styled-components';
+import { css } from '@emotion/core';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 import { convertHexToRgba } from 'utils/helpers';
+import useTheme from 'utils/useTheme';
 
 export interface ButtonProps extends BaseButtonProps {
   /** The size of the button */
@@ -17,6 +18,8 @@ export interface ButtonProps extends BaseButtonProps {
  * The core re-usable button that you will use in the app.
  */
 const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssProp, ...rest }) => {
+  const theme = useTheme();
+
   const sizeProps = (() => {
     switch (size) {
       case 'small':
@@ -37,11 +40,11 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssPr
             text-transform: uppercase;
 
             &:hover {
-              background-color: ${({ theme }) => theme.colors.grey100};
+              background-color: ${theme.colors.grey100};
             }
 
             &:active {
-              background-color: ${({ theme }) => theme.colors.grey200};
+              background-color: ${theme.colors.grey200};
             }
           `,
         };
@@ -54,12 +57,12 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssPr
             text-transform: uppercase;
 
             &:hover {
-              box-shadow: ${({ theme }) => theme.shadows.dark200};
+              box-shadow: ${theme.shadows.dark200};
             }
 
             &:active {
-              box-shadow: ${({ theme }) => theme.shadows.none};
-              background-color: ${({ theme }) => theme.colors.grey100};
+              box-shadow: ${theme.shadows.none};
+              background-color: ${theme.colors.grey100};
             }
           `,
         };
@@ -73,13 +76,13 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssPr
             text-transform: uppercase;
 
             &:hover {
-              box-shadow: ${({ theme }) => theme.shadows.dark200};
-              background-color: ${({ theme }) => convertHexToRgba(theme.colors.primary300, 0.9)};
+              box-shadow: ${theme.shadows.dark200};
+              background-color: ${convertHexToRgba(theme.colors.primary300, 0.9)};
             }
             
             &:active {
-              box-shadow: ${({ theme }) => theme.shadows.none};
-              background-color: ${({ theme }) => theme.colors.primary300};
+              box-shadow: ${theme.shadows.none};
+              background-color: ${theme.colors.primary300};
             },
           `,
         };
