@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 import { SerializedStyles } from '@emotion/core';
 import * as StyledSystem from 'styled-system';
 
@@ -103,7 +104,7 @@ const BaseBox: {
       Omit<BoxProps, 'is' | 'as'> & { as?: React.ElementType; ref?: React.Ref<any> }
     >
   ): React.ReactElement | null;
-} = styled.div`
+} = styled('div', { shouldForwardProp })`
   ${StyledSystem.space}
   ${StyledSystem.color}
   ${StyledSystem.fontFamily}
