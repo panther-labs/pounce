@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { convertHexToRgba } from 'utils/helpers';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
+import useTheme from 'utils/useTheme';
 
 export interface IconButtonProps extends BaseButtonProps {
   /** Whether the component should appear as "activated". Helpful for menus */
@@ -12,26 +13,38 @@ export interface IconButtonProps extends BaseButtonProps {
 }
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
-export const IconButton = styled<React.FC<IconButtonProps>>(props => (
-  <BaseButton bg="transparent" p={3} borderRadius="circle" {...props} />
-))`
-  color: ${({ theme, active, variant }) =>
-    active ? theme.colors[variant === 'primary' ? 'primary300' : 'grey400'] : theme.colors.grey400};
+export const IconButton: React.FC<IconButtonProps> = ({ active, variant, ...rest }) => {
+  const { colors } = useTheme();
 
-  background-color: ${({ theme, active, variant }) =>
-    active && convertHexToRgba(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
+  return (
+    <BaseButton
+      {...rest}
+      bg="transparent"
+      p={3}
+      borderRadius="circle"
+      css={css`
+        color: ${active
+          ? colors[variant === 'primary' ? 'primary300' : 'grey400']
+          : colors.grey400};
 
-  &:hover:not(:active) {
-    background-color: ${({ theme, variant, active }) =>
-      !active &&
-      convertHexToRgba(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.1)};
-  }
+        background-color: ${active &&
+          convertHexToRgba(colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
 
-  &:active {
-    background-color: ${({ theme, variant }) =>
-      convertHexToRgba(theme.colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
-  }
-`;
+        &:hover:not(:active) {
+          background-color: ${!active &&
+            convertHexToRgba(colors[variant === 'primary' ? 'primary300' : 'black'], 0.1)};
+        }
+
+        &:active {
+          background-color: ${convertHexToRgba(
+            colors[variant === 'primary' ? 'primary300' : 'black'],
+            0.2
+          )};
+        }
+      `}
+    />
+  );
+};
 
 IconButton.defaultProps = {
   active: false,
