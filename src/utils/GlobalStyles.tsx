@@ -1,237 +1,327 @@
-import { createGlobalStyle } from 'styled-components';
+import React from 'react';
+import { Global } from '@emotion/core';
+import { css } from '@emotion/core';
+import useTheme from 'utils/useTheme';
 
-const GlobalStyles = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: normal;
-  }
+const GlobalStyles: React.FC = () => {
+  const theme = useTheme();
 
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed, 
-  figure, figcaption, footer, header, hgroup, 
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video, button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font-family: ${({ theme }) => theme.fonts.primary};
-    color: inherit;
-    vertical-align: baseline;
-  }
-  /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure, 
-  footer, header, hgroup, menu, nav, section {
-    display: block;
-  }
-  body {
-    line-height: 1;
-  }
-  ol, ul {
-    list-style: none;
-  }
-  blockquote, q {
-    quotes: none;
-  }
-  blockquote:before, blockquote:after,
-  q:before, q:after {
-    content: '';
-    content: none;
-  }
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-  
-  svg {
-    fill: currentColor;
-  }
-  
-  input, textarea {
-    outline: none;
-  }
-  
-  /* These commands can't be grouped into a single one. It's a browser limitation */
-  input::-webkit-input-placeholder { 
-    color: ${({ theme }) => theme.colors.grey200};
-  }
-  input:-ms-input-placeholder { 
-    color: ${({ theme }) => theme.colors.grey200};
-  }
-  input::placeholder { 
-    color: ${({ theme }) => theme.colors.grey200};
-  }
-  textarea::-webkit-input-placeholder { 
-    color: ${({ theme }) => theme.colors.grey200};
-  }
-  textarea:-ms-input-placeholder { 
-    color: ${({ theme }) => theme.colors.grey200};
-  }
-  textarea::placeholder { 
-    color: ${({ theme }) => theme.colors.grey200};
-  }
+  const globalStyles = css`
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: normal;
+    }
 
-/* ***************** react-day-picker ***************** */
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video,
+    button {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font-family: ${theme.fonts.primary};
+      color: inherit;
+      vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol,
+    ul {
+      list-style: none;
+    }
+    blockquote,
+    q {
+      quotes: none;
+    }
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
 
+    svg {
+      fill: currentColor;
+    }
 
-.DayPicker {
-  display: inline-block;
-  font-size: ${({ theme }) => `${theme.fontSizes[3]}px`};
-}
+    input,
+    textarea {
+      outline: none;
+    }
 
-.DayPicker-Months {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    /* These commands can't be grouped into a single one. It's a browser limitation */
+    input::-webkit-input-placeholder {
+      color: ${theme.colors.grey200};
+    }
+    input:-ms-input-placeholder {
+      color: ${theme.colors.grey200};
+    }
+    input::placeholder {
+      color: ${theme.colors.grey200};
+    }
+    textarea::-webkit-input-placeholder {
+      color: ${theme.colors.grey200};
+    }
+    textarea:-ms-input-placeholder {
+      color: ${theme.colors.grey200};
+    }
+    textarea::placeholder {
+      color: ${theme.colors.grey200};
+    }
 
-.DayPicker-NavButton {
-  position: absolute;
-  top: ${({ theme }) => `${theme.space[1]}px`};
+    /* ***************** react-day-picker ***************** */
 
-  display: inline-block;
-  width: ${({ theme }) => `${theme.space[8]}px`};
-  height: ${({ theme }) => `${theme.space[8]}px`};
-  background-position: center;
-  cursor: pointer;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-}
+    .DayPicker {
+      display: inline-block;
+      font-size: ${`${theme.fontSizes[3]}px`};
+    }
 
-.DayPicker-NavButton--prev {
-  left: ${({ theme }) => `${theme.space[5]}px`};
-  background-image: url('data:image/svg+xml;base64, PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xNCA3TDkgMTJMMTQgMTdWN1oiIGZpbGw9IiM0RjRGNEYiLz4NCjwvc3ZnPg==');
-}
+    .DayPicker-Months {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-.DayPicker-NavButton--next {
-  right: ${({ theme }) => `${theme.space[5]}px`};
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xMCAxN0wxNSAxMkwxMCA3VjE3WiIgZmlsbD0iIzRGNEY0RiIvPg0KPC9zdmc+DQo=');
-}
+    .DayPicker-NavButton {
+      position: absolute;
+      top: ${`${theme.space[1]}px`};
 
-.DayPicker-NavButton--interactionDisabled {
-  display: none;
-}
+      display: inline-block;
+      width: ${`${theme.space[8]}px`};
+      height: ${`${theme.space[8]}px`};
+      background-position: center;
+      cursor: pointer;
 
-.DayPicker-Caption {
-  display: flex;
-  justify-content: center;
-  padding: ${({ theme }) => `${theme.space[3]}px ${theme.space[0]}px`};
-  border-bottom: ${({ theme }) => `1px solid ${theme.colors.grey100}`};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-}
+      &:hover {
+        opacity: 0.8;
+      }
+    }
 
-.DayPicker-Weekdays {
- display: none;
-}
+    .DayPicker-NavButton--prev {
+      left: ${`${theme.space[5]}px`};
+      background-image: url('data:image/svg+xml;base64, PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xNCA3TDkgMTJMMTQgMTdWN1oiIGZpbGw9IiM0RjRGNEYiLz4NCjwvc3ZnPg==');
+    }
 
-.DayPicker-Body {
-  display: table-row-group;
-}
+    .DayPicker-NavButton--next {
+      right: ${`${theme.space[5]}px`};
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xMCAxN0wxNSAxMkwxMCA3VjE3WiIgZmlsbD0iIzRGNEY0RiIvPg0KPC9zdmc+DQo=');
+    }
 
-.DayPicker-Week {
-  display: table-row;
-}
+    .DayPicker-NavButton--interactionDisabled {
+      display: none;
+    }
 
-.DayPicker-Day {
-  display: table-cell;
-  padding: ${({ theme }) => `${theme.space[3]}px`};
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.grey400};  
-  border-right: ${({ theme }) => `1px solid ${theme.colors.grey100}`};  
-  border-bottom: ${({ theme }) => `1px solid ${theme.colors.grey100}`};  
-  
-}
+    .DayPicker-Caption {
+      display: flex;
+      justify-content: center;
+      padding: ${`${theme.space[3]}px ${theme.space[0]}px`};
+      border-bottom: ${`1px solid ${theme.colors.grey100}`};
+      font-weight: ${theme.fontWeights.bold};
+    }
 
-.DayPicker--interactionDisabled .DayPicker-Day {
-  cursor: default;
-}
+    .DayPicker-Weekdays {
+      display: none;
+    }
 
-.DayPicker-Day--today {
-  color: ${({ theme }) => theme.colors.red300};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-}
+    .DayPicker-Body {
+      display: table-row-group;
+    }
 
-.DayPicker-Day--outside {
-  color: ${({ theme }) => theme.colors.grey300};
-  cursor: default;
-}
+    .DayPicker-Week {
+      display: table-row;
+    }
 
-.DayPicker-Day--disabled {
-  color: #DCE0E0;
-  cursor: default;
-}
+    .DayPicker-Day {
+      display: table-cell;
+      padding: ${`${theme.space[3]}px`};
+      vertical-align: middle;
+      text-align: center;
+      cursor: pointer;
+      color: ${theme.colors.grey400};
+      border-right: ${`1px solid ${theme.colors.grey100}`};
+      border-bottom: ${`1px solid ${theme.colors.grey100}`};
+    }
 
-.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-  background-color: ${({ theme }) => theme.colors.primary300};
-  color: ${({ theme }) => theme.colors.white};
-}
+    .DayPicker--interactionDisabled .DayPicker-Day {
+      cursor: default;
+    }
 
-.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-  background-color: ${({ theme }) => theme.colors.primary300};
-  color: ${({ theme }) => theme.colors.white};
-}
+    .DayPicker-Day--today {
+      color: ${theme.colors.red300};
+      font-weight: ${theme.fontWeights.bold};
+    }
 
-.DayPicker:not(.DayPicker--interactionDisabled)
-  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-  background-color: ${({ theme }) => theme.colors.primary50};
-}
+    .DayPicker-Day--outside {
+      color: ${theme.colors.grey300};
+      cursor: default;
+    }
 
-.DayPickerInput-OverlayWrapper {
-  position: relative;
-}
+    .DayPicker-Day--disabled {
+      color: #dce0e0;
+      cursor: default;
+    }
 
-.DayPickerInput-Overlay {
-  position: absolute;
-  left: 0;
-  z-index: 100;
+    .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+      background-color: ${theme.colors.primary300};
+      color: ${theme.colors.white};
+    }
 
-  background: ${({ theme }) => theme.colors.white};
-  box-shadow: ${({ theme }) => theme.shadows.dark200};
-  border-radius: ${({ theme }) => `${theme.radii.small}px`};
-}
+    .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+      background-color: ${theme.colors.primary300};
+      color: ${theme.colors.white};
+    }
 
-/* ***************** @reach/menu-button ***************** */
+    .DayPicker:not(.DayPicker--interactionDisabled),
+    .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+      background-color: ${theme.colors.primary50};
+    }
 
-/* Used to detect in JavaScript if apps have loaded styles or not. */
-:root {
-  --reach-menu-button: 1;
-}
+    .DayPickerInput-OverlayWrapper {
+      position: relative;
+    }
 
-[data-reach-menu] {
-  position: absolute;
-}
+    .DayPickerInput-Overlay {
+      position: absolute;
+      left: 0;
+      z-index: 100;
 
-[data-reach-menu-list] {
-  white-space: nowrap;
-  outline: none;
-}
+      background: ${theme.colors.white};
+      box-shadow: ${theme.shadows.dark200};
+      border-radius: ${theme.radii.small}px;
+    }
 
-[data-reach-menu-button] {
-  cursor: pointer;
-  background-color: inherit;
-}
+    /* ***************** @reach/menu-button ***************** */
 
-[data-reach-menu-item] {
-  outline: none;
-  
-  &[data-selected] {
-    background: ${({ theme }) => theme.colors.grey50};;
-  }
-}
-`;
+    /* Used to detect in JavaScript if apps have loaded styles or not. */
+    :root {
+      --reach-menu-button: 1;
+    }
+
+    [data-reach-menu] {
+      position: absolute;
+    }
+
+    [data-reach-menu-list] {
+      white-space: nowrap;
+      outline: none;
+    }
+
+    [data-reach-menu-button] {
+      cursor: pointer;
+      background-color: inherit;
+    }
+
+    [data-reach-menu-item] {
+      outline: none;
+
+      &[data-selected] {
+        background: ${theme.colors.grey50};
+      }
+    }
+  `;
+
+  return <Global styles={globalStyles} />;
+};
 
 export default GlobalStyles;

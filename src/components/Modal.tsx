@@ -4,7 +4,7 @@ import Box from 'components/Box';
 import Card, { CardProps } from 'components/Card';
 import Heading from 'components/Heading';
 import Flex from 'components/Flex';
-import { css } from 'styled-components';
+import { css } from '@emotion/core';
 import RefForwardingBox from 'utils/RefForwardingBox';
 
 export interface ModalProps extends CardProps {

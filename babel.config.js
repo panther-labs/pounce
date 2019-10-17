@@ -8,6 +8,7 @@ module.exports = {
       },
     ],
     '@babel/preset-react',
+    '@emotion/babel-preset-css-prop',
   ],
-  plugins: ['@babel/transform-runtime', 'babel-plugin-styled-components'],
+  plugins: ['@babel/transform-runtime'],
 };

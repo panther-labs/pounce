@@ -1,7 +1,7 @@
 import React from 'react';
 import Label from 'components/Label';
 import Box from 'components/Box';
-import { css } from 'styled-components';
+import { css } from '@emotion/core';
 import Flex, { FlexProps } from 'components/Flex';
 import { BoxProps } from 'components/Box';
 import Text from 'components/Text';

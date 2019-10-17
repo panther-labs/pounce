@@ -12,6 +12,9 @@ commands:
       - run:
           name: Install js dependencies
           command: npm i
+      - run:
+          name: Clean any directories from previous builds
+          command: npm run clean
 
 jobs:
   build:

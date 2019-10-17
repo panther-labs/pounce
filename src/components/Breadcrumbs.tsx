@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Heading from 'components/Heading';
 import Flex from 'components/Flex';
 import Icon from 'components/Icon';

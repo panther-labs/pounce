@@ -1,6 +1,6 @@
 import React, { LabelHTMLAttributes } from 'react';
 import BaseText, { BaseTextProps } from 'components/BaseText';
-import { DefaultTheme } from 'styled-components';
+import { Theme } from 'src/themes/default';
 
 export type LabelProps = BaseTextProps &
   LabelHTMLAttributes<'label'> & {
@@ -24,7 +24,7 @@ const Label: React.FC<LabelProps> = ({ size, ...rest }) => {
       default:
         return { fontWeight: 'bold', fontSize: 0, lineHeight: 0 };
     }
-  })() as { fontWeight: keyof DefaultTheme['fontWeights']; fontSize: number };
+  })() as { fontWeight: keyof Theme['fontWeights']; fontSize: number };
 
   return <BaseText is="label" {...sizeProps} {...rest} />;
 };

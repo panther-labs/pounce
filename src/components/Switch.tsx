@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import BaseButton from 'components/BaseButton';
 import Label from 'components/Label';
 import Box from 'components/Box';
