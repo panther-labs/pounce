@@ -74,7 +74,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/config-angular": "^8.2.0",
     "@emotion/babel-preset-css-prop": "^10.0.17",
     "@svgr/rollup": "^4.3.2",
     "@types/styled-system__should-forward-prop": "^5.1.0",
