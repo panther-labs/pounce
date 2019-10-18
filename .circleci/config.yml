@@ -52,7 +52,7 @@ workflows:
   pipeline:
     jobs:
       - build
-      - release
+      - release:
           filters:
             branches:
               only: master
