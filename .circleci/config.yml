@@ -40,11 +40,20 @@ jobs:
           name: Deploy documentation pages
           command: surge --project .styleguidist --domain pouncejs.surge.sh
 
+  release:
+    - run:
+        name: Create a new release with proper changelog
+        command: npx install semantic-release
+
 workflows:
   version: 2
   pipeline:
     jobs:
       - build
+      - release
+          filters:
+            branches:
+              only: master
       - docs:
           filters:
             branches:
