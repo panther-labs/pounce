@@ -43,7 +43,7 @@ jobs:
   release:
     executor: node
     steps:
-      - build
+      - setup
       - run:
           name: Create a new release with proper changelog
           command: npx install semantic-release
