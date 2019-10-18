@@ -18,7 +18,6 @@ export const IconButton: React.FC<IconButtonProps> = ({ active, variant, ...rest
 
   return (
     <BaseButton
-      {...rest}
       bg="transparent"
       p={3}
       borderRadius="circle"
@@ -42,6 +41,7 @@ export const IconButton: React.FC<IconButtonProps> = ({ active, variant, ...rest
           )};
         }
       `}
+      {...rest}
     />
   );
 };

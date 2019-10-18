@@ -9,7 +9,6 @@ export interface BaseButtonProps extends BoxProps<HTMLButtonElement> {
 
 const BaseButton: React.FC<BaseButtonProps> = props => (
   <Box
-    {...props}
     is="button"
     css={css`
       cursor: pointer;
@@ -21,6 +20,7 @@ const BaseButton: React.FC<BaseButtonProps> = props => (
         cursor: default;
       }
     `}
+    {...props}
   />
 );
 
