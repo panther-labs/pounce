@@ -27,9 +27,6 @@ jobs:
 
   docs:
     executor: node
-    branches:
-      only:
-        - master
     steps:
       - setup
       - run:
@@ -45,9 +42,6 @@ jobs:
 
   release:
     executor: node
-    #    branches:
-    #      only:
-    #        - master
     steps:
       - build
       - run:
@@ -60,4 +54,11 @@ workflows:
     jobs:
       - build
       - release
-      - docs
+      #      - release:
+      #          filters:
+      #            branches:
+      #              only: master
+      - docs:
+          filters:
+            branches:
+              only: master
