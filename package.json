@@ -1,7 +1,7 @@
 {
   "name": "pouncejs",
   "description": "A collection of UI components from Panther labs",
-  "version": "@Automatically managed by semantic-release@",
+  "version": "0.0.0-semantically-released",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.esm.js",
