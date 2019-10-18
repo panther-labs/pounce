@@ -54,10 +54,9 @@ workflows:
     jobs:
       - build
       - release
-      #      - release:
-      #          filters:
-      #            branches:
-      #              only: master
+          filters:
+            branches:
+              only: master
       - docs:
           filters:
             branches:
