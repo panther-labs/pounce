@@ -12,9 +12,6 @@ commands:
       - run:
           name: Install js dependencies
           command: npm i
-      - run:
-          name: Clean any directories from previous builds
-          command: npm run clean
 
 jobs:
   build:
@@ -43,11 +40,22 @@ jobs:
           name: Deploy documentation pages
           command: surge --project .styleguidist --domain pouncejs.surge.sh
 
+  release:
+    executor: node
+    steps:
+      - run:
+          name: Create a new release with proper changelog
+          command: npx install semantic-release
+
 workflows:
   version: 2
   pipeline:
     jobs:
       - build
+      - release:
+          filters:
+            branches:
+              only: master
       - docs:
           filters:
             branches:

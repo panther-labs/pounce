@@ -1,7 +1,7 @@
 {
   "name": "pouncejs",
   "description": "A collection of UI components from Panther labs",
-  "version": "0.1.0",
+  "version": "0.0.0-semantically-released",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.esm.js",
@@ -73,6 +73,8 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-angular": "^8.2.0",
     "@emotion/babel-preset-css-prop": "^10.0.17",
     "@svgr/rollup": "^4.3.2",
     "@types/styled-system__should-forward-prop": "^5.1.0",
