@@ -96,6 +96,13 @@ export interface TableProps<T> extends Omit<BoxProps, 'onSelect'> {
    * in the array. Defaults to the text "Nothing to show"
    * */
   renderPlaceholder?: () => React.ReactNode;
+
+  /**
+   * The props that are going to be passed to the row of each table. Can be either a plain object
+   * or a function that takes the current `item` as a single parameter and returns an object that
+   * contains the props to be assigned to the row
+   */
+  rowProps?: BoxProps | ((item: T) => BoxProps);
 }
 
 /**
@@ -140,6 +147,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
   sortDir,
   onSelect,
   renderPlaceholder,
+  rowProps,
   ...rest
 }: TableProps<ItemShape>): React.ReactElement<TableProps<ItemShape>> {
   const renderTableHeader = (column: ColumnProps<ItemShape>) => {
@@ -211,12 +219,10 @@ export function Table<ItemShape extends { [key: string]: any }>({
         ? renderTablePlaceholder()
         : items.map((item, itemIndex) => (
             <Row
+              {...(typeof rowProps === 'function' ? rowProps(item) : rowProps)}
               onClick={() => onSelect && onSelect(item)}
               key={getItemKey ? getItemKey(item) : itemIndex}
               bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'white'}
-              css={css`
-                cursor: pointer;
-              `}
             >
               {columns.map(column => renderTableItem(column, item, itemIndex))}
             </Row>
@@ -226,6 +232,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
 }
 
 Table.defaultProps = {
+  rowProps: {},
   getItemKey: undefined,
   showHeaders: true,
   alternateBg: true,

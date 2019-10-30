@@ -38,7 +38,7 @@ export interface BoxProps<T = HTMLElement>
     StyledSystem.PositionProps,
     StyledSystem.FlexProps {
   /** Useful for when you are integrating `Link` components from popular navigation libraries.
-   * Allows you to perform something like: `<Box as{Link} to="/home">Home</Box>`
+   * Allows you to perform something like: `<Box as={Link} to="/home">Home</Box>`
    * @ignore
    * */
   to?: string;
