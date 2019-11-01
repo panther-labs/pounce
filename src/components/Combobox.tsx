@@ -106,7 +106,12 @@ function Combobox<ItemShape>({
   // Due to the way we want our Combobox to behave, we want to control the input value ourselves.
   // We make sure to update it on every selection made, on every keystroke within the search input,
   // plus some focus/blur events that are tied to the searchable behaviour (see below)
-  const [inputValue, setInputValue] = React.useState(safeItemToString(value));
+  const [inputValue, setInputValue] = React.useState('');
+
+  React.useLayoutEffect(() => {
+    setInputValue(safeItemToString(value));
+  }, [value]);
+
   return (
     <Box position="relative">
       <Downshift
