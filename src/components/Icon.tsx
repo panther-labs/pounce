@@ -1,6 +1,7 @@
 import React from 'react';
 import Box, { BoxProps } from 'components/Box';
 import Add from 'icons/ic-add.svg';
+import Alert from 'icons/ic-alert.svg';
 import Adduser from 'icons/ic-adduser.svg';
 import ArrowDropDown from 'icons/ic-arrow_drop_down.svg';
 import ArrowDropUp from 'icons/ic-arrow_drop_up.svg';
@@ -22,15 +23,21 @@ import Edit from 'icons/ic-edit.svg';
 import Filter from 'icons/ic-filter.svg';
 import Forward from 'icons/ic-forward.svg';
 import Insight from 'icons/ic-insight.svg';
-import MenuBilling from 'icons/ic-menu-billing.svg';
-import MenuDashboard from 'icons/ic-menu-dashboard.svg';
-import MenuDocs from 'icons/ic-menu-docs.svg';
-import MenuGeneral from 'icons/ic-menu-general.svg';
-import MenuInput from 'icons/ic-menu-input.svg';
-import MenuOutput from 'icons/ic-menu-output.svg';
-import MenuPolicy from 'icons/ic-menu-policy.svg';
-import MenuRules from 'icons/ic-menu-rules.svg';
-import MenuSettings from 'icons/ic-menu-settings.svg';
+import InfraAnalytics from 'icons/ic-infra-analytics.svg';
+import InfraSource from 'icons/ic-infra-source.svg';
+import LogAnalytics from 'icons/ic-log-analytics.svg';
+import LogSource from 'icons/ic-log-source.svg';
+import Billing from 'icons/ic-billing.svg';
+import Dashboard from 'icons/ic-dashboard.svg';
+import DashboardAlt from 'icons/ic-dashboard--alt.svg';
+import Docs from 'icons/ic-docs.svg';
+import Company from 'icons/ic-company.svg';
+import Output from 'icons/ic-destination.svg';
+import Policy from 'icons/ic-policy.svg';
+import Rule from 'icons/ic-rule.svg';
+import Settings from 'icons/ic-settings.svg';
+import List from 'icons/ic-list.svg';
+import SettingsAlt from 'icons/ic-settings--alt.svg';
 import MoreHoriz from 'icons/ic-more_horiz.svg';
 import NetworkCheck from 'icons/ic-network-check.svg';
 import Notification from 'icons/ic-notification.svg';
@@ -46,6 +53,7 @@ import Resource from 'icons/ic-resource.svg';
 import Search from 'icons/ic-search.svg';
 import Star from 'icons/ic-star.svg';
 import SyncDisabled from 'icons/ic-sync-disabled.svg';
+import Organization from 'icons/ic-organization.svg';
 import Sync from 'icons/ic-sync.svg';
 import Timer from 'icons/ic-timer.svg';
 import Group from 'icons/ic-user.svg';
@@ -55,6 +63,7 @@ import Upload from 'icons/ic_upload.svg';
 
 export const svgComponentMapping = {
   add: Add,
+  alert: Alert,
   addUser: Adduser,
   'caret-down': ArrowDropDown,
   'caret-up': ArrowDropUp,
@@ -76,15 +85,22 @@ export const svgComponentMapping = {
   edit: Edit,
   filter: Filter,
   insight: Insight,
-  billing: MenuBilling,
-  dashboard: MenuDashboard,
-  docs: MenuDocs,
-  company: MenuGeneral,
-  input: MenuInput,
-  output: MenuOutput,
-  policy: MenuPolicy,
-  rules: MenuRules,
-  settings: MenuSettings,
+  billing: Billing,
+  dashboard: Dashboard,
+  'dashboard-alt': DashboardAlt,
+  docs: Docs,
+  company: Company,
+  'infra-analytics': InfraAnalytics,
+  'infra-source': InfraSource,
+  'log-analytics': LogAnalytics,
+  'log-source': LogSource,
+  output: Output,
+  policy: Policy,
+  rule: Rule,
+  list: List,
+  settings: Settings,
+  'settings-alt': SettingsAlt,
+  organization: Organization,
   more: MoreHoriz,
   'network-performance': NetworkCheck,
   notification: Notification,

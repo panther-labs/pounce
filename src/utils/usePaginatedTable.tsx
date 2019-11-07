@@ -79,7 +79,7 @@ const usePaginatedTable = ({
                       <Text size="medium" mr={2}>
                         {itemsPerPage} per page
                       </Text>
-                      <Icon size="small" type="rules" />
+                      <Icon size="small" type="list" />
                     </Flex>
                   }
                 >
