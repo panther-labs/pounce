@@ -15,14 +15,17 @@ type colors =
   | 'grey400'
   | 'grey500'
   | 'black'
+  | 'red50'
   | 'red100'
   | 'red200'
   | 'red300'
+  | 'orange50'
   | 'orange300'
   | 'yellow300'
   | 'green100'
   | 'green200'
   | 'green300'
+  | 'blue50'
   | 'blue100'
   | 'blue200'
   | 'blue300'
@@ -71,10 +74,12 @@ const theme: Theme = {
 
     black: '#000000',
 
+    red50: '#FFEAEA',
     red100: '#FDCDCD',
     red200: '#FF9898',
     red300: '#EB5757',
 
+    orange50: '#FFF3E9',
     orange300: '#F2994A',
 
     yellow300: '#F2C94C',
@@ -83,6 +88,7 @@ const theme: Theme = {
     green200: '#6FCF97',
     green300: '#27AE60',
 
+    blue50: '#cee3ff',
     blue100: '#A9CEFF',
     blue200: '#71ADFE',
     blue300: '#2F80ED',
