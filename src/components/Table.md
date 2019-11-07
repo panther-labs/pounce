@@ -328,7 +328,12 @@ const columns = [
 const Example = () => {
   return (
     <Card width="100%">
-      <Table alternateBg={false} items={items} getItemKey={item => item.id} columns={columns} />
+      <Table
+        rowSeparationStrategy="none"
+        items={items}
+        getItemKey={item => item.id}
+        columns={columns}
+      />
     </Card>
   );
 };

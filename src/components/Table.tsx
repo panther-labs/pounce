@@ -135,7 +135,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
   getItemKey,
   showHeaders,
   onSort = () => {},
-  rowSeparationStrategy = 'background',
+  rowSeparationStrategy,
   sortKey,
   sortDir,
   onSelect,
@@ -230,7 +230,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
 Table.defaultProps = {
   getItemKey: undefined,
   showHeaders: true,
-  alternateBg: true,
+  rowSeparationStrategy: 'background',
   onSort: undefined,
   sortKey: undefined,
   onSelect: undefined,
