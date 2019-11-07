@@ -13,6 +13,7 @@ const BaseButton: React.FC<BaseButtonProps> = props => (
     is="button"
     css={css`
       cursor: pointer;
+      text-decoration: none;
       transition: all 0.1s linear;
 
       &[disabled] {
