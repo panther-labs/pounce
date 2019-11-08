@@ -67,8 +67,8 @@ export interface TableProps<T> extends Omit<BoxProps, 'onSelect'> {
   /** Whether the table should show the table's headers or not. */
   showHeaders?: boolean;
 
-  /** Whether the background of each row should alternate between grey & transparent */
-  alternateBg?: boolean;
+  /** How to visually separate different rows */
+  rowSeparationStrategy?: 'background' | 'border' | 'none';
 
   /**
    * This is a callback for when the user clicks on one of the headers of the columns that are
@@ -135,7 +135,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
   getItemKey,
   showHeaders,
   onSort = () => {},
-  alternateBg,
+  rowSeparationStrategy,
   sortKey,
   sortDir,
   onSelect,
@@ -213,7 +213,9 @@ export function Table<ItemShape extends { [key: string]: any }>({
             <Row
               onClick={() => onSelect && onSelect(item)}
               key={getItemKey ? getItemKey(item) : itemIndex}
-              bg={alternateBg && itemIndex % 2 === 0 ? 'grey50' : 'white'}
+              bg={rowSeparationStrategy === 'background' && itemIndex % 2 === 0 ? 'grey50' : 'white'} // prettier-ignore
+              borderBottom={rowSeparationStrategy === 'border' ? '1px solid' : undefined}
+              borderColor={rowSeparationStrategy === 'border' ? 'grey50' : undefined}
               css={css`
                 cursor: pointer;
               `}
@@ -228,7 +230,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
 Table.defaultProps = {
   getItemKey: undefined,
   showHeaders: true,
-  alternateBg: true,
+  rowSeparationStrategy: 'background',
   onSort: undefined,
   sortKey: undefined,
   onSelect: undefined,
