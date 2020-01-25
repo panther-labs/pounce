@@ -134,3 +134,7 @@ There is a plan to gradually migrate those away and to focus on the performance 
 As it stands, it utilizes the latest `@emotion/xxx @ 10.x.x` internally, so if you are using a CSS-in-JS
 library in your project, it would be recommended to utilize the same library at a similar major
 version in order to not have two separate versions of a CSS-in-JS library in your project
+
+## License
+
+[Apache](https://choosealicense.com/licenses/apache-2.0/)
