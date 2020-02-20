@@ -16,6 +16,7 @@ import ChevronDown from 'icons/ic-chevron_down.svg';
 import ChevronLeft from 'icons/ic-chevron_left.svg';
 import ChevronRight from 'icons/ic-chevron_right.svg';
 import ChevronUp from 'icons/ic-chevron_up.svg';
+import CloudSecurity from 'icons/ic-cloud-security.svg';
 import Close from 'icons/ic-close.svg';
 import Delete from 'icons/ic-delete.svg';
 import Download from 'icons/ic-download.svg';
@@ -25,6 +26,7 @@ import Forward from 'icons/ic-forward.svg';
 import Insight from 'icons/ic-insight.svg';
 import InfraAnalytics from 'icons/ic-infra-analytics.svg';
 import InfraSource from 'icons/ic-infra-source.svg';
+import LogAnalysis from 'icons/ic-log-analysis.svg';
 import LogAnalytics from 'icons/ic-log-analytics.svg';
 import LogSource from 'icons/ic-log-source.svg';
 import Billing from 'icons/ic-billing.svg';
@@ -80,6 +82,7 @@ export const svgComponentMapping = {
   'chevron-left': ChevronLeft,
   'chevron-right': ChevronRight,
   close: Close,
+  'cloud-security': CloudSecurity,
   delete: Delete,
   download: Download,
   edit: Edit,
@@ -92,6 +95,7 @@ export const svgComponentMapping = {
   company: Company,
   'infra-analytics': InfraAnalytics,
   'infra-source': InfraSource,
+  'log-analysis': LogAnalysis,
   'log-analytics': LogAnalytics,
   'log-source': LogSource,
   output: Output,
