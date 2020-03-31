@@ -59,19 +59,20 @@ const parseDate = (str: string, format: string): Date | undefined => {
  * <a href="/#/TextInput">TextInput</a> component (i.e. placeholder, etc.)
  *
  * */
-const DateInput: React.FC<DateInputProps> = ({ format, value, onChange, ...rest }) => (
+const DateInput: React.FC<DateInputProps> = ({
+  format = 'MM/DD/YYYY',
+  value,
+  onChange,
+  ...rest
+}) => (
   <DayPickerInput
-    onDayChange={date => onChange(date ? formatDate(date, format!) : '')}
+    onDayChange={date => onChange(date ? formatDate(date, format) : '')}
     formatDate={formatDate}
     parseDate={parseDate}
-    format={format!}
+    format={format}
     value={value}
     component={(props: TextInputProps) => <TextInput {...props} {...rest} />}
   />
 );
-
-DateInput.defaultProps = {
-  format: 'MM/DD/YYYY',
-};
 
 export default React.memo(DateInput);
