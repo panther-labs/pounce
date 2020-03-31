@@ -43,7 +43,7 @@
     "prepare": "npm run build",
     "build": "npm run clean && rollup  -c",
     "docs": "npx styleguidist build",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p . --noEmit"
+    "validate": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p . --noEmit"
   },
   "repository": "https://github.com/panther-labs/pounce",
   "bugs": {

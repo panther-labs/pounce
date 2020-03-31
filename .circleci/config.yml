@@ -20,7 +20,7 @@ jobs:
       - setup
       - run:
           name: Lint project and run TS checks
-          command: npm run lint
+          command: npm run validate
       - run:
           name: Build the project
           command: npm run build
