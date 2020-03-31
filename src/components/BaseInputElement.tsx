@@ -1,12 +1,11 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import { css, useTheme } from '@emotion/react';
 import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
 import Icon from 'components/Icon';
 import Flex from 'components/Flex';
 import { separateStyledSystemProps, slugify } from 'utils/helpers';
 import Label, { LabelProps } from 'components/Label';
-import useTheme from 'utils/useTheme';
 
 type InputElementOuterBoxProps = BoxProps & {
   /** Whether the element should be disabled */

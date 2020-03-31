@@ -1,7 +1,6 @@
-import { useTheme } from 'emotion-theming';
-import { Theme } from 'themes/default';
+import { useTheme } from '@emotion/react';
 
 /**
  * A React hook that allows to retrieve the theme within a functional component
  */
-export default () => useTheme<Theme>();
+export default useTheme;

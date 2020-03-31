@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const babelConfig = require('./babel.config');
 
 const BoxProps = [
@@ -131,7 +132,7 @@ module.exports = {
       ],
     },
     resolve: {
-      modules: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src')],
+      plugins: [new TsconfigPathsPlugin()],
     },
   },
 };

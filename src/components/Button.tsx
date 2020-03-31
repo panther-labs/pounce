@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import BaseButton, { BaseButtonProps } from 'components/BaseButton';
 import { convertHexToRgba } from 'utils/helpers';
 import useTheme from 'utils/useTheme';

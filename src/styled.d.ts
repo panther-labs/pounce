@@ -1,8 +1,6 @@
-declare module '@emotion/styled' {
-  import { Theme } from 'themes/default';
-  import { CreateStyled } from '@emotion/styled';
-  export * from '@emotion/styled/types/index';
+import '@emotion/react';
+import { Theme as PounceTheme } from 'themes/default';
 
-  const styled: CreateStyled<Theme>;
-  export default styled;
+declare module '@emotion/react' {
+  export interface Theme extends PounceTheme {} // eslint-disable-line @typescript-eslint/no-empty-interface
 }
