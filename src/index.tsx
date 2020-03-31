@@ -69,8 +69,8 @@ export { default as GlobalStyles } from 'utils/GlobalStyles';
 export { default as useSelectableTableRows } from 'utils/useSelectableTableRows';
 export { default as usePaginatedTable } from 'utils/usePaginatedTable';
 export { default as useSortableColumns } from 'utils/useSortableColumns';
-export { default as defaultTheme } from 'utils/useTheme';
+export { default as defaultTheme } from 'themes/default';
 export { default as ThemeProvider } from 'utils/ThemeProvider';
-export { useTheme } from '@emotion/react';
+export { default as useTheme } from 'utils/useTheme';
 
 export * from 'components/BaseInputElement';
