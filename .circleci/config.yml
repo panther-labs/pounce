@@ -14,6 +14,14 @@ commands:
           command: npm i
 
 jobs:
+  audit:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: Audit the installed modules
+          command: npm audit
+
   build:
     executor: node
     steps:
@@ -52,6 +60,7 @@ workflows:
   version: 2
   pipeline:
     jobs:
+      - audit
       - build
       - release:
           filters:
