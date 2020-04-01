@@ -34,13 +34,10 @@ type colors =
   | 'primary200'
   | 'primary300';
 
-type RequireKeys<T, K extends keyof T> = T &
-  {
-    [P in K]-?: T[P];
-  };
-
-export interface Theme
-  extends RequireKeys<StyledSystemTheme<number>, 'fontSizes' | 'space' | 'lineHeights'> {
+export interface Theme extends StyledSystemTheme<number> {
+  fontSizes: CSS.FontSizeProperty<number>[];
+  lineHeights: CSS.LineHeightProperty<string | number>[];
+  space: CSS.MarginProperty<number | string>[];
   fontWeights: { [key in fontWeights]: number };
   fonts: { [key in fontFamilies]: string };
   colors: { [key in colors]: string };
