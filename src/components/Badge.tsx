@@ -10,7 +10,7 @@ const Badge: React.FC<BadgeProps> = props => {
       width="fit-content"
       minWidth="62px"
       textAlign="center"
-      fontWeight="bold"
+      fontWeight="medium"
       borderRadius="small"
       px={1}
       py={1}

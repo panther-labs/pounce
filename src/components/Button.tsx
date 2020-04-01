@@ -91,7 +91,7 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssPr
 
   return (
     <BaseButton
-      fontWeight="bold"
+      fontWeight="medium"
       borderRadius="large"
       css={`
         ${userCssProp}

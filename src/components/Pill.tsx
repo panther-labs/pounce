@@ -19,7 +19,7 @@ const Pill: React.FC<PillProps> = ({ size, ...rest }) => {
     }
   })();
 
-  return <BaseBadge fontWeight="bolder" borderRadius="circle" {...sizeProps} {...rest} />;
+  return <BaseBadge fontWeight="bold" borderRadius="circle" {...sizeProps} {...rest} />;
 };
 
 Pill.defaultProps = {

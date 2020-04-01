@@ -215,7 +215,7 @@ const GlobalStyles: React.FC = () => {
       justify-content: center;
       padding: ${`${theme.space[3]}px ${theme.space[0]}px`};
       border-bottom: ${`1px solid ${theme.colors.grey100}`};
-      font-weight: ${theme.fontWeights.bold};
+      font-weight: ${theme.fontWeights.medium};
     }
 
     .DayPicker-Weekdays {
@@ -247,7 +247,7 @@ const GlobalStyles: React.FC = () => {
 
     .DayPicker-Day--today {
       color: ${theme.colors.red300};
-      font-weight: ${theme.fontWeights.bold};
+      font-weight: ${theme.fontWeights.medium};
     }
 
     .DayPicker-Day--outside {
