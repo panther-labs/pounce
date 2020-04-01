@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import Box, { BoxProps } from 'components/Box';
 
 export interface BaseButtonProps extends BoxProps<HTMLButtonElement> {

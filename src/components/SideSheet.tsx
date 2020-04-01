@@ -3,7 +3,7 @@ import MUIModal from '@material-ui/core/Modal';
 import Box, { BoxProps } from 'components/Box';
 import IconButton from 'components/IconButton';
 import Icon from 'components/Icon';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import RefForwardingBox from 'utils/RefForwardingBox';
 
 export interface SideSheetProps extends BoxProps {

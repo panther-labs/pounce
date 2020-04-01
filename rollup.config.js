@@ -1,6 +1,6 @@
 import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import transformPaths from '@zerollup/ts-transform-paths';
 import svgr from '@svgr/rollup';
@@ -67,12 +67,14 @@ export default {
           'any',
           'element',
           'elementType',
+          'shape',
         ],
         'node_modules/react-is/index.js': [
           'isElement',
           'isValidElementType',
           'isForwardRef',
           'ForwardRef',
+          'Memo',
         ],
       },
     }),

@@ -34,14 +34,14 @@ type colors =
   | 'primary200'
   | 'primary300';
 
-export interface Theme extends StyledSystemTheme {
+export interface Theme extends StyledSystemTheme<number> {
   fontSizes: CSS.FontSizeProperty<number>[];
-  space: number[];
+  lineHeights: CSS.LineHeightProperty<string | number>[];
+  space: CSS.MarginProperty<number | string>[];
   fontWeights: { [key in fontWeights]: number };
   fonts: { [key in fontFamilies]: string };
   colors: { [key in colors]: string };
   radii: { [key in radii]: number };
-  lineHeights: CSS.LineHeightProperty<{}>[];
   shadows: { [key in shadows]: CSS.BoxShadowProperty };
 }
 

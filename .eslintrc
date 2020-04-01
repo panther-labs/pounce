@@ -3,24 +3,17 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "prettier/react"
   ],
-  "plugins": ["react", "jsx-a11y", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "jsx-a11y", "@typescript-eslint"],
   "env": {
     "node": true,
     "browser": true,
-    "jasmine": true,
-    "jest": true,
     "es6": true
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true
-      }
-    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -29,16 +22,14 @@
     ],
     "react/prop-types": 0,
     "react/no-array-index-key": "error",
-    "@typescript-eslint/prefer-interface": 0,
     "@typescript-eslint/ban-ts-ignore": 0,
-    "@typescript-eslint/explicit-member-accessibility": 0,
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/no-non-null-assertion": 0
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/explicit-function-return-type": 0
   },
   "settings": {
     "react": {
       "pragma": "React",
-      "version": "16.8.6"
+      "version": "16.10.0"
     }
   },
   "parser": "@typescript-eslint/parser"

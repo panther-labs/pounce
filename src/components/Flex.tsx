@@ -5,7 +5,7 @@ import Box, { BoxProps } from 'components/Box';
 
 export interface FlexProps extends BoxProps, StyledSystem.FlexboxProps, StyledSystem.DisplayProps {}
 
-const BaseFlex: React.FC<FlexProps> = styled(Box)`
+const BaseFlex = styled<React.FC<FlexProps>>(Box)`
   ${StyledSystem.flexbox}
   ${StyledSystem.display}
 `;

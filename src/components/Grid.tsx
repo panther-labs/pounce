@@ -5,7 +5,7 @@ import Box, { BoxProps } from 'components/Box';
 
 export interface GridProps extends BoxProps, StyledSystem.GridProps, StyledSystem.DisplayProps {}
 
-const BaseGrid: React.FC<GridProps> = styled(Box)`
+const BaseGrid = styled<React.FC<GridProps>>(Box)`
   ${StyledSystem.grid}
   ${StyledSystem.display}
 `;
