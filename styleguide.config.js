@@ -100,10 +100,6 @@ module.exports = {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          options: {
-            presets: [...babelConfig.presets, '@babel/preset-typescript'],
-            plugins: babelConfig.plugins,
-          },
         },
         {
           test: /\.svg$/,
