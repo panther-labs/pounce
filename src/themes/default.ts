@@ -2,6 +2,7 @@ import { Theme as StyledSystemTheme } from 'styled-system';
 import * as CSS from 'csstype';
 import colors from './colors';
 import typography from './typography';
+import icons from './icons';
 
 type radii = 'none' | 'small' | 'medium' | 'large' | 'circle';
 type fontFamilies = 'primary';
@@ -17,6 +18,7 @@ export interface Theme extends StyledSystemTheme {
   colors: typeof colors;
   radii: { [key in radii]: number };
   shadows: { [key in shadows]: CSS.BoxShadowProperty };
+  icons: Record<string, { path: JSX.Element; viewBox?: string }>;
 }
 
 const theme: Theme = {
@@ -39,6 +41,7 @@ const theme: Theme = {
     dark250: '0px 1px 4px rgba(0, 0, 0, 0.25)',
   },
   ...typography,
+  icons,
 };
 
 export default theme;

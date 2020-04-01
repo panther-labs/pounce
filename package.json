@@ -36,7 +36,6 @@
     "dayjs": "^1.8.23",
     "downshift": "^5.0.5",
     "fuzzaldrin": "^2.1.0",
-    "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "react-day-picker": "^7.4.0",
     "react-textarea-autosize": "^7.1.2",
