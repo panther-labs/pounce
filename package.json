@@ -53,7 +53,6 @@
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src -d dist/cjs --extensions '.ts,.tsx' && tsc --emitDeclarationOnly --declarationDir dist/cjs -p .",
     "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src -d dist/esm --extensions '.ts,.tsx' && tsc --emitDeclarationOnly --declarationDir dist/esm -p .",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "build:umd": "cross-env NODE_ENV=production-umd rollup -c",
     "docs": "npx styleguidist build",
     "validate": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc --noEmit -p ."
   },
@@ -80,9 +79,6 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@emotion/babel-preset-css-prop": "^11.0.0-next.10",
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "@svgr/rollup": "^5.3.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "babel-loader": "^8.1.0",
@@ -98,12 +94,7 @@
     "react-docgen-typescript": "^1.16.3",
     "react-dom": "^16.11.0",
     "react-styleguidist": "^11.0.5",
-    "react-svg-loader": "^3.0.3",
     "rimraf": "^2.6.3",
-    "rollup": "^2.3.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-peer-deps-external": "^2.2.2",
-    "rollup-plugin-typescript2": "^0.27.0",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1"
   }

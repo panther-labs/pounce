@@ -7,7 +7,7 @@ module.exports = {
         modules: process.env.BABEL_ENV === 'cjs' ? 'commonjs' : false,
       },
     ],
-    // '@babel/preset-react',
+    '@babel/preset-react',
     '@babel/preset-typescript',
     '@emotion/babel-preset-css-prop',
   ],

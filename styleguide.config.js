@@ -99,30 +99,6 @@ module.exports = {
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
-        {
-          test: /\.svg$/,
-          loader: 'react-svg-loader',
-          options: {
-            svgo: {
-              plugins: [
-                { removeTitle: true },
-                { convertColors: { shorthex: false } },
-                { convertPathData: false },
-                { removeStyleElement: true },
-                { mergePaths: true },
-                { removeDimensions: true },
-                { removeAttrs: { attrs: 'path:fill' } },
-                { addAttributesToSVGElement: { attributes: [{ display: 'block' }] } },
-              ],
-              multipass: true,
-            },
-
-            // whether to output jsx
-            jsx: false,
-            include: /icons/,
-            exclude: /node_modules/,
-          },
-        },
       ],
     },
   },
