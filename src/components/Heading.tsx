@@ -1,6 +1,6 @@
 import React from 'react';
-import BaseText, { BaseTextProps } from 'components/BaseText';
-import { Theme } from 'src/themes/default';
+import BaseText, { BaseTextProps } from './BaseText';
+import { Theme } from '../themes/default';
 
 export interface HeadingProps extends BaseTextProps {
   /** The size of the font */

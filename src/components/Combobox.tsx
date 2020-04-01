@@ -2,18 +2,14 @@
 import React from 'react';
 import Downshift from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
-import Card from 'components/Card';
-import Box, { BoxProps } from 'components/Box';
-import MenuItem from 'components/MenuItem';
-import { TextInputProps } from 'components/TextInput';
-import IconButton from 'components/IconButton';
-import Icon from 'components/Icon';
-import Flex from 'components/Flex';
-import {
-  InputElementOuterBox,
-  InputElementLabel,
-  InputElementInnerBox,
-} from 'components/BaseInputElement';
+import Card from './Card';
+import Box, { BoxProps } from './Box';
+import MenuItem from './MenuItem';
+import { TextInputProps } from './TextInput';
+import IconButton from './IconButton';
+import Icon from './Icon';
+import Flex from './Flex';
+import { InputElementOuterBox, InputElementLabel, InputElementInnerBox } from './BaseInputElement';
 
 export interface RenderComboboxItemProps<T> {
   /** The item to render */

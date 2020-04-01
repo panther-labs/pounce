@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, useTheme } from '@emotion/react';
-import { convertHexToRgba } from 'utils/helpers';
-import BaseButton, { BaseButtonProps } from 'components/BaseButton';
+import { convertHexToRgba } from '../utils/helpers';
+import BaseButton, { BaseButtonProps } from './BaseButton';
 
 export interface IconButtonProps extends BaseButtonProps {
   /** Whether the component should appear as "activated". Helpful for menus */

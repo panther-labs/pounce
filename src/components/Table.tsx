@@ -1,12 +1,12 @@
 import React from 'react';
-import Label from 'components/Label';
-import Box from 'components/Box';
+import Label from './Label';
+import Box from './Box';
 import { css } from '@emotion/react';
-import Flex, { FlexProps } from 'components/Flex';
-import { BoxProps } from 'components/Box';
-import Text from 'components/Text';
-import BaseButton from 'components/BaseButton';
-import Icon from 'components/Icon';
+import Flex, { FlexProps } from './Flex';
+import { BoxProps } from './Box';
+import Text from './Text';
+import BaseButton from './BaseButton';
+import Icon from './Icon';
 
 export type ColumnProps<T> = {
   /** A unique identifier for this particular column */

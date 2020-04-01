@@ -1,10 +1,10 @@
 import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
-import Box, { BoxProps } from 'components/Box';
-import IconButton from 'components/IconButton';
-import Icon from 'components/Icon';
+import Box, { BoxProps } from './Box';
+import IconButton from './IconButton';
+import Icon from './Icon';
 import { css } from '@emotion/react';
-import RefForwardingBox from 'utils/RefForwardingBox';
+import RefForwardingBox from '../utils/RefForwardingBox';
 
 export interface SideSheetProps extends BoxProps {
   /** Whether the modal should be visible or not */

@@ -1,7 +1,7 @@
 An Icon button can different types of background colors:
 
 ```jsx harmony
-import Icon from 'components/Icon';
+import Icon from './Icon';
 
 <React.Fragment>
   <IconButton variant="primary" mr={2}>
@@ -16,7 +16,7 @@ import Icon from 'components/Icon';
 It can also be marked as active:
 
 ```jsx harmony
-import Icon from 'components/Icon';
+import Icon from './Icon';
 
 <React.Fragment>
   <IconButton variant="primary" active mr={2}>

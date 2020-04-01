@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseBadge, { BaseBadgeProps } from 'components/BaseBadge';
+import BaseBadge, { BaseBadgeProps } from './BaseBadge';
 
 export type BadgeProps = BaseBadgeProps;
 

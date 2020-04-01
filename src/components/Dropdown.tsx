@@ -5,7 +5,7 @@ import {
   MenuItem as ReachMenuItem,
   MenuButton as ReachMenuButton,
 } from '@reach/menu-button';
-import Card, { CardProps } from 'components/Card';
+import Card, { CardProps } from './Card';
 
 export interface DropdownProps extends CardProps {
   /** The element that will toggle (open/close) the dropdown.  */

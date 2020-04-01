@@ -1,7 +1,7 @@
 Alerts can be simple:
 
 ```jsx harmony
-import Box from 'components/Box';
+import Box from './Box';
 
 <Box width={1} bg="grey50" p={5}>
   <Alert variant="success" mb={3} title="This is an success alert" />
@@ -14,7 +14,7 @@ import Box from 'components/Box';
 Alerts can contain icons:
 
 ```jsx harmony
-import Box from 'components/Box';
+import Box from './Box';
 
 <Box width={1} bg="grey50" p={5}>
   <Alert icon="check" variant="success" mb={3} title="This is an success alert" />
@@ -27,7 +27,7 @@ import Box from 'components/Box';
 Alerts can have descriptions:
 
 ```jsx harmony
-import Box from 'components/Box';
+import Box from './Box';
 
 <Box width={1} bg="grey50" p={5}>
   <Alert
@@ -63,7 +63,7 @@ import Box from 'components/Box';
 Alerts can be hidden by the user:
 
 ```jsx harmony
-import Box from 'components/Box';
+import Box from './Box';
 
 <Box width={1} bg="grey50" p={5}>
   <Alert

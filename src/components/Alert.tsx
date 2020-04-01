@@ -1,10 +1,10 @@
 import React from 'react';
-import Text from 'components/Text';
-import Card from 'components/Card';
-import Box, { BoxProps } from 'components/Box';
-import Flex from 'components/Flex';
-import IconButton from 'components/IconButton';
-import Icon, { svgComponentMapping } from 'components/Icon';
+import Text from './Text';
+import Card from './Card';
+import Box, { BoxProps } from './Box';
+import Flex from './Flex';
+import IconButton from './IconButton';
+import Icon, { svgComponentMapping } from './Icon';
 
 export interface AlertProps extends Omit<BoxProps, 'title'> {
   /** The style of the Alert */

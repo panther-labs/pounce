@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
-import defaultTheme, { Theme } from 'themes/default';
-import GlobalStyles from 'utils/GlobalStyles';
+import defaultTheme, { Theme } from '../themes/default';
+import GlobalStyles from './GlobalStyles';
 
 interface ThemeProviderProps {
   /** The theme to pass down to the library components */

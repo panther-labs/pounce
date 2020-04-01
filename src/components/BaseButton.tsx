@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import Box, { BoxProps } from 'components/Box';
+import Box, { BoxProps } from './Box';
 
 export interface BaseButtonProps extends BoxProps<HTMLButtonElement> {
   /** Whether the element should be disabled */

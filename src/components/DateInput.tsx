@@ -1,7 +1,7 @@
 import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import dayjs from 'dayjs';
-import TextInput, { TextInputProps } from 'components/TextInput';
+import TextInput, { TextInputProps } from './TextInput';
 
 export type DateInputProps = TextInputProps & {
   /**

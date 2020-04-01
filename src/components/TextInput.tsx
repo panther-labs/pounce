@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseInputElement, { BaseInputElementProps } from 'components/BaseInputElement';
+import BaseInputElement, { BaseInputElementProps } from './BaseInputElement';
 
 export type TextInputProps = BaseInputElementProps;
 

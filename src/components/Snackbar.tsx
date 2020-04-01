@@ -1,5 +1,5 @@
 import React from 'react';
-import Alert, { AlertProps } from 'components/Alert';
+import Alert, { AlertProps } from './Alert';
 
 export interface SnackbarProps extends AlertProps {
   /** The number of milliseconds that this snackbar will show until it automatically dissapears */

@@ -15,7 +15,7 @@ A table can be simple:
 
 ```jsx harmony
 import React from 'react';
-import Card from 'components/Card';
+import Card from './Card';
 
 // as fetched from the API
 const items = [
@@ -87,7 +87,7 @@ A Table can be sortable through its controlled exposed props:
 
 ```jsx harmony
 import React from 'react';
-import Card from 'components/Card';
+import Card from './Card';
 import sortBy from 'lodash-es/sortBy';
 
 // as fetched from the API
@@ -185,9 +185,9 @@ A table can have custom renderers for both column headers and cells:
 
 ```jsx harmony
 import React from 'react';
-import Card from 'components/Card';
-import Text from 'components/Text';
-import Chip from 'components/Chip';
+import Card from './Card';
+import Text from './Text';
+import Chip from './Chip';
 
 // as fetched from the API
 const items = [
@@ -268,7 +268,7 @@ A table doesn't have to alternate background colors:
 
 ```jsx harmony
 import React from 'react';
-import Card from 'components/Card';
+import Card from './Card';
 
 // as fetched from the API
 const items = [
@@ -345,7 +345,7 @@ A Table doesn't have to render headers:
 
 ```jsx harmony
 import React from 'react';
-import Card from 'components/Card';
+import Card from './Card';
 
 // as fetched from the API
 const items = [
@@ -413,8 +413,8 @@ A table can respond to row selections:
 
 ```jsx harmony
 import React from 'react';
-import Card from 'components/Card';
-import useSelectableTableRows from 'utils/useSelectableTableRows';
+import Card from './Card';
+import useSelectableTableRows from '../utils/useSelectableTableRows';
 
 // as fetched from the API
 const items = [
@@ -507,8 +507,8 @@ a set of enhanced columns that you can use within the Table:
 
 ```jsx harmony
 import React from 'react';
-import Card from 'components/Card';
-import useSelectableTableRows from 'utils/useSelectableTableRows';
+import Card from './Card';
+import useSelectableTableRows from '../utils/useSelectableTableRows';
 
 // as fetched from the API
 const items = [
@@ -610,9 +610,9 @@ the pagination for you:
 
 ```jsx harmony
 import React from 'react';
-import Card from 'components/Card';
-import Box from 'components/Box';
-import usePaginatedTable from 'utils/usePaginatedTable';
+import Card from './Card';
+import Box from './Box';
+import usePaginatedTable from '../utils/usePaginatedTable';
 
 // as fetched from the API
 const items = [

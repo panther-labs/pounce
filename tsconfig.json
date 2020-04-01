@@ -4,17 +4,11 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "declaration": true,
     "strict": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "components/*": ["./src/components/*"],
-      "utils/*": ["./src/utils/*"],
-      "themes/*": ["./src/themes/*"],
-      "icons/*": ["./src/icons/*"]
-    }
+    "jsx": "preserve"
   }
 }

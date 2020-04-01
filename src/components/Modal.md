@@ -9,9 +9,9 @@ A modal can persist when ESC or backdrop is clicked:
 
 ```jsx harmony
 import React from 'react';
-import Button from 'components/Button';
-import Flex from 'components/Flex';
-import Text from 'components/Text';
+import Button from './Button';
+import Flex from './Flex';
+import Text from './Text';
 
 const Example = () => {
   const [open, setOpen] = React.useState(false);
@@ -40,8 +40,8 @@ A modal can close when ESC or backdrop is clicked:
 
 ```jsx harmony
 import React from 'react';
-import Button from 'components/Button';
-import Text from 'components/Text';
+import Button from './Button';
+import Text from './Text';
 
 const Example = () => {
   const [open, setOpen] = React.useState(false);
@@ -68,9 +68,9 @@ text to explain what's going on in the modal:
 
 ```jsx harmony
 import React from 'react';
-import Button from 'components/Button';
-import Text from 'components/Text';
-import Flex from 'components/Flex';
+import Button from './Button';
+import Text from './Text';
+import Flex from './Flex';
 
 const Example = () => {
   const [open, setOpen] = React.useState(false);

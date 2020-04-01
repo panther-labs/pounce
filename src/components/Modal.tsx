@@ -1,11 +1,11 @@
 import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
-import Box from 'components/Box';
-import Card, { CardProps } from 'components/Card';
-import Heading from 'components/Heading';
-import Flex from 'components/Flex';
+import Box from './Box';
+import Card, { CardProps } from './Card';
+import Heading from './Heading';
+import Flex from './Flex';
 import { css } from '@emotion/react';
-import RefForwardingBox from 'utils/RefForwardingBox';
+import RefForwardingBox from '../utils/RefForwardingBox';
 
 export interface ModalProps extends CardProps {
   /** Whether the modal should be visible or not */

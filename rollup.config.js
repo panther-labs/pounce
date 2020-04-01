@@ -2,7 +2,6 @@ import babel from 'rollup-plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
-import transformPaths from '@zerollup/ts-transform-paths';
 import svgr from '@svgr/rollup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import pkg from './package.json';
@@ -20,8 +19,6 @@ export default {
       file: pkg.main,
       format: 'cjs',
       sourcemap: true,
-      // Do not let Rollup call Object.freeze() on namespace import objects
-      // (i.e. import * as namespaceImportObject from...) that are accessed dynamically.
       freeze: false,
     },
     {
@@ -42,7 +39,6 @@ export default {
     typescript({
       typescript: require('typescript'),
       clean: true,
-      transformers: [service => transformPaths(service.getProgram())],
     }),
 
     // using `.babelrc` configuration, run the files through babel while including a runtime helper

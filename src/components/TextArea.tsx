@@ -1,6 +1,6 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
-import BaseInputElement, { BaseInputElementProps } from 'components/BaseInputElement';
+import BaseInputElement, { BaseInputElementProps } from './BaseInputElement';
 
 export type TextAreaProps = BaseInputElementProps;
 

@@ -20,8 +20,8 @@ without it!
 
 ```jsx harmony
 import React from 'react';
-import { TabList, Tab, TabPanel } from 'components/Tabs';
-import Card from 'components/Card';
+import { TabList, Tab, TabPanel } from './Tabs';
+import Card from './Card';
 
 const Example = () => {
   const tabs = ['Traits', 'Event History', 'Identities'];

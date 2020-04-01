@@ -36,6 +36,7 @@
     "dayjs": "^1.8.23",
     "downshift": "^5.0.5",
     "fuzzaldrin": "^2.1.0",
+    "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "react-day-picker": "^7.4.0",
     "react-textarea-autosize": "^7.1.2",
@@ -50,13 +51,12 @@
     "clean": "rimraf dist",
     "start": "npx styleguidist server",
     "prepare": "npm run build",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:declarations",
-    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src -d dist/esm --extensions '.ts,.tsx'",
-    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src -d dist/cjs --extensions '.ts,.tsx'",
-    "build:declarations": "tsc -p . -d --emitDeclarationOnly --declarationDir dist/esm",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src -d dist/cjs --extensions '.ts,.tsx' && tsc --emitDeclarationOnly --declarationDir dist/cjs -p .",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src -d dist/esm --extensions '.ts,.tsx' && tsc --emitDeclarationOnly --declarationDir dist/esm -p .",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
     "build:umd": "cross-env NODE_ENV=production-umd rollup -c",
     "docs": "npx styleguidist build",
-    "validate": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc -p . --noEmit"
+    "validate": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,json}\" && tsc --noEmit -p ."
   },
   "repository": "https://github.com/panther-labs/pounce",
   "bugs": {
@@ -86,9 +86,7 @@
     "@svgr/rollup": "^5.3.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
-    "@zerollup/ts-transform-paths": "^1.7.15",
     "babel-loader": "^8.1.0",
-    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -107,7 +105,6 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-typescript2": "^0.27.0",
-    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1"
   }

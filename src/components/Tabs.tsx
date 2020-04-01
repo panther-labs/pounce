@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Box, { BoxProps } from 'components/Box';
-import Flex, { FlexProps } from 'components/Flex';
-import BaseButton, { BaseButtonProps } from 'components/BaseButton';
+import Box, { BoxProps } from './Box';
+import Flex, { FlexProps } from './Flex';
+import BaseButton, { BaseButtonProps } from './BaseButton';
 
 const StyledTab = styled<React.FC<Omit<TabProps, 'onSelect'>>>(BaseButton)`
     outline: 0;
