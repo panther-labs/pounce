@@ -4,7 +4,7 @@
 - Each tab-content must be wraped with a `TabPanel` component. The `TabPanel` accepts the following
   props:
 
-```text
+```shell
 selected?: boolean /* Whether the tabpanel should be visible */
 shouldRender?: boolean /* Whether the content should mount even if the tab is not visible atm */
 ```
@@ -19,10 +19,6 @@ pass `onSelect` and **not** `onClick` since you won't be benefiting from keyboar
 without it!
 
 ```typescript jsx
-
-
-
-
 const Example = () => {
   const tabs = ['Traits', 'Event History', 'Identities'];
   const [activeTab, setActiveTab] = React.useState(0);
