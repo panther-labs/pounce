@@ -55,7 +55,6 @@ export { default as Pill } from './components/Pill';
 export { default as Radio } from './components/Radio';
 export { default as SideSheet } from './components/SideSheet';
 export { default as Snackbar } from './components/Snackbar';
-export * from './components/SnackbarContext';
 export { default as Spinner } from './components/Spinner';
 export { default as Switch } from './components/Switch';
 export { default as Table } from './components/Table';
