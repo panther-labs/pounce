@@ -1,7 +1,7 @@
 import React from 'react';
 import Box, { BoxProps } from './Box';
 import useTheme from '../utils/useTheme';
-import icons from '../themes/icons';
+import { icons } from '../theme';
 
 export interface IconProps
   extends Omit<

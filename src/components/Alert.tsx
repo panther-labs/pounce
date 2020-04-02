@@ -5,7 +5,7 @@ import Box, { BoxProps } from './Box';
 import Flex from './Flex';
 import IconButton from './IconButton';
 import Icon from './Icon';
-import icons from '../themes/icons';
+import { icons } from '../theme';
 
 export interface AlertProps extends Omit<BoxProps, 'title'> {
   /** The style of the Alert */

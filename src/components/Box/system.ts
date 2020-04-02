@@ -1,7 +1,7 @@
 import { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
 import { SerializedStyles } from '@emotion/react';
 import * as StyledSystem from 'styled-system';
-import { Theme } from '../../themes/default';
+import { Theme } from '../../theme';
 import React from 'react';
 
 // prettier-ignore

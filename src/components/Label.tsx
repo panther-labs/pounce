@@ -1,6 +1,6 @@
 import React, { LabelHTMLAttributes } from 'react';
 import BaseText, { BaseTextProps } from './BaseText';
-import { Theme } from '../themes/default';
+import { Theme } from '../theme';
 
 export type LabelProps = BaseTextProps &
   LabelHTMLAttributes<'label'> & {
