@@ -43,7 +43,6 @@ interface CustomStyleProps {
   shadow?: ThemedStyleProps['boxShadow'];
   fill?: ThemedStyleProps['color'];
   stroke?: ThemedStyleProps['color'];
-  viewBox?: string;
   textDecoration?: StyledSystem.ResponsiveValue<React.CSSProperties['textDecoration']>;
   overflowX?: StyledSystem.OverflowProps['overflow'];
   overflowY?: StyledSystem.OverflowProps['overflow'];
@@ -78,7 +77,6 @@ export const customStyleProps: Record<keyof CustomStyleProps, object | boolean> 
     property: 'stroke' as const,
     scale: 'colors',
   },
-  viewBox: true,
   textDecoration: true,
   overflowX: true,
   overflowY: true,
