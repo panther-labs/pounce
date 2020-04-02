@@ -14,9 +14,6 @@ The examples below showcase that functionality.
 A table can be simple:
 
 ```typescript jsx
-
-
-
 // as fetched from the API
 const items = [
   {
@@ -86,10 +83,6 @@ const Example = () => {
 A Table can be sortable through its controlled exposed props:
 
 ```typescript jsx
-
-
-
-
 // as fetched from the API
 const items = [
   {
@@ -184,11 +177,6 @@ const Example = () => {
 A table can have custom renderers for both column headers and cells:
 
 ```typescript jsx
-
-
-
-
-
 // as fetched from the API
 const items = [
   {
@@ -267,9 +255,6 @@ const Example = () => {
 A table doesn't have to alternate background colors:
 
 ```typescript jsx
-
-
-
 // as fetched from the API
 const items = [
   {
@@ -344,9 +329,6 @@ const Example = () => {
 A Table doesn't have to render headers:
 
 ```typescript jsx
-
-
-
 // as fetched from the API
 const items = [
   {
@@ -412,10 +394,6 @@ const Example = () => {
 A table can respond to row selections:
 
 ```typescript jsx
-
-
-
-
 // as fetched from the API
 const items = [
   {
@@ -492,7 +470,7 @@ const Example = () => {
 A Table can have selectable columns. Just use the `useSelectableTableRows` hook which has
 the following signature:
 
-```text
+```shell
 {
 
   columns: TableProps['columns'];
@@ -506,10 +484,6 @@ Essentially, you pass the existing columns & items along with an `onSelect` call
 a set of enhanced columns that you can use within the Table:
 
 ```typescript jsx
-
-
-
-
 // as fetched from the API
 const items = [
   {
@@ -589,7 +563,7 @@ const Example = () => {
 A Table can have client side pagination. Just use the `useClientPaginatedTable` hook which has
 the following signature:
 
-```text
+```shell
 {
 
   items: TableProps['items'] // the total items of the table
@@ -609,11 +583,6 @@ get back a subset of the total items to show in the table and a React element th
 the pagination for you:
 
 ```typescript jsx
-
-
-
-
-
 // as fetched from the API
 const items = [
   {

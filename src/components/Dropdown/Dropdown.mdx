@@ -2,7 +2,7 @@ In order to utilise the `Dropdown` module you need to make use of `Dropdown.Item
 This is a special component tha tshould wrap **every** entry that you defined inside
 your `Dropdown`. The `Dropdown.Item` component accepts a single prop:
 
-```text
+```shell
 onSelect: () => void
 ```
 
@@ -19,9 +19,6 @@ The `Dropdown.Item` component **must** be a direct child of the
 A dropdown can be compose other elements :
 
 ```typescript jsx
-
-
-
 <Dropdown
   trigger={
     <Button is="div" size="large" variant="default">
@@ -35,14 +32,12 @@ A dropdown can be compose other elements :
   <Dropdown.Item onSelect={() => alert('clicked second')}>
     <MenuItem variant="default">Second option</MenuItem>
   </Dropdown.Item>
-</Dropdown>;
+</Dropdown>
 ```
 
 A dropdown can contain anything. Even just `<Icon />` components:
 
 ```typescript jsx
-
-
 <Dropdown p={3} trigger={<Icon size="small" type="more" />}>
   <Dropdown.Item onSelect={() => alert('clicked first')}>
     <Icon size="small" type="add" />
@@ -50,5 +45,5 @@ A dropdown can contain anything. Even just `<Icon />` components:
   <Dropdown.Item onSelect={() => alert('clicked second')}>
     <Icon size="small" type="addUser" />
   </Dropdown.Item>
-</Dropdown>;
+</Dropdown>
 ```
