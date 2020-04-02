@@ -1,12 +1,14 @@
-# Pounce: A Set of Composable React Primitives for Building UI Dashboards
+# Pounce
+
+🐯A Set of Composable React Primitives for Building UI Dashboards
 
 [![CircleCI](https://circleci.com/gh/panther-labs/pounce/tree/master.svg?style=svg)](https://circleci.com/gh/panther-labs/pounce/tree/master)
 
 ## Description
 
-This project contains common UI components for building dashboards written in TypeScript.
+This project contains common UI components for building dashboards written in TypeScript. It's currently used by [Panther](https://github.com/panther-labs/panther)
 
-**It is currently a work in progress**, and proper [SemVer](http://semver.org/) support will be added soon.
+## Docs
 
 Documentation is available on [http://pouncejs.surge.sh/](http://pouncejs.surge.sh/).
 
