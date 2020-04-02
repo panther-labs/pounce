@@ -1,59 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { SerializedStyles } from '@emotion/react';
 import * as StyledSystem from 'styled-system';
-import { Theme } from '../../themes/default';
-import { extraConfig, shouldForwardProp } from './config';
-
-// prettier-ignore
-// Gather all the styled-system props that we are going to pass
-type StyledSystemProps =
-  StyledSystem.SpaceProps<Theme> &
-  StyledSystem.ColorProps<Theme> &
-  StyledSystem.LayoutProps<Theme> &
-  StyledSystem.BackgroundProps<Theme> &
-  StyledSystem.GridProps<Theme> &
-  StyledSystem.ShadowProps<Theme> &
-  StyledSystem.BorderProps<Theme> &
-  StyledSystem.PositionProps<Theme> &
-  StyledSystem.FlexboxProps<Theme> &
-  StyledSystem.TypographyProps<Theme>;
-
-// Gather the custom-named props that styled-system should accept
-type CustomStyleProps = {
-  shadow?: StyledSystemProps['boxShadow'];
-};
-
-// Props related to Link components in @reach/router & react-router
-type RoutingProps = {
-  /** The url path to navigate, if the component implements a Link
-   * @default undefined
-   */
-  to?: string;
-};
-
-// Props related to the usage of the Emotion CSS-in-JS library
-type EmotionProps = {
-  /** The React Component or native HTML element to render instead.
-   * @default "div"
-   */
-  is?: React.ElementType;
-  /** Additional custom inline CSS to pass to the element
-   * @default "{}"
-   */
-  css?: SerializedStyles;
-};
-
-// All of the allowed props gathered together
-type AllowedProps = StyledSystemProps & CustomStyleProps & RoutingProps & EmotionProps;
+import { customStyleProps, shouldForwardProp, SystemProps } from './system';
 
 // Allow all HTML attributes, except for the ones that we use as props
-type AllowedHTMLAttributes<Attributes> = Omit<Attributes, keyof AllowedProps>;
+type AllowedHTMLAttributes<Attrs> = Omit<Attrs, keyof SystemProps>;
 
-export type BoxProps<Attributes = React.AllHTMLAttributes<HTMLElement>> = AllowedHTMLAttributes<
-  Attributes
-> &
-  AllowedProps & {
+// prettier-ignore
+export type BoxProps<Attrs = React.AllHTMLAttributes<HTMLElement>> = AllowedHTMLAttributes<Attrs> & SystemProps & {
     /**
      * The `ref` that will be forwarded down to the base HTML component. For example if you want
      * `Button` to forward its reference all the way down to the actual `<button>` element, you would
@@ -83,7 +37,7 @@ const BaseBox: React.FC<{ ref?: React.LegacyRef<any> }> = styled('div', {
   ${StyledSystem.position}
   ${StyledSystem.flexbox}
   ${StyledSystem.typography}
-  ${StyledSystem.system(extraConfig)}
+  ${StyledSystem.system(customStyleProps)}
 `;
 
 const Box: React.FC<BoxProps> = ({ is, innerRef, ...rest }) => (
