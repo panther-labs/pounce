@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Box, { BoxProps } from 'components/Box';
-import Text from 'components/Text';
+import Box, { BoxProps } from './Box';
+import Text from './Text';
 
 const StyledBox = styled<React.FC<BoxProps>>(Box)`
   transition: background-color 0.1s ease-in-out;

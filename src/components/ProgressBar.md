@@ -4,9 +4,9 @@ needs to complete or to denote that something is not properly ready yet
 A ProgressBar can have different colors:
 
 ```jsx harmony
-import Box from 'components/Box';
-import Flex from 'components/Flex';
-import ProgressBar from 'components/ProgressBar';
+import Box from './Box';
+import Flex from './Flex';
+import ProgressBar from './ProgressBar';
 
 <Box width={1}>
   <Box mb={6}>
@@ -21,7 +21,7 @@ import ProgressBar from 'components/ProgressBar';
 A ProgressBar can have different thickness:
 
 ```jsx harmony
-import ProgressBar from 'components/ProgressBar';
+import ProgressBar from './ProgressBar';
 
 <ProgressBar progressColor="primary300" thickness={2} progress={0.6} />;
 ```

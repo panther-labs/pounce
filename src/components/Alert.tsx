@@ -1,10 +1,11 @@
 import React from 'react';
-import Text from 'components/Text';
-import Card from 'components/Card';
-import Box, { BoxProps } from 'components/Box';
-import Flex from 'components/Flex';
-import IconButton from 'components/IconButton';
-import Icon, { svgComponentMapping } from 'components/Icon';
+import Text from './Text';
+import Card from './Card';
+import Box, { BoxProps } from './Box';
+import Flex from './Flex';
+import IconButton from './IconButton';
+import Icon from './Icon';
+import icons from '../themes/icons';
 
 export interface AlertProps extends Omit<BoxProps, 'title'> {
   /** The style of the Alert */
@@ -17,7 +18,7 @@ export interface AlertProps extends Omit<BoxProps, 'title'> {
   description?: React.ReactNode;
 
   /** The type of the icon that will accompany this alert */
-  icon?: keyof typeof svgComponentMapping;
+  icon?: keyof typeof icons;
 
   /** Whether the Alert should have a close button in order to remove itself */
   discardable?: boolean;

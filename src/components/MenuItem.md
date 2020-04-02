@@ -1,7 +1,7 @@
 A MenuItem can have simple text as children:
 
 ```jsx harmony
-import Card from 'components/Card';
+import Card from './Card';
 
 <Card>
   <MenuItem variant="default">Hello</MenuItem>
@@ -12,8 +12,8 @@ import Card from 'components/Card';
 A MenuItem can have complex children:
 
 ```jsx harmony
-import Icon from 'components/Icon';
-import Card from 'components/Card';
+import Icon from './Icon';
+import Card from './Card';
 
 <Card>
   <MenuItem variant="default">

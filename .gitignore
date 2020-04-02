@@ -6,6 +6,9 @@
 # Deployment
 dist
 
+# SVGO configuration for optimising svg icons
+svgoconfig.json
+
 # Docs
 .styleguidist
 

@@ -16,8 +16,8 @@ option enable by default (overridable).
 You can push as many snackbars as you want:
 
 ```jsx harmony
-import { SnackbarProvider, useSnackbar } from 'components/SnackbarContext';
-import Button from 'components/Button';
+import { SnackbarProvider, useSnackbar } from './SnackbarContext';
+import Button from './Button';
 
 const Example = () => {
   const { pushSnackbar } = useSnackbar();
@@ -43,8 +43,8 @@ const Example = () => {
 You can tweak the duration of the snackbar through the `duration` prop:
 
 ```jsx harmony
-import { SnackbarProvider, useSnackbar } from 'components/SnackbarContext';
-import Button from 'components/Button';
+import { SnackbarProvider, useSnackbar } from './SnackbarContext';
+import Button from './Button';
 
 const Example = () => {
   const { pushSnackbar } = useSnackbar();

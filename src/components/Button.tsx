@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import BaseButton, { BaseButtonProps } from 'components/BaseButton';
-import { convertHexToRgba } from 'utils/helpers';
-import useTheme from 'utils/useTheme';
+import BaseButton, { BaseButtonProps } from './BaseButton';
+import { convertHexToRgba } from '../utils/helpers';
+import useTheme from '../utils/useTheme';
 
 export interface ButtonProps extends BaseButtonProps {
   /** The size of the button */
@@ -91,7 +91,7 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssPr
 
   return (
     <BaseButton
-      fontWeight="bold"
+      fontWeight="medium"
       borderRadius="large"
       css={`
         ${userCssProp}

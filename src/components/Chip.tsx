@@ -1,8 +1,8 @@
-import Text from 'components/Text';
-import IconButton from 'components/IconButton';
-import Icon from 'components/Icon';
-import Card, { CardProps } from 'components/Card';
-import Flex from 'components/Flex';
+import Text from './Text';
+import IconButton from './IconButton';
+import Icon from './Icon';
+import Card, { CardProps } from './Card';
+import Flex from './Flex';
 import React from 'react';
 
 export interface ChipProps extends CardProps {

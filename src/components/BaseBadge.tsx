@@ -1,7 +1,7 @@
 import React from 'react';
-import Flex from 'components/Flex';
-import Text from 'components/Text';
-import { BaseTextProps } from 'components/BaseText';
+import Flex from './Flex';
+import Text from './Text';
+import { BaseTextProps } from './BaseText';
 
 export interface BaseBadgeProps extends BaseTextProps {
   /** The color theme of the badge */

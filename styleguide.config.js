@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const babelConfig = require('./babel.config');
 
 const BoxProps = [
   'as',
@@ -100,39 +98,8 @@ module.exports = {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          options: {
-            presets: [...babelConfig.presets, '@babel/preset-typescript'],
-            plugins: babelConfig.plugins,
-          },
-        },
-        {
-          test: /\.svg$/,
-          loader: 'react-svg-loader',
-          options: {
-            svgo: {
-              plugins: [
-                { removeTitle: true },
-                { convertColors: { shorthex: false } },
-                { convertPathData: false },
-                { removeStyleElement: true },
-                { mergePaths: true },
-                { removeDimensions: true },
-                { removeAttrs: { attrs: 'path:fill' } },
-                { addAttributesToSVGElement: { attributes: [{ display: 'block' }] } },
-              ],
-              multipass: true,
-            },
-
-            // whether to output jsx
-            jsx: false,
-            include: /icons/,
-            exclude: /node_modules/,
-          },
         },
       ],
-    },
-    resolve: {
-      plugins: [new TsconfigPathsPlugin()],
     },
   },
 };

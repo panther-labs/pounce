@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import Flex from 'components/Flex';
-import Snackbar, { SnackbarProps } from 'components/Snackbar';
-import { isBrowser } from 'utils/helpers';
+import Flex from './Flex';
+import Snackbar, { SnackbarProps } from './Snackbar';
+import { isBrowser } from '../utils/helpers';
 
 const generateSnackbarId = () =>
   Math.random()

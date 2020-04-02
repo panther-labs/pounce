@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from 'components/Box';
+import Box, { BoxProps } from '../components/Box';
 
 /**
  * A Component that simply accepts a ref and forwards it as `innerRef`. It's used in integrations

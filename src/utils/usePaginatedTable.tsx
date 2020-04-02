@@ -1,11 +1,11 @@
 import React from 'react';
 import IconButton from '../components/IconButton';
-import Icon from 'components/Icon';
-import Label from 'components/Label';
-import Text from 'components/Text';
-import Flex from 'components/Flex';
-import Dropdown from 'components/Dropdown';
-import MenuItem from 'components/MenuItem';
+import Icon from '../components/Icon';
+import Label from '../components/Label';
+import Text from '../components/Text';
+import Flex from '../components/Flex';
+import Dropdown from '../components/Dropdown';
+import MenuItem from '../components/MenuItem';
 
 export interface UsePaginatedTable {
   /**

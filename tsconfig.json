@@ -2,24 +2,13 @@
   "compilerOptions": {
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "noImplicitAny": true,
     "declaration": true,
+    "strict": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "sourceMap": true,
-    "paths": {
-      "components/*": ["src/components/*"],
-      "utils/*": ["src/utils/*"],
-      "themes/*": ["src/themes/*"],
-      "icons/*": ["src/icons/*"]
-    }
+    "jsx": "preserve"
   }
 }

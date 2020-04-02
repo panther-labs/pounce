@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseText, { BaseTextProps } from 'components/BaseText';
+import BaseText, { BaseTextProps } from './BaseText';
 
 export interface TextProps extends BaseTextProps {
   /** The size of the font */

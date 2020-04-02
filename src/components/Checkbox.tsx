@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import IconButton from 'components/IconButton';
-import Icon from 'components/Icon';
+import IconButton from './IconButton';
+import Icon from './Icon';
 
 const StyledCheckbox = styled.input`
   position: absolute;

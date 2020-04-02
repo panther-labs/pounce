@@ -7,9 +7,9 @@ Can be used alone:
 or in conjunction with form elements if you give it the proper HTML attributes:
 
 ```jsx harmony
-import Box from 'components/Box';
-import Flex from 'components/Flex';
-import Checkbox from 'components/Checkbox';
+import Box from './Box';
+import Flex from './Flex';
+import Checkbox from './Checkbox';
 
 const Example = () => {
   const [isFirstChecked, setFirstChecked] = React.useState(false);

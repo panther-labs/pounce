@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Heading from 'components/Heading';
-import Flex from 'components/Flex';
-import Icon from 'components/Icon';
+import Heading from './Heading';
+import Flex from './Flex';
+import Icon from './Icon';
 
 const StyledHeading = styled(Heading)`
   transition: color 0.1s ease-in-out;

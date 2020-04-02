@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from './Box';
-import { Theme } from 'themes/default';
+import { Theme } from '../themes/default';
 
 export interface ProgressBarProps {
   /** The thickness (in pixels) of the progress bar (a.k.a. vertical height). Defaults to `5` */

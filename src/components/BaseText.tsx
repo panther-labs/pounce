@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import * as StyledSystem from 'styled-system';
-import Box, { BoxProps } from 'components/Box';
+import Box, { BoxProps } from './Box';
 
 export interface BaseTextProps<T = HTMLDivElement>
   extends BoxProps<T>,

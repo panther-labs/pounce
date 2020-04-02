@@ -7,12 +7,12 @@ components within your app.
 
 ```jsx harmony
 import React from 'react';
-import Button from 'components/Button';
-import Flex from 'components/Flex';
-import Heading from 'components/Heading';
-import IconButton from 'components/IconButton';
-import Icon from 'components/Icon';
-import Text from 'components/Text';
+import Button from './Button';
+import Flex from './Flex';
+import Heading from './Heading';
+import IconButton from './IconButton';
+import Icon from './Icon';
+import Text from './Text';
 
 const Example = () => {
   const [open, setOpen] = React.useState(false);
