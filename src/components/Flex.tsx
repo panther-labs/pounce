@@ -1,21 +1,25 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import * as StyledSystem from 'styled-system';
+// import styled from '@emotion/styled';
+// import * as StyledSystem from 'styled-system';
 import Box, { BoxProps } from './Box';
 
-export interface FlexProps extends BoxProps, StyledSystem.FlexboxProps, StyledSystem.DisplayProps {}
+/*
+// const Flex = styled<React.FC<Omit<BoxProps, 'display'>>>(Box)({
+//   display: 'flex',
+// });
 
-const BaseFlex = styled<React.FC<FlexProps>>(Box)`
-  ${StyledSystem.flexbox}
-  ${StyledSystem.display}
-`;
+  direction?: StyledSystemProps['flexDirection'];
+  justify?: StyledSystemProps['justifyContent'];
+  align?: StyledSystemProps['alignItems'];
+ */
 
+export type FlexProps = BoxProps;
 /**
  * Extends <a href="/#/Box">Box</a>
  *
  * Responsive flexbox layout component. You should use this anytime you want a flex container or
  * wrapper around a certain layout
  */
-const Flex: React.FC<Omit<FlexProps, 'display'>> = props => <BaseFlex display="flex" {...props} />;
+const Flex: React.FC<Omit<BoxProps, 'display'>> = props => <Box display="flex" {...props} />;
 
 export default Flex;

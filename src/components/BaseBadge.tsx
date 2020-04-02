@@ -3,10 +3,10 @@ import Flex from './Flex';
 import Text from './Text';
 import { BaseTextProps } from './BaseText';
 
-export interface BaseBadgeProps extends BaseTextProps {
+export type BaseBadgeProps = BaseTextProps & {
   /** The color theme of the badge */
   color: 'neutral' | 'grey' | 'blue' | 'pink' | 'red';
-}
+};
 
 /** A badge is simply a visual label to associate with something else */
 const BaseBadge: React.FC<BaseBadgeProps> = ({ color, children, ...rest }) => {
@@ -29,7 +29,7 @@ const BaseBadge: React.FC<BaseBadgeProps> = ({ color, children, ...rest }) => {
       default:
         return { bg: 'red300', color: 'white' };
     }
-  })();
+  })() as Partial<BaseBadgeProps>;
 
   return (
     <Flex alignItems="center" justifyContent="center" {...colorProps} {...rest}>

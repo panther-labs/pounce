@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Box, { BoxProps } from './Box';
 import Text from './Text';
 
-const StyledBox = styled<React.FC<BoxProps>>(Box)`
+const StyledBox = styled(Box)`
   transition: background-color 0.1s ease-in-out;
   cursor: pointer;
 
@@ -54,7 +54,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       color: 'grey500',
       'aria-selected': false,
     };
-  })();
+  })() as Partial<MenuItemProps>;
 
   return (
     <StyledBox px={5} py={4} {...styleProps} {...rest}>

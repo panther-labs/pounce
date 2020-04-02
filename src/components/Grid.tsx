@@ -1,14 +1,14 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import * as StyledSystem from 'styled-system';
+// import styled from '@emotion/styled';
+// import * as StyledSystem from 'styled-system';
 import Box, { BoxProps } from './Box';
 
-export interface GridProps extends BoxProps, StyledSystem.GridProps, StyledSystem.DisplayProps {}
+export type GridProps = BoxProps;
 
-const BaseGrid = styled<React.FC<GridProps>>(Box)`
-  ${StyledSystem.grid}
-  ${StyledSystem.display}
-`;
+// const BaseGrid = styled<React.FC<GridProps>>(Box)`
+//   ${StyledSystem.grid}
+//   ${StyledSystem.display}
+// `;
 
 /**
  * Extends <a href="/#/Box">Box</a>
@@ -16,6 +16,6 @@ const BaseGrid = styled<React.FC<GridProps>>(Box)`
  * Grid layout component. You should use this anytime you want to create a container for columns
  * within the design
  */
-const Grid: React.FC<Omit<GridProps, 'display'>> = props => <BaseGrid display="grid" {...props} />;
+const Grid: React.FC<Omit<GridProps, 'display'>> = props => <Box display="grid" {...props} />;
 
 export default Grid;

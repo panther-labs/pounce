@@ -87,13 +87,13 @@ const Button: React.FC<ButtonProps> = ({ size, variant, children, css: userCssPr
           `,
         };
     }
-  })();
+  })() as Partial<ButtonProps>;
 
   return (
     <BaseButton
       fontWeight="medium"
       borderRadius="large"
-      css={`
+      css={css`
         ${userCssProp}
         ${variantProps.css}
       `}

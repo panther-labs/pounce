@@ -47,7 +47,7 @@ const Alert: React.FC<AlertProps> = ({
       default:
         return { borderColor: 'red300', color: 'red300' };
     }
-  })();
+  })() as Partial<AlertProps>;
 
   // Progressively override/enhance the rendered structure based on the optional props provided.
   // Order of checks matters a lot here

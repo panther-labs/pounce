@@ -3,9 +3,7 @@ import styled from '@emotion/styled';
 import * as StyledSystem from 'styled-system';
 import Box, { BoxProps } from './Box';
 
-export interface BaseTextProps<T = HTMLDivElement>
-  extends BoxProps<T>,
-    StyledSystem.TypographyProps {}
+export type BaseTextProps = BoxProps<React.AllHTMLAttributes<HTMLParagraphElement>>;
 
 const StyledText = styled(Box)`
   ${StyledSystem.typography}

@@ -2,10 +2,10 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Box, { BoxProps } from './Box';
 
-export interface BaseButtonProps extends BoxProps<HTMLButtonElement> {
+export type BaseButtonProps = BoxProps<React.ButtonHTMLAttributes<HTMLButtonElement>> & {
   /** Whether the element should be disabled */
   disabled?: boolean;
-}
+};
 
 const BaseButton: React.FC<BaseButtonProps> = props => (
   <Box

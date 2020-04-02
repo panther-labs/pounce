@@ -29,3 +29,15 @@ const Text: React.FC<TextProps> = ({ size, ...rest }) => {
 };
 
 export default Text;
+
+/*
+export const truncate = props => {
+  if (props.isTruncated) {
+    return {
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+    };
+  }
+};
+ */

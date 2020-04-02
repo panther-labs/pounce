@@ -42,7 +42,7 @@ InputElementOuterBox.defaultProps = {
   disabled: false,
 };
 
-export type InputElementInnerBoxProps = BoxProps<HTMLInputElement> &
+export type InputElementInnerBoxProps = BoxProps<React.AllHTMLAttributes<HTMLInputElement>> &
   React.HTMLProps<HTMLInputElement>;
 
 export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props => (
