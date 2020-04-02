@@ -13,9 +13,9 @@ The examples below showcase that functionality.
 
 A table can be simple:
 
-```jsx harmony
-import React from 'react';
-import Card from '../Card';
+```typescript jsx
+
+
 
 // as fetched from the API
 const items = [
@@ -85,10 +85,10 @@ const Example = () => {
 
 A Table can be sortable through its controlled exposed props:
 
-```jsx harmony
-import React from 'react';
-import Card from '../Card';
-import sortBy from 'lodash-es/sortBy';
+```typescript jsx
+
+
+
 
 // as fetched from the API
 const items = [
@@ -183,11 +183,11 @@ const Example = () => {
 
 A table can have custom renderers for both column headers and cells:
 
-```jsx harmony
-import React from 'react';
-import Card from '../Card';
-import Text from '../Text';
-import Chip from '../Chip';
+```typescript jsx
+
+
+
+
 
 // as fetched from the API
 const items = [
@@ -266,9 +266,9 @@ const Example = () => {
 
 A table doesn't have to alternate background colors:
 
-```jsx harmony
-import React from 'react';
-import Card from '../Card';
+```typescript jsx
+
+
 
 // as fetched from the API
 const items = [
@@ -343,9 +343,9 @@ const Example = () => {
 
 A Table doesn't have to render headers:
 
-```jsx harmony
-import React from 'react';
-import Card from '../Card';
+```typescript jsx
+
+
 
 // as fetched from the API
 const items = [
@@ -411,10 +411,10 @@ const Example = () => {
 
 A table can respond to row selections:
 
-```jsx harmony
-import React from 'react';
-import Card from '../Card';
-import useSelectableTableRows from './useSelectableTableRows';
+```typescript jsx
+
+
+
 
 // as fetched from the API
 const items = [
@@ -505,10 +505,10 @@ the following signature:
 Essentially, you pass the existing columns & items along with an `onSelect` callback and you get back
 a set of enhanced columns that you can use within the Table:
 
-```jsx harmony
-import React from 'react';
-import Card from '../Card';
-import useSelectableTableRows from './useSelectableTableRows';
+```typescript jsx
+
+
+
 
 // as fetched from the API
 const items = [
@@ -608,11 +608,11 @@ Essentially, you pass the existing items & optionally some parameters for the pa
 get back a subset of the total items to show in the table and a React element that will control
 the pagination for you:
 
-```jsx harmony
-import React from 'react';
-import Card from '../Card';
-import Box from '../Box';
-import usePaginatedTable from './usePaginatedTable';
+```typescript jsx
+
+
+
+
 
 // as fetched from the API
 const items = [

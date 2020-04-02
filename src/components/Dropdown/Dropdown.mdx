@@ -18,9 +18,9 @@ The `Dropdown.Item` component **must** be a direct child of the
 
 A dropdown can be compose other elements :
 
-```jsx harmony
-import Button from '../Button';
-import MenuItem from '../MenuItem';
+```typescript jsx
+
+
 
 <Dropdown
   trigger={
@@ -40,8 +40,8 @@ import MenuItem from '../MenuItem';
 
 A dropdown can contain anything. Even just `<Icon />` components:
 
-```jsx harmony
-import Icon from '../Icon';
+```typescript jsx
+
 
 <Dropdown p={3} trigger={<Icon size="small" type="more" />}>
   <Dropdown.Item onSelect={() => alert('clicked first')}>

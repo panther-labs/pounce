@@ -1,9 +1,9 @@
 The content of the tooltip should be an instance of `Label`:
 
-```jsx harmony
-import IconButton from '../IconButton';
-import Icon from '../Icon';
-import Label from '../Label';
+```typescript jsx
+
+
+
 
 <Tooltip content={<Label size="medium">Let's add a user together!</Label>}>
   <IconButton variant="primary">
@@ -14,9 +14,9 @@ import Label from '../Label';
 
 but you can put other staff in there as well like an icon:
 
-```jsx harmony
-import Icon from '../Icon';
-import Text from '../Text';
+```typescript jsx
+
+
 
 <Tooltip positioning="down" content={<Icon size="small" type="company" />}>
   <Text>Hover me to see a pretty icon</Text>
@@ -25,9 +25,9 @@ import Text from '../Text';
 
 Also you can make sure that the popup so that its content can be clicked or selected:
 
-```jsx harmony
-import Icon from '../Icon';
-import Text from '../Text';
+```typescript jsx
+
+
 
 <Tooltip
   allowHover
@@ -44,10 +44,10 @@ import Text from '../Text';
 
 Lastly, by default the Tooltip appears after a brief delay, but you can make it appear instantly:
 
-```jsx harmony
-import IconButton from '../IconButton';
-import Icon from '../Icon';
-import Label from '../Label';
+```typescript jsx
+
+
+
 
 <Tooltip hoverDelay={0} content={<Label size="medium">I appear instantly</Label>}>
   <IconButton variant="primary">

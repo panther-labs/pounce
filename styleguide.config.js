@@ -62,6 +62,7 @@ const BoxProps = [
 ];
 
 module.exports = {
+  require: [path.join(__dirname, 'styleguide.setup.js')],
   template: {
     favicon: 'https://dashboard.runpanther.io/favicon.ico',
   },
