@@ -21,7 +21,7 @@ type ThemedStyleProps =
 // Props related to Link components in @reach/router & react-router
 type RoutingProps = {
   /** The url path to navigate, if the component implements a Link
-   * @default undefined
+   * @ignore
    */
   to?: string;
 };
@@ -30,10 +30,11 @@ type RoutingProps = {
 type EmotionProps = {
   /** The React Component or native HTML element to render instead.
    * @default "div"
+   * @ignore
    */
   is?: React.ElementType;
   /** Additional custom inline CSS to pass to the element
-   * @default "{}"
+   * @ignore
    */
   css?: SerializedStyles;
 };
