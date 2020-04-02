@@ -17,10 +17,10 @@ module.exports = {
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
     propFilter: prop => {
       const hasDescription = prop.description;
-      const isAria = prop.name.includes('aria-');
+      const isHint = prop.name.includes('aria-') || prop.name === 'inputMode';
       const isSystem = shouldForwardProp.props.includes(prop.name);
 
-      return hasDescription && !isAria && !isSystem;
+      return hasDescription && !isHint && !isSystem;
     },
   }).parse,
   components: 'src/components/**/[A-Z]*.tsx',
