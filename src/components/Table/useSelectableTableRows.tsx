@@ -1,6 +1,6 @@
 import React from 'react';
-import { TableProps } from '../components/Table';
-import Checkbox from '../components/Checkbox';
+import { TableProps } from '../Table';
+import Checkbox from '../Checkbox';
 
 export interface UseSelectableTableRowsProps<T> {
   /**
