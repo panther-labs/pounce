@@ -7,7 +7,7 @@ import React from 'react';
 // prettier-ignore
 // Gather all the styled-system props that we are going to pass
 type ThemedStyleProps =
-  StyledSystem.SpaceProps<Theme> &
+  StyledSystem.SpaceProps<Theme, React.CSSProperties['margin']> &
   StyledSystem.ColorProps<Theme> &
   StyledSystem.LayoutProps<Theme> &
   StyledSystem.BackgroundProps<Theme> &
