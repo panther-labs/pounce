@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
-import defaultTheme, { Theme } from '../themes/default';
+import defaultTheme, { Theme } from '../theme';
 import GlobalStyles from './GlobalStyles';
 
 interface ThemeProviderProps {

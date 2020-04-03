@@ -1,67 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-
-const BoxProps = [
-  'as',
-  'css',
-  'm',
-  'margin',
-  'mt',
-  'marginTop',
-  'mr',
-  'marginRight',
-  'mb',
-  'marginBottom',
-  'ml',
-  'marginLeft',
-  'mx',
-  'marginX',
-  'my',
-  'marginY',
-  'p',
-  'padding',
-  'pt',
-  'paddingTop',
-  'pr',
-  'paddingRight',
-  'pb',
-  'paddingBottom',
-  'pl',
-  'paddingLeft',
-  'px',
-  'paddingX',
-  'py',
-  'paddingY',
-  'color',
-  'bg',
-  'fontSize',
-  'fontWeight',
-  'minWidth',
-  'width',
-  'height',
-  'gridRow',
-  'gridColumn',
-  'boxShadow',
-  'textShadow',
-  'border',
-  'borderWidth',
-  'borderStyle',
-  'borderColor',
-  'borderRadius',
-  'borderTop',
-  'borderRight',
-  'borderBottom',
-  'borderLeft',
-  'position',
-  'zIndex',
-  'top',
-  'right',
-  'bottom',
-  'left',
-  'flex',
-];
+const shouldForwardProp = require('@styled-system/should-forward-prop');
 
 module.exports = {
+  require: [path.join(__dirname, 'styleguide.setup.js')],
   template: {
     favicon: 'https://dashboard.runpanther.io/favicon.ico',
   },
@@ -73,20 +15,16 @@ module.exports = {
   pagePerSection: true,
   usageMode: 'expand',
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
-    propFilter: (prop, component) => {
-      // filter out any component `prop` that doesn't have a description tied to it. We also want
-      // to exclude all the `aria` descriptions
-      if (!prop.description || prop.name.includes('aria-')) {
-        return false;
-      }
+    propFilter: prop => {
+      const hasDescription = prop.description;
+      const isHint = prop.name.includes('aria-') || prop.name === 'inputMode';
+      const isSystem = shouldForwardProp.props.includes(prop.name);
 
-      // The Box is the main component so we want to show a big list of all prop.
-      // On all the other components that extend Box, we don't want to show all inherited prop,
-      // but only the additional ones
-      return component.name === 'Box' || !BoxProps.includes(prop.name);
+      return hasDescription && !isHint && !isSystem;
     },
   }).parse,
-  components: 'src/{components,modules}/**/[A-Z]*.{ts,tsx}',
+  components: 'src/components/**/[A-Z]*.tsx',
+  getExampleFilename: componentPath => componentPath.replace('.tsx', '.mdx'),
   ignore: ['src/components/**/Base[A-Z]*.{ts,tsx}'],
   styleguideDir: '.styleguidist',
   serverPort: 9000,

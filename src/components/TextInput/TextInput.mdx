@@ -1,0 +1,40 @@
+An input can have a label:
+
+```typescript jsx
+<TextInput label="First name" placeholder="Type something..." />
+```
+
+It can be valid:
+
+```typescript jsx
+const Example = () => {
+  const [value, setValue] = React.useState("I'm valid");
+  return (
+    <TextInput
+      onChange={e => setValue(e.target.value)}
+      placeholder="Type something..."
+      value={value}
+    />
+  );
+};
+
+<Example />;
+```
+
+or invalid:
+
+```typescript jsx
+const Example = () => {
+  const [value, setValue] = React.useState("I'm invalid");
+  return (
+    <TextInput
+      error="Oops this is wrong"
+      onChange={e => setValue(e.target.value)}
+      placeholder="Type something..."
+      value={value}
+    />
+  );
+};
+
+<Example />;
+```
