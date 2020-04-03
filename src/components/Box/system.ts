@@ -40,7 +40,7 @@ type EmotionProps = {
 };
 
 // Gather the custom-named props that styled-system should accept
-interface CustomStyleProps {
+export interface CustomStyleProps {
   shadow?: ThemedStyleProps['boxShadow'];
   fill?: ThemedStyleProps['color'];
   stroke?: ThemedStyleProps['color'];
