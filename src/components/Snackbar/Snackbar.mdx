@@ -4,9 +4,10 @@ import & include a `useSnackbar` call in your functional component.
 
 The context currently exposes an object containing the `pushSnackbar` function which accepts a single
 object argument containing the same exact props that you would normally be passing to the
-<a href="/#/Alert>Alert</a> component.
 
-```text
+<a href="/#/Alert">Alert</a> component.
+
+```shell
 { pushSnackbar: (data: AlertProps) => void }
 ```
 
@@ -16,9 +17,6 @@ option enable by default (overridable).
 You can push as many snackbars as you want:
 
 ```typescript jsx
-
-
-
 const Example = () => {
   const { pushSnackbar } = useSnackbar();
 
@@ -43,9 +41,6 @@ const Example = () => {
 You can tweak the duration of the snackbar through the `duration` prop:
 
 ```typescript jsx
-
-
-
 const Example = () => {
   const { pushSnackbar } = useSnackbar();
 
