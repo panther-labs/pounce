@@ -22,7 +22,7 @@ export interface IconProps
 const Icon: React.FC<IconProps> = ({ type, size = 'large', color = 'current', ...rest }) => {
   const { icons } = useTheme();
   const sizeInPx = size === 'small' ? 18 : 24;
-  const viewBox = icons[type].viewBox || '0 0 24 24';
+  const viewBox = icons[type]?.viewBox || '0 0 24 24';
 
   return (
     <Box
