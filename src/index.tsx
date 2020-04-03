@@ -65,7 +65,7 @@ export { default as TextInput } from './components/TextInput';
 export { default as Tooltip } from './components/Tooltip';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as GlobalStyles } from './utils/GlobalStyles';
-export { default as theme } from './theme';
+export { default as theme, Theme } from './theme';
 export { default as ThemeProvider } from './utils/ThemeProvider';
 export { default as useTheme } from './utils/useTheme';
 
