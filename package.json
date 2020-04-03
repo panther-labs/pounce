@@ -54,7 +54,7 @@
     "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src -d dist/esm --extensions '.ts,.tsx' && tsc --emitDeclarationOnly --declarationDir dist/esm -p .",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
     "docs": "npx styleguidist build",
-    "lint": "eslint --fix \"src/**/*.{ts,tsx}\" && prettier \"src/**/*.{ts,tsx,md,mdx,json}\"",
+    "lint": "eslint --fix \"src/**/*.{ts,tsx}\" && prettier --write \"src/**/*.{ts,tsx,md,mdx,json}\"",
     "validate": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,mdx,json}\" && tsc --noEmit -p ."
   },
   "repository": "https://github.com/panther-labs/pounce",
