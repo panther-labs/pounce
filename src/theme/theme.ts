@@ -21,7 +21,7 @@ export interface Theme extends StyledSystemTheme {
   icons: Record<string, { path: JSX.Element; viewBox?: string }>;
 }
 
-const theme: Theme = {
+export const theme: Theme = {
   breakpoints: ['1200px'],
   space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
   radii: {
@@ -43,5 +43,3 @@ const theme: Theme = {
   ...typography,
   icons,
 };
-
-export default theme;
