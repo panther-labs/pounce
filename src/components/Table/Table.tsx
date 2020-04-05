@@ -147,7 +147,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
     let content = column.renderColumnHeader ? (
       column.renderColumnHeader(sortKey === column.key)
     ) : (
-      <Label is="h4" size="small" color="grey400">
+      <Label as="h4" size="small" color="grey400">
         {(column.header || '').toUpperCase()}
       </Label>
     );

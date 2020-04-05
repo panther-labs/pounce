@@ -4,8 +4,6 @@ import Box from '../Box';
 import Card, { CardProps } from '../Card';
 import Heading from '../Heading';
 import Flex from '../Flex';
-import { css } from '@emotion/react';
-import RefForwardingBox from '../../utils/RefForwardingBox';
 
 export interface ModalProps extends CardProps {
   /** Whether the modal should be visible or not */
@@ -67,12 +65,7 @@ const Modal: React.FC<ModalProps> = ({
         'aria-describedby': title,
       })}
     >
-      <RefForwardingBox
-        height="100%"
-        css={css`
-          outline: none;
-        `}
-      >
+      <Box outline="none" height="100%">
         <Flex
           justifyContent="center"
           alignItems="center"
@@ -81,7 +74,7 @@ const Modal: React.FC<ModalProps> = ({
         >
           <Card py={5} px={8} minWidth="400px" maxWidth="700px" {...rest}>
             {title && (
-              <Box is="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
+              <Box as="header" borderBottom="1px solid" borderColor="grey100" pb={5} mb={5}>
                 <Heading size="medium" textAlign="center">
                   {title}
                 </Heading>
@@ -90,7 +83,7 @@ const Modal: React.FC<ModalProps> = ({
             {children}
           </Card>
         </Flex>
-      </RefForwardingBox>
+      </Box>
     </MUIModal>
   );
 };

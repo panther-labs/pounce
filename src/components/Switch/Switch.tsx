@@ -35,7 +35,7 @@ const Switch: React.FC<SwitchProps> = ({ checked, onChange, label, ...rest }) =>
     >
       <Flex alignItems="center">
         {checked && (
-          <Label is="span" size="small" color="white" flex="1 0 auto" ml={2}>
+          <Label as="span" size="small" color="white" flex="1 0 auto" ml={2}>
             {label}
           </Label>
         )}

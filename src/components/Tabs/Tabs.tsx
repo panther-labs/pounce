@@ -91,7 +91,7 @@ Tab.defaultProps = {
 export type TabListProps = FlexProps;
 
 export const TabList: React.FC<TabListProps> = props => (
-  <Flex is="ul" role="tablist" flexWrap="wrap" {...props} />
+  <Flex as="ul" role="tablist" flexWrap="wrap" {...props} />
 );
 
 export interface TabPanelProps extends BoxProps {

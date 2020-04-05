@@ -10,7 +10,7 @@ export type BaseButtonProps = BoxProps<React.ButtonHTMLAttributes<HTMLButtonElem
 const BaseButton: React.FC<BaseButtonProps> = props => (
   <Box
     type="button"
-    is="button"
+    as="button"
     css={css`
       cursor: pointer;
       text-decoration: none;

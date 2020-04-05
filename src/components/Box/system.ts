@@ -32,7 +32,7 @@ type EmotionProps = {
    * @default "div"
    * @ignore
    */
-  is?: React.ElementType;
+  as?: React.ElementType;
   /** Additional custom inline CSS to pass to the element
    * @ignore
    */
