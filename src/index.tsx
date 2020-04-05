@@ -44,6 +44,7 @@ export { default as DateInput } from './components/DateInput';
 export { default as Dropdown } from './components/Dropdown';
 export { default as Flex } from './components/Flex';
 export { default as Grid } from './components/Grid';
+export { default as SimpleGrid } from './components/SimpleGrid';
 export { default as Heading } from './components/Heading';
 export { default as Icon } from './components/Icon';
 export { default as IconButton } from './components/IconButton';
