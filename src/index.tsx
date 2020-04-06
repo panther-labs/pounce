@@ -53,6 +53,7 @@ export { default as MenuItem } from './components/MenuItem';
 export { default as MultiCombobox } from './components/MultiCombobox';
 export { default as Modal } from './components/Modal';
 export { default as Pill } from './components/Pill';
+export { default as PseudoBox } from './components/PseudoBox';
 export { default as Radio } from './components/Radio';
 export { default as SideSheet } from './components/SideSheet';
 export { default as Snackbar } from './components/Snackbar';
