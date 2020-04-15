@@ -247,7 +247,7 @@ function MultiCombobox<ItemShape>({
                   ))}
                   <InputElementInnerBox
                     {...getInputProps(additionalInputProps)}
-                    is="input"
+                    as="input"
                     type="text"
                     flex="1 0 auto"
                   />

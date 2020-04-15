@@ -2,9 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Box, { BoxProps } from '../Box';
 import Flex, { FlexProps } from '../Flex';
-import BaseButton, { BaseButtonProps } from '../BaseButton';
+import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
 
-const StyledTab = styled<React.FC<Omit<TabProps, 'onSelect'>>>(BaseButton)`
+const StyledTab = styled<React.FC<Omit<TabProps, 'onSelect'>>>(AbstractButton)`
     outline: 0;
     transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 
@@ -16,7 +16,7 @@ const StyledTab = styled<React.FC<Omit<TabProps, 'onSelect'>>>(BaseButton)`
     },
   `;
 
-export interface TabProps extends BaseButtonProps {
+export interface TabProps extends AbstractButtonProps {
   /**
    * Function triggered when tab is selected.
    */

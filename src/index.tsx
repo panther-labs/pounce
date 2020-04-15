@@ -1,4 +1,5 @@
 export * from './components/Alert';
+export * from './components/AbstractButton';
 export * from './components/Badge';
 export * from './components/Box';
 export * from './components/Breadcrumbs';
@@ -35,6 +36,7 @@ export * from './components/Tooltip';
 export * from './components/ProgressBar';
 
 export { default as Alert } from './components/Alert';
+export { default as AbstractButton } from './components/AbstractButton';
 export { default as Badge } from './components/Badge';
 export { default as Box } from './components/Box';
 export { default as Breadcrumbs } from './components/Breadcrumbs';

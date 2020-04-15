@@ -5,8 +5,8 @@ import { css } from '@emotion/react';
 import Flex, { FlexProps } from '../Flex';
 import { BoxProps } from '../Box';
 import Text from '../Text';
-import BaseButton from '../BaseButton';
 import Icon from '../Icon';
+import AbstractButton from '../AbstractButton';
 
 export type ColumnProps<T> = {
   /** A unique identifier for this particular column */
@@ -155,7 +155,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
     // wrap it in a button if we have a clickable column
     if (column.sortable) {
       content = (
-        <BaseButton onClick={() => onSort(column.key)}>
+        <AbstractButton onClick={() => onSort(column.key)}>
           <Flex alignItems="center">
             {content}
             {sortKey === column.key && sortDir && (
@@ -166,7 +166,7 @@ export function Table<ItemShape extends { [key: string]: any }>({
               />
             )}
           </Flex>
-        </BaseButton>
+        </AbstractButton>
       );
     }
 
