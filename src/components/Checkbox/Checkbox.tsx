@@ -1,12 +1,7 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
-
-const StyledCheckbox = styled.input`
-  position: absolute;
-  opacity: 0;
-`;
+import Box from '../Box';
 
 export interface CheckboxProps {
   /** Whether the checkbox should be checked or not */
@@ -31,10 +26,13 @@ const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, ...rest }) => {
         type={checked ? 'checkbox-selected' : 'checkbox'}
         color={checked ? 'primary300' : 'grey400'}
       />
-      <StyledCheckbox
+      <Box
+        as="input"
+        position="absolute"
+        opacity={0}
         type="checkbox"
         checked={checked}
-        onChange={e => onChange(e.target.checked, e)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked, e)}
         {...rest}
       />
     </IconButton>

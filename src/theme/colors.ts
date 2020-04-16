@@ -1,6 +1,7 @@
 const colors = {
   transparent: 'transparent',
   current: 'currentColor',
+  inherit: 'inherit',
 
   white: '#ffffff',
 

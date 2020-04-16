@@ -39,12 +39,12 @@ export interface BreadcrumbProps {
 /** Breadcrumb is a way to navigate back to where you came from within the app */
 const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, itemRenderer }) => {
   return (
-    <Flex is="ol">
+    <Flex as="ol">
       {items.map((item, index) => {
         const isLastBreadcrumb = index === items.length - 1;
 
         return (
-          <Flex key={item.href} is="li" alignItems="center">
+          <Flex key={item.href} as="li" alignItems="center">
             <StyledHeading color={isLastBreadcrumb ? 'grey500' : 'grey300'} size="large">
               {itemRenderer && itemRenderer(item)}
             </StyledHeading>

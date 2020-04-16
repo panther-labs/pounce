@@ -1,8 +1,7 @@
 import React from 'react';
-import BaseText, { BaseTextProps } from '../BaseText';
-import { Theme } from '../../theme';
+import Box, { BoxProps } from '../Box';
 
-export interface HeadingProps extends BaseTextProps {
+export interface HeadingProps extends BoxProps<React.AllHTMLAttributes<HTMLHeadingElement>> {
   /** The size of the font */
   size: 'medium' | 'large';
 }
@@ -11,18 +10,18 @@ export interface HeadingProps extends BaseTextProps {
  * Responsive typographic component. Anywhere you want to add a title to something
  * then you can use this
  * */
-const Heading: React.FC<HeadingProps> = ({ size, ...rest }) => {
+const Heading: React.FC<HeadingProps> = React.forwardRef(function Heading({ size, ...rest }, ref) {
   const sizeProps = (function() {
     switch (size) {
       case 'large':
-        return { fontWeight: 'medium', fontSize: 5, lineHeight: 5 };
+        return { fontWeight: 'medium' as const, fontSize: 5, lineHeight: 5 };
       case 'medium':
       default:
-        return { fontWeight: 'normal', fontSize: 4, lineHeight: 4 };
+        return { fontWeight: 'normal' as const, fontSize: 4, lineHeight: 4 };
     }
-  })() as { fontWeight: keyof Theme['fontWeights']; fontSize: number };
+  })();
 
-  return <BaseText is="h1" {...sizeProps} {...rest} />;
-};
+  return <Box as="h1" ref={ref} {...sizeProps} {...rest} />;
+});
 
 export default Heading;

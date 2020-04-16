@@ -1,19 +1,8 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import Box, { BoxProps } from '../Box';
 import Text from '../Text';
+import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
 
-const StyledBox = styled(Box)`
-  transition: background-color 0.1s ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme, ['aria-selected']: selected }) =>
-      !selected && theme.colors.grey50};
-  }
-`;
-
-interface MenuItemProps extends BoxProps {
+interface MenuItemProps extends AbstractButtonProps {
   /** Whether the current item is highlighted through the keyboard **/
   highlighted?: boolean;
 
@@ -57,9 +46,18 @@ const MenuItem: React.FC<MenuItemProps> = ({
   })() as Partial<MenuItemProps>;
 
   return (
-    <StyledBox px={5} py={4} {...styleProps} {...rest}>
+    <AbstractButton
+      width={1}
+      px={5}
+      py={4}
+      _hover={{
+        backgroundColor: !selected ? 'grey50' : undefined,
+      }}
+      {...styleProps}
+      {...rest}
+    >
       <Text size="large">{children}</Text>
-    </StyledBox>
+    </AbstractButton>
   );
 };
 
@@ -68,4 +66,4 @@ MenuItem.defaultProps = {
   selected: false,
 };
 
-export default MenuItem;
+export default React.memo(MenuItem);

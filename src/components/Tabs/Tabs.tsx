@@ -1,22 +1,9 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import Box, { BoxProps } from '../Box';
 import Flex, { FlexProps } from '../Flex';
-import BaseButton, { BaseButtonProps } from '../BaseButton';
+import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
 
-const StyledTab = styled<React.FC<Omit<TabProps, 'onSelect'>>>(BaseButton)`
-    outline: 0;
-    transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
-
-    &:hover, &:focus {
-      border-color:  ${({ theme, ['aria-selected']: selected }) =>
-        !selected ? theme.colors.grey300 : undefined};
-      color: ${({ theme, ['aria-selected']: selected }) =>
-        !selected ? theme.colors.grey400 : undefined};
-    },
-  `;
-
-export interface TabProps extends BaseButtonProps {
+export interface TabProps extends AbstractButtonProps {
   /**
    * Function triggered when tab is selected.
    */
@@ -63,7 +50,8 @@ export const Tab: React.FC<TabProps> = ({
 
   return (
     <li>
-      <StyledTab
+      <AbstractButton
+        outline="none"
         type="button"
         borderRadius="small"
         border="1px solid"
@@ -77,6 +65,14 @@ export const Tab: React.FC<TabProps> = ({
         onClick={handleClick}
         onKeyPress={handleKeyPress}
         selected={selected}
+        _hover={{
+          borderColor: !selected ? 'grey300' : undefined,
+          color: !selected ? 'grey400' : undefined,
+        }}
+        _focus={{
+          borderColor: !selected ? 'grey300' : undefined,
+          color: !selected ? 'grey400' : undefined,
+        }}
         {...rest}
         {...elementBasedProps}
       />
@@ -91,7 +87,7 @@ Tab.defaultProps = {
 export type TabListProps = FlexProps;
 
 export const TabList: React.FC<TabListProps> = props => (
-  <Flex is="ul" role="tablist" flexWrap="wrap" {...props} />
+  <Flex as="ul" role="tablist" flexWrap="wrap" {...props} />
 );
 
 export interface TabPanelProps extends BoxProps {

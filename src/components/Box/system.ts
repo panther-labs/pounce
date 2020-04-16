@@ -1,8 +1,7 @@
+import React from 'react';
 import { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
-import { SerializedStyles } from '@emotion/react';
 import * as StyledSystem from 'styled-system';
 import { Theme } from '../../theme';
-import React from 'react';
 
 // prettier-ignore
 // Gather all the styled-system props that we are going to pass
@@ -32,11 +31,11 @@ type EmotionProps = {
    * @default "div"
    * @ignore
    */
-  is?: React.ElementType;
+  as?: React.ElementType;
   /** Additional custom inline CSS to pass to the element
    * @ignore
    */
-  css?: SerializedStyles;
+  css?: any;
 };
 
 // Gather the custom-named props that styled-system should accept
@@ -45,8 +44,6 @@ export interface CustomStyleProps {
   fill?: ThemedStyleProps['color'];
   stroke?: ThemedStyleProps['color'];
   textDecoration?: StyledSystem.ResponsiveValue<React.CSSProperties['textDecoration']>;
-  overflowX?: StyledSystem.OverflowProps['overflow'];
-  overflowY?: StyledSystem.OverflowProps['overflow'];
   textTransform?: StyledSystem.ResponsiveValue<React.CSSProperties['textTransform']>;
 
   animation?: StyledSystem.ResponsiveValue<React.CSSProperties['animation']>;
@@ -65,7 +62,10 @@ export interface CustomStyleProps {
   willChange?: StyledSystem.ResponsiveValue<React.CSSProperties['willChange']>;
 }
 
-export const customStyleProps: Record<keyof CustomStyleProps, object | boolean> = {
+export const customStyleProps: Record<
+  keyof CustomStyleProps,
+  boolean | StyledSystem.ConfigStyle
+> = {
   shadow: {
     property: 'boxShadow' as const,
     scale: 'shadows',
@@ -79,8 +79,6 @@ export const customStyleProps: Record<keyof CustomStyleProps, object | boolean> 
     scale: 'colors',
   },
   textDecoration: true,
-  overflowX: true,
-  overflowY: true,
   textTransform: true,
   animation: true,
   transform: true,
@@ -110,3 +108,62 @@ export const shouldForwardProp = createShouldForwardProp([
   'transform',
   'cursor',
 ]);
+
+// Transform the custom alias to a format that styled-system CSS supports
+function transformCustomStyleAlias(
+  propName: keyof CustomStyleProps,
+  propValue: CustomStyleProps[keyof CustomStyleProps]
+) {
+  const customStylePropValue = customStyleProps[propName];
+  if (typeof customStylePropValue === 'object') {
+    return { [customStylePropValue.property as string]: propValue };
+  }
+  if (customStylePropValue === true) {
+    return {
+      [propName]: propValue,
+    };
+  }
+  return {};
+}
+
+// Transform the custom alias to a format that styled-system CSS supports
+function transformThemedAlias(
+  propName: keyof ThemedStyleProps,
+  propValue: ThemedStyleProps[keyof ThemedStyleProps]
+) {
+  return {
+    [propName]: propValue,
+  };
+}
+
+// Transform the custom alias to a format that styled-system CSS supports
+const transformAlias = (
+  propName: keyof ThemedStyleProps & keyof CustomStyleProps,
+  propValue: ThemedStyleProps[keyof ThemedStyleProps] & CustomStyleProps[keyof CustomStyleProps]
+) => {
+  if (Object.keys(customStyleProps).includes(propName)) {
+    return transformCustomStyleAlias(propName, propValue);
+  }
+  return transformThemedAlias(propName, propValue);
+};
+
+export const transformAliasProps = (props?: SystemProps): SystemProps => {
+  let result = {};
+  if (!props) {
+    return result;
+  }
+
+  for (const propName in props) {
+    // @ts-ignore
+    const propValue = props[propName];
+    if (typeof propValue === 'object' && !Array.isArray(propValue)) {
+      result = { ...result, [propName]: transformAliasProps(propValue) };
+    } else {
+      result = {
+        ...result,
+        ...transformAlias(propName as keyof (ThemedStyleProps | CustomStyleProps), propValue),
+      };
+    }
+  }
+  return result;
+};
