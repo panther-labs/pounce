@@ -233,7 +233,7 @@ function MultiCombobox<ItemShape>({
           );
 
           return (
-            <Box {...downshiftRootProps} {...userRootProps} innerRef={innerRootRef}>
+            <Box {...downshiftRootProps} {...userRootProps} ref={innerRootRef}>
               {!!label && <InputElementLabel {...getLabelProps()}>{label}</InputElementLabel>}
               <InputElementOuterBox position="relative" pr={10} disabled={disabled}>
                 <Flex alignItems="center" flexWrap="wrap">
@@ -247,7 +247,7 @@ function MultiCombobox<ItemShape>({
                   ))}
                   <InputElementInnerBox
                     {...getInputProps(additionalInputProps)}
-                    is="input"
+                    as="input"
                     type="text"
                     flex="1 0 auto"
                   />
@@ -266,7 +266,7 @@ function MultiCombobox<ItemShape>({
                   )}
                 </Flex>
               </InputElementOuterBox>
-              <Box {...downshiftMenuProps} {...userMenuProps} innerRef={innerMenuRef}>
+              <Box {...downshiftMenuProps} {...userMenuProps} ref={innerMenuRef}>
                 {isOpen && (
                   <Card
                     zIndex={1}

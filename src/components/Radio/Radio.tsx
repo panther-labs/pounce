@@ -1,12 +1,7 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
-
-const StyledRadio = styled.input`
-  position: absolute;
-  opacity: 0;
-`;
+import Box from '../Box';
 
 export interface RadioProps {
   /** Whether the checkbox should be checked or not */
@@ -31,10 +26,12 @@ const Radio: React.FC<RadioProps> = ({ checked, onChange, ...rest }) => {
         type={checked ? 'radio-selected' : 'radio'}
         color={checked ? 'primary300' : 'grey400'}
       />
-      <StyledRadio
-        type="radio"
+      <Box
+        as="input"
+        position="absolute"
+        opacity={0}
         checked={checked}
-        onChange={e => onChange(e.target.checked)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
         {...rest}
       />
     </IconButton>

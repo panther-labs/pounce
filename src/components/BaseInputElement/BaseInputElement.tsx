@@ -47,9 +47,7 @@ export type InputElementInnerBoxProps = BoxProps<React.AllHTMLAttributes<HTMLInp
 
 export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props => (
   <Box
-    css={css`
-      outline: none;
-    `}
+    outline="none"
     px={4}
     py={3}
     fontSize={3}
@@ -91,7 +89,7 @@ export type BaseInputElementProps = InputElementOuterBoxProps &
 const BaseInputElement: React.FC<BaseInputElementProps> = ({
   label,
   error,
-  is,
+  as,
   disabled,
   ...rest
 }) => {
@@ -106,7 +104,7 @@ const BaseInputElement: React.FC<BaseInputElementProps> = ({
       )}
       <InputElementOuterBox disabled={disabled}>
         <InputElementInnerBox
-          is={is}
+          as={as}
           disabled={disabled}
           width={1}
           id={label ? slugify(label) : undefined}

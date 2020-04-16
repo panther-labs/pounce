@@ -1,0 +1,31 @@
+Links are elements used primarily for navigation.
+
+```typescript jsx
+<Link color="blue300" href="https://google.com">
+  I am a blue link
+</Link>
+```
+
+A link can be disabled:
+
+```typescript jsx
+<Link href="https://google.com" disabled>
+  I am a disabled link
+</Link>
+```
+
+A link can be external:
+
+```typescript jsx
+<Link href="https://google.com" external>
+  I am an external link
+</Link>
+```
+
+A link can implement a React-router `Link` or anything you might want:
+
+```typescript jsx
+<Link as={Text} size="small" href="https://google.com">
+  I am a Text link
+</Link>
+```
