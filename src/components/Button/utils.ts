@@ -19,7 +19,6 @@ export const defaultButtonProps: AbstractButtonProps = {
   textTransform: 'uppercase',
   _hover: {
     boxShadow: 'dark200',
-    backgroundColor: 'grey100',
   },
   _active: {
     boxShadow: 'none',
