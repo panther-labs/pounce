@@ -15,13 +15,7 @@ Documentation is available on [http://pouncejs.surge.sh/](http://pouncejs.surge.
 ## Installation
 
 ```text
-$ npm install github:panther-labs/pounce
-```
-
-To install a specific version:
-
-```text
-$ npm install github:panther-labs/pounce#v0.2.0
+$ npm install pouncejs
 ```
 
 ## Usage
