@@ -59,7 +59,10 @@
     "lint": "eslint --fix \"src/**/*.{ts,tsx}\" && prettier --write \"src/**/*.{ts,tsx,md,mdx,json}\"",
     "validate": "eslint \"src/**/*.{ts,tsx}\" && prettier --list-different  \"src/**/*.{ts,tsx,md,mdx,json}\" && tsc --noEmit -p ."
   },
-  "repository": "https://github.com/panther-labs/pounce",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/panther-labs/pounce"
+  },
   "bugs": {
     "url": "https://github.com/panther-labs/pounce/issues"
   },
