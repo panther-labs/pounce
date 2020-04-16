@@ -4,7 +4,10 @@ import useTheme from '../../utils/useTheme';
 import { icons } from '../../theme';
 
 export interface IconProps
-  extends BoxProps<React.SVGAttributes<SVGElement> & React.HTMLAttributes<HTMLOrSVGElement>> {
+  extends Omit<
+    BoxProps<React.SVGAttributes<SVGElement> & React.HTMLAttributes<HTMLOrSVGElement>>,
+    'innerRef'
+  > {
   /** The icon that you want to show */
   type: keyof typeof icons;
 
@@ -23,7 +26,7 @@ const Icon: React.FC<IconProps> = ({ type, size = 'large', color = 'current', ..
 
   return (
     <Box
-      as="svg"
+      is="svg"
       display="inherit"
       flexShrink={0}
       width={sizeInPx}

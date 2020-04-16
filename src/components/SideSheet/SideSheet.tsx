@@ -3,6 +3,8 @@ import MUIModal from '@material-ui/core/Modal';
 import Box, { BoxProps } from '../Box';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
+import { css } from '@emotion/react';
+import RefForwardingBox from '../../utils/RefForwardingBox';
 
 export interface SideSheetProps extends BoxProps {
   /** Whether the modal should be visible or not */
@@ -40,7 +42,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
     disableBackdropClick={disableBackdropClick}
     disableEscapeKeyDown={disableEscapeKeyDown}
   >
-    <Box
+    <RefForwardingBox
       p={10}
       minWidth="560px"
       bg="white"
@@ -48,9 +50,11 @@ const SideSheet: React.FC<SideSheetProps> = ({
       position="absolute"
       top="0"
       right="0"
-      shadow="dark200"
-      outline="none"
-      overflow="auto"
+      boxShadow="dark200"
+      css={css`
+        outline: none;
+        overflow: auto;
+      `}
       {...rest}
     >
       <Box position="relative" p={2}>
@@ -65,7 +69,7 @@ const SideSheet: React.FC<SideSheetProps> = ({
         </IconButton>
         {children}
       </Box>
-    </Box>
+    </RefForwardingBox>
   </MUIModal>
 );
 

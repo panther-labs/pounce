@@ -3,20 +3,30 @@ import styled from '@emotion/styled';
 import * as StyledSystem from 'styled-system';
 import { customStyleProps, shouldForwardProp, SystemProps } from './system';
 
+// Allow all HTML attributes, except for the ones that we use as props
+type AllowedHTMLAttributes<Attrs> = Omit<Attrs, keyof SystemProps>;
+
 // prettier-ignore
-export type BoxProps<Attrs = React.AllHTMLAttributes<HTMLElement>> =
-  Omit<Attrs,keyof SystemProps> &
-  SystemProps &
-  React.RefAttributes<HTMLElement> & {
-    /** Whether should text should truncate to fill at most one line of text */
-    truncated?: boolean;
+export type BoxProps<Attrs = React.AllHTMLAttributes<HTMLElement>> = AllowedHTMLAttributes<Attrs> & SystemProps & {
+    /**
+     * The `ref` that will be forwarded down to the base HTML component. For example if you want
+     * `Button` to forward its reference all the way down to the actual `<button>` element, you would
+     * use `<Button innerRef={myRef} />`
+     */
+    innerRef?: React.Ref<any>;
+
+    /**
+     * Disallow emotion's `as` prop
+     * @ignore
+     */
+    as?: never;
   };
 
 /** Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes. */
-const Box = styled('div', {
+const BaseBox: React.FC<{ ref?: React.LegacyRef<any> }> = styled('div', {
   shouldForwardProp,
-})<BoxProps>`
+})`
   ${StyledSystem.space}
   ${StyledSystem.color}
   ${StyledSystem.layout}
@@ -28,15 +38,10 @@ const Box = styled('div', {
   ${StyledSystem.flexbox}
   ${StyledSystem.typography}
   ${StyledSystem.system(customStyleProps)}
-  ${({ truncated }) => {
-    if (truncated) {
-      return {
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-      };
-    }
-  }}
 `;
 
-export default Box as React.FC<BoxProps>;
+const Box: React.FC<BoxProps> = ({ is, innerRef, ...rest }) => (
+  <BaseBox ref={innerRef} as={is} {...rest} />
+);
+
+export default Box;
