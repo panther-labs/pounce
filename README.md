@@ -129,11 +129,11 @@ export const myTheme = {
 
 Pounce is on its testing phase right now, which means that the performance is not optimized and the
 bundle size is not a core pillar of the development since it relies on 3rd-party packages for some
-of its modules.
+of its modules. There is a plan to gradually migrate those away and to focus on the performance of the actual lib.
 
-There is a plan to gradually migrate those away and to focus on the performance of the actual lib.
+If bundle size is something super crucial, you can safely import each module individually by doing `import Box from 'pouncejs/dist/esm/components/Box'` instead of the typical `import { Box } from 'pouncejs'` which will make sure to only pull what's needed for this particular component.
 
-As it stands, it utilizes the latest `@emotion/xxx @ 10.x.x` internally, so if you are using a CSS-in-JS
+As it stands, it utilizes the latest `@emotion/xxx @ 11.x.x` internally, so if you are using a CSS-in-JS
 library in your project, it would be recommended to utilize the same library at a similar major
 version in order to not have two separate versions of a CSS-in-JS library in your project
 
