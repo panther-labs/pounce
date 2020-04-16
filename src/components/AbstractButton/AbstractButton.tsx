@@ -7,7 +7,7 @@ const abstractButtonStyle = {
   type: 'button',
   cursor: 'pointer',
   textDecoration: 'none',
-  transition: 'all 0.1 s linear',
+  transition: 'all 0.1s linear',
   _disabled: {
     opacity: 0.3,
     pointerEvents: 'none' as const,
