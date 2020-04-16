@@ -1,20 +1,7 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import Box, { BoxProps } from '../Box';
 import Flex, { FlexProps } from '../Flex';
 import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
-
-const StyledTab = styled<React.FC<Omit<TabProps, 'onSelect'>>>(AbstractButton)`
-    outline: 0;
-    transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
-
-    &:hover, &:focus {
-      border-color:  ${({ theme, ['aria-selected']: selected }) =>
-        !selected ? theme.colors.grey300 : undefined};
-      color: ${({ theme, ['aria-selected']: selected }) =>
-        !selected ? theme.colors.grey400 : undefined};
-    },
-  `;
 
 export interface TabProps extends AbstractButtonProps {
   /**
@@ -63,7 +50,8 @@ export const Tab: React.FC<TabProps> = ({
 
   return (
     <li>
-      <StyledTab
+      <AbstractButton
+        outline="none"
         type="button"
         borderRadius="small"
         border="1px solid"
@@ -77,6 +65,14 @@ export const Tab: React.FC<TabProps> = ({
         onClick={handleClick}
         onKeyPress={handleKeyPress}
         selected={selected}
+        _hover={{
+          borderColor: !selected ? 'grey300' : undefined,
+          color: !selected ? 'grey400' : undefined,
+        }}
+        _focus={{
+          borderColor: !selected ? 'grey300' : undefined,
+          color: !selected ? 'grey400' : undefined,
+        }}
         {...rest}
         {...elementBasedProps}
       />
