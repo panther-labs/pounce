@@ -1,9 +1,9 @@
 import React from 'react';
 import { css, useTheme } from '@emotion/react';
 import { convertHexToRgba } from '../../utils/helpers';
-import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
+import BaseButton, { BaseButtonProps } from '../BaseButton';
 
-export interface IconButtonProps extends AbstractButtonProps {
+export interface IconButtonProps extends BaseButtonProps {
   /** Whether the component should appear as "activated". Helpful for menus */
   active?: boolean;
 
@@ -16,7 +16,7 @@ export const IconButton: React.FC<IconButtonProps> = ({ active, variant, ...rest
   const { colors } = useTheme();
 
   return (
-    <AbstractButton
+    <BaseButton
       bg="transparent"
       p={3}
       borderRadius="circle"

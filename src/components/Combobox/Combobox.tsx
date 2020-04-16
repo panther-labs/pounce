@@ -187,13 +187,13 @@ function Combobox<ItemShape>({
           );
 
           return (
-            <Box {...downshiftRootProps} {...userRootProps} ref={innerRootRef}>
+            <Box {...downshiftRootProps} {...userRootProps} innerRef={innerRootRef}>
               {!!label && <InputElementLabel {...getLabelProps()}>{label}</InputElementLabel>}
               <InputElementOuterBox position="relative" pr={10} disabled={disabled}>
                 <Flex alignItems="center" flexWrap="wrap">
                   <InputElementInnerBox
                     {...getInputProps(additionalInputProps)}
-                    as="input"
+                    is="input"
                     type="text"
                     flex="1 0 auto"
                   />
@@ -210,7 +210,7 @@ function Combobox<ItemShape>({
                   </IconButton>
                 </Flex>
               </InputElementOuterBox>
-              <Box {...downshiftMenuProps} {...userMenuProps} ref={innerMenuRef}>
+              <Box {...downshiftMenuProps} {...userMenuProps} innerRef={innerMenuRef}>
                 {isOpen && (
                   <Card
                     zIndex={1}

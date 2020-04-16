@@ -1,9 +1,9 @@
 import React from 'react';
 import Flex from '../Flex';
 import Text from '../Text';
-import { BoxProps } from '../Box';
+import { BaseTextProps } from '../BaseText';
 
-export type BaseBadgeProps = Omit<BoxProps, 'color'> & {
+export type BaseBadgeProps = Omit<BaseTextProps, 'color'> & {
   /** The color theme of the badge */
   color: 'neutral' | 'grey' | 'blue' | 'pink' | 'red';
 };
@@ -29,7 +29,7 @@ const BaseBadge: React.FC<BaseBadgeProps> = ({ color, children, ...rest }) => {
       default:
         return { bg: 'red300', color: 'white' };
     }
-  })() as Partial<BoxProps>;
+  })() as Partial<BaseTextProps>;
 
   return (
     <Flex alignItems="center" justifyContent="center" {...colorProps} {...rest}>
