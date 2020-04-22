@@ -14,13 +14,6 @@ The examples below showcase that functionality.
 A table can be simple:
 
 ```typescript jsx
-import Table from './OldTable';
-import NewTable from './Table';
-import TableHead from './TableHead';
-import TableRow from './TableRow';
-import TableBody from './TableBody';
-import TableHeaderCell from './TableHeaderCell';
-
 // as fetched from the API
 const items = [
   {
@@ -57,57 +50,31 @@ const items = [
   },
 ];
 
-const columns = [
-  {
-    key: 'name',
-    header: 'Name',
-  },
-  {
-    key: 'resourceType',
-    header: 'Resource Type',
-  },
-  {
-    key: 'severity',
-    header: 'Severity',
-  },
-  {
-    key: 'status',
-    header: 'Status',
-  },
-];
-
 const Example = () => {
   return (
     <Card width="100%">
-      <Box mb={8}>
-        <Table items={items} getItemKey={item => item.id} columns={columns} />
-      </Box>
-      <Box mb={3} height="100px" overflowY="scroll">
-        <NewTable rowSeparationStrategy="border" stickyHeader layout="fixed">
-          <TableHead>
-            <TableRow>
-              <TableHeaderCell>Name</TableHeaderCell>
-              <TableHeaderCell>Resource Type</TableHeaderCell>
-              <TableHeaderCell>Severity</TableHeaderCell>
-              <TableHeaderCell>Status</TableHeaderCell>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Resource Type</TableHeaderCell>
+            <TableHeaderCell>Severity</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {items.map(item => (
+            <TableRow key={item.id}>
+              <TableCell truncated>{item.name}</TableCell>
+              <TableCell truncated title={item.resourceType}>
+                {item.resourceType}
+              </TableCell>
+              <TableCell>{item.severity}</TableCell>
+              <TableCell>{item.status}</TableCell>
             </TableRow>
-          </TableHead>
-          <TableBody>
-            {items.map((item, i) => (
-              <TableRow key={item.id}>
-                <TableCell truncated>
-                  {item.name} {item.name} {item.name}
-                </TableCell>
-                <TableCell truncated title={item.resourceType}>
-                  {item.resourceType}
-                </TableCell>
-                <TableCell>{item.severity}</TableCell>
-                <TableCell>{item.status}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </NewTable>
-      </Box>
+          ))}
+        </TableBody>
+      </Table>
     </Card>
   );
 };
@@ -123,7 +90,7 @@ import sortBy from 'lodash-es/sortBy';
 const items = [
   {
     id: 1,
-    name: 'AWS DynamoDB Table Encryption Enabled',
+    name: 'Bravo AWS DynamoDB Table Encryption Enabled',
     resourceType: 'AWS.DynamoDB.Table.Snapshot',
     severity: 'CRITICAL',
     status: 'Failing',
@@ -131,7 +98,7 @@ const items = [
   },
   {
     id: 2,
-    name: 'AWS DynamoDB Table Encryption Enabled',
+    name: 'Alpha DynamoDB Table Encryption Enabled',
     resourceType: 'AWS.DynamoDB.Table.Snapshot',
     severity: 'CRITICAL',
     status: 'Failing',
@@ -139,7 +106,7 @@ const items = [
   },
   {
     id: 3,
-    name: 'AWS DynamoDB Table Encryption Enabled',
+    name: 'Delta DynamoDB Table Encryption Enabled',
     resourceType: 'AWS.DynamoDB.Table.Snapshot',
     severity: 'CRITICAL',
     status: 'Failing',
@@ -147,34 +114,11 @@ const items = [
   },
   {
     id: 4,
-    name: 'AWS DynamoDB Table Encryption Enabled',
+    name: 'Charlie DynamoDB Table Encryption Enabled',
     resourceType: 'AWS.DynamoDB.Table.Snapshot',
     severity: 'CRITICAL',
     status: 'Failing',
     lastModified: '28/04/2019',
-  },
-];
-
-const columns = [
-  {
-    sortable: true,
-    key: 'name',
-    header: 'Name',
-  },
-  {
-    sortable: true,
-    key: 'resourceType',
-    header: 'Resource Type',
-  },
-  {
-    sortable: true,
-    key: 'severity',
-    header: 'Severity',
-  },
-  {
-    sortable: true,
-    key: 'status',
-    header: 'Status',
   },
 ];
 
@@ -188,21 +132,40 @@ const Example = () => {
   }
   return (
     <Card width="100%">
-      <Table
-        items={sortedItems}
-        sortDir={sortDir}
-        sortKey={sortKey}
-        getItemKey={item => item.id}
-        columns={columns}
-        onSort={key => {
-          if (sortKey === key) {
-            setSortDir(sortDir === 'ascending' ? 'descending' : 'ascending');
-          } else {
-            setSortDir('ascending');
-          }
-          setSortKey(key);
-        }}
-      />
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableSortableHeaderCell
+              sortDir={sortKey === 'name' ? sortDir : false}
+              onClick={() => {
+                if (sortKey === 'name') {
+                  setSortDir(sortDir === 'ascending' ? 'descending' : 'ascending');
+                } else {
+                  setSortDir('ascending');
+                  setSortKey('name');
+                }
+              }}
+            >
+              Name
+            </TableSortableHeaderCell>
+            <TableHeaderCell>Resource Type</TableHeaderCell>
+            <TableHeaderCell>Severity</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {sortedItems.map(item => (
+            <TableRow key={item.id}>
+              <TableCell truncated>{item.name}</TableCell>
+              <TableCell truncated title={item.resourceType}>
+                {item.resourceType}
+              </TableCell>
+              <TableCell>{item.severity}</TableCell>
+              <TableCell>{item.status}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </Card>
   );
 };
@@ -210,7 +173,7 @@ const Example = () => {
 <Example />;
 ```
 
-A table can have custom renderers for both column headers and cells:
+A table can have sticky headers:
 
 ```typescript jsx
 // as fetched from the API
@@ -249,38 +212,31 @@ const items = [
   },
 ];
 
-const columns = [
-  {
-    sortable: true,
-    key: 'name',
-    header: 'Name',
-  },
-  {
-    sortable: true,
-    key: 'resourceType',
-    header: 'Resource Type',
-  },
-  {
-    sortable: true,
-    key: 'severity',
-    renderColumnHeader: () => <Chip content="Severity" />,
-    renderCell: item => (
-      <Text size="medium" color="red300">
-        {item.severity}
-      </Text>
-    ),
-  },
-  {
-    sortable: true,
-    key: 'status',
-    header: 'Status',
-  },
-];
-
 const Example = () => {
   return (
-    <Card width="100%">
-      <Table items={items} getItemKey={item => item.id} columns={columns} />
+    <Card width="100%" height={200} overflowY="scroll">
+      <Table rowSeparationStrategy="border" stickyHeader>
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Resource Type</TableHeaderCell>
+            <TableHeaderCell>Severity</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {items.map(item => (
+            <TableRow key={item.id}>
+              <TableCell truncated>{item.name}</TableCell>
+              <TableCell truncated title={item.resourceType}>
+                {item.resourceType}
+              </TableCell>
+              <TableCell>{item.severity}</TableCell>
+              <TableCell>{item.status}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </Card>
   );
 };
@@ -288,7 +244,9 @@ const Example = () => {
 <Example />;
 ```
 
-A table doesn't have to alternate background colors:
+A table can overflow:
+
+A table can be simple:
 
 ```typescript jsx
 // as fetched from the API
@@ -327,34 +285,33 @@ const items = [
   },
 ];
 
-const columns = [
-  {
-    key: 'name',
-    header: 'Name',
-  },
-  {
-    key: 'resourceType',
-    header: 'Resource Type',
-  },
-  {
-    key: 'severity',
-    header: 'Severity',
-  },
-  {
-    key: 'status',
-    header: 'Status',
-  },
-];
-
 const Example = () => {
   return (
-    <Card width="100%">
-      <Table
-        rowSeparationStrategy="none"
-        items={items}
-        getItemKey={item => item.id}
-        columns={columns}
-      />
+    <Card width="100%" overflow="scroll" height={200}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Resource Type</TableHeaderCell>
+            <TableHeaderCell>Severity</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {items.map(item => (
+            <TableRow key={item.id}>
+              <TableCell whiteSpace="nowrap">
+                {item.name} {item.name}
+              </TableCell>
+              <TableCell whiteSpace="nowrap" title={item.resourceType}>
+                {item.resourceType}
+              </TableCell>
+              <TableCell whiteSpace="nowrap">{item.severity}</TableCell>
+              <TableCell whiteSpace="nowrap">{item.status}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </Card>
   );
 };
@@ -362,7 +319,7 @@ const Example = () => {
 <Example />;
 ```
 
-A Table doesn't have to render headers:
+A table can be condensed:
 
 ```typescript jsx
 // as fetched from the API
@@ -401,25 +358,29 @@ const items = [
   },
 ];
 
-const columns = [
-  {
-    key: 'name',
-  },
-  {
-    key: 'resourceType',
-  },
-  {
-    key: 'severity',
-  },
-  {
-    key: 'status',
-  },
-];
-
 const Example = () => {
   return (
     <Card width="100%">
-      <Table showHeaders={false} items={items} getItemKey={item => item.id} columns={columns} />
+      <Table size="small">
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Resource Type</TableHeaderCell>
+            <TableHeaderCell>Severity</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {items.map(item => (
+            <TableRow key={item.id}>
+              <TableCell>{item.name}</TableCell>
+              <TableCell>{item.resourceType}</TableCell>
+              <TableCell>{item.severity}</TableCell>
+              <TableCell>{item.status}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </Card>
   );
 };
@@ -427,15 +388,14 @@ const Example = () => {
 <Example />;
 ```
 
-A table can respond to row selections:
+A table can be hoverable:
 
 ```typescript jsx
-import usePaginatedTable from './usePaginatedTable';
 // as fetched from the API
 const items = [
   {
     id: 1,
-    name: 'AWS S3 Encryption Enabled',
+    name: 'AWS DynamoDB Table Encryption Enabled',
     resourceType: 'AWS.DynamoDB.Table.Snapshot',
     severity: 'CRITICAL',
     status: 'Failing',
@@ -443,7 +403,7 @@ const items = [
   },
   {
     id: 2,
-    name: 'AWS MFA Enabled',
+    name: 'AWS DynamoDB Table Encryption Enabled',
     resourceType: 'AWS.DynamoDB.Table.Snapshot',
     severity: 'CRITICAL',
     status: 'Failing',
@@ -451,7 +411,7 @@ const items = [
   },
   {
     id: 3,
-    name: 'AWS Cloudwatch with SSH enabled',
+    name: 'AWS DynamoDB Table Encryption Enabled',
     resourceType: 'AWS.DynamoDB.Table.Snapshot',
     severity: 'CRITICAL',
     status: 'Failing',
@@ -467,225 +427,29 @@ const items = [
   },
 ];
 
-const columns = [
-  {
-    key: 'name',
-    header: 'Name',
-  },
-  {
-    key: 'resourceType',
-    header: 'Resource Type',
-  },
-  {
-    key: 'severity',
-    header: 'Severity',
-  },
-  {
-    key: 'status',
-    header: 'Status',
-  },
-];
-
 const Example = () => {
   return (
     <Card width="100%">
-      <Table
-        items={items}
-        getItemKey={item => item.id}
-        columns={columns}
-        onSelect={item => {
-          alert(item.name);
-        }}
-      />
-    </Card>
-  );
-};
-
-<Example />;
-```
-
-A Table can have selectable columns. Just use the `useSelectableTableRows` hook which has
-the following signature:
-
-```shell
-{
-
-  columns: TableProps['columns'];
-  items: TableProps['items']
-  onSelect: (selectedItems: TableProps['items]) => void;
-
-} => TableProps['columns']
-```
-
-Essentially, you pass the existing columns & items along with an `onSelect` callback and you get back
-a set of enhanced columns that you can use within the Table:
-
-```typescript jsx
-import useSelectableTableRows from './useSelectableTableRows';
-// as fetched from the API
-const items = [
-  {
-    id: 1,
-    name: 'AWS S3 Encryption Enabled',
-    resourceType: 'AWS.DynamoDB.Table.Snapshot',
-    severity: 'CRITICAL',
-    status: 'Failing',
-    lastModified: '28/04/2019',
-  },
-  {
-    id: 2,
-    name: 'AWS MFA Enabled',
-    resourceType: 'AWS.DynamoDB.Table.Snapshot',
-    severity: 'CRITICAL',
-    status: 'Failing',
-    lastModified: '28/04/2019',
-  },
-  {
-    id: 3,
-    name: 'AWS Cloudwatch with SSH enabled',
-    resourceType: 'AWS.DynamoDB.Table.Snapshot',
-    severity: 'CRITICAL',
-    status: 'Failing',
-    lastModified: '28/04/2019',
-  },
-  {
-    id: 4,
-    name: 'AWS DynamoDB Table Encryption Enabled',
-    resourceType: 'AWS.DynamoDB.Table.Snapshot',
-    severity: 'CRITICAL',
-    status: 'Failing',
-    lastModified: '28/04/2019',
-  },
-];
-
-const columns = [
-  {
-    key: 'name',
-    header: 'Name',
-  },
-  {
-    key: 'resourceType',
-    header: 'Resource Type',
-  },
-  {
-    key: 'severity',
-    header: 'Severity',
-  },
-  {
-    key: 'status',
-    header: 'Status',
-  },
-];
-
-const Example = () => {
-  const selectableColumns = useSelectableTableRows({
-    columns,
-    items,
-    onSelect: selectedItems => {
-      if (selectedItems.length) {
-        alert(`You selected  ${selectedItems.length} items`);
-      }
-    },
-  });
-
-  return (
-    <Card width="100%">
-      <Table items={items} getItemKey={item => item.id} columns={selectableColumns} />
-    </Card>
-  );
-};
-
-<Example />;
-```
-
-A Table can have client side pagination. Just use the `useClientPaginatedTable` hook which has
-the following signature:
-
-```shell
-{
-
-  items: TableProps['items'] // the total items of the table
-  pageSizes?: number[] // defaults to [25,50,75,100]
-  initialPageSizeIndex?: number // defaults to 0
-
-} => {
-
-  items: TableProps['items'] // the items to show in the current page
-  paginationElement: (total: number) => React.Element // a element that controls pagination given the total number of items
-
-}
-```
-
-Essentially, you pass the existing items & optionally some parameters for the pagination and you
-get back a subset of the total items to show in the table and a React element that will control
-the pagination for you:
-
-```typescript jsx
-import usePaginatedTable from './usePaginatedTable';
-// as fetched from the API
-const items = [
-  {
-    id: 1,
-    name: 'AWS S3 Encryption Enabled',
-    resourceType: 'AWS.DynamoDB.Table.Snapshot',
-    severity: 'CRITICAL',
-    status: 'Failing',
-    lastModified: '28/04/2019',
-  },
-  {
-    id: 2,
-    name: 'AWS MFA Enabled',
-    resourceType: 'AWS.DynamoDB.Table.Snapshot',
-    severity: 'CRITICAL',
-    status: 'Failing',
-    lastModified: '28/04/2019',
-  },
-  {
-    id: 3,
-    name: 'AWS Cloudwatch with SSH enabled',
-    resourceType: 'AWS.DynamoDB.Table.Snapshot',
-    severity: 'CRITICAL',
-    status: 'Failing',
-    lastModified: '28/04/2019',
-  },
-  {
-    id: 4,
-    name: 'AWS DynamoDB Table Encryption Enabled',
-    resourceType: 'AWS.DynamoDB.Table.Snapshot',
-    severity: 'CRITICAL',
-    status: 'Failing',
-    lastModified: '28/04/2019',
-  },
-];
-
-const columns = [
-  {
-    key: 'name',
-    header: 'Name',
-  },
-  {
-    key: 'resourceType',
-    header: 'Resource Type',
-  },
-  {
-    key: 'severity',
-    header: 'Severity',
-  },
-  {
-    key: 'status',
-    header: 'Status',
-  },
-];
-
-const Example = () => {
-  const { startIndex, endIndex, renderPaginationElement } = usePaginatedTable({
-    pageSizes: [1, 2, 3, 4],
-  });
-
-  return (
-    <Card width="100%">
-      <Table items={[]} getItemKey={item => item.id} columns={columns} />
-      <Box my={5}>{renderPaginationElement(items.length)}</Box>
+      <Table size="small" hoverable rowSeparationStrategy="border">
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Resource Type</TableHeaderCell>
+            <TableHeaderCell>Severity</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {items.map(item => (
+            <TableRow key={item.id}>
+              <TableCell>{item.name}</TableCell>
+              <TableCell>{item.resourceType}</TableCell>
+              <TableCell>{item.severity}</TableCell>
+              <TableCell>{item.status}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </Card>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
-import Box, { NativeHTMLAttributes } from '../Box';
+import Box, { ReactAttributes } from '../Box';
 
-export type TableBodyProps = NativeHTMLAttributes<React.AllHTMLAttributes<HTMLElement>>;
+export type TableBodyProps = ReactAttributes<React.AllHTMLAttributes<HTMLElement>>;
 
 const TableBody: React.FC<TableBodyProps> = React.forwardRef<HTMLElement, TableBodyProps>(
   function TableBody(props, ref) {

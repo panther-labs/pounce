@@ -1,24 +1,28 @@
 import React from 'react';
-import Box, { BoxProps, NativeHTMLAttributes } from '../Box';
+import Box, { BoxProps, ReactAttributes } from '../Box';
 import { useTable } from './Table';
 
-export type TableHeaderCellProps = NativeHTMLAttributes<
-  React.AllHTMLAttributes<HTMLTableCellElement>
+export type TableHeaderCellProps = ReactAttributes<
+  React.AllHTMLAttributes<HTMLTableCellElement>,
+  HTMLTableCellElement
 > & {
   /** The alignment of the cell. Defaults to `left` */
   align?: BoxProps['textAlign'];
+
+  /** Marks the related column as sorted */
+  sortDir?: 'ascending' | 'descending' | false;
 };
 
-const TableHeaderCell: React.FC<TableHeaderCellProps> = React.forwardRef<
-  HTMLElement,
-  TableHeaderCellProps
->(function TableHeaderCell({ align = 'left', ...rest }, ref) {
+const TableHeaderCell: React.FC<TableHeaderCellProps> = React.forwardRef(function TableHeaderCell(
+  { align = 'left', sortDir, ...rest },
+  ref
+) {
   const { size, stickyHeader } = useTable();
 
   return (
     <Box
       as="th"
-      role="cell"
+      role="columnheader"
       ref={ref}
       p={size === 'medium' ? 4 : 2}
       color="grey400"
@@ -27,9 +31,11 @@ const TableHeaderCell: React.FC<TableHeaderCellProps> = React.forwardRef<
       fontSize={1}
       lineHeight={1}
       textAlign={align}
+      aria-sort={sortDir ? sortDir : undefined}
       position={stickyHeader ? 'sticky' : undefined}
       top={stickyHeader ? 0 : undefined}
       backgroundColor={stickyHeader ? 'primary50' : 'inherit'}
+      verticalAlign="middle"
       {...rest}
     />
   );

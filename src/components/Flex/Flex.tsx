@@ -2,14 +2,17 @@ import React from 'react';
 import Box, { BoxProps } from '../Box';
 
 export type FlexProps = Omit<BoxProps, 'display'> & {
-  /** An alias for `flexDirection */
+  /** An alias for `flexDirection` */
   direction?: BoxProps['flexDirection'];
 
-  /** An alias for `justifyContent */
+  /** An alias for `justifyContent` */
   justify?: BoxProps['justifyContent'];
 
-  /** An alias for `alignItems */
+  /** An alias for `alignItems` */
   align?: BoxProps['alignItems'];
+
+  /** Whether the flex should be `flex-inline` */
+  inline?: boolean;
 };
 
 /**
@@ -19,10 +22,10 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
  * wrapper around a certain layout
  */
 const Flex: React.FC<FlexProps> = React.forwardRef(function Flex(props, ref) {
-  const { direction, justify, align, ...rest } = props;
+  const { direction, justify, align, inline, ...rest } = props;
   return (
     <Box
-      display="flex"
+      display={inline ? 'inline-flex' : 'flex'}
       ref={ref}
       flexDirection={direction}
       justifyContent={justify}

@@ -1,7 +1,7 @@
 import React from 'react';
-import Box, { NativeHTMLAttributes } from '../Box';
+import Box, { ReactAttributes } from '../Box';
 
-export type TableHeadProps = NativeHTMLAttributes<React.AllHTMLAttributes<HTMLElement>>;
+export type TableHeadProps = ReactAttributes<React.AllHTMLAttributes<HTMLElement>>;
 
 const TableHead: React.FC<TableHeadProps> = React.forwardRef<HTMLElement, TableHeadProps>(
   function TableHead(props, ref) {

@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 import * as StyledSystem from 'styled-system';
 import { customStyleProps, shouldForwardProp, SystemProps } from './system';
 
-export type NativeHTMLAttributes<A> = Omit<A, keyof SystemProps>;
+export type ReactAttributes<A, El = HTMLElement> = Omit<A, keyof SystemProps> &
+  React.RefAttributes<El>;
 
 // prettier-ignore
 export type BoxProps<Attrs = React.AllHTMLAttributes<HTMLElement>> =
-  NativeHTMLAttributes<Attrs> &
-  SystemProps &
-  React.RefAttributes<HTMLElement> & {
+  ReactAttributes<Attrs> &
+  SystemProps & {
     /** Whether should text should truncate to fill at most one line of text */
     truncated?: boolean;
   };

@@ -1,8 +1,8 @@
 import React from 'react';
-import Box, { BoxProps, NativeHTMLAttributes } from '../Box';
+import Box, { BoxProps, ReactAttributes } from '../Box';
 
 export interface TableProps
-  extends NativeHTMLAttributes<React.TableHTMLAttributes<HTMLTableElement>> {
+  extends ReactAttributes<React.TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {
   /** The table layout. Defaults to `auto` */
   layout?: BoxProps['tableLayout'];
 
@@ -24,7 +24,7 @@ export interface TableProps
 const TableContext = React.createContext<TableProps>({});
 const useTable = () => React.useContext(TableContext);
 
-const Table: React.FC<TableProps> = React.forwardRef<HTMLTableElement, TableProps>(function Table(
+const Table: React.FC<TableProps> = React.forwardRef(function Table(
   {
     layout = 'auto',
     size = 'medium',
