@@ -4,7 +4,6 @@ import PseudoBox, { PseudoBoxProps } from '../PseudoBox';
 export type AbstractButtonProps = PseudoBoxProps;
 
 const abstractButtonStyle = {
-  textAlign: 'inherit' as const,
   type: 'button',
   cursor: 'pointer',
   textDecoration: 'none',
