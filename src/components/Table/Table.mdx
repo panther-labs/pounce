@@ -14,6 +14,13 @@ The examples below showcase that functionality.
 A table can be simple:
 
 ```typescript jsx
+import Table from './OldTable';
+import NewTable from './Table';
+import TableHead from './TableHead';
+import TableRow from './TableRow';
+import TableBody from './TableBody';
+import TableHeaderCell from './TableHeaderCell';
+
 // as fetched from the API
 const items = [
   {
@@ -72,7 +79,35 @@ const columns = [
 const Example = () => {
   return (
     <Card width="100%">
-      <Table items={items} getItemKey={item => item.id} columns={columns} />
+      <Box mb={8}>
+        <Table items={items} getItemKey={item => item.id} columns={columns} />
+      </Box>
+      <Box mb={3} height="100px" overflowY="scroll">
+        <NewTable rowSeparationStrategy="border" stickyHeader layout="fixed">
+          <TableHead>
+            <TableRow>
+              <TableHeaderCell>Name</TableHeaderCell>
+              <TableHeaderCell>Resource Type</TableHeaderCell>
+              <TableHeaderCell>Severity</TableHeaderCell>
+              <TableHeaderCell>Status</TableHeaderCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {items.map((item, i) => (
+              <TableRow key={item.id}>
+                <TableCell truncated>
+                  {item.name} {item.name} {item.name}
+                </TableCell>
+                <TableCell truncated title={item.resourceType}>
+                  {item.resourceType}
+                </TableCell>
+                <TableCell>{item.severity}</TableCell>
+                <TableCell>{item.status}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </NewTable>
+      </Box>
     </Card>
   );
 };
