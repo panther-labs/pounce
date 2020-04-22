@@ -36,7 +36,7 @@ const TableRow: React.FC<TableRowProps> = React.forwardRef(function TableRow(
     if (tableProps.hoverable) {
       styles = {
         ...styles,
-        transition: 'all 0.1s linear',
+        transition: 'all 0.05s linear',
         '&:hover': {
           backgroundColor: 'grey50' as const,
         },
