@@ -20,7 +20,7 @@ const baseStyleProps = {
   },
 };
 
-interface LinkProps extends BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>> {
+export interface LinkProps extends BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>> {
   /** Whether the link is external and should open in a new tab */
   external?: boolean;
 

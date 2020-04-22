@@ -48,6 +48,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   return (
     <AbstractButton
       width={1}
+      textAlign="left"
       px={5}
       py={4}
       _hover={{
