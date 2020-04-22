@@ -6,6 +6,8 @@ import { useTable } from './Table';
 export interface TableRowProps extends ReactAttributes<React.AllHTMLAttributes<HTMLElement>> {
   /** Whether the row should appear as selected. Defaults to `false` */
   selected?: boolean;
+
+  children: React.ReactNode;
 }
 
 const TableRow: React.FC<TableRowProps> = React.forwardRef(function TableRow(
