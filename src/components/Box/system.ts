@@ -60,6 +60,8 @@ export interface CustomStyleProps {
   objectFit?: StyledSystem.ResponsiveValue<React.CSSProperties['objectFit']>;
   outline?: StyledSystem.ResponsiveValue<React.CSSProperties['outline']>;
   willChange?: StyledSystem.ResponsiveValue<React.CSSProperties['willChange']>;
+  borderCollapse?: StyledSystem.ResponsiveValue<React.CSSProperties['borderCollapse']>;
+  tableLayout?: StyledSystem.ResponsiveValue<React.CSSProperties['tableLayout']>;
 }
 
 export const customStyleProps: Record<
@@ -94,6 +96,8 @@ export const customStyleProps: Record<
   objectFit: true,
   outline: true,
   willChange: true,
+  borderCollapse: true,
+  tableLayout: true,
 };
 
 // All of the allowed props gathered together

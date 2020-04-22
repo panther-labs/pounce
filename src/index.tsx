@@ -65,7 +65,6 @@ export { default as SideSheet } from './components/SideSheet';
 export { default as Snackbar } from './components/Snackbar';
 export { default as Spinner } from './components/Spinner';
 export { default as Switch } from './components/Switch';
-export { default as Table } from './components/Table';
 export * from './components/Tabs';
 export { default as Text } from './components/Text';
 export { default as TextArea } from './components/TextArea';
