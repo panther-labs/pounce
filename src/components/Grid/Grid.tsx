@@ -37,6 +37,9 @@ export type GridProps = Omit<BoxProps, 'display'> & {
 
   /** An alias for the `gridRow` property */
   row?: BoxProps['gridRow'];
+
+  /** Whether the display should be `inline-grid` */
+  inline?: boolean;
 };
 
 /**
@@ -59,12 +62,13 @@ const Grid: React.FC<GridProps> = React.forwardRef(function Grid(props, ref) {
     area,
     column,
     row,
+    inline,
     ...rest
   } = props;
 
   return (
     <Box
-      display="grid"
+      display={inline ? 'inline-grid' : 'grid'}
       ref={ref}
       gridArea={area}
       gridTemplateAreas={templateAreas}
