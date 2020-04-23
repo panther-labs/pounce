@@ -30,6 +30,7 @@ const TableCell: React.FC<TableCellProps> = React.forwardRef(function TableCell(
       fontSize={2}
       textAlign={align}
       wordBreak={wrapText ? 'break-word' : undefined}
+      verticalAlign="middle"
       {...rest}
     />
   );
