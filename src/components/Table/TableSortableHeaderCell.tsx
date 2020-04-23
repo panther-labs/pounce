@@ -22,6 +22,8 @@ const TableSortableHeaderCell: React.FC<TableSortableHeaderCellProps> = React.fo
     return (
       <TableHeaderCell ref={ref} sortDir={sortDir} align={align} {...rest}>
         <PseudoBox
+          display="inline-flex"
+          verticalAlign="center"
           cursor="pointer"
           _hover={!isActive ? sortableHoverStyle : undefined}
           onClick={onClick}
