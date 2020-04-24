@@ -32,6 +32,11 @@ type EmotionProps = {
    * @ignore
    */
   as?: React.ElementType;
+  /**
+   * Never allow an `is` prop, since users get sometimes confused between `is` and `as`
+   * @ignore
+   */
+  is?: never;
   /** Additional custom inline CSS to pass to the element
    * @ignore
    */
