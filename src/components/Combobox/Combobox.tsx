@@ -163,7 +163,7 @@ function Combobox<ItemShape>({
               'aria-readonly': true,
             }),
             ...(searchable && {
-              placeholder: value ? itemToString(value) : inputProps.placeholder,
+              placeholder: value !== undefined ? safeItemToString(value) : inputProps.placeholder,
               onChange: (e: React.FormEvent<HTMLInputElement>) =>
                 setInputValue(e.currentTarget.value),
               onFocus: () => {
