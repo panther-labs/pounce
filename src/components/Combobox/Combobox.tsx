@@ -97,7 +97,7 @@ function Combobox<ItemShape>({
   maxResults,
 }: ComboboxProps<ItemShape>): React.ReactElement<ComboboxProps<ItemShape>> {
   // convert item to a string with a fallback of empty string
-  const safeItemToString = (item: ItemShape | null) => (item ? itemToString(item) : '');
+  const safeItemToString = (item: ItemShape | null) => (item != undefined ? itemToString(item) : '');
 
   // Due to the way we want our Combobox to behave, we want to control the input value ourselves.
   // We make sure to update it on every selection made, on every keystroke within the search input,
@@ -163,7 +163,7 @@ function Combobox<ItemShape>({
               'aria-readonly': true,
             }),
             ...(searchable && {
-              placeholder: value !== undefined ? safeItemToString(value) : inputProps.placeholder,
+              placeholder: value != undefined ? itemToString(value) : inputProps.placeholder,
               onChange: (e: React.FormEvent<HTMLInputElement>) =>
                 setInputValue(e.currentTarget.value),
               onFocus: () => {
