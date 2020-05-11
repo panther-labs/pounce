@@ -7,7 +7,7 @@ import IconButton from '../IconButton';
 import Icon from '../Icon';
 import { icons } from '../../theme';
 
-export interface AlertProps extends Omit<BoxProps, 'title'> {
+export interface AlertProps {
   /** The style of the Alert */
   variant: 'success' | 'info' | 'warning' | 'error';
 
@@ -22,6 +22,9 @@ export interface AlertProps extends Omit<BoxProps, 'title'> {
 
   /** Whether the Alert should have a close button in order to remove itself */
   discardable?: boolean;
+
+  /** Adjusts the padding of the related Alert. Defaults to `large` */
+  size?: 'small' | 'medium' | 'large';
 }
 
 /** An Alert component is simply a container for text that should capture the user's attention */
@@ -31,6 +34,7 @@ const Alert: React.FC<AlertProps> = ({
   variant,
   icon,
   discardable,
+  size = 'large',
   ...rest
 }) => {
   const [open, setOpen] = React.useState(true);
@@ -47,7 +51,19 @@ const Alert: React.FC<AlertProps> = ({
       default:
         return { borderColor: 'red300', color: 'red300' };
     }
-  })() as Partial<AlertProps>;
+  })() as Pick<BoxProps, 'color' | 'borderColor'>;
+
+  const sizeProps = (function() {
+    switch (size) {
+      case 'small':
+        return { py: 0, px: 3 };
+      case 'medium':
+        return { py: 2, px: 5 };
+      case 'large':
+      default:
+        return { py: 4, px: 7 };
+    }
+  })();
 
   // Progressively override/enhance the rendered structure based on the optional props provided.
   // Order of checks matters a lot here
@@ -90,10 +106,9 @@ const Alert: React.FC<AlertProps> = ({
   return open ? (
     <Card
       position="relative"
-      py={4}
-      px={7}
       borderLeft="3px solid"
       borderColor={variantProps.borderColor}
+      {...sizeProps}
       {...rest}
     >
       {content}

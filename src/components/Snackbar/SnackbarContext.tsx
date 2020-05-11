@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Flex from '../Flex';
 import Snackbar, { SnackbarProps } from '../Snackbar';
 import { isBrowser } from '../../utils/helpers';
+import Box from '../Box';
 
 const generateSnackbarId = () =>
   Math.random()
@@ -85,7 +86,9 @@ export const SnackbarProvider: React.FC = ({ children }) => {
         zIndex={9999}
       >
         {snackbars.map(({ id, ...snackbarPublicProps }) => (
-          <Snackbar mb={3} key={id} destroy={() => removeSnackbar(id)} {...snackbarPublicProps} />
+          <Box mb={3} key={id}>
+            <Snackbar destroy={() => removeSnackbar(id)} {...snackbarPublicProps} />
+          </Box>
         ))}
       </Flex>,
       document.body
