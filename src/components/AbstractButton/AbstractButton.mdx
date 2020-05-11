@@ -1,0 +1,22 @@
+Composes <a href="/#/PseudoBox">PseudoBox</a>.
+
+The `AbstractButton` is a component that's not opinionated in terms of UI but encapsulates the
+basic responsibilities of a button.
+
+Use this component to wrap something that's clickable just like a button, but it doesn't
+look like a typical button (in which case you would have used `<Button>`).
+
+An AbstractButton can wrap anything without affecting the styling:
+
+```typescript jsx
+<Box>
+  Click the image
+  <br />
+  <AbstractButton onClick={() => alert('clicked')}>
+    <img
+      src="https://avatars2.githubusercontent.com/u/10436045?s=400&u=09293d4486f1fd66ee75d014821062c20b33e13e&v=4"
+      alt="avatar"
+    />
+  </AbstractButton>
+</Box>
+```
