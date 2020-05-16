@@ -20,7 +20,7 @@ jobs:
       - checkout
       - run:
           name: Audit the installed modules
-          command: npm audit
+          command: npm audit --production
 
   build:
     executor: node
