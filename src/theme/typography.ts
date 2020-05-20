@@ -17,7 +17,15 @@ const typography = {
   fonts: {
     primary: 'Roboto, system-ui, sans-serif',
   },
-  lineHeights: ['14px', '16px', '18px', '20px', '28px', '36px'],
+  lineHeights: {
+    normal: 'normal',
+    none: '1',
+    tight: '1.25',
+    snug: '1.375',
+    typical: '1.5',
+    relaxed: '1.625',
+    loose: '2',
+  },
   letterSpacings: { normal: 'normal' },
 };
 

@@ -13,14 +13,14 @@ const Label: React.FC<LabelProps> = React.forwardRef(function Label({ size, ...r
   const sizeProps = (function() {
     switch (size) {
       case 'large':
-        return { fontWeight: 'medium' as const, fontSize: 'large' as const, lineHeight: 3 };
+        return { fontWeight: 'medium' as const, fontSize: 'large' as const };
       case 'medium':
-        return { fontWeight: 'medium' as const, fontSize: 'medium' as const, lineHeight: 2 };
+        return { fontWeight: 'medium' as const, fontSize: 'medium' as const };
       case 'small':
-        return { fontWeight: 'bold' as const, fontSize: 'small' as const, lineHeight: 1 };
+        return { fontWeight: 'bold' as const, fontSize: 'small' as const };
       case 'extra-small':
       default:
-        return { fontWeight: 'medium' as const, fontSize: 'x-small' as const, lineHeight: 0 };
+        return { fontWeight: 'medium' as const, fontSize: 'x-small' as const };
     }
   })();
 

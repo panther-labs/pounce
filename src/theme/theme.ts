@@ -10,7 +10,7 @@ type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250'
 
 export interface Theme extends StyledSystemTheme {
   fontSizes: typeof typography['fontSizes'];
-  lineHeights: CSS.LineHeightProperty<string | number>[];
+  lineHeights: typeof typography['lineHeights'];
   space: CSS.MarginProperty<number | string>[];
   fontWeights: typeof typography['fontWeights'];
   letterSpacings: typeof typography['letterSpacings'];

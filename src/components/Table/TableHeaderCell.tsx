@@ -29,7 +29,6 @@ const TableHeaderCell: React.FC<TableHeaderCellProps> = React.forwardRef(functio
       fontWeight="bold"
       textTransform="uppercase"
       fontSize="small"
-      lineHeight={1}
       textAlign={align}
       aria-sort={sortDir ? sortDir : undefined}
       position={stickyHeader ? 'sticky' : undefined}
