@@ -9,7 +9,7 @@ type fontFamilies = 'primary';
 type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250';
 
 export interface Theme extends StyledSystemTheme {
-  fontSizes: CSS.FontSizeProperty<number>[];
+  fontSizes: typeof typography['fontSizes'];
   lineHeights: CSS.LineHeightProperty<string | number>[];
   space: CSS.MarginProperty<number | string>[];
   fontWeights: typeof typography['fontWeights'];

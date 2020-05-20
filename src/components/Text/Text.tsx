@@ -17,12 +17,12 @@ const Text: React.FC<TextProps> = React.forwardRef(function Text({ size, ...rest
   const sizeProps = (function() {
     switch (size) {
       case 'large':
-        return { fontSize: 3, lineHeight: 3 };
+        return { fontSize: 'large' as const, lineHeight: 3 };
       case 'medium':
-        return { fontSize: 2, lineHeight: 2 };
+        return { fontSize: 'medium' as const, lineHeight: 2 };
       case 'small':
       default:
-        return { fontSize: 1, lineHeight: 1 };
+        return { fontSize: 'small' as const, lineHeight: 1 };
     }
   })();
 

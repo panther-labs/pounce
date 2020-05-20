@@ -172,7 +172,7 @@ const GlobalStyles: React.FC = () => {
 
     .DayPicker {
       display: inline-block;
-      font-size: ${`${theme.fontSizes[3]}px`};
+      font-size: ${`${theme.fontSizes.large}px`};
     }
 
     .DayPicker-Months {
