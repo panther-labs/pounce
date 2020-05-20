@@ -13,9 +13,14 @@ const typography = {
     '5x-large': '1.875rem',
     '6x-large': '2.188rem',
   },
-  fontWeights: { normal: 400, medium: 500, bold: 700 },
+  fontWeights: {
+    normal: 400,
+    medium: 500,
+    bold: 700,
+  },
   fonts: {
     primary: 'Roboto, system-ui, sans-serif',
+    mono: `SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace`,
   },
   lineHeights: {
     normal: 'normal',
@@ -26,7 +31,9 @@ const typography = {
     relaxed: '1.625',
     loose: '2',
   },
-  letterSpacings: { normal: 'normal' },
+  letterSpacings: {
+    normal: 'normal',
+  },
 };
 
 export default typography;
