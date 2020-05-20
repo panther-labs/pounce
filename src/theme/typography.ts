@@ -19,7 +19,7 @@ const typography = {
     bold: 700,
   },
   fonts: {
-    primary: 'Roboto, system-ui, sans-serif',
+    primary: 'DM Sans, system-ui, sans-serif',
     mono: `SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace`,
   },
   lineHeights: {
