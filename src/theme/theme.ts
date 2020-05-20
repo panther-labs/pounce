@@ -5,12 +5,12 @@ import typography from './typography';
 import icons from './icons';
 
 type radii = 'none' | 'small' | 'medium' | 'large' | 'circle';
-type fontFamilies = 'primary';
+type fontFamilies = 'primary' | 'mono';
 type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250';
 
 export interface Theme extends StyledSystemTheme {
-  fontSizes: CSS.FontSizeProperty<number>[];
-  lineHeights: CSS.LineHeightProperty<string | number>[];
+  fontSizes: typeof typography['fontSizes'];
+  lineHeights: typeof typography['lineHeights'];
   space: CSS.MarginProperty<number | string>[];
   fontWeights: typeof typography['fontWeights'];
   letterSpacings: typeof typography['letterSpacings'];

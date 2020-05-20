@@ -22,10 +22,10 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
   const sizeProps = (() => {
     switch (size) {
       case 'small':
-        return { px: 4, py: 2, fontSize: 2 };
+        return { px: 4, py: 2, fontSize: 'medium' as const };
       case 'large':
       default:
-        return { px: 5, py: 4, fontSize: 3 };
+        return { px: 5, py: 4, fontSize: 'large' as const };
     }
   })();
 

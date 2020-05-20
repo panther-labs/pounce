@@ -14,10 +14,10 @@ const Heading: React.FC<HeadingProps> = React.forwardRef(function Heading({ size
   const sizeProps = (function() {
     switch (size) {
       case 'large':
-        return { fontWeight: 'medium' as const, fontSize: 5, lineHeight: 5 };
+        return { fontWeight: 'medium' as const, fontSize: '5x-large' as const };
       case 'medium':
       default:
-        return { fontWeight: 'normal' as const, fontSize: 4, lineHeight: 4 };
+        return { fontWeight: 'normal' as const, fontSize: '3x-large' as const };
     }
   })();
 

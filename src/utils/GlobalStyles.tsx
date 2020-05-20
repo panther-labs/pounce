@@ -9,7 +9,7 @@ const GlobalStyles: React.FC = () => {
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      line-height: normal;
+      line-height: ${theme.lineHeights.normal};
     }
 
     html,
@@ -117,7 +117,7 @@ const GlobalStyles: React.FC = () => {
       display: block;
     }
     body {
-      line-height: 1;
+      line-height: ${theme.lineHeights.none};
     }
     ol,
     ul {
@@ -172,7 +172,7 @@ const GlobalStyles: React.FC = () => {
 
     .DayPicker {
       display: inline-block;
-      font-size: ${`${theme.fontSizes[3]}px`};
+      font-size: ${`${theme.fontSizes.large}px`};
     }
 
     .DayPicker-Months {

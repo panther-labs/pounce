@@ -50,7 +50,7 @@ export const InputElementInnerBox: React.FC<InputElementInnerBoxProps> = props =
     outline="none"
     px={4}
     py={3}
-    fontSize={3}
+    fontSize="large"
     border={0}
     bg="transparent"
     color="grey400"

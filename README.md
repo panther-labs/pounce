@@ -36,12 +36,12 @@ const App = () => (
 )
 ```
 
-2. Install Roboto:
+2. Install DM Sans:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:400,500,700&display=swap"
 />
 ```
 
@@ -76,14 +76,14 @@ Make sure to wrap your **entire** app with a `<ThemeProvider>` to avoid un-neces
 and to gain in performance.
 
 The next step would be to make sure you have your selected font-family installed. By default,
-Pounce uses `Roboto` as it fits the default theme the best. If you are using the default theme,
-make sure you install Roboto in your prefered way. The easiest of them all is by adding
+Pounce uses `DM Sans` as it fits the default theme the best. If you are using the default theme,
+make sure you install DM Sans in your prefered way. The easiest of them all is by adding
 a link tag in your html:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:400,500,700&display=swap"
 />
 ```
 

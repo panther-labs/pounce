@@ -38,8 +38,8 @@ const Badge: React.FC<BadgeProps> = ({ color, children, ...rest }) => {
       borderRadius="small"
       align="center"
       justify="center"
-      fontSize={0}
-      lineHeight={0}
+      fontSize="x-small"
+      lineHeight="normal"
       p={1}
       {...colorProps}
       {...rest}

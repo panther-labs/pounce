@@ -24,7 +24,7 @@ const TableCell: React.FC<TableCellProps> = React.forwardRef(function TableCell(
       ref={ref}
       p={size === 'medium' ? 4 : 2}
       color="black"
-      fontSize={2}
+      fontSize="medium"
       textAlign={align}
       overflowWrap={wrapText === 'wrap' ? 'break-word' : undefined}
       whiteSpace={wrapText === 'nowrap' ? 'nowrap' : undefined}
