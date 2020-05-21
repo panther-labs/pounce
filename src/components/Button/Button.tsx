@@ -44,7 +44,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
   return (
     <AbstractButton
       fontWeight="medium"
-      borderRadius="large"
+      borderRadius="pill"
       ref={ref}
       {...sizeProps}
       {...variantProps}

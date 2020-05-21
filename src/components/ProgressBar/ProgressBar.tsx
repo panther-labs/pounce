@@ -16,10 +16,10 @@ export interface ProgressBarProps {
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress, thickness = 5, progressColor }) => {
   return (
     <Box width={1} position="relative">
-      <Box height={thickness} bg="grey50" borderRadius="large" zIndex={0} />
+      <Box height={thickness} bg="grey50" borderRadius="pill" zIndex={0} />
       <Box
         position="absolute"
-        borderRadius="large"
+        borderRadius="pill"
         bottom={0}
         height={thickness}
         width={progress}

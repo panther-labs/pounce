@@ -22,7 +22,7 @@ const Switch: React.FC<SwitchProps> = ({ checked, onChange, label, ...rest }) =>
       role="switch"
       aria-checked={checked}
       onClick={() => onChange(!checked)}
-      borderRadius="large"
+      borderRadius="pill"
       bg={checked ? 'primary300' : 'grey200'}
       minWidth={56}
     >
