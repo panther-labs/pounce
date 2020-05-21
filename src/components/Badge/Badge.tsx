@@ -1,47 +1,45 @@
 import React from 'react';
 import Flex, { FlexProps } from '../Flex';
+import { Theme } from '../../theme';
 
 export interface BadgeProps {
   /** The color theme of the badge */
-  color: 'neutral' | 'grey' | 'blue' | 'pink' | 'red';
+  color: keyof Theme['colors'];
+
+  /** The style of the badge */
+  variant?: 'solid' | 'stroke';
 }
 
 /** A badge is simply a visual label to accompany & characterize a certain text*/
-const Badge: React.FC<BadgeProps> = ({ color, children, ...rest }) => {
-  const colorProps = (function() {
-    switch (color) {
-      case 'neutral':
+const Badge: React.FC<BadgeProps> = ({ color, variant = 'solid', children, ...rest }) => {
+  const variantProps = (function() {
+    switch (variant) {
+      case 'stroke':
         return {
           border: '1px solid',
-          borderColor: 'grey200',
-          bg: 'transparent',
-          color: 'grey300',
+          borderColor: color,
+          bg: 'transparent' as const,
         };
-      case 'grey':
-        return { bg: 'grey100', color: 'grey300' };
-      case 'blue':
-        return { bg: 'blue100', color: 'blue300' };
-      case 'pink':
-        return { bg: 'red100', color: 'red300' };
-      case 'red':
+      case 'solid':
       default:
-        return { bg: 'red300', color: 'white' };
+        return { bg: color };
     }
   })() as Partial<FlexProps>;
 
   return (
     <Flex
       width="fit-content"
-      minWidth="62px"
+      minWidth="85px"
       textAlign="center"
-      fontWeight="medium"
-      borderRadius="small"
+      fontWeight="bold"
+      borderRadius="pill"
       align="center"
       justify="center"
-      fontSize="x-small"
-      lineHeight="normal"
+      fontSize="small"
+      color="white"
+      // lineHeight="normal"
       p={1}
-      {...colorProps}
+      {...variantProps}
       {...rest}
     >
       {children}

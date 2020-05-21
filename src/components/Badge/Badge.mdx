@@ -1,21 +1,27 @@
-A Badge should be used to render text like statuses:
+A Badge should be used to render statuses
+
+A badge can be `solid`:
 
 ```typescript jsx
-<div>
-  <Badge color="neutral" mb={2}>
+<Box bg="navyblue-500" p={3}>
+  <Badge color="red-200" mb={2}>
     INFO
   </Badge>
-  <Badge color="grey" mb={2}>
+  <Badge color="teal-300" mb={2}>
     LOW
   </Badge>
-  <Badge color="blue" mb={2}>
-    MEDIUM
+</Box>
+```
+
+A badge can be `stroke`:
+
+```typescript jsx
+<Box bg="navyblue-500" p={3}>
+  <Badge color="red-200" mb={2} variant="stroke">
+    INFO
   </Badge>
-  <Badge color="pink" mb={2}>
-    HIGH
+  <Badge color="teal-300" mb={2} variant="stroke">
+    LOW
   </Badge>
-  <Badge color="red" mb={2}>
-    CRITICAL
-  </Badge>
-</div>
+</Box>
 ```
