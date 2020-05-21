@@ -39,41 +39,41 @@ const colors = {
   /**  OLD PALETTE END */
 
   /**  NEW PALETTE START */
-  'navyblue.900': '#141C2A',
-  'navyblue.800': '#192231',
-  'navyblue.700': '#1D2A3F',
-  'navyblue.600': '#23344E',
-  'navyblue.500': '#3E516B',
+  'navyblue-900': '#141C2A',
+  'navyblue-800': '#192231',
+  'navyblue-700': '#1D2A3F',
+  'navyblue-600': '#23344E',
+  'navyblue-500': '#3E516B',
 
-  'gray.50': '#F6F6F6',
-  'gray.200': '#BDBDBD',
-  'gray.300': '#ABABAB',
-  'gray.500': '#716F6F',
-  'gray.700': '#4F4F4F',
+  'gray-50': '#F6F6F6',
+  'gray-200': '#BDBDBD',
+  'gray-300': '#ABABAB',
+  'gray-500': '#716F6F',
+  'gray-700': '#4F4F4F',
 
-  'blue.50': '#86A3C3',
-  'blue.400': '#11A5F3',
-  'blue.600': '#0081C5',
-  'blue.700': '#0B5297',
+  'blue-50': '#86A3C3',
+  'blue-400': '#11A5F3',
+  'blue-600': '#0081C5',
+  'blue-700': '#0B5297',
 
-  'red.200': '#D64242',
-  'red.400': '#AF0003',
-  'red.700': '#934357',
+  'red-200': '#D64242',
+  'red-400': '#AF0003',
+  'red-700': '#934357',
 
-  'teal.300': '#09A084',
-  'teal.600': '#006A68',
+  'teal-300': '#09A084',
+  'teal-600': '#006A68',
 
-  'turqoise.300': '#29BAC6',
+  'turqoise-300': '#29BAC6',
 
-  'orange.500': '#EB522A',
+  'orange-500': '#EB522A',
 
-  'yellow.500': '#FFA500',
+  'yellow-500': '#FFA500',
 
-  'violet.300': '#7268A6',
+  'violet-300': '#7268A6',
 
-  'purple.400': '#894195',
+  'purple-400': '#894195',
 
-  'green.200': '#67B52C',
+  'green-200': '#67B52C',
   /**  NEW PALETTE END */
 };
 
