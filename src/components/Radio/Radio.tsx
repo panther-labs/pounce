@@ -1,45 +1,100 @@
 import React from 'react';
-import IconButton from '../IconButton';
-import Icon from '../Icon';
-import Box from '../Box';
+import Box, { BoxProps } from '../Box';
+import { addOpacity } from '../../utils/helpers';
+import PseudoBox from '../PseudoBox';
+
+const renderOuterPseudoElement = (checked: boolean): BoxProps => ({
+  content: '""',
+  display: 'block',
+  width: 28,
+  height: 28,
+  border: '1px solid',
+  borderRadius: 'circle',
+  borderColor: checked ? 'blue-600' : 'navyblue-450',
+});
+
+const renderInnerPseudoElement = (checked: boolean): BoxProps => {
+  if (!checked) {
+    return {};
+  }
+
+  return {
+    content: '""',
+    display: 'block',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    margin: 'auto',
+    width: 12,
+    height: 12,
+    backgroundColor: 'white',
+    borderRadius: 'circle',
+  };
+};
 
 export interface RadioProps {
   /** Whether the checkbox should be checked or not */
   checked: boolean;
 
+  /** Whether the checkbox is currently disabled */
+  disabled?: boolean;
+
+  /** The label associated with the Radio. Appears on the right. */
+  label?: string;
+
   /** What happens when the value of the checkbox changes */
-  onChange: (checked: boolean) => void;
+  onChange: (checked: boolean, e: React.SyntheticEvent) => void;
 }
 
-/** The typical Radio element that you know from school */
-const Radio: React.FC<RadioProps> = ({ checked, onChange, ...rest }) => {
+/* Your bread & butter checkbox element. Nothing new here */
+const Radio: React.FC<RadioProps> = ({ checked, onChange, disabled, label, ...rest }) => {
   return (
-    <IconButton
-      type="button"
-      variant="default"
-      role="radio"
-      aria-checked={checked}
-      onClick={() => onChange(!checked)}
+    <Box
+      as="label"
+      display="inline-flex"
+      alignItems="center"
+      cursor="pointer"
+      fontSize="medium"
+      fontWeight="medium"
+      color="white"
+      opacity={disabled ? 0.3 : 1}
+      pointerEvents={disabled ? 'none' : 'all'}
     >
-      <Icon
-        size="small"
-        type={checked ? 'radio-selected' : 'radio'}
-        color={checked ? 'primary300' : 'grey400'}
-      />
-      <Box
-        as="input"
-        position="absolute"
-        opacity={0}
-        checked={checked}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
-        {...rest}
-      />
-    </IconButton>
+      <PseudoBox
+        position="relative"
+        borderRadius="circle"
+        p={4}
+        transition="background-color 0.15s linear"
+        _hover={{
+          backgroundColor: addOpacity('navyblue-450', 0.2),
+        }}
+        _focusWithin={{
+          backgroundColor: addOpacity('navyblue-450', 0.2),
+        }}
+        _before={renderInnerPseudoElement(checked)}
+        _after={renderOuterPseudoElement(checked)}
+      >
+        <Box
+          as="input"
+          position="absolute"
+          opacity={0}
+          type="radio"
+          aria-checked={checked}
+          checked={checked}
+          disabled={disabled}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked, e)}
+          {...rest}
+        />
+      </PseudoBox>
+      {label && (
+        <Box as="span" userSelect="none">
+          {label}
+        </Box>
+      )}
+    </Box>
   );
-};
-
-Radio.defaultProps = {
-  checked: false,
 };
 
 export default Radio;

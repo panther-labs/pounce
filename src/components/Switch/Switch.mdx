@@ -1,7 +1,30 @@
+A switch is simply an alternative to your typical Checkbox
+
 ```typescript jsx
 const Example = () => {
   const [isChecked, setChecked] = React.useState(false);
-  return <Switch checked={isChecked} onChange={setChecked} />;
+  return (
+    <Box backgroundColor="navyblue-600" width="100%" height={200} p={4}>
+      <Box mb={3}>
+        <Switch checked={isChecked} onChange={setChecked} />
+      </Box>
+      <Box mb={3}>
+        <Switch checked={isChecked} onChange={setChecked} label="With Label" />
+      </Box>
+      <Box mb={3}>
+        <Switch
+          checked={isChecked}
+          onChange={setChecked}
+          label="With Custom names"
+          checkedText="YES"
+          uncheckedText="NO"
+        />
+      </Box>
+      <Box mb={3}>
+        <Switch checked={isChecked} onChange={setChecked} disabled label="Disabled" />
+      </Box>
+    </Box>
+  );
 };
 
 <Example />;

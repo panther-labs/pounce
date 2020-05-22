@@ -3,15 +3,13 @@ import Box, { BoxProps } from '../Box';
 import { addOpacity } from '../../utils/helpers';
 import PseudoBox from '../PseudoBox';
 
-const hoverColor = addOpacity('navyblue-450', 0.2);
-
 const renderOuterPseudoElement = (checked: boolean): BoxProps => ({
   content: '""',
   display: 'block',
   width: 28,
   height: 28,
   border: '1px solid',
-  borderRadius: 'circle',
+  borderRadius: 'small',
   borderColor: checked ? 'blue-600' : 'navyblue-450',
 });
 
@@ -21,18 +19,16 @@ const renderInnerPseudoElement = (checked: boolean): BoxProps => {
   }
 
   return {
-    content: '""',
+    content: `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`,
     display: 'block',
     position: 'absolute',
+    width: 'fit-content',
+    height: 'fit-content',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
     margin: 'auto',
-    width: 12,
-    height: 12,
-    backgroundColor: 'white',
-    borderRadius: 'circle',
   };
 };
 
@@ -51,7 +47,13 @@ export interface CheckboxProps {
 }
 
 /* Your bread & butter checkbox element. Nothing new here */
-const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, disabled, label, ...rest }) => {
+const Checkbox: React.FC<CheckboxProps> = ({
+  checked = false,
+  onChange,
+  disabled,
+  label,
+  ...rest
+}) => {
   return (
     <Box
       as="label"
@@ -68,13 +70,12 @@ const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, disabled, label,
         position="relative"
         borderRadius="circle"
         p={4}
-        disabled={disabled}
         transition="background-color 0.15s linear"
         _hover={{
-          backgroundColor: hoverColor,
+          backgroundColor: addOpacity('navyblue-450', 0.2),
         }}
         _focusWithin={{
-          backgroundColor: hoverColor,
+          backgroundColor: addOpacity('navyblue-450', 0.2),
         }}
         _before={renderInnerPseudoElement(checked)}
         _after={renderOuterPseudoElement(checked)}
