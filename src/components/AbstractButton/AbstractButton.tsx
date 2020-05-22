@@ -1,5 +1,6 @@
 import React from 'react';
 import PseudoBox, { PseudoBoxProps } from '../PseudoBox';
+import { disabledStyles } from '../../utils/common';
 
 export type AbstractButtonProps = PseudoBoxProps;
 
@@ -9,11 +10,7 @@ const abstractButtonStyle = {
   textDecoration: 'none',
   backgroundColor: 'transparent' as const,
   transition: 'all 0.1s linear',
-  _disabled: {
-    opacity: 0.3,
-    pointerEvents: 'none' as const,
-    cursor: 'default',
-  },
+  _disabled: disabledStyles,
 };
 
 const AbstractButton: React.FC<AbstractButtonProps> = React.forwardRef(function AbstractButton(

@@ -2,6 +2,7 @@ import React from 'react';
 import Box, { BoxProps } from '../Box';
 import { addOpacity } from '../../utils/helpers';
 import PseudoBox from '../PseudoBox';
+import { disabledStyles } from '../../utils/common';
 
 const renderOuterPseudoElement = (checked: boolean): BoxProps => ({
   content: '""',
@@ -63,8 +64,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       fontSize="medium"
       fontWeight="medium"
       color="white"
-      opacity={disabled ? 0.3 : 1}
-      pointerEvents={disabled ? 'none' : 'all'}
+      {...(disabled && disabledStyles)}
     >
       <PseudoBox
         position="relative"

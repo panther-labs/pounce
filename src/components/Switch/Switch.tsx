@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
+import { disabledStyles } from '../../utils/common';
 
 export interface SwitchProps {
   /** Whether the checkbox should be checked or not */
@@ -40,8 +41,7 @@ const Switch: React.FC<SwitchProps> = ({
       cursor="pointer"
       fontSize="medium"
       color="white"
-      opacity={disabled ? 0.3 : 1}
-      pointerEvents={disabled ? 'none' : 'all'}
+      {...(disabled && disabledStyles)}
     >
       {label && (
         <Box as="span" userSelect="none" mr={2}>
