@@ -39,11 +39,12 @@ const colors = {
   /**  OLD PALETTE END */
 
   /**  NEW PALETTE START */
-  'navyblue-900': '#141C2A',
-  'navyblue-800': '#192231',
-  'navyblue-700': '#1D2A3F',
-  'navyblue-600': '#23344E',
+  'navyblue-450': '#3C516D',
   'navyblue-500': '#3E516B',
+  'navyblue-600': '#23344E',
+  'navyblue-700': '#1D2A3F',
+  'navyblue-800': '#192231',
+  'navyblue-900': '#141C2A',
 
   'gray-50': '#F6F6F6',
   'gray-200': '#BDBDBD',
