@@ -1,5 +1,6 @@
 // @ts-ignore
 import shouldForwardProp from '@styled-system/should-forward-prop';
+import { theme, Theme } from '../theme';
 
 /**
  *
@@ -14,6 +15,21 @@ export function convertHexToRgba(hex: string, opacity: number) {
   const b = parseInt(hexWithoutHash.substring(4, 6), 16);
 
   return `rgba(${r},${g},${b},${opacity})`;
+}
+
+/**
+ *
+ * @param color A theme colorr
+ * @param opacity a value between [0,1]
+ * @returns A new color with opacity  added to it
+ */
+export function addOpacity(color: keyof Theme['colors'], opacity: number) {
+  const hexWithoutHash = theme.colors[color].replace('#', '');
+  const r = parseInt(hexWithoutHash.substring(0, 2), 16);
+  const g = parseInt(hexWithoutHash.substring(2, 4), 16);
+  const b = parseInt(hexWithoutHash.substring(4, 6), 16);
+
+  return `rgba(${r},${g},${b},${opacity})` as keyof Theme['colors'];
 }
 
 /**
