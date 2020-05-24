@@ -63,7 +63,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       cursor="pointer"
       fontSize="medium"
       fontWeight="medium"
-      color="white"
+      color="gray-50"
       {...(disabled && disabledStyles)}
     >
       <PseudoBox

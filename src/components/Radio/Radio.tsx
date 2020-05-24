@@ -59,7 +59,7 @@ const Radio: React.FC<RadioProps> = ({ checked, onChange, disabled, label, ...re
       cursor="pointer"
       fontSize="medium"
       fontWeight="medium"
-      color="white"
+      color="gray-50"
       {...(disabled && disabledStyles)}
     >
       <PseudoBox
