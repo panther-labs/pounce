@@ -46,6 +46,7 @@ export { default as Chip } from './components/Chip';
 export { default as Combobox } from './components/Combobox';
 export { default as DateInput } from './components/DateInput';
 export { default as Dropdown } from './components/Dropdown';
+export { default as ErrorMessage } from './components/ErrorMessage';
 export { default as Flex } from './components/Flex';
 export { default as Grid } from './components/Grid';
 export { default as SimpleGrid } from './components/SimpleGrid';
