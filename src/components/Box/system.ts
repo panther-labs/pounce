@@ -1,5 +1,6 @@
 import React from 'react';
 import { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
+import { SystemStyleObject } from '@styled-system/css';
 import * as StyledSystem from 'styled-system';
 import { Theme } from '../../theme';
 
@@ -65,6 +66,7 @@ export interface CustomStyleProps {
   objectFit?: StyledSystem.ResponsiveValue<React.CSSProperties['objectFit']>;
   outline?: StyledSystem.ResponsiveValue<React.CSSProperties['outline']>;
   userSelect?: StyledSystem.ResponsiveValue<React.CSSProperties['userSelect']>;
+  transformOrigin?: StyledSystem.ResponsiveValue<React.CSSProperties['transformOrigin']>;
   willChange?: StyledSystem.ResponsiveValue<React.CSSProperties['willChange']>;
   borderCollapse?: StyledSystem.ResponsiveValue<React.CSSProperties['borderCollapse']>;
   tableLayout?: StyledSystem.ResponsiveValue<React.CSSProperties['tableLayout']>;
@@ -105,6 +107,7 @@ export const customStyleProps: Record<
   userSelect: true,
   borderCollapse: true,
   tableLayout: true,
+  transformOrigin: true,
 };
 
 // All of the allowed props gathered together
@@ -158,7 +161,7 @@ const transformAlias = (
   return transformThemedAlias(propName, propValue);
 };
 
-export const transformAliasProps = (props?: SystemProps): SystemProps => {
+export const transformAliasProps = (props?: SystemStyleObject): SystemProps => {
   let result = {};
   if (!props) {
     return result;
