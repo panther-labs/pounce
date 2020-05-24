@@ -7,8 +7,8 @@ import { disabledStyles } from '../../utils/common';
 const renderOuterPseudoElement = (checked: boolean): BoxProps => ({
   content: '""',
   display: 'block',
-  width: 28,
-  height: 28,
+  width: 26,
+  height: 26,
   border: '1px solid',
   borderRadius: 'small',
   borderColor: checked ? 'blue-600' : 'navyblue-450',
@@ -69,7 +69,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       <PseudoBox
         position="relative"
         borderRadius="circle"
-        p={4}
+        p={2}
         transition="background-color 0.15s linear"
         _hover={{
           backgroundColor: addOpacity('navyblue-450', 0.2),
