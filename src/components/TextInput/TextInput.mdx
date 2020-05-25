@@ -1,65 +1,35 @@
 An input can be valid:
 
 ```typescript jsx
-const Example = () => {
-  const [value, setValue] = React.useState("I'm valid");
-  return (
-    <Box backgroundColor="navyblue-600" width="100%" p={6}>
-      <TextInput
-        truncated
-        label="Name"
-        name="hi"
-        onChange={e => setValue(e.target.value)}
-        placeholder="Type something..."
-        value={value}
-      />
-    </Box>
-  );
-};
-
-<Example />;
+<Box backgroundColor="navyblue-600" width="100%" p={6}>
+  <TextInput truncated label="Name" name="hi" placeholder="Type something..." />
+</Box>
 ```
 
 An input can be invalid:
 
 ```typescript jsx
-const Example = () => {
-  const [value, setValue] = React.useState("I'm invalid");
-  return (
-    <Box backgroundColor="navyblue-600" width="100%" p={6}>
-      <TextInput
-        label="Name"
-        name="hi"
-        onChange={e => setValue(e.target.value)}
-        placeholder="Type something..."
-        value={value}
-        error="Hello"
-      />
-    </Box>
-  );
-};
-
-<Example />;
+<Box backgroundColor="navyblue-600" width="100%" p={6}>
+  <TextInput
+    label="Name"
+    name="hi"
+    placeholder="Type something..."
+    value="Invalid Value"
+    error="Hello"
+  />
+</Box>
 ```
 
 An input can be disabled:
 
 ```typescript jsx
-const Example = () => {
-  const [value, setValue] = React.useState("I'm valid");
-  return (
-    <Box backgroundColor="navyblue-600" width="100%" p={6}>
-      <TextInput
-        label="Name"
-        name="hi"
-        disabled
-        onChange={e => setValue(e.target.value)}
-        placeholder="Type something..."
-        value={value}
-      />
-    </Box>
-  );
-};
-
-<Example />;
+<Box backgroundColor="navyblue-600" width="100%" p={6}>
+  <TextInput
+    label="Name"
+    name="hi"
+    disabled
+    placeholder="Type something..."
+    value="Disabled Value"
+  />
+</Box>
 ```
