@@ -1,5 +1,6 @@
 const typography = {
   fontSizes: {
+    inherit: 'inherit',
     '3x-small': '0.5rem',
     '2x-small': '0.563rem',
     'x-small': '0.625rem',
