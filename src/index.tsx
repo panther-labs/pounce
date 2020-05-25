@@ -75,5 +75,3 @@ export { default as GlobalStyles } from './utils/GlobalStyles';
 export * from './theme';
 export { default as ThemeProvider } from './utils/ThemeProvider';
 export { default as useTheme } from './utils/useTheme';
-
-export * from './components/BaseInputElement';

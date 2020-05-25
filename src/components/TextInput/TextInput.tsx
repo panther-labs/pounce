@@ -1,9 +1,12 @@
 import React from 'react';
-import BaseInputElement, { BaseInputElementProps } from '../BaseInputElement';
+import { ReactAttributes } from '../Box';
+import Input, { InputProps } from '../Input';
 
-export type TextInputProps = BaseInputElementProps;
+export type TextInputProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> &
+  Pick<InputProps, 'variant' | 'label' | 'error'>;
 
-/** The typical text input that you are going to use in most forms */
-const TextInput = (props: TextInputProps) => <BaseInputElement as="input" type="text" {...props} />;
+const TextInput: React.FC<TextInputProps> = props => (
+  <Input as="input" type="text" truncated {...props} />
+);
 
-export default TextInput;
+export default React.memo(TextInput);
