@@ -5,16 +5,20 @@ const Example = () => {
   const [isCheckedA, setCheckedA] = React.useState(false);
   const [isCheckedB, setCheckedB] = React.useState(false);
   const [isCheckedC, setCheckedC] = React.useState(false);
+  const [isCheckedD, setCheckedD] = React.useState(false);
   return (
-    <Box backgroundColor="navyblue-600" width="100%" height={200}>
+    <Box backgroundColor="navyblue-600" width="100%" p={5}>
       <Box>
-        <Checkbox checked={isCheckedA} onChange={setCheckedA} />
+        <Checkbox checked={isCheckedA} onChange={setCheckedA} aria-label="Without Label" />
       </Box>
       <Box>
         <Checkbox checked={isCheckedB} onChange={setCheckedB} label="With Label" />
       </Box>
       <Box>
-        <Checkbox checked={isCheckedC} onChange={setCheckedC} label="Disabled" disabled />
+        <Checkbox checked={isCheckedC} onChange={setCheckedC} label="Invalid" invalid />
+      </Box>
+      <Box>
+        <Checkbox checked={isCheckedD} onChange={setCheckedD} label="Disabled" disabled />
       </Box>
     </Box>
   );

@@ -1,14 +1,20 @@
 import React from 'react';
-import Box from '../Box';
+import Box, { ReactAttributes } from '../Box';
 import Flex from '../Flex';
 import { disabledStyles } from '../../utils/common';
 
-export interface SwitchProps {
+export type SwitchProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
   /** Whether the checkbox should be checked or not */
   checked: boolean;
 
+  /** What happens when the value of the checkbox changes */
+  onChange: (checked: boolean, e: React.SyntheticEvent) => void;
+
   /** Whether the checkbox is currently disabled */
   disabled?: boolean;
+
+  /**  Whether the input has an invalid value or not */
+  invalid?: boolean;
 
   /** The label associated with the Switch. Appears on the right. */
   label?: string;
@@ -18,21 +24,29 @@ export interface SwitchProps {
 
   /** The text to show when the switch is unchecked */
   uncheckedText?: string;
+};
 
-  /** What happens when the value of the checkbox changes */
-  onChange: (checked: boolean, e: React.SyntheticEvent) => void;
-}
-
-/* Your bread & butter checkbox element. Nothing new here */
+/**
+ *  A Switch is a typical Checkbox with a different UI. It's mainly used for settings pages, when
+ *  enabling or disabling feature
+ */
 const Switch: React.FC<SwitchProps> = ({
-  checked = false,
+  checked,
   onChange,
+  label,
   checkedText = 'ON',
   uncheckedText = 'OFF',
-  disabled,
-  label,
+  disabled = false,
+  invalid = false,
+  readOnly = false,
   ...rest
 }) => {
+  if (!label && !(rest['aria-label'] || rest['aria-labelledby'])) {
+    console.error(
+      'The `label` prop was omitted without providing an `aria-label` or `aria-labelledby` attribute'
+    );
+  }
+
   return (
     <Box
       as="label"
@@ -57,7 +71,7 @@ const Switch: React.FC<SwitchProps> = ({
         height={27}
         p={1}
         transition="background-color 0.15s linear"
-        backgroundColor={checked ? 'blue-600' : 'gray-700'}
+        backgroundColor={invalid ? 'red-200' : checked ? 'blue-600' : 'gray-700'}
       >
         <Box as="span" width={21} height={21} borderRadius="circle" bg="white" flexShrink={0} />
         <Box as="span" fontWeight="bold" fontSize="x-small" userSelect="none" mx={1}>
@@ -65,10 +79,14 @@ const Switch: React.FC<SwitchProps> = ({
         </Box>
         <Box
           as="input"
+          cursor="pointer"
           position="absolute"
           opacity={0}
           type="checkbox"
+          readOnly={readOnly}
+          aria-readonly={readOnly}
           aria-checked={checked}
+          aria-invalid={invalid}
           checked={checked}
           disabled={disabled}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked, e)}

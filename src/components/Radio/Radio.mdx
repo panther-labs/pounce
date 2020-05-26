@@ -4,24 +4,42 @@ Your bread and butter Checkbox.
 const Example = () => {
   const [checked, setChecked] = React.useState('A');
   return (
-    <Box backgroundColor="navyblue-600" width="100%" height={200}>
+    <Box backgroundColor="navyblue-600" width="100%" p={5}>
       <Box>
-        <Radio checked={checked === 'A'} onChange={() => setChecked('A')} value="A" />
+        <Radio
+          checked={checked === 'A'}
+          onChange={() => setChecked('A')}
+          value="A"
+          name="example"
+          label="A Radio Label"
+        />
       </Box>
       <Box>
         <Radio
           checked={checked === 'B'}
           onChange={() => setChecked('B')}
           value="B"
-          label="With Label"
+          name="example"
+          label="Invalid"
         />
       </Box>
       <Box>
         <Radio
+          invalid
           checked={checked === 'C'}
           onChange={() => setChecked('C')}
           value="C"
+          name="example"
+          label="Invalid"
+        />
+      </Box>
+      <Box>
+        <Radio
+          checked={checked === 'D'}
+          onChange={() => setChecked('D')}
+          value="D"
           label="Disabled"
+          name="example"
           disabled
         />
       </Box>

@@ -4,9 +4,9 @@ A switch is simply an alternative to your typical Checkbox
 const Example = () => {
   const [isChecked, setChecked] = React.useState(false);
   return (
-    <Box backgroundColor="navyblue-600" width="100%" height={200} p={4}>
+    <Box backgroundColor="navyblue-600" width="100%" p={4}>
       <Box mb={3}>
-        <Switch checked={isChecked} onChange={setChecked} />
+        <Switch checked={isChecked} onChange={setChecked} aria-label="Without Label" />
       </Box>
       <Box mb={3}>
         <Switch checked={isChecked} onChange={setChecked} label="With Label" />
@@ -19,6 +19,9 @@ const Example = () => {
           checkedText="YES"
           uncheckedText="NO"
         />
+      </Box>
+      <Box mb={3}>
+        <Switch invalid checked={isChecked} onChange={setChecked} label="Invalid" />
       </Box>
       <Box mb={3}>
         <Switch checked={isChecked} onChange={setChecked} disabled label="Disabled" />
