@@ -12,14 +12,22 @@ export interface IconProps
   color?: BoxProps['color'];
 
   /** The size of the icon. Can be 18px or 24px */
-  size?: 'small' | 'large';
+  size?: 'x-small' | 'small' | 'large';
 }
 
 /** An simple SVG element exported as a React component. It renders a simple <svg> */
 const Icon: React.FC<IconProps> = ({ type, size = 'large', color = 'current', ...rest }) => {
   const { icons } = useTheme();
-  const sizeInPx = size === 'small' ? 18 : 24;
   const viewBox = icons[type]?.viewBox || '0 0 24 24';
+
+  let sizeInPx;
+  if (size === 'x-small') {
+    sizeInPx = 12;
+  } else if (size === 'small') {
+    sizeInPx = 18;
+  } else {
+    sizeInPx = 24;
+  }
 
   return (
     <Box
