@@ -6,6 +6,15 @@ module.exports = {
   require: [path.join(__dirname, 'styleguide.setup.js')],
   template: {
     favicon: 'https://dashboard.runpanther.io/favicon.ico',
+    head: {
+      links: [
+        {
+          href:
+            'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,700&display=swap',
+          rel: 'stylesheet',
+        },
+      ],
+    },
   },
   styleguideComponents: {
     // Component to wrap around every individual example
