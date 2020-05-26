@@ -1,16 +1,21 @@
 import React from 'react';
-import Text from '../Text';
-import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
+import { disabledStyles } from '../../utils/common';
+import PseudoBox from '../PseudoBox';
+import { Theme } from '../../theme';
+import Flex from '../Flex';
 
-interface MenuItemProps extends AbstractButtonProps {
+interface MenuItemProps {
   /** Whether the current item is highlighted through the keyboard **/
   highlighted?: boolean;
 
   /** Whether the current item is currently selected **/
   selected?: boolean;
 
-  /** The color style */
-  variant: 'primary' | 'default';
+  /** Whether the particular item should be disabled */
+  disabled?: boolean;
+
+  /** @ignore */
+  children: React.ReactNode;
 }
 
 /**
@@ -20,51 +25,48 @@ interface MenuItemProps extends AbstractButtonProps {
 const MenuItem: React.FC<MenuItemProps> = ({
   highlighted,
   selected,
-  variant,
+  disabled,
   children,
   ...rest
 }) => {
-  const styleProps = (() => {
-    if (selected) {
-      return {
-        bg: variant === 'primary' ? 'primary50' : 'grey100',
-        color: variant === 'primary' ? 'primary300' : 'grey500',
-        'aria-selected': true,
-      };
-    }
-    if (highlighted) {
-      return {
-        bg: 'grey50',
-        color: 'grey500',
-      };
-    }
-    return {
-      bg: 'transparent',
-      color: 'grey500',
-      'aria-selected': false,
-    };
-  })() as Partial<MenuItemProps>;
+  let backgroundColor: keyof Theme['colors'] = 'navyblue-450';
+  if (selected) {
+    backgroundColor = 'navyblue-700';
+  }
+  if (highlighted) {
+    backgroundColor = 'navyblue-600';
+  }
 
   return (
-    <AbstractButton
-      width={1}
-      textAlign="left"
-      px={5}
+    <PseudoBox
+      fontSize="medium"
+      color="gray-50"
       py={4}
+      pl={4}
+      pr={!selected ? 4 : 10}
+      transition="background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
+      position="relative"
+      backgroundColor={backgroundColor}
       _hover={{
-        backgroundColor: !selected ? 'grey50' : undefined,
+        backgroundColor: !selected ? 'navyblue-600' : undefined,
       }}
-      {...styleProps}
+      _after={{
+        content: `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`,
+        display: selected ? 'block' : 'none',
+        position: 'absolute',
+        width: 'fit-content',
+        height: 'fit-content',
+        top: 0,
+        right: 4,
+        bottom: 0,
+        margin: 'auto 0',
+      }}
+      {...(disabled && disabledStyles)}
       {...rest}
     >
-      <Text size="large">{children}</Text>
-    </AbstractButton>
+      {children}
+    </PseudoBox>
   );
-};
-
-MenuItem.defaultProps = {
-  highlighted: false,
-  selected: false,
 };
 
 export default React.memo(MenuItem);
