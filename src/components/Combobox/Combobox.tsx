@@ -153,6 +153,7 @@ function Combobox<Item>({
                 invalid={invalid}
               />
               <Icon
+                opacity={disabled ? 0.3 : 1}
                 type={isOpen ? 'caret-up' : 'caret-down'}
                 position="absolute"
                 my="auto"
