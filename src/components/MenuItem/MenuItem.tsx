@@ -2,7 +2,6 @@ import React from 'react';
 import { disabledStyles } from '../../utils/common';
 import PseudoBox from '../PseudoBox';
 import { Theme } from '../../theme';
-import Flex from '../Flex';
 
 interface MenuItemProps {
   /** Whether the current item is highlighted through the keyboard **/
@@ -47,9 +46,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
       transition="background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
       position="relative"
       backgroundColor={backgroundColor}
-      _hover={{
-        backgroundColor: !selected ? 'navyblue-600' : undefined,
-      }}
       _after={{
         content: `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`,
         display: selected ? 'block' : 'none',
