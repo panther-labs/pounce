@@ -5,14 +5,17 @@ import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
 import MenuItem from '../MenuItem';
 import Icon from '../Icon';
-import TextInput, { TextInputProps } from '../TextInput';
+import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
 
-export type ComboboxProps<T> = TextInputProps & {
+export type ComboboxProps<T> = {
   /** Callback when the selection changes */
   onChange: (value: T | null) => void;
 
   /** A list of entries that the dropdown will have as options */
   items: T[];
+
+  /** The label that is associated with this combobox */
+  label: string;
 
   /**
    * A function that converts the an item to a string. This is the value that the dropdown will
@@ -26,6 +29,18 @@ export type ComboboxProps<T> = TextInputProps & {
    * disabled or `false` otherwise. Defaults to `() => false`.
    */
   disableItem?: (item: T) => boolean;
+
+  /** Whether the combobox has an invalid value */
+  invalid?: boolean;
+
+  /** Whether the combobox is required or not */
+  required?: boolean;
+
+  /** Whether the combobox is disabled or not */
+  disabled?: boolean;
+
+  /** A placeholder that's visible when the user focuses on the Combobox */
+  placeholder?: string;
 
   /**
    * The value of the item that is currently selected. The component is a controlled one,
@@ -62,6 +77,7 @@ function Combobox<Item>({
   maxHeight = 300,
   maxResults,
   invalid,
+  required,
   ...rest
 }: ComboboxProps<Item>): React.ReactElement<ComboboxProps<Item>> {
   // convert item to a string with a fallback of empty string
@@ -89,6 +105,7 @@ function Combobox<Item>({
         getInputProps,
         getItemProps,
         getMenuProps,
+        getLabelProps,
         highlightedIndex,
         selectedItem,
         isOpen,
@@ -145,17 +162,27 @@ function Combobox<Item>({
         return (
           <Box position="relative" {...getRootProps()}>
             <Box position="relative">
-              <TextInput
-                {...getInputProps(additionalInputProps)}
-                disabled={disabled}
-                label={label}
-                variant={isOpen ? 'filled' : 'outlined'}
+              <InputControl
                 invalid={invalid}
-              />
+                disabled={disabled}
+                required={required}
+                variant={isOpen ? 'filled' : 'outlined'}
+              >
+                <InputElement
+                  as="input"
+                  type="text"
+                  truncated
+                  {...(getInputProps(additionalInputProps) as InputElementProps)}
+                />
+                <InputLabel raised={!!value} {...getLabelProps()}>
+                  {label}
+                </InputLabel>
+              </InputControl>
               <Icon
                 opacity={disabled ? 0.3 : 1}
                 type={isOpen ? 'caret-up' : 'caret-down'}
                 position="absolute"
+                pointerEvents="none"
                 my="auto"
                 top={0}
                 bottom={0}
