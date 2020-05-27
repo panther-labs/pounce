@@ -1,13 +1,19 @@
 import React from 'react';
-import { ReactAttributes } from '../Box';
-import PseudoBox from '../PseudoBox';
+import { useInputContext } from './InputContext';
+import { ReactAttributes } from '../../Box';
+import PseudoBox, { PseudoBoxProps } from '../../PseudoBox';
 
-export type InputElementProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>>;
+export type InputElementProps = PseudoBoxProps &
+  ReactAttributes<React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>>;
 
-const InputElement: React.FC<InputElementProps> = ({ disabled, ...rest }) => {
+const InputElement: React.FC<InputElementProps> = props => {
+  const { disabled, required } = useInputContext();
+
   return (
     <PseudoBox
+      as="input"
       disabled={disabled}
+      verticalAlign="top"
       width="100%"
       height="100%"
       px={4}
@@ -26,10 +32,12 @@ const InputElement: React.FC<InputElementProps> = ({ disabled, ...rest }) => {
       }}
       _focus={{
         '::placeholder': {
-          opacity: 0.5,
+          opacity: 0.4,
         },
       }}
-      {...rest}
+      required={required}
+      aria-required={required}
+      {...props}
     />
   );
 };
