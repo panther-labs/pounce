@@ -222,7 +222,7 @@ function MultiCombobox<Item extends string | object>({
                 variant={isOpen && items.length ? 'filled' : 'outlined'}
               >
                 {value.length > 0 && (
-                  <Flex as="ul" wrap="wrap" pl={3} pr={10} pt="19px" pb="2px" mx={-1}>
+                  <Flex as="ul" wrap="wrap" pl={3} pr={10} pt="19px" pb="2px">
                     {value.map(selectedItem => (
                       <Tag
                         as="li"
@@ -258,7 +258,7 @@ function MultiCombobox<Item extends string | object>({
                 />
               )}
             </Box>
-            <Box as="ul" mt="-2px" {...getMenuProps()}>
+            <Box as="ul" mt="-3px" {...getMenuProps()}>
               {isOpen && (
                 <Box
                   as="li"
