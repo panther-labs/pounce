@@ -18,7 +18,29 @@ const Example3 = () => {
         items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
         onChange={updateSelectedItems}
         value={selectedItems}
-        placeholder="Search for a manufacturer"
+        placeholder="Select manufacturers"
+      />
+    </Box>
+  );
+};
+
+<Example3 />;
+```
+
+A MultiCombobox can have disabled options:
+
+```typescript jsx
+const Example3 = () => {
+  const [selectedItems, updateSelectedItems] = React.useState([]);
+  return (
+    <Box backgroundColor="navyblue-600" width="100%" p={6}>
+      <MultiCombobox
+        label="Choose a car manufacturer"
+        items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+        onChange={updateSelectedItems}
+        value={selectedItems}
+        placeholder="Select manufacturers"
+        disableItem={item => item === 'Toyota' || item === 'BMW'}
       />
     </Box>
   );
@@ -85,7 +107,7 @@ const Example4 = () => {
         label="Only words that contain the word Panther"
         items={[]}
         onChange={updateSelectedItems}
-        validateAddition={text => text.includes('Panther')}
+        validateAddition={text => text.toLowerCase().includes('panther')}
         value={selectedItems}
         placeholder="Must contain the word Panther"
       />

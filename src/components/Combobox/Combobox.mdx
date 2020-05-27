@@ -18,14 +18,35 @@ const Example1 = () => {
         items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
         onChange={updateSelectedItems}
         value={selectedItems}
-        disableItem={item => item === 'Toyota'}
-        placeholder="Search for a manufacturer"
+        placeholder="Select a manufacturer"
       />
     </Box>
   );
 };
 
 <Example1 />;
+```
+
+A Combobox can have disabled options:
+
+```typescript jsx
+const Example3 = () => {
+  const [selectedItems, updateSelectedItems] = React.useState(null);
+  return (
+    <Box backgroundColor="navyblue-600" width="100%" height={200} p={10}>
+      <Combobox
+        label="Choose a car manufacturer"
+        items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+        onChange={updateSelectedItems}
+        value={selectedItems}
+        disableItem={item => item === 'Toyota' || item === 'BMW'}
+        placeholder="Select a manufacturer"
+      />
+    </Box>
+  );
+};
+
+<Example3 />;
 ```
 
 A Combobox can have search functionality:
