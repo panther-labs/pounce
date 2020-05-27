@@ -149,24 +149,35 @@ const GlobalStyles: React.FC = () => {
       outline: none;
     }
 
+    input[type='number'] {
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: initial;
+    }
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
     /* These commands can't be grouped into a single one. It's a browser limitation */
     input::-webkit-input-placeholder {
-      color: ${theme.colors.grey200};
+      color: ${theme.colors['gray-50']};
     }
     input:-ms-input-placeholder {
-      color: ${theme.colors.grey200};
+      color: ${theme.colors['gray-50']};
     }
     input::placeholder {
-      color: ${theme.colors.grey200};
+      color: ${theme.colors['gray-50']};
     }
+
     textarea::-webkit-input-placeholder {
-      color: ${theme.colors.grey200};
+      color: ${theme.colors['gray-50']};
     }
     textarea:-ms-input-placeholder {
-      color: ${theme.colors.grey200};
+      color: ${theme.colors['gray-50']};
     }
     textarea::placeholder {
-      color: ${theme.colors.grey200};
+      color: ${theme.colors['gray-50']};
     }
 
     /* ***************** react-day-picker ***************** */

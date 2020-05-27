@@ -6,13 +6,16 @@ import PseudoBox, { PseudoBoxProps } from '../../PseudoBox';
 export type InputElementProps = PseudoBoxProps &
   ReactAttributes<React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>>;
 
-const InputElement: React.FC<InputElementProps> = props => {
-  const { disabled, required } = useInputContext();
+const InputElement: React.FC<InputElementProps> = React.forwardRef(function InputElement(
+  { readOnly, ...rest },
+  ref
+) {
+  const { disabled, required, invalid } = useInputContext();
 
   return (
     <PseudoBox
+      ref={ref}
       as="input"
-      disabled={disabled}
       verticalAlign="top"
       width="100%"
       height="100%"
@@ -26,7 +29,6 @@ const InputElement: React.FC<InputElementProps> = props => {
       border="none"
       color="gray-50"
       _placeholder={{
-        color: 'gray-50',
         opacity: 0,
         transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
       }}
@@ -35,11 +37,16 @@ const InputElement: React.FC<InputElementProps> = props => {
           opacity: 0.4,
         },
       }}
+      disabled={disabled}
+      aria-disabled={disabled}
+      readOnly={readOnly}
+      aria-readonly={readOnly}
       required={required}
       aria-required={required}
-      {...props}
+      aria-invalid={invalid}
+      {...rest}
     />
   );
-};
+});
 
 export default InputElement;
