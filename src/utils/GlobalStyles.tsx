@@ -25,6 +25,7 @@ const GlobalStyles: React.FC = () => {
     h4,
     h5,
     h6,
+    hr,
     p,
     blockquote,
     pre,
