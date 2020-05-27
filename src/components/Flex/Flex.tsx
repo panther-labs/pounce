@@ -11,6 +11,9 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
   /** An alias for `alignItems` */
   align?: BoxProps['alignItems'];
 
+  /** An alias for `flexWrap` */
+  wrap?: BoxProps['flexWrap'];
+
   /** Whether the flex should be `flex-inline` */
   inline?: boolean;
 };
@@ -22,7 +25,7 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
  * wrapper around a certain layout
  */
 const Flex: React.FC<FlexProps> = React.forwardRef(function Flex(props, ref) {
-  const { direction, justify, align, inline, ...rest } = props;
+  const { direction, justify, align, inline, wrap, ...rest } = props;
   return (
     <Box
       display={inline ? 'inline-flex' : 'flex'}
@@ -30,6 +33,7 @@ const Flex: React.FC<FlexProps> = React.forwardRef(function Flex(props, ref) {
       flexDirection={direction}
       justifyContent={justify}
       alignItems={align}
+      flexWrap={wrap}
       {...rest}
     />
   );
