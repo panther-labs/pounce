@@ -49,6 +49,7 @@ const colors = {
   'gray-50': '#F6F6F6',
   'gray-200': '#BDBDBD',
   'gray-300': '#ABABAB',
+  'gray-400': '#626E80',
   'gray-500': '#716F6F',
   'gray-700': '#4F4F4F',
 

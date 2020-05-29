@@ -32,7 +32,8 @@ const Icon: React.FC<IconProps> = ({ type, size = 'large', color = 'current', ..
   return (
     <Box
       as="svg"
-      display="inherit"
+      display="inline-block"
+      verticalAlign="sub"
       flexShrink={0}
       width={sizeInPx}
       height={sizeInPx}

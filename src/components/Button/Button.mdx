@@ -1,34 +1,43 @@
-A button can be primary:
+A button can be have multiple colors and variants:
 
 ```typescript jsx
-<Button size="large" variant="primary">
-  Hey there
-</Button>
-```
-
-A button can be default:
-
-```typescript jsx
-<Button size="large" variant="default">
-  Hey there
-</Button>
-```
-
-A button can be small:
-
-```typescript jsx
-<Button variant="secondary" size="small">
-  Hey there
-</Button>
+<Box backgroundColor="navyblue-600" p={5}>
+  <SimpleGrid columns={3} gap={4}>
+    <Button>Button</Button>
+    <Button color="teal">Button</Button>
+    <Button variant="outline">Button</Button>
+  </SimpleGrid>
+</Box>
 ```
 
 A button can contain an icon:
 
 ```typescript jsx
-<Button variant="primary" size="small">
-  <Flex alignItems="center">
-    <Icon type="arrow-back" size="small" mr={1} />
-    <Text size="medium">Take me back</Text>
-  </Flex>
+<SimpleGrid columns={2} gap={2}>
+  <Button icon="add-user">Button</Button>
+  <Button icon="arrow-back" iconAlignment="right">
+    Button
+  </Button>
+</SimpleGrid>
+```
+
+A button be marked as loading:
+
+```typescript jsx
+<SimpleGrid columns={2} gap={2}>
+  <Button loading color="teal">
+    Button
+  </Button>
+  <Button loading disabled color="teal">
+    Button
+  </Button>
+</SimpleGrid>
+```
+
+A button can occupy the full width oof its parent:
+
+```typescript jsx
+<Button color="teal" fullWidth>
+  Button
 </Button>
 ```

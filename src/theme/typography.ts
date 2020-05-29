@@ -6,6 +6,7 @@ const typography = {
     'x-small': '0.625rem',
     small: '0.75rem',
     medium: '0.875rem',
+    'medium-large': '0.938rem',
     large: '1rem',
     'x-large': '1.125rem',
     '2x-large': '1.25rem',

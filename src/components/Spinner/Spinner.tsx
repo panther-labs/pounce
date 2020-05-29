@@ -2,6 +2,19 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import Box, { BoxProps } from '../Box';
+import { Theme } from '../../theme';
+
+export interface SpinnerProps
+  extends BoxProps<React.SVGAttributes<SVGElement> & React.HTMLAttributes<HTMLOrSVGElement>> {
+  /** Delay after which spinner should be visible. */
+  delay?: number;
+
+  /** The size of the spinner, */
+  size?: 'small' | 'medium' | 'large';
+
+  /** The color of the spinner. Defaults to the current text color */
+  color?: keyof Theme['colors'];
+}
 
 const spinningKeyframes = keyframes`
   0% {
@@ -23,30 +36,29 @@ const circleKeyframes = keyframes`
   }
 `;
 
-const StyledCircleContainer = styled.svg`
-  animation: ${spinningKeyframes} 2s linear infinite;
-`;
-
-const StyledCircle = styled.circle`
+const StyledCircle = styled.circle<Required<Pick<SpinnerProps, 'color'>>>`
   stroke-dashoffset: 600;
   stroke-dasharray: 300;
   stroke-width: 13;
   stroke-miterlimit: 10;
   stroke-linecap: round;
   animation: ${circleKeyframes} 1.6s cubic-bezier(0.4, 0.15, 0.6, 0.85) infinite;
-  stroke: ${({ theme }) => theme.colors.grey200};
-  fill: ${({ theme }) => theme.colors.transparent};
+  stroke: ${({ theme, color }) => theme.colors[color]};
+  fill: transparent;
 `;
 
-export interface SpinnerProps extends BoxProps {
-  /** Delay after which spinner should be visible. */
-  delay?: number;
-
-  /** The size of the spinner, */
-  size: 'small' | 'medium' | 'large';
-}
-
-const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
+/**
+ *
+ * Extends Box.
+ *
+ * A simple spinner component that allows you to display that something is loading
+ */
+const Spinner: React.FC<SpinnerProps> = ({
+  delay = 0,
+  size = 'medium',
+  color = 'current',
+  ...rest
+}) => {
   const [isVisible, setVisibility] = React.useState(delay === 0);
   const delayTimer = React.useRef(0);
 
@@ -74,10 +86,16 @@ const Spinner: React.FC<SpinnerProps> = ({ delay, size, ...rest }) => {
   })();
 
   return (
-    <Box {...sizeProps} {...rest}>
-      <StyledCircleContainer x={0} y={0} viewBox="0 0 150 150">
-        <StyledCircle cx="75" cy="75" r="60" />
-      </StyledCircleContainer>
+    <Box
+      as="svg"
+      display="inline-block"
+      verticalAlign="sub"
+      animation={`${spinningKeyframes} 2s linear infinite`}
+      viewBox="0 0 150 150"
+      {...sizeProps}
+      {...rest}
+    >
+      <StyledCircle cx="75" cy="75" r="60" color={color} />
     </Box>
   );
 };
