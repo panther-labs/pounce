@@ -4,7 +4,7 @@ import colors from './colors';
 import typography from './typography';
 import icons from './icons';
 
-type radii = 'none' | 'small' | 'medium' | 'pill' | 'circle';
+type radii = 'none' | 'small' | 'medium' | 'large' | 'pill' | 'circle';
 type fontFamilies = 'primary' | 'mono';
 type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250';
 
@@ -28,6 +28,7 @@ export const theme: Theme = {
     none: 0,
     small: 2,
     medium: 4,
+    large: 6,
     pill: 40,
     circle: 99999,
   },
