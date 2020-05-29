@@ -41,7 +41,6 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
   {
     variant = 'solid',
     color = 'blue',
-    disabled = false,
     active = false,
     loading = false,
     fullWidth = false,
@@ -57,8 +56,6 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
   return (
     <AbstractButton
       ref={ref}
-      disabled={disabled}
-      aria-disabled={disabled}
       aria-pressed={active}
       width={fullWidth ? '100%' : 'auto'}
       {...styles}

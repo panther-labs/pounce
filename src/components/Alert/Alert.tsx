@@ -95,10 +95,15 @@ const Alert: React.FC<AlertProps> = ({
   if (discardable) {
     content = (
       <Flex alignItems="center">
-        <Box flex="1 0 auto">{content}</Box>
-        <IconButton variant="default" ml={7} onClick={() => setOpen(false)}>
-          <Icon type="close" size="large" color="grey200" />
-        </IconButton>
+        <Box flex="1 0 auto" mr={7}>
+          {content}
+        </Box>
+        <IconButton
+          aria-label="Discard"
+          variant="ghost"
+          icon="close"
+          onClick={() => setOpen(false)}
+        />
       </Flex>
     );
   }

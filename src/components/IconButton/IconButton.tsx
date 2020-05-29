@@ -1,49 +1,45 @@
 import React from 'react';
-import { css, useTheme } from '@emotion/react';
-import { convertHexToRgba } from '../../utils/helpers';
-import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
+import Icon, { IconProps } from '../Icon';
+import useIconButtonStyles from './useIconButtonStyles';
+import { ReactAttributes } from '../Box';
+import AbstractButton from '../AbstractButton';
 
-export interface IconButtonProps extends AbstractButtonProps {
-  /** Whether the component should appear as "activated". Helpful for menus */
+export type IconButtonProps = ReactAttributes<React.ButtonHTMLAttributes<HTMLButtonElement>> & {
+  /** The text associated with the icon button */
+  'aria-label': string;
+
+  /** The icon present on the button  */
+  icon: IconProps['type'];
+
+  /** The style of the icon button */
+  variant?: 'solid' | 'ghost';
+
+  /** The color scheme of the button for solid variants */
+  color?: 'blue' | 'violet' | 'teal' | 'green' | 'orange' | 'red' | 'gray' | 'darkgray';
+
+  /** Whether the button is disabled */
+  disabled?: boolean;
+
+  /** Whether the button should have a loading spinner next to it */
+  loading?: boolean;
+
+  /** Whether the button should always be marked as active. Helpful for menus. */
   active?: boolean;
-
-  /** The color variant of the IconButton */
-  variant: 'primary' | 'default';
-}
+};
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
-export const IconButton: React.FC<IconButtonProps> = ({ active, variant, ...rest }) => {
-  const { colors } = useTheme();
+export const IconButton: React.FC<IconButtonProps> = React.forwardRef(function IconButton(
+  { color = 'blue', active = false, variant = 'solid', icon, ...rest },
+  ref
+) {
+  const styles = useIconButtonStyles({ color, variant, active });
 
   return (
-    <AbstractButton
-      bg="transparent"
-      p={3}
-      borderRadius="circle"
-      css={css`
-        color: ${active
-          ? colors[variant === 'primary' ? 'primary300' : 'grey400']
-          : colors.grey400};
-
-        background-color: ${active &&
-          convertHexToRgba(colors[variant === 'primary' ? 'primary300' : 'black'], 0.2)};
-
-        &:hover:not(:active) {
-          background-color: ${!active &&
-            convertHexToRgba(colors[variant === 'primary' ? 'primary300' : 'black'], 0.1)};
-        }
-
-        &:active {
-          background-color: ${convertHexToRgba(
-            colors[variant === 'primary' ? 'primary300' : 'black'],
-            0.2
-          )};
-        }
-      `}
-      {...rest}
-    />
+    <AbstractButton ref={ref} aria-pressed={active} {...styles} {...rest}>
+      <Icon type={icon} size="small" display="block" />
+    </AbstractButton>
   );
-};
+});
 
 IconButton.defaultProps = {
   active: false,

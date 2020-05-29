@@ -2,7 +2,6 @@ import React from 'react';
 import MUIModal from '@material-ui/core/Modal';
 import Box, { BoxProps } from '../Box';
 import IconButton from '../IconButton';
-import Icon from '../Icon';
 
 export interface SideSheetProps extends BoxProps {
   /** Whether the modal should be visible or not */
@@ -54,15 +53,14 @@ const SideSheet: React.FC<SideSheetProps> = ({
       {...rest}
     >
       <Box position="relative" p={2}>
-        <IconButton
-          variant="default"
-          position="absolute"
-          top={0}
-          right={0}
-          onClick={() => onClose({}, 'closeButtonClick')}
-        >
-          <Icon size="large" type="close" />
-        </IconButton>
+        <Box position="absolute" top={0} right={0}>
+          <IconButton
+            aria-label="Close"
+            variant="ghost"
+            icon="close"
+            onClick={() => onClose({}, 'closeButtonClick')}
+          />
+        </Box>
         {children}
       </Box>
     </Box>

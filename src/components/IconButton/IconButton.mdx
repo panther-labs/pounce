@@ -1,25 +1,21 @@
 An Icon button can different types of background colors:
 
 ```typescript jsx
-<React.Fragment>
-  <IconButton variant="primary" mr={2}>
-    <Icon type="user" size="large" />
-  </IconButton>
-  <IconButton variant="default">
-    <Icon type="user" size="large" />
-  </IconButton>
-</React.Fragment>
+<Box backgroundColor="navyblue-600" p={5}>
+  <SimpleGrid columns={2} gap={4}>
+    <IconButton icon="user" aria-label="User" />
+    <IconButton icon="user" color="teal" aria-label="User" />
+  </SimpleGrid>
+</Box>
 ```
 
 It can also be marked as active:
 
 ```typescript jsx
-<React.Fragment>
-  <IconButton variant="primary" active mr={2}>
-    <Icon type="user" size="large" />
-  </IconButton>
-  <IconButton variant="default" active>
-    <Icon type="user" size="large" />
-  </IconButton>
-</React.Fragment>
+<Box backgroundColor="navyblue-600" p={5}>
+  <SimpleGrid columns={2} gap={4}>
+    <IconButton variant="ghost" icon="user" aria-label="User" />
+    <IconButton variant="ghost" icon="user" aria-label="User" />
+  </SimpleGrid>
+</Box>
 ```
