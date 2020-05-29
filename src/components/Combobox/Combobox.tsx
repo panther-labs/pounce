@@ -166,7 +166,7 @@ function Combobox<Item>({
                 invalid={invalid}
                 disabled={disabled}
                 required={required}
-                variant={isOpen ? 'filled' : 'outlined'}
+                variant={isOpen ? 'solid' : 'outline'}
               >
                 <InputElement
                   as="input"

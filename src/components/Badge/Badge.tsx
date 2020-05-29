@@ -7,21 +7,21 @@ export interface BadgeProps {
   color: keyof Theme['colors'];
 
   /** The style of the badge */
-  variant?: 'filled' | 'outlined';
+  variant?: 'solid' | 'outline';
 }
 
 /** A badge is simply a visual label to accompany & characterize a certain text*/
-const Badge: React.FC<BadgeProps> = ({ color, variant = 'filled', children, ...rest }) => {
+const Badge: React.FC<BadgeProps> = ({ color, variant = 'solid', children, ...rest }) => {
   const variantProps = (function() {
     switch (variant) {
-      case 'outlined':
+      case 'outline':
         return {
           border: '1px solid',
           borderColor: color,
           bg: 'transparent' as const,
           color: 'white',
         };
-      case 'filled':
+      case 'solid':
       default:
         return { bg: color, color: 'gray-50' };
     }

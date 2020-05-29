@@ -4,7 +4,7 @@ import { InputControlProps } from './InputControl';
 export const InputContext = React.createContext<Required<InputControlProps>>({
   disabled: false,
   invalid: false,
-  variant: 'outlined',
+  variant: 'outline',
   required: false,
 });
 

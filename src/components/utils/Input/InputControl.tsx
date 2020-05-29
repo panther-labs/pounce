@@ -5,7 +5,7 @@ import { disabledStyles } from '../../../utils/common';
 
 export type InputControlProps = {
   /** The style of the input */
-  variant?: 'outlined' | 'filled';
+  variant?: 'solid' | 'outline';
 
   /** Whether the input asoociated with the label has an error */
   invalid?: boolean;
@@ -19,7 +19,7 @@ export type InputControlProps = {
 
 const InputControl: React.FC<InputControlProps> = ({
   invalid = false,
-  variant = 'outlined',
+  variant = 'outline',
   children,
   disabled = false,
   required = false,
@@ -41,7 +41,7 @@ const InputControl: React.FC<InputControlProps> = ({
       position="relative"
       border="1px solid"
       transition="border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
-      backgroundColor={variant === 'outlined' ? 'transparent' : 'navyblue-450'}
+      backgroundColor={variant === 'outline' ? 'transparent' : 'navyblue-450'}
       borderRadius="medium"
       borderColor={!invalid ? 'navyblue-450' : 'red-200'}
       _hover={{

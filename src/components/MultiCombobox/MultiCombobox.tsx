@@ -219,7 +219,7 @@ function MultiCombobox<Item extends string | object>({
               <InputControl
                 invalid={invalid}
                 disabled={disabled}
-                variant={isOpen && items.length ? 'filled' : 'outlined'}
+                variant={isOpen && items.length ? 'solid' : 'outline'}
               >
                 {value.length > 0 && (
                   <Flex as="ul" wrap="wrap" pl={3} pr={10} pt="19px" pb="2px">
