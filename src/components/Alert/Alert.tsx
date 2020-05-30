@@ -1,130 +1,86 @@
 import React from 'react';
-import Text from '../Text';
-import Card from '../Card';
-import Box, { BoxProps } from '../Box';
+import Box from '../Box';
 import Flex from '../Flex';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
-import { icons } from '../../theme';
+import { slugify } from '../../utils/helpers';
+import useAlertStyles from './useAlertStyles';
 
 export interface AlertProps {
-  /** The style of the Alert */
-  variant: 'success' | 'info' | 'warning' | 'error';
+  /** The main text of the the alert */
+  title: string;
 
-  /** The title (html or text) of the the component */
-  title: React.ReactNode;
+  /** The style of the Alert */
+  variant?: 'success' | 'info' | 'warning' | 'error' | 'default';
 
   /** A secondary text to further explain the title */
   description?: React.ReactNode;
 
-  /** The type of the icon that will accompany this alert */
-  icon?: keyof typeof icons;
+  /** A react component containing available actions for the Alert  */
+  actions?: React.ReactNode | ((closeAlert: () => void) => React.ReactNode);
 
   /** Whether the Alert should have a close button in order to remove itself */
   discardable?: boolean;
-
-  /** Adjusts the padding of the related Alert. Defaults to `large` */
-  size?: 'small' | 'medium' | 'large';
 }
 
 /** An Alert component is simply a container for text that should capture the user's attention */
 const Alert: React.FC<AlertProps> = ({
   title,
   description,
-  variant,
-  icon,
+  variant = 'default',
   discardable,
-  size = 'large',
+  actions = null,
   ...rest
 }) => {
   const [open, setOpen] = React.useState(true);
+  const { backgroundColor, icon } = useAlertStyles({ variant });
+  const id = slugify(title);
 
-  const variantProps = (function() {
-    switch (variant) {
-      case 'success':
-        return { borderColor: 'green300', color: 'grey400' };
-      case 'info':
-        return { borderColor: 'blue300', color: 'grey400' };
-      case 'warning':
-        return { borderColor: 'orange300', color: 'orange300' };
-      case 'error':
-      default:
-        return { borderColor: 'red300', color: 'red300' };
-    }
-  })() as Pick<BoxProps, 'color' | 'borderColor'>;
+  const close = React.useCallback(() => setOpen(false), [setOpen]);
 
-  const sizeProps = (function() {
-    switch (size) {
-      case 'small':
-        return { py: 0, px: 3 };
-      case 'medium':
-        return { py: 2, px: 5 };
-      case 'large':
-      default:
-        return { py: 4, px: 7 };
-    }
-  })();
-
-  // Progressively override/enhance the rendered structure based on the optional props provided.
-  // Order of checks matters a lot here
-  let content = (
-    <Text size="large" as="p" color={variantProps.color}>
-      {title}
-    </Text>
-  );
-
-  if (description) {
-    content = (
-      <Box>
-        {content}
-        <Text size="medium" as="p" color="grey200" mt={1}>
-          {description}
-        </Text>
-      </Box>
-    );
+  if (!open) {
+    return null;
   }
 
-  if (icon) {
-    content = (
-      <Flex alignItems="flex-start">
-        <Icon size="small" type={icon} mr={4} color={variantProps.borderColor} />
-        {content}
-      </Flex>
-    );
-  }
-  if (discardable) {
-    content = (
-      <Flex alignItems="center">
-        <Box flex="1 0 auto" mr={7}>
-          {content}
-        </Box>
-        <IconButton
-          aria-label="Discard"
-          variant="ghost"
-          icon="close"
-          onClick={() => setOpen(false)}
-        />
-      </Flex>
-    );
-  }
-
-  return open ? (
-    <Card
-      position="relative"
-      borderLeft="3px solid"
-      borderColor={variantProps.borderColor}
-      {...sizeProps}
+  return (
+    <Box
+      p={4}
+      borderRadius="large"
+      role="dialog"
+      aria-labelledby={`${id}-title`}
+      aria-describedby={`${id}-description`}
+      backgroundColor={backgroundColor}
       {...rest}
     >
-      {content}
-    </Card>
-  ) : null;
-};
-
-Alert.defaultProps = {
-  description: null,
-  icon: undefined,
-  discardable: false,
+      <Flex as="header" align="center" fontSize="large">
+        <Icon type={icon} mr={2} size="small" />
+        <Box
+          as="h4"
+          fontWeight={description ? 'bold' : 'normal'}
+          flexGrow={1}
+          mr="auto"
+          id={`${id}-title`}
+        >
+          {title}
+        </Box>
+        {discardable && (
+          <Box m={-3}>
+            <IconButton aria-label="Discard" variant="ghost" icon="close" onClick={close} />
+          </Box>
+        )}
+      </Flex>
+      {description && (
+        <Box as="p" fontStyle="italic" mt={5} fontSize="medium">
+          {description}
+        </Box>
+      )}
+      {actions && (
+        <Flex mt={6} justify="flex-end" as="footer">
+          {typeof actions === 'function' ? actions(close) : actions}
+        </Flex>
+      )}
+    </Box>
+  );
 };
 
 export default Alert;

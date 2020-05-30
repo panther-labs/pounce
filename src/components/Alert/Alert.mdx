@@ -1,37 +1,21 @@
 Alerts can be simple:
 
 ```typescript jsx
-<Box width={1} bg="grey50" p={5}>
+<Box width={1}>
   <Box mb={3}>
-    <Alert variant="success" mb={3} title="This is an success alert" />{' '}
+    <Alert variant="success" mb={3} title="This is an success alert" />
   </Box>
   <Box mb={3}>
-    <Alert variant="info" mb={3} title="This is an info alert" />{' '}
+    <Alert variant="info" mb={3} title="This is an info alert" />
   </Box>
   <Box mb={3}>
-    <Alert variant="warning" mb={3} title="This is a warning alert" />{' '}
+    <Alert variant="warning" mb={3} title="This is a warning alert" />
   </Box>
-  <Box>
+  <Box mb={3}>
     <Alert variant="error" title="This is an error alert" />
   </Box>
-</Box>
-```
-
-Alerts can contain icons:
-
-```typescript jsx
-<Box width={1} bg="grey50" p={5}>
-  <Box mb={3}>
-    <Alert icon="check" variant="success" title="This is an success alert" />
-  </Box>
-  <Box mb={3}>
-    <Alert icon="edit" variant="info" title="This is an info alert" />
-  </Box>
-  <Box mb={3}>
-    <Alert icon="warning" variant="warning" title="This is a warning alert" />
-  </Box>
   <Box>
-    <Alert icon="delete" variant="error" title="This is an error alert" />
+    <Alert variant="default" title="This is an error alert" />
   </Box>
 </Box>
 ```
@@ -39,7 +23,7 @@ Alerts can contain icons:
 Alerts can have descriptions:
 
 ```typescript jsx
-<Box width={1} bg="grey50" p={5}>
+<Box width={1}>
   <Box mb={3}>
     <Alert
       icon="check"
@@ -64,10 +48,18 @@ Alerts can have descriptions:
       description="This is a nice description of the title"
     />
   </Box>
-  <Box>
+  <Box mb={3}>
     <Alert
       icon="delete"
       variant="error"
+      title="This is an error alert"
+      description="This is a nice description of the title"
+    />
+  </Box>
+  <Box>
+    <Alert
+      icon="delete"
+      variant="default"
       title="This is an error alert"
       description="This is a nice description of the title"
     />
@@ -78,7 +70,7 @@ Alerts can have descriptions:
 Alerts can be hidden by the user:
 
 ```typescript jsx
-<Box width={1} bg="grey50" p={5}>
+<Box width={1}>
   <Box mb={3}>
     <Alert
       icon="check"
@@ -113,6 +105,46 @@ Alerts can be hidden by the user:
       title="This is an error alert"
       description="This is a nice description of the title"
       discardable
+    />
+  </Box>
+  <Box>
+    <Alert
+      icon="delete"
+      variant="default"
+      title="This is a default alert"
+      description="This is a nice description of the title"
+      discardable
+    />
+  </Box>
+</Box>
+```
+
+Alerts can have actions associated with them:
+
+```typescript jsx
+<Box>
+  <Box mb={3}>
+    <Alert
+      icon="delete"
+      variant="default"
+      title="This is a default alert"
+      description="This is a nice description of the title"
+      discardable
+      actions={
+        <Button color="red" onClick={() => alert('Boom!')}>
+          I Alert
+        </Button>
+      }
+    />
+  </Box>
+  <Box>
+    <Alert
+      icon="delete"
+      variant="default"
+      title="This is a default alert"
+      description="This is a nice description of the title"
+      discardable
+      actions={close => <Button onClick={close}>I Close</Button>}
     />
   </Box>
 </Box>
