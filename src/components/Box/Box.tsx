@@ -17,7 +17,7 @@ export type BoxProps<Attrs = React.AllHTMLAttributes<HTMLElement>> =
 /** Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes. */
 const Box = styled('div', {
-  shouldForwardProp,
+  shouldForwardProp: (prop: string) => (prop.startsWith('native') ? true : shouldForwardProp(prop)),
 })<BoxProps>`
   ${StyledSystem.space}
   ${StyledSystem.color}
