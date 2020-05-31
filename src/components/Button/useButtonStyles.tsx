@@ -40,19 +40,19 @@ export const getSolidButtonStyles = (
     transition: 'border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
     borderRadius: 'medium' as const,
     border: '1px solid',
-    borderColor: !active ? themeColorKey : lightenDarkenColor(themeColor, -20),
-    backgroundColor: !active ? themeColorKey : lightenDarkenColor(themeColor, -20),
+    borderColor: !active ? themeColorKey : lightenDarkenColor(themeColor, -10),
+    backgroundColor: !active ? themeColorKey : lightenDarkenColor(themeColor, -10),
     _hover: {
-      backgroundColor: lightenDarkenColor(themeColor, 20),
-      borderColor: lightenDarkenColor(themeColor, 20),
+      backgroundColor: lightenDarkenColor(themeColor, 10),
+      borderColor: lightenDarkenColor(themeColor, 10),
     },
     _focus: {
-      backgroundColor: lightenDarkenColor(themeColor, 20),
-      borderColor: lightenDarkenColor(themeColor, 170),
+      backgroundColor: lightenDarkenColor(themeColor, 10),
+      borderColor: lightenDarkenColor(themeColor, 85),
     },
     _active: {
-      backgroundColor: lightenDarkenColor(themeColor, -20),
-      borderColor: lightenDarkenColor(themeColor, -20),
+      backgroundColor: lightenDarkenColor(themeColor, -10),
+      borderColor: lightenDarkenColor(themeColor, -10),
     },
   };
 };
