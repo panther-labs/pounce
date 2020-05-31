@@ -32,10 +32,10 @@ export const IconButton: React.FC<IconButtonProps> = React.forwardRef(function I
   { color = 'blue', active = false, variant = 'solid', icon, ...rest },
   ref
 ) {
-  const styles = useIconButtonStyles({ color, variant, active });
+  const styles = useIconButtonStyles({ color, variant });
 
   return (
-    <AbstractButton ref={ref} aria-pressed={active} {...styles} {...rest}>
+    <AbstractButton ref={ref} aria-pressed={active} data-active={active} {...styles} {...rest}>
       <Icon type={icon} size="small" display="block" />
     </AbstractButton>
   );

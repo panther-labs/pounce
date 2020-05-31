@@ -5,14 +5,10 @@ import { ButtonProps } from './Button';
 import { Theme } from '../../theme';
 import useTheme from '../../utils/useTheme';
 
-type UseButtonStylesProps = Required<Pick<ButtonProps, 'color' | 'variant' | 'active'>>;
+type UseButtonStylesProps = Required<Pick<ButtonProps, 'color' | 'variant'>>;
 type ThemeColor = keyof Theme['colors'];
 
-export const getSolidButtonStyles = (
-  theme: Theme,
-  color: ButtonProps['color'],
-  active: boolean
-) => {
+export const getSolidButtonStyles = (theme: Theme, color: ButtonProps['color']) => {
   const themeColorKey: ThemeColor = (() => {
     switch (color) {
       case 'violet':
@@ -40,8 +36,8 @@ export const getSolidButtonStyles = (
     transition: 'border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
     borderRadius: 'medium' as const,
     border: '1px solid',
-    borderColor: !active ? themeColorKey : lightenDarkenColor(themeColor, -10),
-    backgroundColor: !active ? themeColorKey : lightenDarkenColor(themeColor, -10),
+    borderColor: themeColorKey,
+    backgroundColor: themeColorKey,
     _hover: {
       backgroundColor: lightenDarkenColor(themeColor, 10),
       borderColor: lightenDarkenColor(themeColor, 10),
@@ -57,14 +53,14 @@ export const getSolidButtonStyles = (
   };
 };
 
-const getOutlineButtonStyles = (theme: Theme, active: boolean) => {
+const getOutlineButtonStyles = (theme: Theme) => {
   const themeColor = theme.colors['navyblue-450'];
   return {
     transition: 'border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
     borderRadius: 'small' as const,
     border: '1px solid',
-    borderColor: !active ? 'navyblue-450' : 'navyblue-600',
-    backgroundColor: !active ? 'transparent' : 'navyblue-600',
+    borderColor: 'navyblue-450',
+    backgroundColor: 'transparent',
     _hover: {
       backgroundColor: 'navyblue-500',
       borderColor: 'navyblue-500',
@@ -80,16 +76,16 @@ const getOutlineButtonStyles = (theme: Theme, active: boolean) => {
   };
 };
 
-const useButtonStyles = ({ color, variant, active }: UseButtonStylesProps): AbstractButtonProps => {
+const useButtonStyles = ({ color, variant }: UseButtonStylesProps): AbstractButtonProps => {
   const theme = useTheme();
 
   const styles = React.useMemo(() => {
     switch (variant) {
       case 'outline':
-        return getOutlineButtonStyles(theme, active);
+        return getOutlineButtonStyles(theme);
       case 'solid':
       default:
-        return getSolidButtonStyles(theme, color, active);
+        return getSolidButtonStyles(theme, color);
     }
   }, [color, variant]);
 

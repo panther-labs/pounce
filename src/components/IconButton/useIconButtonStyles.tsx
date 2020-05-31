@@ -2,18 +2,17 @@ import React from 'react';
 import { addOpacity } from '../../utils/helpers';
 import { AbstractButtonProps } from '../AbstractButton';
 import { getSolidButtonStyles } from '../Button/useButtonStyles';
-import { Theme } from '../../theme';
 import useTheme from '../../utils/useTheme';
 import { IconButtonProps } from './IconButton';
 
-type UseIconButtonStyles = Required<Pick<IconButtonProps, 'color' | 'variant' | 'active'>>;
+type UseIconButtonStyles = Required<Pick<IconButtonProps, 'color' | 'variant'>>;
 
-export const getGhostButtonStyles = (theme: Theme, active: boolean) => ({
+export const getGhostButtonStyles = () => ({
   transition: 'background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
   borderRadius: 'circle' as const,
   border: '1px solid',
-  borderColor: !active ? 'transparent' : addOpacity('white', 0.15),
-  backgroundColor: !active ? 'transparent' : addOpacity('white', 0.15),
+  borderColor: 'transparent',
+  backgroundColor: 'transparent',
   _hover: {
     backgroundColor: addOpacity('white', 0.075),
   },
@@ -25,20 +24,16 @@ export const getGhostButtonStyles = (theme: Theme, active: boolean) => ({
   },
 });
 
-const useIconButtonStyles = ({
-  color,
-  variant,
-  active,
-}: UseIconButtonStyles): AbstractButtonProps => {
+const useIconButtonStyles = ({ color, variant }: UseIconButtonStyles): AbstractButtonProps => {
   const theme = useTheme();
 
   const styles = React.useMemo(() => {
     switch (variant) {
       case 'ghost':
-        return getGhostButtonStyles(theme, active);
+        return getGhostButtonStyles();
       case 'solid':
       default:
-        return getSolidButtonStyles(theme, color, active);
+        return getSolidButtonStyles(theme, color);
     }
   }, [color, variant]);
 

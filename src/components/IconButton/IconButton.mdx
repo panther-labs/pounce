@@ -1,21 +1,17 @@
-An Icon button can different types of background colors:
+An Iconbutton can be solid:
 
 ```typescript jsx
-<Box backgroundColor="navyblue-600" p={5}>
-  <SimpleGrid columns={2} gap={4}>
-    <IconButton icon="user" aria-label="User" />
-    <IconButton icon="user" color="teal" aria-label="User" />
-  </SimpleGrid>
-</Box>
+<SimpleGrid columns={2} gap={4}>
+  <IconButton icon="user" aria-label="User" />
+  <IconButton icon="user" color="teal" aria-label="User" />
+</SimpleGrid>
 ```
 
-It can also be marked as active:
+An IconButton can be ghost:
 
 ```typescript jsx
-<Box backgroundColor="navyblue-600" p={5}>
-  <SimpleGrid columns={2} gap={4}>
-    <IconButton variant="ghost" icon="user" aria-label="User" />
-    <IconButton variant="ghost" icon="user" aria-label="User" />
-  </SimpleGrid>
-</Box>
+<SimpleGrid columns={2} gap={4}>
+  <IconButton variant="ghost" icon="user" aria-label="User" />
+  <IconButton variant="ghost" icon="user" aria-label="User" active />
+</SimpleGrid>
 ```

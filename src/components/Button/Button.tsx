@@ -51,12 +51,13 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
   },
   ref
 ) {
-  const styles = useButtonStyles({ color, variant, active });
+  const styles = useButtonStyles({ color, variant });
 
   return (
     <AbstractButton
       ref={ref}
       aria-pressed={active}
+      data-active={active}
       width={fullWidth ? '100%' : 'auto'}
       {...styles}
       {...rest}
