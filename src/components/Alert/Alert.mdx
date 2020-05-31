@@ -144,7 +144,7 @@ Alerts can have actions associated with them:
       title="This is a default alert"
       description="This is a nice description of the title"
       discardable
-      actions={close => <Button onClick={close}>I Close</Button>}
+      actions={({ close }) => <Button onClick={close}>I Close</Button>}
     />
   </Box>
 </Box>

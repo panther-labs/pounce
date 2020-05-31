@@ -17,7 +17,7 @@ export interface AlertProps {
   description?: React.ReactNode;
 
   /** A react component containing available actions for the Alert  */
-  actions?: React.ReactNode | ((closeAlert: () => void) => React.ReactNode);
+  actions?: React.ReactNode | ((helpers: { close: () => void }) => React.ReactNode);
 
   /** Whether the Alert should have a close button in order to remove itself */
   discardable?: boolean;
@@ -76,7 +76,7 @@ const Alert: React.FC<AlertProps> = ({
       )}
       {actions && (
         <Flex mt={6} justify="flex-end" as="footer">
-          {typeof actions === 'function' ? actions(close) : actions}
+          {typeof actions === 'function' ? actions({ close }) : actions}
         </Flex>
       )}
     </Box>
