@@ -1,9 +1,10 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
+import useHeadingStyles from './useHeadingStyles';
 
 export interface HeadingProps extends BoxProps<React.AllHTMLAttributes<HTMLHeadingElement>> {
   /** The size of the font */
-  size: 'medium' | 'large';
+  size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large';
 }
 
 /**
@@ -11,17 +12,9 @@ export interface HeadingProps extends BoxProps<React.AllHTMLAttributes<HTMLHeadi
  * then you can use this
  * */
 const Heading: React.FC<HeadingProps> = React.forwardRef(function Heading({ size, ...rest }, ref) {
-  const sizeProps = (function() {
-    switch (size) {
-      case 'large':
-        return { fontWeight: 'medium' as const, fontSize: '5x-large' as const };
-      case 'medium':
-      default:
-        return { fontWeight: 'normal' as const, fontSize: '3x-large' as const };
-    }
-  })();
+  const styles = useHeadingStyles({ size });
 
-  return <Box as="h1" ref={ref} {...sizeProps} {...rest} />;
+  return <Box as="h1" ref={ref} fontWeight="normal" {...styles} {...rest} />;
 });
 
 export default Heading;
