@@ -9,7 +9,7 @@ export type CardProps = BoxProps;
  * A card is simply a basic layout component with additional style props.
  */
 const Card: React.FC<CardProps> = React.forwardRef(function Card(props, ref) {
-  return <Box bg="white" borderRadius="small" boxShadow="dark100" ref={ref} {...props} />;
+  return <Box ref={ref} bg="navyblue-600" borderRadius="medium" {...props} />;
 });
 
 export default Card;
