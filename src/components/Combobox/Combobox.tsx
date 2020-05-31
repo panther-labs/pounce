@@ -3,7 +3,7 @@ import React from 'react';
 import Downshift from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
-import MenuItem from '../MenuItem';
+import MenuItem from '../utils/MenuItem';
 import Icon from '../Icon';
 import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
 

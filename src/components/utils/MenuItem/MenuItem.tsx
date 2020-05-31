@@ -1,9 +1,10 @@
 import React from 'react';
-import { disabledStyles } from '../../utils/common';
-import PseudoBox from '../PseudoBox';
-import { Theme } from '../../theme';
+import { disabledStyles } from '../../../utils/common';
+import PseudoBox from '../../PseudoBox';
+import { Theme } from '../../../theme';
+import { ReactAttributes } from '../../Box';
 
-interface MenuItemProps {
+interface MenuItemProps extends ReactAttributes<React.AllHTMLAttributes<HTMLElement>> {
   /** Whether the current item is highlighted through the keyboard **/
   highlighted?: boolean;
 
