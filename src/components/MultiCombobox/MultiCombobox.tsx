@@ -277,19 +277,15 @@ function MultiCombobox<Item extends string | object>({
                   overflow="auto"
                 >
                   {results.map((item, index) => (
-                    <Box
+                    <MenuItem
                       {...getItemProps({ item, disabled: disableItem(item) })}
                       key={itemToString(item)}
-                      cursor="pointer"
+                      highlighted={highlightedIndex === index}
+                      selected={item === selectedItem}
+                      disabled={disableItem(item)}
                     >
-                      <MenuItem
-                        highlighted={highlightedIndex === index}
-                        selected={item === selectedItem}
-                        disabled={disableItem(item)}
-                      >
-                        {itemToString(item)}
-                      </MenuItem>
-                    </Box>
+                      {itemToString(item)}
+                    </MenuItem>
                   ))}
                 </Box>
               )}

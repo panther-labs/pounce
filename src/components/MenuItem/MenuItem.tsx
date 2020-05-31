@@ -38,6 +38,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
 
   return (
     <PseudoBox
+      cursor="pointer"
       fontSize="medium"
       color="gray-50"
       py={4}
