@@ -1,40 +1,27 @@
 A TextArea can have a label:
 
 ```typescript jsx
-<Box backgroundColor="navyblue-600" width="100%" p={6}>
-  <TextArea label="First name" placeholder="Type something..." />
-</Box>
+<TextArea label="First name" placeholder="Type something..." />
 ```
 
 It can be valid:
 
 ```typescript jsx
-<Box backgroundColor="navyblue-600" width="100%" p={6}>
-  <TextArea label="Whatever" placeholder="Type something..." value="I'm valid" />
-</Box>
+<TextArea label="Whatever" placeholder="Type something..." value="I'm valid" />
 ```
 
 or invalid:
 
 ```typescript jsx
-<Box backgroundColor="navyblue-600" width="100%" p={6}>
-  <TextArea
-    label="Whatever"
-    placeholder="Type something..."
-    value="I'm invalid"
-    invalid
-  />
-</Box>
+<TextArea label="Whatever" placeholder="Type something..." value="I'm invalid" invalid />
 ```
 
 and can scale **automatically** based on the size of the content:
 
 ```typescript jsx
-<Box backgroundColor="navyblue-600" width="100%" p={6}>
-  <TextArea
-    label="Whatever"
-    placeholder="Type something..."
-    value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
-  />
-</Box>
+<TextArea
+  label="Whatever"
+  placeholder="Type something..."
+  value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+/>
 ```
