@@ -25,7 +25,7 @@ const useCheckboxStyles = ({ invalid, checked }: UseCheckboxStyles): PseudoBoxPr
     width: 'fit-content',
     height: 'fit-content',
     opacity: checked ? 1 : 0,
-    transition: 'opacity 125ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
+    transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
     top: 0,
     left: 0,
     right: 0,

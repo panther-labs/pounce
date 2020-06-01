@@ -25,7 +25,7 @@ const useRadioStyles = ({ invalid, checked }: UseRadioStyles): PseudoBoxProps =>
     top: 0,
     left: 0,
     opacity: checked ? 1 : 0,
-    transition: 'opacity 125ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
+    transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
     right: 0,
     bottom: 0,
     margin: 'auto',
