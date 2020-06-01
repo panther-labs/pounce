@@ -1,9 +1,9 @@
 import Icon from '../Icon';
-import Flex, { FlexProps } from '../Flex';
 import React from 'react';
 import AbstractButton from '../AbstractButton';
+import Box, { BoxProps } from '../Box';
 
-export interface TagProps extends FlexProps {
+export interface TagProps extends BoxProps {
   /**
    * What happens when the "X" button is pressed. No "X" button is rendered, if this prop is not
    * specified
@@ -13,23 +13,21 @@ export interface TagProps extends FlexProps {
 
 /** A chip is an entry in a combobox, but can be used anywhere */
 const Tag: React.FC<TagProps> = ({ children, onRemove, ...rest }) => (
-  <Flex
+  <Box
     bg="blue-600"
     borderRadius="pill"
     cursor="default"
-    align="center"
     px={2}
     fontSize="small"
     fontWeight="medium"
-    color="gray-50"
     zIndex={1}
     {...rest}
   >
     {children}
     <AbstractButton onClick={onRemove} ml={2} aria-label="Remove">
-      <Icon size="x-small" type="close" />
+      <Icon size="x-small" color="gray-50" type="close" />
     </AbstractButton>
-  </Flex>
+  </Box>
 );
 
 export default Tag;
