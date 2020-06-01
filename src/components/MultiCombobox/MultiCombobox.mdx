@@ -12,7 +12,7 @@ A MultiCombobox can be basic:
 const Example3 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
-    <Box backgroundColor="navyblue-600" width="100%" p={6}>
+    <Box width={0.3}>
       <MultiCombobox
         label="Choose a car manufacturer"
         items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
@@ -33,7 +33,7 @@ A MultiCombobox can have disabled options:
 const Example3 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
-    <Box backgroundColor="navyblue-600" width="100%" p={6}>
+    <Box width={0.3}>
       <MultiCombobox
         label="Choose a car manufacturer"
         items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
@@ -55,7 +55,7 @@ A MultiCombobox have search functionality:
 const Example4 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
-    <Box backgroundColor="navyblue-600" width="300px" p={6}>
+    <Box width={0.3}>
       <MultiCombobox
         searchable
         label="Choose a car manufacturer"
@@ -77,7 +77,7 @@ A MultiCombobox can allow user to add values of their own:
 const Example4 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
-    <Box backgroundColor="navyblue-600" width="100%" p={6}>
+    <Box width={0.3}>
       <MultiCombobox
         allowAdditions
         searchable
@@ -100,7 +100,7 @@ A MultiCombobox can allow user to only add values that satisfy a certain conditi
 const Example4 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
-    <Box backgroundColor="navyblue-600" width="100%" p={6}>
+    <Box width={0.5}>
       <MultiCombobox
         allowAdditions
         searchable
