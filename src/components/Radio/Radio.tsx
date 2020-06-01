@@ -1,8 +1,8 @@
 import React from 'react';
-import Box, { BoxProps, ReactAttributes } from '../Box';
-import { addOpacity } from '../../utils/helpers';
+import Box, { ReactAttributes } from '../Box';
 import PseudoBox from '../PseudoBox';
 import { disabledStyles } from '../../utils/common';
+import useRadioStyles from './useRadioStyles';
 
 export type RadioProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
   /** Whether the checkbox should be checked or not */
@@ -34,6 +34,8 @@ const Radio: React.FC<RadioProps> = ({
   readOnly = false,
   ...rest
 }) => {
+  const radioStyles = useRadioStyles({ invalid, checked });
+
   return (
     <Box
       as="label"
@@ -46,50 +48,7 @@ const Radio: React.FC<RadioProps> = ({
       verticalAlign="top"
       {...(disabled && disabledStyles)}
     >
-      <PseudoBox
-        position="relative"
-        borderRadius="circle"
-        p={2}
-        transition="background-color 0.15s linear"
-        _hover={{
-          backgroundColor: addOpacity('navyblue-450', 0.2),
-          ':after': {
-            borderColor: invalid ? 'red-200' : 'blue-600',
-          },
-        }}
-        _focusWithin={{
-          backgroundColor: addOpacity('navyblue-450', 0.2),
-          ':after': {
-            borderColor: invalid ? 'red-200' : 'blue-600',
-          },
-        }}
-        _before={{
-          content: '""',
-          display: 'block',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          opacity: checked ? 1 : 0,
-          transition: 'opacity 125ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
-          right: 0,
-          bottom: 0,
-          margin: 'auto',
-          width: 12,
-          height: 12,
-          backgroundColor: 'white',
-          borderRadius: 'circle',
-        }}
-        _after={{
-          content: '""',
-          display: 'block',
-          width: 26,
-          height: 26,
-          border: '1px solid',
-          borderRadius: 'circle',
-          transition: 'border-color 125ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
-          borderColor: invalid ? 'red-200' : checked ? 'blue-600' : 'navyblue-450',
-        }}
-      >
+      <PseudoBox position="relative" borderRadius="circle" p={2} {...radioStyles}>
         <Box
           as="input"
           position="absolute"
