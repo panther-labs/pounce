@@ -3,15 +3,17 @@ An Iconbutton can be solid:
 ```typescript jsx
 <SimpleGrid columns={2} gap={4}>
   <IconButton icon="user" aria-label="User" />
-  <IconButton icon="user" color="teal" aria-label="User" />
+  <IconButton icon="user" variantColor="teal" aria-label="User" />
 </SimpleGrid>
 ```
 
 An IconButton can be ghost:
 
 ```typescript jsx
-<SimpleGrid columns={2} gap={4}>
-  <IconButton variant="ghost" icon="user" aria-label="User" />
-  <IconButton variant="ghost" icon="user" aria-label="User" active />
+<SimpleGrid columns={4} gap={4}>
+  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue" />
+  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="teal" />
+  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue" active />
+  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="teal" active />
 </SimpleGrid>
 ```

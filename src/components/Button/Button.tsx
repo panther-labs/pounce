@@ -11,7 +11,16 @@ export interface ButtonProps
   variant?: 'solid' | 'outline';
 
   /** The color scheme of the button for solid variants */
-  color?: 'blue' | 'violet' | 'teal' | 'green' | 'orange' | 'red' | 'gray' | 'darkgray';
+  variantColor?:
+    | 'blue'
+    | 'violet'
+    | 'teal'
+    | 'green'
+    | 'orange'
+    | 'red'
+    | 'gray'
+    | 'darkgray'
+    | 'navyblue';
 
   /** The icon present on the button  */
   icon?: IconProps['type'];
@@ -40,24 +49,24 @@ export interface ButtonProps
 const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
   {
     variant = 'solid',
-    color = 'blue',
-    active = false,
+    variantColor = 'blue',
     loading = false,
     fullWidth = false,
     iconAlignment = 'left',
+    active,
     icon,
     children,
     ...rest
   },
   ref
 ) {
-  const styles = useButtonStyles({ color, variant });
+  const styles = useButtonStyles({ variantColor, variant });
 
   return (
     <AbstractButton
       ref={ref}
-      aria-pressed={active}
-      data-active={active}
+      aria-pressed={active !== undefined ? active : undefined}
+      data-active={active || undefined}
       width={fullWidth ? '100%' : 'auto'}
       {...styles}
       {...rest}

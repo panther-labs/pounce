@@ -1,93 +1,109 @@
 import React from 'react';
-import { lightenDarkenColor } from '../../utils/helpers';
 import { AbstractButtonProps } from '../AbstractButton';
 import { ButtonProps } from './Button';
 import { Theme } from '../../theme';
+import { lightenDarkenColor } from '../../utils/helpers';
 import useTheme from '../../utils/useTheme';
 
-type UseButtonStylesProps = Required<Pick<ButtonProps, 'color' | 'variant'>>;
 type ThemeColor = keyof Theme['colors'];
+type ButtonColorVariant = ButtonProps['variantColor'];
 
-export const getSolidButtonStyles = (theme: Theme, color: ButtonProps['color']) => {
-  const themeColorKey: ThemeColor = (() => {
-    switch (color) {
-      case 'violet':
-        return 'violet-300';
-      case 'teal':
-        return 'teal-300';
-      case 'red':
-        return 'red-700';
-      case 'orange':
-        return 'orange-500';
-      case 'green':
-        return 'green-200';
-      case 'gray':
-        return 'gray-400';
-      case 'darkgray':
-        return 'gray-700';
-      case 'blue':
-      default:
-        return 'blue-600';
-    }
-  })();
+export const getThemeColor = (color: ButtonColorVariant): ThemeColor => {
+  switch (color) {
+    case 'violet':
+      return 'violet-300';
+    case 'teal':
+      return 'teal-300';
+    case 'red':
+      return 'red-700';
+    case 'orange':
+      return 'orange-500';
+    case 'green':
+      return 'green-200';
+    case 'gray':
+      return 'gray-400';
+    case 'darkgray':
+      return 'gray-700';
+    case 'navyblue':
+      return 'navyblue-450';
+    case 'blue':
+    default:
+      return 'blue-600';
+  }
+};
 
+type UseButtonStylesProps = Required<Pick<ButtonProps, 'variantColor' | 'variant'>>;
+
+export const getSolidButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
+  const themeColorKey = getThemeColor(variantColor);
   const themeColor = theme.colors[themeColorKey];
+
+  const hoverColor = lightenDarkenColor(themeColor, 10);
+  const activeColor = lightenDarkenColor(themeColor, -10);
+  const focusBorderColor = lightenDarkenColor(themeColor, 85);
+
   return {
     transition: 'border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
     borderRadius: 'medium' as const,
     border: '1px solid',
-    borderColor: themeColorKey,
-    backgroundColor: themeColorKey,
+    borderColor: themeColor,
+    backgroundColor: themeColor,
     _hover: {
-      backgroundColor: lightenDarkenColor(themeColor, 10),
-      borderColor: lightenDarkenColor(themeColor, 10),
+      backgroundColor: hoverColor,
+      borderColor: hoverColor,
     },
     _focus: {
-      backgroundColor: lightenDarkenColor(themeColor, 10),
-      borderColor: lightenDarkenColor(themeColor, 85),
+      backgroundColor: hoverColor,
+      borderColor: focusBorderColor,
     },
     _active: {
-      backgroundColor: lightenDarkenColor(themeColor, -10),
-      borderColor: lightenDarkenColor(themeColor, -10),
+      backgroundColor: activeColor,
+      borderColor: activeColor,
     },
   };
 };
 
-const getOutlineButtonStyles = (theme: Theme) => {
-  const themeColor = theme.colors['navyblue-450'];
+const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
+  const themeColorKey = getThemeColor(variantColor);
+  const themeColor = theme.colors[themeColorKey];
+
+  const hoverColor = lightenDarkenColor(themeColor, 8);
+  const activeColor = lightenDarkenColor(themeColor, -25);
+  const focusBorderColor = lightenDarkenColor(themeColor, 85);
+
   return {
-    transition: 'border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
+    transition: 'border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
     borderRadius: 'small' as const,
     border: '1px solid',
-    borderColor: 'navyblue-450',
+    borderColor: themeColor,
     backgroundColor: 'transparent',
     _hover: {
-      backgroundColor: 'navyblue-500',
-      borderColor: 'navyblue-500',
+      backgroundColor: hoverColor,
+      borderColor: hoverColor,
     },
     _focus: {
-      backgroundColor: 'navyblue-500',
-      borderColor: lightenDarkenColor(themeColor, 70),
+      backgroundColor: hoverColor,
+      borderColor: focusBorderColor,
     },
     _active: {
-      backgroundColor: 'navyblue-600',
-      borderColor: 'navyblue-600',
+      backgroundColor: activeColor,
+      borderColor: activeColor,
     },
   };
 };
 
-const useButtonStyles = ({ color, variant }: UseButtonStylesProps): AbstractButtonProps => {
+const useButtonStyles = ({ variantColor, variant }: UseButtonStylesProps): AbstractButtonProps => {
   const theme = useTheme();
 
   const styles = React.useMemo(() => {
     switch (variant) {
       case 'outline':
-        return getOutlineButtonStyles(theme);
+        return getOutlineButtonStyles(theme, variantColor);
       case 'solid':
       default:
-        return getSolidButtonStyles(theme, color);
+        return getSolidButtonStyles(theme, variantColor);
     }
-  }, [color, variant]);
+  }, [variantColor, variant]);
 
   return {
     px: 5,

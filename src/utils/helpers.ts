@@ -1,19 +1,4 @@
-import { theme, Theme } from '../theme';
-
-/**
- *
- * @param hex A hex color string
- * @param opacity a value between [0,1]
- * @returns The rgba representation
- */
-export function convertHexToRgba(hex: string, opacity: number) {
-  const hexWithoutHash = hex.replace('#', '');
-  const r = parseInt(hexWithoutHash.substring(0, 2), 16);
-  const g = parseInt(hexWithoutHash.substring(2, 4), 16);
-  const b = parseInt(hexWithoutHash.substring(4, 6), 16);
-
-  return `rgba(${r},${g},${b},${opacity})`;
-}
+import { Theme } from '../theme';
 
 /**
  *
@@ -21,8 +6,8 @@ export function convertHexToRgba(hex: string, opacity: number) {
  * @param opacity a value between [0,1]
  * @returns A new color with opacity  added to it
  */
-export function addOpacity(color: keyof Theme['colors'], opacity: number) {
-  const hexWithoutHash = theme.colors[color].replace('#', '');
+export function addOpacity(color: string, opacity: number) {
+  const hexWithoutHash = color.replace('#', '');
   const r = parseInt(hexWithoutHash.substring(0, 2), 16);
   const g = parseInt(hexWithoutHash.substring(2, 4), 16);
   const b = parseInt(hexWithoutHash.substring(4, 6), 16);

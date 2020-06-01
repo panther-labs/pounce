@@ -15,7 +15,16 @@ export type IconButtonProps = ReactAttributes<React.ButtonHTMLAttributes<HTMLBut
   variant?: 'solid' | 'ghost';
 
   /** The color scheme of the button for solid variants */
-  color?: 'blue' | 'violet' | 'teal' | 'green' | 'orange' | 'red' | 'gray' | 'darkgray';
+  variantColor?:
+    | 'blue'
+    | 'violet'
+    | 'teal'
+    | 'green'
+    | 'orange'
+    | 'red'
+    | 'gray'
+    | 'darkgray'
+    | 'navyblue';
 
   /** Whether the button is disabled */
   disabled?: boolean;
@@ -29,13 +38,19 @@ export type IconButtonProps = ReactAttributes<React.ButtonHTMLAttributes<HTMLBut
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
 export const IconButton: React.FC<IconButtonProps> = React.forwardRef(function IconButton(
-  { color = 'blue', active = false, variant = 'solid', icon, ...rest },
+  { variantColor = 'blue', active = false, variant = 'solid', icon, ...rest },
   ref
 ) {
-  const styles = useIconButtonStyles({ color, variant });
+  const styles = useIconButtonStyles({ variantColor, variant });
 
   return (
-    <AbstractButton ref={ref} aria-pressed={active} data-active={active} {...styles} {...rest}>
+    <AbstractButton
+      ref={ref}
+      aria-pressed={active !== undefined ? active : undefined}
+      data-active={active || undefined}
+      {...styles}
+      {...rest}
+    >
       <Icon type={icon} size="small" display="block" />
     </AbstractButton>
   );

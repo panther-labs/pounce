@@ -1,10 +1,16 @@
 A button can be have multiple colors and variants:
 
 ```typescript jsx
-<SimpleGrid columns={3} gap={4}>
+<SimpleGrid columns={5} gap={4}>
   <Button>Button</Button>
-  <Button color="teal">Button</Button>
+  <Button variantColor="teal">Button</Button>
   <Button variant="outline">Button</Button>
+  <Button variant="outline" variantColor="teal">
+    Button
+  </Button>
+  <Button variant="outline" variantColor="navyblue">
+    Button
+  </Button>
 </SimpleGrid>
 ```
 
@@ -23,10 +29,10 @@ A button be marked as loading:
 
 ```typescript jsx
 <SimpleGrid columns={2} gap={2}>
-  <Button loading color="teal">
+  <Button loading variantColor="teal">
     Button
   </Button>
-  <Button loading disabled color="teal">
+  <Button loading disabled variantColor="teal">
     Button
   </Button>
 </SimpleGrid>
@@ -35,7 +41,7 @@ A button be marked as loading:
 A button can occupy the full width oof its parent:
 
 ```typescript jsx
-<Button color="teal" fullWidth>
+<Button variantColor="teal" fullWidth>
   Button
 </Button>
 ```

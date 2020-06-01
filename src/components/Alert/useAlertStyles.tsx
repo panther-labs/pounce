@@ -1,14 +1,8 @@
-import { icons, Theme } from '../../theme';
 import { AlertProps } from './Alert';
 
 type UseAlertStylesProps = Pick<AlertProps, 'variant'>;
 
-type UseAlertStylesPayload = {
-  icon: keyof typeof icons;
-  backgroundColor: keyof Theme['colors'];
-};
-
-const useAlertStyles = ({ variant }: UseAlertStylesProps): UseAlertStylesPayload => {
+const useAlertStyles = ({ variant }: UseAlertStylesProps) => {
   switch (variant) {
     case 'success':
       return {
