@@ -7,23 +7,23 @@ export interface ProgressBarProps {
   thickness?: number;
 
   /** The color of the progress bar as it fills out */
-  progressColor?: keyof Theme['colors'];
+  color?: keyof Theme['colors'];
 
   /** A value between [0,1] denoting the progress of the bar */
   progress: number;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ progress, thickness = 5, progressColor }) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ progress, thickness = 5, color }) => {
   return (
     <Box width={1} position="relative">
-      <Box height={thickness} bg="grey50" borderRadius="pill" zIndex={0} />
+      <Box height={thickness} bg="navyblue-450" borderRadius="pill" zIndex={0} />
       <Box
         position="absolute"
         borderRadius="pill"
         bottom={0}
         height={thickness}
         width={progress}
-        bg={progressColor}
+        bg={color}
         zIndex={1}
       />
     </Box>
