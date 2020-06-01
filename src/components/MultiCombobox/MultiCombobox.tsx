@@ -144,7 +144,6 @@ function MultiCombobox<Item extends string | object>({
         getItemProps,
         getMenuProps,
         getLabelProps,
-        highlightedIndex,
         inputValue,
         isOpen,
         toggleMenu,
@@ -276,13 +275,11 @@ function MultiCombobox<Item extends string | object>({
                   maxHeight={maxHeight}
                   overflow="auto"
                 >
-                  {results.map((item, index) => (
+                  {results.map(item => (
                     <MenuItem
                       {...getItemProps({ item, disabled: disableItem(item) })}
                       key={itemToString(item)}
-                      highlighted={highlightedIndex === index}
                       selected={item === selectedItem}
-                      disabled={disableItem(item)}
                     >
                       {itemToString(item)}
                     </MenuItem>

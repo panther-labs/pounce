@@ -106,7 +106,6 @@ function Combobox<Item>({
         getItemProps,
         getMenuProps,
         getLabelProps,
-        highlightedIndex,
         selectedItem,
         isOpen,
         toggleMenu,
@@ -208,13 +207,11 @@ function Combobox<Item>({
                   maxHeight={maxHeight}
                   overflow="auto"
                 >
-                  {results.map((item, index) => (
+                  {results.map(item => (
                     <MenuItem
                       {...getItemProps({ item, disabled: disableItem(item) })}
                       key={itemToString(item)}
-                      highlighted={highlightedIndex === index}
                       selected={item === selectedItem}
-                      disabled={disableItem(item)}
                     >
                       {itemToString(item)}
                     </MenuItem>
