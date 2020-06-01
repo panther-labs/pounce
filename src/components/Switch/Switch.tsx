@@ -63,9 +63,8 @@ const Switch: React.FC<SwitchProps> = ({
         </Box>
       )}
       <Flex
+        position="relative"
         align="center"
-        justify="space-between"
-        direction={checked ? 'row-reverse' : 'row'}
         borderRadius="pill"
         width={54}
         height={27}
@@ -73,8 +72,23 @@ const Switch: React.FC<SwitchProps> = ({
         transition="background-color 0.15s linear"
         backgroundColor={invalid ? 'red-200' : checked ? 'blue-600' : 'gray-700'}
       >
-        <Box as="span" width={21} height={21} borderRadius="circle" bg="white" flexShrink={0} />
-        <Box as="span" fontWeight="bold" fontSize="x-small" userSelect="none" mx={1}>
+        <Box
+          width={21}
+          height={21}
+          borderRadius="circle"
+          bg="white"
+          transform={checked ? 'translate3D(120%, 0, 0)' : 'translate3D(0, 0, 0)'}
+          transition="transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
+        />
+        <Box
+          fontWeight="bold"
+          fontSize="x-small"
+          userSelect="none"
+          mx="7px"
+          position="absolute"
+          left={checked ? 0 : undefined}
+          right={!checked ? 0 : undefined}
+        >
           {checked ? checkedText : uncheckedText}
         </Box>
         <Box
