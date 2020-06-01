@@ -45,7 +45,6 @@ export { default as Card } from './components/Card';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Combobox } from './components/Combobox';
 export { default as DateInput } from './components/DateInput';
-export { default as Dropdown } from './components/Dropdown';
 export { default as Flex } from './components/Flex';
 export { default as FormError } from './components/FormError';
 export { default as FormHelperText } from './components/FormHelperText';

@@ -1,35 +1,69 @@
 import React from 'react';
+import { forwardRefWithAs } from '@reach/utils';
 import {
   Menu as ReachMenu,
-  MenuList as ReachMenuList,
   MenuItem as ReachMenuItem,
+  MenuLink as ReachMenuLink,
+  MenuPopover as ReachMenuPopover,
+  MenuItems as ReachMenuItems,
   MenuButton as ReachMenuButton,
+  MenuLinkProps as ReachMenuLinkProps,
 } from '@reach/menu-button';
-import Card, { CardProps } from '../Card';
+import useDropdownAlignment from './useDropdownAlignment';
+import Card from '../Card';
+import MenuItem from '../utils/MenuItem';
 
-export interface DropdownProps extends CardProps {
-  /** The element that will toggle (open/close) the dropdown.  */
-  trigger: React.ReactNode;
+export interface DropdownMenuProps {
+  alignment?: 'left' | 'right' | 'match-width';
 }
 
-/**
- * A dropdown is simply a menu that opens up when a certain element is clicked on the screen. It's
- * similar to a popup with the difference that it's a menu which holds a set of clickable items
- * inside it.
- */
-export const Dropdown: React.FC<DropdownProps> & { Item: typeof ReachMenuItem } = ({
-  trigger,
-  children,
-  ...rest
-}) => (
-  <ReachMenu>
-    <ReachMenuButton>{trigger}</ReachMenuButton>
-    <Card as={ReachMenuList} position="absolute" top="100%" left={0} zIndex={99} mt={2} {...rest}>
-      {children}
-    </Card>
-  </ReachMenu>
+export const Dropdown = ReachMenu;
+
+export const DropdownButton = ReachMenuButton;
+
+export const DropdownMenu: React.FC<DropdownMenuProps> = ({ alignment = 'right', children }) => {
+  const position = useDropdownAlignment({ alignment });
+
+  return (
+    <ReachMenuPopover position={position}>
+      <Card
+        as={ReachMenuItems}
+        bg="navyblue-450"
+        zIndex={99}
+        mt={2}
+        outline="none"
+        overflow="hidden"
+      >
+        {children}
+      </Card>
+    </ReachMenuPopover>
+  );
+};
+
+export const DropdownItem = forwardRefWithAs<ReachMenuLinkProps & { disabled?: boolean }, 'div'>(
+  function DropdownItem({ children, onSelect = () => {}, disabled, ...rest }, ref) {
+    if (disabled) {
+      return <MenuItem disabled>{children}</MenuItem>;
+    }
+
+    return (
+      <ReachMenuItem onSelect={onSelect} ref={ref} {...rest}>
+        <MenuItem>{children}</MenuItem>
+      </ReachMenuItem>
+    );
+  }
 );
 
-Dropdown.Item = ReachMenuItem;
+export const DropdownLink = forwardRefWithAs<ReachMenuLinkProps & { disabled?: boolean }, 'a'>(
+  function DropdownLink({ children, disabled, ...rest }, ref) {
+    if (disabled) {
+      return <MenuItem disabled>{children}</MenuItem>;
+    }
 
-export default Dropdown;
+    return (
+      <ReachMenuLink ref={ref} {...rest}>
+        <MenuItem disabled={disabled}>{children}</MenuItem>
+      </ReachMenuLink>
+    );
+  }
+);

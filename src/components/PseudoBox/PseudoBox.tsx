@@ -143,7 +143,7 @@ const disabled =
   '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover';
 const checked = '&[aria-checked=true]';
 const mixed = '&[aria-checked=mixed]';
-const selected = '&[aria-selected=true]';
+const selected = '&[aria-selected=true], [data-selected] > &';
 const invalid = '&[aria-invalid=true]';
 const pressed = '&[aria-pressed=true]';
 const readOnly = '&[aria-readonly=true], &[readonly]';

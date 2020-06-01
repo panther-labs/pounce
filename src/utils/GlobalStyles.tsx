@@ -301,33 +301,9 @@ const GlobalStyles: React.FC = () => {
       border-radius: ${theme.radii.small}px;
     }
 
-    /* ***************** @reach/menu-button ***************** */
-
-    /* Used to detect in JavaScript if apps have loaded styles or not. */
+    /* Let reach-ui know that we took care of the styles */
     :root {
       --reach-menu-button: 1;
-    }
-
-    [data-reach-menu] {
-      position: absolute;
-    }
-
-    [data-reach-menu-list] {
-      white-space: nowrap;
-      outline: none;
-    }
-
-    [data-reach-menu-button] {
-      cursor: pointer;
-      background-color: inherit;
-    }
-
-    [data-reach-menu-item] {
-      outline: none;
-
-      &[data-selected] {
-        background: ${theme.colors.grey50};
-      }
     }
   `;
 
