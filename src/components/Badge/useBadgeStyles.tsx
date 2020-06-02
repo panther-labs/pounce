@@ -7,15 +7,10 @@ type UseBadgeStylesPayload = Partial<FlexProps>;
 const useBadgeStyles = ({ variant, color }: UseBadgeStylesProps): UseBadgeStylesPayload => {
   switch (variant) {
     case 'outline':
-      return {
-        border: '1px solid',
-        borderColor: color,
-        bg: 'transparent' as const,
-        color: 'white',
-      };
+      return { border: '1px solid', borderColor: color, bg: 'transparent' as const };
     case 'solid':
     default:
-      return { bg: color, color: 'gray-50' };
+      return { bg: color };
   }
 };
 

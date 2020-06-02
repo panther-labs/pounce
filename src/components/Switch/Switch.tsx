@@ -54,7 +54,6 @@ const Switch: React.FC<SwitchProps> = ({
       alignItems="center"
       cursor="pointer"
       fontSize="medium"
-      color="gray-50"
       {...(disabled && disabledStyles)}
     >
       {label && (

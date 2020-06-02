@@ -12,6 +12,11 @@ const GlobalStyles: React.FC = () => {
       line-height: ${theme.lineHeights.normal};
     }
 
+    html {
+      color: ${theme.colors['gray-50']};
+      font-family: ${theme.fonts.primary};
+    }
+
     html,
     body,
     div,
@@ -99,8 +104,6 @@ const GlobalStyles: React.FC = () => {
       padding: 0;
       border: 0;
       font-size: 100%;
-      font-family: ${theme.fonts.primary};
-      color: inherit;
       vertical-align: baseline;
     }
     /* HTML5 display-role reset for older browsers */
@@ -157,27 +160,6 @@ const GlobalStyles: React.FC = () => {
     input[type='number']::-webkit-inner-spin-button,
     input[type='number']::-webkit-outer-spin-button {
       -webkit-appearance: none;
-    }
-
-    /* These commands can't be grouped into a single one. It's a browser limitation */
-    input::-webkit-input-placeholder {
-      color: ${theme.colors['gray-50']};
-    }
-    input:-ms-input-placeholder {
-      color: ${theme.colors['gray-50']};
-    }
-    input::placeholder {
-      color: ${theme.colors['gray-50']};
-    }
-
-    textarea::-webkit-input-placeholder {
-      color: ${theme.colors['gray-50']};
-    }
-    textarea:-ms-input-placeholder {
-      color: ${theme.colors['gray-50']};
-    }
-    textarea::placeholder {
-      color: ${theme.colors['gray-50']};
     }
 
     /* ***************** react-day-picker ***************** */

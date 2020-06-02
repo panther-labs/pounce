@@ -29,7 +29,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...re
     <PseudoBox
       cursor="pointer"
       fontSize="medium"
-      color="gray-50"
       py={4}
       pl={4}
       pr={!selected ? 4 : 10}

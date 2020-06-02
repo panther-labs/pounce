@@ -79,7 +79,7 @@ export const SnackbarProvider: React.FC = ({ children }) => {
       <Flex
         position="fixed"
         bottom={4}
-        left={6}
+        right={6}
         flexDirection="column"
         justifyContent="center"
         alignItems="center"

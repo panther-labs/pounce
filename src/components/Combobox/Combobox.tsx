@@ -186,7 +186,6 @@ function Combobox<Item>({
                 top={0}
                 bottom={0}
                 right={4}
-                color="gray-50"
               />
             </Box>
             <Box as="ul" mt="-3px" {...getMenuProps()}>

@@ -4,7 +4,9 @@ import ThemeProvider from './ThemeProvider';
 
 const StyleguidistWrapper: React.FC = ({ children }) => (
   <ThemeProvider>
-    <Flex width="100%">{children}</Flex>
+    <Flex width="100%" backgroundColor="navyblue-800" p={5}>
+      {children}
+    </Flex>
   </ThemeProvider>
 );
 

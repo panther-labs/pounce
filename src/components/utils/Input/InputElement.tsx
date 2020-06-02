@@ -23,13 +23,15 @@ const InputElement: React.FC<InputElementProps> = React.forwardRef(function Inpu
       pt={5}
       pb={2}
       position="relative"
+      fontFamily="primary"
+      color="gray-50"
       fontSize="medium"
       fontWeight="medium"
       backgroundColor="transparent"
       border="none"
-      color="gray-50"
       _placeholder={{
         opacity: 0,
+        color: 'gray-50',
         transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
       }}
       _focus={{

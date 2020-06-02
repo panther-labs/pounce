@@ -49,7 +49,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
       cursor="pointer"
       fontSize="medium"
       fontWeight="medium"
-      color="gray-50"
       verticalAlign="top"
       {...(disabled && disabledStyles)}
     >
