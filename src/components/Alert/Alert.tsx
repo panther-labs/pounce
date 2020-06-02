@@ -64,8 +64,8 @@ const Alert: React.FC<AlertProps> = ({
           {title}
         </Box>
         {discardable && (
-          <Box m={-3}>
-            <IconButton aria-label="Discard" variant="ghost" icon="close" onClick={close} />
+          <Box my={-3} mr={-3} ml={3}>
+            <IconButton aria-label="Discard" variant="unstyled" icon="close" onClick={close} />
           </Box>
         )}
       </Flex>

@@ -10,6 +10,15 @@ import { ButtonProps } from '../Button';
 type ButtonColorVariant = ButtonProps['variantColor'];
 type UseIconButtonStyles = Required<Pick<IconButtonProps, 'variantColor' | 'variant'>>;
 
+export const getUnstyledButtonStyles = (theme: Theme) => {
+  return {
+    _focus: {
+      borderRadius: 'circle' as const,
+      backgroundColor: addOpacity(theme.colors.white, 0.1),
+    },
+  };
+};
+
 export const getGhostButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
   const themeColorKey = getThemeColor(variantColor);
   const themeColor = theme.colors[themeColorKey];
@@ -42,6 +51,8 @@ const useIconButtonStyles = ({
     switch (variant) {
       case 'ghost':
         return getGhostButtonStyles(theme, variantColor);
+      case 'unstyled':
+        return getUnstyledButtonStyles(theme);
       case 'solid':
       default:
         return getSolidButtonStyles(theme, variantColor);

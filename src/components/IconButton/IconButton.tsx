@@ -12,7 +12,7 @@ export type IconButtonProps = ReactAttributes<React.ButtonHTMLAttributes<HTMLBut
   icon: IconProps['type'];
 
   /** The style of the icon button */
-  variant?: 'solid' | 'ghost';
+  variant?: 'solid' | 'ghost' | 'unstyled';
 
   /** The color scheme of the button for solid variants */
   variantColor?:
@@ -55,9 +55,5 @@ export const IconButton: React.FC<IconButtonProps> = React.forwardRef(function I
     </AbstractButton>
   );
 });
-
-IconButton.defaultProps = {
-  active: false,
-};
 
 export default IconButton;
