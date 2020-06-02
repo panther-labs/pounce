@@ -35,6 +35,7 @@ const typography = {
   },
   letterSpacings: {
     normal: 'normal',
+    relaxed: '1.5px',
   },
 };
 

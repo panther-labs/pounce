@@ -1,9 +1,23 @@
 Links are elements used primarily for navigation.
 
 ```typescript jsx
-<Link color="blue300" href="https://google.com">
-  I am a blue link
-</Link>
+<Box>
+  <Box mb={3}>
+    <Link variant="prominent" href="/#/Box">
+      I am a prominent link
+    </Link>
+  </Box>
+  <Box mb={3}>
+    <Link variant="neutral" href="/#/Box">
+      I am a neutral link
+    </Link>
+  </Box>
+  <Box mb={3}>
+    <Link variant="discreet" href="/#/Box">
+      I am a discreet link
+    </Link>
+  </Box>
+</Box>
 ```
 
 A link can be disabled:
@@ -25,7 +39,7 @@ A link can be external:
 A link can implement a React-router `Link` or anything you might want:
 
 ```typescript jsx
-<Link as={Text} size="small" href="https://google.com">
-  I am a Text link
+<Link as={Heading} size="large" href="https://google.com">
+  I am a link rendered as a Heading
 </Link>
 ```

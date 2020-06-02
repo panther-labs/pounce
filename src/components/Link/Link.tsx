@@ -1,48 +1,36 @@
 import React from 'react';
 import PseudoBox from '../PseudoBox';
 import { BoxProps } from '../Box';
+import { disabledStyles } from '../../utils/common';
+import useLinkStyles from './useLinkStyles';
 
-const baseStyleProps = {
-  transition: `all 0.15s ease-out`,
-  cursor: 'pointer',
-  textDecoration: 'none',
-  outline: 'none',
-  _hover: {
-    textDecoration: 'underline',
-  },
-  _focus: {
-    boxShadow: 'outline',
-  },
-  _disabled: {
-    opacity: 0.4,
-    cursor: 'not-allowed',
-    textDecoration: 'none',
-  },
-};
-
-export interface LinkProps extends BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>> {
+export interface LinkProps
+  extends Omit<BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>, 'color'> {
   /** Whether the link is external and should open in a new tab */
   external?: boolean;
+
+  /** The text style & color of the link */
+  variant?: 'prominent' | 'neutral' | 'discreet';
 
   /** Whether the link should be disabled */
   disabled?: boolean;
 }
 
 const Link: React.FC<LinkProps> = React.forwardRef(function Link(
-  { external, disabled, onClick, ...rest },
+  { external, disabled, variant, ...rest },
   ref
 ) {
   const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+  const variantStyles = useLinkStyles({ variant });
 
   return (
     <PseudoBox
-      as="a"
+      as={disabled ? 'span' : 'a'}
       ref={ref}
-      tabIndex={disabled ? -1 : undefined}
       aria-disabled={disabled}
-      onClick={disabled ? event => event.preventDefault() : onClick}
+      {...(disabled && disabledStyles)}
       {...externalProps}
-      {...baseStyleProps}
+      {...variantStyles}
       {...rest}
     />
   );

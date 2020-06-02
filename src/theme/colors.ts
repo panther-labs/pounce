@@ -47,6 +47,7 @@ const colors = {
   'navyblue-900': '#141C2A',
 
   'gray-50': '#F6F6F6',
+  'gray-100': '#D2D2D2',
   'gray-200': '#BDBDBD',
   'gray-300': '#ABABAB',
   'gray-400': '#626E80',
