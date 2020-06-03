@@ -286,6 +286,7 @@ const GlobalStyles: React.FC = () => {
     /* Let reach-ui know that we took care of the styles */
     :root {
       --reach-menu-button: 1;
+      --reach-tooltip: 1;
     }
   `;
 

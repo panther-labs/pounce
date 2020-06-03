@@ -1,60 +1,28 @@
 import React from 'react';
-import ReactTooltipLite from 'react-tooltip-lite';
-import Box from '../Box';
+import ReachTooltip from '@reach/tooltip';
+import Card from '../Card';
+import { positionRight } from './utils';
 
 export interface TooltipProps {
   /** The string or HTML that the tooltip will show*/
   content: string | React.ReactElement;
-
-  /** The positioning of the Tooltip with regards to the visible element */
-  positioning?: 'up' | 'left' | 'down' | 'right';
-
-  /** Whether the toolip will stay visible while hovering over it */
-  allowHover?: boolean;
-
-  /** How much should it wait before showing the tooltip */
-  hoverDelay?: number;
 }
 
 /** A tooltip is a helper that shows some helping text when hovering or clicking something */
-const Tooltip: React.FC<TooltipProps> = ({
-  positioning,
-  allowHover,
-  content,
-  children,
-  hoverDelay,
-}) => {
+const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
   return (
-    <ReactTooltipLite
-      padding="0"
-      arrowSize={6}
-      distance={10}
-      direction={positioning}
-      tipContentHover={allowHover}
-      hoverDelay={hoverDelay}
-      content={
-        <Box
-          px={3}
-          py={2}
-          bg="grey500"
-          color="white"
-          borderRadius="small"
-          width="fit-content"
-          maxWidth={400}
-        >
+    <ReachTooltip
+      position={positionRight}
+      style={{ zIndex: 1, position: 'absolute' }}
+      label={
+        <Card p={4} m={2} fontSize="small">
           {content}
-        </Box>
+        </Card>
       }
     >
       {children}
-    </ReactTooltipLite>
+    </ReachTooltip>
   );
 };
 
-Tooltip.defaultProps = {
-  positioning: 'right',
-  allowHover: false,
-  hoverDelay: 200,
-};
-
-export default Tooltip;
+export default React.memo(Tooltip);
