@@ -4,7 +4,7 @@ import useHeadingStyles from './useHeadingStyles';
 
 export interface HeadingProps extends BoxProps<React.AllHTMLAttributes<HTMLHeadingElement>> {
   /** The size of the font */
-  size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large';
+  size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large' | '3x-large';
 }
 
 /**

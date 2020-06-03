@@ -5,6 +5,8 @@ type UseHeadingStyles = Pick<HeadingProps, 'size'>;
 
 const useHeadingStyles = ({ size }: UseHeadingStyles): BoxProps => {
   switch (size) {
+    case '3x-large':
+      return { fontSize: '7x-large' as const };
     case '2x-large':
       return { fontSize: '6x-large' as const };
     case 'x-large':

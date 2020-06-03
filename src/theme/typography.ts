@@ -14,6 +14,7 @@ const typography = {
     '4x-large': '1.75rem',
     '5x-large': '1.875rem',
     '6x-large': '2.188rem',
+    '7x-large': '3.438rem',
   },
   fontWeights: {
     normal: 400,
