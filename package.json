@@ -22,7 +22,6 @@
   "dependencies": {
     "@emotion/react": "^11.0.0-next.12",
     "@emotion/styled": "^11.0.0-next.12",
-    "@material-ui/core": "^4.9.8",
     "@reach/dialog": "^0.10.3",
     "@reach/menu-button": "^0.10.3",
     "@reach/tooltip": "^0.10.3",
@@ -42,7 +41,6 @@
     "fuzzaldrin": "^2.1.0",
     "react-day-picker": "^7.4.0",
     "react-textarea-autosize": "^7.1.2",
-    "react-tooltip-lite": "^1.11.2",
     "styled-system": "^5.1.5"
   },
   "peerDependencies": {
