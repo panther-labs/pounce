@@ -1,21 +1,20 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import Heading from '../Heading';
 import Flex from '../Flex';
 import Icon from '../Icon';
+import Box from '../Box';
+import PseudoBox from '../PseudoBox';
 
-const StyledHeading = styled(Heading)`
-  transition: color 0.1s ease-in-out;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.black};
-  }
-
-  * {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
+const defaultItemRenderer = (item: BreadcrumbItem) => (
+  <PseudoBox
+    as="a"
+    href={item.href}
+    color="inherit"
+    _hover={{ textDecoration: 'underline' }}
+    textDecoration="none"
+  >
+    {item.text}
+  </PseudoBox>
+);
 
 export interface BreadcrumbItem {
   /** The URL that this Breadcrumbs should navigate to when clicked */
@@ -33,32 +32,42 @@ export interface BreadcrumbProps {
    * The component to render for each Breadcrumb. This provides an easy way to integrate with your
    * favourite router library (i.e. `reach-router`, `react-router`, etc.).
    */
-  itemRenderer?: (item: BreadcrumbItem) => React.ReactNode;
+  itemRenderer: (item: BreadcrumbItem) => React.ReactNode;
 }
 
 /** Breadcrumb is a way to navigate back to where you came from within the app */
-const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, itemRenderer }) => {
+const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, itemRenderer = defaultItemRenderer }) => {
   return (
-    <Flex as="ol">
-      {items.map((item, index) => {
-        const isLastBreadcrumb = index === items.length - 1;
+    <Box as="nav" aria-label="Breadcrumbs">
+      <Flex as="ol">
+        {items.map((item, index) => {
+          const isLastBreadcrumb = index === items.length - 1;
 
-        return (
-          <Flex key={item.href} as="li" alignItems="center">
-            <StyledHeading color={isLastBreadcrumb ? 'grey500' : 'grey300'} size="large">
-              {itemRenderer && itemRenderer(item)}
-            </StyledHeading>
-            {!isLastBreadcrumb && <Icon type="chevron-right" mx={4} color="grey300" size="large" />}
-          </Flex>
-        );
-      })}
-    </Flex>
+          return (
+            <Flex
+              key={item.href}
+              as="li"
+              alignItems="center"
+              fontSize="medium"
+              fontWeight={isLastBreadcrumb ? 'bold' : 'normal'}
+              aria-current={isLastBreadcrumb ? 'page' : undefined}
+            >
+              {itemRenderer(item)}
+              {!isLastBreadcrumb && (
+                <Icon
+                  type="chevron-right"
+                  mx={2}
+                  color="blue-400"
+                  size="small"
+                  role="presentation"
+                />
+              )}
+            </Flex>
+          );
+        })}
+      </Flex>
+    </Box>
   );
-};
-
-Breadcrumbs.defaultProps = {
-  // eslint-disable-next-line react/display-name
-  itemRenderer: item => <a href={item.href}>{item.text}</a>,
 };
 
 export default Breadcrumbs;
