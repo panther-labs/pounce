@@ -25,15 +25,14 @@ const TableHeaderCell: React.FC<TableHeaderCellProps> = React.forwardRef(functio
       role="columnheader"
       ref={ref}
       p={size === 'medium' ? 4 : 2}
-      color="grey400"
-      fontWeight="bold"
+      fontWeight="medium"
       textTransform="uppercase"
       fontSize="small"
       textAlign={align}
       aria-sort={sortDir ? sortDir : undefined}
       position={stickyHeader ? 'sticky' : undefined}
       top={stickyHeader ? 0 : undefined}
-      backgroundColor={stickyHeader ? 'primary50' : 'inherit'}
+      backgroundColor={stickyHeader ? 'navyblue-500' : 'inherit'}
       verticalAlign="middle"
       {...rest}
     />

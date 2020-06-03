@@ -23,7 +23,6 @@ const TableCell: React.FC<TableCellProps> = React.forwardRef(function TableCell(
       role="cell"
       ref={ref}
       p={size === 'medium' ? 4 : 2}
-      color="black"
       fontSize="medium"
       textAlign={align}
       overflowWrap={wrapText === 'wrap' ? 'break-word' : undefined}

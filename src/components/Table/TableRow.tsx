@@ -7,6 +7,7 @@ export interface TableRowProps extends ReactAttributes<React.AllHTMLAttributes<H
   /** Whether the row should appear as selected. Defaults to `false` */
   selected?: boolean;
 
+  /** @ignore */
   children: React.ReactNode;
 }
 
@@ -22,7 +23,7 @@ const TableRow: React.FC<TableRowProps> = React.forwardRef(function TableRow(
       styles = {
         ...styles,
         'tbody > &:nth-of-type(odd)': {
-          backgroundColor: 'grey50' as const,
+          backgroundColor: 'navyblue-700' as const,
         },
       };
     }
@@ -31,7 +32,7 @@ const TableRow: React.FC<TableRowProps> = React.forwardRef(function TableRow(
       styles = {
         ...styles,
         borderBottom: '1px solid',
-        borderColor: 'grey100' as const,
+        borderColor: 'navyblue-500' as const,
       };
     }
 
@@ -40,7 +41,7 @@ const TableRow: React.FC<TableRowProps> = React.forwardRef(function TableRow(
         ...styles,
         transition: 'all 0.05s linear',
         '&:hover': {
-          backgroundColor: 'grey50' as const,
+          backgroundColor: 'navyblue-700' as const,
         },
       };
     }
@@ -49,8 +50,8 @@ const TableRow: React.FC<TableRowProps> = React.forwardRef(function TableRow(
       styles = {
         ...styles,
         '&, &:hover': {
-          backgroundColor: 'primary50' as const,
-          borderColor: 'primary50' as const,
+          backgroundColor: 'navyblue-900' as const,
+          borderColor: 'navyblue-900' as const,
         },
       };
     }
