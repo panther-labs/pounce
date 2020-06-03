@@ -11,19 +11,20 @@ const Example = () => {
 
   return (
     <div>
-      <Button size="large" variant="primary" onClick={() => setOpen(true)}>
-        Open Sidesheet
-      </Button>
+      <Button onClick={() => setOpen(true)}>Open Sidesheet</Button>
       <SideSheet open={open} onClose={() => setOpen(false)}>
         <Flex alignItems="center" mb={8}>
-          <IconButton variant="default" mr={4}>
-            <Icon size="small" type="arrow-back" />
-          </IconButton>
-          <Heading size="medium">Output settings</Heading>
+          <IconButton
+            icon="arrow-back"
+            aria-label="Dismiss Dialog"
+            variant="ghost"
+            variantColor="navyblue"
+          />
+          <Heading size="medium" ml={2}>
+            Output settings
+          </Heading>
         </Flex>
-        <Text size="medium" color="grey400">
-          Add a new output below to deliver alerts to a specific application for further triage.
-        </Text>
+        Add a new output below to deliver alerts to a specific application for further triage.
       </SideSheet>
     </div>
   );

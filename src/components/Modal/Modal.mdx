@@ -1,11 +1,10 @@
 The Modal is a controlled component. This means that you should control its
 opening and closing from "outside".
 
-Whenever you don't provide the `title`, you should opt for providing the
-`aria-describedby` and `aria-labeledby` props yourself in all the Modal
-components within your app.
+When providing a `title`, the `aria-labeledby` attribute is automatically populated for you.
+Depending on the content, you may opt to supply a `aria-describedby` attribute yourself
 
-A modal can persist when ESC or backdrop is clicked:
+A modal can be simple:
 
 ```typescript jsx
 const Example = () => {
@@ -13,12 +12,9 @@ const Example = () => {
 
   return (
     <div>
-      <Button size="large" variant="primary" onClick={() => setOpen(true)}>
-        Open Modal No.1
-      </Button>
-      <Modal open={open} onClose={() => setOpen(false)} disableEscapeKeyDown disableBackdropClick>
-        <Flex alignItems="center" justifyContent="center" flexDirection="column">
-          <Text size="medium">It works!</Text>
+      <Button onClick={() => setOpen(true)}>Open Modal No.1</Button>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <Flex justify="center">
           <Button variant="primary" onClick={() => setOpen(false)} size="small" mt={3}>
             Click me to close
           </Button>
@@ -31,7 +27,7 @@ const Example = () => {
 <Example />;
 ```
 
-A modal can close when ESC or backdrop is clicked:
+A modal can have a title:
 
 ```typescript jsx
 const Example = () => {
@@ -39,13 +35,13 @@ const Example = () => {
 
   return (
     <div>
-      <Button size="large" onClick={() => setOpen(true)}>
-        Open Modal No.2
-      </Button>
-      <Modal open={open} onClose={() => setOpen(false)}>
-        <Text size="medium" textAlign="center">
-          It works!
-        </Text>
+      <Button onClick={() => setOpen(true)}>Open Modal No.1</Button>
+      <Modal open={open} onClose={() => setOpen(false)} title="Hello">
+        <Flex justify="center">
+          <Button variant="primary" onClick={() => setOpen(false)} size="small" mt={3}>
+            Click me to close
+          </Button>
+        </Flex>
       </Modal>
     </div>
   );
@@ -54,8 +50,7 @@ const Example = () => {
 <Example />;
 ```
 
-The `title` prop is a useful shortcut when you want to avoid having too much
-text to explain what's going on in the modal:
+A modal can have a close button:
 
 ```typescript jsx
 const Example = () => {
@@ -63,18 +58,9 @@ const Example = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Open Modal No.3</Button>
-      <Modal open={open} onClose={() => setOpen(false)} title="Are you sure?">
-        <Text size="medium" color="grey400">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-          a galley of type and scrambled it to make a type specimen book.
-        </Text>
-        <Flex justifyContent="center" alignItems="center" mt={5}>
-          <Button variant="default" onClick={() => setOpen(false)}>
-            Erm, I agree?
-          </Button>
-        </Flex>
+      <Button onClick={() => setOpen(true)}>Open Modal No.1</Button>
+      <Modal open={open} onClose={() => setOpen(false)} title="Hello" showCloseButton>
+        Whatever
       </Modal>
     </div>
   );

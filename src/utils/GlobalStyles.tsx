@@ -287,6 +287,17 @@ const GlobalStyles: React.FC = () => {
     :root {
       --reach-menu-button: 1;
       --reach-tooltip: 1;
+      --reach-dialog: 1;
+    }
+
+    [data-reach-dialog-overlay] {
+      background: hsla(0, 0%, 0%, 0.33);
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: auto;
     }
   `;
 
