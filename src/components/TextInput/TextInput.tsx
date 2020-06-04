@@ -17,16 +17,10 @@ export type TextInputProps = ReactAttributes<React.InputHTMLAttributes<HTMLInput
   disabled?: boolean;
 };
 
-const TextInput: React.FC<TextInputProps> = ({
-  label,
-  invalid,
-  required,
-  disabled,
-  id,
-  name,
-  value,
-  ...rest
-}) => {
+const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
+  { label, invalid, required, disabled, id, name, value, ...rest },
+  ref
+) {
   const identifier = id || name || slugify(label);
 
   return (
@@ -39,12 +33,13 @@ const TextInput: React.FC<TextInputProps> = ({
         value={value}
         truncated
         {...rest}
+        ref={ref}
       />
       <InputLabel raised={!!value} htmlFor={identifier}>
         {label}
       </InputLabel>
     </InputControl>
   );
-};
+});
 
 export default React.memo(TextInput);

@@ -18,26 +18,27 @@ export type TextAreaProps = ReactAttributes<React.TextareaHTMLAttributes<HTMLTex
   disabled?: boolean;
 };
 
-const TextArea: React.FC<TextAreaProps> = ({
-  label,
-  invalid,
-  required,
-  disabled,
-  id,
-  name,
-  value,
-  ...rest
-}) => {
+const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
+  { label, invalid, required, disabled, id, name, value, ...rest },
+  ref
+) {
   const identifier = id || name || slugify(label);
 
   return (
     <InputControl invalid={invalid} disabled={disabled} required={required}>
-      <InputElement as={TextareaAutosize} id={identifier} name={name} value={value} {...rest} />
+      <InputElement
+        as={TextareaAutosize}
+        id={identifier}
+        name={name}
+        value={value}
+        {...rest}
+        ref={ref}
+      />
       <InputLabel raised={!!value} htmlFor={identifier}>
         {label}
       </InputLabel>
     </InputControl>
   );
-};
+});
 
 export default TextArea;

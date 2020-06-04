@@ -60,12 +60,10 @@ const parseDate = (str: string, format: string): Date | undefined => {
  * <a href="/#/TextInput">TextInput</a> component (i.e. placeholder, etc.)
  *
  * */
-const DateInput: React.FC<DateInputProps> = ({
-  format = 'MM/DD/YYYY',
-  value,
-  onChange,
-  ...rest
-}) => {
+const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(function DateInput(
+  { format = 'MM/DD/YYYY', value, onChange, ...rest },
+  ref
+) {
   return (
     <DayPickerInput
       overlayComponent={OverlayComponent}
@@ -74,9 +72,9 @@ const DateInput: React.FC<DateInputProps> = ({
       parseDate={parseDate}
       format={format}
       value={value}
-      component={(props: TextInputProps) => <TextInput {...props} {...rest} />}
+      component={(props: TextInputProps) => <TextInput {...props} {...rest} ref={ref} />}
     />
   );
-};
+});
 
 export default React.memo(DateInput);

@@ -237,7 +237,7 @@ function MultiCombobox<Item extends string | object>({
                 <InputElement
                   as="input"
                   type="text"
-                  {...(getInputProps(additionalInputProps) as InputElementProps)}
+                  {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
                 />
                 <InputLabel raised={!!value.length} {...getLabelProps()}>
                   {label}

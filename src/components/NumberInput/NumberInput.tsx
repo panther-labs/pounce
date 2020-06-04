@@ -32,25 +32,25 @@ export type NumberInputProps = ReactAttributes<React.InputHTMLAttributes<HTMLInp
 /**
  * A number input is a typical HTML <input> for numbers
  */
-const NumberInput: React.FC<NumberInputProps> = ({
-  label,
-  invalid,
-  required,
-  disabled,
-  id,
-  name,
-  value,
-  max,
-  min,
-  ...rest
-}) => {
-  const ref = React.useRef<HTMLInputElement>(null);
+const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(function NumberInput(
+  { label, invalid, required, disabled, id, name, value, max, min, ...rest },
+  ref
+) {
+  const _ref = React.useRef<HTMLInputElement>(null);
   const identifier = id || name || slugify(label);
+
+  const mergeRefs = React.useCallback((element: HTMLInputElement) => {
+    (_ref as React.MutableRefObject<HTMLInputElement>).current = element;
+    if (typeof ref === 'function') {
+      ref(element);
+    } else if (ref) {
+      (ref as React.MutableRefObject<HTMLInputElement>).current = element;
+    }
+  }, []);
 
   return (
     <InputControl invalid={invalid} disabled={disabled} required={required}>
       <InputElement
-        ref={ref}
         as="input"
         type="number"
         role="spinbutton"
@@ -63,6 +63,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
         min={min}
         aria-valuemin={min}
         {...rest}
+        ref={mergeRefs}
       />
       <InputLabel raised={value !== undefined} htmlFor={identifier}>
         {label}
@@ -81,7 +82,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
           aria-label="Increment"
           aria-hidden
           tabIndex={-1}
-          onClick={() => ref.current?.stepUp()}
+          onClick={() => _ref.current?.stepUp()}
         >
           <Icon type="caret-up" size="large" />
         </AbstractButton>
@@ -89,13 +90,13 @@ const NumberInput: React.FC<NumberInputProps> = ({
           aria-label="Decrement"
           aria-hidden
           tabIndex={-1}
-          onClick={() => ref.current?.stepDown()}
+          onClick={() => _ref.current?.stepDown()}
         >
           <Icon type="caret-down" size="large" />
         </AbstractButton>
       </Flex>
     </InputControl>
   );
-};
+});
 
 export default React.memo(NumberInput);
