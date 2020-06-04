@@ -8,7 +8,7 @@ import { Theme } from '../../theme';
 import { ButtonProps } from '../Button';
 
 type ButtonColorVariant = ButtonProps['variantColor'];
-type UseIconButtonStyles = Required<Pick<IconButtonProps, 'variantColor' | 'variant'>>;
+type UseIconButtonStyles = Required<Pick<IconButtonProps, 'variantColor' | 'variant' | 'size'>>;
 
 export const getUnstyledButtonStyles = (theme: Theme) => {
   return {
@@ -44,6 +44,7 @@ export const getGhostButtonStyles = (theme: Theme, variantColor: ButtonColorVari
 const useIconButtonStyles = ({
   variantColor,
   variant,
+  size,
 }: UseIconButtonStyles): AbstractButtonProps => {
   const theme = useTheme();
 
@@ -60,7 +61,7 @@ const useIconButtonStyles = ({
   }, [variantColor, variant]);
 
   return {
-    p: 3,
+    p: size === 'small' ? 1 : 3,
     outline: 'none',
     ...styles,
   } as AbstractButtonProps;

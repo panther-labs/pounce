@@ -5,6 +5,9 @@ import { ReactAttributes } from '../Box';
 import AbstractButton from '../AbstractButton';
 
 export type IconButtonProps = ReactAttributes<React.ButtonHTMLAttributes<HTMLButtonElement>> & {
+  /** The size of the icon button */
+  size?: 'small' | 'large';
+
   /** The text associated with the icon button */
   'aria-label': string;
 
@@ -38,10 +41,10 @@ export type IconButtonProps = ReactAttributes<React.ButtonHTMLAttributes<HTMLBut
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
 export const IconButton: React.FC<IconButtonProps> = React.forwardRef(function IconButton(
-  { variantColor = 'blue', active = false, variant = 'solid', icon, ...rest },
+  { variantColor = 'blue', active = false, variant = 'solid', size = 'large', icon, ...rest },
   ref
 ) {
-  const styles = useIconButtonStyles({ variantColor, variant });
+  const styles = useIconButtonStyles({ variantColor, variant, size });
 
   return (
     <AbstractButton

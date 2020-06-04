@@ -7,6 +7,9 @@ import Icon, { IconProps } from '../Icon';
 
 export interface ButtonProps
   extends ReactAttributes<React.ButtonHTMLAttributes<HTMLButtonElement>> {
+  /** The size (height) of the button */
+  size?: 'small' | 'large';
+
   /** The variant of the button that decides the colors */
   variant?: 'solid' | 'outline';
 
@@ -48,6 +51,7 @@ export interface ButtonProps
  */
 const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
   {
+    size = 'large',
     variant = 'solid',
     variantColor = 'blue',
     loading = false,
@@ -60,7 +64,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
   },
   ref
 ) {
-  const styles = useButtonStyles({ variantColor, variant });
+  const styles = useButtonStyles({ variantColor, variant, size });
 
   return (
     <AbstractButton

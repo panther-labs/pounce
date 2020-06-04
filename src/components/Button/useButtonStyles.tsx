@@ -32,7 +32,7 @@ export const getThemeColor = (color: ButtonColorVariant): ThemeColor => {
   }
 };
 
-type UseButtonStylesProps = Required<Pick<ButtonProps, 'variantColor' | 'variant'>>;
+type UseButtonStylesProps = Required<Pick<ButtonProps, 'variantColor' | 'variant' | 'size'>>;
 
 export const getSolidButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
   const themeColorKey = getThemeColor(variantColor);
@@ -92,7 +92,11 @@ const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) 
   };
 };
 
-const useButtonStyles = ({ variantColor, variant }: UseButtonStylesProps): AbstractButtonProps => {
+const useButtonStyles = ({
+  variantColor,
+  variant,
+  size,
+}: UseButtonStylesProps): AbstractButtonProps => {
   const theme = useTheme();
 
   const styles = React.useMemo(() => {
@@ -107,7 +111,7 @@ const useButtonStyles = ({ variantColor, variant }: UseButtonStylesProps): Abstr
 
   return {
     px: 5,
-    py: 3,
+    py: size === 'large' ? 3 : 2,
     fontSize: 'medium-large',
     outline: 'none',
     ...styles,

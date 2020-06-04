@@ -1,17 +1,34 @@
 A button can be have multiple colors and variants:
 
 ```typescript jsx
-<SimpleGrid columns={5} gap={4}>
-  <Button>Button</Button>
-  <Button variantColor="teal">Button</Button>
-  <Button variant="outline">Button</Button>
-  <Button variant="outline" variantColor="teal">
-    Button
-  </Button>
-  <Button variant="outline" variantColor="navyblue">
-    Button
-  </Button>
-</SimpleGrid>
+<Box>
+  <SimpleGrid columns={5} gap={4} mb={2}>
+    <Button size="small">Button</Button>
+    <Button size="small" variantColor="teal">
+      Button
+    </Button>
+    <Button size="small" variant="outline">
+      Button
+    </Button>
+    <Button size="small" variant="outline" variantColor="teal">
+      Button
+    </Button>
+    <Button size="small" variant="outline" variantColor="navyblue">
+      Button
+    </Button>
+  </SimpleGrid>
+  <SimpleGrid columns={5} gap={4}>
+    <Button>Button</Button>
+    <Button variantColor="teal">Button</Button>
+    <Button variant="outline">Button</Button>
+    <Button variant="outline" variantColor="teal">
+      Button
+    </Button>
+    <Button variant="outline" variantColor="navyblue">
+      Button
+    </Button>
+  </SimpleGrid>
+</Box>
 ```
 
 A button can contain an icon:
