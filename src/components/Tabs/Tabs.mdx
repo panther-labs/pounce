@@ -24,29 +24,24 @@ const Example = () => {
   const [activeTab, setActiveTab] = React.useState(0);
 
   return (
-    <div>
+    <Tabs onChange={setActiveTab} index={activeTab}>
       <TabList>
         {tabs.map((t, index) => (
-          <Tab
-            key={t}
-            selected={activeTab === index}
-            onSelect={() => setActiveTab(index)}
-            id={t}
-            aria-controls={`panel-${t}`}
-            mr={2}
-          >
-            {t}
+          <Tab key={t}>
+            <Box p={5}>{t}</Box>
           </Tab>
         ))}
       </TabList>
-      {tabs.map((t, index) => (
-        <TabPanel key={t} selected={activeTab === index} aria-labelledby={t}>
-          <Card p={9} mt={3}>
-            Panel {t}
-          </Card>
-        </TabPanel>
-      ))}
-    </div>
+      <TabPanels>
+        {tabs.map(t => (
+          <TabPanel key={t}>
+            <Card p={9} mt={3}>
+              Panel {t}
+            </Card>
+          </TabPanel>
+        ))}
+      </TabPanels>
+    </Tabs>
   );
 };
 

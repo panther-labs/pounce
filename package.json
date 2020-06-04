@@ -24,6 +24,7 @@
     "@emotion/styled": "^11.0.0-next.12",
     "@reach/dialog": "^0.10.3",
     "@reach/menu-button": "^0.10.3",
+    "@reach/tabs": "^0.10.3",
     "@reach/tooltip": "^0.10.3",
     "@styled-system/css": "^5.1.5",
     "@styled-system/should-forward-prop": "^5.1.5",

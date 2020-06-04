@@ -296,6 +296,7 @@ const GlobalStyles: React.FC = () => {
       --reach-menu-button: 1;
       --reach-tooltip: 1;
       --reach-dialog: 1;
+      --reach-tabs: 1;
     }
 
     [data-reach-dialog-overlay] {
@@ -306,6 +307,14 @@ const GlobalStyles: React.FC = () => {
       bottom: 0;
       left: 0;
       overflow: auto;
+    }
+
+    [data-reach-tabs][data-orientation='vertical'] {
+      display: flex;
+    }
+
+    [data-reach-tab-list][aria-orientation='vertical'] {
+      flex-direction: column;
     }
   `;
 
