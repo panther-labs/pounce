@@ -24,7 +24,7 @@ const Icon: React.FC<IconProps> = ({ type, size = 'large', color = 'current', ..
   if (size === 'x-small') {
     sizeInPx = 12;
   } else if (size === 'small') {
-    sizeInPx = 18;
+    sizeInPx = 20;
   } else {
     sizeInPx = 24;
   }
