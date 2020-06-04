@@ -2,6 +2,7 @@ import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import dayjs from 'dayjs';
 import TextInput, { TextInputProps } from '../TextInput';
+import OverlayComponent from './OverlayComponent';
 
 export type DateInputProps = TextInputProps & {
   /**
@@ -64,15 +65,18 @@ const DateInput: React.FC<DateInputProps> = ({
   value,
   onChange,
   ...rest
-}) => (
-  <DayPickerInput
-    onDayChange={date => onChange(date ? formatDate(date, format) : '')}
-    formatDate={formatDate}
-    parseDate={parseDate}
-    format={format}
-    value={value}
-    component={(props: TextInputProps) => <TextInput {...props} {...rest} />}
-  />
-);
+}) => {
+  return (
+    <DayPickerInput
+      overlayComponent={OverlayComponent}
+      onDayChange={date => onChange(date ? formatDate(date, format) : '')}
+      formatDate={formatDate}
+      parseDate={parseDate}
+      format={format}
+      value={value}
+      component={(props: TextInputProps) => <TextInput {...props} {...rest} />}
+    />
+  );
+};
 
 export default React.memo(DateInput);

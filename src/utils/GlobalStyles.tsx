@@ -174,7 +174,7 @@ const GlobalStyles: React.FC = () => {
 
     .DayPicker {
       display: inline-block;
-      font-size: ${`${theme.fontSizes.large}px`};
+      font-size: ${theme.fontSizes.medium};
     }
 
     .DayPicker-Months {
@@ -199,13 +199,17 @@ const GlobalStyles: React.FC = () => {
     }
 
     .DayPicker-NavButton--prev {
-      left: ${`${theme.space[5]}px`};
-      background-image: url('data:image/svg+xml;base64, PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xNCA3TDkgMTJMMTQgMTdWN1oiIGZpbGw9IiM0RjRGNEYiLz4NCjwvc3ZnPg==');
+      left: 23px;
+      top: 23px;
+      opacity: 0;
+      outline: none;
     }
 
     .DayPicker-NavButton--next {
-      right: ${`${theme.space[5]}px`};
-      background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xMCAxN0wxNSAxMkwxMCA3VjE3WiIgZmlsbD0iIzRGNEY0RiIvPg0KPC9zdmc+DQo=');
+      right: 23px;
+      top: 23px;
+      opacity: 0;
+      outline: none;
     }
 
     .DayPicker-NavButton--interactionDisabled {
@@ -213,15 +217,23 @@ const GlobalStyles: React.FC = () => {
     }
 
     .DayPicker-Caption {
-      display: flex;
-      justify-content: center;
-      padding: ${`${theme.space[3]}px ${theme.space[0]}px`};
-      border-bottom: ${`1px solid ${theme.colors.grey100}`};
-      font-weight: ${theme.fontWeights.medium};
+      display: none;
     }
 
-    .DayPicker-Weekdays {
-      display: none;
+    .DayPicker-WeekdaysRow {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+
+      padding: ${`${theme.space[2]}px ${theme.space[0]}px`};
+      border-top: ${`1px solid ${theme.colors['navyblue-500']}`};
+      border-bottom: ${`1px solid ${theme.colors['navyblue-500']}`};
+
+      abbr {
+        text-decoration: none;
+        font-size: ${theme.fontSizes.small};
+        font-weight: ${theme.fontWeights.bold};
+      }
     }
 
     .DayPicker-Body {
@@ -234,13 +246,11 @@ const GlobalStyles: React.FC = () => {
 
     .DayPicker-Day {
       display: table-cell;
-      padding: ${`${theme.space[3]}px`};
+      padding: ${`${theme.space[2]}px`};
       vertical-align: middle;
       text-align: center;
       cursor: pointer;
-      color: ${theme.colors.grey400};
-      border-right: ${`1px solid ${theme.colors.grey100}`};
-      border-bottom: ${`1px solid ${theme.colors.grey100}`};
+      border-radius: 50%;
     }
 
     .DayPicker--interactionDisabled .DayPicker-Day {
@@ -248,7 +258,7 @@ const GlobalStyles: React.FC = () => {
     }
 
     .DayPicker-Day--today {
-      color: ${theme.colors.red300};
+      color: ${theme.colors['red-200']};
       font-weight: ${theme.fontWeights.medium};
     }
 
@@ -258,37 +268,22 @@ const GlobalStyles: React.FC = () => {
     }
 
     .DayPicker-Day--disabled {
-      color: #dce0e0;
+      opacity: 0.3;
       cursor: default;
     }
 
     .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-      background-color: ${theme.colors.primary300};
+      background-color: ${theme.colors['blue-600']};
       color: ${theme.colors.white};
     }
 
     .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-      background-color: ${theme.colors.primary300};
+      background-color: ${theme.colors['blue-600']};
       color: ${theme.colors.white};
     }
 
-    .DayPicker:not(.DayPicker--interactionDisabled),
     .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-      background-color: ${theme.colors.primary50};
-    }
-
-    .DayPickerInput-OverlayWrapper {
-      position: relative;
-    }
-
-    .DayPickerInput-Overlay {
-      position: absolute;
-      left: 0;
-      z-index: 100;
-
-      background: ${theme.colors.white};
-      box-shadow: ${theme.shadows.dark200};
-      border-radius: ${theme.radii.small}px;
+      background-color: ${theme.colors['navyblue-450']};
     }
 
     /* Let reach-ui know that we took care of the styles */
