@@ -23,7 +23,6 @@ const InputElement: React.FC<InputElementProps> = React.forwardRef(function Inpu
       pt={5}
       pb={2}
       position="relative"
-      fontFamily="primary"
       color="gray-50"
       fontSize="medium"
       fontWeight="medium"

@@ -110,7 +110,6 @@ const useButtonStyles = ({ variantColor, variant }: UseButtonStylesProps): Abstr
     py: 3,
     fontSize: 'medium-large',
     outline: 'none',
-    color: 'gray-50',
     ...styles,
   } as AbstractButtonProps;
 };

@@ -25,7 +25,7 @@ const Tag: React.FC<TagProps> = ({ children, onRemove, ...rest }) => (
   >
     {children}
     <AbstractButton onClick={onRemove} ml={2} aria-label="Remove">
-      <Icon size="x-small" color="gray-50" type="close" />
+      <Icon size="x-small" type="close" />
     </AbstractButton>
   </Box>
 );

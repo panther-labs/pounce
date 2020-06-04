@@ -106,6 +106,14 @@ const GlobalStyles: React.FC = () => {
       font-size: 100%;
       vertical-align: baseline;
     }
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+    }
+
     /* HTML5 display-role reset for older browsers */
     article,
     aside,

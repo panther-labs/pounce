@@ -62,7 +62,6 @@ const useIconButtonStyles = ({
   return {
     p: 3,
     outline: 'none',
-    color: 'gray-50',
     ...styles,
   } as AbstractButtonProps;
 };
