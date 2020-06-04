@@ -10,7 +10,7 @@ export type CardProps = BoxProps & {
  *
  * A card is simply a basic layout component with additional style props.
  */
-const Card: React.FC<CardProps> = React.forwardRef(function Card(
+const Card = React.forwardRef<HTMLElement, CardProps>(function Card(
   { variant = 'light', ...rest },
   ref
 ) {

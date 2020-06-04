@@ -40,7 +40,7 @@ export type IconButtonProps = ReactAttributes<React.ButtonHTMLAttributes<HTMLBut
 };
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
-export const IconButton: React.FC<IconButtonProps> = React.forwardRef(function IconButton(
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
   { variantColor = 'blue', active = false, variant = 'solid', size = 'large', icon, ...rest },
   ref
 ) {
@@ -48,11 +48,11 @@ export const IconButton: React.FC<IconButtonProps> = React.forwardRef(function I
 
   return (
     <AbstractButton
-      ref={ref}
       aria-pressed={active !== undefined ? active : undefined}
       data-active={active || undefined}
       {...styles}
       {...rest}
+      ref={ref}
     >
       <Icon type={icon} size="small" display="block" />
     </AbstractButton>

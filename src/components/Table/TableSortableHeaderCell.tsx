@@ -14,7 +14,7 @@ const sortableHoverStyle = {
 export type TableSortableHeaderCellProps = TableHeaderCellProps &
   Required<Pick<TableHeaderCellProps, 'sortDir' | 'onClick'>>;
 
-const TableSortableHeaderCell: React.FC<TableSortableHeaderCellProps> = React.forwardRef(
+const TableSortableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, TableHeaderCellProps>(
   function TableSortLabel({ sortDir, children, align, onClick, ...rest }, ref) {
     const isActive = sortDir !== false;
     const shouldIconBeRightAligned = align !== 'right';

@@ -21,11 +21,14 @@ export const Dropdown = ReachMenu;
 
 export const DropdownButton = ReachMenuButton;
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({ alignment = 'right', children }) => {
+export const DropdownMenu = React.forwardRef<HTMLElement, DropdownMenuProps>(function DropdownMenu(
+  { alignment = 'right', children },
+  ref
+) {
   const position = useDropdownAlignment({ alignment });
 
   return (
-    <ReachMenuPopover position={position}>
+    <ReachMenuPopover position={position} ref={ref}>
       <Card
         as={ReachMenuItems}
         bg="navyblue-450"
@@ -38,7 +41,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({ alignment = 'right',
       </Card>
     </ReachMenuPopover>
   );
-};
+});
 
 export const DropdownItem = forwardRefWithAs<ReachMenuLinkProps & { disabled?: boolean }, 'div'>(
   function DropdownItem({ children, onSelect = () => {}, disabled, ...rest }, ref) {

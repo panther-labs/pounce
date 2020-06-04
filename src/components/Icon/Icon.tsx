@@ -16,7 +16,10 @@ export interface IconProps
 }
 
 /** An simple SVG element exported as a React component. It renders a simple <svg> */
-const Icon: React.FC<IconProps> = ({ type, size = 'large', color = 'current', ...rest }) => {
+const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(function Icon(
+  { type, size = 'large', color = 'current', ...rest },
+  ref
+) {
   const { icons } = useTheme();
   const viewBox = icons[type]?.viewBox || '0 0 24 24';
 
@@ -41,10 +44,11 @@ const Icon: React.FC<IconProps> = ({ type, size = 'large', color = 'current', ..
       viewBox={viewBox}
       role="presentation"
       {...rest}
+      ref={ref}
     >
       {icons[type].path}
     </Box>
   );
-};
+});
 
 export default Icon;

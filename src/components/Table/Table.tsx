@@ -24,7 +24,7 @@ export interface TableProps
 const TableContext = React.createContext<TableProps>({});
 const useTable = () => React.useContext(TableContext);
 
-const Table: React.FC<TableProps> = React.forwardRef(function Table(
+const Table = React.forwardRef<HTMLTableElement, TableProps>(function Table(
   {
     layout = 'auto',
     size = 'medium',

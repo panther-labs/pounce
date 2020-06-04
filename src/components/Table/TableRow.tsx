@@ -11,7 +11,7 @@ export interface TableRowProps extends ReactAttributes<React.AllHTMLAttributes<H
   children: React.ReactNode;
 }
 
-const TableRow: React.FC<TableRowProps> = React.forwardRef(function TableRow(
+const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function TableRow(
   { selected = false, ...rest },
   ref
 ) {

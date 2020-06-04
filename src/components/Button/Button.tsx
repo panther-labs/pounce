@@ -49,7 +49,7 @@ export interface ButtonProps
  *
  * The core re-usable button that you will use in the app.
  */
-const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
     size = 'large',
     variant = 'solid',
@@ -68,12 +68,12 @@ const Button: React.FC<ButtonProps> = React.forwardRef(function Button(
 
   return (
     <AbstractButton
-      ref={ref}
       aria-pressed={active !== undefined ? active : undefined}
       data-active={active || undefined}
       width={fullWidth ? '100%' : 'auto'}
       {...styles}
       {...rest}
+      ref={ref}
     >
       {icon && iconAlignment === 'left' && !loading && (
         <Icon size="small" ml={-1} mr={2} type={icon} />

@@ -9,9 +9,13 @@ export interface TooltipProps {
 }
 
 /** A tooltip is a helper that shows some helping text when hovering or clicking something */
-const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
+const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Toltip(
+  { content, children },
+  ref
+) {
   return (
     <ReachTooltip
+      ref={ref}
       position={positionRight}
       style={{ zIndex: 1, position: 'absolute' }}
       label={
@@ -23,6 +27,6 @@ const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
       {children}
     </ReachTooltip>
   );
-};
+});
 
 export default React.memo(Tooltip);

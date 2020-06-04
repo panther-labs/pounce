@@ -30,17 +30,20 @@ export type SwitchProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputEle
  *  A Switch is a typical Checkbox with a different UI. It's mainly used for settings pages, when
  *  enabling or disabling feature
  */
-const Switch: React.FC<SwitchProps> = ({
-  checked,
-  onChange,
-  label,
-  checkedText = 'ON',
-  uncheckedText = 'OFF',
-  disabled = false,
-  invalid = false,
-  readOnly = false,
-  ...rest
-}) => {
+const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
+  {
+    checked,
+    onChange,
+    label,
+    checkedText = 'ON',
+    uncheckedText = 'OFF',
+    disabled = false,
+    invalid = false,
+    readOnly = false,
+    ...rest
+  },
+  ref
+) {
   if (!label && !(rest['aria-label'] || rest['aria-labelledby'])) {
     console.error(
       'The `label` prop was omitted without providing an `aria-label` or `aria-labelledby` attribute'
@@ -91,6 +94,7 @@ const Switch: React.FC<SwitchProps> = ({
           {checked ? checkedText : uncheckedText}
         </Box>
         <Box
+          ref={ref}
           as="input"
           cursor="pointer"
           position="absolute"
@@ -108,6 +112,6 @@ const Switch: React.FC<SwitchProps> = ({
       </Flex>
     </Box>
   );
-};
+});
 
 export default Switch;

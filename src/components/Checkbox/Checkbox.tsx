@@ -24,15 +24,10 @@ export type CheckboxProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputE
 /**
  *  Your bread & butter checkbox element. Nothing new here
  *  */
-const Checkbox: React.FC<CheckboxProps> = ({
-  checked,
-  onChange,
-  label,
-  disabled = false,
-  readOnly = false,
-  invalid = false,
-  ...rest
-}) => {
+const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
+  { checked, onChange, label, disabled = false, readOnly = false, invalid = false, ...rest },
+  ref
+) {
   const checkboxStyles = useCheckboxStyles({ invalid, checked });
 
   if (!label && !(rest['aria-label'] || rest['aria-labelledby'])) {
@@ -54,6 +49,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     >
       <PseudoBox position="relative" borderRadius="circle" p={2} {...checkboxStyles}>
         <Box
+          ref={ref}
           as="input"
           cursor="pointer"
           position="absolute"
@@ -76,6 +72,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
       )}
     </Box>
   );
-};
+});
 
 export default Checkbox;

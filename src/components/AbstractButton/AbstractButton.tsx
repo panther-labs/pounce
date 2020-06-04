@@ -14,11 +14,10 @@ const abstractButtonStyle = {
   _disabled: disabledStyles,
 };
 
-const AbstractButton: React.FC<AbstractButtonProps> = React.forwardRef(function AbstractButton(
-  props,
-  ref
-) {
-  return <PseudoBox as="button" ref={ref} {...abstractButtonStyle} {...props} />;
-});
+const AbstractButton = React.forwardRef<HTMLButtonElement, AbstractButtonProps>(
+  function AbstractButton(props, ref) {
+    return <PseudoBox as="button" ref={ref} {...abstractButtonStyle} {...props} />;
+  }
+);
 
 export default AbstractButton;

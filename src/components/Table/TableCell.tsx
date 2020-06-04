@@ -11,7 +11,7 @@ export type TableCellProps = Pick<BoxProps, 'truncated' | 'color' | 'width' | 'm
     align?: BoxProps['textAlign'];
   };
 
-const TableCell: React.FC<TableCellProps> = React.forwardRef(function TableCell(
+const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(function TableCell(
   { wrapText = 'auto', align = 'left', ...rest },
   ref
 ) {

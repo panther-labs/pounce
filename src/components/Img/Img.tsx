@@ -28,7 +28,7 @@ const NativeImg = React.forwardRef<HTMLImageElement, ImgProps>(function NativeIm
  *
  * Simple Img component for whenever you want to add an image to your app
  */
-const Img: React.FC<ImgProps> = React.forwardRef(function Img(props, ref) {
+const Img = React.forwardRef<HTMLImageElement, ImgProps>(function Img(props, ref) {
   if (props.width && !props.nativeWidth) {
     console.warn('A width was specified for an image without a `nativeWidth` being defined');
   }

@@ -25,15 +25,10 @@ export type RadioProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElem
  *  A Radio is a typical `radio` input. Under the hood it renders a typical `radio` element, so you
  *  can pass it as many native attrs as you wish.
  */
-const Radio: React.FC<RadioProps> = ({
-  checked,
-  onChange,
-  label,
-  disabled = false,
-  invalid = false,
-  readOnly = false,
-  ...rest
-}) => {
+const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
+  { checked, onChange, label, disabled = false, invalid = false, readOnly = false, ...rest },
+  ref
+) {
   const radioStyles = useRadioStyles({ invalid, checked });
 
   return (
@@ -49,6 +44,7 @@ const Radio: React.FC<RadioProps> = ({
     >
       <PseudoBox position="relative" borderRadius="circle" p={2} {...radioStyles}>
         <Box
+          ref={ref}
           as="input"
           position="absolute"
           cursor="pointer"
@@ -71,6 +67,6 @@ const Radio: React.FC<RadioProps> = ({
       )}
     </Box>
   );
-};
+});
 
 export default Radio;
