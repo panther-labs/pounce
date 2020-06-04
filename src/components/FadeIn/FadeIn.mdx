@@ -1,0 +1,33 @@
+The fade can occur without any movement or witht a movementt from top, left, right or bottom:
+
+```typescript jsx
+const Example = () => {
+  const [_, forceRerender] = React.useState();
+  return (
+    <Box>
+      <Box mb={5}>
+        <Button onClick={() => forceRerender(Math.random())}>Force Rerender</Button>
+      </Box>
+      <SimpleGrid columns={5} gridGap={5} key={Math.random()}>
+        <FadeIn>
+          <Card p={3}>Center</Card>
+        </FadeIn>
+        <FadeIn direction="top">
+          <Card p={3}>Top</Card>
+        </FadeIn>
+        <FadeIn direction="right">
+          <Card p={3}>Right</Card>
+        </FadeIn>
+        <FadeIn direction="bottom">
+          <Card p={3}>Bottom</Card>
+        </FadeIn>
+        <FadeIn direction="left">
+          <Card p={3}>Left</Card>
+        </FadeIn>
+      </SimpleGrid>
+    </Box>
+  );
+};
+
+<Example />;
+```
