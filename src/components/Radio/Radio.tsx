@@ -68,4 +68,4 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
   );
 });
 
-export default Radio;
+export default React.memo(Radio);

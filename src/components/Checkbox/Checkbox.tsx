@@ -73,4 +73,4 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
   );
 });
 
-export default Checkbox;
+export default React.memo(Checkbox);

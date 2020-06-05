@@ -114,4 +114,4 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   );
 });
 
-export default Switch;
+export default React.memo(Switch);
