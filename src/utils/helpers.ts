@@ -1,4 +1,10 @@
 import { Theme } from '../theme';
+import React from 'react';
+
+/**
+ * A function that implements the typical React.memo, but properly forwards TS generics
+ */
+export const typedMemo: <T>(c: T) => T = React.memo;
 
 /**
  *

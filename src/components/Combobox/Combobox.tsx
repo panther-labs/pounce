@@ -6,6 +6,7 @@ import Box from '../Box';
 import MenuItem from '../utils/MenuItem';
 import Icon from '../Icon';
 import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
+import { typedMemo } from '../../utils/helpers';
 
 export type ComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -225,4 +226,4 @@ function Combobox<Item>({
   );
 }
 
-export default Combobox;
+export default typedMemo(Combobox);

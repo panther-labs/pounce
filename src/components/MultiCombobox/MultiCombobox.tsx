@@ -8,6 +8,7 @@ import Icon from '../Icon';
 import Flex from '../Flex';
 import { InputControl, InputLabel, InputElement, InputElementProps } from '../utils/Input';
 import Tag from './Tag';
+import { typedMemo } from '../../utils/helpers';
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -103,7 +104,7 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
  * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
-function MultiCombobox<Item extends string | object>({
+function MultiCombobox<Item>({
   onChange,
   value,
   items,
@@ -206,7 +207,7 @@ function MultiCombobox<Item extends string | object>({
               // By default validateAddition always returns true. Can be overriden by the user
               // for fine-grained addition
               if (validateAddition && validateAddition(inputValue)) {
-                selectItem(inputValue as Item, { inputValue: '', isOpen: true });
+                selectItem((inputValue as unknown) as Item, { inputValue: '', isOpen: true });
               }
             }
           },
@@ -293,4 +294,4 @@ function MultiCombobox<Item extends string | object>({
   );
 }
 
-export default MultiCombobox;
+export default typedMemo(MultiCombobox);
