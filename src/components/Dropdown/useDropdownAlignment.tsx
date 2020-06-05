@@ -1,4 +1,4 @@
-import { DropdownMenuProps } from './Dropdown';
+import { DropdownMenuProps } from './DropdownMenu';
 import { positionRight, positionMatchWidth, positionDefault, Position } from '@reach/popover';
 
 const useDropdownAlignment = ({ alignment }: DropdownMenuProps): Position => {
