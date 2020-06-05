@@ -14,6 +14,9 @@ Documentation is available on [http://pouncejs.surge.sh/](http://pouncejs.surge.
 
 ## Installation
 
+Pounce heavily depends on Typescript and thus has a limitation of Typescript 3.8.x. Please make
+sure that your project does't use an older version of Typescript.
+
 ```text
 $ npm install pouncejs
 ```
