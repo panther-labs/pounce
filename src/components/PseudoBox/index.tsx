@@ -1,2 +1,2 @@
 export { default } from './PseudoBox';
-export * from './PseudoBox';
+export type { PseudoBoxProps } from './PseudoBox';

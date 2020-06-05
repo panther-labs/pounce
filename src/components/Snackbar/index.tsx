@@ -1,3 +1,3 @@
 export { default } from './Snackbar';
-export * from './Snackbar';
+export type { SnackbarProps } from './Snackbar';
 export * from './SnackbarContext';

@@ -23,12 +23,12 @@ ComposedTable.Head = TableHead;
 ComposedTable.HeaderCell = TableHeaderCell;
 ComposedTable.SortableHeaderCell = TableSortableHeaderCell;
 
-export * from './Table';
-export * from './TableBody';
-export * from './TableCell';
-export * from './TableHead';
-export * from './TableHeaderCell';
-export * from './TableRow';
-export * from './TableSortableHeaderCell';
+export type { TableProps } from './Table';
+export type { TableBodyProps } from './TableBody';
+export type { TableCellProps } from './TableCell';
+export type { TableHeadProps } from './TableHead';
+export type { TableHeaderCellProps } from './TableHeaderCell';
+export type { TableRowProps } from './TableRow';
+export type { TableSortableHeaderCellProps } from './TableSortableHeaderCell';
 
 export default ComposedTable;

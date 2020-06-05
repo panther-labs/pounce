@@ -1,2 +1,2 @@
 export { default } from './SideSheet';
-export * from './SideSheet';
+export type { SideSheetProps } from './SideSheet';

@@ -1,2 +1,2 @@
 export { default } from './AbstractButton';
-export * from './AbstractButton';
+export type { AbstractButtonProps } from './AbstractButton';
