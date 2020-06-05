@@ -1,7 +1,6 @@
 import React from 'react';
 import PseudoBox from '../../PseudoBox';
 import { InputContext } from './InputContext';
-import { disabledStyles } from '../../../utils/common';
 
 export type InputControlProps = {
   /** The style of the input */
@@ -36,7 +35,6 @@ const InputControl: React.FC<InputControlProps> = ({
 
   return (
     <PseudoBox
-      {...(disabled && disabledStyles)}
       minHeight={47}
       position="relative"
       border="1px solid"
@@ -44,6 +42,7 @@ const InputControl: React.FC<InputControlProps> = ({
       backgroundColor={variant === 'outline' ? 'transparent' : 'navyblue-450'}
       borderRadius="medium"
       borderColor={!invalid ? 'navyblue-450' : 'red-200'}
+      aria-disabled={disabled}
       _hover={{
         borderColor: !invalid ? 'blue-600' : undefined,
       }}

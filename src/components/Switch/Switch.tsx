@@ -1,7 +1,7 @@
 import React from 'react';
 import Box, { ReactAttributes } from '../Box';
 import Flex from '../Flex';
-import { disabledStyles } from '../../utils/common';
+import PseudoBox from '../PseudoBox';
 
 export type SwitchProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
   /** Whether the checkbox should be checked or not */
@@ -51,13 +51,13 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   }
 
   return (
-    <Box
+    <PseudoBox
       as="label"
       display="inline-flex"
       alignItems="center"
       cursor="pointer"
       fontSize="medium"
-      {...(disabled && disabledStyles)}
+      aria-disabled={disabled}
     >
       {label && (
         <Box as="span" userSelect="none" mr={2}>
@@ -110,7 +110,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           {...rest}
         />
       </Flex>
-    </Box>
+    </PseudoBox>
   );
 });
 

@@ -26,6 +26,9 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         fontWeight="medium"
         backgroundColor="transparent"
         border="none"
+        _disabled={{
+          opacity: 1, // we have nested disabled elements, so we don't want lower opacities to multiply
+        }}
         _placeholder={{
           opacity: 0,
           color: 'gray-50',

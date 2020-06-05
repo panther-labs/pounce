@@ -1,5 +1,4 @@
 import React from 'react';
-import { disabledStyles } from '../../../utils/common';
 import PseudoBox from '../../PseudoBox';
 import { Theme } from '../../../theme';
 import { ReactAttributes } from '../../Box';
@@ -36,8 +35,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...re
       position="relative"
       backgroundColor={backgroundColor}
       aria-disabled={disabled}
-      disabled={disabled}
-      _disabled={disabledStyles}
       _selected={{
         backgroundColor: 'navyblue-600',
       }}

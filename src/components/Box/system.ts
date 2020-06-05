@@ -161,7 +161,7 @@ const transformAlias = (
   return transformThemedAlias(propName, propValue);
 };
 
-export const transformAliasProps = (props?: SystemStyleObject): SystemProps => {
+export const transformAliasProps = (props?: SystemStyleObject): SystemStyleObject => {
   let result = {};
   if (!props) {
     return result;

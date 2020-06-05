@@ -1,7 +1,6 @@
 import React from 'react';
 import Box, { ReactAttributes } from '../Box';
 import PseudoBox from '../PseudoBox';
-import { disabledStyles } from '../../utils/common';
 import useCheckboxStyles from './useCheckboxStyles';
 
 export type CheckboxProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
@@ -37,7 +36,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
   }
 
   return (
-    <Box
+    <PseudoBox
       as="label"
       display="inline-flex"
       alignItems="center"
@@ -45,7 +44,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
       fontSize="medium"
       fontWeight="medium"
       verticalAlign="top"
-      {...(disabled && disabledStyles)}
+      aria-disabled={disabled}
     >
       <PseudoBox position="relative" borderRadius="circle" p={2} {...checkboxStyles}>
         <Box
@@ -70,7 +69,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
           {label}
         </Box>
       )}
-    </Box>
+    </PseudoBox>
   );
 });
 

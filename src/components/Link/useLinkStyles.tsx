@@ -1,6 +1,5 @@
 import { LinkProps } from './Link';
 import { PseudoBoxProps } from '../PseudoBox';
-import { disabledStyles } from '../../utils/common';
 import useTheme from '../../utils/useTheme';
 import { lightenDarkenColor } from '../../utils/helpers';
 
@@ -19,7 +18,6 @@ const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
         color: 'gray-300',
         _hover: { color: 'white' },
         _focus: { color: 'white' },
-        _disabled: disabledStyles,
         _after: {},
       };
     case 'discreet':
@@ -30,7 +28,6 @@ const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
         textTransform: 'uppercase',
         textDecoration: 'none',
         color: 'gray-100',
-        _disabled: disabledStyles,
       };
     case 'prominent':
     default: {
@@ -43,7 +40,6 @@ const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
         color: 'blue-600',
         _hover: { color: hoverColor },
         _focus: { color: hoverColor },
-        _disabled: disabledStyles,
       };
     }
   }

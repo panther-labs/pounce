@@ -1,7 +1,6 @@
 import React from 'react';
 import PseudoBox from '../PseudoBox';
 import { BoxProps } from '../Box';
-import { disabledStyles } from '../../utils/common';
 import useLinkStyles from './useLinkStyles';
 
 export interface LinkProps
@@ -28,7 +27,6 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
       as={disabled ? 'span' : 'a'}
       ref={ref}
       aria-disabled={disabled}
-      {...(disabled && disabledStyles)}
       {...externalProps}
       {...variantStyles}
       {...rest}

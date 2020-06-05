@@ -1,7 +1,6 @@
 import React from 'react';
 import Box, { ReactAttributes } from '../Box';
 import PseudoBox from '../PseudoBox';
-import { disabledStyles } from '../../utils/common';
 import useRadioStyles from './useRadioStyles';
 
 export type RadioProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
@@ -32,7 +31,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
   const radioStyles = useRadioStyles({ invalid, checked });
 
   return (
-    <Box
+    <PseudoBox
       as="label"
       display="inline-flex"
       alignItems="center"
@@ -40,7 +39,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
       fontSize="medium"
       fontWeight="medium"
       verticalAlign="top"
-      {...(disabled && disabledStyles)}
+      aria-disabled={disabled}
     >
       <PseudoBox position="relative" borderRadius="circle" p={2} {...radioStyles}>
         <Box
@@ -65,7 +64,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
           {label}
         </Box>
       )}
-    </Box>
+    </PseudoBox>
   );
 });
 
