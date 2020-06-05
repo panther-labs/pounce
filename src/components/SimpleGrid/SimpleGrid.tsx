@@ -34,7 +34,10 @@ export interface SimpleGridProps extends GridProps {
  *
  * Inspired from <a href="https://chakra-ui.com/" target="_blank">Chakra UI</a>
  */
-const SimpleGrid = React.forwardRef<HTMLElement, SimpleGridProps>(function SimpleGrid(props, ref) {
+export const SimpleGrid = React.forwardRef<HTMLElement, SimpleGridProps>(function SimpleGrid(
+  props,
+  ref
+) {
   const { columns, spacingX, spacingY, spacing, minChildWidth, ...rest } = props;
   let templateColumns;
   if (minChildWidth && minChildWidth > 0) {

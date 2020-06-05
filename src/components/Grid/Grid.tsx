@@ -48,7 +48,7 @@ export type GridProps = Omit<BoxProps, 'display'> & {
  * Grid layout component. You should use this anytime you want to create a container for columns
  * within the design
  */
-const Grid = React.forwardRef<HTMLElement, GridProps>(function Grid(props, ref) {
+export const Grid = React.forwardRef<HTMLElement, GridProps>(function Grid(props, ref) {
   const {
     gap,
     rowGap,

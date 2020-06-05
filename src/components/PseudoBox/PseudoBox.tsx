@@ -155,7 +155,7 @@ const notFirst = '&:not(:first-of-type)';
 const notLast = '&:not(:last-of-type)';
 const groupHover = '[role=group]:hover &';
 
-const PseudoBox = React.forwardRef<HTMLElement, PseudoBoxProps>(function PseudoBox(
+export const PseudoBox = React.forwardRef<HTMLElement, PseudoBoxProps>(function PseudoBox(
   {
     _after,
     _focus,

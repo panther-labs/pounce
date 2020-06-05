@@ -16,7 +16,7 @@ export interface IconProps
 }
 
 /** An simple SVG element exported as a React component. It renders a simple <svg> */
-const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(function Icon(
+export const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(function Icon(
   { type, size = 'large', color = 'current', ...rest },
   ref
 ) {

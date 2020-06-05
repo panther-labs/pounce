@@ -11,7 +11,7 @@ export interface HeadingProps extends BoxProps<React.AllHTMLAttributes<HTMLHeadi
  * Responsive typographic component. Anywhere you want to add a title to something
  * then you can use this
  * */
-const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(function Heading(
+export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(function Heading(
   { size, ...rest },
   ref
 ) {

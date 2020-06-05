@@ -15,7 +15,7 @@ export interface LinkProps
   disabled?: boolean;
 }
 
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   { external, disabled, variant, ...rest },
   ref
 ) {

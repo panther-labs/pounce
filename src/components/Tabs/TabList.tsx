@@ -9,7 +9,10 @@ const FlexList = React.forwardRef<HTMLUListElement, FlexProps>(function FlexList
   return <Flex as="ul" ref={ref} {...props} />;
 });
 
-const TabList = React.forwardRef<HTMLUListElement, TabListProps>(function TabList(props, ref) {
+export const TabList = React.forwardRef<HTMLUListElement, TabListProps>(function TabList(
+  props,
+  ref
+) {
   // @ts-ignore Typing is wrong on @reach-ui, allowing only div | undefined for `as`
   return <ReachTabList as={FlexList} ref={ref} {...props} />;
 });

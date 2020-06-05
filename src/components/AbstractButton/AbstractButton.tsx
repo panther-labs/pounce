@@ -12,7 +12,7 @@ const abstractButtonStyle = {
   transition: 'all 0.1s linear',
 };
 
-const AbstractButton = React.forwardRef<HTMLButtonElement, AbstractButtonProps>(
+export const AbstractButton = React.forwardRef<HTMLButtonElement, AbstractButtonProps>(
   function AbstractButton(props, ref) {
     return <PseudoBox as="button" ref={ref} {...abstractButtonStyle} {...props} />;
   }

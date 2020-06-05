@@ -49,7 +49,7 @@ export interface ButtonProps
  *
  * The core re-usable button that you will use in the app.
  */
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
     size = 'large',
     variant = 'solid',
