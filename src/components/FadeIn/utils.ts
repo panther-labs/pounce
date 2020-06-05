@@ -1,76 +1,35 @@
 import { keyframes } from '@emotion/react';
 import { FadeInProps } from './FadeIn';
 
-const centerKeyframes = keyframes`
-  0% {
-    opacity: 0;
+export const generateKeyframes = (
+  direction: FadeInProps['direction'],
+  offset: FadeInProps['offset']
+) => {
+  if (direction === 'center') {
+    return keyframes`
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    `;
   }
-  
-  100% {
-    opacity: 1;
-  }
-`;
 
-const topKeyframes = keyframes`
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -25px, 0);
-  }
-  
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-`;
-
-const bottomKeyframes = keyframes`
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 25px, 0);
-  }
-  
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-`;
-
-const leftKeyframes = keyframes`
-  0% {
-    opacity: 0;
-    transform: translate3d(-25px, 0, 0);
-  }
-  
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-`;
-
-const rightKeyframes = keyframes`
-  0% {
-    opacity: 0;
-    transform: translate3d(25px, 0, 0);
-  }
-  
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-`;
-
-export const generateKeyframes = (direction: FadeInProps['direction']) => {
+  let initialTransformValue;
   switch (direction) {
     case 'right':
-      return rightKeyframes;
+      initialTransformValue = `translate3d(${offset}px, 0, 0)`;
+      break;
     case 'left':
-      return leftKeyframes;
+      initialTransformValue = `translate3d(-${offset}px, 0, 0)`;
+      break;
     case 'top':
-      return topKeyframes;
+      initialTransformValue = `translate3d(0, -${offset}px, 0)`;
+      break;
     case 'bottom':
-      return bottomKeyframes;
-    case 'center':
     default:
-      return centerKeyframes;
+      initialTransformValue = `translate3d(0, ${offset}px, 0)`;
   }
+
+  return keyframes`
+    0% { opacity: 0; transform: ${initialTransformValue}; }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  `;
 };
