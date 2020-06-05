@@ -1,7 +1,30 @@
 Responsive box-model layout component.
 
+The Box component is the primary component that powers the entire library. It accepts as props
+almost all CSS properties and automatically converts theme values to actual browser-friendly values.
+
+For example you can say `fontSize="medium"` and it will know to translate it to proper rem/px values.
+
+A Box with the 9th value on the spacing scale, with large font and blue background:
+
 ```typescript jsx
-<Box p={9} width={300} bg="blue-600">
+<Box p={9} width={300} bg="blue-600" fontSize="large">
+  Box
+</Box>
+```
+
+A Box with the red font color and huge font-size:
+
+```typescript jsx
+<Box color="red-200" fontSize="2x-large">
+  Box
+</Box>
+```
+
+A Box can also implement other components under the hood and accept its props:
+
+```typescript jsx
+<Box as={Button} variantColor="red">
   Box
 </Box>
 ```

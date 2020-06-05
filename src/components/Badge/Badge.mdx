@@ -3,25 +3,25 @@ A Badge should be used to render statuses
 A badge can be `solid`:
 
 ```typescript jsx
-<Box>
-  <Badge color="red-200" mb={2}>
-    INFO
-  </Badge>
-  <Badge color="teal-300" mb={2}>
-    LOW
-  </Badge>
-</Box>
+<SimpleGrid spacing={3} columns={3}>
+  <Badge color="red-200">INFO</Badge>
+  <Badge color="teal-300">LOW</Badge>
+  <Badge color="blue-600">WHATEVER</Badge>
+</SimpleGrid>
 ```
 
 A badge can be `outline`:
 
 ```typescript jsx
-<Box>
-  <Badge color="red-200" mb={2} variant="outline">
+<SimpleGrid spacing={3} columns={3}>
+  <Badge color="red-200" variant="outline">
     INFO
   </Badge>
-  <Badge color="teal-300" mb={2} variant="outline">
+  <Badge color="teal-300" variant="outline">
     LOW
   </Badge>
-</Box>
+  <Badge color="blue-600" variant="outline">
+    WHATEVER
+  </Badge>
+</SimpleGrid>
 ```

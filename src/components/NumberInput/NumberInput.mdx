@@ -1,7 +1,19 @@
 An input can be valid:
 
 ```typescript jsx
-<NumberInput label="Minutes" placeholder="Type a number..." />
+const Example = () => {
+  const [value, setValue] = React.useState();
+  return (
+    <NumberInput
+      label="Minutes"
+      placeholder="Type a number..."
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  );
+};
+
+<Example />;
 ```
 
 An input can have `max` and `min` values:

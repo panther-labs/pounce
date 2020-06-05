@@ -226,6 +226,7 @@ const GlobalStyles: React.FC = () => {
       width: 100%;
 
       padding: ${`${theme.space[2]}px ${theme.space[0]}px`};
+      margin-bottom: ${theme.space[2]}px;
       border-top: ${`1px solid ${theme.colors['navyblue-500']}`};
       border-bottom: ${`1px solid ${theme.colors['navyblue-500']}`};
 

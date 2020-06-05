@@ -1,7 +1,21 @@
 An input can be valid:
 
 ```typescript jsx
-<TextInput truncated label="Name" name="hi" placeholder="Type something..." />
+const Example = () => {
+  const [value, setValue] = React.useState('');
+  return (
+    <TextInput
+      truncated
+      label="Name"
+      name="hi"
+      placeholder="Type something..."
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  );
+};
+
+<Example />;
 ```
 
 An input can be invalid:

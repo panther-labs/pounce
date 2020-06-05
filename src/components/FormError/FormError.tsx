@@ -12,13 +12,13 @@ export type FormErrorProps = FlexProps;
 const FormError: React.FC<FormErrorProps> = ({ children, ...rest }) => {
   return (
     <Flex
+      {...rest}
       as="p"
       alignItems="center"
       color="red-200"
       fontSize="small"
       fontStyle="italic"
       role="alert"
-      {...rest}
     >
       <Icon size="small" type="warning" mr={1} flex="0 0 auto" />
       {children}

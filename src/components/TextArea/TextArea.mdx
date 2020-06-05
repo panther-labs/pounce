@@ -1,7 +1,20 @@
 A TextArea can have a label:
 
 ```typescript jsx
-<TextArea label="First name" placeholder="Type something..." />
+const Example = () => {
+  const [value, setValue] = React.useState('');
+  return (
+    <TextArea
+      label="First name"
+      placeholder="Type something..."
+      truncated
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  );
+};
+
+<Example />;
 ```
 
 It can be valid:

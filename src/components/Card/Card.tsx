@@ -1,7 +1,8 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
 
-export type CardProps = BoxProps & {
+export type CardProps = Omit<BoxProps, 'bg' | 'background' | 'backgroundColor' | 'borderRadius'> & {
+  /** Whether the card should be light blue-navy or dark blue-navy */
   variant?: 'light' | 'dark';
 };
 
