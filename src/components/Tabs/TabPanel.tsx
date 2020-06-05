@@ -1,3 +1,5 @@
-import { TabPanel as ReachTabPanel } from '@reach/tabs';
+import { TabPanel as ReachTabPanel, TabPanelProps as ReachTabPanelProps } from '@reach/tabs';
+
+export type TabPanelProps = ReachTabPanelProps;
 
 export default ReachTabPanel;

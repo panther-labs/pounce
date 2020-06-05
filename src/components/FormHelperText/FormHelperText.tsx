@@ -1,7 +1,7 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
 
-interface FormHelperTextProps extends BoxProps {
+export interface FormHelperTextProps extends BoxProps {
   id: string; // we require `id` to remind people to associate it with an `aria-labeledby`
 }
 

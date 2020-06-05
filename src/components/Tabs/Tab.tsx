@@ -4,10 +4,9 @@ import AbstractButton from '../AbstractButton';
 import { addOpacity } from '../../utils/helpers';
 import useTheme from '../../utils/useTheme';
 
-const Tab = React.forwardRef<HTMLButtonElement, ReachTabProps>(function Tab(
-  { children, ...rest },
-  ref
-) {
+export type TabProps = ReachTabProps;
+
+const Tab = React.forwardRef<HTMLButtonElement, TabProps>(function Tab({ children, ...rest }, ref) {
   const theme = useTheme();
   const activeColor = 'blue-600';
   const focusBorderColor = addOpacity(theme.colors[activeColor], 0.1);

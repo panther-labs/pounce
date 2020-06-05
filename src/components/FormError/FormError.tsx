@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '../Icon';
 import Flex, { FlexProps } from '../Flex';
 
-type FormErrorProps = FlexProps;
+export type FormErrorProps = FlexProps;
 
 /**
  * Extends Box
