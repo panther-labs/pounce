@@ -1,10 +1,10 @@
 import React from 'react';
 import Icon, { IconProps } from '../Icon';
 import useIconButtonStyles from './useIconButtonStyles';
-import { ReactAttributes } from '../Box';
+import { NativeAttributes } from '../Box';
 import AbstractButton from '../AbstractButton';
 
-export type IconButtonProps = ReactAttributes<React.ButtonHTMLAttributes<HTMLButtonElement>> & {
+export type IconButtonProps = NativeAttributes<React.ButtonHTMLAttributes<HTMLButtonElement>> & {
   /** The size of the icon button */
   size?: 'small' | 'large';
 

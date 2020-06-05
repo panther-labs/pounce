@@ -1,12 +1,12 @@
 import * as React from 'react';
 import AbstractButton from '../AbstractButton';
-import { ReactAttributes } from '../Box';
+import { NativeAttributes } from '../Box';
 import useButtonStyles from './useButtonStyles';
 import Spinner from '../Spinner';
 import Icon, { IconProps } from '../Icon';
 
 export interface ButtonProps
-  extends ReactAttributes<React.ButtonHTMLAttributes<HTMLButtonElement>> {
+  extends NativeAttributes<React.ButtonHTMLAttributes<HTMLButtonElement>> {
   /** The size (height) of the button */
   size?: 'small' | 'large';
 

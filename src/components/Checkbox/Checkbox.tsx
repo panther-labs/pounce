@@ -1,9 +1,9 @@
 import React from 'react';
-import Box, { ReactAttributes } from '../Box';
+import Box, { NativeAttributes } from '../Box';
 import PseudoBox from '../PseudoBox';
 import useCheckboxStyles from './useCheckboxStyles';
 
-export type CheckboxProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
+export type CheckboxProps = NativeAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
   /** Whether the checkbox should be checked or not */
   checked: boolean;
 

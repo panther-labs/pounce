@@ -1,12 +1,12 @@
 import React from 'react';
-import { ReactAttributes } from '../Box';
+import { NativeAttributes } from '../Box';
 import { slugify } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import AbstractButton from '../AbstractButton';
 import Icon from '../Icon';
 import Flex from '../Flex';
 
-export type NumberInputProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
+export type NumberInputProps = NativeAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
   /** The label that is associated with this input */
   label: string;
 

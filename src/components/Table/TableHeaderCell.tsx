@@ -1,8 +1,8 @@
 import React from 'react';
-import Box, { BoxProps, ReactAttributes } from '../Box';
+import Box, { BoxProps, NativeAttributes } from '../Box';
 import { useTable } from './Table';
 
-export type TableHeaderCellProps = ReactAttributes<
+export type TableHeaderCellProps = NativeAttributes<
   React.AllHTMLAttributes<HTMLTableCellElement>,
   HTMLTableCellElement
 > & {

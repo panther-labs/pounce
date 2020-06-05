@@ -1,9 +1,9 @@
 import React from 'react';
-import Box, { ReactAttributes } from '../Box';
+import Box, { NativeAttributes } from '../Box';
 import Flex from '../Flex';
 import PseudoBox from '../PseudoBox';
 
-export type SwitchProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
+export type SwitchProps = NativeAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
   /** Whether the checkbox should be checked or not */
   checked: boolean;
 

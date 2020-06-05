@@ -1,9 +1,9 @@
 import React from 'react';
-import Box, { BoxProps, ReactAttributes } from '../Box';
+import Box, { BoxProps, NativeAttributes } from '../Box';
 import { useTable } from './Table';
 
 export type TableCellProps = Pick<BoxProps, 'truncated' | 'color' | 'width' | 'maxWidth'> &
-  ReactAttributes<React.AllHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> & {
+  NativeAttributes<React.AllHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> & {
     /** Whether the content should wrap to multiple lines. Defaults to `auto` */
     wrapText?: 'wrap' | 'nowrap' | 'auto';
 

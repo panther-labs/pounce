@@ -1,9 +1,9 @@
 import React from 'react';
-import Box, { ReactAttributes } from '../Box';
+import Box, { NativeAttributes } from '../Box';
 import PseudoBox from '../PseudoBox';
 import useRadioStyles from './useRadioStyles';
 
-export type RadioProps = ReactAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
+export type RadioProps = NativeAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
   /** Whether the checkbox should be checked or not */
   checked: boolean;
 

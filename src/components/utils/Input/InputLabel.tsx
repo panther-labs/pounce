@@ -1,8 +1,8 @@
 import React from 'react';
 import { useInputContext } from './InputContext';
-import Box, { ReactAttributes } from '../../Box';
+import Box, { NativeAttributes } from '../../Box';
 
-export type InputLabelProps = ReactAttributes<React.LabelHTMLAttributes<HTMLLabelElement>> & {
+export type InputLabelProps = NativeAttributes<React.LabelHTMLAttributes<HTMLLabelElement>> & {
   /**  Whether the label should be raised up or not. Defaults to `true` */
   raised?: boolean;
 };
