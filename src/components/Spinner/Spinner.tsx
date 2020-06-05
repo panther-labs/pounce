@@ -100,8 +100,4 @@ const Spinner: React.FC<SpinnerProps> = ({
   );
 };
 
-Spinner.defaultProps = {
-  delay: 0,
-};
-
 export default React.memo(Spinner);
