@@ -258,7 +258,7 @@ function MultiCombobox<Item>({
               )}
             </Box>
             <Box as="ul" mt="-3px" {...getMenuProps()}>
-              {isOpen && (
+              {isOpen && results.length > 0 && (
                 <Box
                   as="li"
                   border="1px solid"
