@@ -23,7 +23,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ progress, thickness = 5, colo
         bottom={0}
         height={thickness}
         width={progress}
-        bg={color}
+        backgroundColor={color}
+        transition="width 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
         zIndex={1}
       />
     </Box>
