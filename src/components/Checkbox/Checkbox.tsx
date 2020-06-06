@@ -3,7 +3,7 @@ import Box, { NativeAttributes } from '../Box';
 import PseudoBox from '../PseudoBox';
 import useCheckboxStyles from './useCheckboxStyles';
 
-export type CheckboxProps = NativeAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
+export type CheckboxProps = NativeAttributes<'input'> & {
   /** Whether the checkbox should be checked or not */
   checked: boolean;
 

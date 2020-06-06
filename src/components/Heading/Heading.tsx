@@ -2,7 +2,7 @@ import React from 'react';
 import Box, { BoxProps } from '../Box';
 import useHeadingStyles from './useHeadingStyles';
 
-export interface HeadingProps extends BoxProps<React.AllHTMLAttributes<HTMLHeadingElement>> {
+export interface HeadingProps extends BoxProps<'h1'> {
   /** The size of the font */
   size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large' | '3x-large';
 }

@@ -3,8 +3,7 @@ import Box, { BoxProps } from '../Box';
 import useTheme from '../../utils/useTheme';
 import { icons } from '../../theme';
 
-export interface IconProps
-  extends BoxProps<React.SVGAttributes<SVGElement> & React.HTMLAttributes<HTMLOrSVGElement>> {
+export interface IconProps extends BoxProps<'svg'> {
   /** The icon that you want to show */
   type: keyof typeof icons;
 

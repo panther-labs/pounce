@@ -6,7 +6,7 @@ import AbstractButton from '../AbstractButton';
 import Icon from '../Icon';
 import Flex from '../Flex';
 
-export type NumberInputProps = NativeAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
+export type NumberInputProps = NativeAttributes<'input'> & {
   /** The label that is associated with this input */
   label: string;
 

@@ -4,7 +4,7 @@ import { NativeAttributes } from '../Box';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import { slugify } from '../../utils/helpers';
 
-export type TextAreaProps = NativeAttributes<React.TextareaHTMLAttributes<HTMLTextAreaElement>> & {
+export type TextAreaProps = NativeAttributes<'textarea'> & {
   /** The label that is associated with this textaera */
   label: string;
 

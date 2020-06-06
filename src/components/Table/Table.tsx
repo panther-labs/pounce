@@ -1,8 +1,7 @@
 import React from 'react';
 import Box, { BoxProps, NativeAttributes } from '../Box';
 
-export interface TableProps
-  extends NativeAttributes<React.TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {
+export interface TableProps extends NativeAttributes<'table'> {
   /** The table layout. Defaults to `auto` */
   layout?: BoxProps['tableLayout'];
 

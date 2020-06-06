@@ -3,7 +3,7 @@ import Box, { BoxProps, NativeAttributes } from '../Box';
 import { useTable } from './Table';
 
 export type TableCellProps = Pick<BoxProps, 'truncated' | 'color' | 'width' | 'maxWidth'> &
-  NativeAttributes<React.AllHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> & {
+  NativeAttributes<'td'> & {
     /** Whether the content should wrap to multiple lines. Defaults to `auto` */
     wrapText?: 'wrap' | 'nowrap' | 'auto';
 

@@ -3,7 +3,7 @@ import { TabList as ReachTabList } from '@reach/tabs';
 import Flex, { FlexProps } from '../Flex';
 import { NativeAttributes } from '../Box';
 
-export type TabListProps = NativeAttributes<React.AllHTMLAttributes<'ul'>>;
+export type TabListProps = NativeAttributes<'ul'>;
 
 const FlexList = React.forwardRef<HTMLUListElement, FlexProps>(function FlexList(props, ref) {
   return <Flex as="ul" ref={ref} {...props} />;

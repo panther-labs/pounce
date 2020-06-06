@@ -1,7 +1,7 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
 
-export interface TextProps extends BoxProps<React.AllHTMLAttributes<HTMLParagraphElement>> {
+export interface TextProps extends BoxProps<'p'> {
   /** The size of the font */
   size: 'small' | 'medium' | 'large';
 }
@@ -14,7 +14,7 @@ export interface TextProps extends BoxProps<React.AllHTMLAttributes<HTMLParagrap
  *
  * */
 const Text: React.FC<TextProps> = React.forwardRef(function Text({ size, ...rest }, ref) {
-  const sizeProps = (function() {
+  const sizeProps = (function () {
     switch (size) {
       case 'large':
         return { fontSize: 'large' as const };

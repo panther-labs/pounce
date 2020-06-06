@@ -3,7 +3,7 @@ import { NativeAttributes } from '../Box';
 import { slugify } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 
-export type TextInputProps = NativeAttributes<React.InputHTMLAttributes<HTMLInputElement>> & {
+export type TextInputProps = NativeAttributes<'input'> & {
   /** The label that is associated with this input */
   label: string;
 

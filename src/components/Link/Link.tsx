@@ -3,8 +3,7 @@ import PseudoBox from '../PseudoBox';
 import { BoxProps } from '../Box';
 import useLinkStyles from './useLinkStyles';
 
-export interface LinkProps
-  extends Omit<BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>, 'color'> {
+export interface LinkProps extends Omit<BoxProps<'a'>, 'color'> {
   /** Whether the link is external and should open in a new tab */
   external?: boolean;
 

@@ -3,7 +3,7 @@ import css, { CSSObject } from '@styled-system/css';
 import Box, { NativeAttributes } from '../Box';
 import { useTable } from './Table';
 
-export interface TableRowProps extends NativeAttributes<React.AllHTMLAttributes<HTMLElement>> {
+export interface TableRowProps extends NativeAttributes<'tr'> {
   /** Whether the row should appear as selected. Defaults to `false` */
   selected?: boolean;
 

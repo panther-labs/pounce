@@ -1,7 +1,7 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
 
-export interface ImgProps extends BoxProps<React.ImgHTMLAttributes<HTMLImageElement>> {
+export interface ImgProps extends BoxProps<'img'> {
   /** The image URL */
   src: string;
 

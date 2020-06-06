@@ -4,8 +4,7 @@ import { keyframes } from '@emotion/react';
 import Box, { BoxProps } from '../Box';
 import { Theme } from '../../theme';
 
-export interface SpinnerProps
-  extends BoxProps<React.SVGAttributes<SVGElement> & React.HTMLAttributes<HTMLOrSVGElement>> {
+export interface SpinnerProps extends BoxProps<'svg'> {
   /** Delay after which spinner should be visible. */
   delay?: number;
 

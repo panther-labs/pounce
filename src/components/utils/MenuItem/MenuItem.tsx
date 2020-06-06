@@ -3,7 +3,7 @@ import PseudoBox from '../../PseudoBox';
 import { Theme } from '../../../theme';
 import { NativeAttributes } from '../../Box';
 
-interface MenuItemProps extends NativeAttributes<React.AllHTMLAttributes<HTMLElement>> {
+interface MenuItemProps extends NativeAttributes<'div'> {
   /** Whether the current item is currently selected **/
   selected?: boolean;
 

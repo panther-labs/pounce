@@ -3,8 +3,7 @@ import { useInputContext } from './InputContext';
 import { NativeAttributes } from '../../Box';
 import PseudoBox, { PseudoBoxProps } from '../../PseudoBox';
 
-export type InputElementProps = PseudoBoxProps &
-  NativeAttributes<React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>>;
+export type InputElementProps = PseudoBoxProps & NativeAttributes<'input' | 'textarea'>;
 
 const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputElementProps>(
   function InputElement({ readOnly, ...rest }, ref) {

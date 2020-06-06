@@ -5,8 +5,7 @@ import useButtonStyles from './useButtonStyles';
 import Spinner from '../Spinner';
 import Icon, { IconProps } from '../Icon';
 
-export interface ButtonProps
-  extends NativeAttributes<React.ButtonHTMLAttributes<HTMLButtonElement>> {
+export interface ButtonProps extends NativeAttributes<'button'> {
   /** The size (height) of the button */
   size?: 'small' | 'large';
 
