@@ -7,6 +7,7 @@ import MenuItem from '../utils/MenuItem';
 import Icon from '../Icon';
 import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
 import { typedMemo } from '../../utils/helpers';
+import Menu from '../utils/Menu';
 
 export type ComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -189,36 +190,24 @@ function Combobox<Item>({
                 right={4}
               />
             </Box>
-            <Box as="ul" mt="-3px" {...getMenuProps()}>
-              {isOpen && results.length > 0 && (
-                <Box
+            <Menu
+              as="ul"
+              maxHeight={maxHeight}
+              isOpen={isOpen && results.length > 0}
+              {...getMenuProps()}
+            >
+              {results.map(item => (
+                <MenuItem
+                  {...getItemProps({ item, disabled: disableItem(item) })}
                   as="li"
-                  border="1px solid"
-                  borderLeftColor="blue-600"
-                  borderRightColor="blue-600"
-                  borderBottomColor="blue-600"
-                  borderTopColor="navyblue-600"
-                  borderBottomLeftRadius="medium"
-                  borderBottomRightRadius="medium"
-                  backgroundColor="navyblue-450"
-                  zIndex={1}
-                  position="absolute"
-                  width={1}
-                  maxHeight={maxHeight}
-                  overflow="auto"
+                  listStyle="none"
+                  key={itemToString(item)}
+                  selected={item === selectedItem}
                 >
-                  {results.map(item => (
-                    <MenuItem
-                      {...getItemProps({ item, disabled: disableItem(item) })}
-                      key={itemToString(item)}
-                      selected={item === selectedItem}
-                    >
-                      {itemToString(item)}
-                    </MenuItem>
-                  ))}
-                </Box>
-              )}
-            </Box>
+                  {itemToString(item)}
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
         );
       }}
