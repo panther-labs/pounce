@@ -15,47 +15,48 @@ export interface DropdownMenuProps {
   alignment?: 'left' | 'right' | 'match-width';
 }
 
-export const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>(
-  function DropdownMenu({ alignment = 'right', children }, ref) {
-    const position = useDropdownAlignment({ alignment });
-    const { isExpanded } = useDropdownContext();
+export const DropdownMenu = React.forwardRef<
+  HTMLElement,
+  React.PropsWithChildren<DropdownMenuProps>
+>(function DropdownMenu({ alignment = 'right', children }, ref) {
+  const position = useDropdownAlignment({ alignment });
+  const { isExpanded } = useDropdownContext();
 
-    const transitions = useTransition(isExpanded, null, {
-      from: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
-      enter: { transform: 'translate3d(0, 0, 0)', opacity: 1, pointerEvents: 'auto' },
-      leave: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
-      config: { duration: 250 },
-    });
+  const transitions = useTransition(isExpanded, null, {
+    from: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
+    enter: { transform: 'translate3d(0, 0, 0)', opacity: 1, pointerEvents: 'auto' },
+    leave: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
+    config: { duration: 250 },
+  });
 
-    return (
-      <React.Fragment>
-        {transitions.map(
-          ({ item, key, props: styles }) =>
-            item && (
-              <AnimatedReachMenuPopover
-                key={key}
-                style={styles}
-                position={position}
-                ref={ref}
-                hidden={false}
+  return (
+    <React.Fragment>
+      {transitions.map(
+        ({ item, key, props: styles }) =>
+          item && (
+            <AnimatedReachMenuPopover
+              key={key}
+              style={styles}
+              position={position}
+              ref={ref}
+              hidden={false}
+            >
+              <Box
+                as={ReachMenuItems}
+                bg="navyblue-450"
+                borderRadius="medium"
+                zIndex={99}
+                mt={2}
+                outline="none"
+                overflow="hidden"
               >
-                <Box
-                  as={ReachMenuItems}
-                  bg="navyblue-450"
-                  borderRadius="medium"
-                  zIndex={99}
-                  mt={2}
-                  outline="none"
-                  overflow="hidden"
-                >
-                  {children}
-                </Box>
-              </AnimatedReachMenuPopover>
-            )
-        )}
-      </React.Fragment>
-    );
-  }
-);
+                {children}
+              </Box>
+            </AnimatedReachMenuPopover>
+          )
+      )}
+    </React.Fragment>
+  );
+});
 
 export default DropdownMenu;
