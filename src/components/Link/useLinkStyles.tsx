@@ -12,7 +12,6 @@ const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
     case 'neutral':
       return {
         transition: `color 0.15s ease-out`,
-        fontSize: 'medium',
         textDecoration: 'none',
         borderBottom: '1px solid',
         color: 'gray-300',
@@ -34,7 +33,6 @@ const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
       const hoverColor = lightenDarkenColor(theme.colors['blue-600'], 25);
       return {
         transition: `color 0.15s ease-out`,
-        fontSize: 'medium',
         fontWeight: 'medium',
         textDecoration: 'none',
         color: 'blue-600',
