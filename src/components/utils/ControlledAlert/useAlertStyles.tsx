@@ -1,8 +1,8 @@
-import { AlertProps } from './Alert';
+import { ControlledAlertProps } from './ControlledAlert';
 
-type UseAlertStylesProps = Pick<AlertProps, 'variant'>;
+type UseControlledAlertStylesProps = Pick<ControlledAlertProps, 'variant'>;
 
-const useAlertStyles = ({ variant }: UseAlertStylesProps) => {
+const useAlertStyles = ({ variant }: UseControlledAlertStylesProps) => {
   switch (variant) {
     case 'success':
       return {

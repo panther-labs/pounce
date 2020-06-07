@@ -1,7 +1,7 @@
 import React from 'react';
-import Alert, { AlertProps } from '../Alert';
+import ControlledAlert, { ControlledAlertProps } from '../utils/ControlledAlert';
 
-export interface SnackbarProps extends AlertProps {
+export interface SnackbarProps extends Omit<ControlledAlertProps, 'open' | 'onClose'> {
   /** The number of milliseconds that this snackbar will show until it automatically disappears
    * @default 6000
    * */
@@ -27,7 +27,7 @@ const Snackbar: React.FC<SnackbarProps> = ({ destroy, duration = 6000, ...rest }
     return () => clearTimeout(timeoutRef.current as number);
   }, []);
 
-  return <Alert discardable {...rest} />;
+  return <ControlledAlert {...rest} open onClose={destroy} discardable />;
 };
 
 export default Snackbar;
