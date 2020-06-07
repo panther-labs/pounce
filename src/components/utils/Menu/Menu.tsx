@@ -9,7 +9,10 @@ interface MenuProps {
   maxHeight: number;
 }
 
-const Menu: React.FC<MenuProps> = ({ children, isOpen, maxHeight, ...rest }) => {
+const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
+  { children, isOpen, maxHeight, ...rest },
+  ref
+) {
   const transitions = useTransition(isOpen, null, {
     from: { transform: 'scale(0.9,0.9)', opacity: 0 },
     enter: { transform: 'scale(1, 1)', opacity: 1 },
@@ -22,6 +25,7 @@ const Menu: React.FC<MenuProps> = ({ children, isOpen, maxHeight, ...rest }) => 
       {transitions.map(({ item, key, props: styles }) =>
         item ? (
           <AnimatedBox
+            ref={ref}
             key={key}
             style={styles}
             mt="-3px"
@@ -43,11 +47,11 @@ const Menu: React.FC<MenuProps> = ({ children, isOpen, maxHeight, ...rest }) => 
             {children}
           </AnimatedBox>
         ) : (
-          <Box {...rest} />
+          <Box key={key} ref={ref} {...rest} />
         )
       )}
     </React.Fragment>
   );
-};
+});
 
 export default Menu;
