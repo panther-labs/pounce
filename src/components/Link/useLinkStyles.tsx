@@ -17,7 +17,7 @@ const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
         color: 'gray-300',
         _hover: { color: 'white' },
         _focus: { color: 'white' },
-        _after: {},
+        _active: { color: 'white' },
       };
     case 'discreet':
       return {
@@ -38,6 +38,7 @@ const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
         color: 'blue-600',
         _hover: { color: hoverColor },
         _focus: { color: hoverColor },
+        _active: { color: hoverColor },
       };
     }
   }

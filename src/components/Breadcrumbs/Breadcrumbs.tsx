@@ -40,6 +40,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, ...rest }) => {
                 border="none"
                 truncated
                 maxWidth="450px"
+                data-active={isLastBreadcrumb ? true : undefined}
                 {...rest}
               >
                 {item.text}
