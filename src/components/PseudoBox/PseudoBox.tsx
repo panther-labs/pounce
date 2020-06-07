@@ -128,6 +128,11 @@ export interface PseudoBoxProps extends BoxProps {
    * Useful for inputs
    */
   _placeholder?: SystemStyleObject;
+  /**
+   * Styles for CSS Selector `&::webkit-autofill`.
+   * Useful for inputs
+   */
+  _autofill?: SystemStyleObject;
 }
 
 /**
@@ -154,6 +159,7 @@ const grabbed = '&[aria-grabbed=true]';
 const notFirst = '&:not(:first-of-type)';
 const notLast = '&:not(:last-of-type)';
 const groupHover = '[role=group]:hover &';
+const autofill = '&:-webkit-autofill';
 
 export const PseudoBox = React.forwardRef<HTMLElement, PseudoBoxProps>(function PseudoBox(
   {
@@ -181,6 +187,7 @@ export const PseudoBox = React.forwardRef<HTMLElement, PseudoBoxProps>(function 
     _mixed,
     _odd,
     _even,
+    _autofill,
     ...rest
   },
   ref
@@ -214,6 +221,7 @@ export const PseudoBox = React.forwardRef<HTMLElement, PseudoBoxProps>(function 
         [checked]: transformAliasProps(_checked),
         [pressed]: transformAliasProps(_pressed),
         [groupHover]: transformAliasProps(_groupHover),
+        [autofill]: transformAliasProps(_autofill),
         '&:before': transformAliasProps(_before),
         '&:after': transformAliasProps(_after),
         '&:focus-within': transformAliasProps(_focusWithin),

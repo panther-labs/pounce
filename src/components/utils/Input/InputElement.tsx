@@ -2,12 +2,14 @@ import React from 'react';
 import { useInputContext } from './InputContext';
 import { NativeAttributes } from '../../Box';
 import PseudoBox, { PseudoBoxProps } from '../../PseudoBox';
+import useTheme from '../../../utils/useTheme';
 
 export type InputElementProps = PseudoBoxProps & NativeAttributes<'input' | 'textarea'>;
 
 const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputElementProps>(
   function InputElement({ readOnly, ...rest }, ref) {
     const { disabled, required, invalid } = useInputContext();
+    const theme = useTheme();
 
     return (
       <PseudoBox
@@ -37,6 +39,11 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
           '::placeholder': {
             opacity: 0.4,
           },
+        }}
+        _autofill={{
+          '-webkit-box-shadow': `0 0 0 30px ${theme.colors['navyblue-900']} inset`,
+          '-webkit-text-fill-color': 'gray-50',
+          borderRadius: 'medium',
         }}
         disabled={disabled}
         aria-disabled={disabled}
