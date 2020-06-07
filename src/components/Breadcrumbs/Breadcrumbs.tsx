@@ -2,19 +2,7 @@ import React from 'react';
 import Flex from '../Flex';
 import Icon from '../Icon';
 import Box from '../Box';
-import PseudoBox from '../PseudoBox';
-
-const defaultItemRenderer = (item: BreadcrumbItem) => (
-  <PseudoBox
-    as="a"
-    href={item.href}
-    color="inherit"
-    _hover={{ textDecoration: 'underline' }}
-    textDecoration="none"
-  >
-    {item.text}
-  </PseudoBox>
-);
+import Link, { LinkProps } from '../Link';
 
 export interface BreadcrumbItem {
   /** The URL that this Breadcrumbs should navigate to when clicked */
@@ -24,19 +12,13 @@ export interface BreadcrumbItem {
   text: string;
 }
 
-export interface BreadcrumbProps {
+export interface BreadcrumbProps extends Pick<LinkProps, 'as'> {
   /** A list of `BreadcrumbsItem` objects ( `{href,text}` ) that will construct the Breadcrumb */
   items: BreadcrumbItem[];
-
-  /**
-   * The component to render for each Breadcrumb. This provides an easy way to integrate with your
-   * favourite router library (i.e. `reach-router`, `react-router`, etc.).
-   */
-  itemRenderer: (item: BreadcrumbItem) => React.ReactNode;
 }
 
 /** Breadcrumb is a way to navigate back to where you came from within the app */
-const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, itemRenderer = defaultItemRenderer }) => {
+const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, ...rest }) => {
   return (
     <Box as="nav" aria-label="Breadcrumbs">
       <Flex as="ol">
@@ -52,7 +34,16 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, itemRenderer = defaultI
               fontWeight={isLastBreadcrumb ? 'bold' : 'normal'}
               aria-current={isLastBreadcrumb ? 'page' : undefined}
             >
-              {itemRenderer(item)}
+              <Link
+                to={item.href}
+                variant="neutral"
+                border="none"
+                truncated
+                maxWidth="450px"
+                {...rest}
+              >
+                {item.text}
+              </Link>
               {!isLastBreadcrumb && (
                 <Icon
                   type="chevron-right"
