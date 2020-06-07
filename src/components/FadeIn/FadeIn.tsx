@@ -45,6 +45,7 @@ const FadeIn: React.FC<FadeInProps> = ({
   delay = 0,
   offset = 25,
   children,
+  ...rest
 }) => {
   const keyframes = React.useMemo(() => generateKeyframes(from, offset), [from, offset]);
 
@@ -53,6 +54,7 @@ const FadeIn: React.FC<FadeInProps> = ({
       as={as}
       willChange="opacity, transform"
       animation={`${keyframes} ${duration}ms ${delay}ms ease-in-out both`}
+      {...rest}
     >
       {children}
     </Box>
