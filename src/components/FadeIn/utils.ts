@@ -1,11 +1,8 @@
 import { keyframes } from '@emotion/react';
 import { FadeInProps } from './FadeIn';
 
-export const generateKeyframes = (
-  direction: FadeInProps['direction'],
-  offset: FadeInProps['offset']
-) => {
-  if (direction === 'center') {
+export const generateKeyframes = (from: FadeInProps['from'], offset: FadeInProps['offset']) => {
+  if (from === 'center') {
     return keyframes`
       0% { opacity: 0; }
       100% { opacity: 1; }
@@ -13,7 +10,7 @@ export const generateKeyframes = (
   }
 
   let initialTransformValue;
-  switch (direction) {
+  switch (from) {
     case 'right':
       initialTransformValue = `translate3d(${offset}px, 0, 0)`;
       break;

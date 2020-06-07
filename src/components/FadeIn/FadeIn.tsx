@@ -1,14 +1,14 @@
 import React from 'react';
-import Box from '../Box';
+import Box, { BoxProps } from '../Box';
 import { generateKeyframes } from './utils';
 
-export interface FadeInProps {
+export interface FadeInProps extends Pick<BoxProps, 'as'> {
   /**
-   * The direction that the components fades-in towards
+   * The from that the components fades-in towards
    *
    * @default center
    * */
-  direction?: 'top' | 'right' | 'bottom' | 'left' | 'center';
+  from?: 'top' | 'right' | 'bottom' | 'left' | 'center';
 
   /**
    * The duration of the fade in ms
@@ -39,16 +39,18 @@ export interface FadeInProps {
  * viewport
  */
 const FadeIn: React.FC<FadeInProps> = ({
-  direction = 'center',
-  duration = 1000,
+  as,
+  from = 'center',
+  duration = 300,
   delay = 0,
   offset = 25,
   children,
 }) => {
-  const keyframes = React.useMemo(() => generateKeyframes(direction, offset), [direction, offset]);
+  const keyframes = React.useMemo(() => generateKeyframes(from, offset), [from, offset]);
 
   return (
     <Box
+      as={as}
       willChange="opacity, transform"
       animation={`${keyframes} ${duration}ms ${delay}ms ease-in-out both`}
     >
