@@ -21,20 +21,20 @@ export const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>(
     const { isExpanded } = useDropdownContext();
 
     const transitions = useTransition(isExpanded, null, {
-      from: { transform: 'translate3d(0, -10px, 0)', opacity: 0 },
-      enter: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
-      leave: { transform: 'translate3d(0, -10px, 0)', opacity: 0 },
+      from: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
+      enter: { transform: 'translate3d(0, 0, 0)', opacity: 1, pointerEvents: 'auto' },
+      leave: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
       config: { duration: 250 },
     });
 
     return (
       <React.Fragment>
         {transitions.map(
-          ({ item, key, props }) =>
+          ({ item, key, props: styles }) =>
             item && (
               <AnimatedReachMenuPopover
                 key={key}
-                style={props}
+                style={styles}
                 position={position}
                 ref={ref}
                 hidden={false}

@@ -19,11 +19,11 @@ const Menu: React.FC<MenuProps> = ({ children, isOpen, maxHeight, ...rest }) => 
 
   return (
     <React.Fragment>
-      {transitions.map(({ item, key, props }) =>
+      {transitions.map(({ item, key, props: styles }) =>
         item ? (
           <AnimatedBox
             key={key}
-            style={props}
+            style={styles}
             mt="-3px"
             border="1px solid"
             borderLeftColor="blue-600"
