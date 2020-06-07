@@ -47,7 +47,14 @@ const FadeIn: React.FC<FadeInProps> = ({
 }) => {
   const keyframes = React.useMemo(() => generateKeyframes(direction, offset), [direction, offset]);
 
-  return <Box animation={`${keyframes} ${duration}ms ${delay}ms ease-in-out both`}>{children}</Box>;
+  return (
+    <Box
+      willChange="opacity, transform"
+      animation={`${keyframes} ${duration}ms ${delay}ms ease-in-out both`}
+    >
+      {children}
+    </Box>
+  );
 };
 
 export default FadeIn;
