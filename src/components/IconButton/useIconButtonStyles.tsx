@@ -24,7 +24,7 @@ export const getGhostButtonStyles = (theme: Theme, variantColor: ButtonColorVari
   const themeColor = theme.colors[themeColorKey];
 
   return {
-    transition: 'background-color 300ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
+    transition: 'background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
     borderRadius: 'circle' as const,
     border: '1px solid',
     borderColor: 'transparent',
