@@ -1,10 +1,10 @@
 import React from 'react';
 import Icon, { IconProps } from '../Icon';
 import useIconButtonStyles from './useIconButtonStyles';
-import { NativeAttributes } from '../Box';
+import { BoxProps, NativeAttributes } from '../Box';
 import AbstractButton from '../AbstractButton';
 
-export type IconButtonProps = NativeAttributes<'button'> & {
+export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as'> {
   /** The size of the icon button */
   size?: 'small' | 'large';
 
@@ -37,7 +37,7 @@ export type IconButtonProps = NativeAttributes<'button'> & {
 
   /** Whether the button should always be marked as active. Helpful for menus. */
   active?: boolean;
-};
+}
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
