@@ -1,4 +1,6 @@
 import React from 'react';
+import { animated } from 'react-spring';
+import { CSSObject } from '@styled-system/css';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import Box from '../Box';
 import Card from '../Card';
@@ -6,6 +8,13 @@ import Heading from '../Heading';
 import Flex from '../Flex';
 import { slugify } from '../../utils/helpers';
 import IconButton from '../IconButton';
+
+const AnimatedDialogOverlay = animated(DialogOverlay);
+const AnimatedDialogContent = animated(DialogContent);
+
+const defaultAnimationStyles = {
+  opacity: 1,
+};
 
 export interface ModalProps {
   /** Whether the modal should be visible or not */
@@ -22,6 +31,9 @@ export interface ModalProps {
 
   /** The id of the HTML node that contains the text of the modal */
   'aria-describedby'?: string;
+
+  /** a set of animate-able styles to apply to the Sidesheet. Compatible with react-spring */
+  animationStyles?: CSSObject;
 }
 
 /**
@@ -34,14 +46,19 @@ const Modal: React.FC<ModalProps> = ({
   open,
   onClose,
   showCloseButton,
+  animationStyles = defaultAnimationStyles,
   ...rest
 }) => {
   return (
-    <DialogOverlay isOpen={open} onDismiss={onClose}>
+    <AnimatedDialogOverlay
+      isOpen={open}
+      onDismiss={onClose}
+      style={{ overflow: 'visible', opacity: animationStyles?.opacity ?? 1 }}
+    >
       <Flex justify="center" align="center" height="100%">
-        <DialogContent
+        <AnimatedDialogContent
           aria-labelledby={title ? slugify(title) : undefined}
-          style={{ outline: 'none' }}
+          style={{ outline: 'none', ...animationStyles }}
           {...rest}
         >
           <Card minWidth="400px" maxWidth="700px" position="relative">
@@ -65,9 +82,9 @@ const Modal: React.FC<ModalProps> = ({
             )}
             <Box p={8}>{children}</Box>
           </Card>
-        </DialogContent>
+        </AnimatedDialogContent>
       </Flex>
-    </DialogOverlay>
+    </AnimatedDialogOverlay>
   );
 };
 
