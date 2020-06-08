@@ -76,4 +76,4 @@ const SideSheet: React.FC<SideSheetProps> = ({ children, open, onClose, ...rest 
   );
 };
 
-export default React.memo(SideSheet);
+export default SideSheet;
