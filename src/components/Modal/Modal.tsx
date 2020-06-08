@@ -1,6 +1,5 @@
 import React from 'react';
-import { animated } from 'react-spring';
-import { CSSObject } from '@styled-system/css';
+import { animated, useTransition } from 'react-spring';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import Box from '../Box';
 import Card from '../Card';
@@ -11,10 +10,6 @@ import IconButton from '../IconButton';
 
 const AnimatedDialogOverlay = animated(DialogOverlay);
 const AnimatedDialogContent = animated(DialogContent);
-
-const defaultAnimationStyles = {
-  opacity: 1,
-};
 
 export interface ModalProps {
   /** Whether the modal should be visible or not */
@@ -31,9 +26,6 @@ export interface ModalProps {
 
   /** The id of the HTML node that contains the text of the modal */
   'aria-describedby'?: string;
-
-  /** a set of animate-able styles to apply to the Sidesheet. Compatible with react-spring */
-  animationStyles?: CSSObject;
 }
 
 /**
@@ -46,46 +38,59 @@ const Modal: React.FC<ModalProps> = ({
   open,
   onClose,
   showCloseButton,
-  animationStyles = defaultAnimationStyles,
   ...rest
 }) => {
+  const transitions = useTransition(open, null, {
+    from: { transform: 'translate3d(0, 25px, 0)', opacity: 0 },
+    enter: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
+    leave: { transform: 'translate3d(0, 25px, 0)', opacity: 0, pointerEvents: 'none' },
+  });
+
   return (
-    <AnimatedDialogOverlay
-      isOpen={open}
-      onDismiss={onClose}
-      style={{ overflow: 'visible', opacity: animationStyles?.opacity ?? 1 }}
-    >
-      <Flex justify="center" align="center" height="100%">
-        <AnimatedDialogContent
-          aria-labelledby={title ? slugify(title) : undefined}
-          style={{ outline: 'none', ...animationStyles }}
-          {...rest}
-        >
-          <Card minWidth="400px" maxWidth="700px" position="relative">
-            {title && (
-              <Box as="header" borderBottom="1px solid" borderColor="navyblue-500" py={6}>
-                <Heading as="h4" size="x-small" textAlign="center" id={slugify(title)}>
-                  {title}
-                </Heading>
-              </Box>
-            )}
-            {showCloseButton && (
-              <Box position="absolute" top={3} right={3}>
-                <IconButton
-                  icon="close"
-                  aria-label="Dismiss Dialog"
-                  variant="ghost"
-                  variantColor="navyblue"
-                  onClick={onClose}
-                />
-              </Box>
-            )}
-            <Box p={8}>{children}</Box>
-          </Card>
-        </AnimatedDialogContent>
-      </Flex>
-    </AnimatedDialogOverlay>
+    <React.Fragment>
+      {transitions.map(
+        ({ item, key, props: styles }) =>
+          item && (
+            <AnimatedDialogOverlay
+              key={key}
+              isOpen={item}
+              onDismiss={onClose}
+              style={{ overflow: 'visible', opacity: styles.opacity }}
+            >
+              <Flex justify="center" align="center" height="100%">
+                <AnimatedDialogContent
+                  aria-labelledby={title ? slugify(title) : undefined}
+                  style={styles}
+                  {...rest}
+                >
+                  <Card minWidth="400px" maxWidth="700px" position="relative">
+                    {title && (
+                      <Box as="header" borderBottom="1px solid" borderColor="navyblue-500" py={6}>
+                        <Heading as="h4" size="x-small" textAlign="center" id={slugify(title)}>
+                          {title}
+                        </Heading>
+                      </Box>
+                    )}
+                    {showCloseButton && (
+                      <Box position="absolute" top={3} right={3}>
+                        <IconButton
+                          icon="close"
+                          aria-label="Dismiss Dialog"
+                          variant="ghost"
+                          variantColor="navyblue"
+                          onClick={onClose}
+                        />
+                      </Box>
+                    )}
+                    <Box p={8}>{children}</Box>
+                  </Card>
+                </AnimatedDialogContent>
+              </Flex>
+            </AnimatedDialogOverlay>
+          )
+      )}
+    </React.Fragment>
   );
 };
 
-export default Modal;
+export default React.memo(Modal);
