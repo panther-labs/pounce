@@ -114,6 +114,11 @@ const GlobalStyles: React.FC = () => {
       font-family: inherit;
     }
 
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
     /* HTML5 display-role reset for older browsers */
     article,
     aside,
