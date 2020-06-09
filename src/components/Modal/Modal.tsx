@@ -60,10 +60,10 @@ const Modal: React.FC<ModalProps> = ({
               <Flex justify="center" align="center" height="100%">
                 <AnimatedDialogContent
                   aria-labelledby={title ? slugify(title) : undefined}
-                  style={styles}
+                  style={{ outline: 'none', ...styles }}
                   {...rest}
                 >
-                  <Card minWidth="400px" maxWidth="700px" position="relative">
+                  <Card minWidth="400px" maxWidth="700px" position="relative" boxShadow="dark200">
                     {title && (
                       <Box as="header" borderBottom="1px solid" borderColor="navyblue-500" py={6}>
                         <Heading as="h4" size="x-small" textAlign="center" id={slugify(title)}>
