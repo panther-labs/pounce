@@ -1,9 +1,8 @@
-import {
-  MenuButton as ReachMenuButton,
-  MenuButtonProps as ReachMenuButtonProps,
-} from '@reach/menu-button';
+import { MenuButton as ReachMenuButton } from '@reach/menu-button';
+import { ComponentWithAs } from '@reach/utils';
+import { NativeAttributes } from '../Box';
 
-export const DropdownButton = ReachMenuButton;
-export type DropdownButtonProps = ReachMenuButtonProps;
+export type DropdownButtonProps = NativeAttributes<'button'>;
+export const DropdownButton = ReachMenuButton as ComponentWithAs<'button', DropdownButtonProps>;
 
 export default DropdownButton;
