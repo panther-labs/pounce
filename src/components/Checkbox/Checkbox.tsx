@@ -4,12 +4,6 @@ import PseudoBox from '../PseudoBox';
 import useCheckboxStyles from './useCheckboxStyles';
 
 export type CheckboxProps = NativeAttributes<'input'> & {
-  /** Whether the checkbox should be checked or not */
-  checked: boolean;
-
-  /** What happens when the value of the checkbox changes */
-  onChange: (checked: boolean, e: React.SyntheticEvent) => void;
-
   /** The label associated with the Checkbox. Appears on the right. */
   label?: string;
 
@@ -24,7 +18,7 @@ export type CheckboxProps = NativeAttributes<'input'> & {
  *  Your bread & butter checkbox element. Nothing new here
  *  */
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
-  { checked, onChange, label, disabled = false, readOnly = false, invalid = false, ...rest },
+  { checked, label, disabled = false, readOnly = false, invalid = false, ...rest },
   ref
 ) {
   const checkboxStyles = useCheckboxStyles({ invalid, checked });
@@ -60,7 +54,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
           aria-checked={checked}
           checked={checked}
           disabled={disabled}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked, e)}
           {...rest}
         />
       </PseudoBox>

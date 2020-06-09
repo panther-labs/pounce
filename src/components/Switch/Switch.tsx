@@ -4,12 +4,6 @@ import Flex from '../Flex';
 import PseudoBox from '../PseudoBox';
 
 export type SwitchProps = NativeAttributes<'input'> & {
-  /** Whether the checkbox should be checked or not */
-  checked: boolean;
-
-  /** What happens when the value of the checkbox changes */
-  onChange: (checked: boolean, e: React.SyntheticEvent) => void;
-
   /** Whether the checkbox is currently disabled */
   disabled?: boolean;
 
@@ -33,7 +27,6 @@ export type SwitchProps = NativeAttributes<'input'> & {
 const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   {
     checked,
-    onChange,
     label,
     checkedText = 'ON',
     uncheckedText = 'OFF',
@@ -106,7 +99,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           aria-invalid={invalid}
           checked={checked}
           disabled={disabled}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.checked, e)}
           {...rest}
         />
       </Flex>

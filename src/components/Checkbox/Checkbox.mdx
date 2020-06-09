@@ -7,16 +7,34 @@ const Example = () => {
   return (
     <Box>
       <Box>
-        <Checkbox checked={isCheckedA} onChange={setCheckedA} aria-label="Without Label" />
+        <Checkbox
+          checked={isCheckedA}
+          onChange={e => setCheckedA(e.target.checked)}
+          aria-label="Without Label"
+        />
       </Box>
       <Box>
-        <Checkbox checked={isCheckedB} onChange={setCheckedB} label="With Label" />
+        <Checkbox
+          checked={isCheckedB}
+          onChange={e => setCheckedB(e.target.checked)}
+          label="With Label"
+        />
       </Box>
       <Box>
-        <Checkbox checked={isCheckedC} onChange={setCheckedC} label="Invalid" invalid />
+        <Checkbox
+          checked={isCheckedC}
+          onChange={e => setCheckedC(e.target.checked)}
+          label="Invalid"
+          invalid
+        />
       </Box>
       <Box>
-        <Checkbox checked={isCheckedD} onChange={setCheckedD} label="Disabled" disabled />
+        <Checkbox
+          checked={isCheckedD}
+          onChange={e => setCheckedD(e.target.checked)}
+          label="Disabled"
+          disabled
+        />
       </Box>
     </Box>
   );
