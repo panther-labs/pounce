@@ -175,7 +175,7 @@ function Combobox<Item>({
                   truncated
                   {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
                 />
-                <InputLabel raised={!!value} {...getLabelProps()}>
+                <InputLabel raised={value != null} {...getLabelProps()}>
                   {label}
                 </InputLabel>
               </InputControl>
