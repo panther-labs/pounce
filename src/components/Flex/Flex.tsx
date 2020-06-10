@@ -1,5 +1,6 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
+import { getItemSpacingProps } from './utils';
 
 export type FlexProps = Omit<BoxProps, 'display'> & {
   /** An alias for `flexDirection` */
@@ -16,6 +17,9 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
 
   /** Whether the flex should be `flex-inline` */
   inline?: boolean;
+
+  /** The gap between the flex items */
+  spacing?: BoxProps['margin'];
 };
 
 /**
@@ -25,7 +29,9 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
  * wrapper around a certain layout
  */
 export const Flex = React.forwardRef<HTMLElement, FlexProps>(function Flex(props, ref) {
-  const { direction, justify, align, inline, wrap, ...rest } = props;
+  const { direction, justify, align, inline, wrap, spacing, ...rest } = props;
+
+  const itemSpacingProps = getItemSpacingProps(spacing, direction || rest.flexDirection);
   return (
     <Box
       display={inline ? 'inline-flex' : 'flex'}
@@ -34,6 +40,7 @@ export const Flex = React.forwardRef<HTMLElement, FlexProps>(function Flex(props
       justifyContent={justify}
       alignItems={align}
       flexWrap={wrap}
+      {...itemSpacingProps}
       {...rest}
     />
   );
