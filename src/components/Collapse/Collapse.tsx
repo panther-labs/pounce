@@ -18,7 +18,7 @@ export interface CollapseProps extends Pick<BoxProps, 'as'> {
   /**
    * The duration of the animation in ms
    *
-   * @default 300
+   * @default Dynamic depending on the height
    * */
   duration?: number;
 
@@ -33,7 +33,7 @@ export interface CollapseProps extends Pick<BoxProps, 'as'> {
 const Collapse: React.FC<CollapseProps> = ({
   open,
   animateOpacity = true,
-  duration = 300,
+  duration,
   children,
   ...rest
 }) => {
