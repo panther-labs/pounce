@@ -3,7 +3,9 @@ import { NativeAttributes, transformAliasProps } from '../Box';
 import Flex, { FlexProps } from '../Flex';
 import css from '@styled-system/css';
 
-export interface StackProps extends Pick<FlexProps, 'justify' | 'align'>, NativeAttributes<'div'> {
+export interface StackProps
+  extends Pick<FlexProps, 'justify' | 'align' | 'as'>,
+    NativeAttributes<'div'> {
   /**
    * The gap between the items
    */
