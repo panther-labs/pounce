@@ -1,0 +1,19 @@
+```typescript jsx
+const Example = () => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Box>
+      <Button onClick={() => setOpen(!open)}>{open ? 'Hide' : 'Show'}</Button>
+      <Collapse open={open}>
+        <Box fontSize="medium" width={300}>
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+          squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+          sapiente ea proident.
+        </Box>
+      </Collapse>
+    </Box>
+  );
+};
+
+<Example />;
+```
