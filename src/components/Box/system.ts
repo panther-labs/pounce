@@ -2,6 +2,7 @@ import React from 'react';
 import { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
 import { SystemStyleObject } from '@styled-system/css';
 import * as StyledSystem from 'styled-system';
+import * as H from 'history';
 import { Theme } from '../../theme';
 
 // prettier-ignore
@@ -23,7 +24,9 @@ type RoutingProps = {
   /** The url path to navigate, if the component implements a Link
    * @ignore
    */
-  to?: string;
+  to?:
+    | H.LocationDescriptor<H.LocationState>
+    | ((location: H.Location<H.LocationState>) => H.LocationDescriptor<H.LocationState>);
 };
 
 // Props related to the usage of the Emotion CSS-in-JS library
