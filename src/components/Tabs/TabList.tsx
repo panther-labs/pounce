@@ -6,7 +6,7 @@ import { NativeAttributes } from '../Box';
 export type TabListProps = NativeAttributes<'ul'>;
 
 const FlexList = React.forwardRef<HTMLUListElement, FlexProps>(function FlexList(props, ref) {
-  return <Flex as="ul" ref={ref} {...props} />;
+  return <Flex as="ul" flexWrap="wrap" ref={ref} {...props} />;
 });
 
 export const TabList = React.forwardRef<HTMLUListElement, TabListProps>(function TabList(
