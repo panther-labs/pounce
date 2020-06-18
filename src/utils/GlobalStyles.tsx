@@ -317,6 +317,10 @@ const GlobalStyles: React.FC = () => {
     [data-reach-tab-list][aria-orientation='vertical'] {
       flex-direction: column;
     }
+
+    [data-reach-tab-panels] {
+      outline: none;
+    }
   `;
 
   return <Global styles={globalStyles} />;
