@@ -80,7 +80,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
           )}
         </Flex>
         {description && (
-          <Box as="p" fontStyle="italic" mt={5} fontSize="medium">
+          <Box as="p" fontStyle="italic" mt={3} fontSize="medium">
             {description}
           </Box>
         )}
