@@ -4,7 +4,7 @@ import useHeadingStyles from './useHeadingStyles';
 
 export interface HeadingProps extends BoxProps<'h1'> {
   /** The size of the font */
-  size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large' | '3x-large';
+  size?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large' | '3x-large';
 }
 
 /**
@@ -12,7 +12,7 @@ export interface HeadingProps extends BoxProps<'h1'> {
  * then you can use this
  * */
 export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(function Heading(
-  { size, ...rest },
+  { size = 'medium', ...rest },
   ref
 ) {
   const styles = useHeadingStyles({ size });
