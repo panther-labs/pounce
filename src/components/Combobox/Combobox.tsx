@@ -178,6 +178,7 @@ function Combobox<Item>({
                   as="input"
                   type="text"
                   truncated
+                  pr={8} /* account for absolute position of caret */
                   {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
                 />
                 <InputLabel raised={value != null} {...getLabelProps()}>
