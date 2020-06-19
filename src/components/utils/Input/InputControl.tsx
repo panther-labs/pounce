@@ -3,6 +3,9 @@ import PseudoBox from '../../PseudoBox';
 import { InputContext } from './InputContext';
 
 export type InputControlProps = {
+  /** @ignore */
+  hidden?: boolean;
+
   /** The style of the input */
   variant?: 'solid' | 'outline';
 
@@ -20,8 +23,9 @@ const InputControl: React.FC<InputControlProps> = ({
   invalid = false,
   variant = 'outline',
   children,
-  disabled = false,
-  required = false,
+  disabled,
+  required,
+  hidden,
 }) => {
   const contextValue = React.useMemo(
     () => ({
@@ -29,8 +33,9 @@ const InputControl: React.FC<InputControlProps> = ({
       variant,
       disabled,
       required,
+      hidden,
     }),
-    [invalid, variant, disabled, required]
+    [invalid, variant, disabled, required, hidden]
   );
 
   return (
@@ -43,6 +48,8 @@ const InputControl: React.FC<InputControlProps> = ({
       borderRadius="medium"
       borderColor={!invalid ? 'navyblue-450' : 'red-200'}
       aria-disabled={disabled}
+      aria-hidden={hidden}
+      hidden={hidden}
       _hover={{
         borderColor: !invalid ? 'blue-600' : undefined,
       }}

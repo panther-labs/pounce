@@ -30,9 +30,10 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
     label,
     checkedText = 'ON',
     uncheckedText = 'OFF',
-    disabled = false,
-    invalid = false,
-    readOnly = false,
+    disabled,
+    invalid,
+    readOnly,
+    hidden,
     ...rest
   },
   ref
@@ -51,6 +52,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
       cursor="pointer"
       fontSize="medium"
       aria-disabled={disabled}
+      hidden={hidden}
+      aria-hidden={hidden}
     >
       {label && (
         <Box as="span" userSelect="none" mr={2}>

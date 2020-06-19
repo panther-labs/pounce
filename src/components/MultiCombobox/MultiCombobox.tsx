@@ -55,6 +55,9 @@ export type MultiComboboxProps<T> = {
   /** Whether the MultiCombobox should have an input to search results */
   searchable?: boolean;
 
+  /** @ignore */
+  hidden?: boolean;
+
   /**
    * Allow the user to add custom entries to the dropdown instead of limiting selections to the
    * predefined set of options. The `searchable` prop should be true in order for
@@ -120,6 +123,7 @@ function MultiCombobox<Item>({
   maxHeight = 300,
   maxResults,
   invalid,
+  hidden,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
   const removeItem = (item: any) => {
@@ -221,6 +225,7 @@ function MultiCombobox<Item>({
                 invalid={invalid}
                 disabled={disabled}
                 variant={isOpen && items.length ? 'solid' : 'outline'}
+                hidden={hidden}
               >
                 {value.length > 0 && (
                   <Flex as="ul" wrap="wrap" pl={3} pr={10} pt="19px" pb="2px">

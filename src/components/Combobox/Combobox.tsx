@@ -44,6 +44,9 @@ export type ComboboxProps<T> = {
   /** A placeholder that's visible when the user focuses on the Combobox */
   placeholder?: string;
 
+  /** @ignore */
+  hidden?: boolean;
+
   /**
    * The value of the item that is currently selected. The component is a controlled one,
    * so the the selected value should be provided explicitly to the dropdown
@@ -80,6 +83,7 @@ function Combobox<Item>({
   maxResults,
   invalid,
   required,
+  hidden,
   ...rest
 }: ComboboxProps<Item>): React.ReactElement<ComboboxProps<Item>> {
   // convert item to a string with a fallback of empty string
@@ -168,6 +172,7 @@ function Combobox<Item>({
                 disabled={disabled}
                 required={required}
                 variant={isOpen ? 'solid' : 'outline'}
+                hidden={hidden}
               >
                 <InputElement
                   as="input"

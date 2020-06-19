@@ -19,7 +19,7 @@ export type RadioProps = NativeAttributes<'input'> & {
  *  can pass it as many native attrs as you wish.
  */
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
-  { checked, label, disabled = false, invalid = false, readOnly = false, ...rest },
+  { checked, label, disabled, invalid, hidden, readOnly, ...rest },
   ref
 ) {
   const radioStyles = useRadioStyles({ invalid, checked });
@@ -34,6 +34,8 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
       fontWeight="medium"
       verticalAlign="top"
       aria-disabled={disabled}
+      aria-hidden={hidden}
+      hidden={hidden}
     >
       <PseudoBox position="relative" borderRadius="circle" p={2} {...radioStyles}>
         <Box

@@ -1,11 +1,8 @@
 import React from 'react';
 import { InputControlProps } from './InputControl';
 
-export const InputContext = React.createContext<Required<InputControlProps>>({
-  disabled: false,
-  invalid: false,
+export const InputContext = React.createContext<InputControlProps>({
   variant: 'outline',
-  required: false,
 });
 
 export const useInputContext = () => React.useContext(InputContext);

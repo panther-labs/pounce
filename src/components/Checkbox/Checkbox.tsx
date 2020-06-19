@@ -18,7 +18,7 @@ export type CheckboxProps = NativeAttributes<'input'> & {
  *  Your bread & butter checkbox element. Nothing new here
  *  */
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
-  { checked, label, disabled = false, readOnly = false, invalid = false, ...rest },
+  { checked, label, disabled, readOnly, invalid, hidden, ...rest },
   ref
 ) {
   const checkboxStyles = useCheckboxStyles({ invalid, checked });
@@ -39,6 +39,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
       fontWeight="medium"
       verticalAlign="top"
       aria-disabled={disabled}
+      hidden={hidden}
+      aria-hidden={hidden}
     >
       <PseudoBox position="relative" borderRadius="circle" p={2} {...checkboxStyles}>
         <Box

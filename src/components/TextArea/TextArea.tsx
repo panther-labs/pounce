@@ -19,13 +19,13 @@ export type TextAreaProps = NativeAttributes<'textarea'> & {
 };
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
-  { label, invalid, required, disabled, id, name, value, ...rest },
+  { label, invalid, required, disabled, hidden, id, name, value, ...rest },
   ref
 ) {
   const identifier = id || name || slugify(label);
 
   return (
-    <InputControl invalid={invalid} disabled={disabled} required={required}>
+    <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
       <InputElement
         as={TextareaAutosize}
         id={identifier}
