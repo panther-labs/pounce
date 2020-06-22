@@ -52,7 +52,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
                   p={4}
                   m={2}
                   fontSize="small"
-                  boxShadow="dar2k250"
+                  boxShadow="dark250"
                 >
                   {content}
                 </Box>
