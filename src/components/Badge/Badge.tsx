@@ -25,7 +25,8 @@ const Badge: React.FC<BadgeProps> = ({ color, variant = 'solid', children, ...re
       align="center"
       justify="center"
       fontSize="small"
-      p={1}
+      py={1}
+      px={4}
       {...variantStyles}
       {...rest}
     >
