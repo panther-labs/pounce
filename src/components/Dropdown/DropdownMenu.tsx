@@ -49,6 +49,7 @@ export const DropdownMenu = React.forwardRef<
                 mt={2}
                 outline="none"
                 overflow="hidden"
+                boxShadow="dark200"
               >
                 {children}
               </Box>
