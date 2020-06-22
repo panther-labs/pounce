@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTooltip, TooltipPopup } from '@reach/tooltip';
 import { useTransition, animated } from 'react-spring';
-import Card from '../Card';
 import { positionRight } from './utils';
+import Box from '../Box';
 
 const AnimatedTooltipPopup = animated(TooltipPopup);
 
@@ -46,9 +46,16 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               ref={ref}
               position={positionRight}
               label={
-                <Card p={4} m={2} fontSize="small">
+                <Box
+                  borderRadius="medium"
+                  bg="navyblue-500"
+                  p={4}
+                  m={2}
+                  fontSize="small"
+                  boxShadow="dar2k250"
+                >
                   {content}
-                </Card>
+                </Box>
               }
             />
           )
