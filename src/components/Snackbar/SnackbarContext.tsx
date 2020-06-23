@@ -7,9 +7,15 @@ import { animated, useTransition } from 'react-spring';
 import useMeasure from 'react-use-measure';
 import Box from '../Box';
 
+type SnackbarContextValue = {
+  pushSnackbar: (props: SnackbarPublicProps) => string;
+  updateSnackbar: (id: string, props: SnackbarPublicProps) => string;
+};
+
 const generateSnackbarId = () => Math.random().toString(36).substr(2, 5);
 
 const PUSH_SNACKBAR = 'PUSH_SNACKBAR';
+const UPDATE_SNACKBAR = 'UPDATE_SNACKBAR';
 const REMOVE_SNACKBAR = 'REMOVE_SNACKBAR';
 
 type ReducerAction<T, V> = {
@@ -20,6 +26,15 @@ type ReducerAction<T, V> = {
 type PushSnackbarAction = ReducerAction<
   typeof PUSH_SNACKBAR,
   {
+    id: string;
+    props: SnackbarPublicProps;
+  }
+>;
+
+type UpdateSnackbarAction = ReducerAction<
+  typeof UPDATE_SNACKBAR,
+  {
+    id: string;
     props: SnackbarPublicProps;
   }
 >;
@@ -33,12 +48,16 @@ type RemoveSnackbarAction = ReducerAction<
 
 type SnackbarPublicProps = Omit<SnackbarProps, 'destroy'>;
 type SnackbarStateShape = SnackbarPublicProps & { id: string };
-type SnackbarStateAction = PushSnackbarAction | RemoveSnackbarAction;
+type SnackbarStateAction = PushSnackbarAction | UpdateSnackbarAction | RemoveSnackbarAction;
 
 const snackbarStateReducer = (snackbars: SnackbarStateShape[], action: SnackbarStateAction) => {
   switch (action.type) {
     case PUSH_SNACKBAR:
-      return [...snackbars, { id: generateSnackbarId(), ...action.payload.props }];
+      return [...snackbars, { id: action.payload.id, ...action.payload.props }];
+    case UPDATE_SNACKBAR:
+      return snackbars.map(snackbar =>
+        snackbar.id === action.payload.id ? { ...snackbar, ...action.payload.props } : snackbar
+      );
     case REMOVE_SNACKBAR:
       return snackbars.filter(s => s.id !== action.payload.id);
     default:
@@ -46,11 +65,10 @@ const snackbarStateReducer = (snackbars: SnackbarStateShape[], action: SnackbarS
   }
 };
 
-const SnackbarContext = React.createContext<{ pushSnackbar: (props: SnackbarPublicProps) => void }>(
-  {
-    pushSnackbar: () => {},
-  }
-);
+const SnackbarContext = React.createContext<SnackbarContextValue>({
+  pushSnackbar: () => '',
+  updateSnackbar: () => '',
+});
 
 /**
  * A component that acts both as a state-manager and provider. It provides access to methods for
@@ -62,11 +80,19 @@ export const SnackbarProvider: React.FC = ({ children }) => {
   >(snackbarStateReducer, []);
 
   const pushSnackbar = (props: SnackbarPublicProps) => {
-    dispatch({ type: PUSH_SNACKBAR, payload: { props: props } });
+    const id = generateSnackbarId();
+    dispatch({ type: PUSH_SNACKBAR, payload: { id, props } });
+    return id;
+  };
+
+  const updateSnackbar = (id: string, props: SnackbarPublicProps) => {
+    dispatch({ type: UPDATE_SNACKBAR, payload: { id, props } });
+    return id;
   };
 
   const removeSnackbar = (id: SnackbarStateShape['id']) => {
     dispatch({ type: REMOVE_SNACKBAR, payload: { id } });
+    return id;
   };
 
   const [ref, { height }] = useMeasure({ debounce: 100, scroll: false });
@@ -102,7 +128,7 @@ export const SnackbarProvider: React.FC = ({ children }) => {
         right={6}
         flexDirection="column"
         justifyContent="center"
-        alignItems="center"
+        alignItems="flex-end"
         zIndex={9999}
       >
         {transitions.map(({ item: { id, ...snackbarPublicProps }, key, props: styles }) => (
@@ -117,7 +143,9 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     );
   };
 
-  const contextPayload = React.useMemo(() => ({ pushSnackbar }), [snackbars]);
+  const contextPayload = React.useMemo(() => ({ pushSnackbar, updateSnackbar, removeSnackbar }), [
+    snackbars,
+  ]);
 
   return (
     <SnackbarContext.Provider value={contextPayload}>

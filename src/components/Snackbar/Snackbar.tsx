@@ -25,7 +25,7 @@ const Snackbar: React.FC<SnackbarProps> = ({ destroy, duration = 6000, ...rest }
   React.useEffect(() => {
     timeoutRef.current = setTimeout(destroy, duration);
     return () => clearTimeout(timeoutRef.current as number);
-  }, []);
+  }, [duration]);
 
   return <ControlledAlert {...rest} open onClose={destroy} discardable />;
 };
