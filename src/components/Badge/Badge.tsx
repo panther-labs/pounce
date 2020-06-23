@@ -17,7 +17,7 @@ const Badge: React.FC<BadgeProps> = ({ color, variant = 'solid', children, ...re
 
   return (
     <Flex
-      cursor="pointer"
+      cursor="default"
       width="fit-content"
       minWidth="85px"
       textAlign="center"
