@@ -67,7 +67,7 @@ const colors = {
   'teal-300': '#09A084',
   'teal-600': '#006A68',
 
-  'turqoise-300': '#29BAC6',
+  'turquoise-300': '#29BAC6',
 
   'orange-500': '#EB522A',
 
