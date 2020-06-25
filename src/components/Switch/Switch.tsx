@@ -47,7 +47,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   return (
     <PseudoBox
       as="label"
-      display="inline-flex"
+      display="flex"
+      justifyContent="space-between"
       alignItems="center"
       cursor="pointer"
       fontSize="medium"
