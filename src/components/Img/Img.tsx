@@ -37,7 +37,15 @@ export const Img = React.forwardRef<HTMLImageElement, ImgProps>(function Img(pro
     console.warn('A height was specified for an image without a `nativeHeight` being defined');
   }
 
-  return <Box as={NativeImg} ref={ref} maxWidth="100%" height="auto" {...props} />;
+  return (
+    <Box
+      as={NativeImg}
+      ref={ref}
+      maxWidth="100%"
+      height={!props.nativeHeight ? 'auto' : undefined}
+      {...props}
+    />
+  );
 });
 
 export default Img;
