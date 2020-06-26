@@ -2,7 +2,7 @@ import React from 'react';
 import ControlledAlert, { ControlledAlertProps } from '../utils/ControlledAlert';
 import Collapse from '../Collapse';
 
-export type AlertProps = Omit<ControlledAlertProps, 'open'>;
+export type AlertProps = Omit<ControlledAlertProps, 'open' | 'onClose'> & { onClose?: () => void };
 
 /** An Alert component is simply a container for text that should capture the user's attention */
 const Alert: React.FC<AlertProps> = ({ onClose, ...rest }) => {
@@ -10,7 +10,10 @@ const Alert: React.FC<AlertProps> = ({ onClose, ...rest }) => {
 
   const handleClose = React.useCallback(() => {
     setOpen(false);
-    onClose();
+
+    if (onClose) {
+      onClose();
+    }
   }, [setOpen, onClose]);
 
   return (
