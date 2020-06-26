@@ -55,18 +55,16 @@ const SideSheet: React.FC<SideSheetProps> = ({ children, open, onClose, ...rest 
                   shadow="dark200"
                   overflow="auto"
                 >
-                  <Box position="relative" p={2}>
-                    <Box position="absolute" top={2} right={2}>
-                      <IconButton
-                        icon="close"
-                        aria-label="Dismiss Dialog"
-                        variant="ghost"
-                        variantColor="navyblue"
-                        onClick={onClose}
-                      />
-                    </Box>
-                    {children}
+                  <Box position="absolute" top={35} right={35} zIndex={1}>
+                    <IconButton
+                      icon="close"
+                      aria-label="Dismiss Dialog"
+                      variant="ghost"
+                      variantColor="navyblue"
+                      onClick={onClose}
+                    />
                   </Box>
+                  {children}
                 </Box>
               </AnimatedDialogContent>
             </AnimatedDialogOverlay>
