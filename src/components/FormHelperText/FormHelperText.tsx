@@ -1,17 +1,17 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Text, { TextProps } from '../Text';
 
-export interface FormHelperTextProps extends BoxProps {
+export interface FormHelperTextProps extends TextProps {
   id: string; // we require `id` to remind people to associate it with an `aria-describedby`
 }
 
 /**
- * Extends `Box`
+ * Extends `Text`
  *
  * A utility component that quickly allows you to add helpful messages to form fields
  * */
 const FormHelperText: React.FC<FormHelperTextProps> = ({ ...props }) => (
-  <Box as="p" fontSize="small" color="gray-300" {...props} />
+  <Text fontSize="small" color="gray-300" {...props} />
 );
 
 export default FormHelperText;
