@@ -63,7 +63,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
         {...rest}
       >
         <Flex as="header" align="center" fontSize="large">
-          <Icon type={icon} mr={2} size="small" />
+          <Icon type={icon} mr={2} size="large" />
           <Box
             as="h4"
             fontWeight={description ? 'bold' : 'normal'}
