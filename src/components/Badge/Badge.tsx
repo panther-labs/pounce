@@ -11,7 +11,7 @@ export interface BadgeProps {
   variant?: 'solid' | 'outline';
 
   /** @ignore */
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 
 /** A badge is simply a visual label to accompany & characterize a certain text*/
