@@ -269,7 +269,7 @@ const GlobalStyles: React.FC = () => {
     }
 
     .DayPicker-Day--outside {
-      color: ${theme.colors.grey300};
+      color: ${theme.colors['gray-300']};
       cursor: default;
     }
 
