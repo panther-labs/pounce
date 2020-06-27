@@ -9,6 +9,9 @@ export interface BadgeProps {
 
   /** The style of the badge */
   variant?: 'solid' | 'outline';
+
+  /** @ignore */
+  children: React.ReactElement;
 }
 
 /** A badge is simply a visual label to accompany & characterize a certain text*/
@@ -40,4 +43,4 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
   );
 });
 
-export default Badge;
+export default React.memo(Badge);
