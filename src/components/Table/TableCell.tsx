@@ -9,10 +9,13 @@ export type TableCellProps = Pick<BoxProps, 'truncated' | 'color' | 'width' | 'm
 
     /** The alignment of the cell. Defaults to `left` */
     align?: BoxProps['textAlign'];
+
+    /** Whether the content of the cell should be rendered using a fixed-width font */
+    mono?: boolean;
   };
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(function TableCell(
-  { wrapText = 'auto', align = 'left', ...rest },
+  { wrapText = 'auto', align = 'left', mono, ...rest },
   ref
 ) {
   const { size } = useTable();
@@ -28,6 +31,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(functio
       overflowWrap={wrapText === 'wrap' ? 'break-word' : undefined}
       whiteSpace={wrapText === 'nowrap' ? 'nowrap' : undefined}
       verticalAlign="middle"
+      fontFamily={mono ? 'mono' : undefined}
       {...rest}
     />
   );

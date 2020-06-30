@@ -24,7 +24,7 @@ const typography = {
   },
   fonts: {
     primary: 'DM Sans, system-ui, sans-serif',
-    mono: `SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace`,
+    mono: `"Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`,
   },
   lineHeights: {
     normal: 'normal',
