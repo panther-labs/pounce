@@ -8,6 +8,7 @@ const colors = {
   /**  NEW PALETTE START */
   'navyblue-450': '#3C516D',
   'navyblue-500': '#3E516B',
+  'navyblue-550': '#2C3C57',
   'navyblue-600': '#23344E',
   'navyblue-700': '#1D2A3F',
   'navyblue-800': '#192231',
