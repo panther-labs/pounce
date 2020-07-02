@@ -222,8 +222,8 @@ export const PseudoBox = React.forwardRef<HTMLElement, PseudoBoxProps>(function 
         [pressed]: transformAliasProps(_pressed),
         [groupHover]: transformAliasProps(_groupHover),
         [autofill]: transformAliasProps(_autofill),
-        '&:before': transformAliasProps(_before),
-        '&:after': transformAliasProps(_after),
+        '&::before': transformAliasProps(_before),
+        '&::after': transformAliasProps(_after),
         '&:focus-within': transformAliasProps(_focusWithin),
         '&::placeholder': _placeholder ?? {},
       })}
