@@ -37,6 +37,7 @@ const colors = {
 
   'turquoise-300': '#29BAC6',
 
+  'orange-300': '#EB842A',
   'orange-500': '#EB522A',
 
   'yellow-500': '#FFA500',
