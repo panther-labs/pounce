@@ -1,5 +1,6 @@
 import React from 'react';
 import useMeasure from 'react-use-measure';
+import { ResizeObserver } from '@juggle/resize-observer';
 import { animated, useTransition } from 'react-spring';
 import Box, { BoxProps } from '../Box';
 
@@ -37,7 +38,7 @@ const Collapse: React.FC<CollapseProps> = ({
   children,
   ...rest
 }) => {
-  const [ref, { height }] = useMeasure();
+  const [ref, { height }] = useMeasure({ polyfill: ResizeObserver });
 
   const transitions = useTransition(open, null, {
     from: { height: 0, opacity: animateOpacity ? 0 : 1 },

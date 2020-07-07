@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
+import { ResizeObserver } from '@juggle/resize-observer';
+import { animated, useTransition } from 'react-spring';
+import useMeasure from 'react-use-measure';
 import Flex from '../Flex';
 import Snackbar, { SnackbarProps } from '../Snackbar';
 import { isBrowser } from '../../utils/helpers';
-import { animated, useTransition } from 'react-spring';
-import useMeasure from 'react-use-measure';
 import Box from '../Box';
 
 type SnackbarContextValue = {
@@ -95,7 +96,7 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     return id;
   };
 
-  const [ref, { height }] = useMeasure({ debounce: 100, scroll: false });
+  const [ref, { height }] = useMeasure({ debounce: 100, scroll: false, polyfill: ResizeObserver });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const transitions = useTransition<SnackbarStateShape, any>(
