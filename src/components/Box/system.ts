@@ -44,7 +44,7 @@ type EmotionProps = {
   /** Additional custom inline CSS to pass to the element
    * @ignore
    */
-  css?: any;
+  css?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
 // Gather the custom-named props that styled-system should accept
