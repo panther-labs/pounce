@@ -26,7 +26,7 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         fontSize="medium"
         fontWeight="medium"
         backgroundColor="transparent"
-        border="none"
+        border={0}
         _disabled={{
           opacity: 1, // we have nested disabled elements, so we don't want lower opacities to multiply
         }}
