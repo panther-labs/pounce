@@ -8,7 +8,19 @@ For example you can say `fontSize="medium"` and it will know to translate it to 
 A Box with the 9th value on the spacing scale, with large font and blue background:
 
 ```typescript jsx
-<Box p={9} width={300} bg="blue-600" fontSize="large">
+<Box
+  p={9}
+  width={300}
+  bg="blue-600"
+  fontSize="large"
+  // _hover={{ textDecoration: ['underline', 'none'] }}
+  css={{
+    '&:hover': {
+      backgroundColor: 'red-200',
+    },
+  }}
+  _active={{ backgroundColor: 'red-200' }}
+>
   Box
 </Box>
 ```
