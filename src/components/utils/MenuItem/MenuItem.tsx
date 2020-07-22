@@ -19,9 +19,9 @@ interface MenuItemProps extends NativeAttributes<'div'> {
  * should be used only on autocompletes, comboboxes & menus.
  */
 const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...rest }) => {
-  let backgroundColor: keyof Theme['colors'] = 'navyblue-450';
+  let backgroundColor: keyof Theme['colors'] = 'navyblue-300';
   if (selected) {
-    backgroundColor = 'navyblue-700';
+    backgroundColor = 'navyblue-500';
   }
 
   return (
@@ -36,7 +36,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...re
       backgroundColor={backgroundColor}
       aria-disabled={disabled}
       _selected={{
-        backgroundColor: 'navyblue-600',
+        backgroundColor: 'navyblue-400',
       }}
       _after={{
         content: `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`,

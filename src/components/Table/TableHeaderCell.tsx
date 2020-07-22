@@ -27,7 +27,7 @@ const TableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, TableHeader
         aria-sort={sortDir ? sortDir : undefined}
         position={stickyHeader ? 'sticky' : undefined}
         top={stickyHeader ? 0 : undefined}
-        backgroundColor={stickyHeader ? 'navyblue-500' : 'inherit'}
+        backgroundColor={stickyHeader ? 'navyblue-300' : 'inherit'}
         verticalAlign="middle"
         {...rest}
       />

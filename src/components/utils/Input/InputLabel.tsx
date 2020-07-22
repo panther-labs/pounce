@@ -16,7 +16,7 @@ const InputLabel: React.FC<InputLabelProps> = ({ raised = true, ...rest }) => {
       pointerEvents="none"
       fontSize="medium"
       px={4}
-      color={invalid ? 'red-200' : 'gray-300'}
+      color={invalid ? 'red-300' : 'gray-300'}
       top={0}
       left={0}
       position="absolute"

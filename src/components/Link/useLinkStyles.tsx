@@ -26,16 +26,16 @@ const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
         letterSpacing: 'relaxed',
         textTransform: 'uppercase',
         textDecoration: 'none',
-        color: 'gray-100',
+        color: 'gray-200',
       };
     case 'prominent':
     default: {
-      const hoverColor = lightenDarkenColor(theme.colors['blue-600'], 25);
+      const hoverColor = lightenDarkenColor(theme.colors['blue-400'], 25);
       return {
         transition: `color 0.1s ease-out`,
         fontWeight: 'medium',
         textDecoration: 'none',
-        color: 'blue-600',
+        color: 'blue-400',
         _hover: { color: hoverColor },
         _focus: { color: hoverColor },
         _active: { color: hoverColor },

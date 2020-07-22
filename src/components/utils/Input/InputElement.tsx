@@ -41,7 +41,7 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
           },
         }}
         _autofill={{
-          WebkitBoxShadow: `0 0 0 30px ${theme.colors['navyblue-800']} inset`,
+          WebkitBoxShadow: `0 0 0 30px ${theme.colors['navyblue-600']} inset`,
           WebkitTextFillColor: theme.colors['gray-50'],
           borderRadius: 'medium',
         }}

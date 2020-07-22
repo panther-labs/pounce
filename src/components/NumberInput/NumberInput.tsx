@@ -76,7 +76,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(functio
         height="100%"
         color="white"
         borderLeft="1px solid"
-        borderColor="navyblue-450"
+        borderColor="navyblue-300"
       >
         <AbstractButton
           aria-label="Increment"

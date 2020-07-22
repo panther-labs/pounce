@@ -44,17 +44,17 @@ const InputControl: React.FC<InputControlProps> = ({
       position="relative"
       border="1px solid"
       transition="border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
-      backgroundColor={variant === 'outline' ? 'transparent' : 'navyblue-450'}
+      backgroundColor={variant === 'outline' ? 'transparent' : 'navyblue-300'}
       borderRadius="medium"
-      borderColor={!invalid ? 'navyblue-450' : 'red-200'}
+      borderColor={!invalid ? 'navyblue-300' : 'red-300'}
       aria-disabled={disabled}
       aria-hidden={hidden}
       hidden={hidden}
       _hover={{
-        borderColor: !invalid ? 'blue-600' : undefined,
+        borderColor: !invalid ? 'blue-400' : undefined,
       }}
       _focusWithin={{
-        borderColor: !invalid ? 'blue-600' : undefined,
+        borderColor: !invalid ? 'blue-400' : undefined,
         label: {
           fontWeight: 'medium',
           transform: 'translate(6px, 4px) scale(0.65)',

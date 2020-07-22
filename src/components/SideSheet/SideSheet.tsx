@@ -47,7 +47,7 @@ const SideSheet: React.FC<SideSheetProps> = ({ children, open, onClose, ...rest 
                 <Box
                   p={10}
                   minWidth="560px"
-                  bg="navyblue-600"
+                  bg="navyblue-400"
                   position="absolute"
                   top="0"
                   right="0"

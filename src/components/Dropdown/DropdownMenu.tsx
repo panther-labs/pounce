@@ -43,7 +43,7 @@ export const DropdownMenu = React.forwardRef<
             >
               <Box
                 as={ReachMenuItems}
-                bg="navyblue-450"
+                bg="navyblue-300"
                 borderRadius="medium"
                 zIndex={99}
                 mt={2}

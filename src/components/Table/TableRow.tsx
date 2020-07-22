@@ -23,7 +23,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function T
       styles = {
         ...styles,
         'tbody > &:nth-of-type(odd)': {
-          backgroundColor: 'navyblue-700' as const,
+          backgroundColor: 'navyblue-500' as const,
         },
       };
     }
@@ -32,7 +32,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function T
       styles = {
         ...styles,
         borderBottom: '1px solid',
-        borderColor: 'navyblue-500' as const,
+        borderColor: 'navyblue-300' as const,
       };
     }
 
@@ -41,7 +41,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function T
         ...styles,
         transition: 'all 0.05s linear',
         '&:hover': {
-          backgroundColor: 'navyblue-700' as const,
+          backgroundColor: 'navyblue-500' as const,
         },
       };
     }
@@ -50,8 +50,8 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function T
       styles = {
         ...styles,
         '&, &:hover': {
-          backgroundColor: 'navyblue-900' as const,
-          borderColor: 'navyblue-900' as const,
+          backgroundColor: 'navyblue-700' as const,
+          borderColor: 'navyblue-700' as const,
         },
       };
     }
