@@ -232,8 +232,8 @@ const GlobalStyles: React.FC = () => {
 
       padding: ${`${theme.space[2]}px ${theme.space[0]}px`};
       margin-bottom: ${theme.space[2]}px;
-      border-top: ${`1px solid ${theme.colors['navyblue-500']}`};
-      border-bottom: ${`1px solid ${theme.colors['navyblue-500']}`};
+      border-top: ${`1px solid ${theme.colors['navyblue-300']}`};
+      border-bottom: ${`1px solid ${theme.colors['navyblue-300']}`};
 
       abbr {
         text-decoration: none;
@@ -264,7 +264,7 @@ const GlobalStyles: React.FC = () => {
     }
 
     .DayPicker-Day--today {
-      color: ${theme.colors['red-200']};
+      color: ${theme.colors['red-300']};
       font-weight: ${theme.fontWeights.medium};
     }
 
@@ -279,17 +279,17 @@ const GlobalStyles: React.FC = () => {
     }
 
     .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-      background-color: ${theme.colors['blue-600']};
+      background-color: ${theme.colors['blue-400']};
       color: ${theme.colors.white};
     }
 
     .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-      background-color: ${theme.colors['blue-600']};
+      background-color: ${theme.colors['blue-400']};
       color: ${theme.colors.white};
     }
 
     .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-      background-color: ${theme.colors['navyblue-450']};
+      background-color: ${theme.colors['navyblue-300']};
     }
 
     /* Let reach-ui know that we took care of the styles */

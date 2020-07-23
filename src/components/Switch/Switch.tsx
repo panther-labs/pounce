@@ -69,7 +69,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
         height={27}
         p={1}
         transition="background-color 0.15s linear"
-        backgroundColor={invalid ? 'red-200' : checked ? 'blue-600' : 'gray-800'}
+        backgroundColor={invalid ? 'red-300' : checked ? 'blue-400' : 'gray-600'}
       >
         <Box
           width={21}

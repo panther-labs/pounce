@@ -48,7 +48,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               label={
                 <Box
                   borderRadius="medium"
-                  bg="navyblue-500"
+                  bg="navyblue-300"
                   p={4}
                   m={2}
                   fontSize="small"

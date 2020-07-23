@@ -14,7 +14,7 @@ const FormError: React.FC<FormErrorProps> = ({ children, ...rest }) => {
     <Flex
       as="p"
       alignItems="center"
-      color="red-200"
+      color="red-300"
       fontSize="small"
       fontStyle="italic"
       role="alert"

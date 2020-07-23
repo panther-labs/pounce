@@ -14,7 +14,7 @@ export interface TagProps extends BoxProps {
 /** A chip is an entry in a combobox, but can be used anywhere */
 const Tag: React.FC<TagProps> = ({ children, onRemove, ...rest }) => (
   <Box
-    bg="blue-600"
+    bg="blue-400"
     borderRadius="pill"
     cursor="default"
     px={2}

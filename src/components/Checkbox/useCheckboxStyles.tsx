@@ -13,15 +13,15 @@ const useCheckboxStyles = ({ invalid, checked }: UseCheckboxStyles): PseudoBoxPr
     () => ({
       transition: 'background-color 0.15s linear',
       _hover: {
-        backgroundColor: addOpacity(theme.colors['navyblue-450'], 0.2),
+        backgroundColor: addOpacity(theme.colors['navyblue-300'], 0.2),
         ':after': {
-          borderColor: invalid ? 'red-200' : 'blue-600',
+          borderColor: invalid ? 'red-300' : 'blue-400',
         },
       },
       _focusWithin: {
-        backgroundColor: addOpacity(theme.colors['navyblue-450'], 0.2),
+        backgroundColor: addOpacity(theme.colors['navyblue-300'], 0.2),
         ':after': {
-          borderColor: invalid ? 'red-200' : 'blue-600',
+          borderColor: invalid ? 'red-300' : 'blue-400',
         },
       },
       _before: {
@@ -46,7 +46,7 @@ const useCheckboxStyles = ({ invalid, checked }: UseCheckboxStyles): PseudoBoxPr
         border: '1px solid',
         borderRadius: 'small',
         transition: 'border-color 125ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
-        borderColor: invalid ? 'red-200' : checked ? 'blue-600' : 'navyblue-450',
+        borderColor: invalid ? 'red-300' : checked ? 'blue-400' : 'navyblue-300',
       },
     }),
     [theme, invalid, checked]

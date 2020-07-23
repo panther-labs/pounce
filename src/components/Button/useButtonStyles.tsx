@@ -11,24 +11,24 @@ type ButtonColorVariant = ButtonProps['variantColor'];
 export const getThemeColor = (color: ButtonColorVariant): ThemeColor => {
   switch (color) {
     case 'violet':
-      return 'violet-300';
+      return 'violet-400';
     case 'teal':
-      return 'teal-300';
+      return 'teal-500';
     case 'red':
-      return 'red-700';
+      return 'pink-700';
     case 'orange':
       return 'orange-300';
     case 'green':
-      return 'green-200';
+      return 'green-400';
     case 'gray':
       return 'gray-500';
     case 'darkgray':
-      return 'gray-800';
+      return 'gray-600';
     case 'navyblue':
-      return 'navyblue-450';
+      return 'navyblue-300';
     case 'blue':
     default:
-      return 'blue-600';
+      return 'blue-400';
   }
 };
 

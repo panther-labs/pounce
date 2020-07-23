@@ -18,7 +18,7 @@ export const Card = React.forwardRef<HTMLElement, CardProps>(function Card(
   return (
     <Box
       ref={ref}
-      bg={variant === 'light' ? 'navyblue-600' : 'navyblue-700'}
+      bg={variant === 'light' ? 'navyblue-400' : 'navyblue-500'}
       borderRadius="medium"
       {...rest}
     />
