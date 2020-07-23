@@ -17,7 +17,7 @@ export const getThemeColor = (color: ButtonColorVariant): ThemeColor => {
     case 'red':
       return 'pink-700';
     case 'orange':
-      return 'orange-300';
+      return 'yellow-600';
     case 'green':
       return 'green-400';
     case 'gray':
