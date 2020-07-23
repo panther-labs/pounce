@@ -1,5 +1,5 @@
 import React from 'react';
-import { addOpacity } from '../../utils/helpers';
+import { addOpacity, lightenDarkenColor } from '../../utils/helpers';
 import { AbstractButtonProps } from '../AbstractButton';
 import { getSolidButtonStyles, getThemeColor } from '../Button/useButtonStyles';
 import useTheme from '../../utils/useTheme';
@@ -15,6 +15,35 @@ export const getUnstyledButtonStyles = (theme: Theme) => {
     _focus: {
       borderRadius: 'circle' as const,
       backgroundColor: addOpacity(theme.colors.white, 0.1),
+    },
+  };
+};
+
+const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
+  const themeColorKey = getThemeColor(variantColor);
+  const themeColor = theme.colors[themeColorKey];
+
+  const hoverColor = lightenDarkenColor(themeColor, 8);
+  const activeColor = lightenDarkenColor(themeColor, -25);
+  const focusBorderColor = lightenDarkenColor(themeColor, 85);
+
+  return {
+    transition: 'border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
+    borderRadius: 'circle' as const,
+    border: '1px solid',
+    borderColor: themeColor,
+    backgroundColor: 'transparent',
+    _hover: {
+      backgroundColor: hoverColor,
+      borderColor: hoverColor,
+    },
+    _focus: {
+      backgroundColor: hoverColor,
+      borderColor: focusBorderColor,
+    },
+    _active: {
+      backgroundColor: activeColor,
+      borderColor: activeColor,
     },
   };
 };
@@ -54,6 +83,8 @@ const useIconButtonStyles = ({
         return getGhostButtonStyles(theme, variantColor);
       case 'unstyled':
         return getUnstyledButtonStyles(theme);
+      case 'outline':
+        return getOutlineButtonStyles(theme, variantColor);
       case 'solid':
       default:
         return getSolidButtonStyles(theme, variantColor);

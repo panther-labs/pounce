@@ -15,7 +15,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
   icon: IconProps['type'];
 
   /** The style of the icon button */
-  variant?: 'solid' | 'ghost' | 'unstyled';
+  variant?: 'solid' | 'ghost' | 'outline' | 'unstyled';
 
   /** The color scheme of the button for solid variants */
   variantColor?:

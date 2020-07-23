@@ -23,7 +23,7 @@ An Iconbutton can be solid and have different sizes:
 </Box>
 ```
 
-An IconButton can be ghost:
+An IconButton can be `ghost`:
 
 ```typescript jsx
 <SimpleGrid columns={4} gap={4}>
@@ -31,6 +31,17 @@ An IconButton can be ghost:
   <IconButton variant="ghost" icon="user" aria-label="User" variantColor="teal" />
   <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue" active />
   <IconButton variant="ghost" icon="user" aria-label="User" variantColor="teal" active />
+</SimpleGrid>
+```
+
+An IconButton can be `outline`:
+
+```typescript jsx
+<SimpleGrid columns={4} gap={4}>
+  <IconButton variant="outline" icon="user" aria-label="User" variantColor="navyblue" />
+  <IconButton variant="outline" icon="user" aria-label="User" variantColor="teal" />
+  <IconButton variant="outline" icon="user" aria-label="User" variantColor="navyblue" active />
+  <IconButton variant="outline" icon="user" aria-label="User" variantColor="teal" active />
 </SimpleGrid>
 ```
 
