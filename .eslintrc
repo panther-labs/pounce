@@ -11,6 +11,7 @@
   "plugins": ["react", "jsx-a11y", "@typescript-eslint"],
   "env": {
     "node": true,
+    "jest": true,
     "browser": true,
     "es6": true
   },
@@ -23,6 +24,7 @@
     ],
     "react/prop-types": 0,
     "react/no-array-index-key": "error",
+    "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
