@@ -65,3 +65,5 @@ export function slugify(text: string) {
  * @returns True if current environment is a browser, false in any other case
  */
 export const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
+
+export const noop = (): void => {};
