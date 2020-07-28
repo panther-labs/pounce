@@ -2,13 +2,13 @@ An input can be valid:
 
 ```typescript jsx
 const Example = () => {
-  const [value, setValue] = React.useState();
+  const [value, setValue] = React.useState(0);
   return (
     <NumberInput
       label="Minutes"
       placeholder="Type a number..."
       value={value}
-      onChange={e => setValue(e.target.value)}
+      onInputNumberChange={v => setValue(v)}
     />
   );
 };
