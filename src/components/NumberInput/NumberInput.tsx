@@ -1,12 +1,24 @@
 import React from 'react';
 import { NativeAttributes } from '../Box';
-import { slugify } from '../../utils/helpers';
+import { slugify, noop } from '../../utils/helpers';
+import { typedMemo } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import AbstractButton from '../AbstractButton';
 import Icon from '../Icon';
 import Flex from '../Flex';
 
 export type NumberInputProps = NativeAttributes<'input'> & {
+  /** Callback when the number changes */
+  onInputNumberChange?: (e: number) => void;
+
+  /** Callback when the number changes */
+  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
+
+  /**
+   * The value of the input number.
+   * */
+  value: number | null;
+
   /** The label that is associated with this input */
   label: string;
 
@@ -32,22 +44,56 @@ export type NumberInputProps = NativeAttributes<'input'> & {
 /**
  * A number input is a typical HTML <input> for numbers
  */
-const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(function NumberInput(
-  { label, invalid, required, disabled, id, name, value, max, min, ...rest },
-  ref
-) {
+function NumberInput({
+  label,
+  invalid,
+  required,
+  disabled,
+  id,
+  name,
+  value = 0,
+  max,
+  min,
+  onInputNumberChange = noop,
+  onChange = noop,
+  ...rest
+}: NumberInputProps): React.ReactElement<NumberInputProps> {
+  const [inputNumberValue, setInputNumberValue] = React.useState(0);
+
   const _ref = React.useRef<HTMLInputElement>(null);
+
+  React.useLayoutEffect(() => {
+    setInputNumberValue(value);
+  }, [value]);
+
+  const _onChange = React.useCallback(
+    (num): void => {
+      onInputNumberChange(num);
+      setInputNumberValue(num);
+    },
+    [onInputNumberChange, setInputNumberValue]
+  );
+
+  const stepUp = React.useCallback(() => {
+    _ref.current?.stepUp();
+    _onChange(_ref.current?.value);
+  }, [_ref, setInputNumberValue]);
+
+  const stepDown = React.useCallback(() => {
+    _ref.current?.stepDown();
+    _onChange(_ref.current?.value);
+  }, [_ref, setInputNumberValue]);
+
   const identifier = id || name || slugify(label);
 
-  const mergeRefs = React.useCallback((element: HTMLInputElement) => {
-    (_ref as React.MutableRefObject<HTMLInputElement>).current = element;
-    if (typeof ref === 'function') {
-      ref(element);
-    } else if (ref) {
-      (ref as React.MutableRefObject<HTMLInputElement>).current = element;
-    }
-  }, []);
-
+  const inputNumberProps = {
+    ...rest,
+    onChange: (e: React.FormEvent<HTMLInputElement>) => {
+      setInputNumberValue(Number(e.currentTarget.value));
+      _onChange(e.currentTarget.value);
+      onChange(e);
+    },
+  };
   return (
     <InputControl invalid={invalid} disabled={disabled} required={required}>
       <InputElement
@@ -56,14 +102,14 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(functio
         role="spinbutton"
         id={identifier}
         name={name}
-        value={value}
+        value={inputNumberValue}
         aria-valuenow={value !== undefined ? Number(value) : undefined}
         max={max}
         aria-valuemax={max}
         min={min}
         aria-valuemin={min}
-        {...rest}
-        ref={mergeRefs}
+        ref={_ref}
+        {...inputNumberProps}
       />
       <InputLabel raised={value !== undefined} htmlFor={identifier}>
         {label}
@@ -78,25 +124,15 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(functio
         borderLeft="1px solid"
         borderColor="navyblue-300"
       >
-        <AbstractButton
-          aria-label="Increment"
-          aria-hidden
-          tabIndex={-1}
-          onClick={() => _ref.current?.stepUp()}
-        >
+        <AbstractButton aria-label="Increment" aria-hidden tabIndex={-1} onClick={stepUp}>
           <Icon type="caret-up" size="large" />
         </AbstractButton>
-        <AbstractButton
-          aria-label="Decrement"
-          aria-hidden
-          tabIndex={-1}
-          onClick={() => _ref.current?.stepDown()}
-        >
+        <AbstractButton aria-label="Decrement" aria-hidden tabIndex={-1} onClick={stepDown}>
           <Icon type="caret-down" size="large" />
         </AbstractButton>
       </Flex>
     </InputControl>
   );
-});
+}
 
-export default React.memo(NumberInput);
+export default typedMemo(NumberInput);
