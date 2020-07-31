@@ -5,9 +5,7 @@ const colors = {
   white: '#ffffff',
   black: '#000000',
 
-  'white-100': '#ffffff',
-  'white-200': '#f6f6f6',
-  'white-300': '#fefefe',
+  'white-100': '#fefefe',
 
   'navyblue-100': '#86a3c3',
   'navyblue-200': '#4f627c',
