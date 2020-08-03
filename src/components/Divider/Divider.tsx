@@ -11,7 +11,13 @@ export interface DividerProps extends BoxProps {
  *
  * A Divider is a simple component that will render a line to separate content into two sections
  */
-const Divider: React.FC<DividerProps> = ({ orientation = 'horizontal', ...rest }) => {
+const Divider: React.FC<DividerProps> = ({
+  orientation = 'horizontal',
+  color,
+  backgroundColor,
+  borderColor,
+  ...rest
+}) => {
   const borderProps =
     orientation === 'vertical'
       ? { borderLeft: '0.0625rem solid', height: 'auto', mx: 2 }
@@ -23,8 +29,8 @@ const Divider: React.FC<DividerProps> = ({ orientation = 'horizontal', ...rest }
       aria-orientation={orientation}
       border="none"
       opacity={0.6}
-      borderColor="inherit"
       {...borderProps}
+      borderColor={color || backgroundColor || borderColor || 'inherit'}
       {...rest}
     />
   );
