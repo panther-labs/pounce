@@ -6,19 +6,22 @@ import {
   useMenuButtonContext as useDropdownContext,
 } from '@reach/menu-button';
 import { useTransition, animated } from 'react-spring';
-import Box from '../Box';
+import Box, { BoxProps } from '../Box';
 
 const AnimatedReachMenuPopover = animated(ReachMenuPopover);
 
 export interface DropdownMenuProps {
   /** The position of the menu */
   alignment?: 'left' | 'right' | 'match-width';
+
+  /** A transform for potentially correcting the alignment */
+  transform?: BoxProps['transform'];
 }
 
 export const DropdownMenu = React.forwardRef<
   HTMLElement,
   React.PropsWithChildren<DropdownMenuProps>
->(function DropdownMenu({ alignment = 'right', children }, ref) {
+>(function DropdownMenu({ alignment = 'right', transform, children }, ref) {
   const position = useDropdownAlignment({ alignment });
   const { isExpanded } = useDropdownContext();
 
@@ -50,6 +53,7 @@ export const DropdownMenu = React.forwardRef<
                 outline="none"
                 overflow="hidden"
                 boxShadow="dark200"
+                transform={transform}
               >
                 {children}
               </Box>
