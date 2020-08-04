@@ -9,12 +9,18 @@ const FlexList = React.forwardRef<HTMLUListElement, FlexProps>(function FlexList
   return <Flex as="ul" flexWrap="wrap" ref={ref} {...props} />;
 });
 
-export const TabList = React.forwardRef<HTMLUListElement, TabListProps>(function TabList(
-  props,
+export const TabList = React.forwardRef<HTMLInputElement, TabListProps>(function TabList(
+  { children, ...rest },
   ref
 ) {
-  // @ts-ignore Typing is wrong on @reach-ui, allowing only div | undefined for `as`
-  return <ReachTabList as={FlexList} ref={ref} {...props} />;
+  return (
+    // @ts-ignore Typing is wrong on @reach-ui, allowing only div | undefined for `as`
+    <ReachTabList as={FlexList} ref={ref} {...rest}>
+      {React.Children.map(children, (child, index) =>
+        React.cloneElement(child as React.ReactElement, { index })
+      )}
+    </ReachTabList>
+  );
 });
 
 export default TabList;

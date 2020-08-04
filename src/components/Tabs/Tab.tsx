@@ -3,12 +3,24 @@ import { Tab as ReachTab } from '@reach/tabs';
 import AbstractButton from '../AbstractButton';
 import { NativeAttributes } from '../Box';
 import { ComponentWithAs } from '@reach/utils';
+import useTabStyles from './useTabStyles';
 
-export type TabProps = NativeAttributes<'button'> & { disabled?: boolean };
+export type TabProps = NativeAttributes<'button'> & {
+  /** Whether the tab should be disabled */
+  disabled?: boolean;
 
-const Tab = React.forwardRef<HTMLButtonElement, TabProps>(function Tab({ children, ...rest }, ref) {
+  /** @ignore internal index of the tab in relation to its siblings */
+  index: number;
+};
+
+const Tab = React.forwardRef<HTMLButtonElement, TabProps>(function Tab(
+  { children, index, ...rest },
+  ref
+) {
+  const styles = useTabStyles({ index });
+
   return (
-    <ReachTab ref={ref} as={AbstractButton} {...rest}>
+    <ReachTab ref={ref} as={AbstractButton} {...styles} {...rest}>
       {children}
     </ReachTab>
   );
