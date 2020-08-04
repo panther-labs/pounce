@@ -13,17 +13,10 @@ export type TabProps = NativeAttributes<'button'> & {
   index: number;
 };
 
-const Tab = React.forwardRef<HTMLButtonElement, TabProps>(function Tab(
-  { children, index, ...rest },
-  ref
-) {
+const Tab = React.forwardRef<HTMLButtonElement, TabProps>(function Tab({ index, ...rest }, ref) {
   const styles = useTabStyles({ index });
 
-  return (
-    <ReachTab ref={ref} as={AbstractButton} {...styles} {...rest}>
-      {children}
-    </ReachTab>
-  );
+  return <ReachTab ref={ref} as={AbstractButton} {...styles} {...rest} />;
 }) as ComponentWithAs<'button', TabProps>;
 
 export default React.memo(Tab);
