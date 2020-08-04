@@ -1,6 +1,7 @@
-import { TabPanel as ReachTabPanel, TabPanelProps as ReachTabPanelProps } from '@reach/tabs';
+import React from 'react';
+import { TabPanel as ReachTabPanel } from '@reach/tabs';
+import Box from '../Box';
 
-export type TabPanelProps = ReachTabPanelProps;
-export const TabPanel = ReachTabPanel;
+const TabPanel: React.FC = props => <Box as={ReachTabPanel} tabIndex={-1} {...props} />;
 
 export default TabPanel;
