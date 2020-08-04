@@ -24,7 +24,7 @@ const useTabStyles = ({ index }: UseTabStylesProps): Partial<AbstractButtonProps
   }
 
   return {
-    outline: 'none',
+    zIndex: 1,
     borderBottom: '3px solid',
     transition: 'border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
     _hover: {
