@@ -1,12 +1,27 @@
 import React from 'react';
 import { TabList as ReachTabList } from '@reach/tabs';
-import Flex, { FlexProps } from '../Flex';
 import { NativeAttributes } from '../Box';
+import PseudoBox, { PseudoBoxProps } from '../PseudoBox';
 
 export type TabListProps = NativeAttributes<'ul'>;
 
-const FlexList = React.forwardRef<HTMLUListElement, FlexProps>(function FlexList(props, ref) {
-  return <Flex as="ul" flexWrap="wrap" ref={ref} {...props} />;
+const FlexList = React.forwardRef<HTMLUListElement, PseudoBoxProps>(function FlexList(props, ref) {
+  return (
+    <PseudoBox
+      ref={ref}
+      as="ul"
+      display="flex"
+      flexWrap="wrap"
+      _after={{
+        content: '""',
+        width: '100%',
+        height: '1px',
+        backgroundColor: 'navyblue-300',
+        marginTop: '-2px',
+      }}
+      {...props}
+    />
+  );
 });
 
 export const TabList = React.forwardRef<HTMLInputElement, TabListProps>(function TabList(
