@@ -1,0 +1,28 @@
+# Webstorm
+.idea
+
+# testing
+/coverage
+/jest
+/__snapshots__/**/*
+**/*.md
+**/*.mdx
+
+# misc
+.DS_Store
+
+# caches
+.rts2_cache_esm
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.docz
+
+# essentials
+.git
+.github
+.circleci
+node_modules
+.eslintrc
+
