@@ -8,12 +8,18 @@ import useTabStyles from './useTabStyles';
 export type TabProps = NativeAttributes<'button'> & {
   /** Whether the tab should be disabled */
   disabled?: boolean;
+};
 
-  /** @ignore internal index of the tab in relation to its siblings */
+type PrivateTabProps = TabProps & {
+  /**
+   * @ignore
+   * private internal index of the tab in relation to its siblings. Passed automatically from the
+   * `TabList` component
+   */
   index: number;
 };
 
-const Tab = React.forwardRef<HTMLButtonElement, TabProps>(function Tab(
+const Tab = (React.forwardRef<HTMLButtonElement, PrivateTabProps>(function Tab(
   { children, index, ...rest },
   ref
 ) {
@@ -24,6 +30,6 @@ const Tab = React.forwardRef<HTMLButtonElement, TabProps>(function Tab(
       {children}
     </ReachTab>
   );
-}) as ComponentWithAs<'button', TabProps>;
+}) as unknown) as ComponentWithAs<'button', TabProps>;
 
 export default React.memo(Tab);
