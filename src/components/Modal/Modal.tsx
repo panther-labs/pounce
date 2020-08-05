@@ -72,7 +72,7 @@ const Modal: React.FC<ModalProps> = ({
                       </Box>
                     )}
                     {showCloseButton && (
-                      <Box position="absolute" top={3} right={3}>
+                      <Box position="absolute" top={3} right={3} zIndex={1}>
                         <IconButton
                           icon="close"
                           aria-label="Dismiss Dialog"
