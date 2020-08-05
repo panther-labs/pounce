@@ -1,14 +1,19 @@
 import React from 'react';
-import { renderas } from 'test-utils';
+import { render } from 'test-utils';
 import Box from './Box';
 
-test('Box', async () => {
-  const { container } = await renderas(<Box />);
-  expect(container).toMatchInlineSnapshot(`
-    <div>
-      <div
-        class="css-1squsqt-Box pounce-0"
-      />
-    </div>
-  `);
+// FIXME: jest-emotion does not generate deterministic snapshots when the styling body is empty
+// https://github.com/emotion-js/emotion/issues/1960
+describe('Box', () => {
+  it('allows truncated values', async () => {
+    const { container } = await render(<Box truncated />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('allows styling on demand', async () => {
+    const { container } = await render(
+      <Box color="black" background="red" textTransform="uppercase" />
+    );
+    expect(container).toMatchSnapshot();
+  });
 });

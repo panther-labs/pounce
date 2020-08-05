@@ -8,7 +8,6 @@ module.exports = {
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   setupFilesAfterEnv: ['<rootDir>/jest/setup.ts'],
   verbose: true,
-  // snapshotSerializers: ['jest-emotion'],
   transform: {
     '^.+\\.tsx?$': ['babel-jest', { configFile: './jest/babel.config.js' }],
   },

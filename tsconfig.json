@@ -14,5 +14,6 @@
     "paths": {
       "test-utils": ["jest/utils"]
     }
-  }
+  },
+  "exclude": ["dist", "**/*.test.*"]
 }

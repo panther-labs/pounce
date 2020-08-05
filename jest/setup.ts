@@ -8,15 +8,16 @@ import '@testing-library/jest-dom';
 // https://github.com/jest-community/jest-extended#api
 import 'jest-extended';
 
+import 'jest-axe/extend-expect';
 import { matchers, createSerializer } from 'jest-emotion';
 
 // Add the custom matchers provided by 'jest-emotion'
 expect.extend(matchers);
 
-// expect.addSnapshotSerializer(
-//   createSerializer({
-//     classNameReplacer(className, index) {
-//       return `pounce-${index}`;
-//     },
-//   })
-// );
+expect.addSnapshotSerializer(
+  createSerializer({
+    classNameReplacer(className, index) {
+      return `pounce-${index}`;
+    },
+  })
+);

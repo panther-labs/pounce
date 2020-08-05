@@ -4,7 +4,9 @@
 # testing
 /coverage
 /jest
+/__snapshots__/**/*
 **/*.md
+**/*.mdx
 
 # misc
 .DS_Store
