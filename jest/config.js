@@ -11,6 +11,6 @@ module.exports = {
     '^.+\\.tsx?$': ['babel-jest', { configFile: './jest/babel.config.js' }],
   },
   moduleNameMapper: {
-    'test-utils': '<rootDir>/jest/utils.tsx',
+    'test-utils': '<rootDir>/jest/utils',
   },
 };

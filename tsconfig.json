@@ -12,7 +12,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "test-utils": ["jest/utils"]
+      "test-utils/*": ["jest/utils/*"]
     }
   },
   "exclude": ["dist", "**/*.test.*"]
