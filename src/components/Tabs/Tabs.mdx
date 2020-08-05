@@ -9,9 +9,7 @@ const Example = () => {
     <Tabs onChange={setActiveTab} index={activeTab}>
       <TabList>
         {tabs.map((t, index) => (
-          <Tab key={t}>
-            <Box p={5}>{t}</Box>
-          </Tab>
+          <Tab key={t}>{t}</Tab>
         ))}
       </TabList>
       <TabPanels>

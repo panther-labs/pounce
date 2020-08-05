@@ -10,14 +10,18 @@ const FlexList = React.forwardRef<HTMLUListElement, PseudoBoxProps>(function Fle
     <PseudoBox
       ref={ref}
       as="ul"
+      position="relative"
       display="flex"
       flexWrap="wrap"
+      px={6}
       _after={{
         content: '""',
         width: '100%',
         height: '1px',
         backgroundColor: 'navyblue-300',
-        marginTop: '-2px',
+        bottom: '1px',
+        left: 0,
+        position: 'absolute',
       }}
       {...props}
     />
