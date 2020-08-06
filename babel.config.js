@@ -4,7 +4,12 @@ module.exports = {
       '@babel/preset-env',
       {
         loose: true,
-        modules: process.env.BABEL_ENV === 'cjs' ? 'commonjs' : false,
+        modules:
+          process.env.NODE_ENV === 'test'
+            ? 'auto'
+            : process.env.BABEL_ENV === 'cjs'
+            ? 'commonjs'
+            : false,
       },
     ],
     '@babel/preset-react',

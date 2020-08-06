@@ -23,6 +23,8 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
 
   return (
     <Flex
+      role="status"
+      aria-atomic="true"
       ref={ref}
       cursor="default"
       width="fit-content"

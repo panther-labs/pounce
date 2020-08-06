@@ -34,7 +34,7 @@ module.exports = {
   }).parse,
   components: 'src/components/**/[A-Z]*.tsx',
   getExampleFilename: componentPath => componentPath.replace('.tsx', '.mdx'),
-  ignore: ['src/components/utils/**/*.{ts,tsx}'],
+  ignore: ['src/components/utils/**/*.{ts,tsx}', '**/*.test.*', '**/*__tests__/**/*'],
   styleguideDir: '.styleguidist',
   serverPort: 9000,
   webpackConfig: {

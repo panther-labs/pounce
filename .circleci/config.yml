@@ -12,6 +12,12 @@ commands:
       - run:
           name: Install js dependencies
           command: npm i
+  setupci:
+    steps:
+      - checkout
+      - run:
+          name: Install ci dependencies
+          command: npm ci
 
 jobs:
   audit:
@@ -21,6 +27,14 @@ jobs:
       - run:
           name: Audit the installed modules
           command: npm audit --production
+
+  tests:
+    executor: node
+    steps:
+      - setupci
+      - run:
+          name: Run pounce tests
+          command: npm test
 
   build:
     executor: node
@@ -61,6 +75,7 @@ workflows:
   pipeline:
     jobs:
       - audit
+      - tests
       - build
       - release:
           filters:

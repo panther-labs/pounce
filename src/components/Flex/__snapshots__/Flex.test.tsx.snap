@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex renders 1`] = `
+.pounce-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div>
+  <div
+    class="pounce-0 pounce-1"
+  />
+</div>
+`;
+
+exports[`Flex works along with Box 1`] = `
+.pounce-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.pounce-0 {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  background-color: blue-400;
+  width: 200px;
+}
+
+.pounce-2 {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color: red-300;
+  width: 300px;
+}
+
+<div>
+  <div
+    class="pounce-4 pounce-1"
+  >
+    <div
+      class="pounce-0 pounce-1"
+    >
+      Test
+    </div>
+    <div
+      class="pounce-2 pounce-1"
+    >
+      Test
+    </div>
+  </div>
+</div>
+`;
