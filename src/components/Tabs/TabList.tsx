@@ -28,7 +28,7 @@ const FlexList = React.forwardRef<HTMLUListElement, PseudoBoxProps>(function Fle
   );
 });
 
-export const TabList = React.forwardRef<HTMLInputElement, TabListProps>(function TabList(
+export const TabList = React.forwardRef<HTMLUListElement, TabListProps>(function TabList(
   { children, ...rest },
   ref
 ) {
