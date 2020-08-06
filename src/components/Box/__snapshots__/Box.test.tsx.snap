@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box allows styling on demand 1`] = `
+.pounce-0 {
+  color: black;
+  background: red;
+  text-transform: uppercase;
+}
+
+<div>
+  <div
+    class="pounce-0 pounce-1"
+  />
+</div>
+`;
+
+exports[`Box allows truncated values 1`] = `
+.pounce-0 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+<div>
+  <div
+    class="pounce-0 pounce-1"
+  />
+</div>
+`;

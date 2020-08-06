@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`opens 1`] = `
+<div>
+  <button
+    aria-controls="menu--4"
+    aria-haspopup="true"
+    data-reach-menu-button=""
+    id="menu-button--menu--4"
+    type="button"
+  >
+    Open me
+  </button>
+</div>
+`;
+
+exports[`opens 2`] = `
+<div>
+  <button
+    aria-controls="menu--4"
+    aria-expanded="true"
+    aria-haspopup="true"
+    data-reach-menu-button=""
+    id="menu-button--menu--4"
+    type="button"
+  >
+    Open me
+  </button>
+</div>
+`;
+
+exports[`renders 1`] = `
+<div>
+  <button
+    aria-controls="menu--1"
+    aria-haspopup="true"
+    data-reach-menu-button=""
+    id="menu-button--menu--1"
+    type="button"
+    variant="outline"
+  >
+    Hello
+  </button>
+</div>
+`;
