@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, act, waitFor } from 'test-utils';
-import { AxeResults } from 'test-utils/types';
+import { render, act, waitFor, AxeResults } from 'test-utils';
 import { axe } from 'jest-axe';
 
 import Badge from './Badge';

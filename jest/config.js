@@ -7,9 +7,6 @@ module.exports = {
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   setupFilesAfterEnv: ['<rootDir>/jest/setup.ts'],
   verbose: true,
-  transform: {
-    '^.+\\.tsx?$': ['babel-jest', { configFile: './jest/babel.config.js' }],
-  },
   moduleNameMapper: {
     'test-utils': '<rootDir>/jest/utils',
   },
