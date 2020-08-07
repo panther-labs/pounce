@@ -13,10 +13,15 @@ export type DateInputProps = TextInputProps & {
   format?: string;
 
   /**
+   * A flag to determinate when time picker is displayed
+   * */
+  withTime?: boolean;
+
+  /**
    * A string that represents the formatted Date. It will be parsed according to the given format
    * and converted to an actual date
    */
-  value: string;
+  value?: Date;
 
   /**
    * A callback for whenever the value of the chosen date changes.
@@ -27,7 +32,7 @@ export type DateInputProps = TextInputProps & {
    * using the same format string as the one provided through the props. The value becomes `''`
    * (empty string) if the user chose to clear the value of the DateInput
    */
-  onChange: (date: string) => void;
+  onChange: (date?: Date) => void;
 };
 
 /**
@@ -60,21 +65,85 @@ const parseDate = (str: string, format: string): Date | undefined => {
  * <a href="/#/TextInput">TextInput</a> component (i.e. placeholder, etc.)
  *
  * */
-const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(function DateInput(
-  { format = 'MM/DD/YYYY', value, onChange, ...rest },
-  ref
-) {
+const DateInput: React.FC<DateInputProps> = ({
+  format = 'MM/DD/YYYY',
+  value,
+  withTime = false,
+  onChange,
+  ...rest
+}) => {
+  const [date, setDate] = React.useState(value);
+  const [prevDate, setPrevDate] = React.useState(value);
+  const _ref = React.useRef({});
+
+  const onCancel = React.useCallback(() => {
+    setDate(prevDate);
+    onChange(prevDate);
+    onChange(prevDate);
+    // @ts-ignore
+    _ref?.current?.hideDayPicker();
+  }, [onChange, setDate, setPrevDate, prevDate]);
+
+  const onApply = React.useCallback(() => {
+    onChange(date);
+    setPrevDate(date);
+    // @ts-ignore
+    _ref?.current?.hideDayPicker();
+  }, [onChange, date]);
+
+  const onDateChanged = React.useCallback(
+    dateChanged => {
+      console.log(dateChanged);
+      const oldDate = dayjs(date);
+      const newDate = dayjs(dateChanged);
+      const updated = newDate.hour(oldDate.hour()).minute(oldDate.minute());
+      // @ts-ignore
+      setDate(updated.toDate());
+    },
+    [setDate, date, prevDate]
+  );
+
+  const onTimeChange = React.useCallback(
+    dateChanged => {
+      setDate(dateChanged);
+    },
+    [setDate, date]
+  );
+
+  const Overlay = React.useCallback(
+    props => {
+      return (
+        <OverlayComponent
+          {...props}
+          withTime={withTime}
+          date={date}
+          onApply={onApply}
+          onTimeUpdate={onTimeChange}
+          onCancel={onCancel}
+          ref={_ref}
+        />
+      );
+    },
+    [_ref, onCancel, onApply, withTime]
+  );
+
   return (
     <DayPickerInput
-      overlayComponent={OverlayComponent}
-      onDayChange={date => onChange(date ? formatDate(date, format) : '')}
+      overlayComponent={Overlay}
+      dayPickerProps={dayPickerProps}
+      onDayChange={onDateChanged}
       formatDate={formatDate}
       parseDate={parseDate}
       format={format}
-      value={value}
-      component={(props: TextInputProps) => <TextInput {...props} {...rest} ref={ref} />}
+      value={date}
+      hideOnDayClick={false}
+      // @ts-ignore ref passed in order to control the actual input element
+      ref={_ref}
+      component={(props: TextInputProps) => (
+        <TextInput {...props} {...rest} onChange={noop} autoComplete="off" icon="calendar" />
+      )}
     />
   );
-});
+};
 
 export default React.memo(DateInput);

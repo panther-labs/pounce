@@ -182,10 +182,16 @@ const GlobalStyles: React.FC = () => {
       font-size: ${theme.fontSizes.medium};
     }
 
+    .DayPicker-wrapper {
+      display: flex;
+    }
+
     .DayPicker-Months {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    }
+
+    .DayPicker-Month + .DayPicker-Month {
+      padding-left: ${`${theme.space[2]}px`};
     }
 
     .DayPicker-NavButton {
@@ -243,7 +249,9 @@ const GlobalStyles: React.FC = () => {
     }
 
     .DayPicker-Body {
-      display: table-row-group;
+      display: table;
+      border-collapse: separate;
+      border-spacing: 0 2px;
     }
 
     .DayPicker-Week {

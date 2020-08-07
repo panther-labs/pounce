@@ -7,14 +7,41 @@ Any extra prop that you specify will be given to the underlying input element of
 
 ```typescript jsx
 const Example = () => {
-  const [dateStr, setDateStr] = React.useState('');
+  const [date, setDate] = React.useState(new Date());
+
   return (
-    <DateInput
-      onChange={setDateStr}
-      value={dateStr}
-      placeholder="Enter a date"
-      label="Start date"
-    />
+    <>
+      <p>
+        <DateInput onChange={setDate} value={date} placeholder="Enter a date" label="Start date" />
+      </p>
+    </>
+  );
+};
+
+<Example />;
+```
+
+A DateInput also manipulate the time of the incoming date:
+
+```typescript jsx
+const Example = () => {
+  const [date, setDate] = React.useState(new Date());
+
+  return (
+    <Box>
+      <Box mb={2}>
+        Selected date is {date.toLocaleDateString()} {date.toLocaleTimeString()}
+      </Box>
+      <Box>
+        <DateInput
+          onChange={setDate}
+          withTime
+          value={date}
+          placeholder="Enter a date"
+          label="Start date"
+        />
+      </Box>
+    </Box>
   );
 };
 
