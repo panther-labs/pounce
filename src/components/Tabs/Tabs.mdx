@@ -3,21 +3,18 @@ Tabs can be really simple:
 ```typescript jsx
 const Example = () => {
   const tabs = ['Traits', 'Event History', 'Identities'];
-  const [activeTab, setActiveTab] = React.useState(0);
 
   return (
-    <Tabs onChange={setActiveTab} index={activeTab}>
+    <Tabs>
       <TabList>
-        {tabs.map((t, index) => (
+        {tabs.map(t => (
           <Tab key={t}>{t}</Tab>
         ))}
       </TabList>
       <TabPanels>
         {tabs.map(t => (
-          <TabPanel key={t}>
-            <Card p={9} mt={3}>
-              Panel {t}
-            </Card>
+          <TabPanel lazy unmountOnInactive key={t}>
+            Panel {t}
           </TabPanel>
         ))}
       </TabPanels>
@@ -39,8 +36,8 @@ const Example = () => {
     <Tabs onChange={setActiveTab} index={activeTab}>
       <TabList>
         {tabs.map((t, index) => (
-          <Tab key={t} disabled={index == 1}>
-            <Box p={5}>{t}</Box>
+          <Tab disabled={index === 1} key={t}>
+            {t}
           </Tab>
         ))}
       </TabList>
@@ -60,28 +57,74 @@ const Example = () => {
 <Example />;
 ```
 
-Tabs can be vertical
+Tabs can be be lazy loaded
 
 ```typescript jsx
+const Timer = () => {
+  const [counter, setCounter] = React.useState(0);
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCounter(counter + 1);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [counter]);
+
+  return <Card p={9}>{counter}</Card>;
+};
+
 const Example = () => {
   const tabs = ['Traits', 'Event History', 'Identities'];
-  const [activeTab, setActiveTab] = React.useState(0);
 
   return (
-    <Tabs onChange={setActiveTab} index={activeTab} orientation="vertical">
+    <Tabs>
       <TabList>
-        {tabs.map((t, index) => (
-          <Tab key={t}>
-            <Box p={5}>{t}</Box>
-          </Tab>
+        {tabs.map(t => (
+          <Tab key={t}>{t}</Tab>
         ))}
       </TabList>
-      <TabPanels as={Box} ml={3}>
+      <TabPanels>
         {tabs.map(t => (
-          <TabPanel key={t}>
-            <Card p={9} mt={3}>
-              Panel {t}
-            </Card>
+          <TabPanel lazy key={t}>
+            <Timer key={t} />
+          </TabPanel>
+        ))}
+      </TabPanels>
+    </Tabs>
+  );
+};
+
+<Example />;
+```
+
+Tabs can be be lazy loaded and unmounted when inactive
+
+```typescript jsx
+const Timer = () => {
+  const [counter, setCounter] = React.useState(0);
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCounter(counter + 1);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [counter]);
+
+  return <Card p={9}>{counter}</Card>;
+};
+
+const Example = () => {
+  const tabs = ['Traits', 'Event History', 'Identities'];
+
+  return (
+    <Tabs>
+      <TabList>
+        {tabs.map(t => (
+          <Tab key={t}>{t}</Tab>
+        ))}
+      </TabList>
+      <TabPanels>
+        {tabs.map(t => (
+          <TabPanel lazy unmountWhenInactive key={t}>
+            <Timer key={t} />
           </TabPanel>
         ))}
       </TabPanels>

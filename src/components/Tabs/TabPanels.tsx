@@ -1,6 +1,19 @@
+import React from 'react';
 import { TabPanels as ReachTabPanels, TabPanelProps as ReachTabPanelsProps } from '@reach/tabs';
 
 export type TabPanelsProps = ReachTabPanelsProps;
-export const TabPanels = ReachTabPanels;
 
-export default ReachTabPanels;
+const TabPanels = React.forwardRef<HTMLDivElement, TabPanelsProps>(function TabPanels(
+  { children, ...rest },
+  ref
+) {
+  return (
+    <ReachTabPanels ref={ref} {...rest}>
+      {React.Children.map(children, (child, index) =>
+        React.cloneElement(child as React.ReactElement, { index })
+      )}
+    </ReachTabPanels>
+  );
+});
+
+export default TabPanels;
