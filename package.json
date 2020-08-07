@@ -58,6 +58,7 @@
     "start": "npx styleguidist server",
     "test": "jest --config jest/config.js",
     "test:watch": "npm run test -- --watch",
+    "test:coverage": "npm run test -- --collect-coverage",
     "prepare": "npm run build",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src -d dist/cjs --extensions '.ts,.tsx' --ignore \"**/__tests__/**/*,\"**/*.test./**/* && tsc --emitDeclarationOnly --declarationDir dist/cjs -p .",
     "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src -d dist/esm --extensions '.ts,.tsx' --ignore \"**/__tests__/**/*,\"**/*.test./**/* && tsc --emitDeclarationOnly --declarationDir dist/esm -p .",
