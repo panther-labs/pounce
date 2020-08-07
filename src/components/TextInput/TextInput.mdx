@@ -24,6 +24,20 @@ An input can be invalid:
 <TextInput label="Name" name="hi" placeholder="Type something..." value="Invalid Value" invalid />
 ```
 
+An input can have an icon:
+
+```typescript jsx
+const [value, setValue] = React.useState('hey');
+<TextInput
+  label="Name"
+  name="hi"
+  value={value}
+  placeholder="Type something..."
+  onChange={e => setValue(e.target.value)}
+  icon="dashboard-alt"
+/>;
+```
+
 An input can be disabled:
 
 ```typescript jsx
