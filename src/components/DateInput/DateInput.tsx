@@ -1,8 +1,10 @@
 import React from 'react';
+import { DayPickerProps } from 'react-day-picker';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import dayjs from 'dayjs';
 import TextInput, { TextInputProps } from '../TextInput';
 import OverlayComponent from './OverlayComponent';
+import { noop } from '../../utils/helpers';
 
 export type DateInputProps = TextInputProps & {
   /**
@@ -18,21 +20,22 @@ export type DateInputProps = TextInputProps & {
   withTime?: boolean;
 
   /**
-   * A string that represents the formatted Date. It will be parsed according to the given format
-   * and converted to an actual date
+   * The passed date of the input component
    */
-  value?: Date;
+  value?: Date | string;
+
+  /**
+   * Additional props to paased down to `react-day-picker`
+   */
+  dayPickerProps?: DayPickerProps;
 
   /**
    * A callback for whenever the value of the chosen date changes.
    *
-   * `(date: string | null) => void`
+   * `(date: Date | null) => void`
    *
-   * The  value is formatted
-   * using the same format string as the one provided through the props. The value becomes `''`
-   * (empty string) if the user chose to clear the value of the DateInput
    */
-  onChange: (date?: Date) => void;
+  onChange: (date: Date) => void;
 };
 
 /**
@@ -69,6 +72,7 @@ const DateInput: React.FC<DateInputProps> = ({
   format = 'MM/DD/YYYY',
   value,
   withTime = false,
+  dayPickerProps = {},
   onChange,
   ...rest
 }) => {
@@ -78,13 +82,14 @@ const DateInput: React.FC<DateInputProps> = ({
 
   const onCancel = React.useCallback(() => {
     setDate(prevDate);
-    onChange(prevDate);
+    // @ts-ignore
     onChange(prevDate);
     // @ts-ignore
     _ref?.current?.hideDayPicker();
   }, [onChange, setDate, setPrevDate, prevDate]);
 
   const onApply = React.useCallback(() => {
+    // @ts-ignore
     onChange(date);
     setPrevDate(date);
     // @ts-ignore
@@ -93,7 +98,6 @@ const DateInput: React.FC<DateInputProps> = ({
 
   const onDateChanged = React.useCallback(
     dateChanged => {
-      console.log(dateChanged);
       const oldDate = dayjs(date);
       const newDate = dayjs(dateChanged);
       const updated = newDate.hour(oldDate.hour()).minute(oldDate.minute());

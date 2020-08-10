@@ -21,7 +21,7 @@ const Example = () => {
 <Example />;
 ```
 
-A DateInput also manipulate the time of the incoming date:
+A DateInput also manipulates the format of the incoming date:
 
 ```typescript jsx
 const Example = () => {
@@ -29,13 +29,14 @@ const Example = () => {
 
   return (
     <Box>
-      <Box mb={2}>
+      <Box mb={4}>
         Selected date is {date.toLocaleDateString()} {date.toLocaleTimeString()}
       </Box>
       <Box>
         <DateInput
           onChange={setDate}
           withTime
+          format="MM/DD/YYYY hh:mm A"
           value={date}
           placeholder="Enter a date"
           label="Start date"
