@@ -27,3 +27,11 @@ exports[`Box allows truncated values 1`] = `
   />
 </div>
 `;
+
+exports[`Box renders 1`] = `
+<div>
+  <div
+    class="pounce-0 pounce-1"
+  />
+</div>
+`;

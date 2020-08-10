@@ -21,3 +21,12 @@ expect.addSnapshotSerializer(
     },
   })
 );
+
+// Add a dummy emotion style tag to prevent testing snapshot serializer from failing
+// https://github.com/emotion-js/emotion/issues/1960
+beforeAll(() => {
+  document.head.insertAdjacentHTML(
+    'beforeend',
+    `<style data-id="jest-emotion-setup" data-emotion="css"></style>`
+  );
+});
