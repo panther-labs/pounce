@@ -1,0 +1,49 @@
+`DoubleTextInput` is used as a helper component, it groups two input components under the same authority.
+Triggered events are propagated across the children components.
+
+```typescript jsx
+const Example = () => {
+  const [valueFrom, setValueFrom] = React.useState('Joe');
+  const [valueTo, setValueTo] = React.useState('Doe');
+
+  return (
+    <DoubleTextInput
+      truncated
+      labelFrom="Name"
+      labelTo="Surname"
+      name="details"
+      from={valueFrom}
+      to={valueTo}
+      onChangeFrom={e => setValueFrom(e.target.value)}
+      onChangeTo={e => setValueTo(e.target.value)}
+    />
+  );
+};
+
+<Example />;
+```
+
+This component inherits it's functionality from the `TextInput` component, thus it can be invalid or disabled.
+
+```typescript jsx
+const Example = () => {
+  const [valueFrom, setValueFrom] = React.useState('Joe');
+  const [valueTo, setValueTo] = React.useState('Doe');
+
+  return (
+    <DoubleTextInput
+      truncated
+      invalid
+      labelFrom="Name"
+      labelTo="Surname"
+      name="details"
+      from={valueFrom}
+      to={valueTo}
+      onChangeFrom={e => setValueFrom(e.target.value)}
+      onChangeTo={e => setValueTo(e.target.value)}
+    />
+  );
+};
+
+<Example />;
+```
