@@ -91,6 +91,7 @@ const Spinner: React.FC<SpinnerProps> = ({
       verticalAlign="sub"
       animation={`${spinningKeyframes} 2s linear infinite`}
       viewBox="0 0 150 150"
+      aria-label="Loading..."
       {...sizeProps}
       {...rest}
     >
