@@ -15,5 +15,6 @@
       "test-utils": ["jest/utils"]
     }
   },
-  "exclude": ["dist"]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test.*"]
 }
