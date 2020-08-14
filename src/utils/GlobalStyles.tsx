@@ -12,6 +12,21 @@ const GlobalStyles: React.FC = () => {
       line-height: ${theme.lineHeights.normal};
     }
 
+    *::-webkit-scrollbar:horizontal {
+      height: 8px;
+      background: transparent;
+    }
+
+    *::-webkit-scrollbar:horizontal {
+      width: 8px;
+      background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: ${theme.colors['navyblue-200']};
+      border-radius: ${theme.radii.pill};
+    }
+
     html {
       color: ${theme.colors['gray-50']};
       font-family: ${theme.fonts.primary};
