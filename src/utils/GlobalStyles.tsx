@@ -12,12 +12,7 @@ const GlobalStyles: React.FC = () => {
       line-height: ${theme.lineHeights.normal};
     }
 
-    *::-webkit-scrollbar:horizontal {
-      height: 8px;
-      background: transparent;
-    }
-
-    *::-webkit-scrollbar:horizontal {
+    *::-webkit-scrollbar {
       width: 8px;
       background: transparent;
     }
@@ -25,6 +20,10 @@ const GlobalStyles: React.FC = () => {
     *::-webkit-scrollbar-thumb {
       background: ${theme.colors['navyblue-200']};
       border-radius: ${theme.radii.pill};
+    }
+
+    *::-webkit-scrollbar:horizontal {
+      height: 8px;
     }
 
     html {
