@@ -19,7 +19,7 @@ const GlobalStyles: React.FC = () => {
 
     *::-webkit-scrollbar-thumb {
       background: ${theme.colors['navyblue-200']};
-      border-radius: ${theme.radii.pill};
+      border-radius: ${theme.radii.pill}px;
     }
 
     *::-webkit-scrollbar:horizontal {
