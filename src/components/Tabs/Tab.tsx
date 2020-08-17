@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tab as ReachTab, useTabsContext } from '@reach/tabs';
+import { Tab as ReachTab } from '@reach/tabs';
 import AbstractButton from '../AbstractButton';
 import { NativeAttributes } from '../Box';
 import { ComponentWithAs } from '@reach/utils';
@@ -20,24 +20,12 @@ export type TabProps = NativeAttributes<'button'> & {
   children: ((renderProps: TabRenderProps) => React.ReactNode) | React.ReactNode;
 };
 
-type PrivateTabProps = TabProps & {
-  /**
-   * @ignore
-   * private internal index of the tab in relation to its siblings. Passed automatically from the
-   * `TabList` component
-   */
-  index: number;
-};
+type PrivateTabProps = TabRenderProps;
 
 const Tab = (React.forwardRef<HTMLButtonElement, PrivateTabProps>(function Tab(
-  { children, index, ...rest },
+  { children, isSelected, isFocused, ...rest },
   ref
 ) {
-  const { focusedIndex, selectedIndex } = useTabsContext();
-
-  const isSelected = selectedIndex === index;
-  const isFocused = focusedIndex === index;
-
   // @ts-ignore
   const content = typeof children === 'function' ? children({ isSelected, isFocused }) : children;
   return (
