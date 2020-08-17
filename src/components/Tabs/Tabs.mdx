@@ -8,13 +8,17 @@ const Example = () => {
     <Tabs>
       <TabList>
         {tabs.map(t => (
-          <Tab key={t}>{t}</Tab>
+          <Tab key={t}>
+            <Box p={6}>{t}</Box>
+          </Tab>
         ))}
       </TabList>
       <TabPanels>
         {tabs.map(t => (
           <TabPanel lazy unmountOnInactive key={t}>
-            Panel {t}
+            <Card p={9} mt={3}>
+              Panel {t}
+            </Card>
           </TabPanel>
         ))}
       </TabPanels>
@@ -37,7 +41,43 @@ const Example = () => {
       <TabList>
         {tabs.map((t, index) => (
           <Tab disabled={index === 1} key={t}>
-            {t}
+            <Box p={6}>{t}</Box>
+          </Tab>
+        ))}
+      </TabList>
+      <TabPanels>
+        {tabs.map(t => (
+          <TabPanel key={t}>
+            <Card p={9} mt={3}>
+              Panel {t}
+            </Card>
+          </TabPanel>
+        ))}
+      </TabPanels>
+    </Tabs>
+  );
+};
+
+<Example />;
+```
+
+Tabs can expose render props for controlling active & focused styling:
+
+```typescript jsx
+const Example = () => {
+  const tabs = ['Traits', 'Event History', 'Identities'];
+  const [activeTab, setActiveTab] = React.useState(0);
+
+  return (
+    <Tabs onChange={setActiveTab} index={activeTab}>
+      <TabList>
+        {tabs.map((t, index) => (
+          <Tab disabled={index === 1} key={t}>
+            {({ isSelected }) => (
+              <Box p={6} backgroundColor={isSelected ? 'blue-400' : 'transparent'}>
+                {t}
+              </Box>
+            )}
           </Tab>
         ))}
       </TabList>
@@ -69,7 +109,7 @@ const Timer = () => {
     return () => clearTimeout(timeout);
   }, [counter]);
 
-  return <Card p={9}>{counter}</Card>;
+  return counter;
 };
 
 const Example = () => {
@@ -79,13 +119,17 @@ const Example = () => {
     <Tabs>
       <TabList>
         {tabs.map(t => (
-          <Tab key={t}>{t}</Tab>
+          <Tab key={t}>
+            <Box p={6}>{t}</Box>
+          </Tab>
         ))}
       </TabList>
       <TabPanels>
         {tabs.map(t => (
           <TabPanel lazy key={t}>
-            <Timer key={t} />
+            <Card p={9}>
+              {t} <Timer key={t} />
+            </Card>
           </TabPanel>
         ))}
       </TabPanels>
@@ -108,7 +152,7 @@ const Timer = () => {
     return () => clearTimeout(timeout);
   }, [counter]);
 
-  return <Card p={9}>{counter}</Card>;
+  return counter;
 };
 
 const Example = () => {
@@ -118,13 +162,17 @@ const Example = () => {
     <Tabs>
       <TabList>
         {tabs.map(t => (
-          <Tab key={t}>{t}</Tab>
+          <Tab key={t}>
+            <Box p={6}>{t}</Box>
+          </Tab>
         ))}
       </TabList>
       <TabPanels>
         {tabs.map(t => (
           <TabPanel lazy unmountWhenInactive key={t}>
-            <Timer key={t} />
+            <Card p={9}>
+              {t} <Timer key={t} />
+            </Card>
           </TabPanel>
         ))}
       </TabPanels>
