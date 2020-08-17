@@ -1,15 +1,11 @@
 import React from 'react';
 import { TabList as ReachTabList, useTabsContext } from '@reach/tabs';
 import { NativeAttributes } from '../Box';
-import Flex, { FlexProps } from '../Flex';
+import Flex from '../Flex';
 
-export type TabListProps = NativeAttributes<'ul'>;
+export type TabListProps = NativeAttributes<'div'>;
 
-const FlexList = React.forwardRef<HTMLUListElement, FlexProps>(function FlexList(props, ref) {
-  return <Flex ref={ref} as="ul" flexWrap="wrap" {...props} />;
-});
-
-export const TabList = React.forwardRef<HTMLUListElement, TabListProps>(function TabList(
+export const TabList = React.forwardRef<HTMLDivElement, TabListProps>(function TabList(
   { children, ...rest },
   ref
 ) {
@@ -17,7 +13,7 @@ export const TabList = React.forwardRef<HTMLUListElement, TabListProps>(function
 
   return (
     // @ts-ignore Typing is wrong on @reach-ui, allowing only div | undefined for `as`
-    <ReachTabList as={FlexList} ref={ref} {...rest}>
+    <ReachTabList as={Flex} ref={ref} flexWrap="wrap" {...rest}>
       {React.Children.map(children, (child, index) =>
         React.cloneElement(child as React.ReactElement, {
           isSelected: selectedIndex === index,
