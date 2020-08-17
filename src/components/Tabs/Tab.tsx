@@ -29,7 +29,7 @@ const Tab = (React.forwardRef<HTMLButtonElement, PrivateTabProps>(function Tab(
   // @ts-ignore
   const content = typeof children === 'function' ? children({ isSelected, isFocused }) : children;
   return (
-    <ReachTab ref={ref} as={AbstractButton} {...rest}>
+    <ReachTab ref={ref} as={AbstractButton} zIndex={1} {...rest}>
       {content}
     </ReachTab>
   );
