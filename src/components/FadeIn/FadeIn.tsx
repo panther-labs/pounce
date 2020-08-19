@@ -52,7 +52,7 @@ const FadeIn: React.FC<FadeInProps> = ({
   return (
     <Box
       as={as}
-      willChange="opacity, transform"
+      willChange={`opacity${from !== 'center' ? ', transform' : ''}`}
       animation={`${keyframes} ${duration}ms ${delay}ms ease-in-out both`}
       {...rest}
     >
