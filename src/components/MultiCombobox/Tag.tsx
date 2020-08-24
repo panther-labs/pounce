@@ -1,9 +1,10 @@
 import Icon from '../Icon';
 import React from 'react';
+import { SystemProps } from '@chakra-ui/styled-system';
 import AbstractButton from '../AbstractButton';
-import Box, { BoxProps } from '../Box';
+import Box from '../Box';
 
-export interface TagProps extends BoxProps {
+export interface TagProps extends SystemProps {
   /**
    * What happens when the "X" button is pressed. No "X" button is rendered, if this prop is not
    * specified

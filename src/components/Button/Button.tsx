@@ -1,11 +1,10 @@
-import * as React from 'react';
-import AbstractButton from '../AbstractButton';
-import { BoxProps, NativeAttributes } from '../Box';
+import React from 'react';
+import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
 import useButtonStyles from './useButtonStyles';
 import Spinner from '../Spinner';
 import Icon, { IconProps } from '../Icon';
 
-export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
+export interface ButtonProps extends React.ComponentProps<'button'> {
   /** The size (height) of the button */
   size?: 'small' | 'large';
 
@@ -41,6 +40,9 @@ export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 
 
   /** Whether the button should always be marked as active. Helpful for menus. */
   active?: boolean;
+
+  /** The underlying HTML element  */
+  as?: AbstractButtonProps['as'];
 }
 
 /**

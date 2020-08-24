@@ -1,7 +1,7 @@
 import React from 'react';
 import Flex from '../Flex';
-import PseudoBox from '../PseudoBox';
 import Icon from '../Icon';
+import Box from '../Box';
 import TableHeaderCell, { TableHeaderCellProps } from './TableHeaderCell';
 
 const sortableHoverStyle = {
@@ -20,8 +20,8 @@ const TableSortableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, Tab
     const shouldIconBeRightAligned = align !== 'right';
 
     return (
-      <TableHeaderCell ref={ref} sortDir={sortDir} align={align} {...rest}>
-        <PseudoBox
+      <TableHeaderCell sortDir={sortDir} align={align} {...rest} ref={ref}>
+        <Box
           display="inline-flex"
           verticalAlign="middle"
           cursor="pointer"
@@ -47,7 +47,7 @@ const TableSortableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, Tab
             />
             {children}
           </Flex>
-        </PseudoBox>
+        </Box>
       </TableHeaderCell>
     );
   }

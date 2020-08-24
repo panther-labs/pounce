@@ -1,9 +1,9 @@
 import React from 'react';
-import PseudoBox from '../PseudoBox';
-import { BoxProps } from '../Box';
+import { SystemProps } from '@chakra-ui/styled-system';
+import Box from '../Box';
 import useLinkStyles from './useLinkStyles';
 
-export interface LinkProps extends Omit<BoxProps<'a'>, 'color'> {
+export interface LinkProps extends SystemProps, React.ComponentProps<'a'> {
   /** Whether the link is external and should open in a new tab */
   external?: boolean;
 
@@ -22,7 +22,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
   const variantStyles = useLinkStyles({ variant });
 
   return (
-    <PseudoBox
+    <Box
       as={disabled ? 'span' : 'a'}
       ref={ref}
       aria-disabled={disabled}

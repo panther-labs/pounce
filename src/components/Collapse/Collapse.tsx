@@ -2,11 +2,11 @@ import React from 'react';
 import useMeasure from 'react-use-measure';
 import { ResizeObserver } from '@juggle/resize-observer';
 import { animated, useTransition } from 'react-spring';
-import Box, { BoxProps } from '../Box';
+import Box from '../Box';
 
 const AnimatedBox = animated(Box);
 
-export interface CollapseProps extends Pick<BoxProps, 'as'> {
+export interface CollapseProps {
   /** Whether the children are visible or collapsed */
   open: boolean;
 

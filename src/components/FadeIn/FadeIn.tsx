@@ -2,7 +2,7 @@ import React from 'react';
 import Box, { BoxProps } from '../Box';
 import { generateKeyframes } from './utils';
 
-export interface FadeInProps extends Pick<BoxProps, 'as'> {
+export type FadeInProps = {
   /**
    * The from that the components fades-in towards
    *
@@ -32,7 +32,10 @@ export interface FadeInProps extends Pick<BoxProps, 'as'> {
    * @default 25
    */
   offset?: number;
-}
+
+  /** The underlying HTML component that will be rendered */
+  as?: BoxProps['as'];
+};
 
 /**
  * A wrapper component to allow fading-in of children components, allowing a smooth enter into the

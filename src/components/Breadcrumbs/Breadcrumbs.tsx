@@ -12,9 +12,12 @@ export interface BreadcrumbItem {
   text: string;
 }
 
-export interface BreadcrumbProps extends Pick<LinkProps, 'as'> {
+export interface BreadcrumbProps {
   /** A list of `BreadcrumbsItem` objects ( `{href,text}` ) that will construct the Breadcrumb */
   items: BreadcrumbItem[];
+
+  /** The underlying HTML element */
+  as?: LinkProps['as'];
 }
 
 /** Breadcrumb is a way to navigate back to where you came from within the app */
@@ -38,7 +41,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, ...rest }) => {
                 to={item.href}
                 variant="neutral"
                 border="none"
-                truncated
+                isTruncated
                 maxWidth="450px"
                 data-active={isLastBreadcrumb ? true : undefined}
                 {...rest}

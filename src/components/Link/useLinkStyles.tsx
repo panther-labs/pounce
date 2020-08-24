@@ -1,9 +1,9 @@
+import { SystemProps } from '@chakra-ui/styled-system';
 import { LinkProps } from './Link';
-import { PseudoBoxProps } from '../PseudoBox';
 
 type UseLinkStyles = Pick<LinkProps, 'variant'>;
 
-const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
+const useLinkStyles = ({ variant }: UseLinkStyles): SystemProps => {
   switch (variant) {
     case 'neutral':
       return {

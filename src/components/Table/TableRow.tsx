@@ -1,9 +1,9 @@
 import React from 'react';
 import css, { CSSObject } from '@styled-system/css';
-import Box, { NativeAttributes } from '../Box';
+import Box from '../Box';
 import { useTable } from './Table';
 
-export interface TableRowProps extends NativeAttributes<'tr'> {
+export interface TableRowProps extends React.ComponentProps<'tr'> {
   /** Whether the row should appear as selected. Defaults to `false` */
   selected?: boolean;
 

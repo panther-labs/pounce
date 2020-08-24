@@ -1,9 +1,8 @@
 import React from 'react';
 import { TabList as ReachTabList, useTabsContext } from '@reach/tabs';
-import { NativeAttributes } from '../Box';
 import Flex from '../Flex';
 
-export type TabListProps = NativeAttributes<'div'>;
+export type TabListProps = React.ComponentProps<'div'>;
 
 export const TabList = React.forwardRef<HTMLDivElement, TabListProps>(function TabList(
   { children, ...rest },

@@ -1,5 +1,5 @@
 import React from 'react';
-import Flex from '../Flex';
+import Box from '../Box';
 import { Theme } from '../../theme';
 import useBadgeStyles from './useBadgeStyles';
 
@@ -14,15 +14,16 @@ export interface BadgeProps {
   children: React.ReactNode;
 }
 
-/** A badge is simply a visual label to accompany & characterize a certain text*/
-const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
+/** A badge is simply a visual label to accompany & characterize a certain text */
+const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
   { color, variant = 'solid', children, ...rest },
   ref
 ) {
   const variantStyles = useBadgeStyles({ variant, color });
 
   return (
-    <Flex
+    <Box
+      display="flex"
       role="status"
       aria-atomic="true"
       ref={ref}
@@ -32,8 +33,8 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       textAlign="center"
       fontWeight="bold"
       borderRadius="pill"
-      align="center"
-      justify="center"
+      alignItems="center"
+      justifyContent="center"
       fontSize="small"
       py={1}
       px={4}
@@ -41,7 +42,7 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       {...rest}
     >
       {children}
-    </Flex>
+    </Box>
   );
 });
 
