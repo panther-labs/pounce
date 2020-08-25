@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabList as ReachTabList, useTabsContext } from '@reach/tabs';
-import Flex from '../Flex';
 import { NativeAttributes } from '../../system';
+import Flex from '../Flex';
 
 export type TabListProps = NativeAttributes<'div'>;
 

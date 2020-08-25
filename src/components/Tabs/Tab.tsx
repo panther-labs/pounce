@@ -1,8 +1,8 @@
 import React from 'react';
 import { Tab as ReachTab } from '@reach/tabs';
 import AbstractButton from '../AbstractButton';
-import { ComponentWithAs } from '@reach/utils';
 import { NativeAttributes } from '../../system';
+import { ComponentWithAs } from '@reach/utils';
 
 type TabRenderProps = {
   /** Whether the tab is selected */

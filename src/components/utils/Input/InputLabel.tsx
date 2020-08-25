@@ -1,6 +1,7 @@
 import React from 'react';
 import { useInputContext } from './InputContext';
-import { pounce, NativeAttributes } from '../../../system';
+import Box from '../../Box';
+import { NativeAttributes } from '../../../system';
 
 export type InputLabelProps = NativeAttributes<'label'> & {
   /**  Whether the label should be raised up or not. Defaults to `true` */
@@ -11,7 +12,8 @@ const InputLabel: React.FC<InputLabelProps> = ({ raised = true, ...rest }) => {
   const { invalid } = useInputContext();
 
   return (
-    <pounce.label
+    <Box
+      as="label"
       pointerEvents="none"
       fontSize="medium"
       px={4}

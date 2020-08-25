@@ -48,12 +48,12 @@ export const SimpleGrid = React.forwardRef<HTMLElement, SimpleGridProps>(functio
 
   return (
     <Grid
+      ref={ref}
       gap={spacing}
       columnGap={spacingX}
       rowGap={spacingY}
       templateColumns={templateColumns}
       {...rest}
-      ref={ref}
     />
   );
 });

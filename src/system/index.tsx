@@ -1,2 +1,3 @@
 export type { SystemProps, NativeAttributes } from './utils';
-export { styled, StyledSystemComponent, pounce } from './system';
+export type { StyledSystemComponent } from './system';
+export { styled, pounce } from './system';

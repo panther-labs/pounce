@@ -40,7 +40,7 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
  * Responsive flexbox layout component. You should use this anytime you want a flex container or
  * wrapper around a certain layout
  */
-export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(function Flex(props, ref) {
+export const Flex = React.forwardRef<HTMLElement, FlexProps>(function Flex(props, ref) {
   const { direction, justify, align, inline, wrap, spacing, shrink, grow, basis, ...rest } = props;
 
   const itemSpacingProps = getItemSpacingProps(spacing, direction || rest.flexDirection);

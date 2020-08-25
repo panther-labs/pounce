@@ -24,11 +24,11 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
   return (
     <pounce.a
       as={disabled ? 'span' : 'a'}
+      ref={ref}
       aria-disabled={disabled}
       {...externalProps}
       {...variantStyles}
       {...rest}
-      ref={ref}
     />
   );
 });

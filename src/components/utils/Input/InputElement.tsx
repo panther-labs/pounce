@@ -1,15 +1,11 @@
 import React from 'react';
-import { NativeAttributes, SystemProps } from '../../../system';
+import { SystemProps } from '../../../system';
 import { useInputContext } from './InputContext';
 import useTheme from '../../../utils/useTheme';
 import Box from '../../Box';
 
-type NativeInputAttributes = NativeAttributes<'input'>;
-type NativeTextareaAttributes = NativeAttributes<'textarea'>;
-
 export type InputElementProps = SystemProps &
-  NativeInputAttributes &
-  Omit<NativeTextareaAttributes, keyof NativeInputAttributes>;
+  React.AllHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>;
 
 const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputElementProps>(
   function InputElement({ readOnly, ...rest }, ref) {

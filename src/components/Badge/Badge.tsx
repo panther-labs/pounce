@@ -15,7 +15,7 @@ export interface BadgeProps {
 }
 
 /** A badge is simply a visual label to accompany & characterize a certain text */
-const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
+const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
   { color, variant = 'solid', children, ...rest },
   ref
 ) {

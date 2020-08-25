@@ -1,10 +1,10 @@
 import React from 'react';
 import Box from '../Box';
-import { NativeAttributes } from '../../system';
+import { NativeAttributes, SystemProps } from '../../system';
 
 export interface TableProps extends NativeAttributes<'table'> {
   /** The table layout. Defaults to `auto` */
-  layout?: React.CSSProperties['tableLayout'];
+  layout?: SystemProps['tableLayout'];
 
   /** The size of the table. Affects how dense the cells are. Defaults to `medium`. */
   size?: 'small' | 'medium';

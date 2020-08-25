@@ -49,6 +49,4 @@ export const Img = React.forwardRef<HTMLImageElement, ImgProps>(function Img(pro
   );
 });
 
-const X = () => <Box as="h1" />;
-
 export default Img;

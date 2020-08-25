@@ -319,5 +319,3 @@ function MultiCombobox<Item>({
 
 export default typedMemo(MultiCombobox);
 
-// destination;
-// unknown;

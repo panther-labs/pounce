@@ -1,7 +1,7 @@
 import React from 'react';
+import { NativeAttributes } from '../../system';
 import { slugify } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
-import { NativeAttributes } from '../../system';
 
 export type TextInputProps = NativeAttributes<'input'> & {
   /** The label that is associated with this input */

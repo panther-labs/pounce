@@ -1,7 +1,7 @@
 import React from 'react';
 import Flex from '../Flex';
-import Icon from '../Icon';
 import Box from '../Box';
+import Icon from '../Icon';
 import TableHeaderCell, { TableHeaderCellProps } from './TableHeaderCell';
 
 const sortableHoverStyle = {
@@ -20,7 +20,7 @@ const TableSortableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, Tab
     const shouldIconBeRightAligned = align !== 'right';
 
     return (
-      <TableHeaderCell sortDir={sortDir} align={align} {...rest} ref={ref}>
+      <TableHeaderCell ref={ref} sortDir={sortDir} align={align} {...rest}>
         <Box
           display="inline-flex"
           verticalAlign="middle"

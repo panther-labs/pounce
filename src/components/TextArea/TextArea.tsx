@@ -1,8 +1,8 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+import { NativeAttributes } from '../../system';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import { slugify } from '../../utils/helpers';
-import { NativeAttributes } from '../../system';
 
 export type TextAreaProps = NativeAttributes<'textarea'> & {
   /** The label that is associated with this textaera */
@@ -27,7 +27,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(function T
   return (
     <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
       <InputElement
-        as={TextareaAutosize}
+        as={TextareaAutosize as any}
         id={identifier}
         name={name}
         value={value}

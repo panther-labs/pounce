@@ -1,11 +1,11 @@
 import React from 'react';
+import { NativeAttributes } from '../../system';
 import { slugify, noop } from '../../utils/helpers';
 import { typedMemo } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import AbstractButton from '../AbstractButton';
 import Icon from '../Icon';
 import Flex from '../Flex';
-import { NativeAttributes } from '../../system';
 
 export type NumberInputProps = NativeAttributes<'input'> & {
   /** Callback when the number changes */

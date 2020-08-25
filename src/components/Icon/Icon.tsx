@@ -3,17 +3,16 @@ import { pounce, NativeAttributes, SystemProps } from '../../system';
 import useTheme from '../../utils/useTheme';
 import { icons, Theme } from '../../theme';
 
-export type IconProps = NativeAttributes<'svg'> &
-  SystemProps & {
-    /** The icon that you want to show */
-    type: keyof typeof icons;
+export interface IconProps extends NativeAttributes<'svg'>, SystemProps {
+  /** The icon that you want to show */
+  type: keyof typeof icons;
 
-    /** The color of the icon */
-    color?: keyof Theme['colors'];
+  /** The color of the icon */
+  color?: keyof Theme['colors'];
 
-    /** The size of the icon. Can be 18px or 24px */
-    size?: 'x-small' | 'small' | 'large';
-  };
+  /** The size of the icon. Can be 18px or 24px */
+  size?: 'x-small' | 'small' | 'large';
+}
 
 /** An simple SVG element exported as a React component. It renders a simple <svg> */
 export const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(function Icon(
