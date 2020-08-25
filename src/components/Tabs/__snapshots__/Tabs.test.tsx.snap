@@ -15,6 +15,7 @@ exports[`Tabs renders 1`] = `
 .pounce-0 {
   color: gray-50;
   background-color: transparent;
+  z-index: 1;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -42,7 +43,7 @@ exports[`Tabs renders 1`] = `
     data-orientation="horizontal"
     data-reach-tabs=""
   >
-    <ul
+    <div
       aria-orientation="horizontal"
       class="pounce-4 pounce-1"
       data-reach-tab-list=""
@@ -73,7 +74,7 @@ exports[`Tabs renders 1`] = `
       >
         2
       </button>
-    </ul>
+    </div>
     <div
       data-reach-tab-panels=""
     >
