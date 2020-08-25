@@ -9,7 +9,7 @@ export const DropdownItem = forwardRefWithAs<DropdownItemProps & { disabled?: bo
   function DropdownItem({ children, onSelect = () => {}, disabled, ...rest }, ref) {
     return (
       <ReachMenuItem disabled={disabled} onSelect={onSelect} ref={ref} {...rest}>
-        <MenuItem>{children}</MenuItem>
+        <MenuItem disabled={disabled}>{children}</MenuItem>
       </ReachMenuItem>
     );
   }
