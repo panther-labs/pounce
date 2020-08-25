@@ -3,6 +3,9 @@ import { keyframes } from '@emotion/react';
 import { Theme } from '../../theme';
 import { pounce, SystemProps } from '../../system';
 
+const Svg = pounce('svg');
+const Circle = pounce('circle');
+
 export interface SpinnerProps extends SystemProps {
   /** Delay after which spinner should be visible. */
   delay?: number;
@@ -73,7 +76,7 @@ const Spinner: React.FC<SpinnerProps> = ({
   })();
 
   return (
-    <pounce.svg
+    <Svg
       display="inline-block"
       verticalAlign="sub"
       animation={`${spinningKeyframes} 2s linear infinite`}
@@ -82,7 +85,7 @@ const Spinner: React.FC<SpinnerProps> = ({
       {...sizeProps}
       {...rest}
     >
-      <pounce.circle
+      <Circle
         cx="75"
         cy="75"
         r="60"
@@ -95,7 +98,7 @@ const Spinner: React.FC<SpinnerProps> = ({
         stroke={color}
         fill="transparent"
       />
-    </pounce.svg>
+    </Svg>
   );
 };
 

@@ -77,14 +77,6 @@ export type MultiComboboxProps<T> = {
   allowAdditions?: boolean;
 
   /**
-   * The strategy for splitting tokens in the MultiCombobox
-   *
-   * @default 'none'
-   *
-   * */
-  delimiter?: 'none' | 'enter' | 'space' | 'comma';
-
-  /**
    * The maximum number of results that the MultiCombobox should show. By default it displays all of
    * them
    *

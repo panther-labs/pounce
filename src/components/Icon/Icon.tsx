@@ -3,6 +3,8 @@ import { pounce, NativeAttributes, SystemProps } from '../../system';
 import useTheme from '../../utils/useTheme';
 import { icons } from '../../theme';
 
+const Svg = pounce('svg');
+
 export interface IconProps extends NativeAttributes<'svg'>, SystemProps {
   /** The icon that you want to show */
   type: keyof typeof icons;
@@ -32,7 +34,7 @@ export const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(functi
   }
 
   return (
-    <pounce.svg
+    <Svg
       display="inline-block"
       verticalAlign="sub"
       flexShrink={0}
@@ -45,7 +47,7 @@ export const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(functi
       ref={ref}
     >
       {icons[type].path}
-    </pounce.svg>
+    </Svg>
   );
 });
 

@@ -8,7 +8,7 @@ export type BoxProps = NativeAttributes<any> & SystemProps;
  * Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes.
  * */
-export const Box = pounce.div;
+export const Box = pounce('div');
 
 export default Box as React.FC<BoxProps>;
 

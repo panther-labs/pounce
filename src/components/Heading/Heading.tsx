@@ -1,6 +1,7 @@
 import React from 'react';
-import { NativeAttributes, pounce, SystemProps } from '../../system';
+import { NativeAttributes, SystemProps } from '../../system';
 import useHeadingStyles from './useHeadingStyles';
+import Box from '../Box';
 
 export interface HeadingProps extends NativeAttributes<'h1'>, SystemProps {
   /** The size of the font */
@@ -17,7 +18,7 @@ export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(functi
 ) {
   const styles = useHeadingStyles({ size });
 
-  return <pounce.h1 ref={ref} fontWeight="normal" {...styles} {...rest} />;
+  return <Box as="h1" ref={ref} fontWeight="normal" {...styles} {...rest} />;
 });
 
 export default Heading;

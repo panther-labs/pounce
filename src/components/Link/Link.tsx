@@ -1,6 +1,7 @@
 import React from 'react';
 import useLinkStyles from './useLinkStyles';
-import { NativeAttributes, pounce, SystemProps } from '../../system';
+import { NativeAttributes, SystemProps } from '../../system';
+import Box from '../Box';
 
 export type LinkProps = NativeAttributes<'a'> &
   SystemProps & {
@@ -22,7 +23,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
   const variantStyles = useLinkStyles({ variant });
 
   return (
-    <pounce.a
+    <Box
       as={disabled ? 'span' : 'a'}
       ref={ref}
       aria-disabled={disabled}
