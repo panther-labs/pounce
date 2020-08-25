@@ -7,12 +7,8 @@ export type DropdownLinkProps = ReachMenuLinkProps;
 
 export const DropdownLink = forwardRefWithAs<DropdownLinkProps & { disabled?: boolean }, 'a'>(
   function DropdownLink({ children, disabled, ...rest }, ref) {
-    if (disabled) {
-      return <MenuItem disabled>{children}</MenuItem>;
-    }
-
     return (
-      <ReachMenuLink ref={ref} {...rest}>
+      <ReachMenuLink disabled={disabled} ref={ref} {...rest}>
         <MenuItem disabled={disabled}>{children}</MenuItem>
       </ReachMenuLink>
     );

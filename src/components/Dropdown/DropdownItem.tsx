@@ -7,12 +7,8 @@ export type DropdownItemProps = ReachMenuLinkProps; // this is not a typo, it's 
 
 export const DropdownItem = forwardRefWithAs<DropdownItemProps & { disabled?: boolean }, 'div'>(
   function DropdownItem({ children, onSelect = () => {}, disabled, ...rest }, ref) {
-    if (disabled) {
-      return <MenuItem disabled>{children}</MenuItem>;
-    }
-
     return (
-      <ReachMenuItem onSelect={onSelect} ref={ref} {...rest}>
+      <ReachMenuItem disabled={disabled} onSelect={onSelect} ref={ref} {...rest}>
         <MenuItem>{children}</MenuItem>
       </ReachMenuItem>
     );
