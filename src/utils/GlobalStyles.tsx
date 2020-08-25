@@ -1,5 +1,6 @@
 import React from 'react';
 import { Global, css, useTheme } from '@emotion/react';
+import { pseudoSelectors } from '@chakra-ui/styled-system';
 
 const GlobalStyles: React.FC = () => {
   const theme = useTheme();
@@ -29,6 +30,12 @@ const GlobalStyles: React.FC = () => {
     html {
       color: ${theme.colors['gray-50']};
       font-family: ${theme.fonts.primary};
+    }
+
+    ${pseudoSelectors._disabled}, ${pseudoSelectors._groupDisabled} {
+      opacity: 0.3;
+      pointer-events: none;
+      cursor: default;
     }
 
     html,

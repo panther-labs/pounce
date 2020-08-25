@@ -1,14 +1,14 @@
 import React from 'react';
 import { pounce, NativeAttributes, SystemProps } from '../../system';
 import useTheme from '../../utils/useTheme';
-import { icons, Theme } from '../../theme';
+import { icons } from '../../theme';
 
 export interface IconProps extends NativeAttributes<'svg'>, SystemProps {
   /** The icon that you want to show */
   type: keyof typeof icons;
 
   /** The color of the icon */
-  color?: keyof Theme['colors'];
+  color?: SystemProps['color'];
 
   /** The size of the icon. Can be 18px or 24px */
   size?: 'x-small' | 'small' | 'large';

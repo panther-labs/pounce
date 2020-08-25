@@ -18,7 +18,10 @@ interface MenuItemProps extends NativeAttributes<'div'> {
  * A MenuItem is simply an entry in a list of menu options or dropdown options. In general, this
  * should be used only on autocompletes, comboboxes & menus.
  */
-const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...rest }) => {
+const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(function MenuItem(
+  { selected, disabled, children, ...rest },
+  ref
+) {
   let backgroundColor: keyof Theme['colors'] = 'navyblue-300';
   if (selected) {
     backgroundColor = 'navyblue-500';
@@ -26,6 +29,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...re
 
   return (
     <Box
+      ref={ref}
       cursor="pointer"
       fontSize="medium"
       py={4}
@@ -35,8 +39,11 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...re
       position="relative"
       backgroundColor={backgroundColor}
       aria-disabled={disabled}
-      _selected={{
-        backgroundColor: 'navyblue-400',
+      sx={{
+        // Fixes an issue with @reach/menu-button, because the `as` prop isn't working as expected
+        '[data-selected] > &': {
+          backgroundColor: 'navyblue-400',
+        },
       }}
       _after={{
         content: `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`,
@@ -54,6 +61,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...re
       {children}
     </Box>
   );
-};
+});
 
 export default React.memo(MenuItem);

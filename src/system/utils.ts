@@ -215,12 +215,6 @@ export const truncateProp: FunctionInterpolation<Theme> = ({ truncated }: any) =
   }
 };
 
-const defaultDisabledStyles = {
-  opacity: 0.3,
-  pointerEvents: 'none',
-  cursor: 'default',
-};
-
 export const pseudoProps = ({ theme, ...props }: any) => {
   let result = {};
   for (const prop in props) {

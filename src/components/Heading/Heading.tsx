@@ -1,7 +1,6 @@
 import React from 'react';
 import { NativeAttributes, pounce, SystemProps } from '../../system';
 import useHeadingStyles from './useHeadingStyles';
-import Box from '../Box';
 
 export interface HeadingProps extends NativeAttributes<'h1'>, SystemProps {
   /** The size of the font */
