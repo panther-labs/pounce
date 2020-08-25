@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Day renders a cell selected 1`] = `
+.pounce-0 {
+  display: table-cell;
+  padding: 8px;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.pounce-0[aria-selected='true'],
+.pounce-0[aria-selected='true']:hover {
+  background-color: #0081c5;
+}
+
+.pounce-0:hover {
+  background-color: #3e516b;
+}
+
+<div>
+  <div
+    aria-disabled="false"
+    aria-label="Su Nov 01 2020"
+    aria-selected="true"
+    class="pounce-0 pounce-1"
+    role="gridcell"
+  >
+    1
+  </div>
+</div>
+`;
+
+exports[`Day renders a cell when date is present 1`] = `
+.pounce-0 {
+  display: table-cell;
+  padding: 8px;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.pounce-0[aria-selected='true'],
+.pounce-0[aria-selected='true']:hover {
+  background-color: #0081c5;
+}
+
+.pounce-0:hover {
+  background-color: #3e516b;
+}
+
+<div>
+  <div
+    aria-disabled="false"
+    aria-label="Su Nov 01 2020"
+    aria-selected="false"
+    class="pounce-0 pounce-1"
+    role="gridcell"
+  >
+    1
+  </div>
+</div>
+`;
+
+exports[`Day renders a disabled cell 1`] = `
+.pounce-0 {
+  display: table-cell;
+  padding: 8px;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  cursor: default;
+  pointer-events: none;
+}
+
+.pounce-0[aria-selected='true'],
+.pounce-0[aria-selected='true']:hover {
+  background-color: #0081c5;
+}
+
+.pounce-0:hover {
+  background-color: #3e516b;
+}
+
+<div>
+  <div
+    aria-disabled="true"
+    class="pounce-0 pounce-1"
+  />
+</div>
+`;
