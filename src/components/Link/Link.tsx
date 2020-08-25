@@ -2,8 +2,8 @@ import React from 'react';
 import useLinkStyles from './useLinkStyles';
 import { NativeAttributes, pounce, SystemProps } from '../../system';
 
-export type LinkProps = SystemProps &
-  NativeAttributes<'a'> & {
+export type LinkProps = NativeAttributes<'a'> &
+  SystemProps & {
     /** Whether the link is external and should open in a new tab */
     external?: boolean;
 

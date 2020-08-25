@@ -1,5 +1,5 @@
 import React from 'react';
-import { css, PseudoProps, pseudoSelectors, SystemStyleObject } from '@chakra-ui/styled-system';
+import { css, PseudoProps, pseudoSelectors } from '@chakra-ui/styled-system';
 import { compose } from 'styled-system';
 import * as StyledSystem from 'styled-system';
 import * as H from 'history';
@@ -98,11 +98,6 @@ type EmotionProps = {
    * @ignore
    */
   as?: React.ElementType;
-
-  /** Additional custom inline CSS to pass to the element
-   * @ignore
-   */
-  css?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
 // Gather the custom-named props that styled-system should accept
@@ -142,13 +137,15 @@ type UtilityProps = {
   /**
    * A utility for adding custom
    */
-  sx?: SystemStyleObject;
+  sx?: AllStylingProps | { [cssSelector: string]: AllStylingProps };
 };
 
-type AllProps = ThemedStyleProps & CustomStyleProps & RoutingProps & EmotionProps & UtilityProps;
+type BasicStylingProps = ThemedStyleProps & CustomStyleProps;
+type PseudoStylingProps = PseudoProps<BasicStylingProps>;
+type AllStylingProps = BasicStylingProps & PseudoStylingProps;
 
 // All of the allowed props gathered together
-export type SystemProps = AllProps & PseudoProps<AllProps>;
+export type SystemProps = AllStylingProps & RoutingProps & EmotionProps & UtilityProps;
 
 // The attributes of a component that are orthogonal to the props of the styled system
 export type NativeAttributes<El extends React.ElementType> = Omit<

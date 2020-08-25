@@ -1,7 +1,7 @@
-import { pounce, SystemProps } from '../../system';
+import { NativeAttributes, pounce, SystemProps } from '../../system';
 import { __DEV__ } from '../../utils/helpers';
 
-export type AbstractButtonProps = SystemProps;
+export type AbstractButtonProps = NativeAttributes<'button'> & SystemProps;
 
 export const AbstractButton = pounce('button', {
   defaultStyle: {
