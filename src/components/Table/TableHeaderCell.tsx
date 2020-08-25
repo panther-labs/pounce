@@ -1,8 +1,9 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
 import { useTable } from './Table';
+import { NativeAttributes } from '../../system';
 
-export type TableHeaderCellProps = React.ComponentProps<'th'> & {
+export type TableHeaderCellProps = NativeAttributes<'th'> & {
   /** The alignment of the cell. Defaults to `left` */
   align?: BoxProps['textAlign'];
 

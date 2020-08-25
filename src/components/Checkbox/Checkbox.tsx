@@ -1,7 +1,7 @@
 import React from 'react';
-import Box, { NativeAttributes } from '../Box';
-import PseudoBox from '../PseudoBox';
+import Box from '../Box';
 import useCheckboxStyles from './useCheckboxStyles';
+import { NativeAttributes } from '../../system';
 
 export type CheckboxProps = NativeAttributes<'input'> & {
   /** The label associated with the Checkbox. Appears on the right. */
@@ -30,7 +30,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
   }
 
   return (
-    <PseudoBox
+    <Box
       as="label"
       display="inline-flex"
       alignItems="center"
@@ -42,9 +42,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
       hidden={hidden}
       aria-hidden={hidden}
     >
-      <PseudoBox position="relative" borderRadius="circle" p={2} {...checkboxStyles}>
+      <Box position="relative" borderRadius="circle" p={2} {...checkboxStyles}>
         <Box
-          ref={ref}
           as="input"
           cursor="pointer"
           position="absolute"
@@ -57,14 +56,15 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
           checked={checked}
           disabled={disabled}
           {...rest}
+          ref={ref}
         />
-      </PseudoBox>
+      </Box>
       {label && (
         <Box as="span" userSelect="none">
           {label}
         </Box>
       )}
-    </PseudoBox>
+    </Box>
   );
 });
 

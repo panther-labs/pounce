@@ -55,6 +55,7 @@ const InputControl: React.FC<InputControlProps> = ({
       }}
       _focusWithin={{
         borderColor: !invalid ? 'blue-400' : undefined,
+        // @ts-ignore
         label: {
           fontWeight: 'medium',
           transform: 'translate(6px, 4px) scale(0.65)',

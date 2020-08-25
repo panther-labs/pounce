@@ -2,6 +2,7 @@ import React from 'react';
 import { Tab as ReachTab } from '@reach/tabs';
 import AbstractButton from '../AbstractButton';
 import { ComponentWithAs } from '@reach/utils';
+import { NativeAttributes } from '../../system';
 
 type TabRenderProps = {
   /** Whether the tab is selected */
@@ -11,7 +12,7 @@ type TabRenderProps = {
   isFocused: boolean;
 };
 
-export type TabProps = React.ComponentProps<'button'> & {
+export type TabProps = NativeAttributes<'button'> & {
   /** Whether the tab should be disabled */
   disabled?: boolean;
 

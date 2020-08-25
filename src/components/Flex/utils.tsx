@@ -1,22 +1,21 @@
 import { FlexProps } from './Flex';
-import css from '@styled-system/css';
-import { transformAliasProps } from '../Box';
+import { SystemProps } from '../../system';
 
 export const getItemSpacingProps = (
   spacing: FlexProps['margin'],
   direction: FlexProps['direction']
-): Partial<FlexProps> => {
+): Partial<SystemProps> => {
   if (!spacing) {
     return {};
   }
 
   const isFlexColumn = direction && (direction as string).includes('column');
   return {
-    css: css({
-      '& > *:not(:last-child)': transformAliasProps({
+    sx: {
+      '& > *:not(:last-child)': {
         marginRight: isFlexColumn ? undefined : spacing,
         marginBottom: isFlexColumn ? spacing : undefined,
-      }),
-    }),
+      },
+    },
   };
 };

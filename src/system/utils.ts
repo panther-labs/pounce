@@ -1,9 +1,71 @@
 import React from 'react';
-import { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
-import { SystemStyleObject } from '@styled-system/css';
+import { css, PseudoProps, pseudoSelectors, SystemStyleObject } from '@chakra-ui/styled-system';
+import { compose } from 'styled-system';
 import * as StyledSystem from 'styled-system';
 import * as H from 'history';
-import { Theme } from '../../theme';
+import { Theme } from '../theme';
+import { FunctionInterpolation } from '@emotion/react';
+
+export const domElements = [
+  'a',
+  'article',
+  'aside',
+  'blockquote',
+  'button',
+  'caption',
+  'cite',
+  'circle',
+  'code',
+  'dd',
+  'div',
+  'dl',
+  'dt',
+  'fieldset',
+  'figcaption',
+  'figure',
+  'footer',
+  'form',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'header',
+  'hr',
+  'img',
+  'input',
+  'kbd',
+  'label',
+  'li',
+  'mark',
+  'nav',
+  'ol',
+  'p',
+  'path',
+  'pre',
+  'q',
+  'rect',
+  's',
+  'svg',
+  'section',
+  'select',
+  'small',
+  'span',
+  'sub',
+  'sup',
+  'table',
+  'tbody',
+  'td',
+  'textarea',
+  'tfoot',
+  'th',
+  'thead',
+  'tr',
+  'ul',
+] as const;
+
+export type DOMElements = typeof domElements[number];
 
 // prettier-ignore
 // Gather all the styled-system props that we are going to pass
@@ -36,11 +98,7 @@ type EmotionProps = {
    * @ignore
    */
   as?: React.ElementType;
-  /**
-   * Never allow an `is` prop, since users get sometimes confused between `is` and `as`
-   * @ignore
-   */
-  is?: never;
+
   /** Additional custom inline CSS to pass to the element
    * @ignore
    */
@@ -48,7 +106,7 @@ type EmotionProps = {
 };
 
 // Gather the custom-named props that styled-system should accept
-export interface CustomStyleProps {
+type CustomStyleProps = {
   shadow?: ThemedStyleProps['boxShadow'];
   fill?: ThemedStyleProps['color'];
   stroke?: ThemedStyleProps['color'];
@@ -73,12 +131,32 @@ export interface CustomStyleProps {
   willChange?: StyledSystem.ResponsiveValue<React.CSSProperties['willChange']>;
   borderCollapse?: StyledSystem.ResponsiveValue<React.CSSProperties['borderCollapse']>;
   tableLayout?: StyledSystem.ResponsiveValue<React.CSSProperties['tableLayout']>;
-}
+};
 
-export const customStyleProps: Record<
-  keyof CustomStyleProps,
-  boolean | StyledSystem.ConfigStyle
-> = {
+type UtilityProps = {
+  /**
+   * Whether  the text should ellipsify or not
+   */
+  truncated?: boolean;
+
+  /**
+   * A utility for adding custom
+   */
+  sx?: SystemStyleObject;
+};
+
+type AllProps = ThemedStyleProps & CustomStyleProps & RoutingProps & EmotionProps & UtilityProps;
+
+// All of the allowed props gathered together
+export type SystemProps = AllProps & PseudoProps<AllProps>;
+
+// The attributes of a component that are orthogonal to the props of the styled system
+export type NativeAttributes<El extends React.ElementType> = Omit<
+  React.ComponentPropsWithRef<El>,
+  keyof SystemProps
+>;
+
+const customStyleProps: Record<keyof CustomStyleProps, boolean | StyledSystem.ConfigStyle> = {
   shadow: {
     property: 'boxShadow' as const,
     scale: 'shadows',
@@ -113,74 +191,48 @@ export const customStyleProps: Record<
   transformOrigin: true,
 };
 
-// All of the allowed props gathered together
-export type SystemProps = ThemedStyleProps & CustomStyleProps & RoutingProps & EmotionProps;
+export const systemProps = compose(
+  StyledSystem.space,
+  StyledSystem.color,
+  StyledSystem.layout,
+  StyledSystem.background,
+  StyledSystem.grid,
+  StyledSystem.shadow,
+  StyledSystem.border,
+  StyledSystem.position,
+  StyledSystem.flexbox,
+  StyledSystem.typography,
+  StyledSystem.system(customStyleProps)
+);
 
-// extend the forwarded props by stuff that styled-system doesn't deal with
-export const shouldForwardProp = createShouldForwardProp([
-  ...props,
-  'textDecoration',
-  'pointerEvents',
-  'visibility',
-  'transform',
-  'cursor',
-]);
-
-// Transform the custom alias to a format that styled-system CSS supports
-function transformCustomStyleAlias(
-  propName: keyof CustomStyleProps,
-  propValue: CustomStyleProps[keyof CustomStyleProps]
-) {
-  const customStylePropValue = customStyleProps[propName];
-  if (typeof customStylePropValue === 'object') {
-    return { [customStylePropValue.property as string]: propValue };
-  }
-  if (customStylePropValue === true) {
+export const truncateProp: FunctionInterpolation<Theme> = ({ truncated }: any) => {
+  if (truncated) {
     return {
-      [propName]: propValue,
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
     };
   }
-  return {};
-}
-
-// Transform the custom alias to a format that styled-system CSS supports
-function transformThemedAlias(
-  propName: keyof ThemedStyleProps,
-  propValue: ThemedStyleProps[keyof ThemedStyleProps]
-) {
-  return {
-    [propName]: propValue,
-  };
-}
-
-// Transform the custom alias to a format that styled-system CSS supports
-const transformAlias = (
-  propName: keyof ThemedStyleProps & keyof CustomStyleProps,
-  propValue: ThemedStyleProps[keyof ThemedStyleProps] & CustomStyleProps[keyof CustomStyleProps]
-) => {
-  if (Object.keys(customStyleProps).includes(propName)) {
-    return transformCustomStyleAlias(propName, propValue);
-  }
-  return transformThemedAlias(propName, propValue);
 };
 
-export const transformAliasProps = (props?: SystemStyleObject): SystemStyleObject => {
-  let result = {};
-  if (!props) {
-    return result;
-  }
+const defaultDisabledStyles = {
+  opacity: 0.3,
+  pointerEvents: 'none',
+  cursor: 'default',
+};
 
-  for (const propName in props) {
-    // @ts-ignore
-    const propValue = props[propName];
-    if (typeof propValue === 'object' && !Array.isArray(propValue)) {
-      result = { ...result, [propName]: transformAliasProps(propValue) };
-    } else {
-      result = {
-        ...result,
-        ...transformAlias(propName as keyof (ThemedStyleProps | CustomStyleProps), propValue),
-      };
+export const pseudoProps = ({ theme, ...props }: any) => {
+  let result = {};
+  for (const prop in props) {
+    if (prop in pseudoSelectors) {
+      const style = css({ [prop]: props[prop] })(theme);
+      result = { ...result, ...style };
     }
   }
   return result;
 };
+
+export const sxProp = (props: any) => css(props.sx)(props.theme);
+
+export const defaultStyleProp = (defaultStyle: any) => (props: any) =>
+  css(defaultStyle)(props.theme);

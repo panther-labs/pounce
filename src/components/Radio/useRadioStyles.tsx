@@ -1,5 +1,5 @@
 import React from 'react';
-import { SystemProps } from '@chakra-ui/styled-system';
+import { SystemProps } from '../../system';
 import { addOpacity } from '../../utils/helpers';
 import { RadioProps } from './Radio';
 import useTheme from '../../utils/useTheme';

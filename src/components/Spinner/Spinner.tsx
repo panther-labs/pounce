@@ -1,10 +1,9 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
-import Box, { BoxProps } from '../Box';
 import { Theme } from '../../theme';
+import { pounce, SystemProps } from '../../system';
 
-export interface SpinnerProps extends BoxProps<'svg'> {
+export interface SpinnerProps extends SystemProps {
   /** Delay after which spinner should be visible. */
   delay?: number;
 
@@ -33,17 +32,6 @@ const circleKeyframes = keyframes`
   100% {
     stroke-dashoffset: 0;
   }
-`;
-
-const StyledCircle = styled.circle<Required<Pick<SpinnerProps, 'color'>>>`
-  stroke-dashoffset: 600;
-  stroke-dasharray: 300;
-  stroke-width: 13;
-  stroke-miterlimit: 10;
-  stroke-linecap: round;
-  animation: ${circleKeyframes} 1.6s cubic-bezier(0.4, 0.15, 0.6, 0.85) infinite;
-  stroke: ${({ theme, color }) => theme.colors[color]};
-  fill: transparent;
 `;
 
 /**
@@ -85,8 +73,7 @@ const Spinner: React.FC<SpinnerProps> = ({
   })();
 
   return (
-    <Box
-      as="svg"
+    <pounce.svg
       display="inline-block"
       verticalAlign="sub"
       animation={`${spinningKeyframes} 2s linear infinite`}
@@ -95,8 +82,20 @@ const Spinner: React.FC<SpinnerProps> = ({
       {...sizeProps}
       {...rest}
     >
-      <StyledCircle cx="75" cy="75" r="60" color={color} />
-    </Box>
+      <pounce.circle
+        cx="75"
+        cy="75"
+        r="60"
+        strokeDashoffset={600}
+        strokeDasharray={300}
+        strokeWidth={13}
+        strokeMiterlimit={10}
+        strokeLinecap="round"
+        animation={`${circleKeyframes} 1.6s cubic-bezier(0.4, 0.15, 0.6, 0.85) infinite`}
+        stroke={color}
+        fill="transparent"
+      />
+    </pounce.svg>
   );
 };
 

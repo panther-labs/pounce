@@ -1,9 +1,9 @@
 import React from 'react';
-import css, { CSSObject } from '@styled-system/css';
 import Box from '../Box';
 import { useTable } from './Table';
+import { NativeAttributes } from '../../system';
 
-export interface TableRowProps extends React.ComponentProps<'tr'> {
+export interface TableRowProps extends NativeAttributes<'tr'> {
   /** Whether the row should appear as selected. Defaults to `false` */
   selected?: boolean;
 
@@ -59,7 +59,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function T
     return styles;
   }, [tableProps, selected]);
 
-  return <Box as="tr" role="row" ref={ref} css={css(rowStyles) as () => CSSObject} {...rest} />;
+  return <Box as="tr" role="row" ref={ref} sx={rowStyles} {...rest} />;
 });
 
 export default React.memo(TableRow);

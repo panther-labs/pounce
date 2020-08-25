@@ -1,8 +1,9 @@
 import React from 'react';
 import { slugify } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
+import { NativeAttributes } from '../../system';
 
-export type TextInputProps = React.ComponentProps<'input'> & {
+export type TextInputProps = NativeAttributes<'input'> & {
   /** The label that is associated with this input */
   label: string;
 
@@ -30,7 +31,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
         id={identifier}
         name={name}
         value={value}
-        isTruncated
+        truncated
         {...rest}
         ref={ref}
       />

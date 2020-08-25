@@ -1,7 +1,8 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box from '../Box';
+import { NativeAttributes, SystemProps } from '../../system';
 
-export interface ImgProps extends BoxProps<'img'> {
+export interface ImgProps extends NativeAttributes<'img'>, SystemProps {
   /** The image URL */
   src: string;
 
@@ -47,5 +48,7 @@ export const Img = React.forwardRef<HTMLImageElement, ImgProps>(function Img(pro
     />
   );
 });
+
+const X = () => <Box as="h1" />;
 
 export default Img;

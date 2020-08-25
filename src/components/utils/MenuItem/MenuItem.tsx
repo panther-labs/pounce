@@ -1,8 +1,9 @@
 import React from 'react';
 import { Theme } from '../../../theme';
 import Box from '../../Box';
+import { NativeAttributes } from '../../../system';
 
-interface MenuItemProps extends React.ComponentProps<'div'> {
+interface MenuItemProps extends NativeAttributes<'div'> {
   /** Whether the current item is currently selected **/
   selected?: boolean;
 

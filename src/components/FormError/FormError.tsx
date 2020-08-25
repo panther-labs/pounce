@@ -1,18 +1,18 @@
 import React from 'react';
 import Icon from '../Icon';
-import Flex, { FlexProps } from '../Flex';
+import Text, { TextProps } from '../Text';
 
-export type FormErrorProps = FlexProps;
+export type FormErrorProps = TextProps;
 
 /**
- * Extends Box
+ * Extends Text
  *
  * A utility component that quickly allows you to add error messages to form fields
  */
 const FormError: React.FC<FormErrorProps> = ({ children, ...rest }) => {
   return (
-    <Flex
-      as="p"
+    <Text
+      display="flex"
       alignItems="center"
       color="red-300"
       fontSize="small"
@@ -22,7 +22,7 @@ const FormError: React.FC<FormErrorProps> = ({ children, ...rest }) => {
     >
       <Icon size="small" type="warning" mr={1} flex="0 0 auto" />
       {children}
-    </Flex>
+    </Text>
   );
 };
 

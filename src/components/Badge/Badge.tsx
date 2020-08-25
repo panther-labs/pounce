@@ -46,4 +46,4 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
   );
 });
 
-export default React.memo(Badge);
+export default Badge;

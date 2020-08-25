@@ -1,8 +1,9 @@
 import React from 'react';
 import Box from '../Box';
 import useRadioStyles from './useRadioStyles';
+import { NativeAttributes } from '../../system';
 
-export type RadioProps = React.ComponentProps<'input'> & {
+export type RadioProps = NativeAttributes<'input'> & {
   /** The label associated with the Radio. Appears on the right. */
   label: string;
 

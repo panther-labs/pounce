@@ -1,6 +1,8 @@
 import React from 'react';
-import Box, { BoxProps, NativeAttributes } from '../Box';
+import Box, { BoxProps } from '../Box';
 import { useTable } from './Table';
+import Heading from '../Heading/Heading';
+import { NativeAttributes } from '../../system';
 
 export type TableCellProps = Pick<BoxProps, 'truncated' | 'color' | 'width' | 'maxWidth'> &
   NativeAttributes<'td'> & {
@@ -14,7 +16,7 @@ export type TableCellProps = Pick<BoxProps, 'truncated' | 'color' | 'width' | 'm
     mono?: boolean;
   };
 
-const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(function TableCell(
+const TableCell = React.forwardRef<HTMLTableDataCellElement, TableCellProps>(function TableCell(
   { wrapText = 'auto', align = 'left', mono, ...rest },
   ref
 ) {
@@ -23,8 +25,8 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(functio
   return (
     <Box
       as="td"
-      role="cell"
       ref={ref}
+      role="cell"
       p={size === 'medium' ? 4 : 2}
       fontSize="medium"
       textAlign={align}
@@ -38,3 +40,5 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(functio
 });
 
 export default React.memo(TableCell);
+
+const H = () => <Heading as="h2">f</Heading>;

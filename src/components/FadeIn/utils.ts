@@ -1,4 +1,4 @@
-import { keyframes } from '@emotion/core';
+import { keyframes } from '@emotion/react';
 import { FadeInProps } from './FadeIn';
 
 export const generateKeyframes = (from: FadeInProps['from'], offset: FadeInProps['offset']) => {

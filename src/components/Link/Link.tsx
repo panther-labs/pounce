@@ -1,18 +1,18 @@
 import React from 'react';
-import { SystemProps } from '@chakra-ui/styled-system';
-import Box from '../Box';
 import useLinkStyles from './useLinkStyles';
+import { NativeAttributes, pounce, SystemProps } from '../../system';
 
-export interface LinkProps extends SystemProps, React.ComponentProps<'a'> {
-  /** Whether the link is external and should open in a new tab */
-  external?: boolean;
+export type LinkProps = SystemProps &
+  NativeAttributes<'a'> & {
+    /** Whether the link is external and should open in a new tab */
+    external?: boolean;
 
-  /** The text style & color of the link */
-  variant?: 'prominent' | 'neutral' | 'discreet';
+    /** The text style & color of the link */
+    variant?: 'prominent' | 'neutral' | 'discreet';
 
-  /** Whether the link should be disabled */
-  disabled?: boolean;
-}
+    /** Whether the link should be disabled */
+    disabled?: boolean;
+  };
 
 export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   { external, disabled, variant, ...rest },
@@ -22,13 +22,13 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
   const variantStyles = useLinkStyles({ variant });
 
   return (
-    <Box
+    <pounce.a
       as={disabled ? 'span' : 'a'}
-      ref={ref}
       aria-disabled={disabled}
       {...externalProps}
       {...variantStyles}
       {...rest}
+      ref={ref}
     />
   );
 });

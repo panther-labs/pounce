@@ -1,10 +1,15 @@
 import React from 'react';
+import { NativeAttributes, SystemProps } from '../../../system';
 import { useInputContext } from './InputContext';
-import { NativeAttributes } from '../../Box';
-import PseudoBox, { PseudoBoxProps } from '../../PseudoBox';
 import useTheme from '../../../utils/useTheme';
+import Box from '../../Box';
 
-export type InputElementProps = PseudoBoxProps & NativeAttributes<'input' | 'textarea'>;
+type NativeInputAttributes = NativeAttributes<'input'>;
+type NativeTextareaAttributes = NativeAttributes<'textarea'>;
+
+export type InputElementProps = SystemProps &
+  NativeInputAttributes &
+  Omit<NativeTextareaAttributes, keyof NativeInputAttributes>;
 
 const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputElementProps>(
   function InputElement({ readOnly, ...rest }, ref) {
@@ -12,7 +17,7 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     const theme = useTheme();
 
     return (
-      <PseudoBox
+      <Box
         ref={ref}
         as="input"
         verticalAlign="top"
@@ -35,16 +40,20 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
           color: 'gray-50',
           transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
         }}
-        _focus={{
-          '::placeholder': {
-            opacity: 0.4,
-          },
-        }}
-        _autofill={{
-          WebkitBoxShadow: `0 0 0 30px ${theme.colors['navyblue-600']} inset`,
-          WebkitTextFillColor: theme.colors['gray-50'],
-          borderRadius: 'medium',
-        }}
+        _focus={
+          {
+            '::placeholder': {
+              opacity: 0.4,
+            },
+          } as any
+        }
+        _autofill={
+          {
+            WebkitBoxShadow: `0 0 0 30px ${theme.colors['navyblue-600']} inset`,
+            WebkitTextFillColor: theme.colors['gray-50'],
+            borderRadius: 'medium',
+          } as any
+        }
         disabled={disabled}
         aria-disabled={disabled}
         readOnly={readOnly}

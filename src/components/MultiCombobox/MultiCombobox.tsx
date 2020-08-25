@@ -25,12 +25,20 @@ export type MultiComboboxProps<T> = {
    * A function that converts the an item to a string. This is the value that the dropdown will
    * expose to the user. This is also the value that the dropdown will use internally for comparisons
    * so it should be unique (which should be by default since you wouldn't want to expose duplicate
-   * values to the user) */
+   * values to the user)
+   *
+   *
+   * @default (item) => item
+   *
+   * */
   itemToString?: (item: T) => string;
 
   /**
    * A function that accepts an item as a parameteer and returns `true` if the item should be
-   * disabled or `false` otherwise. Defaults to `() => false`.
+   * disabled or `false` otherwise.
+   *
+   * @default () => false
+   *
    */
   disableItem?: (item: T) => boolean;
 
@@ -62,21 +70,42 @@ export type MultiComboboxProps<T> = {
    * Allow the user to add custom entries to the dropdown instead of limiting selections to the
    * predefined set of options. The `searchable` prop should be true in order for
    * this functionality to work.
+   *
+   * @default false
+   *
    * */
   allowAdditions?: boolean;
 
   /**
-   * The maximum number of results that the MultiCombobox should show. Default value is
-   * `undefined` to display which displays all of them.
+   * The strategy for splitting tokens in the MultiCombobox
+   *
+   * @default 'none'
+   *
+   * */
+  delimiter?: 'none' | 'enter' | 'space' | 'comma';
+
+  /**
+   * The maximum number of results that the MultiCombobox should show. By default it displays all of
+   * them
+   *
+   * @default undefined
+   *
    * */
   maxResults?: number;
 
-  /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
+  /** The maximum height (in pixels) of the MultiCombobox dropdown
+   *
+   * @default 300
+   *
+   * */
   maxHeight?: number;
 
   /**
    * A function that runs before a custom item is added by the user. If it returns `true`, then this
    * item will be added to the selection. If not, then this item won't be added
+   *
+   * @default (item) => true
+   *
    * */
   validateAddition?: (userEnteredInput: string) => boolean;
 };
@@ -289,3 +318,6 @@ function MultiCombobox<Item>({
 }
 
 export default typedMemo(MultiCombobox);
+
+// destination;
+// unknown;

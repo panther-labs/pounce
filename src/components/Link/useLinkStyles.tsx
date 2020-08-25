@@ -1,4 +1,4 @@
-import { SystemProps } from '@chakra-ui/styled-system';
+import { SystemProps } from '../../system';
 import { LinkProps } from './Link';
 
 type UseLinkStyles = Pick<LinkProps, 'variant'>;

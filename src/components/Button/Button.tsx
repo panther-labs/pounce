@@ -3,8 +3,9 @@ import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
 import useButtonStyles from './useButtonStyles';
 import Spinner from '../Spinner';
 import Icon, { IconProps } from '../Icon';
+import { NativeAttributes } from '../../system';
 
-export interface ButtonProps extends React.ComponentProps<'button'> {
+export interface ButtonProps extends NativeAttributes<'button'> {
   /** The size (height) of the button */
   size?: 'small' | 'large';
 

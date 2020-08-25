@@ -5,8 +5,9 @@ import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import AbstractButton from '../AbstractButton';
 import Icon from '../Icon';
 import Flex from '../Flex';
+import { NativeAttributes } from '../../system';
 
-export type NumberInputProps = React.ComponentProps<'input'> & {
+export type NumberInputProps = NativeAttributes<'input'> & {
   /** Callback when the number changes */
   onInputNumberChange?: (e: number) => void;
 

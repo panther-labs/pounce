@@ -1,23 +1,24 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import { pounce, NativeAttributes, SystemProps } from '../../system';
 import useTheme from '../../utils/useTheme';
-import { icons } from '../../theme';
+import { icons, Theme } from '../../theme';
 
-export interface IconProps extends BoxProps<'svg'> {
-  /** The icon that you want to show */
-  type: keyof typeof icons;
+export type IconProps = NativeAttributes<'svg'> &
+  SystemProps & {
+    /** The icon that you want to show */
+    type: keyof typeof icons;
 
-  /** The color of the icon */
-  color?: BoxProps['color'];
+    /** The color of the icon */
+    color?: keyof Theme['colors'];
 
-  /** The size of the icon. Can be 18px or 24px */
-  size?: 'x-small' | 'small' | 'large';
-}
+    /** The size of the icon. Can be 18px or 24px */
+    size?: 'x-small' | 'small' | 'large';
+  };
 
 /** An simple SVG element exported as a React component. It renders a simple <svg> */
 export const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(function Icon(
   { type, size = 'large', color = 'current', ...rest },
-  ref
+  ref: any
 ) {
   const { icons } = useTheme();
   const viewBox = icons[type]?.viewBox || '0 0 24 24';
@@ -32,8 +33,7 @@ export const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(functi
   }
 
   return (
-    <Box
-      as="svg"
+    <pounce.svg
       display="inline-block"
       verticalAlign="sub"
       flexShrink={0}
@@ -46,7 +46,7 @@ export const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(functi
       ref={ref}
     >
       {icons[type].path}
-    </Box>
+    </pounce.svg>
   );
 });
 

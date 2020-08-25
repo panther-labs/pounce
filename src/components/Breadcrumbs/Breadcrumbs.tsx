@@ -41,7 +41,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, ...rest }) => {
                 to={item.href}
                 variant="neutral"
                 border="none"
-                isTruncated
+                truncated
                 maxWidth="450px"
                 data-active={isLastBreadcrumb ? true : undefined}
                 {...rest}

@@ -20,13 +20,14 @@
     "dist"
   ],
   "dependencies": {
-    "@chakra-ui/system": "^1.0.0-rc.2",
+    "@chakra-ui/styled-system": "^1.0.0-rc.2",
+    "@emotion/react": "^11.0.0-next.12",
+    "@emotion/styled": "^11.0.0-next.12",
     "@juggle/resize-observer": "^3.2.0",
     "@reach/dialog": "^0.10.3",
     "@reach/menu-button": "^0.10.3",
     "@reach/tabs": "^0.10.3",
     "@reach/tooltip": "^0.10.3",
-    "@styled-system/css": "^5.1.5",
     "@styled-system/should-forward-prop": "^5.1.5",
     "@types/fuzzaldrin": "^2.1.2",
     "@types/history": "^4.7.6",

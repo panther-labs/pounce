@@ -20,6 +20,18 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
 
   /** The gap between the flex items */
   spacing?: BoxProps['margin'];
+  /**
+   * An alias  for `flexBasis` style prop
+   */
+  basis?: BoxProps['flexBasis'];
+  /**
+   * An alias  for `flexGrow` style prop
+   */
+  grow?: BoxProps['flexGrow'];
+  /**
+   * An alias  for `flexShrink` style prop
+   */
+  shrink?: BoxProps['flexShrink'];
 };
 
 /**
@@ -28,8 +40,8 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
  * Responsive flexbox layout component. You should use this anytime you want a flex container or
  * wrapper around a certain layout
  */
-export const Flex = React.forwardRef<HTMLElement, FlexProps>(function Flex(props, ref) {
-  const { direction, justify, align, inline, wrap, spacing, ...rest } = props;
+export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(function Flex(props, ref) {
+  const { direction, justify, align, inline, wrap, spacing, shrink, grow, basis, ...rest } = props;
 
   const itemSpacingProps = getItemSpacingProps(spacing, direction || rest.flexDirection);
   return (
@@ -40,6 +52,9 @@ export const Flex = React.forwardRef<HTMLElement, FlexProps>(function Flex(props
       justifyContent={justify}
       alignItems={align}
       flexWrap={wrap}
+      flexShrink={shrink}
+      flexGrow={grow}
+      flexBasis={basis}
       {...itemSpacingProps}
       {...rest}
     />

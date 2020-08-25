@@ -34,7 +34,7 @@ export interface SimpleGridProps extends GridProps {
  *
  * Inspired from <a href="https://chakra-ui.com/" target="_blank">Chakra UI</a>
  */
-export const SimpleGrid = React.forwardRef<HTMLDivElement, SimpleGridProps>(function SimpleGrid(
+export const SimpleGrid = React.forwardRef<HTMLElement, SimpleGridProps>(function SimpleGrid(
   props,
   ref
 ) {
@@ -48,12 +48,12 @@ export const SimpleGrid = React.forwardRef<HTMLDivElement, SimpleGridProps>(func
 
   return (
     <Grid
-      ref={ref}
       gap={spacing}
       columnGap={spacingX}
       rowGap={spacingY}
       templateColumns={templateColumns}
       {...rest}
+      ref={ref}
     />
   );
 });
