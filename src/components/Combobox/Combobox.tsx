@@ -17,7 +17,7 @@ export type ComboboxProps<T> = {
   items: T[];
 
   /** The label that is associated with this combobox */
-  label: string;
+  label?: string;
 
   /**
    * A function that converts the an item to a string. This is the value that the dropdown will
@@ -178,12 +178,15 @@ function Combobox<Item>({
                   as="input"
                   type="text"
                   truncated
+                  standalone={!label}
                   pr={8} /* account for absolute position of caret */
                   {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
                 />
-                <InputLabel raised={value != null} {...getLabelProps()}>
-                  {label}
-                </InputLabel>
+                {label && (
+                  <InputLabel raised={value != null} {...getLabelProps()}>
+                    {label}
+                  </InputLabel>
+                )}
               </InputControl>
               <Icon
                 opacity={disabled ? 0.3 : 1}
