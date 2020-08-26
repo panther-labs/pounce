@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import Box, { BoxProps } from '../Box';
 import dayjs, { Dayjs } from 'dayjs';
 import { noop } from '../../utils/helpers';
 
@@ -11,30 +11,25 @@ export interface DayProps {
   onDaySelect?: (date: Dayjs) => void;
 }
 
-const Cell = styled.div`
-  display: table-cell;
-  padding: ${({ theme }) => `${theme.space[2]}px`};
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 50%;
-  &[aria-selected='true'],
-  &[aria-selected='true']:hover {
-    background-color: ${({ theme }) => theme.colors['blue-400']};
-  }
-  &:hover {
-    background-color: ${({ theme }) => theme.colors['navyblue-300']};
-  }
-`;
+const Cell: React.FC<BoxProps> = props => (
+  <Box
+    display="table-cell"
+    padding={2}
+    textAlign="center"
+    borderRadius="circle"
+    cursor="pointer"
+    verticalAlign="middle"
+    _selected={{ backgroundColor: 'blue-400' }}
+    _hover={{ backgroundColor: 'blue-300' }}
+    {...props}
+  />
+);
 
-const DisabledCell = styled(Cell)`
-  cursor: default;
-  pointer-events: none;
-`;
+const MemoCell = React.memo(Cell);
 
 const Day: React.FC<DayProps> = ({ day, month, year, daySelected, onDaySelect = noop }) => {
   if (!day) {
-    return <DisabledCell aria-disabled="true" />;
+    return <MemoCell aria-disabled="true" />;
   }
   const date = React.useMemo(() => dayjs().month(month).date(day).year(year), [year, day, month]);
   const onDaySelectClick = React.useCallback(
@@ -54,16 +49,15 @@ const Day: React.FC<DayProps> = ({ day, month, year, daySelected, onDaySelect = 
   }, [date, daySelected]);
 
   return (
-    <Cell
+    <MemoCell
       role="gridcell"
       aria-disabled="false"
       aria-selected={isSelected()}
-      tab-index="-1"
       aria-label={date.format('dd MMM DD YYYY')}
       onClick={onDaySelectClick}
     >
       {day}
-    </Cell>
+    </MemoCell>
   );
 };
 
