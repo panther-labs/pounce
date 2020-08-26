@@ -1,7 +1,7 @@
-import React from 'react';
-import Box, { BoxProps } from '../Box';
+import { __DEV__ } from '../../utils/helpers';
+import { pounce, PounceComponentProps } from '../../system';
 
-export type TextProps = BoxProps<'p'>;
+export type TextProps = PounceComponentProps<'p'>;
 
 /**
  * Extends <a href="/#/Box">Box</a>
@@ -10,9 +10,10 @@ export type TextProps = BoxProps<'p'>;
  * heading or a title, this component is what you need.
  *
  * */
-const Text: React.FC<TextProps> = Box;
-
-// The component should render a `paragragh` HTML tag by default
-Text.defaultProps = { as: 'p' };
+const Text = pounce('p');
 
 export default Text;
+
+if (__DEV__) {
+  Text.displayName = 'Text';
+}
