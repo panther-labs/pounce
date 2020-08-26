@@ -1,6 +1,5 @@
 import React from 'react';
 import { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
-import { SystemStyleObject } from '@styled-system/css';
 import * as StyledSystem from 'styled-system';
 import * as H from 'history';
 import { Theme } from '../../theme';
@@ -29,22 +28,20 @@ type RoutingProps = {
     | ((location: H.Location<H.LocationState>) => H.LocationDescriptor<H.LocationState>);
 };
 
+type SxProp = StylingProps | { [cssSelector: string]: SxProp | undefined };
+
 // Props related to the usage of the Emotion CSS-in-JS library
-type EmotionProps = {
+type OverridingProps = {
   /** The React Component or native HTML element to render instead.
    * @default "div"
    * @ignore
    */
   as?: React.ElementType;
-  /**
-   * Never allow an `is` prop, since users get sometimes confused between `is` and `as`
-   * @ignore
-   */
-  is?: never;
+
   /** Additional custom inline CSS to pass to the element
    * @ignore
    */
-  css?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  sx?: SxProp;
 };
 
 // Gather the custom-named props that styled-system should accept
@@ -114,7 +111,8 @@ export const customStyleProps: Record<
 };
 
 // All of the allowed props gathered together
-export type SystemProps = ThemedStyleProps & CustomStyleProps & RoutingProps & EmotionProps;
+type StylingProps = ThemedStyleProps & CustomStyleProps;
+export type SystemProps = StylingProps & RoutingProps & OverridingProps;
 
 // extend the forwarded props by stuff that styled-system doesn't deal with
 export const shouldForwardProp = createShouldForwardProp([
@@ -125,62 +123,3 @@ export const shouldForwardProp = createShouldForwardProp([
   'transform',
   'cursor',
 ]);
-
-// Transform the custom alias to a format that styled-system CSS supports
-function transformCustomStyleAlias(
-  propName: keyof CustomStyleProps,
-  propValue: CustomStyleProps[keyof CustomStyleProps]
-) {
-  const customStylePropValue = customStyleProps[propName];
-  if (typeof customStylePropValue === 'object') {
-    return { [customStylePropValue.property as string]: propValue };
-  }
-  if (customStylePropValue === true) {
-    return {
-      [propName]: propValue,
-    };
-  }
-  return {};
-}
-
-// Transform the custom alias to a format that styled-system CSS supports
-function transformThemedAlias(
-  propName: keyof ThemedStyleProps,
-  propValue: ThemedStyleProps[keyof ThemedStyleProps]
-) {
-  return {
-    [propName]: propValue,
-  };
-}
-
-// Transform the custom alias to a format that styled-system CSS supports
-const transformAlias = (
-  propName: keyof ThemedStyleProps & keyof CustomStyleProps,
-  propValue: ThemedStyleProps[keyof ThemedStyleProps] & CustomStyleProps[keyof CustomStyleProps]
-) => {
-  if (Object.keys(customStyleProps).includes(propName)) {
-    return transformCustomStyleAlias(propName, propValue);
-  }
-  return transformThemedAlias(propName, propValue);
-};
-
-export const transformAliasProps = (props?: SystemStyleObject): SystemStyleObject => {
-  let result = {};
-  if (!props) {
-    return result;
-  }
-
-  for (const propName in props) {
-    // @ts-ignore
-    const propValue = props[propName];
-    if (typeof propValue === 'object' && !Array.isArray(propValue)) {
-      result = { ...result, [propName]: transformAliasProps(propValue) };
-    } else {
-      result = {
-        ...result,
-        ...transformAlias(propName as keyof (ThemedStyleProps | CustomStyleProps), propValue),
-      };
-    }
-  }
-  return result;
-};

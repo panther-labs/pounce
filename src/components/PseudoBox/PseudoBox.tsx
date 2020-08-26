@@ -1,6 +1,5 @@
 import React from 'react';
-import css, { SystemStyleObject } from '@styled-system/css';
-import Box, { BoxProps, transformAliasProps } from '../Box';
+import Box, { BoxProps, SystemProps } from '../Box';
 
 export interface PseudoBoxProps extends BoxProps {
   /**
@@ -12,7 +11,7 @@ export interface PseudoBoxProps extends BoxProps {
    * <PseudoBox _after={{content:`""` }}/>
    * ```
    */
-  _after?: SystemStyleObject;
+  _after?: SystemProps['sx'];
   /**
    * Styles for CSS selector `&:before`
    *
@@ -22,41 +21,41 @@ export interface PseudoBoxProps extends BoxProps {
    * <PseudoBox _before={{content:`""` }}/>
    * ```
    */
-  _before?: SystemStyleObject;
+  _before?: SystemProps['sx'];
   /**
    * Styles for CSS selector `&:focus`
    *
    */
-  _focus?: SystemStyleObject;
+  _focus?: SystemProps['sx'];
   /**
    * Styles for CSS selector `&:hover`
    */
-  _hover?: SystemStyleObject;
+  _hover?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:active`
    */
-  _active?: SystemStyleObject;
+  _active?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&[aria-pressed=true]`
    * Typically used to style the current "pressed" state of toggle buttons
    */
-  _pressed?: SystemStyleObject;
+  _pressed?: SystemProps['sx'];
   /**
    * Styles to apply when the ARIA attribute `aria-selected` is `true`
    * - CSS selector `&[aria-selected=true]`
    */
-  _selected?: SystemStyleObject;
+  _selected?: SystemProps['sx'];
   /**
    * Styles to apply when a child of this element has received focus
    * - CSS Selector `&:focus-within`
    */
-  _focusWithin?: SystemStyleObject;
+  _focusWithin?: SystemProps['sx'];
 
   /**
    * Styles to apply when the ARIA attribute `aria-invalid` is `true`
    * - CSS selector `&[aria-invalid=true]`
    */
-  _invalid?: SystemStyleObject;
+  _invalid?: SystemProps['sx'];
   /**
    * Styles to apply when this element is disabled. The passed styles are applied to these CSS selectors:
    * - `&[aria-disabled=true]`
@@ -66,73 +65,73 @@ export interface PseudoBoxProps extends BoxProps {
    * - `&:focus[aria-disabled=true]`
    * - `&:hover[aria-disabled=true]`
    */
-  _disabled?: SystemStyleObject;
+  _disabled?: SystemProps['sx'];
   /**
    * Styles to apply when the ARIA attribute `aria-grabbed` is `true`
    * - CSS selector `&[aria-grabbed=true]`
    */
-  _grabbed?: SystemStyleObject;
+  _grabbed?: SystemProps['sx'];
   /**
    * Styles to apply when the ARIA attribute `aria-expanded` is `true`
    * - CSS selector `&[aria-expanded=true]`
    */
-  _expanded?: SystemStyleObject;
+  _expanded?: SystemProps['sx'];
   /**
    * Styles to apply when the ARIA attribute `aria-checked` is `true`
    * - CSS selector `&[aria-checked=true]`
    */
-  _checked?: SystemStyleObject;
+  _checked?: SystemProps['sx'];
   /**
    * Styles to apply when the ARIA attribute `aria-checked` is `mixed`
    * - CSS selector `&[aria-checked=mixed]`
    */
-  _mixed?: SystemStyleObject;
+  _mixed?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:nth-child(odd)`
    */
-  _odd?: SystemStyleObject;
+  _odd?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:nth-child(even)`
    */
-  _even?: SystemStyleObject;
+  _even?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:visited`
    */
-  _visited?: SystemStyleObject;
+  _visited?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:readonly`
    */
-  _readOnly?: SystemStyleObject;
+  _readOnly?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:first-of-type`
    */
-  _first?: SystemStyleObject;
+  _first?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:last-of-type`
    */
-  _last?: SystemStyleObject;
+  _last?: SystemProps['sx'];
   /**
    * Styles to apply when you hover on a parent that has `role=group`.
    */
-  _groupHover?: SystemStyleObject;
+  _groupHover?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:not(:first-of-type)`
    */
-  _notFirst?: SystemStyleObject;
+  _notFirst?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&:not(:last-of-type)`
    */
-  _notLast?: SystemStyleObject;
+  _notLast?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&::placeholder`.
    * Useful for inputs
    */
-  _placeholder?: SystemStyleObject;
+  _placeholder?: SystemProps['sx'];
   /**
    * Styles for CSS Selector `&::webkit-autofill`.
    * Useful for inputs
    */
-  _autofill?: SystemStyleObject;
+  _autofill?: SystemProps['sx'];
 }
 
 /**
@@ -195,38 +194,38 @@ export const PseudoBox = React.forwardRef<HTMLElement, PseudoBoxProps>(function 
   return (
     <Box
       ref={ref}
-      css={css({
-        [hover]: transformAliasProps(_hover),
-        [focus]: transformAliasProps(_focus),
-        [active]: transformAliasProps(_active),
-        [visited]: transformAliasProps(_visited),
-        [disabled]: transformAliasProps({
+      sx={{
+        [hover]: _hover,
+        [focus]: _focus,
+        [active]: _active,
+        [visited]: _visited,
+        [disabled]: {
           opacity: 0.3,
           pointerEvents: 'none',
           cursor: 'default',
           ..._disabled,
-        }),
-        [selected]: transformAliasProps(_selected),
-        [invalid]: transformAliasProps(_invalid),
-        [expanded]: transformAliasProps(_expanded),
-        [grabbed]: transformAliasProps(_grabbed),
-        [readOnly]: transformAliasProps(_readOnly),
-        [first]: transformAliasProps(_first),
-        [notFirst]: transformAliasProps(_notFirst),
-        [notLast]: transformAliasProps(_notLast),
-        [last]: transformAliasProps(_last),
-        [odd]: transformAliasProps(_odd),
-        [even]: transformAliasProps(_even),
-        [mixed]: transformAliasProps(_mixed),
-        [checked]: transformAliasProps(_checked),
-        [pressed]: transformAliasProps(_pressed),
-        [groupHover]: transformAliasProps(_groupHover),
-        [autofill]: transformAliasProps(_autofill),
-        '&::before': transformAliasProps(_before),
-        '&::after': transformAliasProps(_after),
-        '&:focus-within': transformAliasProps(_focusWithin),
+        },
+        [selected]: _selected,
+        [invalid]: _invalid,
+        [expanded]: _expanded,
+        [grabbed]: _grabbed,
+        [readOnly]: _readOnly,
+        [first]: _first,
+        [notFirst]: _notFirst,
+        [notLast]: _notLast,
+        [last]: _last,
+        [odd]: _odd,
+        [even]: _even,
+        [mixed]: _mixed,
+        [checked]: _checked,
+        [pressed]: _pressed,
+        [groupHover]: _groupHover,
+        [autofill]: _autofill,
+        '&::before': _before,
+        '&::after': _after,
+        '&:focus-within': _focusWithin,
         '&::placeholder': _placeholder ?? {},
-      })}
+      }}
       {...rest}
     />
   );

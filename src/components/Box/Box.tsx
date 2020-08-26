@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import css, { SystemCssProperties } from '@styled-system/css';
 import * as StyledSystem from 'styled-system';
 import { customStyleProps, shouldForwardProp, SystemProps } from './system';
 
@@ -33,6 +34,7 @@ const Box = styled('div', {
   ${StyledSystem.flexbox}
   ${StyledSystem.typography}
   ${StyledSystem.system(customStyleProps)}
+  ${props => css(props.sx as SystemCssProperties)(props)}
   ${({ truncated }) => {
     if (truncated) {
       return {

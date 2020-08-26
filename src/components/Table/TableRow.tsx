@@ -1,5 +1,4 @@
 import React from 'react';
-import css, { CSSObject } from '@styled-system/css';
 import Box, { NativeAttributes } from '../Box';
 import { useTable } from './Table';
 
@@ -59,7 +58,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function T
     return styles;
   }, [tableProps, selected]);
 
-  return <Box as="tr" role="row" ref={ref} css={css(rowStyles) as () => CSSObject} {...rest} />;
+  return <Box as="tr" role="row" ref={ref} sx={rowStyles} {...rest} />;
 });
 
 export default React.memo(TableRow);

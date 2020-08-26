@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs renders 1`] = `
-.pounce-4 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34,7 +34,7 @@ exports[`Tabs renders 1`] = `
   cursor: default;
 }
 
-.pounce-6 {
+.pounce-3 {
   outline: none;
 }
 
@@ -45,14 +45,14 @@ exports[`Tabs renders 1`] = `
   >
     <div
       aria-orientation="horizontal"
-      class="pounce-4 pounce-1"
+      class="pounce-2"
       data-reach-tab-list=""
       role="tablist"
     >
       <button
         aria-controls="tabs--1--panel--0"
         aria-selected="true"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         data-orientation="horizontal"
         data-reach-tab=""
         data-selected=""
@@ -65,7 +65,7 @@ exports[`Tabs renders 1`] = `
       <button
         aria-controls="tabs--1--panel--1"
         aria-selected="false"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         data-orientation="horizontal"
         data-reach-tab=""
         id="tabs--1--tab--1"
@@ -80,7 +80,7 @@ exports[`Tabs renders 1`] = `
     >
       <div
         aria-labelledby="tabs--1--tab--0"
-        class="pounce-6 pounce-1"
+        class="pounce-3"
         data-reach-tab-panel=""
         id="tabs--1--panel--0"
         role="tabpanel"
@@ -90,7 +90,7 @@ exports[`Tabs renders 1`] = `
       </div>
       <div
         aria-labelledby="tabs--1--tab--1"
-        class="pounce-6 pounce-1"
+        class="pounce-3"
         data-reach-tab-panel=""
         hidden=""
         id="tabs--1--panel--1"
