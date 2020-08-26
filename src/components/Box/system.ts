@@ -28,7 +28,7 @@ type RoutingProps = {
     | ((location: H.Location<H.LocationState>) => H.LocationDescriptor<H.LocationState>);
 };
 
-type RecursiveSxProp = StylingProps | { [cssSelector: string]: RecursiveSxProp | undefined };
+type SxProp = StylingProps | { [cssSelector: string]: SxProp | undefined };
 
 // Props related to the usage of the Emotion CSS-in-JS library
 type OverridingProps = {
@@ -41,7 +41,7 @@ type OverridingProps = {
   /** Additional custom inline CSS to pass to the element
    * @ignore
    */
-  sx?: RecursiveSxProp;
+  sx?: SxProp;
 };
 
 // Gather the custom-named props that styled-system should accept
