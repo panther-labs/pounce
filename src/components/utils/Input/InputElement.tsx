@@ -1,10 +1,10 @@
 import React from 'react';
 import { useInputContext } from './InputContext';
 import { NativeAttributes } from '../../Box';
-import PseudoBox, { PseudoBoxProps } from '../../PseudoBox';
+import Box, { BoxProps } from '../../Box';
 import useTheme from '../../../utils/useTheme';
 
-export type InputElementProps = PseudoBoxProps & NativeAttributes<'input' | 'textarea'>;
+export type InputElementProps = BoxProps & NativeAttributes<'input' | 'textarea'>;
 
 const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputElementProps>(
   function InputElement({ readOnly, ...rest }, ref) {
@@ -12,7 +12,7 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     const theme = useTheme();
 
     return (
-      <PseudoBox
+      <Box
         ref={ref}
         as="input"
         verticalAlign="top"
@@ -27,9 +27,6 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         fontWeight="medium"
         backgroundColor="transparent"
         border={0}
-        _disabled={{
-          opacity: 1, // we have nested disabled elements, so we don't want lower opacities to multiply
-        }}
         _placeholder={{
           opacity: 0,
           color: 'gray-50',
@@ -40,6 +37,7 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
             opacity: 0.4,
           },
         }}
+        // @ts-ignore `WebkitBoxShadow` and `WebkitTextFillColor` are not part of the TS CSS typings
         _autofill={{
           WebkitBoxShadow: `0 0 0 30px ${theme.colors['navyblue-600']} inset`,
           WebkitTextFillColor: theme.colors['gray-50'],

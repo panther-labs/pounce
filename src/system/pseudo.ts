@@ -9,7 +9,7 @@ export interface PseudoSelectors {
    * NOTE:When using this, ensure the `content` is wrapped in a backtick.
    * @example
    * ```jsx
-   * <PseudoBox _after={{content:`""` }}/>
+   * <Box _after={{content:`""` }}/>
    * ```
    */
   _after?: SxProp;
@@ -19,7 +19,7 @@ export interface PseudoSelectors {
    * NOTE:When using this, ensure the `content` is wrapped in a backtick.
    * @example
    * ```jsx
-   * <PseudoBox _before={{content:`""` }}/>
+   * <Box _before={{content:`""` }}/>
    * ```
    */
   _before?: SxProp;

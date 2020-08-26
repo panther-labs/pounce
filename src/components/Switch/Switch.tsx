@@ -1,7 +1,6 @@
 import React from 'react';
 import Box, { NativeAttributes } from '../Box';
 import Flex from '../Flex';
-import PseudoBox from '../PseudoBox';
 
 export type SwitchProps = NativeAttributes<'input'> & {
   /** Whether the checkbox is currently disabled */
@@ -45,7 +44,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   }
 
   return (
-    <PseudoBox
+    <Box
       as="label"
       display="flex"
       justifyContent="space-between"
@@ -106,7 +105,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           {...rest}
         />
       </Flex>
-    </PseudoBox>
+    </Box>
   );
 });
 

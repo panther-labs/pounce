@@ -1,7 +1,6 @@
 import React from 'react';
-import PseudoBox from '../../PseudoBox';
 import { Theme } from '../../../theme';
-import { NativeAttributes } from '../../Box';
+import Box, { NativeAttributes } from '../../Box';
 
 interface MenuItemProps extends NativeAttributes<'div'> {
   /** Whether the current item is currently selected **/
@@ -25,7 +24,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...re
   }
 
   return (
-    <PseudoBox
+    <Box
       cursor="pointer"
       fontSize="medium"
       py={4}
@@ -52,7 +51,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, children, ...re
       {...rest}
     >
       {children}
-    </PseudoBox>
+    </Box>
   );
 };
 
