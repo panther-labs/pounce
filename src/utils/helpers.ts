@@ -1,6 +1,9 @@
 import { Theme } from '../theme';
 import React from 'react';
 
+/** A boolean denoting whether we are in a development environment */
+export const __DEV__ = process.env.NODE_ENV !== 'production';
+
 /**
  * A function that implements the typical React.memo, but properly forwards TS generics
  */
