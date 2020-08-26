@@ -37,13 +37,15 @@ export interface DateInputProps extends TextInputProps {
 }
 
 const DateWrapper: React.FC = ({ children }) => (
-  <FadeIn from="bottom">
-    <Box position="relative">
-      <Card position="absolute" mt={4} top={0} zIndex={100} p={6}>
-        {children}
-      </Card>
-    </Box>
-  </FadeIn>
+  <Box position="relative" zIndex={10}>
+    <FadeIn from="bottom">
+      <Box position="relative">
+        <Card position="absolute" mt={4} top={0} p={6}>
+          {children}
+        </Card>
+      </Box>
+    </FadeIn>
+  </Box>
 );
 
 /**
@@ -170,7 +172,7 @@ const DateInput: React.FC<DateInputProps> = ({
               mx={-24}
               mt={20}
             >
-              <Flex align="center" justify="center" pt={3} spacing={3}>
+              <Flex align="center" justify="center" pt={3} spacing={3} zIndex="10">
                 <Button onClick={onCancel} size="small" variantColor="gray">
                   Cancel
                 </Button>
