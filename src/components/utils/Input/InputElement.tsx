@@ -4,13 +4,22 @@ import { NativeAttributes } from '../../Box';
 import PseudoBox, { PseudoBoxProps } from '../../PseudoBox';
 import useTheme from '../../../utils/useTheme';
 
-export type InputElementProps = PseudoBoxProps & NativeAttributes<'input' | 'textarea'>;
+type StandaloneInputElementProps = {
+  /**
+   * Used in order to declare input element without labels
+   */
+  standalone?: boolean;
+};
+export type InputElementProps = PseudoBoxProps &
+  NativeAttributes<'input' | 'textarea'> &
+  StandaloneInputElementProps;
 
 const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputElementProps>(
-  function InputElement({ readOnly, ...rest }, ref) {
+  function InputElement({ readOnly, standalone, ...rest }, ref) {
     const { disabled, required, invalid } = useInputContext();
     const theme = useTheme();
-
+    const pt = standalone ? 14 : 5;
+    const pb = standalone ? 14 : 2;
     return (
       <PseudoBox
         ref={ref}
@@ -19,8 +28,8 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         width="100%"
         height="100%"
         px={4}
-        pt={5}
-        pb={2}
+        pt={pt}
+        pb={pb}
         position="relative"
         color="gray-50"
         fontSize="medium"
@@ -30,16 +39,24 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         _disabled={{
           opacity: 1, // we have nested disabled elements, so we don't want lower opacities to multiply
         }}
-        _placeholder={{
-          opacity: 0,
-          color: 'gray-50',
-          transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
-        }}
-        _focus={{
-          '::placeholder': {
-            opacity: 0.4,
-          },
-        }}
+        _placeholder={
+          !standalone
+            ? {
+                opacity: 0,
+                color: 'gray-50',
+                transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
+              }
+            : {}
+        }
+        _focus={
+          !standalone
+            ? {
+                '::placeholder': {
+                  opacity: 0.4,
+                },
+              }
+            : {}
+        }
         _autofill={{
           WebkitBoxShadow: `0 0 0 30px ${theme.colors['navyblue-600']} inset`,
           WebkitTextFillColor: theme.colors['gray-50'],
