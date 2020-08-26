@@ -55,13 +55,31 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate }) => {
     >
       <Flex align="center" justify="center" p={3} pb={0}>
         <Box>
-          <Combobox onChange={onChangeHours} label="Hours" items={hourItems} value={hour} />
+          <Combobox
+            onChange={onChangeHours}
+            label="Hours"
+            hideLabel
+            items={hourItems}
+            value={hour}
+          />
         </Box>
         <Box mx={3}>
-          <Combobox onChange={onChangeMinutes} label="Minutes" items={minsItems} value={min} />
+          <Combobox
+            onChange={onChangeMinutes}
+            label="Minutes"
+            hideLabel
+            items={minsItems}
+            value={min}
+          />
         </Box>
         <Box>
-          <Combobox onChange={onChangePeriod} label="Period" items={periodItems} value={period} />
+          <Combobox
+            onChange={onChangePeriod}
+            label="Period"
+            hideLabel
+            items={periodItems}
+            value={period}
+          />
         </Box>
       </Flex>
     </Flex>
