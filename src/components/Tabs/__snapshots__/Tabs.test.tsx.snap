@@ -13,25 +13,14 @@ exports[`Tabs renders 1`] = `
 }
 
 .pounce-0 {
-  color: gray-50;
-  background-color: transparent;
-  z-index: 1;
   cursor: pointer;
+  color: gray-50;
   -webkit-text-decoration: none;
   text-decoration: none;
+  background-color: transparent;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
-}
-
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
+  z-index: 1;
 }
 
 .pounce-3 {

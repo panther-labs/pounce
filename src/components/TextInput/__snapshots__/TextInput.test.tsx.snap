@@ -2,29 +2,18 @@
 
 exports[`renders 1`] = `
 .pounce-3 {
-  background-color: transparent;
   min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #3e516b;
   position: relative;
+  border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
 }
 
 .pounce-3:hover {
   border-color: #0081c5;
-}
-
-.pounce-3:disabled,
-.pounce-3:disabled:focus,
-.pounce-3:disabled:hover,
-.pounce-3[aria-disabled=true],
-.pounce-3[aria-disabled=true]:focus,
-.pounce-3[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
 }
 
 .pounce-3:focus-within {
@@ -44,63 +33,30 @@ exports[`renders 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-0 {
-  padding-left: 16px;
-  padding-top: 20px;
-  padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
   vertical-align: top;
   width: 100%;
   height: 100%;
-  border: 0;
+  padding-left: 16px;
+  padding-top: 20px;
+  padding-bottom: 8px;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.pounce-0:focus::-webkit-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::-moz-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus:-ms-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
-.pounce-0:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
-  border-radius: 4px;
 }
 
 .pounce-0::-webkit-input-placeholder {
@@ -131,16 +87,37 @@ exports[`renders 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 400;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(0, 14px) scale(1);
   -moz-transform: translate(0, 14px) scale(1);
@@ -148,6 +125,7 @@ exports[`renders 1`] = `
   transform: translate(0, 14px) scale(1);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
 }
 
 <div>
@@ -177,29 +155,18 @@ exports[`renders 1`] = `
 
 exports[`renders with disabled option 1`] = `
 .pounce-3 {
-  background-color: transparent;
   min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #3e516b;
   position: relative;
+  border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
 }
 
 .pounce-3:hover {
   border-color: #0081c5;
-}
-
-.pounce-3:disabled,
-.pounce-3:disabled:focus,
-.pounce-3:disabled:hover,
-.pounce-3[aria-disabled=true],
-.pounce-3[aria-disabled=true]:focus,
-.pounce-3[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
 }
 
 .pounce-3:focus-within {
@@ -219,63 +186,30 @@ exports[`renders with disabled option 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-0 {
-  padding-left: 16px;
-  padding-top: 20px;
-  padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
   vertical-align: top;
   width: 100%;
   height: 100%;
-  border: 0;
+  padding-left: 16px;
+  padding-top: 20px;
+  padding-bottom: 8px;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.pounce-0:focus::-webkit-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::-moz-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus:-ms-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
-.pounce-0:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
-  border-radius: 4px;
 }
 
 .pounce-0::-webkit-input-placeholder {
@@ -306,16 +240,37 @@ exports[`renders with disabled option 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 400;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(0, 14px) scale(1);
   -moz-transform: translate(0, 14px) scale(1);
@@ -323,6 +278,7 @@ exports[`renders with disabled option 1`] = `
   transform: translate(0, 14px) scale(1);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
 }
 
 <div>
@@ -355,29 +311,18 @@ exports[`renders with disabled option 1`] = `
 
 exports[`renders with icons 1`] = `
 .pounce-4 {
-  background-color: transparent;
   min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #3e516b;
   position: relative;
+  border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
 }
 
 .pounce-4:hover {
   border-color: #0081c5;
-}
-
-.pounce-4:disabled,
-.pounce-4:disabled:focus,
-.pounce-4:disabled:hover,
-.pounce-4[aria-disabled=true],
-.pounce-4[aria-disabled=true]:focus,
-.pounce-4[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
 }
 
 .pounce-4:focus-within {
@@ -397,23 +342,22 @@ exports[`renders with icons 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 400;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(0, 14px) scale(1);
   -moz-transform: translate(0, 14px) scale(1);
@@ -421,59 +365,27 @@ exports[`renders with icons 1`] = `
   transform: translate(0, 14px) scale(1);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
 }
 
 .pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
   padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  border: 0;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.pounce-0:focus::-webkit-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::-moz-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus:-ms-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
-.pounce-0:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
-  border-radius: 4px;
 }
 
 .pounce-0::-webkit-input-placeholder {
@@ -504,18 +416,40 @@ exports[`renders with icons 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
 .pounce-2 {
-  color: currentColor;
   display: inline-block;
   vertical-align: sub;
-  width: 20px;
-  height: 20px;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
 }
 
 <div>
@@ -618,63 +552,30 @@ exports[`renders with invalid option 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-0 {
-  padding-left: 16px;
-  padding-top: 20px;
-  padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
   vertical-align: top;
   width: 100%;
   height: 100%;
-  border: 0;
+  padding-left: 16px;
+  padding-top: 20px;
+  padding-bottom: 8px;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.pounce-0:focus::-webkit-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::-moz-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus:-ms-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
-.pounce-0:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
-  border-radius: 4px;
 }
 
 .pounce-0::-webkit-input-placeholder {
@@ -705,26 +606,37 @@ exports[`renders with invalid option 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-3 {
-  background-color: transparent;
-  min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #d64242;
-  position: relative;
-  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
 }
 
-.pounce-3:disabled,
-.pounce-3:disabled:focus,
-.pounce-3:disabled:hover,
-.pounce-3[aria-disabled=true],
-.pounce-3[aria-disabled=true]:focus,
-.pounce-3[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-3 {
+  min-height: 47px;
+  position: relative;
+  border: 1px solid;
+  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #d64242;
 }
 
 .pounce-3:focus-within label {
@@ -736,15 +648,14 @@ exports[`renders with invalid option 1`] = `
 }
 
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
   color: #d64242;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 400;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(0, 14px) scale(1);
   -moz-transform: translate(0, 14px) scale(1);
@@ -752,6 +663,7 @@ exports[`renders with invalid option 1`] = `
   transform: translate(0, 14px) scale(1);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
 }
 
 <div>
@@ -781,29 +693,18 @@ exports[`renders with invalid option 1`] = `
 
 exports[`renders with required option 1`] = `
 .pounce-3 {
-  background-color: transparent;
   min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #3e516b;
   position: relative;
+  border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
 }
 
 .pounce-3:hover {
   border-color: #0081c5;
-}
-
-.pounce-3:disabled,
-.pounce-3:disabled:focus,
-.pounce-3:disabled:hover,
-.pounce-3[aria-disabled=true],
-.pounce-3[aria-disabled=true]:focus,
-.pounce-3[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
 }
 
 .pounce-3:focus-within {
@@ -823,63 +724,30 @@ exports[`renders with required option 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-0 {
-  padding-left: 16px;
-  padding-top: 20px;
-  padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
   vertical-align: top;
   width: 100%;
   height: 100%;
-  border: 0;
+  padding-left: 16px;
+  padding-top: 20px;
+  padding-bottom: 8px;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.pounce-0:focus::-webkit-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::-moz-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus:-ms-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:focus::placeholder {
-  opacity: 0.4;
-}
-
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
-.pounce-0:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
-  border-radius: 4px;
 }
 
 .pounce-0::-webkit-input-placeholder {
@@ -910,16 +778,37 @@ exports[`renders with required option 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 400;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(0, 14px) scale(1);
   -moz-transform: translate(0, 14px) scale(1);
@@ -927,6 +816,7 @@ exports[`renders with required option 1`] = `
   transform: translate(0, 14px) scale(1);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
 }
 
 <div>
