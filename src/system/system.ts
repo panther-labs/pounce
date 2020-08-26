@@ -2,7 +2,8 @@ import React from 'react';
 import * as StyledSystem from 'styled-system';
 import * as H from 'history';
 import { Theme } from '../theme';
-import { UtilityProps } from './utils';
+import { UtilityProps } from './utility';
+import { PseudoProps } from './pseudo';
 
 // prettier-ignore
 // Gather all the styled-system props that we are going to pass
@@ -119,4 +120,4 @@ export const stylingProps = StyledSystem.compose(
 );
 
 // All of the allowed props gathered together
-export type SystemProps = StylingProps & RoutingProps & EmotionProps & UtilityProps;
+export type SystemProps = StylingProps & RoutingProps & EmotionProps & PseudoProps & UtilityProps;

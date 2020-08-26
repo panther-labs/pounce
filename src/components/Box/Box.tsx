@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { shouldForwardProp, sxProp, stylingProps, SystemProps, truncateProp } from '../../system';
+import {
+  shouldForwardProp,
+  sxProp,
+  stylingProps,
+  SystemProps,
+  truncateProp,
+  pseudoProps,
+} from '../../system';
 
 export type NativeAttributes<El extends React.ElementType> = Omit<
   React.ComponentPropsWithRef<El>,
@@ -19,6 +26,7 @@ const Box = styled('div', {
   shouldForwardProp,
 })<BoxProps>`
   ${stylingProps}
+  ${pseudoProps}
   ${sxProp}
   ${truncateProp}
 `;
