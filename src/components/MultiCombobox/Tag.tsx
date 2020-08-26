@@ -3,7 +3,7 @@ import React from 'react';
 import AbstractButton from '../AbstractButton';
 import Box, { BoxProps } from '../Box';
 
-export interface TagProps extends BoxProps<'div' | 'ul'> {
+export interface TagProps extends BoxProps {
   /**
    * What happens when the "X" button is pressed. No "X" button is rendered, if this prop is not
    * specified
