@@ -1,7 +1,7 @@
 import { __DEV__ } from '../../utils/helpers';
-import { pounce, PounceComponentProps } from '../../system';
+import { pounce } from '../../system';
 
-export type TextProps = PounceComponentProps<'p'>;
+export type TextProps = React.ComponentProps<typeof Text>;
 
 /**
  * Extends <a href="/#/Box">Box</a>
