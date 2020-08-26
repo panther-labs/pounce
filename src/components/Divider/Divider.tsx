@@ -1,7 +1,7 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
 
-export interface DividerProps extends BoxProps {
+export interface DividerProps extends BoxProps<'div' | 'span'> {
   /** The direction of the divider */
   orientation?: 'horizontal' | 'vertical';
 }
