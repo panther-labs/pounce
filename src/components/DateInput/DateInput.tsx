@@ -172,7 +172,7 @@ const DateInput: React.FC<DateInputProps> = ({
               mx={-24}
               mt={20}
             >
-              <Flex align="center" justify="center" pt={3} spacing={3} zIndex="10">
+              <Flex align="center" justify="center" pt={3} spacing={3}>
                 <Button onClick={onCancel} size="small" variantColor="gray">
                   Cancel
                 </Button>

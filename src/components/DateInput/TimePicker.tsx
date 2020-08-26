@@ -56,6 +56,7 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate }) => {
       <Flex align="center" justify="center" p={3} pb={0}>
         <Box>
           <Combobox
+            searchable
             onChange={onChangeHours}
             label="Hours"
             hideLabel
@@ -65,6 +66,7 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate }) => {
         </Box>
         <Box mx={3}>
           <Combobox
+            searchable
             onChange={onChangeMinutes}
             label="Minutes"
             hideLabel
