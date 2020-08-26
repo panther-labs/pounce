@@ -1,8 +1,9 @@
 import React from 'react';
-import { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
 import * as StyledSystem from 'styled-system';
 import * as H from 'history';
-import { Theme } from '../../theme';
+import { Theme } from '../theme';
+import { UtilityProps } from './utility';
+import { PseudoProps } from './pseudo';
 
 // prettier-ignore
 // Gather all the styled-system props that we are going to pass
@@ -28,20 +29,13 @@ type RoutingProps = {
     | ((location: H.Location<H.LocationState>) => H.LocationDescriptor<H.LocationState>);
 };
 
-type SxProp = StylingProps | { [cssSelector: string]: SxProp | undefined };
-
 // Props related to the usage of the Emotion CSS-in-JS library
-type OverridingProps = {
+type EmotionProps = {
   /** The React Component or native HTML element to render instead.
    * @default "div"
    * @ignore
    */
   as?: React.ElementType;
-
-  /** Additional custom inline CSS to pass to the element
-   * @ignore
-   */
-  sx?: SxProp;
 };
 
 // Gather the custom-named props that styled-system should accept
@@ -110,16 +104,20 @@ export const customStyleProps: Record<
   transformOrigin: true,
 };
 
-// All of the allowed props gathered together
-type StylingProps = ThemedStyleProps & CustomStyleProps;
-export type SystemProps = StylingProps & RoutingProps & OverridingProps;
+export type StylingProps = ThemedStyleProps & CustomStyleProps;
+export const stylingProps = StyledSystem.compose(
+  StyledSystem.space,
+  StyledSystem.color,
+  StyledSystem.layout,
+  StyledSystem.background,
+  StyledSystem.grid,
+  StyledSystem.shadow,
+  StyledSystem.border,
+  StyledSystem.position,
+  StyledSystem.flexbox,
+  StyledSystem.typography,
+  StyledSystem.system(customStyleProps)
+);
 
-// extend the forwarded props by stuff that styled-system doesn't deal with
-export const shouldForwardProp = createShouldForwardProp([
-  ...props,
-  'textDecoration',
-  'pointerEvents',
-  'visibility',
-  'transform',
-  'cursor',
-]);
+// All of the allowed props gathered together
+export type SystemProps = StylingProps & RoutingProps & EmotionProps & PseudoProps & UtilityProps;

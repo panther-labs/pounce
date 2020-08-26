@@ -1,9 +1,9 @@
 import { LinkProps } from './Link';
-import { PseudoBoxProps } from '../PseudoBox';
+import { BoxProps } from '../Box';
 
 type UseLinkStyles = Pick<LinkProps, 'variant'>;
 
-const useLinkStyles = ({ variant }: UseLinkStyles): PseudoBoxProps => {
+const useLinkStyles = ({ variant }: UseLinkStyles): BoxProps => {
   switch (variant) {
     case 'neutral':
       return {

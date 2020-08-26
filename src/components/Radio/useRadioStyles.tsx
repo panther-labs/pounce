@@ -1,12 +1,12 @@
 import React from 'react';
-import { PseudoBoxProps } from '../PseudoBox';
+import { BoxProps } from '../Box';
 import { addOpacity } from '../../utils/helpers';
 import { RadioProps } from './Radio';
 import useTheme from '../../utils/useTheme';
 
 type UseRadioStyles = Pick<RadioProps, 'invalid' | 'checked'>;
 
-const useRadioStyles = ({ invalid, checked }: UseRadioStyles): PseudoBoxProps => {
+const useRadioStyles = ({ invalid, checked }: UseRadioStyles): BoxProps => {
   const theme = useTheme();
 
   return React.useMemo(

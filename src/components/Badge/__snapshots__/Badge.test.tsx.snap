@@ -2,20 +2,39 @@
 
 exports[`renders 1`] = `
 .pounce-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  width: -webkit-fit-content;
+  width: -moz-content;
+  width: fit-content;
+  min-width: 85px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: pill;
+  font-size: small;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 32px;
   padding-right: 32px;
   background-color: red-300;
+}
+
+.pounce-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  min-width: 85px;
-  border-radius: pill;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -24,27 +43,27 @@ exports[`renders 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: default;
+  width: -webkit-fit-content;
+  width: -moz-content;
+  width: fit-content;
+  min-width: 85px;
   text-align: center;
   font-weight: bold;
+  border-radius: pill;
   font-size: small;
-  cursor: default;
-}
-
-.pounce-1 {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 32px;
   padding-right: 32px;
   background-color: teal-500;
+}
+
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  min-width: 85px;
-  border-radius: pill;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -53,39 +72,20 @@ exports[`renders 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: default;
+  width: -webkit-fit-content;
+  width: -moz-content;
+  width: fit-content;
+  min-width: 85px;
   text-align: center;
   font-weight: bold;
+  border-radius: pill;
   font-size: small;
-  cursor: default;
-}
-
-.pounce-2 {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 32px;
   padding-right: 32px;
   background-color: blue-400;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  min-width: 85px;
-  border-radius: pill;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  font-weight: bold;
-  font-size: small;
-  cursor: default;
 }
 
 <div>

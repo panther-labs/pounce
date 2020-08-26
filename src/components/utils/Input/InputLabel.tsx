@@ -1,15 +1,14 @@
 import React from 'react';
 import { useInputContext } from './InputContext';
-import Box, { NativeAttributes } from '../../Box';
+import Box, { BoxProps, NativeAttributes } from '../../Box';
 
-export type InputLabelProps = NativeAttributes<'label'> & {
-  /**  Whether the label is visually hidden. Defaults to `true` */
-  visuallyHidden?: boolean;
-  /**  Whether the label should be raised up or not. Defaults to `true` */
-  raised?: boolean;
-};
+export type InputLabelProps = NativeAttributes<'label'> &
+  Pick<BoxProps, 'visuallyHidden'> & {
+    /**  Whether the label should be raised up or not. Defaults to `true` */
+    raised?: boolean;
+  };
 
-const InputLabel: React.FC<InputLabelProps> = ({ raised = true, visuallyHidden, ...rest }) => {
+const InputLabel: React.FC<InputLabelProps> = ({ raised = true, ...rest }) => {
   const { invalid } = useInputContext();
 
   return (
@@ -17,7 +16,6 @@ const InputLabel: React.FC<InputLabelProps> = ({ raised = true, visuallyHidden, 
       as="label"
       pointerEvents="none"
       fontSize="medium"
-      opacity={visuallyHidden ? 0 : 1}
       px={4}
       color={invalid ? 'red-300' : 'gray-300'}
       top={0}

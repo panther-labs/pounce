@@ -1,5 +1,6 @@
 import React from 'react';
 import { Global, css, useTheme } from '@emotion/react';
+import { pseudoSelectors } from '../system';
 
 const GlobalStyles: React.FC = () => {
   const theme = useTheme();
@@ -24,6 +25,17 @@ const GlobalStyles: React.FC = () => {
 
     *::-webkit-scrollbar:horizontal {
       height: 8px;
+    }
+
+    ${pseudoSelectors._disabled} {
+      opacity: 0.3;
+      pointer-events: none;
+      cursor: default;
+
+      /* correct any nested disabled items, so that 'opacity: 0.3' isn't applied multiple times */
+      * {
+        opacity: 1;
+      }
     }
 
     html {

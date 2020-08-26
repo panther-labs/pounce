@@ -1,8 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import css, { SystemCssProperties } from '@styled-system/css';
-import * as StyledSystem from 'styled-system';
-import { customStyleProps, shouldForwardProp, SystemProps } from './system';
+import {
+  shouldForwardProp,
+  sxProp,
+  stylingProps,
+  SystemProps,
+  truncateProp,
+  pseudoProps,
+  visuallyHiddenProp,
+} from '../../system';
 
 export type NativeAttributes<El extends React.ElementType> = Omit<
   React.ComponentPropsWithRef<El>,
@@ -11,39 +17,20 @@ export type NativeAttributes<El extends React.ElementType> = Omit<
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type BoxProps<Element extends React.ElementType = any> = NativeAttributes<Element> &
-  SystemProps & {
-    /** Whether should text should truncate to fill at most one line of text */
-    truncated?: boolean;
-  };
+  SystemProps;
 
 /**
  * Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes.
  * */
 const Box = styled('div', {
-  shouldForwardProp: (prop: string) => (prop.startsWith('native') ? true : shouldForwardProp(prop)),
+  shouldForwardProp,
 })<BoxProps>`
-  ${StyledSystem.space}
-  ${StyledSystem.color}
-  ${StyledSystem.layout}
-  ${StyledSystem.background}
-  ${StyledSystem.grid}
-  ${StyledSystem.shadow}
-  ${StyledSystem.border} 
-  ${StyledSystem.position}
-  ${StyledSystem.flexbox}
-  ${StyledSystem.typography}
-  ${StyledSystem.system(customStyleProps)}
-  ${props => css(props.sx as SystemCssProperties)(props)}
-  ${({ truncated }) => {
-    if (truncated) {
-      return {
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-      };
-    }
-  }}
+  ${stylingProps}
+  ${pseudoProps}
+  ${sxProp}
+  ${truncateProp}
+  ${visuallyHiddenProp}
 `;
 
 export default Box as React.FC<BoxProps>;

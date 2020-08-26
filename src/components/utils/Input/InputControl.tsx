@@ -1,5 +1,5 @@
 import React from 'react';
-import PseudoBox from '../../PseudoBox';
+import Box from '../../Box';
 import { InputContext } from './InputContext';
 
 export type InputControlProps = {
@@ -39,7 +39,7 @@ const InputControl: React.FC<InputControlProps> = ({
   );
 
   return (
-    <PseudoBox
+    <Box
       minHeight={47}
       position="relative"
       border="1px solid"
@@ -62,7 +62,7 @@ const InputControl: React.FC<InputControlProps> = ({
       }}
     >
       <InputContext.Provider value={contextValue}>{children}</InputContext.Provider>
-    </PseudoBox>
+    </Box>
   );
 };
 

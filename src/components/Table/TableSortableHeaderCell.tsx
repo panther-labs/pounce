@@ -1,6 +1,6 @@
 import React from 'react';
 import Flex from '../Flex';
-import PseudoBox from '../PseudoBox';
+import Box from '../Box';
 import Icon from '../Icon';
 import TableHeaderCell, { TableHeaderCellProps } from './TableHeaderCell';
 
@@ -21,7 +21,7 @@ const TableSortableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, Tab
 
     return (
       <TableHeaderCell ref={ref} sortDir={sortDir} align={align} {...rest}>
-        <PseudoBox
+        <Box
           display="inline-flex"
           verticalAlign="middle"
           cursor="pointer"
@@ -47,7 +47,7 @@ const TableSortableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, Tab
             />
             {children}
           </Flex>
-        </PseudoBox>
+        </Box>
       </TableHeaderCell>
     );
   }
