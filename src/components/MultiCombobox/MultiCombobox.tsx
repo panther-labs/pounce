@@ -18,6 +18,9 @@ export type MultiComboboxProps<T> = {
   /** The label associated with this dropdown form element */
   label: string;
 
+  /** Whether the label should get visually hidden */
+  labelHidden?: boolean;
+
   /** A list of entries that the dropdown will have as options */
   items: T[];
 

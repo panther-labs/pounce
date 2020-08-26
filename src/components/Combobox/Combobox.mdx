@@ -10,7 +10,7 @@ A Combobox can be basic:
 
 ```typescript jsx
 const Example1 = () => {
-  const [selecteCar, updateSelectedCar] = React.useState(null);
+  const [selectedCar, updateSelectedCar] = React.useState(null);
   const [selectedMoto, updateSelectedMoto] = React.useState(null);
   return (
     <>
@@ -19,12 +19,14 @@ const Example1 = () => {
           label="Choose a car manufacturer"
           items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
           onChange={updateSelectedCar}
-          value={selecteCar}
+          value={selectedCar}
           placeholder="Select a manufacturer"
         />
       </Box>
       <Box width={0.5}>
         <Combobox
+          label="Choose a moto manufacturer"
+          labelHidden
           placeholder="Choose a motorcycle manufacturer"
           items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
           onChange={updateSelectedMoto}
