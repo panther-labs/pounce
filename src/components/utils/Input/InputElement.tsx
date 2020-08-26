@@ -36,24 +36,19 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         fontWeight="medium"
         backgroundColor="transparent"
         border={0}
-        _placeholder={
-          !standalone
-            ? {
-                opacity: 0,
-                color: 'gray-50',
-                transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
-              }
-            : {}
-        }
-        _focus={
-          !standalone
-            ? {
-                '::placeholder': {
-                  opacity: 0.4,
-                },
-              }
-            : {}
-        }
+        _placeholder={{
+          opacity: standalone ? 1 : 0,
+          color: standalone ? 'gray-300' : 'gray-50',
+          transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
+          fontWeight: standalone ? 'normal' : 'medium',
+        }}
+        _focus={{
+          '::placeholder': {
+            opacity: 0.4,
+            color: standalone ? 'gray-50' : undefined,
+            fontWeight: standalone ? 'medium' : undefined,
+          },
+        }}
         // @ts-ignore `WebkitBoxShadow` and `WebkitTextFillColor` are not part of the TS CSS typings
         _autofill={{
           WebkitBoxShadow: `0 0 0 30px ${theme.colors['navyblue-600']} inset`,

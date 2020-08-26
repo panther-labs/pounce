@@ -7,6 +7,7 @@ import {
   SystemProps,
   truncateProp,
   pseudoProps,
+  visuallyHiddenProp,
 } from '../../system';
 
 export type NativeAttributes<El extends React.ElementType> = Omit<
@@ -29,6 +30,7 @@ const Box = styled('div', {
   ${pseudoProps}
   ${sxProp}
   ${truncateProp}
+  ${visuallyHiddenProp}
 `;
 
 export default Box as React.FC<BoxProps>;

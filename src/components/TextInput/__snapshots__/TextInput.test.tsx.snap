@@ -64,6 +64,7 @@ exports[`renders 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::-moz-placeholder {
@@ -71,6 +72,7 @@ exports[`renders 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:-ms-input-placeholder {
@@ -78,6 +80,7 @@ exports[`renders 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::placeholder {
@@ -85,6 +88,7 @@ exports[`renders 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -114,7 +118,6 @@ exports[`renders 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #bdbdbd;
   top: 0;
   left: 0;
@@ -218,6 +221,7 @@ exports[`renders with disabled option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::-moz-placeholder {
@@ -225,6 +229,7 @@ exports[`renders with disabled option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:-ms-input-placeholder {
@@ -232,6 +237,7 @@ exports[`renders with disabled option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::placeholder {
@@ -239,6 +245,7 @@ exports[`renders with disabled option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -268,7 +275,6 @@ exports[`renders with disabled option 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #bdbdbd;
   top: 0;
   left: 0;
@@ -356,7 +362,6 @@ exports[`renders with icons 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #bdbdbd;
   top: 0;
   left: 0;
@@ -396,6 +401,7 @@ exports[`renders with icons 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::-moz-placeholder {
@@ -403,6 +409,7 @@ exports[`renders with icons 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:-ms-input-placeholder {
@@ -410,6 +417,7 @@ exports[`renders with icons 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::placeholder {
@@ -417,6 +425,7 @@ exports[`renders with icons 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -586,6 +595,7 @@ exports[`renders with invalid option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::-moz-placeholder {
@@ -593,6 +603,7 @@ exports[`renders with invalid option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:-ms-input-placeholder {
@@ -600,6 +611,7 @@ exports[`renders with invalid option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::placeholder {
@@ -607,6 +619,7 @@ exports[`renders with invalid option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -655,7 +668,6 @@ exports[`renders with invalid option 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #d64242;
   top: 0;
   left: 0;
@@ -759,6 +771,7 @@ exports[`renders with required option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::-moz-placeholder {
@@ -766,6 +779,7 @@ exports[`renders with required option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:-ms-input-placeholder {
@@ -773,6 +787,7 @@ exports[`renders with required option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::placeholder {
@@ -780,6 +795,7 @@ exports[`renders with required option 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -809,7 +825,6 @@ exports[`renders with required option 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #bdbdbd;
   top: 0;
   left: 0;
