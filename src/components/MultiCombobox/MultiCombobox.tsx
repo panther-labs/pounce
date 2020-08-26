@@ -194,7 +194,7 @@ function MultiCombobox<Item>({
             position: !value.length ? 'static' : 'absolute',
           }),
           ...(searchable && {
-            placeholder: isOpen || (value.length && allowAdditions) ? placeholder : '',
+            placeholder,
             mt: (isOpen && value.length) || (isOpen && value.length && allowAdditions) ? -4 : 0,
             position: isOpen || (isOpen && value.length && allowAdditions) ? 'static' : 'absolute',
           }),
