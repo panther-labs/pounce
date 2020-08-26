@@ -221,6 +221,21 @@ function MultiCombobox<Item>({
               }
             }
           },
+          onPaste: (e: React.ClipboardEvent<HTMLInputElement>) => {
+            // Prevent the text from actually being pasted to the underlying input
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Get clipboard data and split them based on newline and/or commas
+            const clipboardData = e.clipboardData.getData('Text');
+            const items = (clipboardData
+              .replace(/\r?\n/g, ',')
+              .split(',')
+              .map(str => str.trim()) as unknown) as Item[];
+
+            // extend existing values with new ones
+            onChange([...value, ...items]);
+          },
         };
 
         return (
