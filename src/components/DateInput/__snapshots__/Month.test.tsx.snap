@@ -1,84 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Month renders 1`] = `
-.pounce-7 {
-  margin-bottom: 8px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+.pounce-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  border-color: #3e516b;
   -webkit-box-pack: space-around;
   -ms-flex-pack: space-around;
   -webkit-justify-content: space-around;
   justify-content: space-around;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #3e516b;
 }
 
 .pounce-0 {
-  font-size: 0.75rem;
-  font-weight: 700;
   -webkit-text-decoration: none;
   text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
 }
 
-.pounce-56 {
+.pounce-63 {
   display: table-row-group;
 }
 
-.pounce-15 {
+.pounce-22 {
   -webkit-display: table-row;
   display: table-row;
 }
 
-.pounce-8 {
+.pounce-15 {
   display: table-cell;
   padding: 8px;
-  vertical-align: middle;
   text-align: center;
+  border-radius: 99999px;
   cursor: pointer;
-  border-radius: 50%;
-  cursor: default;
-  pointer-events: none;
+  vertical-align: middle;
 }
 
-.pounce-8[aria-selected='true'],
-.pounce-8[aria-selected='true']:hover {
+.pounce-15[aria-selected=true],
+[data-selected]>.pounce-15 {
   background-color: #0081c5;
 }
 
-.pounce-8:hover {
-  background-color: #3e516b;
-}
-
-.pounce-14 {
-  display: table-cell;
-  padding: 8px;
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.pounce-14[aria-selected='true'],
-.pounce-14[aria-selected='true']:hover {
-  background-color: #0081c5;
-}
-
-.pounce-14:hover {
-  background-color: #3e516b;
+.pounce-15:hover {
+  background-color: #11a5f3;
 }
 
 <div>
   <div>
     <div
-      class="pounce-7"
+      class="pounce-14"
       role="row"
     >
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -89,6 +70,7 @@ exports[`Month renders 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -99,6 +81,7 @@ exports[`Month renders 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -109,6 +92,7 @@ exports[`Month renders 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -119,6 +103,7 @@ exports[`Month renders 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -129,6 +114,7 @@ exports[`Month renders 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -139,6 +125,7 @@ exports[`Month renders 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -151,53 +138,53 @@ exports[`Month renders 1`] = `
     </div>
   </div>
   <div
-    class="pounce-56"
+    class="pounce-63"
   >
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="false"
         aria-label="Su Nov 01 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         1
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 02 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         2
@@ -206,7 +193,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Tu Nov 03 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         3
@@ -215,7 +202,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="We Nov 04 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         4
@@ -224,7 +211,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Th Nov 05 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         5
@@ -233,7 +220,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Fr Nov 06 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         6
@@ -242,7 +229,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Sa Nov 07 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         7
@@ -251,20 +238,20 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Su Nov 08 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         8
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 09 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         9
@@ -273,7 +260,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Tu Nov 10 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         10
@@ -282,7 +269,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="We Nov 11 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         11
@@ -291,7 +278,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Th Nov 12 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         12
@@ -300,7 +287,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Fr Nov 13 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         13
@@ -309,7 +296,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Sa Nov 14 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         14
@@ -318,20 +305,20 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Su Nov 15 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         15
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 16 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         16
@@ -340,7 +327,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Tu Nov 17 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         17
@@ -349,7 +336,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="We Nov 18 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         18
@@ -358,7 +345,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Th Nov 19 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         19
@@ -367,7 +354,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Fr Nov 20 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         20
@@ -376,7 +363,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Sa Nov 21 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         21
@@ -385,20 +372,20 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Su Nov 22 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         22
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 23 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         23
@@ -407,7 +394,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Tu Nov 24 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         24
@@ -416,7 +403,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="We Nov 25 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         25
@@ -425,7 +412,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Th Nov 26 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         26
@@ -434,7 +421,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Fr Nov 27 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         27
@@ -443,7 +430,7 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Sa Nov 28 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         28
@@ -452,47 +439,47 @@ exports[`Month renders 1`] = `
         aria-disabled="false"
         aria-label="Su Nov 29 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         29
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 30 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         30
       </div>
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
     </div>
   </div>
@@ -500,84 +487,65 @@ exports[`Month renders 1`] = `
 `;
 
 exports[`Month renders with a selected day 1`] = `
-.pounce-7 {
-  margin-bottom: 8px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+.pounce-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  border-color: #3e516b;
   -webkit-box-pack: space-around;
   -ms-flex-pack: space-around;
   -webkit-justify-content: space-around;
   justify-content: space-around;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #3e516b;
 }
 
 .pounce-0 {
-  font-size: 0.75rem;
-  font-weight: 700;
   -webkit-text-decoration: none;
   text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
 }
 
-.pounce-56 {
+.pounce-63 {
   display: table-row-group;
 }
 
-.pounce-15 {
+.pounce-22 {
   -webkit-display: table-row;
   display: table-row;
 }
 
-.pounce-8 {
+.pounce-15 {
   display: table-cell;
   padding: 8px;
-  vertical-align: middle;
   text-align: center;
+  border-radius: 99999px;
   cursor: pointer;
-  border-radius: 50%;
-  cursor: default;
-  pointer-events: none;
+  vertical-align: middle;
 }
 
-.pounce-8[aria-selected='true'],
-.pounce-8[aria-selected='true']:hover {
+.pounce-15[aria-selected=true],
+[data-selected]>.pounce-15 {
   background-color: #0081c5;
 }
 
-.pounce-8:hover {
-  background-color: #3e516b;
-}
-
-.pounce-14 {
-  display: table-cell;
-  padding: 8px;
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.pounce-14[aria-selected='true'],
-.pounce-14[aria-selected='true']:hover {
-  background-color: #0081c5;
-}
-
-.pounce-14:hover {
-  background-color: #3e516b;
+.pounce-15:hover {
+  background-color: #11a5f3;
 }
 
 <div>
   <div>
     <div
-      class="pounce-7"
+      class="pounce-14"
       role="row"
     >
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -588,6 +556,7 @@ exports[`Month renders with a selected day 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -598,6 +567,7 @@ exports[`Month renders with a selected day 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -608,6 +578,7 @@ exports[`Month renders with a selected day 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -618,6 +589,7 @@ exports[`Month renders with a selected day 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -628,6 +600,7 @@ exports[`Month renders with a selected day 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -638,6 +611,7 @@ exports[`Month renders with a selected day 1`] = `
         </abbr>
       </div>
       <div
+        class="pounce-1"
         role="columnheader"
       >
         <abbr
@@ -650,53 +624,53 @@ exports[`Month renders with a selected day 1`] = `
     </div>
   </div>
   <div
-    class="pounce-56"
+    class="pounce-63"
   >
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="false"
         aria-label="Su Nov 01 2020"
         aria-selected="true"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         1
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 02 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         2
@@ -705,7 +679,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Tu Nov 03 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         3
@@ -714,7 +688,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="We Nov 04 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         4
@@ -723,7 +697,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Th Nov 05 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         5
@@ -732,7 +706,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Fr Nov 06 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         6
@@ -741,7 +715,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Sa Nov 07 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         7
@@ -750,20 +724,20 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Su Nov 08 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         8
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 09 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         9
@@ -772,7 +746,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Tu Nov 10 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         10
@@ -781,7 +755,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="We Nov 11 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         11
@@ -790,7 +764,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Th Nov 12 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         12
@@ -799,7 +773,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Fr Nov 13 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         13
@@ -808,7 +782,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Sa Nov 14 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         14
@@ -817,20 +791,20 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Su Nov 15 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         15
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 16 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         16
@@ -839,7 +813,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Tu Nov 17 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         17
@@ -848,7 +822,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="We Nov 18 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         18
@@ -857,7 +831,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Th Nov 19 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         19
@@ -866,7 +840,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Fr Nov 20 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         20
@@ -875,7 +849,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Sa Nov 21 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         21
@@ -884,20 +858,20 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Su Nov 22 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         22
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 23 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         23
@@ -906,7 +880,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Tu Nov 24 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         24
@@ -915,7 +889,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="We Nov 25 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         25
@@ -924,7 +898,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Th Nov 26 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         26
@@ -933,7 +907,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Fr Nov 27 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         27
@@ -942,7 +916,7 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Sa Nov 28 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         28
@@ -951,47 +925,47 @@ exports[`Month renders with a selected day 1`] = `
         aria-disabled="false"
         aria-label="Su Nov 29 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         29
       </div>
     </div>
     <div
-      class="pounce-15"
+      class="pounce-22"
     >
       <div
         aria-disabled="false"
         aria-label="Mo Nov 30 2020"
         aria-selected="false"
-        class="pounce-14"
+        class="pounce-15"
         role="gridcell"
       >
         30
       </div>
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
       <div
         aria-disabled="true"
-        class="pounce-8"
+        class="pounce-15"
       />
     </div>
   </div>

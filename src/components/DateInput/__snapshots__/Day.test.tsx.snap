@@ -4,19 +4,19 @@ exports[`Day renders a cell selected 1`] = `
 .pounce-0 {
   display: table-cell;
   padding: 8px;
-  vertical-align: middle;
   text-align: center;
+  border-radius: 99999px;
   cursor: pointer;
-  border-radius: 50%;
+  vertical-align: middle;
 }
 
-.pounce-0[aria-selected='true'],
-.pounce-0[aria-selected='true']:hover {
+.pounce-0[aria-selected=true],
+[data-selected]>.pounce-0 {
   background-color: #0081c5;
 }
 
 .pounce-0:hover {
-  background-color: #3e516b;
+  background-color: #11a5f3;
 }
 
 <div>
@@ -36,19 +36,19 @@ exports[`Day renders a cell when date is present 1`] = `
 .pounce-0 {
   display: table-cell;
   padding: 8px;
-  vertical-align: middle;
   text-align: center;
+  border-radius: 99999px;
   cursor: pointer;
-  border-radius: 50%;
+  vertical-align: middle;
 }
 
-.pounce-0[aria-selected='true'],
-.pounce-0[aria-selected='true']:hover {
+.pounce-0[aria-selected=true],
+[data-selected]>.pounce-0 {
   background-color: #0081c5;
 }
 
 .pounce-0:hover {
-  background-color: #3e516b;
+  background-color: #11a5f3;
 }
 
 <div>
@@ -68,21 +68,19 @@ exports[`Day renders a disabled cell 1`] = `
 .pounce-0 {
   display: table-cell;
   padding: 8px;
-  vertical-align: middle;
   text-align: center;
+  border-radius: 99999px;
   cursor: pointer;
-  border-radius: 50%;
-  cursor: default;
-  pointer-events: none;
+  vertical-align: middle;
 }
 
-.pounce-0[aria-selected='true'],
-.pounce-0[aria-selected='true']:hover {
+.pounce-0[aria-selected=true],
+[data-selected]>.pounce-0 {
   background-color: #0081c5;
 }
 
 .pounce-0:hover {
-  background-color: #3e516b;
+  background-color: #11a5f3;
 }
 
 <div>

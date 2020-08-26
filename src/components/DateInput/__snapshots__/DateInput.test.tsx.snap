@@ -203,7 +203,7 @@ exports[`DateInput allows passing a custom format 1`] = `
 `;
 
 exports[`DateInput allows selecting a date with time options 1`] = `
-.pounce-73 {
+.pounce-80 {
   position: relative;
 }
 
@@ -357,12 +357,12 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   right: 16px;
 }
 
-.pounce-101 {
+.pounce-108 {
   position: relative;
   z-index: 10;
 }
 
-.pounce-99 {
+.pounce-106 {
   background-color: #23344e;
   border-radius: 4px;
   position: absolute;
@@ -433,7 +433,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 700;
 }
 
-.pounce-19 {
+.pounce-26 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -451,60 +451,40 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 }
 
 .pounce-12 {
-  font-size: 0.75rem;
-  font-weight: 700;
   -webkit-text-decoration: none;
   text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
 }
 
-.pounce-68 {
+.pounce-75 {
   display: table-row-group;
 }
 
-.pounce-27 {
+.pounce-34 {
   -webkit-display: table-row;
   display: table-row;
 }
 
-.pounce-20 {
+.pounce-27 {
   display: table-cell;
   padding: 8px;
-  vertical-align: middle;
   text-align: center;
+  border-radius: 99999px;
   cursor: pointer;
-  border-radius: 50%;
-  cursor: default;
-  pointer-events: none;
+  vertical-align: middle;
 }
 
-.pounce-20[aria-selected='true'],
-.pounce-20[aria-selected='true']:hover {
+.pounce-27[aria-selected=true],
+[data-selected]>.pounce-27 {
   background-color: #0081c5;
 }
 
-.pounce-20:hover {
-  background-color: #3e516b;
+.pounce-27:hover {
+  background-color: #11a5f3;
 }
 
-.pounce-26 {
-  display: table-cell;
-  padding: 8px;
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.pounce-26[aria-selected='true'],
-.pounce-26[aria-selected='true']:hover {
-  background-color: #0081c5;
-}
-
-.pounce-26:hover {
-  background-color: #3e516b;
-}
-
-.pounce-94 {
+.pounce-101 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -524,7 +504,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   margin-top: 20px;
 }
 
-.pounce-97 {
+.pounce-104 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -540,11 +520,11 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   padding-top: 12px;
 }
 
-.pounce-97>*:not(:last-child) {
+.pounce-104>*:not(:last-child) {
   margin-right: 12px;
 }
 
-.pounce-95 {
+.pounce-102 {
   cursor: pointer;
   color: #f6f6f6;
   -webkit-text-decoration: none;
@@ -564,23 +544,23 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   border-color: #716f6f;
 }
 
-.pounce-95:hover {
+.pounce-102:hover {
   background-color: #7b7979;
   border-color: #7b7979;
 }
 
-.pounce-95:focus {
+.pounce-102:focus {
   background-color: #7b7979;
   border-color: #c6c4c4;
 }
 
-.pounce-95:active,
-.pounce-95[data-active=true] {
+.pounce-102:active,
+.pounce-102[data-active=true] {
   background-color: #676565;
   border-color: #676565;
 }
 
-.pounce-96 {
+.pounce-103 {
   cursor: pointer;
   color: #f6f6f6;
   -webkit-text-decoration: none;
@@ -600,23 +580,23 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-96:hover {
+.pounce-103:hover {
   background-color: #0a8bcf;
   border-color: #0a8bcf;
 }
 
-.pounce-96:focus {
+.pounce-103:focus {
   background-color: #0a8bcf;
   border-color: #55d6ff;
 }
 
-.pounce-96:active,
-.pounce-96[data-active=true] {
+.pounce-103:active,
+.pounce-103[data-active=true] {
   background-color: #0077bb;
   border-color: #0077bb;
 }
 
-.pounce-93 {
+.pounce-100 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -633,7 +613,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   padding-bottom: 0;
 }
 
-.pounce-69 {
+.pounce-76 {
   vertical-align: top;
   width: 100%;
   height: 100%;
@@ -652,7 +632,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   white-space: nowrap;
 }
 
-.pounce-69::-webkit-input-placeholder {
+.pounce-76::-webkit-input-placeholder {
   opacity: 1;
   color: #bdbdbd;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -660,7 +640,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 400;
 }
 
-.pounce-69::-moz-placeholder {
+.pounce-76::-moz-placeholder {
   opacity: 1;
   color: #bdbdbd;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -668,7 +648,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 400;
 }
 
-.pounce-69:-ms-input-placeholder {
+.pounce-76:-ms-input-placeholder {
   opacity: 1;
   color: #bdbdbd;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -676,7 +656,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 400;
 }
 
-.pounce-69::placeholder {
+.pounce-76::placeholder {
   opacity: 1;
   color: #bdbdbd;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -684,37 +664,37 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 400;
 }
 
-.pounce-69:focus::-webkit-input-placeholder {
+.pounce-76:focus::-webkit-input-placeholder {
   opacity: 0.4;
   color: #f6f6f6;
   font-weight: 500;
 }
 
-.pounce-69:focus::-moz-placeholder {
+.pounce-76:focus::-moz-placeholder {
   opacity: 0.4;
   color: #f6f6f6;
   font-weight: 500;
 }
 
-.pounce-69:focus:-ms-input-placeholder {
+.pounce-76:focus:-ms-input-placeholder {
   opacity: 0.4;
   color: #f6f6f6;
   font-weight: 500;
 }
 
-.pounce-69:focus::placeholder {
+.pounce-76:focus::placeholder {
   opacity: 0.4;
   color: #f6f6f6;
   font-weight: 500;
 }
 
-.pounce-69:-webkit-autofill {
+.pounce-76:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
   -webkit-text-fill-color: #f6f6f6;
   border-radius: 4px;
 }
 
-.pounce-70 {
+.pounce-77 {
   pointer-events: none;
   font-size: 0.875rem;
   padding-left: 16px;
@@ -741,7 +721,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   position: absolute;
 }
 
-.pounce-72 {
+.pounce-79 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -760,12 +740,12 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   right: 16px;
 }
 
-.pounce-84 {
+.pounce-91 {
   margin-left: 12px;
   margin-right: 12px;
 }
 
-.pounce-85 {
+.pounce-92 {
   vertical-align: top;
   width: 100%;
   height: 100%;
@@ -785,7 +765,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   white-space: nowrap;
 }
 
-.pounce-85::-webkit-input-placeholder {
+.pounce-92::-webkit-input-placeholder {
   opacity: 1;
   color: #bdbdbd;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -793,7 +773,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 400;
 }
 
-.pounce-85::-moz-placeholder {
+.pounce-92::-moz-placeholder {
   opacity: 1;
   color: #bdbdbd;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -801,7 +781,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 400;
 }
 
-.pounce-85:-ms-input-placeholder {
+.pounce-92:-ms-input-placeholder {
   opacity: 1;
   color: #bdbdbd;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -809,7 +789,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 400;
 }
 
-.pounce-85::placeholder {
+.pounce-92::placeholder {
   opacity: 1;
   color: #bdbdbd;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -817,31 +797,31 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 400;
 }
 
-.pounce-85:focus::-webkit-input-placeholder {
+.pounce-92:focus::-webkit-input-placeholder {
   opacity: 0.4;
   color: #f6f6f6;
   font-weight: 500;
 }
 
-.pounce-85:focus::-moz-placeholder {
+.pounce-92:focus::-moz-placeholder {
   opacity: 0.4;
   color: #f6f6f6;
   font-weight: 500;
 }
 
-.pounce-85:focus:-ms-input-placeholder {
+.pounce-92:focus:-ms-input-placeholder {
   opacity: 0.4;
   color: #f6f6f6;
   font-weight: 500;
 }
 
-.pounce-85:focus::placeholder {
+.pounce-92:focus::placeholder {
   opacity: 0.4;
   color: #f6f6f6;
   font-weight: 500;
 }
 
-.pounce-85:-webkit-autofill {
+.pounce-92:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
   -webkit-text-fill-color: #f6f6f6;
   border-radius: 4px;
@@ -849,7 +829,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 
 <div>
   <div
-    class="pounce-73"
+    class="pounce-80"
   >
     <div
       class="pounce-5"
@@ -891,14 +871,14 @@ exports[`DateInput allows selecting a date with time options 1`] = `
       </div>
     </div>
     <div
-      class="pounce-101"
+      class="pounce-108"
     >
       <div
-        class="pounce-74"
+        class="pounce-13"
         style="transform: translate3d(0, -10px, 0); opacity: 0; pointer-events: none;"
       >
         <div
-          class="pounce-99"
+          class="pounce-106"
         >
           <div
             class="pounce-11"
@@ -944,10 +924,11 @@ exports[`DateInput allows selecting a date with time options 1`] = `
           </div>
           <div>
             <div
-              class="pounce-19"
+              class="pounce-26"
               role="row"
             >
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -958,6 +939,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -968,6 +950,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -978,6 +961,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -988,6 +972,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -998,6 +983,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -1008,6 +994,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -1020,53 +1007,53 @@ exports[`DateInput allows selecting a date with time options 1`] = `
             </div>
           </div>
           <div
-            class="pounce-68"
+            class="pounce-75"
           >
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="false"
                 aria-label="Su Nov 01 2020"
                 aria-selected="true"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 1
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 02 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 2
@@ -1075,7 +1062,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Tu Nov 03 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 3
@@ -1084,7 +1071,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="We Nov 04 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 4
@@ -1093,7 +1080,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Th Nov 05 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 5
@@ -1102,7 +1089,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Fr Nov 06 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 6
@@ -1111,7 +1098,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Sa Nov 07 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 7
@@ -1120,20 +1107,20 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Su Nov 08 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 8
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 09 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 9
@@ -1142,7 +1129,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Tu Nov 10 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 10
@@ -1151,7 +1138,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="We Nov 11 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 11
@@ -1160,7 +1147,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Th Nov 12 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 12
@@ -1169,7 +1156,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Fr Nov 13 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 13
@@ -1178,7 +1165,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Sa Nov 14 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 14
@@ -1187,20 +1174,20 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Su Nov 15 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 15
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 16 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 16
@@ -1209,7 +1196,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Tu Nov 17 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 17
@@ -1218,7 +1205,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="We Nov 18 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 18
@@ -1227,7 +1214,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Th Nov 19 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 19
@@ -1236,7 +1223,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Fr Nov 20 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 20
@@ -1245,7 +1232,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Sa Nov 21 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 21
@@ -1254,20 +1241,20 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Su Nov 22 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 22
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 23 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 23
@@ -1276,7 +1263,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Tu Nov 24 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 24
@@ -1285,7 +1272,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="We Nov 25 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 25
@@ -1294,7 +1281,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Th Nov 26 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 26
@@ -1303,7 +1290,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Fr Nov 27 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 27
@@ -1312,7 +1299,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Sa Nov 28 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 28
@@ -1321,68 +1308,68 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                 aria-disabled="false"
                 aria-label="Su Nov 29 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 29
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 30 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 30
               </div>
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
             </div>
           </div>
           <div
-            class="pounce-94"
+            class="pounce-101"
           >
             <div
-              class="pounce-93"
+              class="pounce-100"
             >
               <div
-                class="pounce-74"
+                class="pounce-13"
               >
                 <div
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-labelledby="downshift-0-label"
-                  class="pounce-73"
+                  class="pounce-80"
                   role="combobox"
                 >
                   <div
-                    class="pounce-73"
+                    class="pounce-80"
                   >
                     <div
                       aria-disabled="false"
@@ -1394,14 +1381,14 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                         aria-invalid="false"
                         aria-labelledby="downshift-0-label"
                         autocomplete="off"
-                        class="pounce-69"
+                        class="pounce-76"
                         id="downshift-0-input"
                         placeholder="01"
                         type="text"
                         value="01"
                       />
                       <label
-                        class="pounce-70"
+                        class="pounce-77"
                         for="downshift-0-input"
                         id="downshift-0-label"
                       >
@@ -1409,7 +1396,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       </label>
                     </div>
                     <svg
-                      class="pounce-72"
+                      class="pounce-79"
                       role="presentation"
                       viewBox="0 0 24 24"
                     >
@@ -1420,24 +1407,24 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                   </div>
                   <ul
                     aria-labelledby="downshift-0-label"
-                    class="pounce-74"
+                    class="pounce-13"
                     id="downshift-0-menu"
                     role="listbox"
                   />
                 </div>
               </div>
               <div
-                class="pounce-84"
+                class="pounce-91"
               >
                 <div
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-labelledby="downshift-1-label"
-                  class="pounce-73"
+                  class="pounce-80"
                   role="combobox"
                 >
                   <div
-                    class="pounce-73"
+                    class="pounce-80"
                   >
                     <div
                       aria-disabled="false"
@@ -1449,14 +1436,14 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                         aria-invalid="false"
                         aria-labelledby="downshift-1-label"
                         autocomplete="off"
-                        class="pounce-69"
+                        class="pounce-76"
                         id="downshift-1-input"
                         placeholder="02"
                         type="text"
                         value="02"
                       />
                       <label
-                        class="pounce-70"
+                        class="pounce-77"
                         for="downshift-1-input"
                         id="downshift-1-label"
                       >
@@ -1464,7 +1451,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       </label>
                     </div>
                     <svg
-                      class="pounce-72"
+                      class="pounce-79"
                       role="presentation"
                       viewBox="0 0 24 24"
                     >
@@ -1475,24 +1462,24 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                   </div>
                   <ul
                     aria-labelledby="downshift-1-label"
-                    class="pounce-74"
+                    class="pounce-13"
                     id="downshift-1-menu"
                     role="listbox"
                   />
                 </div>
               </div>
               <div
-                class="pounce-74"
+                class="pounce-13"
               >
                 <div
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-labelledby="downshift-2-label"
-                  class="pounce-73"
+                  class="pounce-80"
                   role="combobox"
                 >
                   <div
-                    class="pounce-73"
+                    class="pounce-80"
                   >
                     <div
                       aria-disabled="false"
@@ -1505,14 +1492,14 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                         aria-labelledby="downshift-2-label"
                         aria-readonly="true"
                         autocomplete="off"
-                        class="pounce-85"
+                        class="pounce-92"
                         id="downshift-2-input"
                         readonly=""
                         type="text"
                         value="AM"
                       />
                       <label
-                        class="pounce-70"
+                        class="pounce-77"
                         for="downshift-2-input"
                         id="downshift-2-label"
                       >
@@ -1520,7 +1507,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       </label>
                     </div>
                     <svg
-                      class="pounce-72"
+                      class="pounce-79"
                       role="presentation"
                       viewBox="0 0 24 24"
                     >
@@ -1531,7 +1518,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                   </div>
                   <ul
                     aria-labelledby="downshift-2-label"
-                    class="pounce-74"
+                    class="pounce-13"
                     id="downshift-2-menu"
                     role="listbox"
                   />
@@ -1540,19 +1527,19 @@ exports[`DateInput allows selecting a date with time options 1`] = `
             </div>
           </div>
           <div
-            class="pounce-94"
+            class="pounce-101"
           >
             <div
-              class="pounce-97"
+              class="pounce-104"
             >
               <button
-                class="pounce-95"
+                class="pounce-102"
                 type="button"
               >
                 Cancel
               </button>
               <button
-                class="pounce-96"
+                class="pounce-103"
                 type="button"
               >
                 Apply
@@ -1567,7 +1554,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 `;
 
 exports[`DateInput opens the month picker 1`] = `
-.pounce-76 {
+.pounce-83 {
   position: relative;
 }
 
@@ -1721,12 +1708,12 @@ exports[`DateInput opens the month picker 1`] = `
   right: 16px;
 }
 
-.pounce-75 {
+.pounce-82 {
   position: relative;
   z-index: 10;
 }
 
-.pounce-73 {
+.pounce-80 {
   background-color: #23344e;
   border-radius: 4px;
   position: absolute;
@@ -1797,7 +1784,7 @@ exports[`DateInput opens the month picker 1`] = `
   font-weight: 700;
 }
 
-.pounce-19 {
+.pounce-26 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1815,60 +1802,40 @@ exports[`DateInput opens the month picker 1`] = `
 }
 
 .pounce-12 {
-  font-size: 0.75rem;
-  font-weight: 700;
   -webkit-text-decoration: none;
   text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
 }
 
-.pounce-68 {
+.pounce-75 {
   display: table-row-group;
 }
 
-.pounce-27 {
+.pounce-34 {
   -webkit-display: table-row;
   display: table-row;
 }
 
-.pounce-20 {
+.pounce-27 {
   display: table-cell;
   padding: 8px;
-  vertical-align: middle;
   text-align: center;
+  border-radius: 99999px;
   cursor: pointer;
-  border-radius: 50%;
-  cursor: default;
-  pointer-events: none;
+  vertical-align: middle;
 }
 
-.pounce-20[aria-selected='true'],
-.pounce-20[aria-selected='true']:hover {
+.pounce-27[aria-selected=true],
+[data-selected]>.pounce-27 {
   background-color: #0081c5;
 }
 
-.pounce-20:hover {
-  background-color: #3e516b;
+.pounce-27:hover {
+  background-color: #11a5f3;
 }
 
-.pounce-26 {
-  display: table-cell;
-  padding: 8px;
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.pounce-26[aria-selected='true'],
-.pounce-26[aria-selected='true']:hover {
-  background-color: #0081c5;
-}
-
-.pounce-26:hover {
-  background-color: #3e516b;
-}
-
-.pounce-72 {
+.pounce-79 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1888,7 +1855,7 @@ exports[`DateInput opens the month picker 1`] = `
   margin-top: 20px;
 }
 
-.pounce-71 {
+.pounce-78 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1904,11 +1871,11 @@ exports[`DateInput opens the month picker 1`] = `
   padding-top: 12px;
 }
 
-.pounce-71>*:not(:last-child) {
+.pounce-78>*:not(:last-child) {
   margin-right: 12px;
 }
 
-.pounce-69 {
+.pounce-76 {
   cursor: pointer;
   color: #f6f6f6;
   -webkit-text-decoration: none;
@@ -1928,23 +1895,23 @@ exports[`DateInput opens the month picker 1`] = `
   border-color: #716f6f;
 }
 
-.pounce-69:hover {
+.pounce-76:hover {
   background-color: #7b7979;
   border-color: #7b7979;
 }
 
-.pounce-69:focus {
+.pounce-76:focus {
   background-color: #7b7979;
   border-color: #c6c4c4;
 }
 
-.pounce-69:active,
-.pounce-69[data-active=true] {
+.pounce-76:active,
+.pounce-76[data-active=true] {
   background-color: #676565;
   border-color: #676565;
 }
 
-.pounce-70 {
+.pounce-77 {
   cursor: pointer;
   color: #f6f6f6;
   -webkit-text-decoration: none;
@@ -1964,25 +1931,25 @@ exports[`DateInput opens the month picker 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-70:hover {
+.pounce-77:hover {
   background-color: #0a8bcf;
   border-color: #0a8bcf;
 }
 
-.pounce-70:focus {
+.pounce-77:focus {
   background-color: #0a8bcf;
   border-color: #55d6ff;
 }
 
-.pounce-70:active,
-.pounce-70[data-active=true] {
+.pounce-77:active,
+.pounce-77[data-active=true] {
   background-color: #0077bb;
   border-color: #0077bb;
 }
 
 <div>
   <div
-    class="pounce-76"
+    class="pounce-83"
   >
     <div
       class="pounce-5"
@@ -2024,14 +1991,14 @@ exports[`DateInput opens the month picker 1`] = `
       </div>
     </div>
     <div
-      class="pounce-75"
+      class="pounce-82"
     >
       <div
-        class="pounce-74"
+        class="pounce-13"
         style="transform: translate3d(0, -10px, 0); opacity: 0; pointer-events: none;"
       >
         <div
-          class="pounce-73"
+          class="pounce-80"
         >
           <div
             class="pounce-11"
@@ -2077,10 +2044,11 @@ exports[`DateInput opens the month picker 1`] = `
           </div>
           <div>
             <div
-              class="pounce-19"
+              class="pounce-26"
               role="row"
             >
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -2091,6 +2059,7 @@ exports[`DateInput opens the month picker 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -2101,6 +2070,7 @@ exports[`DateInput opens the month picker 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -2111,6 +2081,7 @@ exports[`DateInput opens the month picker 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -2121,6 +2092,7 @@ exports[`DateInput opens the month picker 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -2131,6 +2103,7 @@ exports[`DateInput opens the month picker 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -2141,6 +2114,7 @@ exports[`DateInput opens the month picker 1`] = `
                 </abbr>
               </div>
               <div
+                class="pounce-13"
                 role="columnheader"
               >
                 <abbr
@@ -2153,53 +2127,53 @@ exports[`DateInput opens the month picker 1`] = `
             </div>
           </div>
           <div
-            class="pounce-68"
+            class="pounce-75"
           >
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="false"
                 aria-label="Su Nov 01 2020"
                 aria-selected="true"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 1
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 02 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 2
@@ -2208,7 +2182,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Tu Nov 03 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 3
@@ -2217,7 +2191,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="We Nov 04 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 4
@@ -2226,7 +2200,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Th Nov 05 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 5
@@ -2235,7 +2209,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Fr Nov 06 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 6
@@ -2244,7 +2218,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Sa Nov 07 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 7
@@ -2253,20 +2227,20 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Su Nov 08 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 8
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 09 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 9
@@ -2275,7 +2249,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Tu Nov 10 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 10
@@ -2284,7 +2258,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="We Nov 11 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 11
@@ -2293,7 +2267,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Th Nov 12 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 12
@@ -2302,7 +2276,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Fr Nov 13 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 13
@@ -2311,7 +2285,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Sa Nov 14 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 14
@@ -2320,20 +2294,20 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Su Nov 15 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 15
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 16 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 16
@@ -2342,7 +2316,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Tu Nov 17 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 17
@@ -2351,7 +2325,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="We Nov 18 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 18
@@ -2360,7 +2334,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Th Nov 19 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 19
@@ -2369,7 +2343,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Fr Nov 20 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 20
@@ -2378,7 +2352,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Sa Nov 21 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 21
@@ -2387,20 +2361,20 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Su Nov 22 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 22
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 23 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 23
@@ -2409,7 +2383,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Tu Nov 24 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 24
@@ -2418,7 +2392,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="We Nov 25 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 25
@@ -2427,7 +2401,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Th Nov 26 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 26
@@ -2436,7 +2410,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Fr Nov 27 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 27
@@ -2445,7 +2419,7 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Sa Nov 28 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 28
@@ -2454,64 +2428,64 @@ exports[`DateInput opens the month picker 1`] = `
                 aria-disabled="false"
                 aria-label="Su Nov 29 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 29
               </div>
             </div>
             <div
-              class="pounce-27"
+              class="pounce-34"
             >
               <div
                 aria-disabled="false"
                 aria-label="Mo Nov 30 2020"
                 aria-selected="false"
-                class="pounce-26"
+                class="pounce-27"
                 role="gridcell"
               >
                 30
               </div>
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
               <div
                 aria-disabled="true"
-                class="pounce-20"
+                class="pounce-27"
               />
             </div>
           </div>
           <div
-            class="pounce-72"
+            class="pounce-79"
           >
             <div
-              class="pounce-71"
+              class="pounce-78"
             >
               <button
-                class="pounce-69"
+                class="pounce-76"
                 type="button"
               >
                 Cancel
               </button>
               <button
-                class="pounce-70"
+                class="pounce-77"
                 type="button"
               >
                 Apply

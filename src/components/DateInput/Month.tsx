@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import dayjs, { Dayjs } from 'dayjs';
 import { chunk } from 'lodash';
 import Flex from '../Flex';
+import Box from '../Box';
 import Day from './Day';
 import { noop } from '../../utils/helpers';
 export interface MonthProps {
@@ -11,20 +11,6 @@ export interface MonthProps {
   daySelected?: Dayjs;
   onDaySelect?: (date: Dayjs) => void;
 }
-
-const Abbr = styled.abbr`
-  font-size: ${({ theme }) => theme.fontSizes.small};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  text-decoration: none;
-`;
-
-const Body = styled.div`
-  display: table-row-group;
-`;
-
-const WeekRow = styled.div`
-  display: table-row;
-`;
 
 const DAYS = [
   { abbr: 'Mo', name: 'Monday' },
@@ -70,16 +56,24 @@ const Month: React.FC<MonthProps> = ({ year, month, daySelected, onDaySelect = n
           borderColor="navyblue-300"
         >
           {DAYS.map(day => (
-            <div role="columnheader" key={day.abbr}>
-              <Abbr title={day.name}>{day.abbr}</Abbr>
-            </div>
+            <Box role="columnheader" key={day.abbr}>
+              <Box
+                as="abbr"
+                textDecoration="none"
+                fontWeight="bold"
+                fontSize="small"
+                title={day.name}
+              >
+                {day.abbr}
+              </Box>
+            </Box>
           ))}
         </Flex>
       </div>
-      <Body>
+      <Box display="table-row-group">
         {weeks.map((week, monthIndex) => (
           // eslint-disable-next-line
-          <WeekRow key={`${year}-${month}-${monthIndex}-week`}>
+          <Box display="table-row" key={`${year}-${month}-${monthIndex}-week`}>
             {week.map((day, dayIndex) => (
               <Day
                 onDaySelect={onDaySelect}
@@ -93,9 +87,9 @@ const Month: React.FC<MonthProps> = ({ year, month, daySelected, onDaySelect = n
                 }
               />
             ))}
-          </WeekRow>
+          </Box>
         ))}
-      </Body>
+      </Box>
     </>
   );
 };
