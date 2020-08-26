@@ -194,7 +194,7 @@ function MultiCombobox<Item>({
             position: !value.length ? 'static' : 'absolute',
           }),
           ...(searchable && {
-            placeholder: isOpen || (value.length && allowAdditions) ? placeholder : '',
+            placeholder,
             mt: (isOpen && value.length) || (isOpen && value.length && allowAdditions) ? -4 : 0,
             position: isOpen || (isOpen && value.length && allowAdditions) ? 'static' : 'absolute',
           }),
@@ -211,14 +211,47 @@ function MultiCombobox<Item>({
 
             // Allow the user to add custom selections if both `searchable` and `allowAdditions`
             // have a truthy value
-            if (event.key === 'Enter' && searchable && allowAdditions && inputValue) {
+            const trimmedInputValue = (inputValue || '').trim();
+            if (
+              (event.key === 'Enter' || event.key === ',') &&
+              allowAdditions &&
+              trimmedInputValue
+            ) {
               event.preventDefault();
 
               // By default validateAddition always returns true. Can be overriden by the user
               // for fine-grained addition
-              if (validateAddition && validateAddition(inputValue)) {
+              if (validateAddition && validateAddition(trimmedInputValue)) {
                 selectItem((inputValue as unknown) as Item, { inputValue: '', isOpen: true });
               }
+            }
+          },
+          onBlur: () => {
+            const trimmedInputValue = (inputValue || '').trim();
+            if (allowAdditions && trimmedInputValue) {
+              selectItem((trimmedInputValue as unknown) as Item, { inputValue: '' });
+            }
+          },
+          onPaste: (e: React.ClipboardEvent<HTMLInputElement>) => {
+            // prevent it when we can only select values from the dropdown
+            if (!allowAdditions) {
+              return;
+            }
+
+            // Get clipboard data and split them based on newline and/or commas
+            const clipboardData = e.clipboardData.getData('Text');
+            const items = (clipboardData
+              .replace(/\r?\n/g, ',')
+              .split(',')
+              .map(str => str.trim()) as unknown) as Item[];
+
+            if (items.length > 1) {
+              // Prevent the text from actually being pasted to the underlying input
+              e.preventDefault();
+              e.stopPropagation();
+
+              // extend existing values with new ones
+              onChange([...value, ...items]);
             }
           },
         };
