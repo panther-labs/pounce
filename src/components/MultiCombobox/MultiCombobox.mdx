@@ -10,17 +10,30 @@ A MultiCombobox can be basic:
 
 ```typescript jsx
 const Example3 = () => {
-  const [selectedItems, updateSelectedItems] = React.useState([]);
+  const [selectedCar, updateSelectedCar] = React.useState([]);
+  const [selectedMoto, updateSelectedMoto] = React.useState([]);
   return (
-    <Box width={0.3}>
-      <MultiCombobox
-        label="Choose a car manufacturer"
-        items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
-        onChange={updateSelectedItems}
-        value={selectedItems}
-        placeholder="Select manufacturers"
-      />
-    </Box>
+    <>
+      <Box width={0.4} mr={4}>
+        <MultiCombobox
+          label="Choose a car manufacturer"
+          items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+          onChange={updateSelectedCar}
+          value={selectedCar}
+          placeholder="Select manufacturers"
+        />
+      </Box>
+      <Box width={0.5}>
+        <MultiCombobox
+          label="Choose a car manufacturer"
+          hideLabel
+          placeholder="Choose a motorcycle manufacturer"
+          items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
+          onChange={updateSelectedMoto}
+          value={selectedMoto}
+        />
+      </Box>
+    </>
   );
 };
 

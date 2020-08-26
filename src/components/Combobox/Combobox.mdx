@@ -10,17 +10,30 @@ A Combobox can be basic:
 
 ```typescript jsx
 const Example1 = () => {
-  const [selectedItems, updateSelectedItems] = React.useState(null);
+  const [selectedCar, updateSelectedCar] = React.useState(null);
+  const [selectedMoto, updateSelectedMoto] = React.useState(null);
   return (
-    <Box width={0.3}>
-      <Combobox
-        label="Choose a car manufacturer"
-        items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
-        onChange={updateSelectedItems}
-        value={selectedItems}
-        placeholder="Select a manufacturer"
-      />
-    </Box>
+    <>
+      <Box width={0.4} mr={4}>
+        <Combobox
+          label="Choose a car manufacturer"
+          items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+          onChange={updateSelectedCar}
+          value={selectedCar}
+          placeholder="Select a manufacturer"
+        />
+      </Box>
+      <Box width={0.5}>
+        <Combobox
+          label="Choose a moto manufacturer"
+          hideLabel
+          placeholder="Choose a motorcycle manufacturer"
+          items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
+          onChange={updateSelectedMoto}
+          value={selectedMoto}
+        />
+      </Box>
+    </>
   );
 };
 

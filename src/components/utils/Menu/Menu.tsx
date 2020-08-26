@@ -19,7 +19,6 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
     leave: { transform: 'scale(0.9, 0.9)', opacity: 0 },
     config: { duration: 150 },
   });
-
   return (
     <React.Fragment>
       {transitions.map(({ item, key, props: styles }) =>

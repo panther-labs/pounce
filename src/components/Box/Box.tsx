@@ -7,6 +7,7 @@ import {
   SystemProps,
   truncateProp,
   pseudoProps,
+  visuallyHiddenProp,
 } from '../../system';
 import { __DEV__ } from '../../utils/helpers';
 
@@ -30,6 +31,7 @@ const Box = styled('div', {
   ${pseudoProps}
   ${sxProp}
   ${truncateProp}
+  ${visuallyHiddenProp}
 `;
 
 export default Box as React.FC<BoxProps>;
