@@ -187,7 +187,8 @@ export const pseudoProps = ({ theme, ...props }: any) => {
   let result = {};
   for (const prop in props) {
     if (prop in pseudoSelectors) {
-      const style = css({ [prop]: props[prop] })(theme);
+      const pseudoProp = prop as keyof PseudoSelectors;
+      const style = css({ [pseudoSelectors[pseudoProp]]: props[pseudoProp] })(theme);
       result = { ...result, ...style };
     }
   }
