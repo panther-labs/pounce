@@ -1,8 +1,8 @@
 import React from 'react';
 import Icon, { IconProps } from '../Icon';
 import useIconButtonStyles from './useIconButtonStyles';
-import { BoxProps, NativeAttributes } from '../Box';
-import AbstractButton from '../AbstractButton';
+import Box, { BoxProps, NativeAttributes } from '../Box';
+import { defaultButtonStyles } from '../AbstractButton';
 
 export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size of the icon button */
@@ -47,15 +47,16 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(f
   const styles = useIconButtonStyles({ variantColor, variant, size });
 
   return (
-    <AbstractButton
+    <Box
       aria-pressed={active !== undefined ? active : undefined}
       data-active={active || undefined}
+      {...defaultButtonStyles}
       {...styles}
       {...rest}
       ref={ref}
     >
       <Icon type={icon} size="small" display="block" />
-    </AbstractButton>
+    </Box>
   );
 });
 

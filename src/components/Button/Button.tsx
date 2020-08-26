@@ -1,6 +1,6 @@
 import * as React from 'react';
-import AbstractButton from '../AbstractButton';
-import { BoxProps, NativeAttributes } from '../Box';
+import { defaultButtonStyles } from '../AbstractButton';
+import Box, { BoxProps, NativeAttributes } from '../Box';
 import useButtonStyles from './useButtonStyles';
 import Spinner from '../Spinner';
 import Icon, { IconProps } from '../Icon';
@@ -66,10 +66,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
   const styles = useButtonStyles({ variantColor, variant, size });
 
   return (
-    <AbstractButton
+    <Box
       aria-pressed={active !== undefined ? active : undefined}
       data-active={active || undefined}
       width={fullWidth ? '100%' : 'auto'}
+      {...defaultButtonStyles}
       {...styles}
       {...rest}
       ref={ref}
@@ -82,7 +83,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
       {icon && iconAlignment === 'right' && !loading && (
         <Icon size="small" mr={-1} ml={3} type={icon} />
       )}
-    </AbstractButton>
+    </Box>
   );
 });
 

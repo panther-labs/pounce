@@ -10,8 +10,9 @@ export type TextProps = BoxProps<'p'>;
  * heading or a title, this component is what you need.
  *
  * */
-const Text: React.FC<TextProps> = React.forwardRef(function Text(props, ref) {
-  return <Box ref={ref} as="p" {...props} />;
-});
+const Text: React.FC<TextProps> = Box;
+
+// The component should render a `paragragh` HTML tag by default
+Text.defaultProps = { as: 'p' };
 
 export default Text;

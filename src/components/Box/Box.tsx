@@ -8,6 +8,7 @@ import {
   truncateProp,
   pseudoProps,
 } from '../../system';
+import { __DEV__ } from '../../utils/helpers';
 
 export type NativeAttributes<El extends React.ElementType> = Omit<
   React.ComponentPropsWithRef<El>,
@@ -32,3 +33,7 @@ const Box = styled('div', {
 `;
 
 export default Box as React.FC<BoxProps>;
+
+if (__DEV__) {
+  Box.displayName = 'Box';
+}

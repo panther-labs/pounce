@@ -10,7 +10,7 @@ export interface FormHelperTextProps extends TextProps {
  *
  * A utility component that quickly allows you to add helpful messages to form fields
  * */
-const FormHelperText: React.FC<FormHelperTextProps> = ({ ...props }) => (
+const FormHelperText: React.FC<FormHelperTextProps> = props => (
   <Text fontSize="small" color="gray-300" {...props} />
 );
 
