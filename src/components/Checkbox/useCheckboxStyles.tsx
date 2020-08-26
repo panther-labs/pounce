@@ -1,12 +1,12 @@
 import React from 'react';
-import { PseudoBoxProps } from '../PseudoBox';
+import { BoxProps } from '../Box';
 import { addOpacity } from '../../utils/helpers';
 import { CheckboxProps } from './Checkbox';
 import useTheme from '../../utils/useTheme';
 
 type UseCheckboxStyles = Pick<CheckboxProps, 'invalid' | 'checked'>;
 
-const useCheckboxStyles = ({ invalid, checked }: UseCheckboxStyles): PseudoBoxProps => {
+const useCheckboxStyles = ({ invalid, checked }: UseCheckboxStyles): BoxProps => {
   const theme = useTheme();
 
   return React.useMemo(

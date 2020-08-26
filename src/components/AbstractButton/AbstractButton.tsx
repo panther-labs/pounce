@@ -1,7 +1,7 @@
 import React from 'react';
-import PseudoBox, { PseudoBoxProps } from '../PseudoBox';
+import Box, { BoxProps } from '../Box';
 
-export type AbstractButtonProps = PseudoBoxProps;
+export type AbstractButtonProps = BoxProps;
 
 const abstractButtonStyle = {
   type: 'button',
@@ -14,7 +14,7 @@ const abstractButtonStyle = {
 
 export const AbstractButton = React.forwardRef<HTMLButtonElement, AbstractButtonProps>(
   function AbstractButton(props, ref) {
-    return <PseudoBox as="button" ref={ref} {...abstractButtonStyle} {...props} />;
+    return <Box as="button" ref={ref} {...abstractButtonStyle} {...props} />;
   }
 );
 

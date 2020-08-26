@@ -28,17 +28,17 @@ exports[`Flex works along with Box 1`] = `
 }
 
 .pounce-0 {
+  width: 200px;
   padding-top: 9px;
   padding-bottom: 9px;
   background-color: blue-400;
-  width: 200px;
 }
 
 .pounce-1 {
+  width: 300px;
   padding-top: 32px;
   padding-bottom: 32px;
   background-color: red-300;
-  width: 300px;
 }
 
 <div>

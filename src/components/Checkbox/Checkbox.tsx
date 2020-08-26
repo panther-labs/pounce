@@ -1,6 +1,5 @@
 import React from 'react';
 import Box, { NativeAttributes } from '../Box';
-import PseudoBox from '../PseudoBox';
 import useCheckboxStyles from './useCheckboxStyles';
 
 export type CheckboxProps = NativeAttributes<'input'> & {
@@ -30,7 +29,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
   }
 
   return (
-    <PseudoBox
+    <Box
       as="label"
       display="inline-flex"
       alignItems="center"
@@ -42,7 +41,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
       hidden={hidden}
       aria-hidden={hidden}
     >
-      <PseudoBox position="relative" borderRadius="circle" p={2} {...checkboxStyles}>
+      <Box position="relative" borderRadius="circle" p={2} {...checkboxStyles}>
         <Box
           ref={ref}
           as="input"
@@ -58,13 +57,13 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
           disabled={disabled}
           {...rest}
         />
-      </PseudoBox>
+      </Box>
       {label && (
         <Box as="span" userSelect="none">
           {label}
         </Box>
       )}
-    </PseudoBox>
+    </Box>
   );
 });
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import Box, { NativeAttributes } from '../Box';
-import PseudoBox from '../PseudoBox';
 import useRadioStyles from './useRadioStyles';
 
 export type RadioProps = NativeAttributes<'input'> & {
@@ -25,7 +24,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
   const radioStyles = useRadioStyles({ invalid, checked });
 
   return (
-    <PseudoBox
+    <Box
       as="label"
       display="inline-flex"
       alignItems="center"
@@ -37,7 +36,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
       aria-hidden={hidden}
       hidden={hidden}
     >
-      <PseudoBox position="relative" borderRadius="circle" p={2} {...radioStyles}>
+      <Box position="relative" borderRadius="circle" p={2} {...radioStyles}>
         <Box
           ref={ref}
           as="input"
@@ -53,13 +52,13 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
           disabled={disabled}
           {...rest}
         />
-      </PseudoBox>
+      </Box>
       {label && (
         <Box as="span" userSelect="none">
           {label}
         </Box>
       )}
-    </PseudoBox>
+    </Box>
   );
 });
 
