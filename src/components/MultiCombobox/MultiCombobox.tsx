@@ -19,7 +19,7 @@ export type MultiComboboxProps<T> = {
   label: string;
 
   /** Whether the label should get visually hidden */
-  labelHidden?: boolean;
+  hideLabel?: boolean;
 
   /** A list of entries that the dropdown will have as options */
   items: T[];
@@ -118,7 +118,7 @@ function MultiCombobox<Item>({
   disableItem = () => false,
   searchable = false,
   label = '',
-  labelHidden,
+  hideLabel,
   disabled = false,
   placeholder = '',
   itemToString = item => String(item),
@@ -140,7 +140,7 @@ function MultiCombobox<Item>({
     }
   };
 
-  const itemsPt = labelHidden ? 3 : '19px';
+  const itemsPt = hideLabel ? 3 : '19px';
   return (
     <Downshift<Item>
       stateReducer={stateReducer}
@@ -249,14 +249,10 @@ function MultiCombobox<Item>({
                 <InputElement
                   as="input"
                   type="text"
-                  standalone={labelHidden}
+                  standalone={hideLabel}
                   {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
                 />
-                <InputLabel
-                  visuallyHidden={labelHidden}
-                  raised={!!value.length}
-                  {...getLabelProps()}
-                >
+                <InputLabel visuallyHidden={hideLabel} raised={!!value.length} {...getLabelProps()}>
                   {label}
                 </InputLabel>
               </InputControl>

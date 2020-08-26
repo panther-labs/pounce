@@ -20,7 +20,7 @@ export type ComboboxProps<T> = {
   label: string;
 
   /** Whether the label should get visually hidden */
-  labelHidden?: boolean;
+  hideLabel?: boolean;
 
   /**
    * A function that converts the an item to a string. This is the value that the dropdown will
@@ -79,7 +79,7 @@ function Combobox<Item>({
   items,
   searchable = false,
   label = '',
-  labelHidden,
+  hideLabel,
   disabled = false,
   disableItem = () => false,
   itemToString = item => String(item),
@@ -182,16 +182,12 @@ function Combobox<Item>({
                   as="input"
                   type="text"
                   truncated
-                  standalone={labelHidden}
+                  standalone={hideLabel}
                   pr={8} /* account for absolute position of caret */
                   {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
                 />
 
-                <InputLabel
-                  visuallyHidden={labelHidden}
-                  raised={value != null}
-                  {...getLabelProps()}
-                >
+                <InputLabel visuallyHidden={hideLabel} raised={value != null} {...getLabelProps()}>
                   {label}
                 </InputLabel>
               </InputControl>
