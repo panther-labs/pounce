@@ -10,9 +10,6 @@ exports[`Tabs renders 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-}
-
-.pounce-0 {
   cursor: pointer;
   color: gray-50;
   -webkit-text-decoration: none;
@@ -20,11 +17,28 @@ exports[`Tabs renders 1`] = `
   background-color: transparent;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
+}
+
+.pounce-0 {
   z-index: 1;
+  cursor: pointer;
+  color: gray-50;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .pounce-3 {
   outline: none;
+  cursor: pointer;
+  color: gray-50;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 <div>
@@ -32,11 +46,12 @@ exports[`Tabs renders 1`] = `
     data-orientation="horizontal"
     data-reach-tabs=""
   >
-    <div
+    <button
       aria-orientation="horizontal"
       class="pounce-2"
       data-reach-tab-list=""
       role="tablist"
+      type="button"
     >
       <button
         aria-controls="tabs--1--panel--0"
@@ -48,6 +63,7 @@ exports[`Tabs renders 1`] = `
         id="tabs--1--tab--0"
         role="tab"
         tabindex="0"
+        type="button"
       >
         1
       </button>
@@ -60,10 +76,11 @@ exports[`Tabs renders 1`] = `
         id="tabs--1--tab--1"
         role="tab"
         tabindex="-1"
+        type="button"
       >
         2
       </button>
-    </div>
+    </button>
     <div
       data-reach-tab-panels=""
     >
@@ -74,6 +91,7 @@ exports[`Tabs renders 1`] = `
         id="tabs--1--panel--0"
         role="tabpanel"
         tabindex="-1"
+        type="button"
       >
         One
       </div>
@@ -85,6 +103,7 @@ exports[`Tabs renders 1`] = `
         id="tabs--1--panel--1"
         role="tabpanel"
         tabindex="-1"
+        type="button"
       >
         Two
       </div>

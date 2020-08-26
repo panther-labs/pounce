@@ -116,7 +116,6 @@ exports[`renders 1`] = `
 .pounce-1 {
   pointer-events: none;
   font-size: 0.875rem;
-  opacity: 1;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
@@ -274,7 +273,6 @@ exports[`renders with disabled option 1`] = `
 .pounce-1 {
   pointer-events: none;
   font-size: 0.875rem;
-  opacity: 1;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
@@ -362,7 +360,6 @@ exports[`renders with icons 1`] = `
 .pounce-1 {
   pointer-events: none;
   font-size: 0.875rem;
-  opacity: 1;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
@@ -669,7 +666,6 @@ exports[`renders with invalid option 1`] = `
 .pounce-1 {
   pointer-events: none;
   font-size: 0.875rem;
-  opacity: 1;
   padding-left: 16px;
   padding-right: 16px;
   color: #d64242;
@@ -827,7 +823,6 @@ exports[`renders with required option 1`] = `
 .pounce-1 {
   pointer-events: none;
   font-size: 0.875rem;
-  opacity: 1;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
