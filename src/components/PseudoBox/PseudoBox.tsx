@@ -1,5 +1,6 @@
 import React from 'react';
-import Box, { BoxProps, SystemProps } from '../Box';
+import Box, { BoxProps } from '../Box';
+import { SystemProps } from '../../system';
 
 export interface PseudoBoxProps extends BoxProps {
   /**
