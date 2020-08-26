@@ -9,7 +9,7 @@ exports[`Box allows styling on demand 1`] = `
 
 <div>
   <div
-    class="pounce-0 pounce-1"
+    class="pounce-0"
   />
 </div>
 `;
@@ -23,7 +23,7 @@ exports[`Box allows truncated values 1`] = `
 
 <div>
   <div
-    class="pounce-0 pounce-1"
+    class="pounce-0"
   />
 </div>
 `;
@@ -31,7 +31,7 @@ exports[`Box allows truncated values 1`] = `
 exports[`Box renders 1`] = `
 <div>
   <div
-    class="pounce-0 pounce-1"
+    class="pounce-0"
   />
 </div>
 `;

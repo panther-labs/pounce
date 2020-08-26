@@ -10,13 +10,13 @@ exports[`Flex renders 1`] = `
 
 <div>
   <div
-    class="pounce-0 pounce-1"
+    class="pounce-0"
   />
 </div>
 `;
 
 exports[`Flex works along with Box 1`] = `
-.pounce-4 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34,7 +34,7 @@ exports[`Flex works along with Box 1`] = `
   width: 200px;
 }
 
-.pounce-2 {
+.pounce-1 {
   padding-top: 32px;
   padding-bottom: 32px;
   background-color: red-300;
@@ -43,15 +43,15 @@ exports[`Flex works along with Box 1`] = `
 
 <div>
   <div
-    class="pounce-4 pounce-1"
+    class="pounce-2"
   >
     <div
-      class="pounce-0 pounce-1"
+      class="pounce-0"
     >
       Test
     </div>
     <div
-      class="pounce-2 pounce-1"
+      class="pounce-1"
     >
       Test
     </div>

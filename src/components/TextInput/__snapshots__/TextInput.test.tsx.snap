@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders 1`] = `
-.pounce-6 {
+.pounce-3 {
   background-color: transparent;
   min-height: 47px;
   border: 1px solid;
@@ -12,26 +12,26 @@ exports[`renders 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-6:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-6:disabled,
-.pounce-6:disabled:focus,
-.pounce-6:disabled:hover,
-.pounce-6[aria-disabled=true],
-.pounce-6[aria-disabled=true]:focus,
-.pounce-6[aria-disabled=true]:hover {
+.pounce-3:disabled,
+.pounce-3:disabled:focus,
+.pounce-3:disabled:hover,
+.pounce-3[aria-disabled=true],
+.pounce-3[aria-disabled=true]:focus,
+.pounce-3[aria-disabled=true]:hover {
   opacity: 0.3;
   pointer-events: none;
   cursor: default;
 }
 
-.pounce-6:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -39,7 +39,7 @@ exports[`renders 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-4 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -131,7 +131,7 @@ exports[`renders 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-2 {
+.pounce-1 {
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
@@ -152,20 +152,20 @@ exports[`renders 1`] = `
 
 <div>
   <div
-    class="pounce-6 pounce-1"
+    class="pounce-3"
   >
     <div
-      class="pounce-4 pounce-1"
+      class="pounce-2"
     >
       <input
         aria-invalid="false"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         id="text-input"
         type="text"
         value=""
       />
       <label
-        class="pounce-2 pounce-1"
+        class="pounce-1"
         for="text-input"
       >
         Text input
@@ -176,7 +176,7 @@ exports[`renders 1`] = `
 `;
 
 exports[`renders with disabled option 1`] = `
-.pounce-6 {
+.pounce-3 {
   background-color: transparent;
   min-height: 47px;
   border: 1px solid;
@@ -187,26 +187,26 @@ exports[`renders with disabled option 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-6:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-6:disabled,
-.pounce-6:disabled:focus,
-.pounce-6:disabled:hover,
-.pounce-6[aria-disabled=true],
-.pounce-6[aria-disabled=true]:focus,
-.pounce-6[aria-disabled=true]:hover {
+.pounce-3:disabled,
+.pounce-3:disabled:focus,
+.pounce-3:disabled:hover,
+.pounce-3[aria-disabled=true],
+.pounce-3[aria-disabled=true]:focus,
+.pounce-3[aria-disabled=true]:hover {
   opacity: 0.3;
   pointer-events: none;
   cursor: default;
 }
 
-.pounce-6:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -214,7 +214,7 @@ exports[`renders with disabled option 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-4 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -306,7 +306,7 @@ exports[`renders with disabled option 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-2 {
+.pounce-1 {
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
@@ -328,22 +328,22 @@ exports[`renders with disabled option 1`] = `
 <div>
   <div
     aria-disabled="true"
-    class="pounce-6 pounce-1"
+    class="pounce-3"
   >
     <div
-      class="pounce-4 pounce-1"
+      class="pounce-2"
     >
       <input
         aria-disabled="true"
         aria-invalid="false"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         disabled=""
         id="text-input-disabled"
         type="text"
         value=""
       />
       <label
-        class="pounce-2 pounce-1"
+        class="pounce-1"
         for="text-input-disabled"
       >
         Text input disabled
@@ -354,7 +354,7 @@ exports[`renders with disabled option 1`] = `
 `;
 
 exports[`renders with icons 1`] = `
-.pounce-8 {
+.pounce-4 {
   background-color: transparent;
   min-height: 47px;
   border: 1px solid;
@@ -365,26 +365,26 @@ exports[`renders with icons 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-8:hover {
+.pounce-4:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:disabled,
-.pounce-8:disabled:focus,
-.pounce-8:disabled:hover,
-.pounce-8[aria-disabled=true],
-.pounce-8[aria-disabled=true]:focus,
-.pounce-8[aria-disabled=true]:hover {
+.pounce-4:disabled,
+.pounce-4:disabled:focus,
+.pounce-4:disabled:hover,
+.pounce-4[aria-disabled=true],
+.pounce-4[aria-disabled=true]:focus,
+.pounce-4[aria-disabled=true]:hover {
   opacity: 0.3;
   pointer-events: none;
   cursor: default;
 }
 
-.pounce-8:focus-within {
+.pounce-4:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-4:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -392,7 +392,7 @@ exports[`renders with icons 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-6 {
+.pounce-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -404,7 +404,7 @@ exports[`renders with icons 1`] = `
   align-items: center;
 }
 
-.pounce-2 {
+.pounce-1 {
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
@@ -504,7 +504,7 @@ exports[`renders with icons 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-4 {
+.pounce-2 {
   color: currentColor;
   display: inline-block;
   vertical-align: sub;
@@ -520,26 +520,26 @@ exports[`renders with icons 1`] = `
 
 <div>
   <div
-    class="pounce-8 pounce-1"
+    class="pounce-4"
   >
     <div
-      class="pounce-6 pounce-1"
+      class="pounce-3"
     >
       <input
         aria-invalid="false"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         id="text-input-wrench"
         type="text"
         value=""
       />
       <label
-        class="pounce-2 pounce-1"
+        class="pounce-1"
         for="text-input-wrench"
       >
         Text input wrench
       </label>
       <svg
-        class="pounce-4 pounce-1"
+        class="pounce-2"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -550,26 +550,26 @@ exports[`renders with icons 1`] = `
     </div>
   </div>
   <div
-    class="pounce-8 pounce-1"
+    class="pounce-4"
   >
     <div
-      class="pounce-6 pounce-1"
+      class="pounce-3"
     >
       <input
         aria-invalid="false"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         id="text-input-calendar"
         type="text"
         value=""
       />
       <label
-        class="pounce-2 pounce-1"
+        class="pounce-1"
         for="text-input-calendar"
       >
         Text input calendar
       </label>
       <svg
-        class="pounce-4 pounce-1"
+        class="pounce-2"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -580,26 +580,26 @@ exports[`renders with icons 1`] = `
     </div>
   </div>
   <div
-    class="pounce-8 pounce-1"
+    class="pounce-4"
   >
     <div
-      class="pounce-6 pounce-1"
+      class="pounce-3"
     >
       <input
         aria-invalid="false"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         id="text-input-caret"
         type="text"
         value=""
       />
       <label
-        class="pounce-2 pounce-1"
+        class="pounce-1"
         for="text-input-caret"
       >
         Text input caret
       </label>
       <svg
-        class="pounce-4 pounce-1"
+        class="pounce-2"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -613,7 +613,7 @@ exports[`renders with icons 1`] = `
 `;
 
 exports[`renders with invalid option 1`] = `
-.pounce-4 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -705,7 +705,7 @@ exports[`renders with invalid option 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-6 {
+.pounce-3 {
   background-color: transparent;
   min-height: 47px;
   border: 1px solid;
@@ -716,18 +716,18 @@ exports[`renders with invalid option 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-6:disabled,
-.pounce-6:disabled:focus,
-.pounce-6:disabled:hover,
-.pounce-6[aria-disabled=true],
-.pounce-6[aria-disabled=true]:focus,
-.pounce-6[aria-disabled=true]:hover {
+.pounce-3:disabled,
+.pounce-3:disabled:focus,
+.pounce-3:disabled:hover,
+.pounce-3[aria-disabled=true],
+.pounce-3[aria-disabled=true]:focus,
+.pounce-3[aria-disabled=true]:hover {
   opacity: 0.3;
   pointer-events: none;
   cursor: default;
 }
 
-.pounce-6:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -735,7 +735,7 @@ exports[`renders with invalid option 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-2 {
+.pounce-1 {
   padding-left: 16px;
   padding-right: 16px;
   color: #d64242;
@@ -756,20 +756,20 @@ exports[`renders with invalid option 1`] = `
 
 <div>
   <div
-    class="pounce-6 pounce-1"
+    class="pounce-3"
   >
     <div
-      class="pounce-4 pounce-1"
+      class="pounce-2"
     >
       <input
         aria-invalid="true"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         id="text-input-invalid"
         type="text"
         value=""
       />
       <label
-        class="pounce-2 pounce-1"
+        class="pounce-1"
         for="text-input-invalid"
       >
         Text input invalid
@@ -780,7 +780,7 @@ exports[`renders with invalid option 1`] = `
 `;
 
 exports[`renders with required option 1`] = `
-.pounce-6 {
+.pounce-3 {
   background-color: transparent;
   min-height: 47px;
   border: 1px solid;
@@ -791,26 +791,26 @@ exports[`renders with required option 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-6:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-6:disabled,
-.pounce-6:disabled:focus,
-.pounce-6:disabled:hover,
-.pounce-6[aria-disabled=true],
-.pounce-6[aria-disabled=true]:focus,
-.pounce-6[aria-disabled=true]:hover {
+.pounce-3:disabled,
+.pounce-3:disabled:focus,
+.pounce-3:disabled:hover,
+.pounce-3[aria-disabled=true],
+.pounce-3[aria-disabled=true]:focus,
+.pounce-3[aria-disabled=true]:hover {
   opacity: 0.3;
   pointer-events: none;
   cursor: default;
 }
 
-.pounce-6:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -818,7 +818,7 @@ exports[`renders with required option 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-4 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -910,7 +910,7 @@ exports[`renders with required option 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
 
-.pounce-2 {
+.pounce-1 {
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;
@@ -931,22 +931,22 @@ exports[`renders with required option 1`] = `
 
 <div>
   <div
-    class="pounce-6 pounce-1"
+    class="pounce-3"
   >
     <div
-      class="pounce-4 pounce-1"
+      class="pounce-2"
     >
       <input
         aria-invalid="false"
         aria-required="true"
-        class="pounce-0 pounce-1"
+        class="pounce-0"
         id="text-input-required"
         required=""
         type="text"
         value=""
       />
       <label
-        class="pounce-2 pounce-1"
+        class="pounce-1"
         for="text-input-required"
       >
         Text input required
