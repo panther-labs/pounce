@@ -118,6 +118,7 @@ function MultiCombobox<Item>({
   disableItem = () => false,
   searchable = false,
   label = '',
+  labelHidden,
   disabled = false,
   placeholder = '',
   itemToString = item => String(item),
@@ -139,6 +140,7 @@ function MultiCombobox<Item>({
     }
   };
 
+  const itemsPt = labelHidden ? 3 : '19px';
   return (
     <Downshift<Item>
       stateReducer={stateReducer}
@@ -231,7 +233,7 @@ function MultiCombobox<Item>({
                 hidden={hidden}
               >
                 {value.length > 0 && (
-                  <Flex as="ul" wrap="wrap" pl={3} pr={10} pt="19px" pb="2px">
+                  <Flex as="ul" wrap="wrap" pl={3} pr={10} pt={itemsPt} pb="2px">
                     {value.map(selectedItem => (
                       <Tag
                         as="li"
@@ -247,9 +249,14 @@ function MultiCombobox<Item>({
                 <InputElement
                   as="input"
                   type="text"
+                  standalone={labelHidden}
                   {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
                 />
-                <InputLabel raised={!!value.length} {...getLabelProps()}>
+                <InputLabel
+                  visuallyHidden={labelHidden}
+                  raised={!!value.length}
+                  {...getLabelProps()}
+                >
                   {label}
                 </InputLabel>
               </InputControl>
