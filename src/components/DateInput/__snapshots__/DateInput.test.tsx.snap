@@ -10,29 +10,18 @@ exports[`DateInput allows passing a custom format 1`] = `
 }
 
 .pounce-4 {
-  background-color: transparent;
   min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #3e516b;
   position: relative;
+  border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
 }
 
 .pounce-4:hover {
   border-color: #0081c5;
-}
-
-.pounce-4:disabled,
-.pounce-4:disabled:focus,
-.pounce-4:disabled:hover,
-.pounce-4[aria-disabled=true],
-.pounce-4[aria-disabled=true]:focus,
-.pounce-4[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
 }
 
 .pounce-4:focus-within {
@@ -52,31 +41,63 @@ exports[`DateInput allows passing a custom format 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
   padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  border: 0;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -95,62 +116,21 @@ exports[`DateInput allows passing a custom format 1`] = `
   opacity: 0.4;
 }
 
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
   -webkit-text-fill-color: #f6f6f6;
   border-radius: 4px;
 }
 
-.pounce-0::-webkit-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0::-moz-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0:-ms-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0::placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 500;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -158,20 +138,21 @@ exports[`DateInput allows passing a custom format 1`] = `
   transform: translate(6px, 4px) scale(0.65);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-2 {
-  color: currentColor;
   display: inline-block;
   vertical-align: sub;
-  width: 20px;
-  height: 20px;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
 }
 
 <div>
@@ -222,24 +203,6 @@ exports[`DateInput allows passing a custom format 1`] = `
 `;
 
 exports[`DateInput allows selecting a date with time options 1`] = `
-@keyframes animation-0 {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 25px, 0);
-    -moz-transform: translate3d(0, 25px, 0);
-    -ms-transform: translate3d(0, 25px, 0);
-    transform: translate3d(0, 25px, 0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 .pounce-73 {
   position: relative;
 }
@@ -249,29 +212,18 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 }
 
 .pounce-4 {
-  background-color: transparent;
   min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #3e516b;
   position: relative;
+  border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
 }
 
 .pounce-4:hover {
   border-color: #0081c5;
-}
-
-.pounce-4:disabled,
-.pounce-4:disabled:focus,
-.pounce-4:disabled:hover,
-.pounce-4[aria-disabled=true],
-.pounce-4[aria-disabled=true]:focus,
-.pounce-4[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
 }
 
 .pounce-4:focus-within {
@@ -291,31 +243,63 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
   padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  border: 0;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -334,62 +318,21 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   opacity: 0.4;
 }
 
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
   -webkit-text-fill-color: #f6f6f6;
   border-radius: 4px;
 }
 
-.pounce-0::-webkit-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0::-moz-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0:-ms-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0::placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 500;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -397,40 +340,38 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   transform: translate(6px, 4px) scale(0.65);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-2 {
-  color: currentColor;
   display: inline-block;
   vertical-align: sub;
-  width: 20px;
-  height: 20px;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
 }
 
 .pounce-101 {
-  will-change: opacity,transform;
-  -webkit-animation: animation-0 300ms 0ms ease-in-out both;
-  animation: animation-0 300ms 0ms ease-in-out both;
+  position: relative;
+  z-index: 10;
 }
 
 .pounce-99 {
-  margin-top: 16px;
-  padding: 24px;
   background-color: #23344e;
   border-radius: 4px;
   position: absolute;
+  margin-top: 16px;
   top: 0;
-  z-index: 100;
+  padding: 24px;
 }
 
 .pounce-11 {
-  margin-bottom: 16px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -442,21 +383,22 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin-bottom: 16px;
 }
 
 .pounce-7 {
-  padding: 4px;
+  cursor: pointer;
   color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   background-color: #0081c5;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  padding: 4px;
+  outline: none;
   border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  outline: none;
 }
 
 .pounce-7:hover {
@@ -475,26 +417,15 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   border-color: #0077bb;
 }
 
-.pounce-7:disabled,
-.pounce-7:disabled:focus,
-.pounce-7:disabled:hover,
-.pounce-7[aria-disabled=true],
-.pounce-7[aria-disabled=true]:focus,
-.pounce-7[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-6 {
-  color: currentColor;
   display: block;
   vertical-align: sub;
-  width: 20px;
-  height: 20px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
 }
 
 .pounce-8 {
@@ -503,20 +434,20 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 }
 
 .pounce-19 {
-  margin-bottom: 8px;
-  padding-top: 8px;
-  padding-bottom: 8px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  border-color: #3e516b;
   -webkit-box-pack: space-around;
   -ms-flex-pack: space-around;
   -webkit-justify-content: space-around;
   justify-content: space-around;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #3e516b;
 }
 
 .pounce-12 {
@@ -574,27 +505,26 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 }
 
 .pounce-94 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid;
+  border-color: #3e516b;
   margin-left: -24px;
   margin-right: -24px;
   margin-top: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border-top: 1px solid;
-  border-color: #3e516b;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .pounce-97 {
-  padding-top: 12px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -607,6 +537,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  padding-top: 12px;
 }
 
 .pounce-97>*:not(:last-child) {
@@ -614,23 +545,23 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 }
 
 .pounce-95 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #716f6f;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  width: auto;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: #716f6f;
-  width: auto;
+  font-size: 0.938rem;
+  outline: none;
   border-radius: 4px;
   border: 1px solid;
   border-color: #716f6f;
-  font-size: 0.938rem;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  outline: none;
 }
 
 .pounce-95:hover {
@@ -649,35 +580,24 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   border-color: #676565;
 }
 
-.pounce-95:disabled,
-.pounce-95:disabled:focus,
-.pounce-95:disabled:hover,
-.pounce-95[aria-disabled=true],
-.pounce-95[aria-disabled=true]:focus,
-.pounce-95[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-96 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #0081c5;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  width: auto;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: #0081c5;
-  width: auto;
+  font-size: 0.938rem;
+  outline: none;
   border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
-  font-size: 0.938rem;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  outline: none;
 }
 
 .pounce-96:hover {
@@ -696,20 +616,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   border-color: #0077bb;
 }
 
-.pounce-96:disabled,
-.pounce-96:disabled:focus,
-.pounce-96:disabled:hover,
-.pounce-96[aria-disabled=true],
-.pounce-96[aria-disabled=true]:focus,
-.pounce-96[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-93 {
-  padding: 12px;
-  padding-bottom: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -722,37 +629,83 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  padding: 12px;
+  padding-bottom: 0;
 }
 
 .pounce-69 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
   padding-left: 16px;
   padding-right: 32px;
   padding-top: 14px;
   padding-bottom: 14px;
-  color: #f6f6f6;
-  background-color: transparent;
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  border: 0;
   position: relative;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
-  cursor: pointer;
+  background-color: transparent;
+  border: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.pounce-69:disabled,
-.pounce-69:disabled:focus,
-.pounce-69:disabled:hover,
-.pounce-69[aria-disabled=true],
-.pounce-69[aria-disabled=true]:focus,
-.pounce-69[aria-disabled=true]:hover {
+.pounce-69::-webkit-input-placeholder {
   opacity: 1;
-  pointer-events: none;
-  cursor: default;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-69::-moz-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-69:-ms-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-69::placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-69:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-69:focus::-moz-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-69:focus:-ms-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-69:focus::placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
 }
 
 .pounce-69:-webkit-autofill {
@@ -762,16 +715,14 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 }
 
 .pounce-70 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 0;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 500;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -779,30 +730,121 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   transform: translate(6px, 4px) scale(0.65);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+  border: 0px;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
 }
 
 .pounce-72 {
-  margin-top: auto;
-  margin-bottom: auto;
-  color: currentColor;
-  opacity: 1;
   display: inline-block;
   vertical-align: sub;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+  opacity: 1;
+  position: absolute;
   pointer-events: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  right: 16px;
 }
 
 .pounce-84 {
   margin-left: 12px;
   margin-right: 12px;
+}
+
+.pounce-85 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 32px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-85::-webkit-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-85::-moz-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-85:-ms-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-85::placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-85:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-85:focus::-moz-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-85:focus:-ms-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-85:focus::placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-85:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
 }
 
 <div>
@@ -852,7 +894,8 @@ exports[`DateInput allows selecting a date with time options 1`] = `
       class="pounce-101"
     >
       <div
-        class="pounce-73"
+        class="pounce-74"
+        style="transform: translate3d(0, -10px, 0); opacity: 0; pointer-events: none;"
       >
         <div
           class="pounce-99"
@@ -1350,11 +1393,10 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-labelledby="downshift-0-label"
-                        aria-readonly="true"
                         autocomplete="off"
                         class="pounce-69"
                         id="downshift-0-input"
-                        readonly=""
+                        placeholder="01"
                         type="text"
                         value="01"
                       />
@@ -1406,11 +1448,10 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-labelledby="downshift-1-label"
-                        aria-readonly="true"
                         autocomplete="off"
                         class="pounce-69"
                         id="downshift-1-input"
-                        readonly=""
+                        placeholder="02"
                         type="text"
                         value="02"
                       />
@@ -1464,7 +1505,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                         aria-labelledby="downshift-2-label"
                         aria-readonly="true"
                         autocomplete="off"
-                        class="pounce-69"
+                        class="pounce-85"
                         id="downshift-2-input"
                         readonly=""
                         type="text"
@@ -1526,25 +1567,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 `;
 
 exports[`DateInput opens the month picker 1`] = `
-@keyframes animation-0 {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 25px, 0);
-    -moz-transform: translate3d(0, 25px, 0);
-    -ms-transform: translate3d(0, 25px, 0);
-    transform: translate3d(0, 25px, 0);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.pounce-74 {
+.pounce-76 {
   position: relative;
 }
 
@@ -1553,29 +1576,18 @@ exports[`DateInput opens the month picker 1`] = `
 }
 
 .pounce-4 {
-  background-color: transparent;
   min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #3e516b;
   position: relative;
+  border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
 }
 
 .pounce-4:hover {
   border-color: #0081c5;
-}
-
-.pounce-4:disabled,
-.pounce-4:disabled:focus,
-.pounce-4:disabled:hover,
-.pounce-4[aria-disabled=true],
-.pounce-4[aria-disabled=true]:focus,
-.pounce-4[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
 }
 
 .pounce-4:focus-within {
@@ -1595,31 +1607,63 @@ exports[`DateInput opens the month picker 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
   padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  border: 0;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -1638,62 +1682,21 @@ exports[`DateInput opens the month picker 1`] = `
   opacity: 0.4;
 }
 
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
   -webkit-text-fill-color: #f6f6f6;
   border-radius: 4px;
 }
 
-.pounce-0::-webkit-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0::-moz-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0:-ms-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0::placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 500;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -1701,40 +1704,38 @@ exports[`DateInput opens the month picker 1`] = `
   transform: translate(6px, 4px) scale(0.65);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-2 {
-  color: currentColor;
   display: inline-block;
   vertical-align: sub;
-  width: 20px;
-  height: 20px;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
 }
 
 .pounce-75 {
-  will-change: opacity,transform;
-  -webkit-animation: animation-0 300ms 0ms ease-in-out both;
-  animation: animation-0 300ms 0ms ease-in-out both;
+  position: relative;
+  z-index: 10;
 }
 
 .pounce-73 {
-  margin-top: 16px;
-  padding: 24px;
   background-color: #23344e;
   border-radius: 4px;
   position: absolute;
+  margin-top: 16px;
   top: 0;
-  z-index: 100;
+  padding: 24px;
 }
 
 .pounce-11 {
-  margin-bottom: 16px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1746,21 +1747,22 @@ exports[`DateInput opens the month picker 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin-bottom: 16px;
 }
 
 .pounce-7 {
-  padding: 4px;
+  cursor: pointer;
   color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   background-color: #0081c5;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  padding: 4px;
+  outline: none;
   border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  outline: none;
 }
 
 .pounce-7:hover {
@@ -1779,26 +1781,15 @@ exports[`DateInput opens the month picker 1`] = `
   border-color: #0077bb;
 }
 
-.pounce-7:disabled,
-.pounce-7:disabled:focus,
-.pounce-7:disabled:hover,
-.pounce-7[aria-disabled=true],
-.pounce-7[aria-disabled=true]:focus,
-.pounce-7[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-6 {
-  color: currentColor;
   display: block;
   vertical-align: sub;
-  width: 20px;
-  height: 20px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
 }
 
 .pounce-8 {
@@ -1807,20 +1798,20 @@ exports[`DateInput opens the month picker 1`] = `
 }
 
 .pounce-19 {
-  margin-bottom: 8px;
-  padding-top: 8px;
-  padding-bottom: 8px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  border-color: #3e516b;
   -webkit-box-pack: space-around;
   -ms-flex-pack: space-around;
   -webkit-justify-content: space-around;
   justify-content: space-around;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #3e516b;
 }
 
 .pounce-12 {
@@ -1878,27 +1869,26 @@ exports[`DateInput opens the month picker 1`] = `
 }
 
 .pounce-72 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid;
+  border-color: #3e516b;
   margin-left: -24px;
   margin-right: -24px;
   margin-top: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border-top: 1px solid;
-  border-color: #3e516b;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .pounce-71 {
-  padding-top: 12px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1911,6 +1901,7 @@ exports[`DateInput opens the month picker 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  padding-top: 12px;
 }
 
 .pounce-71>*:not(:last-child) {
@@ -1918,23 +1909,23 @@ exports[`DateInput opens the month picker 1`] = `
 }
 
 .pounce-69 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #716f6f;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  width: auto;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: #716f6f;
-  width: auto;
+  font-size: 0.938rem;
+  outline: none;
   border-radius: 4px;
   border: 1px solid;
   border-color: #716f6f;
-  font-size: 0.938rem;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  outline: none;
 }
 
 .pounce-69:hover {
@@ -1953,35 +1944,24 @@ exports[`DateInput opens the month picker 1`] = `
   border-color: #676565;
 }
 
-.pounce-69:disabled,
-.pounce-69:disabled:focus,
-.pounce-69:disabled:hover,
-.pounce-69[aria-disabled=true],
-.pounce-69[aria-disabled=true]:focus,
-.pounce-69[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-70 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #0081c5;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  width: auto;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: #0081c5;
-  width: auto;
+  font-size: 0.938rem;
+  outline: none;
   border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
-  font-size: 0.938rem;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  outline: none;
 }
 
 .pounce-70:hover {
@@ -2000,20 +1980,9 @@ exports[`DateInput opens the month picker 1`] = `
   border-color: #0077bb;
 }
 
-.pounce-70:disabled,
-.pounce-70:disabled:focus,
-.pounce-70:disabled:hover,
-.pounce-70[aria-disabled=true],
-.pounce-70[aria-disabled=true]:focus,
-.pounce-70[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
-}
-
 <div>
   <div
-    class="pounce-74"
+    class="pounce-76"
   >
     <div
       class="pounce-5"
@@ -2059,6 +2028,7 @@ exports[`DateInput opens the month picker 1`] = `
     >
       <div
         class="pounce-74"
+        style="transform: translate3d(0, -10px, 0); opacity: 0; pointer-events: none;"
       >
         <div
           class="pounce-73"
@@ -2565,29 +2535,18 @@ exports[`DateInput renders 1`] = `
 }
 
 .pounce-4 {
-  background-color: transparent;
   min-height: 47px;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: #3e516b;
   position: relative;
+  border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
 }
 
 .pounce-4:hover {
   border-color: #0081c5;
-}
-
-.pounce-4:disabled,
-.pounce-4:disabled:focus,
-.pounce-4:disabled:hover,
-.pounce-4[aria-disabled=true],
-.pounce-4[aria-disabled=true]:focus,
-.pounce-4[aria-disabled=true]:hover {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
 }
 
 .pounce-4:focus-within {
@@ -2607,31 +2566,63 @@ exports[`DateInput renders 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
   padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
-  color: #f6f6f6;
-  background-color: transparent;
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  border: 0;
   position: relative;
-  z-index: 2;
+  color: #f6f6f6;
   font-size: 0.875rem;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -2650,62 +2641,21 @@ exports[`DateInput renders 1`] = `
   opacity: 0.4;
 }
 
-.pounce-0:disabled,
-.pounce-0:disabled:focus,
-.pounce-0:disabled:hover,
-.pounce-0[aria-disabled=true],
-.pounce-0[aria-disabled=true]:focus,
-.pounce-0[aria-disabled=true]:hover {
-  opacity: 1;
-  pointer-events: none;
-  cursor: default;
-}
-
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
   -webkit-text-fill-color: #f6f6f6;
   border-radius: 4px;
 }
 
-.pounce-0::-webkit-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0::-moz-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0:-ms-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
-.pounce-0::placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-}
-
 .pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  opacity: 1;
   color: #bdbdbd;
   top: 0;
   left: 0;
   position: absolute;
-  font-size: 0.875rem;
-  font-weight: 500;
-  pointer-events: none;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -2713,20 +2663,21 @@ exports[`DateInput renders 1`] = `
   transform: translate(6px, 4px) scale(0.65);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-2 {
-  color: currentColor;
   display: inline-block;
   vertical-align: sub;
-  width: 20px;
-  height: 20px;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
 }
 
 <div>

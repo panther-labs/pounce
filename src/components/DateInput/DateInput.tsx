@@ -1,12 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import dayjs from 'dayjs';
 import Box from '../Box';
-import Card from '../Card';
 import Flex from '../Flex';
 import Button from '../Button';
 import Month from './Month';
-import FadeIn from '../FadeIn';
 import { IconButton } from '../../index';
+import DateWrapper from './DateWrapper';
 import TextInput, { TextInputProps } from '../TextInput';
 import TimePicker from './TimePicker';
 import { noop } from '../../utils/helpers';
@@ -35,18 +34,6 @@ export interface DateInputProps extends TextInputProps {
    */
   onChangeDate: (date?: Date) => void;
 }
-
-const DateWrapper: React.FC = ({ children }) => (
-  <Box position="relative" zIndex={10}>
-    <FadeIn from="bottom">
-      <Box position="relative">
-        <Card position="absolute" mt={4} top={0} p={6}>
-          {children}
-        </Card>
-      </Box>
-    </FadeIn>
-  </Box>
-);
 
 /**
  * A component to help selecting dates in forms
@@ -111,8 +98,8 @@ const DateInput: React.FC<DateInputProps> = ({
 
   const onDaySelect = useCallback(
     dateChanged => {
-      const oldDate = dayjs(date);
-      const updated = dateChanged.hour(oldDate.hour()).minute(oldDate.minute());
+      const currentDate = dayjs(date);
+      const updated = dateChanged.hour(currentDate.hour()).minute(currentDate.minute());
       // // @ts-ignore
       setCurrentDate(updated.toDate());
     },
@@ -138,7 +125,7 @@ const DateInput: React.FC<DateInputProps> = ({
           />
         </Box>
         {open && (
-          <DateWrapper>
+          <DateWrapper isExpanded={open}>
             <Flex align="center" justify="space-between" mb={4}>
               <IconButton
                 onClick={onPreviousMonth}
