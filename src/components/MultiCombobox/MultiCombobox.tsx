@@ -211,7 +211,12 @@ function MultiCombobox<Item>({
 
             // Allow the user to add custom selections if both `searchable` and `allowAdditions`
             // have a truthy value
-            if (event.key === 'Enter' && searchable && allowAdditions && inputValue) {
+            if (
+              (event.key === 'Enter' || event.key === ',') &&
+              searchable &&
+              allowAdditions &&
+              inputValue
+            ) {
               event.preventDefault();
 
               // By default validateAddition always returns true. Can be overriden by the user
