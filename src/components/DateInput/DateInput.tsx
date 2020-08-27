@@ -10,7 +10,7 @@ import TextInput, { TextInputProps } from '../TextInput';
 import TimePicker from './TimePicker';
 import { noop } from '../../utils/helpers';
 
-export interface DateInputProps extends TextInputProps {
+export interface DateInputProps {
   /**
    * The format displayed in the input element
    */
@@ -24,7 +24,7 @@ export interface DateInputProps extends TextInputProps {
   /**
    * A date that that works as a value
    */
-  date?: Date;
+  value?: Date;
 
   /**
    * A callback for whenever the value of the chosen date changes.
@@ -32,7 +32,7 @@ export interface DateInputProps extends TextInputProps {
    * `(date: Date | null) => void`
    *
    */
-  onChangeDate: (date?: Date) => void;
+  onChange: (date?: Date) => void;
 }
 
 /**
@@ -42,17 +42,17 @@ export interface DateInputProps extends TextInputProps {
  * <a href="/#/TextInput">TextInput</a> component (i.e. placeholder, etc.)
  *
  * */
-const DateInput: React.FC<DateInputProps> = ({
-  date,
+const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onChange'>> = ({
+  value,
   format = 'MM/DD/YYYY',
   withTime,
-  onChangeDate = noop,
+  onChange = noop,
   ...rest
 }) => {
-  const dateFormatted = date ? dayjs(date) : dayjs();
+  const dateFormatted = value ? dayjs(value) : dayjs();
   const [currentMonth, setCurrentMonth] = useState(dateFormatted);
-  const [currentDate, setCurrentDate] = useState(date);
-  const [prevDate, setPrevDate] = useState(date);
+  const [currentDate, setCurrentDate] = useState(value);
+  const [prevDate, setPrevDate] = useState(value);
 
   const [open, setOpen] = useState(false);
 
@@ -82,10 +82,10 @@ const DateInput: React.FC<DateInputProps> = ({
     e => {
       e.preventDefault();
       setPrevDate(currentDate);
-      onChangeDate(currentDate);
+      onChange(currentDate);
       setOpen(false);
     },
-    [setOpen, setPrevDate, onChangeDate, currentDate]
+    [setOpen, setPrevDate, onChange, currentDate]
   );
 
   const onExpand = useCallback(
@@ -98,9 +98,8 @@ const DateInput: React.FC<DateInputProps> = ({
 
   const onDaySelect = useCallback(
     dateChanged => {
-      const currentDate = dayjs(date);
+      const currentDate = dayjs(value);
       const updated = dateChanged.hour(currentDate.hour()).minute(currentDate.minute());
-      // // @ts-ignore
       setCurrentDate(updated.toDate());
     },
     [setCurrentDate]
@@ -116,7 +115,7 @@ const DateInput: React.FC<DateInputProps> = ({
         <Box onClick={onExpand} cursor="pointer">
           <TextInput
             {...rest}
-            value={currentDate && dayjs(currentDate).format(format)}
+            value={currentDate ? dayjs(currentDate).format(format) : ''}
             autoComplete="off"
             icon="calendar"
             aria-autocomplete="none"
