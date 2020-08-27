@@ -1,57 +1,39 @@
-import React from 'react';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
+import React, { useState, useCallback } from 'react';
 import dayjs from 'dayjs';
+import Box from '../Box';
+import Flex from '../Flex';
+import Button from '../Button';
+import Month from './Month';
+import { IconButton } from '../../index';
+import DateWrapper from './DateWrapper';
 import TextInput, { TextInputProps } from '../TextInput';
-import OverlayComponent from './OverlayComponent';
+import TimePicker from './TimePicker';
+import { noop } from '../../utils/helpers';
 
-export type DateInputProps = TextInputProps & {
+export interface DateInputProps {
   /**
-   * A string that describes the format that will be shown to the user. Under the hood, DateInput
-   * uses `dayjs` so the available values of this format can be found in its docs:
-   * https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#list-of-all-available-formats
-   * */
+   * The format displayed in the input element
+   */
   format?: string;
 
   /**
-   * A string that represents the formatted Date. It will be parsed according to the given format
-   * and converted to an actual date
+   * A flag that dictates if the component should allow manipulating time
    */
-  value: string;
+  withTime?: boolean;
+
+  /**
+   * A date that that works as a value
+   */
+  value?: Date;
 
   /**
    * A callback for whenever the value of the chosen date changes.
    *
-   * `(date: string | null) => void`
+   * `(date: Date | null) => void`
    *
-   * The  value is formatted
-   * using the same format string as the one provided through the props. The value becomes `''`
-   * (empty string) if the user chose to clear the value of the DateInput
    */
-  onChange: (date: string) => void;
-};
-
-/**
- *
- * @param date The date to format
- * @param format The format string (i.e. DD/MM/YYYY)
- * @returns A string with the formatted date
- */
-const formatDate = (date: Date, format: string): string => {
-  return dayjs(date).format(format);
-};
-
-/**
- *
- * @param str The formatted date-string to extract the date from
- * @param format The format string (i.e. DD/MM/YYYY)
- * @returns A Date if the string could be parsed, else `undefined`
- */
-const parseDate = (str: string, format: string): Date | undefined => {
-  if (str.length !== format.length) {
-    return undefined;
-  }
-  return dayjs(str).isValid() ? dayjs(str).toDate() : undefined;
-};
+  onChange: (date?: Date) => void;
+}
 
 /**
  * A component to help selecting dates in forms
@@ -60,21 +42,131 @@ const parseDate = (str: string, format: string): Date | undefined => {
  * <a href="/#/TextInput">TextInput</a> component (i.e. placeholder, etc.)
  *
  * */
-const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(function DateInput(
-  { format = 'MM/DD/YYYY', value, onChange, ...rest },
-  ref
-) {
-  return (
-    <DayPickerInput
-      overlayComponent={OverlayComponent}
-      onDayChange={date => onChange(date ? formatDate(date, format) : '')}
-      formatDate={formatDate}
-      parseDate={parseDate}
-      format={format}
-      value={value}
-      component={(props: TextInputProps) => <TextInput {...props} {...rest} ref={ref} />}
-    />
+const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onChange'>> = ({
+  value,
+  format = 'MM/DD/YYYY',
+  withTime,
+  onChange = noop,
+  ...rest
+}) => {
+  const dateFormatted = value ? dayjs(value) : dayjs();
+  const [currentMonth, setCurrentMonth] = useState(dateFormatted);
+  const [currentDate, setCurrentDate] = useState(value);
+  const [prevDate, setPrevDate] = useState(value);
+
+  const [open, setOpen] = useState(false);
+
+  const onNextMonth = useCallback(
+    e => {
+      e.preventDefault();
+      const next = currentMonth.add(1, 'month');
+      setCurrentMonth(next);
+    },
+    [currentMonth, setCurrentMonth]
   );
-});
+  const onPreviousMonth = useCallback(
+    e => {
+      e.preventDefault();
+      const next = currentMonth.subtract(1, 'month');
+      setCurrentMonth(next);
+    },
+    [currentMonth, setCurrentMonth]
+  );
+
+  const onCancel = useCallback(() => {
+    setCurrentDate(prevDate);
+    setOpen(false);
+  }, [setOpen, prevDate, setCurrentDate]);
+
+  const onApply = useCallback(
+    e => {
+      e.preventDefault();
+      setPrevDate(currentDate);
+      onChange(currentDate);
+      setOpen(false);
+    },
+    [setOpen, setPrevDate, onChange, currentDate]
+  );
+
+  const onExpand = useCallback(
+    e => {
+      e.preventDefault();
+      setOpen(true);
+    },
+    [setOpen]
+  );
+
+  const onDaySelect = useCallback(
+    dateChanged => {
+      const currentDate = dayjs(value);
+      const updated = dateChanged.hour(currentDate.hour()).minute(currentDate.minute());
+      setCurrentDate(updated.toDate());
+    },
+    [setCurrentDate]
+  );
+
+  const onTimeUpdate = useCallback(timeUpdated => {
+    setCurrentDate(timeUpdated.toDate());
+  }, []);
+
+  return (
+    <>
+      <Box position="relative">
+        <Box onClick={onExpand} cursor="pointer">
+          <TextInput
+            {...rest}
+            value={currentDate ? dayjs(currentDate).format(format) : ''}
+            autoComplete="off"
+            icon="calendar"
+            aria-autocomplete="none"
+            tabIndex={-1}
+            readOnly
+          />
+        </Box>
+        {open && (
+          <DateWrapper isExpanded={open}>
+            <Flex align="center" justify="space-between" p={4}>
+              <IconButton
+                onClick={onPreviousMonth}
+                size="small"
+                icon="arrow-back"
+                aria-label="Go to previous page"
+              />
+              <Box as="h4" fontSize="medium" fontWeight="bold" tabIndex="-1">
+                {currentMonth.format('MMMM YYYY')}
+              </Box>
+              <IconButton
+                onClick={onNextMonth}
+                size="small"
+                icon="arrow-forward"
+                aria-label="Go to next page"
+              />
+            </Flex>
+            <Box px={4} pb={4}>
+              <Month
+                onDaySelect={onDaySelect}
+                daySelected={dayjs(currentDate)}
+                year={currentMonth.year()}
+                month={currentMonth.month()}
+              />
+            </Box>
+            {withTime && <TimePicker onTimeUpdate={onTimeUpdate} date={currentDate} />}
+
+            <Flex align="center" justify="center" borderTop="1px solid" borderColor="navyblue-300">
+              <Flex align="center" justify="center" p={3} spacing={3}>
+                <Button onClick={onCancel} size="small" variantColor="gray">
+                  Cancel
+                </Button>
+                <Button disabled={!currentDate} onClick={onApply} size="small">
+                  Apply
+                </Button>
+              </Flex>
+            </Flex>
+          </DateWrapper>
+        )}
+      </Box>
+    </>
+  );
+};
 
 export default React.memo(DateInput);

@@ -1,0 +1,2717 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateInput allows passing a custom format 1`] = `
+.pounce-6 {
+  position: relative;
+}
+
+.pounce-5 {
+  cursor: pointer;
+}
+
+.pounce-4 {
+  min-height: 47px;
+  position: relative;
+  border: 1px solid;
+  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
+}
+
+.pounce-4:hover {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within label {
+  font-weight: 500;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-2 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+}
+
+<div>
+  <div
+    class="pounce-6"
+  >
+    <div
+      class="pounce-5"
+    >
+      <div
+        class="pounce-4"
+      >
+        <div
+          class="pounce-3"
+        >
+          <input
+            aria-autocomplete="none"
+            aria-invalid="false"
+            aria-readonly="true"
+            autocomplete="off"
+            class="pounce-0"
+            id="test"
+            readonly=""
+            tabindex="-1"
+            type="text"
+            value="11 Nov 2020 1 Su"
+          />
+          <label
+            class="pounce-1"
+            for="test"
+          >
+            test
+          </label>
+          <svg
+            class="pounce-2"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DateInput allows selecting a date with time options 1`] = `
+.pounce-81 {
+  position: relative;
+}
+
+.pounce-5 {
+  cursor: pointer;
+}
+
+.pounce-4 {
+  min-height: 47px;
+  position: relative;
+  border: 1px solid;
+  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
+}
+
+.pounce-4:hover {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within label {
+  font-weight: 500;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-2 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+}
+
+.pounce-106 {
+  position: relative;
+  z-index: 10;
+}
+
+.pounce-104 {
+  background-color: #23344e;
+  border-radius: 4px;
+  position: absolute;
+  margin-top: 16px;
+  top: 0;
+}
+
+.pounce-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.pounce-7 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #0081c5;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  padding: 4px;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+}
+
+.pounce-7:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-7:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-7:active,
+.pounce-7[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+.pounce-6 {
+  display: block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+}
+
+.pounce-8 {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.pounce-76 {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+
+.pounce-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #3e516b;
+}
+
+.pounce-12 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.pounce-75 {
+  display: table-row-group;
+}
+
+.pounce-34 {
+  -webkit-display: table-row;
+  display: table-row;
+}
+
+.pounce-27 {
+  display: table-cell;
+  padding: 8px;
+  text-align: center;
+  border-radius: 99999px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.pounce-27[aria-selected=true],
+[data-selected]>.pounce-27 {
+  background-color: #0081c5;
+}
+
+.pounce-27:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-103 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid;
+  border-color: #3e516b;
+}
+
+.pounce-102 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.pounce-102>*:not(:last-child) {
+  margin-right: 12px;
+}
+
+.pounce-100 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #716f6f;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 0.938rem;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #716f6f;
+}
+
+.pounce-100:hover {
+  background-color: #7b7979;
+  border-color: #7b7979;
+}
+
+.pounce-100:focus {
+  background-color: #7b7979;
+  border-color: #c6c4c4;
+}
+
+.pounce-100:active,
+.pounce-100[data-active=true] {
+  background-color: #676565;
+  border-color: #676565;
+}
+
+.pounce-101 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #0081c5;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 0.938rem;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+}
+
+.pounce-101:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-101:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-101:active,
+.pounce-101[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+.pounce-99 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid;
+  border-color: #3e516b;
+  padding: 16px;
+}
+
+.pounce-98 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.pounce-98>*:not(:last-child) {
+  margin-right: 12px;
+}
+
+.pounce-77 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 32px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-77::-webkit-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-77::-moz-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-77:-ms-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-77::placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-77:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-77:focus::-moz-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-77:focus:-ms-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-77:focus::placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-77:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-78 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+  border: 0px;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
+
+.pounce-80 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+  opacity: 1;
+  position: absolute;
+  pointer-events: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+}
+
+.pounce-91 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 32px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-91::-webkit-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-91::-moz-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-91:-ms-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-91::placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-91:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-91:focus::-moz-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-91:focus:-ms-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-91:focus::placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-91:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+<div>
+  <div
+    class="pounce-81"
+  >
+    <div
+      class="pounce-5"
+    >
+      <div
+        class="pounce-4"
+      >
+        <div
+          class="pounce-3"
+        >
+          <input
+            aria-autocomplete="none"
+            aria-invalid="false"
+            aria-readonly="true"
+            autocomplete="off"
+            class="pounce-0"
+            id="test"
+            readonly=""
+            tabindex="-1"
+            type="text"
+            value="11/01/2020"
+          />
+          <label
+            class="pounce-1"
+            for="test"
+          >
+            test
+          </label>
+          <svg
+            class="pounce-2"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="pounce-106"
+    >
+      <div
+        class="pounce-13"
+        style="transform: translate3d(0, -10px, 0); opacity: 0; pointer-events: none;"
+      >
+        <div
+          class="pounce-104"
+        >
+          <div
+            class="pounce-11"
+          >
+            <button
+              aria-label="Go to previous page"
+              aria-pressed="false"
+              class="pounce-7"
+              type="button"
+            >
+              <svg
+                class="pounce-6"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+                />
+              </svg>
+            </button>
+            <h4
+              class="pounce-8"
+              tabindex="-1"
+            >
+              November 2020
+            </h4>
+            <button
+              aria-label="Go to next page"
+              aria-pressed="false"
+              class="pounce-7"
+              type="button"
+            >
+              <svg
+                class="pounce-6"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="pounce-76"
+          >
+            <div>
+              <div
+                class="pounce-26"
+                role="row"
+              >
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Monday"
+                  >
+                    Mo
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Tuesday"
+                  >
+                    Tu
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Wednesday"
+                  >
+                    We
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Thurdsday"
+                  >
+                    Th
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Friday"
+                  >
+                    Fr
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Saturday"
+                  >
+                    Sa
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Sunday"
+                  >
+                    Su
+                  </abbr>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pounce-75"
+            >
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 01 2020"
+                  aria-selected="true"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  1
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 02 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  2
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tu Nov 03 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  3
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="We Nov 04 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  4
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Th Nov 05 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  5
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Fr Nov 06 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  6
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sa Nov 07 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  7
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 08 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  8
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 09 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  9
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tu Nov 10 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  10
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="We Nov 11 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  11
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Th Nov 12 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  12
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Fr Nov 13 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  13
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sa Nov 14 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  14
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 15 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  15
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 16 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  16
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tu Nov 17 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  17
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="We Nov 18 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  18
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Th Nov 19 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  19
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Fr Nov 20 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  20
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sa Nov 21 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  21
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 22 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  22
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 23 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  23
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tu Nov 24 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  24
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="We Nov 25 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  25
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Th Nov 26 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  26
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Fr Nov 27 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  27
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sa Nov 28 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  28
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 29 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  29
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 30 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  30
+                </div>
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="pounce-99"
+          >
+            <div
+              class="pounce-98"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="downshift-0-label"
+                class="pounce-81"
+                role="combobox"
+              >
+                <div
+                  class="pounce-81"
+                >
+                  <div
+                    aria-disabled="false"
+                    class="pounce-4"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-labelledby="downshift-0-label"
+                      autocomplete="off"
+                      class="pounce-77"
+                      id="downshift-0-input"
+                      placeholder="01"
+                      type="text"
+                      value="01"
+                    />
+                    <label
+                      class="pounce-78"
+                      for="downshift-0-input"
+                      id="downshift-0-label"
+                    >
+                      Hours
+                    </label>
+                  </div>
+                  <svg
+                    class="pounce-80"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10L12 15L17 10H7Z"
+                    />
+                  </svg>
+                </div>
+                <ul
+                  aria-labelledby="downshift-0-label"
+                  class="pounce-13"
+                  id="downshift-0-menu"
+                  role="listbox"
+                />
+              </div>
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="downshift-1-label"
+                class="pounce-81"
+                role="combobox"
+              >
+                <div
+                  class="pounce-81"
+                >
+                  <div
+                    aria-disabled="false"
+                    class="pounce-4"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-labelledby="downshift-1-label"
+                      autocomplete="off"
+                      class="pounce-77"
+                      id="downshift-1-input"
+                      placeholder="02"
+                      type="text"
+                      value="02"
+                    />
+                    <label
+                      class="pounce-78"
+                      for="downshift-1-input"
+                      id="downshift-1-label"
+                    >
+                      Minutes
+                    </label>
+                  </div>
+                  <svg
+                    class="pounce-80"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10L12 15L17 10H7Z"
+                    />
+                  </svg>
+                </div>
+                <ul
+                  aria-labelledby="downshift-1-label"
+                  class="pounce-13"
+                  id="downshift-1-menu"
+                  role="listbox"
+                />
+              </div>
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="downshift-2-label"
+                class="pounce-81"
+                role="combobox"
+              >
+                <div
+                  class="pounce-81"
+                >
+                  <div
+                    aria-disabled="false"
+                    class="pounce-4"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-labelledby="downshift-2-label"
+                      aria-readonly="true"
+                      autocomplete="off"
+                      class="pounce-91"
+                      id="downshift-2-input"
+                      readonly=""
+                      type="text"
+                      value="AM"
+                    />
+                    <label
+                      class="pounce-78"
+                      for="downshift-2-input"
+                      id="downshift-2-label"
+                    >
+                      Period
+                    </label>
+                  </div>
+                  <svg
+                    class="pounce-80"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10L12 15L17 10H7Z"
+                    />
+                  </svg>
+                </div>
+                <ul
+                  aria-labelledby="downshift-2-label"
+                  class="pounce-13"
+                  id="downshift-2-menu"
+                  role="listbox"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="pounce-103"
+          >
+            <div
+              class="pounce-102"
+            >
+              <button
+                class="pounce-100"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="pounce-101"
+                type="button"
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DateInput opens the month picker 1`] = `
+.pounce-84 {
+  position: relative;
+}
+
+.pounce-5 {
+  cursor: pointer;
+}
+
+.pounce-4 {
+  min-height: 47px;
+  position: relative;
+  border: 1px solid;
+  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
+}
+
+.pounce-4:hover {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within label {
+  font-weight: 500;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-2 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+}
+
+.pounce-83 {
+  position: relative;
+  z-index: 10;
+}
+
+.pounce-81 {
+  background-color: #23344e;
+  border-radius: 4px;
+  position: absolute;
+  margin-top: 16px;
+  top: 0;
+}
+
+.pounce-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.pounce-7 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #0081c5;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  padding: 4px;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+}
+
+.pounce-7:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-7:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-7:active,
+.pounce-7[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+.pounce-6 {
+  display: block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+}
+
+.pounce-8 {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.pounce-76 {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+
+.pounce-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #3e516b;
+}
+
+.pounce-12 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.pounce-75 {
+  display: table-row-group;
+}
+
+.pounce-34 {
+  -webkit-display: table-row;
+  display: table-row;
+}
+
+.pounce-27 {
+  display: table-cell;
+  padding: 8px;
+  text-align: center;
+  border-radius: 99999px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.pounce-27[aria-selected=true],
+[data-selected]>.pounce-27 {
+  background-color: #0081c5;
+}
+
+.pounce-27:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-80 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid;
+  border-color: #3e516b;
+}
+
+.pounce-79 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.pounce-79>*:not(:last-child) {
+  margin-right: 12px;
+}
+
+.pounce-77 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #716f6f;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 0.938rem;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #716f6f;
+}
+
+.pounce-77:hover {
+  background-color: #7b7979;
+  border-color: #7b7979;
+}
+
+.pounce-77:focus {
+  background-color: #7b7979;
+  border-color: #c6c4c4;
+}
+
+.pounce-77:active,
+.pounce-77[data-active=true] {
+  background-color: #676565;
+  border-color: #676565;
+}
+
+.pounce-78 {
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #0081c5;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 0.938rem;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+}
+
+.pounce-78:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-78:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-78:active,
+.pounce-78[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+<div>
+  <div
+    class="pounce-84"
+  >
+    <div
+      class="pounce-5"
+    >
+      <div
+        class="pounce-4"
+      >
+        <div
+          class="pounce-3"
+        >
+          <input
+            aria-autocomplete="none"
+            aria-invalid="false"
+            aria-readonly="true"
+            autocomplete="off"
+            class="pounce-0"
+            id="test"
+            readonly=""
+            tabindex="-1"
+            type="text"
+            value="11/01/2020"
+          />
+          <label
+            class="pounce-1"
+            for="test"
+          >
+            test
+          </label>
+          <svg
+            class="pounce-2"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="pounce-83"
+    >
+      <div
+        class="pounce-13"
+        style="transform: translate3d(0, -10px, 0); opacity: 0; pointer-events: none;"
+      >
+        <div
+          class="pounce-81"
+        >
+          <div
+            class="pounce-11"
+          >
+            <button
+              aria-label="Go to previous page"
+              aria-pressed="false"
+              class="pounce-7"
+              type="button"
+            >
+              <svg
+                class="pounce-6"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+                />
+              </svg>
+            </button>
+            <h4
+              class="pounce-8"
+              tabindex="-1"
+            >
+              November 2020
+            </h4>
+            <button
+              aria-label="Go to next page"
+              aria-pressed="false"
+              class="pounce-7"
+              type="button"
+            >
+              <svg
+                class="pounce-6"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="pounce-76"
+          >
+            <div>
+              <div
+                class="pounce-26"
+                role="row"
+              >
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Monday"
+                  >
+                    Mo
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Tuesday"
+                  >
+                    Tu
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Wednesday"
+                  >
+                    We
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Thurdsday"
+                  >
+                    Th
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Friday"
+                  >
+                    Fr
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Saturday"
+                  >
+                    Sa
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Sunday"
+                  >
+                    Su
+                  </abbr>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pounce-75"
+            >
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 01 2020"
+                  aria-selected="true"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  1
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 02 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  2
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tu Nov 03 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  3
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="We Nov 04 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  4
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Th Nov 05 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  5
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Fr Nov 06 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  6
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sa Nov 07 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  7
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 08 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  8
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 09 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  9
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tu Nov 10 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  10
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="We Nov 11 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  11
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Th Nov 12 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  12
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Fr Nov 13 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  13
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sa Nov 14 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  14
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 15 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  15
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 16 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  16
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tu Nov 17 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  17
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="We Nov 18 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  18
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Th Nov 19 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  19
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Fr Nov 20 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  20
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sa Nov 21 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  21
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 22 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  22
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 23 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  23
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tu Nov 24 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  24
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="We Nov 25 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  25
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Th Nov 26 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  26
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Fr Nov 27 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  27
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sa Nov 28 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  28
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Su Nov 29 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  29
+                </div>
+              </div>
+              <div
+                class="pounce-34"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Mo Nov 30 2020"
+                  aria-selected="false"
+                  class="pounce-27"
+                  role="gridcell"
+                >
+                  30
+                </div>
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+                <div
+                  aria-disabled="true"
+                  class="pounce-27"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="pounce-80"
+          >
+            <div
+              class="pounce-79"
+            >
+              <button
+                class="pounce-77"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="pounce-78"
+                type="button"
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DateInput renders 1`] = `
+.pounce-6 {
+  position: relative;
+}
+
+.pounce-5 {
+  cursor: pointer;
+}
+
+.pounce-4 {
+  min-height: 47px;
+  position: relative;
+  border: 1px solid;
+  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
+}
+
+.pounce-4:hover {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within label {
+  font-weight: 500;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-2 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+}
+
+<div>
+  <div
+    class="pounce-6"
+  >
+    <div
+      class="pounce-5"
+    >
+      <div
+        class="pounce-4"
+      >
+        <div
+          class="pounce-3"
+        >
+          <input
+            aria-autocomplete="none"
+            aria-invalid="false"
+            aria-readonly="true"
+            autocomplete="off"
+            class="pounce-0"
+            id="test"
+            readonly=""
+            tabindex="-1"
+            type="text"
+            value="11/01/2020"
+          />
+          <label
+            class="pounce-1"
+            for="test"
+          >
+            test
+          </label>
+          <svg
+            class="pounce-2"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

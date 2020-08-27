@@ -1,22 +1,49 @@
 As with every other form component, the DateInput is a controlled component and so it
-requires for you to specify the `value` and the `onChange` handler.
+requires for you to specify the `date` and the `onChangeDate` handler.
 
 Any extra prop that you specify will be given to the underlying input element of the module.
 
 ---
 
 ```typescript jsx
-const Example = () => {
-  const [dateStr, setDateStr] = React.useState('');
+const DateInputExample = () => {
+  const [date, setDate] = React.useState();
   return (
-    <DateInput
-      onChange={setDateStr}
-      value={dateStr}
-      placeholder="Enter a date"
-      label="Start date"
-    />
+    <Box>
+      <Box mb={4}>Selected date is: {date ? date.toLocaleDateString() : '-'}</Box>
+      <Box>
+        <DateInput onChange={setDate} value={date} placeholder="Enter a date" label="Start date" />
+      </Box>
+    </Box>
   );
 };
 
-<Example />;
+<DateInputExample />;
+```
+
+It also supports manipulating the given time
+
+```typescript jsx
+const DateInputExampleWithTime = () => {
+  const [date, setDate] = React.useState(new Date());
+  return (
+    <Box>
+      <Box mb={4}>
+        Selected date is {date.toLocaleDateString()} {date.toLocaleTimeString()}
+      </Box>
+      <Box>
+        <DateInput
+          withTime
+          format="MM/DD/YYYY hh:mm A"
+          onChange={setDate}
+          value={date}
+          placeholder="Enter a date"
+          label="Start date"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateInputExampleWithTime />;
 ```
