@@ -1,9 +1,13 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import { pounce } from '../../system';
+import { __DEV__ } from '../../utils/helpers';
 
-export type AbstractButtonProps = BoxProps;
+export type AbstractButtonProps = React.ComponentProps<typeof AbstractButton>;
 
-const abstractButtonStyle = {
+export const AbstractButton = pounce('button');
+
+// The component should render a button by default, with some default styles
+AbstractButton.defaultProps = {
   type: 'button',
   cursor: 'pointer',
   color: 'gray-50' as const,
@@ -12,10 +16,8 @@ const abstractButtonStyle = {
   transition: 'all 0.1s linear',
 };
 
-export const AbstractButton = React.forwardRef<HTMLButtonElement, AbstractButtonProps>(
-  function AbstractButton(props, ref) {
-    return <Box as="button" ref={ref} {...abstractButtonStyle} {...props} />;
-  }
-);
-
 export default AbstractButton;
+
+if (__DEV__) {
+  AbstractButton.displayName = 'AbstractButton';
+}

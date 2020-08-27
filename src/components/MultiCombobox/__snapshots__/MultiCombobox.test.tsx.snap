@@ -56,6 +56,7 @@ exports[`MultiCombobox renders 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::-moz-placeholder {
@@ -63,6 +64,7 @@ exports[`MultiCombobox renders 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:-ms-input-placeholder {
@@ -70,6 +72,7 @@ exports[`MultiCombobox renders 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0::placeholder {
@@ -77,6 +80,7 @@ exports[`MultiCombobox renders 1`] = `
   color: #f6f6f6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
 }
 
 .pounce-0:focus::-webkit-input-placeholder {
@@ -104,7 +108,6 @@ exports[`MultiCombobox renders 1`] = `
 .pounce-1 {
   pointer-events: none;
   font-size: 0.875rem;
-  opacity: 1;
   padding-left: 16px;
   padding-right: 16px;
   color: #bdbdbd;

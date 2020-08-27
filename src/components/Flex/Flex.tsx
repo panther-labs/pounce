@@ -15,6 +15,15 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
   /** An alias for `flexWrap` */
   wrap?: BoxProps['flexWrap'];
 
+  /** An alias  for `flexBasis` style prop */
+  basis?: BoxProps['flexBasis'];
+
+  /** An alias  for `flexGrow` style prop */
+  grow?: BoxProps['flexGrow'];
+
+  /** An alias  for `flexShrink` style prop */
+  shrink?: BoxProps['flexShrink'];
+
   /** Whether the flex should be `flex-inline` */
   inline?: boolean;
 
@@ -29,7 +38,7 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
  * wrapper around a certain layout
  */
 export const Flex = React.forwardRef<HTMLElement, FlexProps>(function Flex(props, ref) {
-  const { direction, justify, align, inline, wrap, spacing, ...rest } = props;
+  const { direction, justify, align, inline, wrap, spacing, shrink, grow, basis, ...rest } = props;
 
   const itemSpacingProps = getItemSpacingProps(spacing, direction || rest.flexDirection);
   return (
@@ -40,6 +49,9 @@ export const Flex = React.forwardRef<HTMLElement, FlexProps>(function Flex(props
       justifyContent={justify}
       alignItems={align}
       flexWrap={wrap}
+      flexShrink={shrink}
+      flexGrow={grow}
+      flexBasis={basis}
       {...itemSpacingProps}
       {...rest}
     />

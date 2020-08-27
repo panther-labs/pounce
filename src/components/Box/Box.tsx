@@ -1,36 +1,22 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import {
-  shouldForwardProp,
-  sxProp,
-  stylingProps,
-  SystemProps,
-  truncateProp,
-  pseudoProps,
-  visuallyHiddenProp,
-} from '../../system';
-
-export type NativeAttributes<El extends React.ElementType> = Omit<
-  React.ComponentPropsWithRef<El>,
-  keyof SystemProps
->;
+import { pounce, NativeAttributes, PounceComponentProps } from '../../system';
+import { __DEV__ } from '../../utils/helpers';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type BoxProps<Element extends React.ElementType = any> = NativeAttributes<Element> &
-  SystemProps;
+export type BoxProps<T extends React.ElementType = any> = PounceComponentProps<T>;
+export type { NativeAttributes };
 
 /**
  * Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes.
  * */
-const Box = styled('div', {
-  shouldForwardProp,
-})<BoxProps>`
-  ${stylingProps}
-  ${pseudoProps}
-  ${sxProp}
-  ${truncateProp}
-  ${visuallyHiddenProp}
-`;
+const Box = pounce('div');
 
+// FIXME: This overrides the fact that the box is a `div`. Components implementing this will warn us
+//  that they can't implement `<Box>` when they themselves are not a div. We should ideally fix that
+//  and have `ref` can be properly typed  in all components
 export default Box as React.FC<BoxProps>;
+
+if (__DEV__) {
+  Box.displayName = 'Box';
+}

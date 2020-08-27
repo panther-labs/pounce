@@ -1,7 +1,7 @@
 import React from 'react';
-import Flex from '../Flex';
 import { Theme } from '../../theme';
 import useBadgeStyles from './useBadgeStyles';
+import Box from '../Box';
 
 export interface BadgeProps {
   /** The color theme of the badge */
@@ -22,7 +22,8 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
   const variantStyles = useBadgeStyles({ variant, color });
 
   return (
-    <Flex
+    <Box
+      display="flex"
       role="status"
       aria-atomic="true"
       ref={ref}
@@ -32,8 +33,8 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       textAlign="center"
       fontWeight="bold"
       borderRadius="pill"
-      align="center"
-      justify="center"
+      alignItems="center"
+      justifyContent="center"
       fontSize="small"
       py={1}
       px={4}
@@ -41,7 +42,7 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       {...rest}
     >
       {children}
-    </Flex>
+    </Box>
   );
 });
 
