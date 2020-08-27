@@ -21,7 +21,7 @@ const DateWrapper: React.FC<DateWrapperProps> = ({ children, isExpanded }) => {
         ({ item, key, props: styles }) =>
           item && (
             <AnimatedBox key={key} style={styles}>
-              <Card position="absolute" mt={4} top={0} p={6}>
+              <Card position="absolute" mt={4} top={0}>
                 {children}
               </Card>
             </AnimatedBox>

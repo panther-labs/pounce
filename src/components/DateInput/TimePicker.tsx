@@ -1,6 +1,5 @@
 import React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
-import Box from '../Box';
 import Flex from '../Flex';
 import Combobox from '../Combobox';
 
@@ -45,44 +44,33 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate }) => {
   );
 
   return (
-    <Flex
-      align="center"
-      justify="center"
-      borderTop="1px solid"
-      borderColor="navyblue-300"
-      mx={-6}
-      mt={5}
-    >
-      <Flex align="center" justify="center" p={3} pb={0}>
-        <Box>
-          <Combobox
-            searchable
-            onChange={onChangeHours}
-            label="Hours"
-            hideLabel
-            items={hourItems}
-            value={hour}
-          />
-        </Box>
-        <Box mx={3}>
-          <Combobox
-            searchable
-            onChange={onChangeMinutes}
-            label="Minutes"
-            hideLabel
-            items={minsItems}
-            value={min}
-          />
-        </Box>
-        <Box>
-          <Combobox
-            onChange={onChangePeriod}
-            label="Period"
-            hideLabel
-            items={periodItems}
-            value={period}
-          />
-        </Box>
+    <Flex align="center" justify="center" borderTop="1px solid" borderColor="navyblue-300" p={4}>
+      <Flex align="center" justify="center" spacing={3}>
+        <Combobox
+          searchable
+          onChange={onChangeHours}
+          label="Hours"
+          hideLabel
+          items={hourItems}
+          value={hour}
+        />
+
+        <Combobox
+          searchable
+          onChange={onChangeMinutes}
+          label="Minutes"
+          hideLabel
+          items={minsItems}
+          value={min}
+        />
+
+        <Combobox
+          onChange={onChangePeriod}
+          label="Period"
+          hideLabel
+          items={periodItems}
+          value={period}
+        />
       </Flex>
     </Flex>
   );

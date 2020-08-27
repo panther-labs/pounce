@@ -125,7 +125,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
         </Box>
         {open && (
           <DateWrapper isExpanded={open}>
-            <Flex align="center" justify="space-between" mb={4}>
+            <Flex align="center" justify="space-between" p={4}>
               <IconButton
                 onClick={onPreviousMonth}
                 size="small"
@@ -142,23 +142,18 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
                 aria-label="Go to next page"
               />
             </Flex>
-            <Month
-              onDaySelect={onDaySelect}
-              daySelected={dayjs(currentDate)}
-              year={currentMonth.year()}
-              month={currentMonth.month()}
-            />
+            <Box px={4} pb={4}>
+              <Month
+                onDaySelect={onDaySelect}
+                daySelected={dayjs(currentDate)}
+                year={currentMonth.year()}
+                month={currentMonth.month()}
+              />
+            </Box>
             {withTime && <TimePicker onTimeUpdate={onTimeUpdate} date={currentDate} />}
 
-            <Flex
-              align="center"
-              justify="center"
-              borderTop="1px solid"
-              borderColor="navyblue-300"
-              mx={-24}
-              mt={20}
-            >
-              <Flex align="center" justify="center" pt={3} spacing={3}>
+            <Flex align="center" justify="center" borderTop="1px solid" borderColor="navyblue-300">
+              <Flex align="center" justify="center" p={3} spacing={3}>
                 <Button onClick={onCancel} size="small" variantColor="gray">
                   Cancel
                 </Button>
