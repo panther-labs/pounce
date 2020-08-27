@@ -12,7 +12,7 @@ describe('DateInput', () => {
   it('renders', async () => {
     const mock = jest.fn();
     const { container } = await renderWithTheme(
-      <DateInput label="test" date={date.toDate()} onChangeDate={mock} />
+      <DateInput label="test" value={date.toDate()} onChange={mock} />
     );
     expect(container).toMatchSnapshot();
   });
@@ -20,7 +20,7 @@ describe('DateInput', () => {
   it('opens the month picker', async () => {
     const mock = jest.fn();
     const { findByLabelText, container } = await renderWithTheme(
-      <DateInput label="test" date={date.toDate()} onChangeDate={mock} />
+      <DateInput label="test" value={date.toDate()} onChange={mock} />
     );
     const input = await findByLabelText('test');
     await fireEvent.click(input);
@@ -30,7 +30,7 @@ describe('DateInput', () => {
   it('allows browsing through months', async () => {
     const mock = jest.fn();
     const { findByLabelText } = await renderWithTheme(
-      <DateInput label="test" date={date.toDate()} onChangeDate={mock} />
+      <DateInput label="test" value={date.toDate()} onChange={mock} />
     );
     const input = await findByLabelText('test');
 
@@ -54,7 +54,7 @@ describe('DateInput', () => {
   it('allows selecting a date with time options', async () => {
     const mock = jest.fn();
     const { findByLabelText, container } = await renderWithTheme(
-      <DateInput label="test" date={date.toDate()} withTime onChangeDate={mock} />
+      <DateInput label="test" value={date.toDate()} withTime onChange={mock} />
     );
     const input = await findByLabelText('test');
 
@@ -66,7 +66,7 @@ describe('DateInput', () => {
   it('allows passing a custom format', async () => {
     const mock = jest.fn();
     const { container } = await renderWithTheme(
-      <DateInput label="test" format="M MMM YYYY D dd" date={date.toDate()} onChangeDate={mock} />
+      <DateInput label="test" format="M MMM YYYY D dd" value={date.toDate()} onChange={mock} />
     );
     expect(container).toMatchSnapshot();
   });
@@ -74,7 +74,7 @@ describe('DateInput', () => {
   it('allows selecting a date', async () => {
     const mock = jest.fn();
     const { findByLabelText, findByText } = await renderWithTheme(
-      <DateInput label="test" date={date.toDate()} onChangeDate={mock} />
+      <DateInput label="test" value={date.toDate()} onChange={mock} />
     );
     const input = await findByLabelText('test');
 
