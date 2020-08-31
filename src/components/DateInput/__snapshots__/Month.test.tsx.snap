@@ -25,31 +25,94 @@ exports[`Month renders 1`] = `
   font-size: 0.75rem;
 }
 
-.pounce-63 {
+.pounce-118 {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0 2px;
+}
+
+.pounce-117 {
   display: table-row-group;
 }
 
-.pounce-22 {
+.pounce-24 {
   -webkit-display: table-row;
   display: table-row;
 }
 
 .pounce-15 {
   display: table-cell;
-  padding: 8px;
-  text-align: center;
-  border-radius: 99999px;
-  cursor: pointer;
   vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
 }
 
-.pounce-15[aria-selected=true],
-[data-selected]>.pounce-15 {
+.pounce-15 [aria-relevant]:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-15 [aria-placeholder] {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  top: 0;
+}
+
+.pounce-15[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
+.pounce-15[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
+.pounce-15[aria-selected='true']+.pounce-15[aria-selected='true'] [aria-placeholder] {
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-15[aria-selected='true']+.pounce-15[aria-selected='true'] [aria-placeholder] {
+  width: 100%;
+  left: -50%;
+}
+
+.pounce-15[aria-busy='true']+.pounce-15[aria-selected='true'] [aria-placeholder] {
+  left: 0;
+}
+
+.pounce-15[aria-selected='true']+.pounce-15[aria-busy='true'] [aria-placeholder] {
+  left: -50%;
+}
+
+.pounce-15[aria-selected='true'] [aria-relevant] {
   background-color: #0081c5;
 }
 
-.pounce-15:hover {
-  background-color: #11a5f3;
+.pounce-15[aria-busy='true'] [aria-relevant] {
+  border-radius: 0;
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-15[aria-disabled='true']+.pounce-15[aria-busy='true'] [aria-relevant] {
+  border-radius: 4px 0 0 4px;
+}
+
+.pounce-15[aria-busy='true']:last-of-type [aria-relevant] {
+  border-radius: 0 4px 4px 0;
+}
+
+.pounce-15[aria-busy='true']:first-of-type [aria-relevant] {
+  border-radius: 4px 0 0 4px;
+}
+
+.pounce-15[aria-busy='true']:only-of-type [aria-relevant] {
+  border-radius: 4px;
+}
+
+.pounce-21 {
+  pointer-events: none;
+}
+
+.pounce-22 {
+  padding: 8px;
+  border-radius: 99999px;
+  position: relative;
+  z-index: 2;
 }
 
 <div>
@@ -138,349 +201,629 @@ exports[`Month renders 1`] = `
     </div>
   </div>
   <div
-    class="pounce-63"
+    class="pounce-118"
   >
     <div
-      class="pounce-22"
+      class="pounce-117"
     >
       <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="false"
-        aria-label="Su Nov 01 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        1
-      </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 02 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        2
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Tu Nov 03 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        3
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 01 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            1
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="We Nov 04 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        4
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 02 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            2
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Tu Nov 03 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            3
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="We Nov 04 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            4
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Th Nov 05 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            5
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Fr Nov 06 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            6
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Sa Nov 07 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            7
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 08 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            8
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="Th Nov 05 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        5
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 09 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            9
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Tu Nov 10 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            10
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="We Nov 11 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            11
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Th Nov 12 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            12
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Fr Nov 13 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            13
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Sa Nov 14 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            14
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 15 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            15
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="Fr Nov 06 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        6
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 16 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            16
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Tu Nov 17 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            17
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="We Nov 18 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            18
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Th Nov 19 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            19
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Fr Nov 20 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            20
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Sa Nov 21 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            21
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 22 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            22
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="Sa Nov 07 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        7
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 23 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            23
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Tu Nov 24 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            24
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="We Nov 25 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            25
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Th Nov 26 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            26
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Fr Nov 27 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            27
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Sa Nov 28 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            28
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 29 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            29
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="Su Nov 08 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        8
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 30 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            30
+          </div>
+        </div>
       </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 09 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        9
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Tu Nov 10 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        10
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="We Nov 11 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        11
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Th Nov 12 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        12
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Fr Nov 13 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        13
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Sa Nov 14 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        14
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Su Nov 15 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        15
-      </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 16 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        16
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Tu Nov 17 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        17
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="We Nov 18 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        18
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Th Nov 19 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        19
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Fr Nov 20 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        20
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Sa Nov 21 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        21
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Su Nov 22 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        22
-      </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 23 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        23
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Tu Nov 24 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        24
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="We Nov 25 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        25
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Th Nov 26 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        26
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Fr Nov 27 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        27
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Sa Nov 28 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        28
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Su Nov 29 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        29
-      </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 30 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        30
-      </div>
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
     </div>
   </div>
 </div>
@@ -511,31 +854,94 @@ exports[`Month renders with a selected day 1`] = `
   font-size: 0.75rem;
 }
 
-.pounce-63 {
+.pounce-118 {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0 2px;
+}
+
+.pounce-117 {
   display: table-row-group;
 }
 
-.pounce-22 {
+.pounce-24 {
   -webkit-display: table-row;
   display: table-row;
 }
 
 .pounce-15 {
   display: table-cell;
-  padding: 8px;
-  text-align: center;
-  border-radius: 99999px;
-  cursor: pointer;
   vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
 }
 
-.pounce-15[aria-selected=true],
-[data-selected]>.pounce-15 {
+.pounce-15 [aria-relevant]:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-15 [aria-placeholder] {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  top: 0;
+}
+
+.pounce-15[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
+.pounce-15[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
+.pounce-15[aria-selected='true']+.pounce-15[aria-selected='true'] [aria-placeholder] {
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-15[aria-selected='true']+.pounce-15[aria-selected='true'] [aria-placeholder] {
+  width: 100%;
+  left: -50%;
+}
+
+.pounce-15[aria-busy='true']+.pounce-15[aria-selected='true'] [aria-placeholder] {
+  left: 0;
+}
+
+.pounce-15[aria-selected='true']+.pounce-15[aria-busy='true'] [aria-placeholder] {
+  left: -50%;
+}
+
+.pounce-15[aria-selected='true'] [aria-relevant] {
   background-color: #0081c5;
 }
 
-.pounce-15:hover {
-  background-color: #11a5f3;
+.pounce-15[aria-busy='true'] [aria-relevant] {
+  border-radius: 0;
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-15[aria-disabled='true']+.pounce-15[aria-busy='true'] [aria-relevant] {
+  border-radius: 4px 0 0 4px;
+}
+
+.pounce-15[aria-busy='true']:last-of-type [aria-relevant] {
+  border-radius: 0 4px 4px 0;
+}
+
+.pounce-15[aria-busy='true']:first-of-type [aria-relevant] {
+  border-radius: 4px 0 0 4px;
+}
+
+.pounce-15[aria-busy='true']:only-of-type [aria-relevant] {
+  border-radius: 4px;
+}
+
+.pounce-21 {
+  pointer-events: none;
+}
+
+.pounce-22 {
+  padding: 8px;
+  border-radius: 99999px;
+  position: relative;
+  z-index: 2;
 }
 
 <div>
@@ -624,349 +1030,629 @@ exports[`Month renders with a selected day 1`] = `
     </div>
   </div>
   <div
-    class="pounce-63"
+    class="pounce-118"
   >
     <div
-      class="pounce-22"
+      class="pounce-117"
     >
       <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="false"
-        aria-label="Su Nov 01 2020"
-        aria-selected="true"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        1
-      </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 02 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        2
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Tu Nov 03 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        3
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-disabled="true"
+          class="pounce-15"
+        />
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 01 2020"
+          aria-selected="true"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            1
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="We Nov 04 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        4
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 02 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            2
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Tu Nov 03 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            3
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="We Nov 04 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            4
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Th Nov 05 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            5
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Fr Nov 06 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            6
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Sa Nov 07 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            7
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 08 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            8
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="Th Nov 05 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        5
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 09 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            9
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Tu Nov 10 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            10
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="We Nov 11 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            11
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Th Nov 12 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            12
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Fr Nov 13 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            13
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Sa Nov 14 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            14
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 15 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            15
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="Fr Nov 06 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        6
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 16 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            16
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Tu Nov 17 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            17
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="We Nov 18 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            18
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Th Nov 19 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            19
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Fr Nov 20 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            20
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Sa Nov 21 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            21
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 22 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            22
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="Sa Nov 07 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        7
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 23 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            23
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Tu Nov 24 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            24
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="We Nov 25 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            25
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Th Nov 26 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            26
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Fr Nov 27 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            27
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Sa Nov 28 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            28
+          </div>
+        </div>
+        <div
+          aria-busy="false"
+          aria-label="Su Nov 29 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            29
+          </div>
+        </div>
       </div>
       <div
-        aria-disabled="false"
-        aria-label="Su Nov 08 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
+        class="pounce-24"
       >
-        8
+        <div
+          aria-busy="false"
+          aria-label="Mo Nov 30 2020"
+          aria-selected="false"
+          class="pounce-15"
+          role="gridcell"
+        >
+          <div
+            aria-placeholder="true"
+            class="pounce-21"
+            tabindex="-1"
+          />
+          <div
+            aria-relevant="true"
+            class="pounce-22"
+          >
+            30
+          </div>
+        </div>
       </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 09 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        9
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Tu Nov 10 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        10
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="We Nov 11 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        11
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Th Nov 12 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        12
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Fr Nov 13 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        13
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Sa Nov 14 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        14
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Su Nov 15 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        15
-      </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 16 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        16
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Tu Nov 17 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        17
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="We Nov 18 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        18
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Th Nov 19 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        19
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Fr Nov 20 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        20
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Sa Nov 21 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        21
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Su Nov 22 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        22
-      </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 23 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        23
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Tu Nov 24 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        24
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="We Nov 25 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        25
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Th Nov 26 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        26
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Fr Nov 27 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        27
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Sa Nov 28 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        28
-      </div>
-      <div
-        aria-disabled="false"
-        aria-label="Su Nov 29 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        29
-      </div>
-    </div>
-    <div
-      class="pounce-22"
-    >
-      <div
-        aria-disabled="false"
-        aria-label="Mo Nov 30 2020"
-        aria-selected="false"
-        class="pounce-15"
-        role="gridcell"
-      >
-        30
-      </div>
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
-      <div
-        aria-disabled="true"
-        class="pounce-15"
-      />
     </div>
   </div>
 </div>

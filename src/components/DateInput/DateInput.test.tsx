@@ -38,12 +38,12 @@ describe('DateInput', () => {
     await fireEvent.click(input);
 
     expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
-    const prev = await findByLabelText('Go to previous page');
+    const prev = await findByLabelText('Go to previous month');
 
     // Go to October
     await prev.click(input);
     expect(await findByLabelText('Th Oct 01 2020')).toBeInTheDocument();
-    const next = await findByLabelText('Go to next page');
+    const next = await findByLabelText('Go to next month');
 
     // Go to December
     await next.click(input);
