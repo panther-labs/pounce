@@ -430,18 +430,18 @@ exports[`allows selecting a date range 1`] = `
 }
 
 .pounce-12 {
+  padding: 4px;
+  outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
   cursor: pointer;
   color: #f6f6f6;
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: #0081c5;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  padding: 4px;
-  outline: none;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #0081c5;
 }
 
 .pounce-12:hover {
@@ -652,13 +652,6 @@ exports[`allows selecting a date range 1`] = `
 }
 
 .pounce-259 {
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: #716f6f;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -666,9 +659,16 @@ exports[`allows selecting a date range 1`] = `
   padding-bottom: 8px;
   font-size: 0.938rem;
   outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
   border-color: #716f6f;
+  background-color: #716f6f;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .pounce-259:hover {
@@ -688,13 +688,6 @@ exports[`allows selecting a date range 1`] = `
 }
 
 .pounce-260 {
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: #0081c5;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -702,9 +695,16 @@ exports[`allows selecting a date range 1`] = `
   padding-bottom: 8px;
   font-size: 0.938rem;
   outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .pounce-260:hover {
@@ -2522,18 +2522,18 @@ exports[`allows selecting a date with time options 1`] = `
 }
 
 .pounce-12 {
+  padding: 4px;
+  outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
   cursor: pointer;
   color: #f6f6f6;
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: #0081c5;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  padding: 4px;
-  outline: none;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #0081c5;
 }
 
 .pounce-12:hover {
@@ -2744,13 +2744,6 @@ exports[`allows selecting a date with time options 1`] = `
 }
 
 .pounce-304 {
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: #716f6f;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -2758,9 +2751,16 @@ exports[`allows selecting a date with time options 1`] = `
   padding-bottom: 8px;
   font-size: 0.938rem;
   outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
   border-color: #716f6f;
+  background-color: #716f6f;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .pounce-304:hover {
@@ -2780,13 +2780,6 @@ exports[`allows selecting a date with time options 1`] = `
 }
 
 .pounce-305 {
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: #0081c5;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -2794,9 +2787,16 @@ exports[`allows selecting a date with time options 1`] = `
   padding-bottom: 8px;
   font-size: 0.938rem;
   outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .pounce-305:hover {
@@ -5184,18 +5184,18 @@ exports[`allows selecting a preset 1`] = `
 }
 
 .pounce-21 {
+  padding: 4px;
+  outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
   cursor: pointer;
   color: #f6f6f6;
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: #0081c5;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  padding: 4px;
-  outline: none;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #0081c5;
 }
 
 .pounce-21:hover {
@@ -5406,13 +5406,6 @@ exports[`allows selecting a preset 1`] = `
 }
 
 .pounce-268 {
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: #716f6f;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -5420,9 +5413,16 @@ exports[`allows selecting a preset 1`] = `
   padding-bottom: 8px;
   font-size: 0.938rem;
   outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
   border-color: #716f6f;
+  background-color: #716f6f;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .pounce-268:hover {
@@ -5442,13 +5442,6 @@ exports[`allows selecting a preset 1`] = `
 }
 
 .pounce-269 {
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: #0081c5;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -5456,9 +5449,16 @@ exports[`allows selecting a preset 1`] = `
   padding-bottom: 8px;
   font-size: 0.938rem;
   outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .pounce-269:hover {
@@ -7350,18 +7350,18 @@ exports[`opens the month picker 1`] = `
 }
 
 .pounce-12 {
+  padding: 4px;
+  outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
   cursor: pointer;
   color: #f6f6f6;
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: #0081c5;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  padding: 4px;
-  outline: none;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #0081c5;
 }
 
 .pounce-12:hover {
@@ -7572,13 +7572,6 @@ exports[`opens the month picker 1`] = `
 }
 
 .pounce-259 {
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: #716f6f;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -7586,9 +7579,16 @@ exports[`opens the month picker 1`] = `
   padding-bottom: 8px;
   font-size: 0.938rem;
   outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
   border-color: #716f6f;
+  background-color: #716f6f;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .pounce-259:hover {
@@ -7608,13 +7608,6 @@ exports[`opens the month picker 1`] = `
 }
 
 .pounce-260 {
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: #0081c5;
-  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -7622,9 +7615,16 @@ exports[`opens the month picker 1`] = `
   padding-bottom: 8px;
   font-size: 0.938rem;
   outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .pounce-260:hover {
