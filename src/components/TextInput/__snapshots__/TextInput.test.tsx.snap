@@ -464,6 +464,34 @@ exports[`renders with icons 1`] = `
   right: 16px;
 }
 
+.pounce-7 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: #86a3c3;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+}
+
+.pounce-12 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  color: #3e516b;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+}
+
 <div>
   <div
     class="pounce-4"
@@ -515,7 +543,7 @@ exports[`renders with icons 1`] = `
         Text input calendar
       </label>
       <svg
-        class="pounce-2"
+        class="pounce-7"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -545,7 +573,7 @@ exports[`renders with icons 1`] = `
         Text input caret
       </label>
       <svg
-        class="pounce-2"
+        class="pounce-12"
         role="presentation"
         viewBox="0 0 24 24"
       >

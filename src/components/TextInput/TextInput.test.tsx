@@ -26,8 +26,16 @@ it('renders with icons', async () => {
   const { container } = await renderWithTheme(
     <>
       <TextInput label="Text input wrench" icon="wrench" />
-      <TextInput label="Text input calendar" icon="calendar" />
-      <TextInput label="Text input caret" icon="caret-down" />
+      <TextInput
+        label="Text input calendar"
+        icon="calendar"
+        iconProps={{ color: 'navyblue-100' }}
+      />
+      <TextInput
+        label="Text input caret"
+        icon="caret-down"
+        iconProps={{ color: 'navyblue-300', size: 'x-small' }}
+      />
     </>
   );
   expect(container).toMatchSnapshot();

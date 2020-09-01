@@ -33,6 +33,7 @@ const [value, setValue] = React.useState('hey');
   name="hi"
   value={value}
   placeholder="Type something..."
+  iconProps={{ sx: { color: 'navyblue-300', opacity: 0.8 } }}
   onChange={e => setValue(e.target.value)}
   icon="dashboard-alt"
 />;
