@@ -117,6 +117,7 @@ export const stylingProps = StyledSystem.compose(
   StyledSystem.border,
   StyledSystem.position,
   StyledSystem.flexbox,
+  StyledSystem.borderRadius,
   StyledSystem.typography,
   StyledSystem.system(customStyleProps)
 );

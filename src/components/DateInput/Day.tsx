@@ -1,8 +1,8 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
-import styled from '@emotion/styled';
+import Box from '../Box';
+import Cell from './Cell';
 import dayjs, { Dayjs } from 'dayjs';
-import { noop, addOpacity } from '../../utils/helpers';
+import { noop } from '../../utils/helpers';
 
 export interface DayProps {
   day?: number;
@@ -14,81 +14,6 @@ export interface DayProps {
   onDaySelect?: (date: Dayjs) => void;
 }
 
-const PseudoOuterCell: React.FC<BoxProps> = props => (
-  <Box
-    display="table-cell"
-    verticalAlign="middle"
-    textAlign="center"
-    cursor="pointer"
-    position="relative"
-    {...props}
-  />
-);
-
-const OuterCell = styled(PseudoOuterCell)`
-  [aria-relevant]:hover {
-    background-color: ${({ theme }) => theme.colors['blue-300']};
-  }
-  [aria-placeholder] {
-    position: absolute;
-    z-index: 1;
-    width: 50%;
-    height: 100%;
-    top: 0;
-  }
-
-  &[aria-busy='true'] + [aria-selected='true'],
-  &[aria-selected='true'] + [aria-busy='true'],
-  &[aria-selected='true'] + &[aria-selected='true'] {
-    [aria-placeholder] {
-      background-color: ${({ theme }) => addOpacity(theme.colors['navyblue-100'], 0.2)};
-    }
-  }
-
-  &[aria-selected='true'] + &[aria-selected='true'] [aria-placeholder] {
-    width: 100%;
-    left: -50%;
-  }
-  &[aria-busy='true'] + &[aria-selected='true'] [aria-placeholder] {
-    left: 0;
-  }
-  &[aria-selected='true'] + &[aria-busy='true'] [aria-placeholder] {
-    left: -50%;
-  }
-
-  &[aria-selected='true'] [aria-relevant] {
-    background-color: ${({ theme }) => theme.colors['blue-400']};
-  }
-  &[aria-busy='true'] [aria-relevant] {
-    border-radius: 0;
-    background-color: ${({ theme }) => addOpacity(theme.colors['navyblue-100'], 0.2)};
-  }
-  &[aria-disabled='true'] + &[aria-busy='true'] {
-    [aria-relevant] {
-      border-radius: 4px 0 0 4px;
-    }
-  }
-  &[aria-busy='true'] {
-    &:last-of-type [aria-relevant] {
-      border-radius: 0 4px 4px 0;
-    }
-    &:first-of-type [aria-relevant] {
-      border-radius: 4px 0 0 4px;
-    }
-    &:only-of-type [aria-relevant] {
-      border-radius: 4px;
-    }
-  }
-`;
-
-const MemoOuterCell = React.memo(OuterCell);
-
-const PseudoCell: React.FC<BoxProps> = props => (
-  <Box padding={2} borderRadius="circle" position="relative" zIndex={2} {...props} />
-);
-
-const MemoCell = React.memo(PseudoCell);
-
 const Day: React.FC<DayProps> = ({
   day,
   month,
@@ -99,7 +24,16 @@ const Day: React.FC<DayProps> = ({
   onDaySelect = noop,
 }) => {
   if (!day) {
-    return isLastRow ? null : <MemoOuterCell aria-disabled="true" />;
+    return isLastRow ? null : (
+      <Cell
+        display="table-cell"
+        verticalAlign="middle"
+        textAlign="center"
+        cursor="pointer"
+        position="relative"
+        aria-disabled="true"
+      />
+    );
   }
   const date = React.useMemo(() => dayjs().month(month).date(day).year(year), [year, day, month]);
   const onDaySelectClick = React.useCallback(
@@ -136,7 +70,12 @@ const Day: React.FC<DayProps> = ({
   }, [date, dayRangeSelected]);
 
   return (
-    <MemoOuterCell
+    <Cell
+      display="table-cell"
+      verticalAlign="middle"
+      textAlign="center"
+      cursor="pointer"
+      position="relative"
       aria-label={date.format('dd MMM DD YYYY')}
       onClick={onDaySelectClick}
       role="gridcell"
@@ -144,8 +83,10 @@ const Day: React.FC<DayProps> = ({
       aria-selected={isSelected()}
     >
       <Box aria-placeholder="true" tabIndex={-1} pointerEvents="none" />
-      <MemoCell aria-relevant>{day}</MemoCell>
-    </MemoOuterCell>
+      <Box padding={2} borderRadius="circle" position="relative" zIndex={2} aria-relevant>
+        {day}
+      </Box>
+    </Cell>
   );
 };
 
