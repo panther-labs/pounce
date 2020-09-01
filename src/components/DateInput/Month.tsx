@@ -2,7 +2,6 @@ import React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import { chunk } from 'lodash';
 import Flex from '../Flex';
-import styled from '@emotion/styled';
 import Box from '../Box';
 import Day from './Day';
 import { noop } from '../../utils/helpers';
@@ -13,12 +12,6 @@ export interface MonthProps {
   dayRangeSelected?: [Dayjs?, Dayjs?] | [];
   onDaySelect?: (date: Dayjs) => void;
 }
-
-const Table = styled(Box)`
-  display: table;
-  border-collapse: separate;
-  border-spacing: 0 2px;
-`;
 
 const DAYS = [
   { abbr: 'Mo', name: 'Monday' },
@@ -84,7 +77,7 @@ const Month: React.FC<MonthProps> = ({
           ))}
         </Flex>
       </div>
-      <Table>
+      <Box display="table" sx={{ borderCollapse: 'separate', borderSpacing: '0 2px' }}>
         <Box display="table-row-group">
           {weeks.map((week, monthIndex) => (
             // eslint-disable-next-line
@@ -107,7 +100,7 @@ const Month: React.FC<MonthProps> = ({
             </Box>
           ))}
         </Box>
-      </Table>
+      </Box>
     </>
   );
 };

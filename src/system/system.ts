@@ -63,6 +63,7 @@ export interface CustomStyleProps {
   transformOrigin?: StyledSystem.ResponsiveValue<React.CSSProperties['transformOrigin']>;
   willChange?: StyledSystem.ResponsiveValue<React.CSSProperties['willChange']>;
   borderCollapse?: StyledSystem.ResponsiveValue<React.CSSProperties['borderCollapse']>;
+  borderSpacing?: StyledSystem.ResponsiveValue<React.CSSProperties['borderSpacing']>;
   tableLayout?: StyledSystem.ResponsiveValue<React.CSSProperties['tableLayout']>;
 }
 
@@ -100,6 +101,7 @@ export const customStyleProps: Record<
   willChange: true,
   userSelect: true,
   borderCollapse: true,
+  borderSpacing: true,
   tableLayout: true,
   transformOrigin: true,
 };
