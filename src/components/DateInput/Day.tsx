@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '../Box';
+import AbstractButton from '../AbstractButton';
 import Cell from './Cell';
 import dayjs, { Dayjs } from 'dayjs';
 import { noop } from '../../utils/helpers';
@@ -44,7 +45,7 @@ const Day: React.FC<DayProps> = ({
     [date, onDaySelect]
   );
 
-  const isSelected = React.useCallback(() => {
+  const isSelected = React.useMemo(() => {
     if (!daySelected && !dayRangeSelected) {
       return false;
     }
@@ -77,15 +78,24 @@ const Day: React.FC<DayProps> = ({
       cursor="pointer"
       position="relative"
       aria-label={date.format('dd MMM DD YYYY')}
-      onClick={onDaySelectClick}
       role="gridcell"
       aria-busy={isWithinRange()}
-      aria-selected={isSelected()}
+      aria-selected={isSelected}
     >
       <Box aria-placeholder="true" tabIndex={-1} pointerEvents="none" />
-      <Box padding={2} borderRadius="circle" position="relative" zIndex={2} aria-relevant>
+      <AbstractButton
+        padding={2}
+        borderRadius="circle"
+        position="relative"
+        zIndex={2}
+        onClick={onDaySelectClick}
+        // @ts-ignore
+        aria-relevant
+        width="37px"
+        height="37px"
+      >
         {day}
-      </Box>
+      </AbstractButton>
     </Cell>
   );
 };
