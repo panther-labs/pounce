@@ -9,7 +9,7 @@ export interface MonthProps {
   year: number;
   month: number;
   daySelected?: Dayjs;
-  dayRangeSelected?: [Dayjs?, Dayjs?] | [];
+  dayRangeSelected?: [Dayjs?, Dayjs?];
   onDaySelect?: (date: Dayjs) => void;
 }
 

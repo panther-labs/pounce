@@ -1,12 +1,13 @@
 import React, { ChangeEventHandler } from 'react';
-import Box, { NativeAttributes } from '../Box';
+import Box from '../Box';
 import { slugify } from '../../utils/helpers';
 import Icon, { IconProps } from '../Icon';
 import Flex from '../Flex';
+import { TextInputProps } from '../TextInput';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import { noop } from '../../utils/helpers';
 
-export type DoubleTextInputProps = NativeAttributes<'input'> & {
+export type DoubleTextInputProps = Omit<TextInputProps, 'label' | 'placeholder'> & {
   /** The `from` label for the double text input*/
   labelFrom: string;
 
@@ -24,12 +25,6 @@ export type DoubleTextInputProps = NativeAttributes<'input'> & {
 
   /** The `to` value for the double text input*/
   to?: string | ReadonlyArray<string> | number;
-
-  /** Whether the input has an invalid value */
-  invalid?: boolean;
-
-  /** Whether the input is required or not */
-  required?: boolean;
 
   /** On change `from` event handlers */
   onChangeFrom?: ChangeEventHandler;
