@@ -65,7 +65,7 @@ export interface DateRangeInputProps {
 
 const convertToDayjs = (value: Date[]): [Dayjs, Dayjs] => {
   const { now } = getDates();
-  if (!value || !Array.isArray(value)) {
+  if (!value || !Array.isArray(value) || value.length < 2) {
     return [now, now];
   }
   return value.map(v => dayjs(v)) as [Dayjs, Dayjs];

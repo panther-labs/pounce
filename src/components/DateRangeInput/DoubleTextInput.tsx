@@ -81,7 +81,7 @@ const DoubleTextInput = React.forwardRef<HTMLInputElement, DoubleTextInputProps>
     const identifierTo = getIdentifier(id, name, labelTo, 'to');
 
     return (
-      <Box position="relative">
+      <Box position="relative" as="fieldset">
         <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
           <Flex align="center">
             <Box position="relative">
