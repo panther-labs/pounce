@@ -1,11 +1,13 @@
 import React from 'react';
-import dayjs, { Dayjs } from 'dayjs';
+import { Dayjs } from 'dayjs';
+import { getDates } from '../../utils/helpers';
 import Box from '../Box';
 
 type OnSelectCallback = (date: [Dayjs, Dayjs]) => void;
-
+type OnCurrentMonthSelect = React.Dispatch<React.SetStateAction<Dayjs>>;
 interface PresetsProps {
   currentDateRange: [Dayjs, Dayjs];
+  setCurrentMonth: OnCurrentMonthSelect;
   onSelect: (dates: [Dayjs, Dayjs]) => void;
 }
 
@@ -29,51 +31,64 @@ const ListItem: React.FC<ListItemProps> = ({ selected, onSelect, ...rest }) => (
   />
 );
 
-const now = dayjs();
-const lastDay = now.subtract(1, 'day');
-const lastWeek = now.subtract(1, 'week');
-const lastMonth = now.subtract(1, 'month');
-const lastThreeMonths = now.subtract(3, 'month');
-const lastSixMonths = now.subtract(6, 'month');
-
 const options = [
   {
     id: 'last_day',
     label: 'Last 24 Hours',
-    onSelectPreset: (callback: OnSelectCallback) => (e: React.KeyboardEvent): void => {
+    onSelectPreset: (callback: OnSelectCallback, setCurrentMonth: OnCurrentMonthSelect) => (
+      e: React.KeyboardEvent
+    ): void => {
       e.preventDefault();
+      const { lastDay, nextMonth, now } = getDates();
+      setCurrentMonth(nextMonth);
       callback([lastDay, now]);
     },
   },
   {
     id: 'last_week',
     label: 'Last Week',
-    onSelectPreset: (callback: OnSelectCallback) => (e: React.KeyboardEvent): void => {
+    onSelectPreset: (callback: OnSelectCallback, setCurrentMonth: OnCurrentMonthSelect) => (
+      e: React.KeyboardEvent
+    ): void => {
       e.preventDefault();
+      const { lastWeek, nextMonth, now } = getDates();
+      setCurrentMonth(nextMonth);
       callback([lastWeek, now]);
     },
   },
   {
     id: 'last_month',
     label: 'Last Month',
-    onSelectPreset: (callback: OnSelectCallback) => (e: React.KeyboardEvent): void => {
+    onSelectPreset: (callback: OnSelectCallback, setCurrentMonth: OnCurrentMonthSelect) => (
+      e: React.KeyboardEvent
+    ): void => {
       e.preventDefault();
+      const { lastMonth, nextMonth, now } = getDates();
+      setCurrentMonth(nextMonth);
       callback([lastMonth, now]);
     },
   },
   {
     id: 'last_three_months',
     label: 'Last 3 Months',
-    onSelectPreset: (callback: OnSelectCallback) => (e: React.KeyboardEvent): void => {
+    onSelectPreset: (callback: OnSelectCallback, setCurrentMonth: OnCurrentMonthSelect) => (
+      e: React.KeyboardEvent
+    ): void => {
       e.preventDefault();
+      const { lastThreeMonths, nextMonth, now } = getDates();
+      setCurrentMonth(nextMonth);
       callback([lastThreeMonths, now]);
     },
   },
   {
     id: 'last_six_months',
     label: 'Last 6 Months',
-    onSelectPreset: (callback: OnSelectCallback) => (e: React.KeyboardEvent): void => {
+    onSelectPreset: (callback: OnSelectCallback, setCurrentMonth: OnCurrentMonthSelect) => (
+      e: React.KeyboardEvent
+    ): void => {
       e.preventDefault();
+      const { lastSixMonths, nextMonth, now } = getDates();
+      setCurrentMonth(nextMonth);
       callback([lastSixMonths, now]);
     },
   },
@@ -86,8 +101,9 @@ const options = [
   },
 ];
 
-const Presets: React.FC<PresetsProps> = ({ currentDateRange, onSelect }) => {
+const Presets: React.FC<PresetsProps> = ({ currentDateRange, onSelect, setCurrentMonth }) => {
   const selected: string = React.useMemo(() => {
+    const { now, lastDay, lastWeek, lastMonth, lastThreeMonths, lastSixMonths } = getDates();
     const [start, end] = currentDateRange;
     if (!start || !end) {
       return 'custom';
@@ -123,7 +139,7 @@ const Presets: React.FC<PresetsProps> = ({ currentDateRange, onSelect }) => {
         <Box as="ul">
           {options.map(opt => (
             <ListItem
-              onSelect={opt.onSelectPreset(onSelect)}
+              onSelect={opt.onSelectPreset(onSelect, setCurrentMonth)}
               selected={selected === opt.id}
               key={opt.id}
             >

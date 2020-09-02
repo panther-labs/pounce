@@ -11,7 +11,7 @@ import DateWrapper from '../DateInput/DateWrapper';
 import TimePicker from '../DateInput/TimePicker';
 import Month from '../DateInput/Month';
 import { TextInputProps } from '../TextInput';
-import { noop } from '../../utils/helpers';
+import { noop, getDates } from '../../utils/helpers';
 
 export interface DateRangeInputProps {
   /**
@@ -63,9 +63,8 @@ export interface DateRangeInputProps {
   onChange: (date?: Date[]) => void;
 }
 
-const now = dayjs();
-
 const parseDateValue = (value?: Date[]): [Dayjs, Dayjs] => {
+  const { now } = getDates();
   if (!value || !Array.isArray(value)) {
     return [now, now];
   }
@@ -222,6 +221,7 @@ const DateRangeInput: React.FC<
         <Flex justify="columns">
           {withPresets && (
             <Presets
+              setCurrentMonth={setCurrentMonth}
               onSelect={onPresetSelect}
               currentDateRange={parseDateValue(currentDateRange)}
             />

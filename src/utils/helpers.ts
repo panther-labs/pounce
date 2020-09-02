@@ -1,5 +1,6 @@
 import { Theme } from '../theme';
 import React from 'react';
+import dayjs, { Dayjs } from 'dayjs';
 
 /** A boolean denoting whether we are in a development environment */
 export const __DEV__ = process.env.NODE_ENV !== 'production';
@@ -70,3 +71,35 @@ export function slugify(text: string) {
 export const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
 
 export const noop = (): void => {};
+
+/**
+ * A function that generates a preset with dynamic dates.
+ * @returns {Object} An object with Dayjs presets
+ */
+
+export const getDates = (): {
+  now: Dayjs;
+  lastDay: Dayjs;
+  lastWeek: Dayjs;
+  lastMonth: Dayjs;
+  nextMonth: Dayjs;
+  lastThreeMonths: Dayjs;
+  lastSixMonths: Dayjs;
+} => {
+  const now = dayjs();
+  const lastDay = now.subtract(1, 'day');
+  const lastWeek = now.subtract(1, 'week');
+  const lastMonth = now.subtract(1, 'month');
+  const nextMonth = now.subtract(1, 'month');
+  const lastThreeMonths = now.subtract(3, 'month');
+  const lastSixMonths = now.subtract(6, 'month');
+  return {
+    now,
+    nextMonth,
+    lastDay,
+    lastWeek,
+    lastMonth,
+    lastThreeMonths,
+    lastSixMonths,
+  };
+};

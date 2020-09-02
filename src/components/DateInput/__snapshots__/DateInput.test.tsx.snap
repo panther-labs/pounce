@@ -534,15 +534,18 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 }
 
 .pounce-27[aria-disabled='true']+.pounce-27[aria-busy='true'] [aria-relevant] {
-  border-radius: 4px 0 0 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 .pounce-27[aria-busy='true']:last-of-type [aria-relevant] {
-  border-radius: 0 4px 4px 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .pounce-27[aria-busy='true']:first-of-type [aria-relevant] {
-  border-radius: 4px 0 0 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 .pounce-27[aria-busy='true']:only-of-type [aria-relevant] {
@@ -2237,15 +2240,18 @@ exports[`DateInput opens the month picker 1`] = `
 }
 
 .pounce-27[aria-disabled='true']+.pounce-27[aria-busy='true'] [aria-relevant] {
-  border-radius: 4px 0 0 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 .pounce-27[aria-busy='true']:last-of-type [aria-relevant] {
-  border-radius: 0 4px 4px 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .pounce-27[aria-busy='true']:first-of-type [aria-relevant] {
-  border-radius: 4px 0 0 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 .pounce-27[aria-busy='true']:only-of-type [aria-relevant] {
