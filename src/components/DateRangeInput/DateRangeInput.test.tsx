@@ -85,15 +85,21 @@ it('allows selecting a preset', async () => {
   await fireEvent.click(input);
 
   expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
-  const cellStart = await findByLabelText('Su Nov 01 2020');
-  const cellEnd = await findByLabelText('Mo Nov 30 2020');
+  const preset = await findByLabelText('Last Week');
   const submitBtn = await findByText('Apply');
 
-  await fireEvent.click(cellStart);
-  await fireEvent.click(cellEnd);
+  await fireEvent.click(preset);
   await fireEvent.click(submitBtn);
 
   expect(mock).toHaveBeenCalled();
+  // Since the presets are dynamic and based on the current date we need to ensure
+  // that the appropriate range is selected
+  const start = dayjs(mock.mock.calls[0][0][0]);
+  const end = dayjs(mock.mock.calls[0][0][1]);
+
+  const sevenDaysInMillis = 24 * 60 * 60 * 1000 * 7;
+  expect(start.isBefore(end)).toBe(true);
+  expect(end.diff(start)).toBe(sevenDaysInMillis);
   expect(container).toMatchSnapshot();
 });
 
