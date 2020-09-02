@@ -63,7 +63,7 @@ export interface DateRangeInputProps {
   onChange: (date?: Date[]) => void;
 }
 
-const parseDateValue = (value?: Date[]): [Dayjs, Dayjs] => {
+const convertToDayjs = (value?: Date[]): [Dayjs, Dayjs] => {
   const { now } = getDates();
   if (!value || !Array.isArray(value)) {
     return [now, now];
@@ -85,7 +85,7 @@ const DateRangeInput: React.FC<
   placeholderEnd,
   ...rest
 }) => {
-  const datesFormatted = parseDateValue(value);
+  const datesFormatted = convertToDayjs(value);
   const [currentDateRange, setCurrentRange] = useState(value);
   const [currentMonth, setCurrentMonth] = useState(datesFormatted[0]);
   const [prevDateRange, setPrevDateRange] = useState(value);
@@ -223,7 +223,7 @@ const DateRangeInput: React.FC<
             <Presets
               setCurrentMonth={setCurrentMonth}
               onSelect={onPresetSelect}
-              currentDateRange={parseDateValue(currentDateRange)}
+              currentDateRange={convertToDayjs(currentDateRange)}
             />
           )}
           <Box>
@@ -256,7 +256,7 @@ const DateRangeInput: React.FC<
                 <Box>
                   <Month
                     onDaySelect={onDaySelect}
-                    dayRangeSelected={currentDateRange && parseDateValue(currentDateRange)}
+                    dayRangeSelected={currentDateRange && convertToDayjs(currentDateRange)}
                     year={currentMonth.year()}
                     month={currentMonth.month()}
                   />
@@ -264,7 +264,7 @@ const DateRangeInput: React.FC<
                 <Box>
                   <Month
                     onDaySelect={onDaySelect}
-                    dayRangeSelected={currentDateRange && parseDateValue(currentDateRange)}
+                    dayRangeSelected={currentDateRange && convertToDayjs(currentDateRange)}
                     year={nextMonth.year()}
                     month={nextMonth.month()}
                   />
