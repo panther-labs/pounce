@@ -5,6 +5,13 @@ import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import Icon, { IconProps } from '../Icon';
 import Flex from '../Flex';
 
+export type TextIconProps = {
+  color?: IconProps['color'];
+
+  /** The size of the icon. Can be 18px or 24px */
+  size?: IconProps['size'];
+};
+
 export type TextInputProps = NativeAttributes<'input'> & {
   /** The label that is associated with this input */
   label: string;
@@ -20,10 +27,13 @@ export type TextInputProps = NativeAttributes<'input'> & {
 
   /** The icon present on the input  */
   icon?: IconProps['type'];
+
+  /** Additional icon props  */
+  iconProps?: TextIconProps;
 };
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
-  { label, invalid, required, disabled, id, hidden, name, icon, value, ...rest },
+  { label, invalid, required, disabled, id, hidden, name, icon, iconProps = {}, value, ...rest },
   ref
 ) {
   const identifier = id || name || slugify(label);
@@ -47,7 +57,9 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
         <InputLabel raised={!!value} htmlFor={identifier}>
           {label}
         </InputLabel>
-        {icon && <Icon zIndex={1} position="absolute" size="small" right={4} type={icon} />}
+        {icon && (
+          <Icon zIndex={1} position="absolute" size="small" right={4} type={icon} {...iconProps} />
+        )}
       </Flex>
     </InputControl>
   );
