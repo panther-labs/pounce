@@ -7,7 +7,7 @@ Any extra prop that you specify will be given to the underlying input element of
 
 ```typescript jsx
 const DateRangeExample = () => {
-  const [dates, setDates] = React.useState();
+  const [dates, setDates] = React.useState([new Date(), new Date(Date.now() + 604800)]);
 
   const onChange = React.useCallback(changed => {
     setDates(changed);

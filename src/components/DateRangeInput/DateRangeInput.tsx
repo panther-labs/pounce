@@ -52,7 +52,7 @@ export interface DateRangeInputProps {
   /**
    * A date range that works as a value
    */
-  value?: Date[];
+  value: Date[];
 
   /**
    * A callback for whenever the value of the chosen date range changes.
@@ -60,10 +60,10 @@ export interface DateRangeInputProps {
    * `(dates: [Date, Date] | null) => void`
    *
    */
-  onChange: (date?: Date[]) => void;
+  onChange: (date: Date[]) => void;
 }
 
-const convertToDayjs = (value?: Date[]): [Dayjs, Dayjs] => {
+const convertToDayjs = (value: Date[]): [Dayjs, Dayjs] => {
   const { now } = getDates();
   if (!value || !Array.isArray(value)) {
     return [now, now];
