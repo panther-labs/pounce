@@ -561,6 +561,15 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   border-radius: 99999px;
   position: relative;
   z-index: 2;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .pounce-158 {
@@ -1145,12 +1154,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       1
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -1168,12 +1178,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       2
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1187,12 +1198,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       3
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1206,12 +1218,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       4
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1225,12 +1238,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       5
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1244,12 +1258,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       6
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1263,12 +1278,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       7
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1282,12 +1298,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       8
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -1305,12 +1322,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       9
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1324,12 +1342,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       10
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1343,12 +1362,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       11
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1362,12 +1382,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       12
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1381,12 +1402,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       13
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1400,12 +1422,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       14
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1419,12 +1442,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       15
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -1442,12 +1466,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       16
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1461,12 +1486,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       17
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1480,12 +1506,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       18
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1499,12 +1526,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       19
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1518,12 +1546,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       20
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1537,12 +1566,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       21
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1556,12 +1586,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       22
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -1579,12 +1610,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       23
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1598,12 +1630,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       24
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1617,12 +1650,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       25
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1636,12 +1670,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       26
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1655,12 +1690,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       27
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1674,12 +1710,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       28
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -1693,12 +1730,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       29
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -1716,12 +1754,13 @@ exports[`DateInput allows selecting a date with time options 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       30
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -2267,6 +2306,15 @@ exports[`DateInput opens the month picker 1`] = `
   border-radius: 99999px;
   position: relative;
   z-index: 2;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .pounce-135 {
@@ -2605,12 +2653,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       1
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -2628,12 +2677,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       2
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2647,12 +2697,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       3
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2666,12 +2717,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       4
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2685,12 +2737,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       5
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2704,12 +2757,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       6
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2723,12 +2777,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       7
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2742,12 +2797,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       8
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -2765,12 +2821,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       9
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2784,12 +2841,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       10
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2803,12 +2861,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       11
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2822,12 +2881,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       12
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2841,12 +2901,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       13
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2860,12 +2921,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       14
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2879,12 +2941,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       15
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -2902,12 +2965,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       16
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2921,12 +2985,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       17
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2940,12 +3005,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       18
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2959,12 +3025,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       19
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2978,12 +3045,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       20
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -2997,12 +3065,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       21
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -3016,12 +3085,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       22
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -3039,12 +3109,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       23
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -3058,12 +3129,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       24
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -3077,12 +3149,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       25
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -3096,12 +3169,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       26
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -3115,12 +3189,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       27
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -3134,12 +3209,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       28
-                    </div>
+                    </button>
                   </div>
                   <div
                     aria-busy="false"
@@ -3153,12 +3229,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       29
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -3176,12 +3253,13 @@ exports[`DateInput opens the month picker 1`] = `
                       class="pounce-33"
                       tabindex="-1"
                     />
-                    <div
+                    <button
                       aria-relevant="true"
                       class="pounce-34"
+                      type="button"
                     >
                       30
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
