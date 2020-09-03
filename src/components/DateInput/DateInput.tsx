@@ -110,62 +110,70 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   }, []);
 
   return (
-    <>
-      <Box position="relative">
-        <Box onClick={onExpand} cursor="pointer">
-          <TextInput
-            {...rest}
-            value={currentDate ? dayjs(currentDate).format(format) : ''}
-            autoComplete="off"
-            icon="calendar"
-            aria-autocomplete="none"
-            tabIndex={-1}
-            readOnly
+    <Box position="relative">
+      <Box onClick={onExpand} cursor="pointer">
+        <TextInput
+          {...rest}
+          value={currentDate ? dayjs(currentDate).format(format) : ''}
+          autoComplete="off"
+          icon="calendar"
+          aria-autocomplete="none"
+          tabIndex={-1}
+          readOnly
+        />
+      </Box>
+      <DateWrapper isExpanded={open}>
+        <Flex align="center" justify="space-between" p={4}>
+          <IconButton
+            onClick={onPreviousMonth}
+            size="small"
+            icon="arrow-back"
+            aria-label="Go to previous month"
+          />
+          <Box as="h4" fontSize="medium" fontWeight="bold" tabIndex="-1">
+            {currentMonth.format('MMMM YYYY')}
+          </Box>
+          <IconButton
+            onClick={onNextMonth}
+            size="small"
+            icon="arrow-forward"
+            aria-label="Go to next month"
+          />
+        </Flex>
+        <Box px={4} pb={4}>
+          <Month
+            onDaySelect={onDaySelect}
+            daySelected={currentDate && dayjs(currentDate)}
+            year={currentMonth.year()}
+            month={currentMonth.month()}
           />
         </Box>
-        {open && (
-          <DateWrapper isExpanded={open}>
-            <Flex align="center" justify="space-between" p={4}>
-              <IconButton
-                onClick={onPreviousMonth}
-                size="small"
-                icon="arrow-back"
-                aria-label="Go to previous page"
-              />
-              <Box as="h4" fontSize="medium" fontWeight="bold" tabIndex="-1">
-                {currentMonth.format('MMMM YYYY')}
-              </Box>
-              <IconButton
-                onClick={onNextMonth}
-                size="small"
-                icon="arrow-forward"
-                aria-label="Go to next page"
-              />
+        {withTime && (
+          <Flex
+            align="center"
+            justify="center"
+            borderTop="1px solid"
+            borderColor="navyblue-300"
+            p={4}
+          >
+            <Flex align="center" justify="center" spacing={3}>
+              <TimePicker onTimeUpdate={onTimeUpdate} date={currentDate} />
             </Flex>
-            <Box px={4} pb={4}>
-              <Month
-                onDaySelect={onDaySelect}
-                daySelected={dayjs(currentDate)}
-                year={currentMonth.year()}
-                month={currentMonth.month()}
-              />
-            </Box>
-            {withTime && <TimePicker onTimeUpdate={onTimeUpdate} date={currentDate} />}
-
-            <Flex align="center" justify="center" borderTop="1px solid" borderColor="navyblue-300">
-              <Flex align="center" justify="center" p={3} spacing={3}>
-                <Button onClick={onCancel} size="small" variantColor="gray">
-                  Cancel
-                </Button>
-                <Button disabled={!currentDate} onClick={onApply} size="small">
-                  Apply
-                </Button>
-              </Flex>
-            </Flex>
-          </DateWrapper>
+          </Flex>
         )}
-      </Box>
-    </>
+
+        <Flex align="center" justify="center" borderTop="1px solid" borderColor="navyblue-300">
+          <Flex align="center" justify="center" p={3} spacing={3}>
+            <Button onClick={onCancel} size="small" variantColor="gray">
+              Cancel
+            </Button>
+            <Button disabled={!currentDate} onClick={onApply} size="small">
+              Apply
+            </Button>
+          </Flex>
+        </Flex>
+      </DateWrapper>
+    </Box>
   );
 };
 

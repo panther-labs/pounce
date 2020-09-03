@@ -1,65 +1,225 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Day renders a cell selected 1`] = `
-.pounce-0 {
+.pounce-2 {
   display: table-cell;
-  padding: 8px;
-  text-align: center;
-  border-radius: 99999px;
-  cursor: pointer;
   vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
 }
 
-.pounce-0[aria-selected=true],
-[data-selected]>.pounce-0 {
+.pounce-2 [aria-relevant]:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-2 [aria-placeholder] {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  top: 0;
+}
+
+.pounce-2[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
+.pounce-2[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
+.pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  width: 100%;
+  left: -50%;
+}
+
+.pounce-2[aria-busy='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  left: 0;
+}
+
+.pounce-2[aria-selected='true']+.pounce-2[aria-busy='true'] [aria-placeholder] {
+  left: -50%;
+}
+
+.pounce-2[aria-selected='true'] [aria-relevant] {
   background-color: #0081c5;
 }
 
-.pounce-0:hover {
-  background-color: #11a5f3;
+.pounce-2[aria-busy='true'] [aria-relevant] {
+  border-radius: 0;
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-2[aria-disabled='true']+.pounce-2[aria-busy='true'] [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:last-of-type [aria-relevant] {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:first-of-type [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:only-of-type [aria-relevant] {
+  border-radius: 4px;
+}
+
+.pounce-0 {
+  pointer-events: none;
+}
+
+.pounce-1 {
+  padding: 8px;
+  border-radius: 99999px;
+  position: relative;
+  z-index: 2;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 <div>
   <div
-    aria-disabled="false"
+    aria-busy="false"
     aria-label="Su Nov 01 2020"
     aria-selected="true"
-    class="pounce-0"
+    class="pounce-2"
     role="gridcell"
   >
-    1
+    <div
+      aria-placeholder="true"
+      class="pounce-0"
+      tabindex="-1"
+    />
+    <button
+      aria-relevant="true"
+      class="pounce-1"
+      type="button"
+    >
+      1
+    </button>
   </div>
 </div>
 `;
 
 exports[`Day renders a cell when date is present 1`] = `
-.pounce-0 {
+.pounce-2 {
   display: table-cell;
-  padding: 8px;
-  text-align: center;
-  border-radius: 99999px;
-  cursor: pointer;
   vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
 }
 
-.pounce-0[aria-selected=true],
-[data-selected]>.pounce-0 {
+.pounce-2 [aria-relevant]:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-2 [aria-placeholder] {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  top: 0;
+}
+
+.pounce-2[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
+.pounce-2[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
+.pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  width: 100%;
+  left: -50%;
+}
+
+.pounce-2[aria-busy='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  left: 0;
+}
+
+.pounce-2[aria-selected='true']+.pounce-2[aria-busy='true'] [aria-placeholder] {
+  left: -50%;
+}
+
+.pounce-2[aria-selected='true'] [aria-relevant] {
   background-color: #0081c5;
 }
 
-.pounce-0:hover {
-  background-color: #11a5f3;
+.pounce-2[aria-busy='true'] [aria-relevant] {
+  border-radius: 0;
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-2[aria-disabled='true']+.pounce-2[aria-busy='true'] [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:last-of-type [aria-relevant] {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:first-of-type [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:only-of-type [aria-relevant] {
+  border-radius: 4px;
+}
+
+.pounce-0 {
+  pointer-events: none;
+}
+
+.pounce-1 {
+  padding: 8px;
+  border-radius: 99999px;
+  position: relative;
+  z-index: 2;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 <div>
   <div
-    aria-disabled="false"
+    aria-busy="false"
     aria-label="Su Nov 01 2020"
     aria-selected="false"
-    class="pounce-0"
+    class="pounce-2"
     role="gridcell"
   >
-    1
+    <div
+      aria-placeholder="true"
+      class="pounce-0"
+      tabindex="-1"
+    />
+    <button
+      aria-relevant="true"
+      class="pounce-1"
+      type="button"
+    >
+      1
+    </button>
   </div>
 </div>
 `;
@@ -67,20 +227,69 @@ exports[`Day renders a cell when date is present 1`] = `
 exports[`Day renders a disabled cell 1`] = `
 .pounce-0 {
   display: table-cell;
-  padding: 8px;
-  text-align: center;
-  border-radius: 99999px;
-  cursor: pointer;
   vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
 }
 
-.pounce-0[aria-selected=true],
-[data-selected]>.pounce-0 {
+.pounce-0 [aria-relevant]:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-0 [aria-placeholder] {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  top: 0;
+}
+
+.pounce-0[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
+.pounce-0[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
+.pounce-0[aria-selected='true']+.pounce-0[aria-selected='true'] [aria-placeholder] {
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-0[aria-selected='true']+.pounce-0[aria-selected='true'] [aria-placeholder] {
+  width: 100%;
+  left: -50%;
+}
+
+.pounce-0[aria-busy='true']+.pounce-0[aria-selected='true'] [aria-placeholder] {
+  left: 0;
+}
+
+.pounce-0[aria-selected='true']+.pounce-0[aria-busy='true'] [aria-placeholder] {
+  left: -50%;
+}
+
+.pounce-0[aria-selected='true'] [aria-relevant] {
   background-color: #0081c5;
 }
 
-.pounce-0:hover {
-  background-color: #11a5f3;
+.pounce-0[aria-busy='true'] [aria-relevant] {
+  border-radius: 0;
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-0[aria-disabled='true']+.pounce-0[aria-busy='true'] [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-0[aria-busy='true']:last-of-type [aria-relevant] {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.pounce-0[aria-busy='true']:first-of-type [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-0[aria-busy='true']:only-of-type [aria-relevant] {
+  border-radius: 4px;
 }
 
 <div>
@@ -88,5 +297,117 @@ exports[`Day renders a disabled cell 1`] = `
     aria-disabled="true"
     class="pounce-0"
   />
+</div>
+`;
+
+exports[`Day renders a selected date 1`] = `
+.pounce-2 {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.pounce-2 [aria-relevant]:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-2 [aria-placeholder] {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  top: 0;
+}
+
+.pounce-2[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
+.pounce-2[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
+.pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  width: 100%;
+  left: -50%;
+}
+
+.pounce-2[aria-busy='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
+  left: 0;
+}
+
+.pounce-2[aria-selected='true']+.pounce-2[aria-busy='true'] [aria-placeholder] {
+  left: -50%;
+}
+
+.pounce-2[aria-selected='true'] [aria-relevant] {
+  background-color: #0081c5;
+}
+
+.pounce-2[aria-busy='true'] [aria-relevant] {
+  border-radius: 0;
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-2[aria-disabled='true']+.pounce-2[aria-busy='true'] [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:last-of-type [aria-relevant] {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:first-of-type [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-2[aria-busy='true']:only-of-type [aria-relevant] {
+  border-radius: 4px;
+}
+
+.pounce-0 {
+  pointer-events: none;
+}
+
+.pounce-1 {
+  padding: 8px;
+  border-radius: 99999px;
+  position: relative;
+  z-index: 2;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+<div>
+  <div
+    aria-busy="false"
+    aria-label="Su Nov 01 2020"
+    aria-selected="true"
+    class="pounce-2"
+    role="gridcell"
+  >
+    <div
+      aria-placeholder="true"
+      class="pounce-0"
+      tabindex="-1"
+    />
+    <button
+      aria-relevant="true"
+      class="pounce-1"
+      type="button"
+    >
+      1
+    </button>
+  </div>
 </div>
 `;

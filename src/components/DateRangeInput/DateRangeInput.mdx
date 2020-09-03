@@ -1,0 +1,137 @@
+As with every other form component, the DateRangeInput is a controlled component and so it
+requires for you to specify the `value` and the `onChange` handler.
+
+Any extra prop that you specify will be given to the underlying input element of the module.
+
+---
+
+```typescript jsx
+const DateRangeExample = () => {
+  const [dates, setDates] = React.useState([]);
+
+  const onChange = React.useCallback(changed => {
+    setDates(changed);
+  });
+  return (
+    <Box>
+      <Box>
+        <DateRangeInput
+          labelStart="Start"
+          labelEnd="End"
+          placeholderStart="Start date"
+          placeholderEnd="End date"
+          onChange={setDates}
+          value={dates}
+          id="hello-date-range"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateRangeExample />;
+```
+
+```typescript jsx
+const DateRangeExample = () => {
+  const [dates, setDates] = React.useState([new Date(), new Date(Date.now() + 604800)]);
+
+  const onChange = React.useCallback(changed => {
+    setDates(changed);
+  });
+  return (
+    <Box>
+      <Box mb={2}>
+        {dates && (
+          <span>
+            From {dates[0].toLocaleDateString()} to {dates[1].toLocaleDateString()}
+          </span>
+        )}
+      </Box>
+      <Box>
+        <DateRangeInput
+          labelStart="Start"
+          labelEnd="End"
+          placeholderStart="Start date"
+          placeholderEnd="End date"
+          onChange={setDates}
+          value={dates}
+          id="hello-date-range"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateRangeExample />;
+```
+
+```typescript jsx
+const format = 'MM/DD/YYYY hh:mm A';
+const DateRangeExample = () => {
+  const [dates, setDates] = React.useState([new Date(), new Date(Date.now() + 12096e5)]);
+
+  const onChange = React.useCallback(changed => {
+    setDates(changed);
+  });
+  return (
+    <Box>
+      <Box mb={2}>
+        From {dates[0].toLocaleDateString()} {dates[0].toLocaleTimeString()} to{' '}
+        {dates[1].toLocaleDateString()} {dates[1].toLocaleTimeString()}
+      </Box>
+      <Box>
+        <DateRangeInput
+          withTime
+          labelStart="From"
+          labelEnd="To"
+          placeholderStart="From date"
+          placeholderEnd="To date"
+          format={format}
+          onChange={setDates}
+          value={dates}
+          id="hello-date-range-from-to"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateRangeExample />;
+```
+
+```typescript jsx
+const format = 'MM/DD/YYYY hh:mm A';
+const date = new Date('12/12/2020 00:00:00');
+const DateRangeExample = () => {
+  const [dates, setDates] = React.useState([date, new Date(date.getTime() + 12096e5)]);
+
+  const onChange = React.useCallback(changed => {
+    setDates(changed);
+  });
+  return (
+    <Box>
+      <Box mb={2}>
+        From {dates[0].toLocaleDateString()} {dates[0].toLocaleTimeString()} to{' '}
+        {dates[1].toLocaleDateString()} {dates[1].toLocaleTimeString()}
+      </Box>
+      <Box>
+        <DateRangeInput
+          withTime
+          withPresets
+          labelStart="From"
+          labelEnd="To"
+          placeholderStart="From date with range"
+          placeholderEnd="To date with range"
+          format={format}
+          onChange={setDates}
+          value={dates}
+          id="hello-date-range-with-range"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateRangeExample />;
+```

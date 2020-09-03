@@ -27,7 +27,10 @@ describe('Month', () => {
       <Month daySelected={date} month={month} year={year} onDaySelect={mock} />
     );
     const cell = await findByLabelText('Su Nov 01 2020');
-    await fireEvent.click(cell);
+    const btn = cell.querySelector('button');
+    await fireEvent.click(btn);
     expect(mock).toHaveBeenCalled();
+    const day = mock.mock.calls[0][0];
+    expect(day.format('DD/MM/YYYY')).toBe('01/11/2020');
   });
 });
