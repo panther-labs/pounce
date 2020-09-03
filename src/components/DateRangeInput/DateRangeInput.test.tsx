@@ -106,10 +106,25 @@ it('allows changing time options', async () => {
 
 it('allows passing a custom format', async () => {
   const mock = jest.fn();
-  const { container } = await renderWithTheme(
-    <DateRangeInput {...props} format="M MMM YYYY D dd" onChange={mock} />
+  const format = 'M MMM YYYY D dd';
+  const { container, findByLabelText } = await renderWithTheme(
+    <DateRangeInput {...props} format={format} onChange={mock} />
   );
+
   expect(container).toMatchSnapshot();
+
+  const inputStart = await findByLabelText('From date');
+  const inputEnd = await findByLabelText('To date');
+  await fireEvent.click(inputStart);
+
+  const cellStart = await findByLabelText('Su Nov 01 2020');
+  const cellEnd = await findByLabelText('Mo Nov 30 2020');
+
+  await fireEvent.click(cellStart);
+  await fireEvent.click(cellEnd);
+
+  expect(inputStart.value).toBe('11 Nov 2020 1 Su');
+  expect(inputEnd.value).toBe('11 Nov 2020 11 We');
 });
 
 it('allows selecting a preset', async () => {
