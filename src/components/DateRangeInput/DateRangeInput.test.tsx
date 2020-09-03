@@ -54,16 +54,54 @@ it('allows browsing through months', async () => {
   expect(await findByLabelText('We Dec 02 2020')).toBeInTheDocument();
 });
 
-it('allows selecting a date with time options', async () => {
+it('renders with time options', async () => {
   const mock = jest.fn();
-  const { findByLabelText, container } = await renderWithTheme(
-    <DateRangeInput {...props} withTime onChange={mock} />
+
+  const { container } = await renderWithTheme(<DateRangeInput {...props} onChange={mock} />);
+
+  expect(container).toMatchSnapshot();
+});
+
+it('allows changing time options', async () => {
+  const mock = jest.fn();
+  const endDate = end.add(3, 'hour').minute(59);
+
+  const { findByLabelText, getByLabelText, findByText } = await renderWithTheme(
+    <DateRangeInput
+      value={[start.toDate(), endDate.toDate()]}
+      id="test-hours"
+      labelStart="From date"
+      labelEnd="To date"
+      withTime
+      onChange={mock}
+    />
   );
   const input = await findByLabelText('From date');
-
   // Open the date input components
   await fireEvent.click(input);
-  expect(container).toMatchSnapshot();
+
+  const endingHours = await getByLabelText('Ending Hours', { selector: 'input' });
+  const endingMinutes = await getByLabelText('Ending Minutes', { selector: 'input' });
+  const endingPeriod = await getByLabelText('Ending Period', { selector: 'input' });
+
+  expect(endingHours.value).toBe('04');
+  expect(endingMinutes.value).toBe('59');
+  expect(endingPeriod.value).toBe('AM');
+
+  fireEvent.change(endingHours, '07');
+  fireEvent.change(endingMinutes, '22');
+
+  const submitBtn = await findByText('Apply');
+  await fireEvent.click(submitBtn);
+  expect(mock).toHaveBeenCalled();
+
+  const starting = dayjs(mock.mock.calls[0][0][0]);
+  const ending = dayjs(mock.mock.calls[0][0][1]);
+
+  // Format and assert dates without timezones in order to make it work
+  // across workstations and the CI
+  expect(starting.format('DD/MM/YYYY HH:mm A')).toBe('01/11/2020 01:02 AM');
+  expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 04:59 AM');
 });
 
 it('allows passing a custom format', async () => {

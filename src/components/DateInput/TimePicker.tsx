@@ -8,14 +8,19 @@ const periodItems = ['AM', 'PM'];
 
 interface TimePickerProps {
   date?: Date;
+  label?: string;
   onTimeUpdate: (date?: Dayjs) => void;
 }
 
-const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate }) => {
+const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate, label = '' }) => {
   const day = dayjs(date);
   const hour = day.format('hh');
   const min = day.format('mm');
   const period = day.format('A');
+
+  const hoursLabel = React.useMemo(() => `${label} Hours`.trim(), [label]);
+  const minutesLabel = React.useMemo(() => `${label} Minutes`.trim(), [label]);
+  const periodLabel = React.useMemo(() => `${label} Period`.trim(), [label]);
 
   const onChangeHours = React.useCallback(
     hour => {
@@ -47,7 +52,7 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate }) => {
       <Combobox
         searchable
         onChange={onChangeHours}
-        label="Hours"
+        label={hoursLabel}
         hideLabel
         items={hourItems}
         value={hour}
@@ -56,7 +61,7 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate }) => {
       <Combobox
         searchable
         onChange={onChangeMinutes}
-        label="Minutes"
+        label={minutesLabel}
         hideLabel
         items={minsItems}
         value={min}
@@ -64,7 +69,7 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate }) => {
 
       <Combobox
         onChange={onChangePeriod}
-        label="Period"
+        label={periodLabel}
         hideLabel
         items={periodItems}
         value={period}

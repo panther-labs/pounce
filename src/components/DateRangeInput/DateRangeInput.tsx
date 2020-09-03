@@ -283,12 +283,14 @@ const DateRangeInput: React.FC<
               >
                 <Flex align="center" justify="center" spacing={3}>
                   <TimePicker
+                    label="Starting"
                     onTimeUpdate={onStartTimeUpdate}
                     date={currentDateRange && currentDateRange[0]}
                   />
                 </Flex>
                 <Flex align="center" justify="center" spacing={3}>
                   <TimePicker
+                    label="Ending"
                     onTimeUpdate={onEndTimeUpdate}
                     date={currentDateRange && currentDateRange[1]}
                   />

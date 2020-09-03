@@ -135,17 +135,19 @@ const Presets: React.FC<PresetsProps> = ({ currentDateRange, onSelect, setCurren
   }, [currentDateRange]);
   return (
     <Box borderRight="1px solid" borderColor="navyblue-300">
-      <Box as="ol" p={6} width="140px">
-        {options.map(opt => (
-          <ListItem
-            aria-label={opt.label}
-            onSelect={opt.onSelectPreset(onSelect, setCurrentMonth)}
-            selected={selected === opt.id}
-            key={opt.id}
-          >
-            {opt.label}
-          </ListItem>
-        ))}
+      <Box p={6} width="140px">
+        <Box as="ol">
+          {options.map(opt => (
+            <ListItem
+              aria-label={opt.label}
+              onSelect={opt.onSelectPreset(onSelect, setCurrentMonth)}
+              selected={selected === opt.id}
+              key={opt.id}
+            >
+              {opt.label}
+            </ListItem>
+          ))}
+        </Box>
       </Box>
     </Box>
   );
