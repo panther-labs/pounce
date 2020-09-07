@@ -22,6 +22,11 @@ export interface DateInputProps {
   withTime?: boolean;
 
   /**
+   * Date input format for time picker
+   */
+  mode?: '12h' | '24h';
+
+  /**
    * A date that that works as a value
    */
   value?: Date;
@@ -46,6 +51,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   value,
   format = 'MM/DD/YYYY',
   withTime,
+  mode = '12h',
   onChange = noop,
   ...rest
 }) => {
@@ -157,7 +163,12 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
             p={4}
           >
             <Flex align="center" justify="center" spacing={3}>
-              <TimePicker onTimeUpdate={onTimeUpdate} date={currentDate} />
+              <TimePicker
+                helperText="Time"
+                mode={mode}
+                onTimeUpdate={onTimeUpdate}
+                date={currentDate}
+              />
             </Flex>
           </Flex>
         )}
