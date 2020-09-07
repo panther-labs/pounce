@@ -1,20 +1,34 @@
 import React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
+import Box from '../Box';
 import Combobox from '../Combobox';
 
-const hourItems = Array.from(Array(12), (_, i) => `0${i + 1}`.slice(-2));
+const getHourItems = (mode: string) => {
+  const limit = mode === '12h' ? 12 : 24;
+  return Array.from(Array(limit), (_, i) => `0${i + 1}`.slice(-2));
+};
+
 const minsItems = Array.from(Array(60), (_, i) => `0${i}`.slice(-2));
 const periodItems = ['AM', 'PM'];
 
 interface TimePickerProps {
   date?: Date;
   label?: string;
+  helperText?: string;
+  mode?: '12h' | '24h';
   onTimeUpdate: (date?: Dayjs) => void;
 }
 
-const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate, label = '' }) => {
+const TimePicker: React.FC<TimePickerProps> = ({
+  date,
+  helperText,
+  onTimeUpdate,
+  mode = '12h',
+  label = '',
+}) => {
+  const is12Hours = mode === '12h';
   const day = dayjs(date);
-  const hour = day.format('hh');
+  const hour = is12Hours ? day.format('hh') : day.format('HH');
   const min = day.format('mm');
   const period = day.format('A');
 
@@ -22,6 +36,7 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate, label = '' 
   const minutesLabel = React.useMemo(() => `${label} Minutes`.trim(), [label]);
   const periodLabel = React.useMemo(() => `${label} Period`.trim(), [label]);
 
+  const hourItems = getHourItems(mode);
   const onChangeHours = React.useCallback(
     hour => {
       const d = dayjs(date).hour(hour);
@@ -49,6 +64,11 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate, label = '' 
 
   return (
     <>
+      {helperText && !is12Hours && (
+        <Box flexShrink={0} fontWeight="bold" role="status" pr={4}>
+          {helperText}
+        </Box>
+      )}
       <Combobox
         searchable
         onChange={onChangeHours}
@@ -67,13 +87,15 @@ const TimePicker: React.FC<TimePickerProps> = ({ date, onTimeUpdate, label = '' 
         value={min}
       />
 
-      <Combobox
-        onChange={onChangePeriod}
-        label={periodLabel}
-        hideLabel
-        items={periodItems}
-        value={period}
-      />
+      {is12Hours && (
+        <Combobox
+          onChange={onChangePeriod}
+          label={periodLabel}
+          hideLabel
+          items={periodItems}
+          value={period}
+        />
+      )}
     </>
   );
 };
