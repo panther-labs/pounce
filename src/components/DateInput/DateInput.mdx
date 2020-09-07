@@ -47,3 +47,31 @@ const DateInputExampleWithTime = () => {
 
 <DateInputExampleWithTime />;
 ```
+
+It supports manipulating the given time in 24h format
+
+```typescript jsx
+const DateInputExampleWithTime = () => {
+  const [date, setDate] = React.useState(new Date());
+  return (
+    <Box>
+      <Box mb={4}>
+        Selected date is {date.toLocaleDateString()} {date.toLocaleTimeString()}
+      </Box>
+      <Box>
+        <DateInput
+          withTime
+          mode="24h"
+          format="MM/DD/YYYY HH:mm A"
+          onChange={setDate}
+          value={date}
+          placeholder="Enter a date"
+          label="Start date"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateInputExampleWithTime />;
+```

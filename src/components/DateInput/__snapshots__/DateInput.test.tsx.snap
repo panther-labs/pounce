@@ -1955,6 +1955,1631 @@ exports[`DateInput allows selecting a date with time options 1`] = `
 </div>
 `;
 
+exports[`DateInput allows selecting a date with time options in 24h mode 1`] = `
+.pounce-137 {
+  position: relative;
+}
+
+.pounce-5 {
+  cursor: pointer;
+}
+
+.pounce-4 {
+  min-height: 47px;
+  position: relative;
+  border: 1px solid;
+  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
+}
+
+.pounce-4:hover {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within label {
+  font-weight: 500;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-2 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+}
+
+.pounce-155 {
+  position: relative;
+  z-index: 10;
+}
+
+.pounce-153 {
+  background-color: #23344e;
+  border-radius: 4px;
+  position: absolute;
+  margin-top: 16px;
+  top: 0;
+}
+
+.pounce-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.pounce-7 {
+  padding: 4px;
+  outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.pounce-7:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-7:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-7:active,
+.pounce-7[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+.pounce-6 {
+  display: block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+}
+
+.pounce-8 {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.pounce-131 {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+
+.pounce-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #3e516b;
+}
+
+.pounce-12 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.pounce-130 {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0 2px;
+}
+
+.pounce-129 {
+  display: table-row-group;
+}
+
+.pounce-36 {
+  -webkit-display: table-row;
+  display: table-row;
+}
+
+.pounce-27 {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.pounce-27 [aria-relevant]:hover {
+  background-color: #11a5f3;
+}
+
+.pounce-27 [aria-placeholder] {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  top: 0;
+}
+
+.pounce-27[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
+.pounce-27[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
+.pounce-27[aria-selected='true']+.pounce-27[aria-selected='true'] [aria-placeholder] {
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-27[aria-selected='true']+.pounce-27[aria-selected='true'] [aria-placeholder] {
+  width: 100%;
+  left: -50%;
+}
+
+.pounce-27[aria-busy='true']+.pounce-27[aria-selected='true'] [aria-placeholder] {
+  left: 0;
+}
+
+.pounce-27[aria-selected='true']+.pounce-27[aria-busy='true'] [aria-placeholder] {
+  left: -50%;
+}
+
+.pounce-27[aria-selected='true'] [aria-relevant] {
+  background-color: #0081c5;
+}
+
+.pounce-27[aria-busy='true'] [aria-relevant] {
+  border-radius: 0;
+  background-color: rgba(134,163,195,0.2);
+}
+
+.pounce-27[aria-disabled='true']+.pounce-27[aria-busy='true'] [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-27[aria-busy='true']:last-of-type [aria-relevant] {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.pounce-27[aria-busy='true']:first-of-type [aria-relevant] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pounce-27[aria-busy='true']:only-of-type [aria-relevant] {
+  border-radius: 4px;
+}
+
+.pounce-33 {
+  pointer-events: none;
+}
+
+.pounce-34 {
+  padding: 8px;
+  border-radius: 99999px;
+  position: relative;
+  z-index: 2;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-152 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid;
+  border-color: #3e516b;
+}
+
+.pounce-151 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.pounce-151>*:not(:last-child) {
+  margin-right: 12px;
+}
+
+.pounce-149 {
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 0.938rem;
+  outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #716f6f;
+  background-color: #716f6f;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.pounce-149:hover {
+  background-color: #7b7979;
+  border-color: #7b7979;
+}
+
+.pounce-149:focus {
+  background-color: #7b7979;
+  border-color: #c6c4c4;
+}
+
+.pounce-149:active,
+.pounce-149[data-active=true] {
+  background-color: #676565;
+  border-color: #676565;
+}
+
+.pounce-150 {
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 0.938rem;
+  outline: none;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.pounce-150:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-150:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-150:active,
+.pounce-150[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+.pounce-148 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid;
+  border-color: #3e516b;
+  padding: 16px;
+}
+
+.pounce-147 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.pounce-147>*:not(:last-child) {
+  margin-right: 12px;
+}
+
+.pounce-133 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 32px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-133::-webkit-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-133::-moz-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-133:-ms-input-placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-133::placeholder {
+  opacity: 1;
+  color: #bdbdbd;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 400;
+}
+
+.pounce-133:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-133:focus::-moz-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-133:focus:-ms-input-placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-133:focus::placeholder {
+  opacity: 0.4;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
+.pounce-133:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-134 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+  border: 0px;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
+
+.pounce-136 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+  opacity: 1;
+  position: absolute;
+  pointer-events: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+}
+
+.pounce-132 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-weight: 700;
+  padding-right: 16px;
+}
+
+<div>
+  <div
+    class="pounce-137"
+  >
+    <div
+      class="pounce-5"
+    >
+      <div
+        class="pounce-4"
+      >
+        <div
+          class="pounce-3"
+        >
+          <input
+            aria-autocomplete="none"
+            aria-invalid="false"
+            aria-readonly="true"
+            autocomplete="off"
+            class="pounce-0"
+            id="test"
+            readonly=""
+            tabindex="-1"
+            type="text"
+            value="11/01/2020"
+          />
+          <label
+            class="pounce-1"
+            for="test"
+          >
+            test
+          </label>
+          <svg
+            class="pounce-2"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="pounce-155"
+    >
+      <div
+        class="pounce-13"
+        style="transform: translate3d(0, -10px, 0); opacity: 0; pointer-events: none;"
+      >
+        <div
+          class="pounce-153"
+        >
+          <div
+            class="pounce-11"
+          >
+            <button
+              aria-label="Go to previous month"
+              aria-pressed="false"
+              class="pounce-7"
+              type="button"
+            >
+              <svg
+                class="pounce-6"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+                />
+              </svg>
+            </button>
+            <h4
+              class="pounce-8"
+              tabindex="-1"
+            >
+              November 2020
+            </h4>
+            <button
+              aria-label="Go to next month"
+              aria-pressed="false"
+              class="pounce-7"
+              type="button"
+            >
+              <svg
+                class="pounce-6"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="pounce-131"
+          >
+            <div>
+              <div
+                class="pounce-26"
+                role="row"
+              >
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Monday"
+                  >
+                    Mo
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Tuesday"
+                  >
+                    Tu
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Wednesday"
+                  >
+                    We
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Thurdsday"
+                  >
+                    Th
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Friday"
+                  >
+                    Fr
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Saturday"
+                  >
+                    Sa
+                  </abbr>
+                </div>
+                <div
+                  class="pounce-13"
+                  role="columnheader"
+                >
+                  <abbr
+                    class="pounce-12"
+                    title="Sunday"
+                  >
+                    Su
+                  </abbr>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pounce-130"
+            >
+              <div
+                class="pounce-129"
+              >
+                <div
+                  class="pounce-36"
+                >
+                  <div
+                    aria-disabled="true"
+                    class="pounce-27"
+                  />
+                  <div
+                    aria-disabled="true"
+                    class="pounce-27"
+                  />
+                  <div
+                    aria-disabled="true"
+                    class="pounce-27"
+                  />
+                  <div
+                    aria-disabled="true"
+                    class="pounce-27"
+                  />
+                  <div
+                    aria-disabled="true"
+                    class="pounce-27"
+                  />
+                  <div
+                    aria-disabled="true"
+                    class="pounce-27"
+                  />
+                  <div
+                    aria-busy="false"
+                    aria-label="Su Nov 01 2020"
+                    aria-selected="true"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      1
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="pounce-36"
+                >
+                  <div
+                    aria-busy="false"
+                    aria-label="Mo Nov 02 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      2
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Tu Nov 03 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      3
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="We Nov 04 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      4
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Th Nov 05 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      5
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Fr Nov 06 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      6
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Sa Nov 07 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      7
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Su Nov 08 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      8
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="pounce-36"
+                >
+                  <div
+                    aria-busy="false"
+                    aria-label="Mo Nov 09 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      9
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Tu Nov 10 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      10
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="We Nov 11 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      11
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Th Nov 12 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      12
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Fr Nov 13 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      13
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Sa Nov 14 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      14
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Su Nov 15 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      15
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="pounce-36"
+                >
+                  <div
+                    aria-busy="false"
+                    aria-label="Mo Nov 16 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      16
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Tu Nov 17 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      17
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="We Nov 18 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      18
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Th Nov 19 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      19
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Fr Nov 20 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      20
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Sa Nov 21 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      21
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Su Nov 22 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      22
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="pounce-36"
+                >
+                  <div
+                    aria-busy="false"
+                    aria-label="Mo Nov 23 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      23
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Tu Nov 24 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      24
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="We Nov 25 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      25
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Th Nov 26 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      26
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Fr Nov 27 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      27
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Sa Nov 28 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      28
+                    </button>
+                  </div>
+                  <div
+                    aria-busy="false"
+                    aria-label="Su Nov 29 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      29
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="pounce-36"
+                >
+                  <div
+                    aria-busy="false"
+                    aria-label="Mo Nov 30 2020"
+                    aria-selected="false"
+                    class="pounce-27"
+                    role="gridcell"
+                  >
+                    <div
+                      aria-placeholder="true"
+                      class="pounce-33"
+                      tabindex="-1"
+                    />
+                    <button
+                      aria-relevant="true"
+                      class="pounce-34"
+                      type="button"
+                    >
+                      30
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pounce-148"
+          >
+            <div
+              class="pounce-147"
+            >
+              <div
+                class="pounce-132"
+                role="status"
+              >
+                Time
+              </div>
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="downshift-3-label"
+                class="pounce-137"
+                role="combobox"
+              >
+                <div
+                  class="pounce-137"
+                >
+                  <div
+                    aria-disabled="false"
+                    class="pounce-4"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-labelledby="downshift-3-label"
+                      autocomplete="off"
+                      class="pounce-133"
+                      id="downshift-3-input"
+                      placeholder="01"
+                      type="text"
+                      value="01"
+                    />
+                    <label
+                      class="pounce-134"
+                      for="downshift-3-input"
+                      id="downshift-3-label"
+                    >
+                      Hours
+                    </label>
+                  </div>
+                  <svg
+                    class="pounce-136"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10L12 15L17 10H7Z"
+                    />
+                  </svg>
+                </div>
+                <ul
+                  aria-labelledby="downshift-3-label"
+                  class="pounce-13"
+                  id="downshift-3-menu"
+                  role="listbox"
+                />
+              </div>
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="downshift-4-label"
+                class="pounce-137"
+                role="combobox"
+              >
+                <div
+                  class="pounce-137"
+                >
+                  <div
+                    aria-disabled="false"
+                    class="pounce-4"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-labelledby="downshift-4-label"
+                      autocomplete="off"
+                      class="pounce-133"
+                      id="downshift-4-input"
+                      placeholder="02"
+                      type="text"
+                      value="02"
+                    />
+                    <label
+                      class="pounce-134"
+                      for="downshift-4-input"
+                      id="downshift-4-label"
+                    >
+                      Minutes
+                    </label>
+                  </div>
+                  <svg
+                    class="pounce-136"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10L12 15L17 10H7Z"
+                    />
+                  </svg>
+                </div>
+                <ul
+                  aria-labelledby="downshift-4-label"
+                  class="pounce-13"
+                  id="downshift-4-menu"
+                  role="listbox"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="pounce-152"
+          >
+            <div
+              class="pounce-151"
+            >
+              <button
+                class="pounce-149"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="pounce-150"
+                type="button"
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`DateInput opens the month picker 1`] = `
 .pounce-139 {
   position: relative;

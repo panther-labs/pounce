@@ -62,11 +62,65 @@ it('renders with time options', async () => {
   expect(container).toMatchSnapshot();
 });
 
+it('allows changing time options in 24h mode', async () => {
+  const mock = jest.fn();
+  const endDate = end.add(3, 'hour').minute(59);
+
+  const {
+    container,
+    findByLabelText,
+    getByLabelText,
+    findByText,
+    findByTestId,
+  } = await renderWithTheme(
+    <DateRangeInput
+      value={[start.toDate(), endDate.toDate()]}
+      id="test-hours"
+      mode="24h"
+      format="DD/MM/YYYY HH:mm A"
+      labelStart="From date"
+      labelEnd="To date"
+      withTime
+      onChange={mock}
+    />
+  );
+  const input = await findByLabelText('From date');
+  // Open the date input components
+  await fireEvent.click(input);
+
+  const endingHours = await getByLabelText('Ending Hours', { selector: 'input' });
+  const endingMinutes = await getByLabelText('Ending Minutes', { selector: 'input' });
+
+  expect(endingHours.value).toBe('04');
+  expect(endingMinutes.value).toBe('59');
+
+  expect(container).toMatchSnapshot();
+
+  await fireEvent.focus(endingHours);
+  const sixOhClock = await findByTestId('ending-hours-16');
+  await fireEvent.click(sixOhClock);
+
+  await fireEvent.focus(endingMinutes);
+  const fiftyMinutes = await findByTestId('ending-minutes-50');
+  await fireEvent.click(fiftyMinutes);
+
+  const submitBtn = await findByText('Apply');
+  await fireEvent.click(submitBtn);
+
+  const starting = dayjs(mock.mock.calls[0][0][0]);
+  const ending = dayjs(mock.mock.calls[0][0][1]);
+
+  // Format and assert dates without timezones in order to make it work
+  // across workstations and the CI
+  expect(starting.format('DD/MM/YYYY HH:mm A')).toBe('01/11/2020 01:02 AM');
+  expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 16:50 PM');
+});
+
 it('allows changing time options', async () => {
   const mock = jest.fn();
   const endDate = end.add(3, 'hour').minute(59);
 
-  const { findByLabelText, getByLabelText, findByText } = await renderWithTheme(
+  const { findByLabelText, getByLabelText, findByText, findByTestId } = await renderWithTheme(
     <DateRangeInput
       value={[start.toDate(), endDate.toDate()]}
       id="test-hours"
@@ -88,8 +142,13 @@ it('allows changing time options', async () => {
   expect(endingMinutes.value).toBe('59');
   expect(endingPeriod.value).toBe('AM');
 
-  fireEvent.change(endingHours, '07');
-  fireEvent.change(endingMinutes, '22');
+  await fireEvent.focus(endingHours);
+  const sixOhClock = await findByTestId('ending-hours-07');
+  await fireEvent.click(sixOhClock);
+
+  await fireEvent.focus(endingMinutes);
+  const fiftyMinutes = await findByTestId('ending-minutes-22');
+  await fireEvent.click(fiftyMinutes);
 
   const submitBtn = await findByText('Apply');
   await fireEvent.click(submitBtn);
@@ -101,7 +160,7 @@ it('allows changing time options', async () => {
   // Format and assert dates without timezones in order to make it work
   // across workstations and the CI
   expect(starting.format('DD/MM/YYYY HH:mm A')).toBe('01/11/2020 01:02 AM');
-  expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 04:59 AM');
+  expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 07:22 AM');
 });
 
 it('allows passing a custom format', async () => {
