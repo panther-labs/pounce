@@ -6,7 +6,7 @@ import Box from '../Box';
 import MenuItem from '../utils/MenuItem';
 import Icon from '../Icon';
 import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
-import { typedMemo } from '../../utils/helpers';
+import { typedMemo, slugify, __DEV__ } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 
 export type ComboboxProps<T> = {
@@ -212,6 +212,7 @@ function Combobox<Item>({
                 <MenuItem
                   {...getItemProps({ item, disabled: disableItem(item) })}
                   as="li"
+                  data-testid={__DEV__ ? slugify(label + '-' + itemToString(item)) : undefined}
                   listStyle="none"
                   key={itemToString(item)}
                   selected={item === selectedItem}
