@@ -135,3 +135,42 @@ const DateRangeExample = () => {
 
 <DateRangeExample />;
 ```
+
+It also support 12h time format
+
+```typescript jsx
+const format = 'MM/DD/YYYY hh:mm A';
+const date = new Date('12/12/2020 00:00:00');
+const DateRangeExample = () => {
+  const [dates, setDates] = React.useState([date, new Date(date.getTime() + 12096e5)]);
+
+  const onChange = React.useCallback(changed => {
+    setDates(changed);
+  });
+  return (
+    <Box>
+      <Box mb={2}>
+        From {dates[0].toLocaleDateString()} {dates[0].toLocaleTimeString()} to{' '}
+        {dates[1].toLocaleDateString()} {dates[1].toLocaleTimeString()}
+      </Box>
+      <Box>
+        <DateRangeInput
+          withTime
+          mode="12h"
+          withPresets
+          labelStart="From"
+          labelEnd="To"
+          placeholderStart="From date with range"
+          placeholderEnd="To date with range"
+          format={format}
+          onChange={setDates}
+          value={dates}
+          id="hello-date-range-with-range"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateRangeExample />;
+```

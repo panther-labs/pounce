@@ -20,6 +20,11 @@ export interface DateRangeInputProps {
   format?: string;
 
   /**
+   * Date range input format for time picker
+   */
+  mode?: '12h' | '24h';
+
+  /**
    * Whether the component should show presets
    */
   withPresets?: boolean;
@@ -76,6 +81,7 @@ const DateRangeInput: React.FC<
 > = ({
   value,
   format = 'MM/DD/YYYY',
+  mode = '24h',
   withTime,
   withPresets,
   onChange = noop,
@@ -283,14 +289,16 @@ const DateRangeInput: React.FC<
               >
                 <Flex align="center" justify="center" spacing={3}>
                   <TimePicker
-                    label="Starting"
+                    label="From Time"
+                    mode={mode}
                     onTimeUpdate={onStartTimeUpdate}
                     date={currentDateRange && currentDateRange[0]}
                   />
                 </Flex>
                 <Flex align="center" justify="center" spacing={3}>
                   <TimePicker
-                    label="Ending"
+                    mode={mode}
+                    label="To Time"
                     onTimeUpdate={onEndTimeUpdate}
                     date={currentDateRange && currentDateRange[1]}
                   />
