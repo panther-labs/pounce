@@ -48,7 +48,7 @@ const DateInputExampleWithTime = () => {
 <DateInputExampleWithTime />;
 ```
 
-It supports manipulating the given time in 24h format
+It supports manipulating the given time in 12h format
 
 ```typescript jsx
 const DateInputExampleWithTime = () => {
@@ -61,7 +61,7 @@ const DateInputExampleWithTime = () => {
       <Box>
         <DateInput
           withTime
-          mode="24h"
+          mode="12h"
           format="MM/DD/YYYY HH:mm A"
           onChange={setDate}
           value={date}

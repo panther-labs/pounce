@@ -88,8 +88,8 @@ it('allows changing time options in 24h mode', async () => {
   // Open the date input components
   await fireEvent.click(input);
 
-  const endingHours = await getByLabelText('Ending Hours', { selector: 'input' });
-  const endingMinutes = await getByLabelText('Ending Minutes', { selector: 'input' });
+  const endingHours = await getByLabelText('To Time Hours', { selector: 'input' });
+  const endingMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
 
   expect(endingHours.value).toBe('04');
   expect(endingMinutes.value).toBe('59');
@@ -97,11 +97,11 @@ it('allows changing time options in 24h mode', async () => {
   expect(container).toMatchSnapshot();
 
   await fireEvent.focus(endingHours);
-  const sixOhClock = await findByTestId('ending-hours-16');
+  const sixOhClock = await findByTestId('to-time-hours-16');
   await fireEvent.click(sixOhClock);
 
   await fireEvent.focus(endingMinutes);
-  const fiftyMinutes = await findByTestId('ending-minutes-50');
+  const fiftyMinutes = await findByTestId('to-time-minutes-50');
   await fireEvent.click(fiftyMinutes);
 
   const submitBtn = await findByText('Apply');
@@ -116,7 +116,7 @@ it('allows changing time options in 24h mode', async () => {
   expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 16:50 PM');
 });
 
-it('allows changing time options', async () => {
+it('allows changing time options in 12h mode', async () => {
   const mock = jest.fn();
   const endDate = end.add(3, 'hour').minute(59);
 
@@ -124,6 +124,7 @@ it('allows changing time options', async () => {
     <DateRangeInput
       value={[start.toDate(), endDate.toDate()]}
       id="test-hours"
+      mode="12h"
       labelStart="From date"
       labelEnd="To date"
       withTime
@@ -134,20 +135,20 @@ it('allows changing time options', async () => {
   // Open the date input components
   await fireEvent.click(input);
 
-  const endingHours = await getByLabelText('Ending Hours', { selector: 'input' });
-  const endingMinutes = await getByLabelText('Ending Minutes', { selector: 'input' });
-  const endingPeriod = await getByLabelText('Ending Period', { selector: 'input' });
+  const endingHours = await getByLabelText('To Time Hours', { selector: 'input' });
+  const endingMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
+  const endingPeriod = await getByLabelText('To Time Period', { selector: 'input' });
 
   expect(endingHours.value).toBe('04');
   expect(endingMinutes.value).toBe('59');
   expect(endingPeriod.value).toBe('AM');
 
   await fireEvent.focus(endingHours);
-  const sixOhClock = await findByTestId('ending-hours-07');
+  const sixOhClock = await findByTestId('to-time-hours-07');
   await fireEvent.click(sixOhClock);
 
   await fireEvent.focus(endingMinutes);
-  const fiftyMinutes = await findByTestId('ending-minutes-22');
+  const fiftyMinutes = await findByTestId('to-time-minutes-22');
   await fireEvent.click(fiftyMinutes);
 
   const submitBtn = await findByText('Apply');

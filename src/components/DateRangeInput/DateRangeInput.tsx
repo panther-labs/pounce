@@ -81,7 +81,7 @@ const DateRangeInput: React.FC<
 > = ({
   value,
   format = 'MM/DD/YYYY',
-  mode = '12h',
+  mode = '24h',
   withTime,
   withPresets,
   onChange = noop,
@@ -289,18 +289,16 @@ const DateRangeInput: React.FC<
               >
                 <Flex align="center" justify="center" spacing={3}>
                   <TimePicker
-                    helperText="From Time"
+                    label="From Time"
                     mode={mode}
-                    label="Starting"
                     onTimeUpdate={onStartTimeUpdate}
                     date={currentDateRange && currentDateRange[0]}
                   />
                 </Flex>
                 <Flex align="center" justify="center" spacing={3}>
                   <TimePicker
-                    helperText="To Time"
                     mode={mode}
-                    label="Ending"
+                    label="To Time"
                     onTimeUpdate={onEndTimeUpdate}
                     date={currentDateRange && currentDateRange[1]}
                   />

@@ -2318,12 +2318,13 @@ exports[`allows changing time options in 24h mode 1`] = `
                 <div
                   class="pounce-274"
                 >
-                  <div
+                  <label
                     class="pounce-259"
+                    for="from-time-hours"
                     role="status"
                   >
                     From Time
-                  </div>
+                  </label>
                   <div
                     aria-expanded="false"
                     aria-haspopup="listbox"
@@ -2345,7 +2346,7 @@ exports[`allows changing time options in 24h mode 1`] = `
                           aria-labelledby="downshift-0-label"
                           autocomplete="off"
                           class="pounce-260"
-                          id="downshift-0-input"
+                          id="from-time-hours"
                           placeholder="01"
                           type="text"
                           value="01"
@@ -2355,7 +2356,7 @@ exports[`allows changing time options in 24h mode 1`] = `
                           for="downshift-0-input"
                           id="downshift-0-label"
                         >
-                          Starting Hours
+                          From Time Hours
                         </label>
                       </div>
                       <svg
@@ -2396,7 +2397,7 @@ exports[`allows changing time options in 24h mode 1`] = `
                           aria-labelledby="downshift-1-label"
                           autocomplete="off"
                           class="pounce-260"
-                          id="downshift-1-input"
+                          id="from-time-minutes"
                           placeholder="02"
                           type="text"
                           value="02"
@@ -2406,7 +2407,7 @@ exports[`allows changing time options in 24h mode 1`] = `
                           for="downshift-1-input"
                           id="downshift-1-label"
                         >
-                          Starting Minutes
+                          From Time Minutes
                         </label>
                       </div>
                       <svg
@@ -2430,12 +2431,13 @@ exports[`allows changing time options in 24h mode 1`] = `
                 <div
                   class="pounce-274"
                 >
-                  <div
+                  <label
                     class="pounce-259"
+                    for="to-time-hours"
                     role="status"
                   >
                     To Time
-                  </div>
+                  </label>
                   <div
                     aria-expanded="false"
                     aria-haspopup="listbox"
@@ -2457,7 +2459,7 @@ exports[`allows changing time options in 24h mode 1`] = `
                           aria-labelledby="downshift-2-label"
                           autocomplete="off"
                           class="pounce-260"
-                          id="downshift-2-input"
+                          id="to-time-hours"
                           placeholder="04"
                           type="text"
                           value="04"
@@ -2467,7 +2469,7 @@ exports[`allows changing time options in 24h mode 1`] = `
                           for="downshift-2-input"
                           id="downshift-2-label"
                         >
-                          Ending Hours
+                          To Time Hours
                         </label>
                       </div>
                       <svg
@@ -2508,7 +2510,7 @@ exports[`allows changing time options in 24h mode 1`] = `
                           aria-labelledby="downshift-3-label"
                           autocomplete="off"
                           class="pounce-260"
-                          id="downshift-3-input"
+                          id="to-time-minutes"
                           placeholder="59"
                           type="text"
                           value="59"
@@ -2518,7 +2520,7 @@ exports[`allows changing time options in 24h mode 1`] = `
                           for="downshift-3-input"
                           id="downshift-3-label"
                         >
-                          Ending Minutes
+                          To Time Minutes
                         </label>
                       </div>
                       <svg
@@ -5531,7 +5533,7 @@ exports[`allows selecting a preset 1`] = `
                 name="test-from"
                 readonly=""
                 type="text"
-                value="08/31/2020"
+                value="09/01/2020"
               />
               <label
                 class="pounce-1"
@@ -5552,7 +5554,7 @@ exports[`allows selecting a preset 1`] = `
                 name="test-to"
                 readonly=""
                 type="text"
-                value="09/07/2020"
+                value="09/08/2020"
               />
               <label
                 class="pounce-1"
@@ -6473,7 +6475,7 @@ exports[`allows selecting a preset 1`] = `
                           <div
                             aria-busy="false"
                             aria-label="Mo Aug 31 2020"
-                            aria-selected="true"
+                            aria-selected="false"
                             class="pounce-50"
                             role="gridcell"
                           >
@@ -6595,9 +6597,9 @@ exports[`allows selecting a preset 1`] = `
                             class="pounce-50"
                           />
                           <div
-                            aria-busy="true"
+                            aria-busy="false"
                             aria-label="Tu Sep 01 2020"
-                            aria-selected="false"
+                            aria-selected="true"
                             class="pounce-50"
                             role="gridcell"
                           >
@@ -6719,9 +6721,9 @@ exports[`allows selecting a preset 1`] = `
                           class="pounce-61"
                         >
                           <div
-                            aria-busy="false"
+                            aria-busy="true"
                             aria-label="Mo Sep 07 2020"
-                            aria-selected="true"
+                            aria-selected="false"
                             class="pounce-50"
                             role="gridcell"
                           >
@@ -6741,7 +6743,7 @@ exports[`allows selecting a preset 1`] = `
                           <div
                             aria-busy="false"
                             aria-label="Tu Sep 08 2020"
-                            aria-selected="false"
+                            aria-selected="true"
                             class="pounce-50"
                             role="gridcell"
                           >
