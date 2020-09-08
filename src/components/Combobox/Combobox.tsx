@@ -16,6 +16,9 @@ export type ComboboxProps<T> = {
   /** A list of entries that the dropdown will have as options */
   items: T[];
 
+  /** The id of the combobox */
+  id?: string;
+
   /** The label that is associated with this combobox */
   label: string;
 
