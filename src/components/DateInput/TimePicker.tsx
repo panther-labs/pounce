@@ -2,6 +2,7 @@ import React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import Box from '../Box';
 import Combobox from '../Combobox';
+import { slugify } from '../../utils/helpers';
 
 const getHourItems = (mode: string) => {
   const limit = mode === '12h' ? 12 : 24;
@@ -14,16 +15,14 @@ const periodItems = ['AM', 'PM'];
 interface TimePickerProps {
   date?: Date;
   label?: string;
-  helperText?: string;
   mode?: '12h' | '24h';
   onTimeUpdate: (date?: Dayjs) => void;
 }
 
 const TimePicker: React.FC<TimePickerProps> = ({
   date,
-  helperText,
   onTimeUpdate,
-  mode = '12h',
+  mode = '24h',
   label = '',
 }) => {
   const is12Hours = mode === '12h';
@@ -64,12 +63,20 @@ const TimePicker: React.FC<TimePickerProps> = ({
 
   return (
     <>
-      {helperText && !is12Hours && (
-        <Box flexShrink={0} fontWeight="bold" role="status" pr={4}>
-          {helperText}
+      {label && !is12Hours && (
+        <Box
+          as="label"
+          flexShrink={0}
+          fontWeight="bold"
+          role="status"
+          pr={4}
+          htmlFor={slugify(hoursLabel)}
+        >
+          {label}
         </Box>
       )}
       <Combobox
+        id={slugify(hoursLabel)}
         searchable
         onChange={onChangeHours}
         label={hoursLabel}
@@ -79,6 +86,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
       />
 
       <Combobox
+        id={slugify(minutesLabel)}
         searchable
         onChange={onChangeMinutes}
         label={minutesLabel}
@@ -89,6 +97,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
 
       {is12Hours && (
         <Combobox
+          id={slugify(periodLabel)}
           onChange={onChangePeriod}
           label={periodLabel}
           hideLabel
