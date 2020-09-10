@@ -7,7 +7,7 @@ import AbstractButton from '../AbstractButton';
 type OnSelectCallback = (date: [Dayjs, Dayjs]) => void;
 type OnCurrentMonthSelect = React.Dispatch<React.SetStateAction<Dayjs>>;
 interface PresetsProps {
-  currentDateRange: [Dayjs, Dayjs];
+  currentDateRange?: Dayjs[];
   setCurrentMonth: OnCurrentMonthSelect;
   onSelect: (dates: [Dayjs, Dayjs]) => void;
 }
@@ -101,7 +101,7 @@ const options = [
   },
 ];
 
-const Presets: React.FC<PresetsProps> = ({ currentDateRange, onSelect, setCurrentMonth }) => {
+const Presets: React.FC<PresetsProps> = ({ currentDateRange = [], onSelect, setCurrentMonth }) => {
   const selected: string = React.useMemo(() => {
     const { now, lastDay, lastWeek, lastMonth, lastThreeMonths, lastSixMonths } = getDates();
     const [start, end] = currentDateRange;

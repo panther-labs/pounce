@@ -68,12 +68,16 @@ export interface DateRangeInputProps {
   onChange: (date: Date[]) => void;
 }
 
-const convertToDayjs = (value: Date[]): [Dayjs, Dayjs] => {
+const dateToDayjs = (value: Date[]): Dayjs[] => {
+  return value.map(v => dayjs(v)) as Dayjs[];
+};
+
+const convertToDayjs = (value: Date[]): Dayjs[] => {
   const { now } = getDates();
   if (!value || !Array.isArray(value) || value.length < 2) {
     return [now, now];
   }
-  return value.map(v => dayjs(v)) as [Dayjs, Dayjs];
+  return dateToDayjs(value);
 };
 
 const DateRangeInput: React.FC<
@@ -155,12 +159,13 @@ const DateRangeInput: React.FC<
       }
 
       const start = dayjs(currentDateRange[0]);
-      if (dateChanged.isBefore(start, 'date')) {
+      const end = dayjs(currentDateRange[1]);
+
+      if (dateChanged.isBefore(start, 'date') || start.isSame(end, 'date')) {
         return setCurrentRange([dateChanged.hour(start.hour()).minute(start.minute()).toDate()]);
       }
 
       if (currentDateRange[1]) {
-        const end = dayjs(currentDateRange[1]);
         if (dateChanged.isAfter(start, 'date') && dateChanged.isBefore(end, 'date')) {
           return setCurrentRange([
             dateChanged.hour(start.hour()).minute(start.minute()).toDate(),
@@ -262,7 +267,7 @@ const DateRangeInput: React.FC<
                 <Box>
                   <Month
                     onDaySelect={onDaySelect}
-                    dayRangeSelected={currentDateRange && convertToDayjs(currentDateRange)}
+                    dayRangeSelected={currentDateRange && dateToDayjs(currentDateRange)}
                     year={currentMonth.year()}
                     month={currentMonth.month()}
                   />
@@ -270,7 +275,7 @@ const DateRangeInput: React.FC<
                 <Box>
                   <Month
                     onDaySelect={onDaySelect}
-                    dayRangeSelected={currentDateRange && convertToDayjs(currentDateRange)}
+                    dayRangeSelected={currentDateRange && dateToDayjs(currentDateRange)}
                     year={nextMonth.year()}
                     month={nextMonth.month()}
                   />
