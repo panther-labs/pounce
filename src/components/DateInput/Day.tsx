@@ -11,7 +11,7 @@ export interface DayProps {
   month: number;
   year: number;
   daySelected?: Dayjs;
-  dayRangeSelected?: [Dayjs?, Dayjs?];
+  dayRangeSelected?: Dayjs[];
   onDaySelect?: (date: Dayjs) => void;
 }
 
