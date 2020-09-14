@@ -41,9 +41,14 @@ const Collapse: React.FC<CollapseProps> = ({
   const [ref, { height }] = useMeasure({ polyfill: ResizeObserver });
 
   const transitions = useTransition(open, null, {
-    from: { height: 0, opacity: animateOpacity ? 0 : 1, pointerEvents: 'none' },
-    enter: { height, opacity: 1, pointerEvents: 'auto' },
-    leave: { height: 0, opacity: animateOpacity ? 0 : 1, pointerEvents: 'none' },
+    from: { height: 0, opacity: animateOpacity ? 0 : 1, pointerEvents: 'none', overflow: 'hidden' },
+    enter: { height, opacity: 1, pointerEvents: 'auto', overflow: 'unset' },
+    leave: {
+      height: 0,
+      opacity: animateOpacity ? 0 : 1,
+      pointerEvents: 'none',
+      overflow: 'hidden',
+    },
     config: { duration },
     update: { height },
   });
