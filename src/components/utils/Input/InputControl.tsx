@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '../../Box';
+import Flex from '../../Flex';
 import { InputContext } from './InputContext';
 
 export type InputControlProps = {
@@ -39,9 +40,10 @@ const InputControl: React.FC<InputControlProps> = ({
   );
 
   return (
-    <Box
+    <Flex
       minHeight={47}
       position="relative"
+      align="center"
       border="1px solid"
       transition="border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
       backgroundColor={variant === 'outline' ? 'transparent' : 'navyblue-300'}
@@ -62,7 +64,7 @@ const InputControl: React.FC<InputControlProps> = ({
       }}
     >
       <InputContext.Provider value={contextValue}>{children}</InputContext.Provider>
-    </Box>
+    </Flex>
   );
 };
 

@@ -83,41 +83,39 @@ const DoubleTextInput = React.forwardRef<HTMLInputElement, DoubleTextInputProps>
     return (
       <Box position="relative" as="fieldset">
         <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
-          <Flex align="center">
-            <Box position="relative">
-              <InputElement
-                as="input"
-                type="text"
-                id={identifierFrom}
-                name={identifierFrom}
-                value={from}
-                {...rest}
-                placeholder={placeholderFrom}
-                onChange={onChangeFrom}
-                ref={ref}
-              />
-              <InputLabel raised={!!from} htmlFor={identifierFrom}>
-                {labelFrom}
-              </InputLabel>
-            </Box>
-            <Box position="relative">
-              <InputElement
-                as="input"
-                type="text"
-                id={identifierTo}
-                name={identifierTo}
-                value={to}
-                {...rest}
-                placeholder={placeholderTo}
-                onChange={onChangeTo}
-                ref={ref}
-              />
-              <InputLabel raised={!!to} htmlFor={identifierTo}>
-                {labelTo}
-              </InputLabel>
-            </Box>
-            {icon && <Icon size="small" mx={4} type={icon} />}
-          </Flex>
+          <Box position="relative">
+            <InputElement
+              as="input"
+              type="text"
+              id={identifierFrom}
+              name={identifierFrom}
+              value={from}
+              {...rest}
+              placeholder={placeholderFrom}
+              onChange={onChangeFrom}
+              ref={ref}
+            />
+            <InputLabel raised={!!from} htmlFor={identifierFrom}>
+              {labelFrom}
+            </InputLabel>
+          </Box>
+          <Box position="relative">
+            <InputElement
+              as="input"
+              type="text"
+              id={identifierTo}
+              name={identifierTo}
+              value={to}
+              {...rest}
+              placeholder={placeholderTo}
+              onChange={onChangeTo}
+              ref={ref}
+            />
+            <InputLabel raised={!!to} htmlFor={identifierTo}>
+              {labelTo}
+            </InputLabel>
+          </Box>
+          {icon && <Icon size="small" mx={4} type={icon} />}
         </InputControl>
       </Box>
     );

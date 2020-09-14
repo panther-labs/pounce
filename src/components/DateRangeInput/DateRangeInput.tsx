@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import { IconButton } from '../../index';
-
 import Box from '../Box';
 import Presets from './Presets';
 import Flex from '../Flex';
@@ -14,6 +13,10 @@ import { TextInputProps } from '../TextInput';
 import { noop, getDates } from '../../utils/helpers';
 
 export interface DateRangeInputProps {
+  /**
+   * The position to expand the picker
+   */
+  alignment?: 'left' | 'right' | 'match-width';
   /**
    * The format displayed in the input elements
    */
@@ -90,6 +93,7 @@ const DateRangeInput: React.FC<
   withPresets,
   onChange = noop,
   labelStart,
+  alignment,
   labelEnd,
   placeholderStart,
   placeholderEnd,
@@ -99,7 +103,9 @@ const DateRangeInput: React.FC<
   const [currentDateRange, setCurrentRange] = useState(value);
   const [currentMonth, setCurrentMonth] = useState(datesFormatted[0]);
   const [prevDateRange, setPrevDateRange] = useState(value);
+
   const [open, setOpen] = useState(false);
+  const ref = React.useRef(null);
 
   const nextMonth = currentMonth.add(1, 'month');
 
@@ -211,7 +217,7 @@ const DateRangeInput: React.FC<
   );
 
   return (
-    <Box position="relative">
+    <Box position="relative" zIndex={1} ref={ref}>
       <Box onClick={onExpand} cursor="pointer">
         <DoubleTextInput
           {...rest}
@@ -228,7 +234,7 @@ const DateRangeInput: React.FC<
           icon="calendar"
         />
       </Box>
-      <DateWrapper isExpanded={open}>
+      <DateWrapper targetRef={ref} alignment={alignment} isExpanded={open}>
         <Flex justify="columns">
           {withPresets && (
             <Presets

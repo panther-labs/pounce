@@ -6,7 +6,7 @@ import icons from './icons';
 
 type radii = 'none' | 'small' | 'medium' | 'large' | 'pill' | 'circle';
 type fontFamilies = 'primary' | 'mono';
-type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250';
+type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250' | 'dark300';
 
 export interface Theme extends StyledSystemTheme {
   fontSizes: typeof typography['fontSizes'];
@@ -40,6 +40,7 @@ export const theme: Theme = {
     dark150: '0px 1px 6px rgba(0, 0, 0, 0.15)',
     dark200: '0px 2px 16px rgba(0, 0, 0, 0.20)',
     dark250: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+    dark300: '0px 0px 15px 0px rgba(21, 23, 26, 0.5)',
   },
   ...typography,
   icons,
