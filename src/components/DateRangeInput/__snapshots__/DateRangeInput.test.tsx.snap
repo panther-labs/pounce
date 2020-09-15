@@ -5533,7 +5533,7 @@ exports[`allows selecting a preset 1`] = `
                 name="test-from"
                 readonly=""
                 type="text"
-                value="09/07/2020"
+                value="09/08/2020"
               />
               <label
                 class="pounce-1"
@@ -5554,7 +5554,7 @@ exports[`allows selecting a preset 1`] = `
                 name="test-to"
                 readonly=""
                 type="text"
-                value="09/14/2020"
+                value="09/15/2020"
               />
               <label
                 class="pounce-1"
@@ -6723,7 +6723,7 @@ exports[`allows selecting a preset 1`] = `
                           <div
                             aria-busy="false"
                             aria-label="Mo Sep 07 2020"
-                            aria-selected="true"
+                            aria-selected="false"
                             class="pounce-50"
                             role="gridcell"
                           >
@@ -6741,9 +6741,9 @@ exports[`allows selecting a preset 1`] = `
                             </button>
                           </div>
                           <div
-                            aria-busy="true"
+                            aria-busy="false"
                             aria-label="Tu Sep 08 2020"
-                            aria-selected="false"
+                            aria-selected="true"
                             class="pounce-50"
                             role="gridcell"
                           >
@@ -6865,9 +6865,9 @@ exports[`allows selecting a preset 1`] = `
                           class="pounce-61"
                         >
                           <div
-                            aria-busy="false"
+                            aria-busy="true"
                             aria-label="Mo Sep 14 2020"
-                            aria-selected="true"
+                            aria-selected="false"
                             class="pounce-50"
                             role="gridcell"
                           >
@@ -6887,7 +6887,7 @@ exports[`allows selecting a preset 1`] = `
                           <div
                             aria-busy="false"
                             aria-label="Tu Sep 15 2020"
-                            aria-selected="false"
+                            aria-selected="true"
                             class="pounce-50"
                             role="gridcell"
                           >
