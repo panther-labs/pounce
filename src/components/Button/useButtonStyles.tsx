@@ -111,8 +111,8 @@ const useButtonStyles = ({
 
   return {
     px: 5,
-    py: size === 'large' ? 3 : 2,
-    fontSize: 'medium-large',
+    py: size === 'large' ? 3 : '6px',
+    fontSize: size === 'large' ? 'medium-large' : 'small-medium',
     outline: 'none',
     ...styles,
   } as AbstractButtonProps;
