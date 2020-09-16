@@ -3,13 +3,11 @@ import * as CSS from 'csstype';
 import colors from './colors';
 import typography from './typography';
 import icons from './icons';
+import type { CustomIcons } from './customIcons';
 
 type radii = 'none' | 'small' | 'medium' | 'large' | 'pill' | 'circle';
 type fontFamilies = 'primary' | 'mono';
 type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250';
-
-// Override this in a local declaration to provide custom icon keys
-export type CustomIcons = unknown;
 
 // The default icons that pounce ships with
 type PounceIcons = keyof typeof icons;
