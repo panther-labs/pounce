@@ -8,6 +8,13 @@ type radii = 'none' | 'small' | 'medium' | 'large' | 'pill' | 'circle';
 type fontFamilies = 'primary' | 'mono';
 type shadows = 'none' | 'dark50' | 'dark100' | 'dark150' | 'dark200' | 'dark250';
 
+// Override this in a local declaration to provide custom icon keys
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CustomIcons {}
+
+// The default icons that pounce ships with
+type PounceIcons = typeof icons;
+
 export interface Theme extends StyledSystemTheme {
   fontSizes: typeof typography['fontSizes'];
   lineHeights: typeof typography['lineHeights'];
@@ -18,7 +25,7 @@ export interface Theme extends StyledSystemTheme {
   colors: typeof colors;
   radii: { [key in radii]: number };
   shadows: { [key in shadows]: CSS.BoxShadowProperty };
-  icons: Record<string, { path: JSX.Element; viewBox?: string }>;
+  icons: Record<keyof (PounceIcons & CustomIcons), { path: JSX.Element; viewBox?: string }>;
 }
 
 export const theme: Theme = {
