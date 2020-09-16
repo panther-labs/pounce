@@ -1,11 +1,11 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
 import useTheme from '../../utils/useTheme';
-import { icons } from '../../theme';
+import { Theme } from '../../theme';
 
 export interface IconProps extends BoxProps<'svg'> {
   /** The icon that you want to show */
-  type: keyof typeof icons;
+  type: keyof Theme['icons'];
 
   /** The color of the icon */
   color?: BoxProps['color'];

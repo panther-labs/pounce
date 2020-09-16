@@ -122,11 +122,54 @@ export const myTheme = {
 };
 ```
 
+By default, pounce ships with dashboard-related icons, but you may add new ones by extending the
+`icons` keyy of the theme. For example, if you want to add a new icon named `my-icon` you would
+override the theme and pass it again to the `<ThemeProvider>` component.
+
+```js
+import { theme as defaultTheme } from 'pouncejs';
+
+const myIcons = {
+  'my-icon': {
+    path: (
+      <g id="collapse-table" stroke="none" fill="none">
+        <rect x="0" y="0" width="24" height="24" />
+      </g>
+    ),
+    viewBox: '0 0 24 24', // can be omitted if viewBox is `0 0 24 24` which is the default value
+  },
+};
+
+const theme = {
+  ...defaultTheme,
+  icons: {
+    ...defaultTheme.icons,
+    ...myIcons,
+  },
+};
+```
+
+For typescript users, the new icons won't be available by default in the typings. To make
+them available, you need to create a declaration file anywhere in your project and extend
+the `CustomIcons` interface. For example:
+
+```typescript
+// src/overrides.d.ts
+
+import 'pouncejs';
+import { myIcons } from '../myTheme'; // customIcons are declare in the snippet aoove
+
+declare module 'pouncejs' {
+  type MyIcons = typeof myIcons;
+  export interface CustomIcons extends MyIcons {}
+}
+```
+
+This way the `my-icon` value will be available in all Components that use icons.
+
 ### Performance
 
-Pounce is on its testing phase right now, which means that the performance is not optimized and the
-bundle size is not a core pillar of the development since it relies on 3rd-party packages for some
-of its modules. There is a plan to gradually migrate those away and to focus on the performance of the actual lib.
+Pounce is on its beta phase right now, which means that the performance is constantly getting tuned.
 
 If bundle size is something super crucial, you can safely import each module individually by doing `import Box from 'pouncejs/dist/esm/components/Box'` instead of the typical `import { Box } from 'pouncejs'` which will make sure to only pull what's needed for this particular component.
 
