@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderWithTheme, fireEvent } from 'test-utils';
+import mockDate from 'mockdate';
 import dayjs from 'dayjs';
 import DateInput from './DateInput';
 
@@ -7,6 +8,14 @@ const month = 10;
 const year = 2020;
 const day = 1;
 const date = dayjs().date(day).month(month).year(year).hour(1).minute(2);
+
+beforeEach(() => {
+  mockDate.set(new Date('September 16, 2020 15:00:00'));
+});
+
+afterEach(() => {
+  mockDate.reset();
+});
 
 describe('DateInput', () => {
   it('renders', async () => {

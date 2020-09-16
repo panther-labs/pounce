@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderWithTheme, fireEvent } from 'test-utils';
+import mockDate from 'mockdate';
 import dayjs from 'dayjs';
 import DateRangeInput from './DateRangeInput';
 
@@ -8,6 +9,14 @@ const year = 2020;
 const day = 1;
 const start = dayjs().date(day).month(month).year(year).hour(1).minute(2);
 const end = start.add(10, 'day');
+
+beforeEach(() => {
+  mockDate.set(new Date('September 16, 2020 15:00:00'));
+});
+
+afterEach(() => {
+  mockDate.reset();
+});
 
 const props = {
   id: 'test',
