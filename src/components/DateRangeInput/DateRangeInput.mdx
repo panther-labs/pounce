@@ -137,7 +137,7 @@ const DateRangeExample = () => {
 <DateRangeExample />;
 ```
 
-It also support 12h time format
+It also support 12h time format and alignment
 
 ```typescript jsx
 const format = 'MM/DD/YYYY hh:mm A';
@@ -157,6 +157,7 @@ const DateRangeExample = () => {
       <Box>
         <DateRangeInput
           withTime
+          alignment="right"
           mode="12h"
           withPresets
           labelStart="From"

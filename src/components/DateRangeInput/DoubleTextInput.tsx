@@ -2,7 +2,6 @@ import React, { ChangeEventHandler } from 'react';
 import Box from '../Box';
 import { slugify } from '../../utils/helpers';
 import Icon, { IconProps } from '../Icon';
-import Flex from '../Flex';
 import { TextInputProps } from '../TextInput';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import { noop } from '../../utils/helpers';

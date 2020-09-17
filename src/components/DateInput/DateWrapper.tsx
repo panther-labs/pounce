@@ -31,7 +31,15 @@ const DateWrapper: React.FC<DateWrapperProps> = ({
         ({ item, key, props: styles }) =>
           item && (
             <AnimatedPopover targetRef={targetRef} position={position} key={key} style={styles}>
-              <Card position="absolute" boxShadow="dark300" mt={4} top={0} zIndex={10}>
+              <Card
+                position="absolute"
+                boxShadow="dark300"
+                // ugly hack to prevent overlapping popovers due to
+                right={alignment === 'right' && '100%'}
+                mt={4}
+                top={0}
+                zIndex={10}
+              >
                 {children}
               </Card>
             </AnimatedPopover>
