@@ -209,6 +209,9 @@ const GlobalStyles: React.FC = () => {
       --reach-tabs: 1;
     }
 
+    [data-reach-popover] {
+      z-index: 10;
+    }
     [data-reach-dialog-overlay] {
       background: hsla(0, 0%, 0%, 0.33);
       position: fixed;

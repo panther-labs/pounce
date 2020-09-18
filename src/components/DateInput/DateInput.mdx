@@ -48,6 +48,30 @@ const DateInputExampleWithTime = () => {
 <DateInputExampleWithTime />;
 ```
 
+It supports alignment options.
+
+```typescript jsx
+const DateInputExampleWithTime = () => {
+  const [date, setDate] = React.useState(new Date());
+  return (
+    <Box>
+      <DateInput
+        alignment="left"
+        withTime
+        mode="12h"
+        format="MM/DD/YYYY HH:mm A"
+        onChange={setDate}
+        value={date}
+        placeholder="Enter a date"
+        label="Start date"
+      />
+    </Box>
+  );
+};
+
+<DateInputExampleWithTime />;
+```
+
 It supports manipulating the given time in 12h format
 
 ```typescript jsx

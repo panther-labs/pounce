@@ -1,14 +1,24 @@
 import React from 'react';
-import Box from '../Box';
 import Card from '../Card';
 import { useTransition, animated } from 'react-spring';
+import useDropdownAlignment from '../Dropdown/useDropdownAlignment';
+import Popover from '@reach/popover';
 
 interface DateWrapperProps {
   isExpanded: boolean;
+  targetRef: React.RefObject<HTMLElement>;
+  alignment?: 'left' | 'right' | 'match-width';
 }
-const AnimatedBox = animated(Box);
 
-const DateWrapper: React.FC<DateWrapperProps> = ({ children, isExpanded }) => {
+const AnimatedPopover = animated(Popover);
+
+const DateWrapper: React.FC<DateWrapperProps> = ({
+  children,
+  isExpanded,
+  targetRef,
+  alignment = 'left',
+}) => {
+  const position = useDropdownAlignment({ alignment });
   const transitions = useTransition(isExpanded, null, {
     from: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
     enter: { transform: 'translate3d(0, 0, 0)', opacity: 1, pointerEvents: 'auto' },
@@ -16,18 +26,26 @@ const DateWrapper: React.FC<DateWrapperProps> = ({ children, isExpanded }) => {
     config: { duration: 250 },
   });
   return (
-    <Box position="relative" zIndex={10}>
+    <>
       {transitions.map(
         ({ item, key, props: styles }) =>
           item && (
-            <AnimatedBox key={key} style={styles}>
-              <Card position="absolute" mt={4} top={0}>
+            <AnimatedPopover targetRef={targetRef} position={position} key={key} style={styles}>
+              <Card
+                position="absolute"
+                boxShadow="dark300"
+                // ugly hack to prevent overlapping popovers due to
+                right={alignment === 'right' && '100%'}
+                mt={4}
+                top={0}
+                zIndex={10}
+              >
                 {children}
               </Card>
-            </AnimatedBox>
+            </AnimatedPopover>
           )
       )}
-    </Box>
+    </>
   );
 };
 
