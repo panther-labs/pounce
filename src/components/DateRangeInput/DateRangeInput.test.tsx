@@ -41,6 +41,16 @@ it('opens the month picker', async () => {
   expect(container).toMatchSnapshot();
 });
 
+it('opens the month picker with placement', async () => {
+  const mock = jest.fn();
+  const { findByLabelText, container } = await renderWithTheme(
+    <DateRangeInput {...props} alignment="right" onChange={mock} />
+  );
+  const inputFrom = await findByLabelText('From date');
+  await fireEvent.click(inputFrom);
+  expect(container).toMatchSnapshot();
+});
+
 it('opens the month picker with empty value', async () => {
   const mock = jest.fn();
   const { findByLabelText, container } = await renderWithTheme(

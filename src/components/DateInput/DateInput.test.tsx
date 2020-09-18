@@ -36,6 +36,16 @@ describe('DateInput', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('opens the month picker with alignment', async () => {
+    const mock = jest.fn();
+    const { findByLabelText, container } = await renderWithTheme(
+      <DateInput label="test" alignment="right" value={date.toDate()} onChange={mock} />
+    );
+    const input = await findByLabelText('test');
+    await fireEvent.click(input);
+    expect(container).toMatchSnapshot();
+  });
+
   it('allows browsing through months', async () => {
     const mock = jest.fn();
     const { findByLabelText } = await renderWithTheme(
