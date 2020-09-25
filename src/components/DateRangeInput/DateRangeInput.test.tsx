@@ -31,6 +31,14 @@ it('renders', async () => {
   expect(container).toMatchSnapshot();
 });
 
+it('renders with solid coloring', async () => {
+  const mock = jest.fn();
+  const { container } = await renderWithTheme(
+    <DateRangeInput {...props} variant="solid" onChange={mock} />
+  );
+  expect(container).toMatchSnapshot();
+});
+
 it('opens the month picker', async () => {
   const mock = jest.fn();
   const { findByLabelText, container } = await renderWithTheme(

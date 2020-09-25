@@ -67,6 +67,37 @@ const DateRangeExample = () => {
 <DateRangeExample />;
 ```
 
+It supports "solid" coloring:
+
+```typescript jsx
+const DateRangeExample = () => {
+  const [dates, setDates] = React.useState([]);
+
+  const onChange = React.useCallback(changed => {
+    setDates(changed);
+  });
+  return (
+    <Box>
+      <Box>
+        <DateRangeInput
+          withPresets
+          variant="solid"
+          a
+          labelEnd="End"
+          placeholderStart="Start date"
+          placeholderEnd="End date"
+          onChange={setDates}
+          value={dates}
+          id="hello-date-range"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateRangeExample />;
+```
+
 ```typescript jsx
 const format = 'MM/DD/YYYY hh:mm A';
 const DateRangeExample = () => {

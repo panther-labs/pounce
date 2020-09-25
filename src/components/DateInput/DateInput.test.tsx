@@ -26,6 +26,14 @@ describe('DateInput', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('can be solid', async () => {
+    const mock = jest.fn();
+    const { container } = await renderWithTheme(
+      <DateInput variant="solid" label="test" value={date.toDate()} onChange={mock} />
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it('opens the month picker', async () => {
     const mock = jest.fn();
     const { findByLabelText, container } = await renderWithTheme(

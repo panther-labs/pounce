@@ -16,6 +16,9 @@ export type DoubleTextInputProps = Omit<TextInputProps, 'label' | 'placeholder'>
   /** The `from` placeholder for the double text input*/
   placeholderFrom?: string;
 
+  /** The variant of the component that decides the colors */
+  variant?: 'solid' | 'outline';
+
   /** The `to` placeholder for the double text input*/
   placeholderTo?: string;
 
@@ -65,6 +68,7 @@ const DoubleTextInput = React.forwardRef<HTMLInputElement, DoubleTextInputProps>
       id,
       hidden,
       name,
+      variant = 'outline',
       icon,
       from,
       to,

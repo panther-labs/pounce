@@ -25,6 +25,9 @@ export interface DateInputProps {
    */
   withTime?: boolean;
 
+  /** The variant of the component that decides the colors */
+  variant?: 'solid' | 'outline';
+
   /**
    * Date input format for time picker
    */
@@ -57,6 +60,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   alignment,
   withTime,
   mode = '24h',
+  variant = 'outline',
   onChange = noop,
   ...rest
 }) => {
@@ -126,6 +130,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
       <Box onClick={onExpand} cursor="pointer">
         <TextInput
           {...rest}
+          variant={variant}
           value={currentDate ? dayjs(currentDate).format(format) : ''}
           autoComplete="off"
           icon="calendar"
