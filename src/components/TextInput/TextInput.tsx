@@ -28,19 +28,35 @@ export type TextInputProps = NativeAttributes<'input'> & {
   /** The icon present on the input  */
   icon?: IconProps['type'];
 
+  /** The icon alignment  */
+  iconAlignment?: 'left' | 'right';
+
   /** Additional icon props  */
   iconProps?: TextIconProps;
 };
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
-  { label, invalid, required, disabled, id, hidden, name, icon, iconProps = {}, value, ...rest },
+  {
+    label,
+    invalid,
+    required,
+    disabled,
+    id,
+    hidden,
+    name,
+    icon,
+    iconProps = {},
+    iconAlignment = 'right',
+    value,
+    ...rest
+  },
   ref
 ) {
   const identifier = id || name || slugify(label);
 
   return (
     <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
-      <Flex align="center" position="relative">
+      <Flex align="center" position="relative" ml={icon && iconAlignment === 'left' && 30}>
         <InputElement
           as="input"
           type="text"
@@ -48,7 +64,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           name={name}
           value={value}
           truncated
-          pr={icon && 10}
+          pr={icon && iconAlignment === 'right' && 10}
           position="relative"
           zIndex={2}
           {...rest}
@@ -58,7 +74,15 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           {label}
         </InputLabel>
         {icon && (
-          <Icon zIndex={1} position="absolute" size="small" right={4} type={icon} {...iconProps} />
+          <Icon
+            zIndex={1}
+            position="absolute"
+            size="small"
+            left={iconAlignment === 'left' ? -20 : null}
+            right={iconAlignment === 'right' ? 4 : null}
+            type={icon}
+            {...iconProps}
+          />
         )}
       </Flex>
     </InputControl>
