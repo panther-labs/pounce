@@ -44,9 +44,9 @@ const InputControl: React.FC<InputControlProps> = ({
       position="relative"
       border="1px solid"
       transition="border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
-      backgroundColor={variant === 'outline' ? 'transparent' : 'navyblue-300'}
+      backgroundColor={variant === 'outline' ? 'transparent' : 'navyblue-400'}
       borderRadius="medium"
-      borderColor={!invalid ? 'navyblue-300' : 'red-300'}
+      borderColor={invalid ? 'red-300' : variant === 'outline' ? 'navyblue-300' : 'navyblue-400'}
       aria-disabled={disabled}
       aria-hidden={hidden}
       hidden={hidden}

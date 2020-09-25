@@ -16,6 +16,9 @@ export type TextInputProps = NativeAttributes<'input'> & {
   /** The label that is associated with this input */
   label: string;
 
+  /** The variant of the input that decides the colors */
+  variant?: 'solid' | 'outline';
+
   /** Whether the input has an invalid value */
   invalid?: boolean;
 
@@ -46,6 +49,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
     name,
     icon,
     iconProps = {},
+    variant = 'outline',
     iconAlignment = 'right',
     value,
     ...rest
@@ -55,7 +59,13 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
   const identifier = id || name || slugify(label);
 
   return (
-    <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
+    <InputControl
+      variant={variant}
+      invalid={invalid}
+      disabled={disabled}
+      required={required}
+      hidden={hidden}
+    >
       <Flex align="center" position="relative" ml={icon && iconAlignment === 'left' && 30}>
         <InputElement
           as="input"
