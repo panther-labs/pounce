@@ -21,7 +21,7 @@ const useAlertStyles = ({ variant }: UseControlledAlertStylesProps) => {
       };
     case 'error':
       return {
-        icon: 'close-circle' as const,
+        icon: 'alert-circle' as const,
         backgroundColor: 'pink-700' as const,
       };
     case 'default':
