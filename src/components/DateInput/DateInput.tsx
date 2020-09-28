@@ -12,6 +12,10 @@ import { noop } from '../../utils/helpers';
 
 export interface DateInputProps {
   /**
+   * The position to expand the picker
+   */
+  alignment?: 'left' | 'right' | 'match-width';
+  /**
    * The format displayed in the input element
    */
   format?: string;
@@ -50,11 +54,13 @@ export interface DateInputProps {
 const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onChange'>> = ({
   value,
   format = 'MM/DD/YYYY',
+  alignment,
   withTime,
   mode = '24h',
   onChange = noop,
   ...rest
 }) => {
+  const ref = React.useRef(null);
   const dateFormatted = value ? dayjs(value) : dayjs();
   const [currentMonth, setCurrentMonth] = useState(dateFormatted);
   const [currentDate, setCurrentDate] = useState(value);
@@ -116,7 +122,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   }, []);
 
   return (
-    <Box position="relative">
+    <Box position="relative" ref={ref}>
       <Box onClick={onExpand} cursor="pointer">
         <TextInput
           {...rest}
@@ -128,7 +134,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
           readOnly
         />
       </Box>
-      <DateWrapper isExpanded={open}>
+      <DateWrapper targetRef={ref} alignment={alignment} isExpanded={open}>
         <Flex align="center" justify="space-between" p={4}>
           <IconButton
             onClick={onPreviousMonth}

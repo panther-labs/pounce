@@ -2,6 +2,7 @@
 
 # Webstorm
 .idea
+.history
 
 # Deployment
 dist
