@@ -66,7 +66,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
       required={required}
       hidden={hidden}
     >
-      <Flex align="center" position="relative" ml={icon && iconAlignment === 'left' && 30}>
+      <Flex align="center" position="relative">
         <InputElement
           as="input"
           type="text"
@@ -74,13 +74,18 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           name={name}
           value={value}
           truncated
+          pl={icon && iconAlignment === 'left' && 42}
           pr={icon && iconAlignment === 'right' && 10}
           position="relative"
           zIndex={2}
           {...rest}
           ref={ref}
         />
-        <InputLabel raised={!!value} htmlFor={identifier}>
+        <InputLabel
+          raised={!!value}
+          htmlFor={identifier}
+          left={icon && iconAlignment === 'left' ? 26 : null}
+        >
           {label}
         </InputLabel>
         {icon && (
@@ -88,7 +93,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
             zIndex={1}
             position="absolute"
             size="small"
-            left={iconAlignment === 'left' ? -20 : null}
+            left={iconAlignment === 'left' ? 3 : null}
             right={iconAlignment === 'right' ? 4 : null}
             type={icon}
             {...iconProps}

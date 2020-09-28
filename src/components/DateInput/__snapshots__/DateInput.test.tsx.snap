@@ -52,7 +52,6 @@ exports[`DateInput allows passing a custom format 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
-  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -129,7 +128,6 @@ exports[`DateInput allows passing a custom format 1`] = `
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
-  left: 0;
   position: absolute;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -254,7 +252,6 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
-  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -331,7 +328,6 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
-  left: 0;
   position: absolute;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -631,7 +627,6 @@ exports[`DateInput can be solid 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
-  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -708,7 +703,6 @@ exports[`DateInput can be solid 1`] = `
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
-  left: 0;
   position: absolute;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -860,7 +854,6 @@ exports[`DateInput opens the month picker 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
-  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -937,7 +930,6 @@ exports[`DateInput opens the month picker 1`] = `
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
-  left: 0;
   position: absolute;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -1062,7 +1054,6 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
-  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -1139,7 +1130,6 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
-  left: 0;
   position: absolute;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -1264,7 +1254,6 @@ exports[`DateInput renders 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
-  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -1341,7 +1330,6 @@ exports[`DateInput renders 1`] = `
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
-  left: 0;
   position: absolute;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
