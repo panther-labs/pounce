@@ -39,8 +39,36 @@ const [value, setValue] = React.useState('hey');
 />;
 ```
 
+The input icon can get aligned
+
+```typescript jsx
+const [value, setValue] = React.useState('hey');
+<TextInput
+  label="Name"
+  name="hi"
+  iconAlignment="left"
+  value={value}
+  placeholder="Type something..."
+  iconProps={{ sx: { color: 'yellow-400', opacity: 0.8 } }}
+  onChange={e => setValue(e.target.value)}
+  icon="log-source"
+/>;
+```
+
 An input can be disabled:
 
 ```typescript jsx
 <TextInput label="Name" name="hi" disabled placeholder="Type something..." value="Disabled Value" />
+```
+
+An input can be "solid":
+
+```typescript jsx
+<TextInput
+  label="Name"
+  variant="solid"
+  name="hi"
+  placeholder="Type something..."
+  value="Disabled Value"
+/>
 ```

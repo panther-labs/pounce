@@ -5,7 +5,7 @@ exports[`renders 1`] = `
   position: relative;
 }
 
-.pounce-6 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -16,20 +16,31 @@ exports[`renders 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-6:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
   -ms-transform: translate(6px, 4px) scale(0.65);
   transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .pounce-0 {
@@ -126,43 +137,47 @@ exports[`renders 1`] = `
     class="pounce-2"
   >
     <div
-      class="pounce-6"
+      class="pounce-7"
     >
       <div
-        class="pounce-2"
+        class="pounce-6"
       >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="name-from"
-          name="name-from"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="name-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="surname-to"
-          name="surname-to"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="surname-to"
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="name-from"
+            name="name-from"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="name-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="surname-to"
+            name="surname-to"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="surname-to"
+          >
+            Surname
+          </label>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -174,7 +189,7 @@ exports[`renders with disabled option 1`] = `
   position: relative;
 }
 
-.pounce-6 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -185,20 +200,31 @@ exports[`renders with disabled option 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-6:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
   -ms-transform: translate(6px, 4px) scale(0.65);
   transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .pounce-0 {
@@ -296,47 +322,51 @@ exports[`renders with disabled option 1`] = `
   >
     <div
       aria-disabled="true"
-      class="pounce-6"
+      class="pounce-7"
     >
       <div
-        class="pounce-2"
+        class="pounce-6"
       >
-        <input
-          aria-disabled="true"
-          aria-invalid="false"
-          class="pounce-0"
-          disabled=""
-          id="name-from"
-          name="name-from"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="name-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-disabled="true"
-          aria-invalid="false"
-          class="pounce-0"
-          disabled=""
-          id="surname-to"
-          name="surname-to"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="surname-to"
+          <input
+            aria-disabled="true"
+            aria-invalid="false"
+            class="pounce-0"
+            disabled=""
+            id="name-from"
+            name="name-from"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="name-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-disabled="true"
+            aria-invalid="false"
+            class="pounce-0"
+            disabled=""
+            id="surname-to"
+            name="surname-to"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="surname-to"
+          >
+            Surname
+          </label>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -348,7 +378,7 @@ exports[`renders with icons 1`] = `
   position: relative;
 }
 
-.pounce-7 {
+.pounce-8 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -359,20 +389,31 @@ exports[`renders with icons 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-7:hover {
+.pounce-8:hover {
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within {
+.pounce-8:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within label {
+.pounce-8:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
   -ms-transform: translate(6px, 4px) scale(0.65);
   transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .pounce-0 {
@@ -482,159 +523,171 @@ exports[`renders with icons 1`] = `
     class="pounce-2"
   >
     <div
-      class="pounce-7"
+      class="pounce-8"
     >
       <div
-        class="pounce-2"
+        class="pounce-7"
       >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="name-from"
-          name="name-from"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="name-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="surname-to"
-          name="surname-to"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="surname-to"
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="name-from"
+            name="name-from"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="name-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="surname-to"
+            name="surname-to"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="surname-to"
+          >
+            Surname
+          </label>
+        </div>
+        <svg
+          class="pounce-6"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12.09 2.90995C10.08 0.899954 7.07 0.489954 4.65 1.66995L8.99 6.00995L5.99 9.00995L1.65 4.66995C0.480003 7.09995 0.890003 10.09 2.9 12.1C4.76 13.96 7.48 14.45 9.79 13.58L19.61 23.4L23.32 19.69L13.54 9.89995C14.46 7.55995 13.98 4.79995 12.09 2.90995V2.90995Z"
+          />
+        </svg>
       </div>
-      <svg
-        class="pounce-6"
-        role="presentation"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12.09 2.90995C10.08 0.899954 7.07 0.489954 4.65 1.66995L8.99 6.00995L5.99 9.00995L1.65 4.66995C0.480003 7.09995 0.890003 10.09 2.9 12.1C4.76 13.96 7.48 14.45 9.79 13.58L19.61 23.4L23.32 19.69L13.54 9.89995C14.46 7.55995 13.98 4.79995 12.09 2.90995V2.90995Z"
-        />
-      </svg>
     </div>
   </fieldset>
   <fieldset
     class="pounce-2"
   >
     <div
-      class="pounce-7"
+      class="pounce-8"
     >
       <div
-        class="pounce-2"
+        class="pounce-7"
       >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="name-from"
-          name="name-from"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="name-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="surname-to"
-          name="surname-to"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="surname-to"
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="name-from"
+            name="name-from"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="name-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="surname-to"
+            name="surname-to"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="surname-to"
+          >
+            Surname
+          </label>
+        </div>
+        <svg
+          class="pounce-6"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
       </div>
-      <svg
-        class="pounce-6"
-        role="presentation"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-        />
-      </svg>
     </div>
   </fieldset>
   <fieldset
     class="pounce-2"
   >
     <div
-      class="pounce-7"
+      class="pounce-8"
     >
       <div
-        class="pounce-2"
+        class="pounce-7"
       >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="name-from"
-          name="name-from"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="name-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="surname-to"
-          name="surname-to"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="surname-to"
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="name-from"
+            name="name-from"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="name-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="surname-to"
+            name="surname-to"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="surname-to"
+          >
+            Surname
+          </label>
+        </div>
+        <svg
+          class="pounce-6"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10L12 15L17 10H7Z"
+          />
+        </svg>
       </div>
-      <svg
-        class="pounce-6"
-        role="presentation"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M7 10L12 15L17 10H7Z"
-        />
-      </svg>
     </div>
   </fieldset>
 </div>
@@ -645,7 +698,7 @@ exports[`renders with individual values 1`] = `
   position: relative;
 }
 
-.pounce-6 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -656,20 +709,31 @@ exports[`renders with individual values 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-6:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
   -ms-transform: translate(6px, 4px) scale(0.65);
   transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .pounce-0 {
@@ -766,43 +830,47 @@ exports[`renders with individual values 1`] = `
     class="pounce-2"
   >
     <div
-      class="pounce-6"
+      class="pounce-7"
     >
       <div
-        class="pounce-2"
+        class="pounce-6"
       >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="sample-from"
-          name="sample-from"
-          type="text"
-          value="This is the start"
-        />
-        <label
-          class="pounce-1"
-          for="sample-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="sample-to"
-          name="sample-to"
-          type="text"
-          value="This is the end"
-        />
-        <label
-          class="pounce-1"
-          for="sample-to"
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="sample-from"
+            name="sample-from"
+            type="text"
+            value="This is the start"
+          />
+          <label
+            class="pounce-1"
+            for="sample-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="sample-to"
+            name="sample-to"
+            type="text"
+            value="This is the end"
+          />
+          <label
+            class="pounce-1"
+            for="sample-to"
+          >
+            Surname
+          </label>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -812,6 +880,17 @@ exports[`renders with individual values 1`] = `
 exports[`renders with invalid option 1`] = `
 .pounce-2 {
   position: relative;
+}
+
+.pounce-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .pounce-0 {
@@ -884,7 +963,7 @@ exports[`renders with invalid option 1`] = `
   border-radius: 4px;
 }
 
-.pounce-6 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -895,7 +974,7 @@ exports[`renders with invalid option 1`] = `
   border-color: #d64242;
 }
 
-.pounce-6:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -927,43 +1006,47 @@ exports[`renders with invalid option 1`] = `
     class="pounce-2"
   >
     <div
-      class="pounce-6"
+      class="pounce-7"
     >
       <div
-        class="pounce-2"
+        class="pounce-6"
       >
-        <input
-          aria-invalid="true"
-          class="pounce-0"
-          id="name-from"
-          name="name-from"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="name-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-invalid="true"
-          class="pounce-0"
-          id="surname-to"
-          name="surname-to"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="surname-to"
+          <input
+            aria-invalid="true"
+            class="pounce-0"
+            id="name-from"
+            name="name-from"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="name-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-invalid="true"
+            class="pounce-0"
+            id="surname-to"
+            name="surname-to"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="surname-to"
+          >
+            Surname
+          </label>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -975,7 +1058,7 @@ exports[`renders with placeholders 1`] = `
   position: relative;
 }
 
-.pounce-6 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -986,20 +1069,31 @@ exports[`renders with placeholders 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-6:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
   -ms-transform: translate(6px, 4px) scale(0.65);
   transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .pounce-0 {
@@ -1096,45 +1190,49 @@ exports[`renders with placeholders 1`] = `
     class="pounce-2"
   >
     <div
-      class="pounce-6"
+      class="pounce-7"
     >
       <div
-        class="pounce-2"
+        class="pounce-6"
       >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="name-from"
-          name="name-from"
-          placeholder="Foo"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="name-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-invalid="false"
-          class="pounce-0"
-          id="surname-to"
-          name="surname-to"
-          placeholder="Bar"
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="surname-to"
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="name-from"
+            name="name-from"
+            placeholder="Foo"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="name-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-invalid="false"
+            class="pounce-0"
+            id="surname-to"
+            name="surname-to"
+            placeholder="Bar"
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="surname-to"
+          >
+            Surname
+          </label>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -1146,7 +1244,7 @@ exports[`renders with required option 1`] = `
   position: relative;
 }
 
-.pounce-6 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -1157,20 +1255,31 @@ exports[`renders with required option 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-6:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-6:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
   -ms-transform: translate(6px, 4px) scale(0.65);
   transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .pounce-0 {
@@ -1267,47 +1376,51 @@ exports[`renders with required option 1`] = `
     class="pounce-2"
   >
     <div
-      class="pounce-6"
+      class="pounce-7"
     >
       <div
-        class="pounce-2"
+        class="pounce-6"
       >
-        <input
-          aria-invalid="false"
-          aria-required="true"
-          class="pounce-0"
-          id="name-from"
-          name="name-from"
-          required=""
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="name-from"
+        <div
+          class="pounce-2"
         >
-          Name
-        </label>
-      </div>
-      <div
-        class="pounce-2"
-      >
-        <input
-          aria-invalid="false"
-          aria-required="true"
-          class="pounce-0"
-          id="surname-to"
-          name="surname-to"
-          required=""
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-1"
-          for="surname-to"
+          <input
+            aria-invalid="false"
+            aria-required="true"
+            class="pounce-0"
+            id="name-from"
+            name="name-from"
+            required=""
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="name-from"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="pounce-2"
         >
-          Surname
-        </label>
+          <input
+            aria-invalid="false"
+            aria-required="true"
+            class="pounce-0"
+            id="surname-to"
+            name="surname-to"
+            required=""
+            type="text"
+            value=""
+          />
+          <label
+            class="pounce-1"
+            for="surname-to"
+          >
+            Surname
+          </label>
+        </div>
       </div>
     </div>
   </fieldset>

@@ -32,6 +32,9 @@ export interface DateRangeInputProps {
    */
   withPresets?: boolean;
 
+  /** The variant of the component that decides the colors */
+  variant?: 'solid' | 'outline';
+
   /**
    * A flag that dictates if the component should allow manipulating time
    */
@@ -90,6 +93,7 @@ const DateRangeInput: React.FC<
   format = 'MM/DD/YYYY',
   mode = '24h',
   withTime,
+  variant = 'outline',
   withPresets,
   onChange = noop,
   labelStart,
@@ -221,6 +225,7 @@ const DateRangeInput: React.FC<
       <Box onClick={onExpand} cursor="pointer">
         <DoubleTextInput
           {...rest}
+          variant={variant}
           from={formatDate(currentDateRange, 0)}
           to={formatDate(currentDateRange, 1)}
           labelFrom={labelStart}

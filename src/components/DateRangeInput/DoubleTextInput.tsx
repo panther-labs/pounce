@@ -1,5 +1,6 @@
 import React, { ChangeEventHandler } from 'react';
 import Box from '../Box';
+import Flex from '../Flex';
 import { slugify } from '../../utils/helpers';
 import Icon, { IconProps } from '../Icon';
 import { TextInputProps } from '../TextInput';
@@ -15,6 +16,9 @@ export type DoubleTextInputProps = Omit<TextInputProps, 'label' | 'placeholder'>
 
   /** The `from` placeholder for the double text input*/
   placeholderFrom?: string;
+
+  /** The variant of the component that decides the colors */
+  variant?: 'solid' | 'outline';
 
   /** The `to` placeholder for the double text input*/
   placeholderTo?: string;
@@ -65,6 +69,7 @@ const DoubleTextInput = React.forwardRef<HTMLInputElement, DoubleTextInputProps>
       id,
       hidden,
       name,
+      variant = 'outline',
       icon,
       from,
       to,
@@ -81,40 +86,48 @@ const DoubleTextInput = React.forwardRef<HTMLInputElement, DoubleTextInputProps>
 
     return (
       <Box position="relative" as="fieldset">
-        <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
-          <Box position="relative">
-            <InputElement
-              as="input"
-              type="text"
-              id={identifierFrom}
-              name={identifierFrom}
-              value={from}
-              {...rest}
-              placeholder={placeholderFrom}
-              onChange={onChangeFrom}
-              ref={ref}
-            />
-            <InputLabel raised={!!from} htmlFor={identifierFrom}>
-              {labelFrom}
-            </InputLabel>
-          </Box>
-          <Box position="relative">
-            <InputElement
-              as="input"
-              type="text"
-              id={identifierTo}
-              name={identifierTo}
-              value={to}
-              {...rest}
-              placeholder={placeholderTo}
-              onChange={onChangeTo}
-              ref={ref}
-            />
-            <InputLabel raised={!!to} htmlFor={identifierTo}>
-              {labelTo}
-            </InputLabel>
-          </Box>
-          {icon && <Icon size="small" mx={4} type={icon} />}
+        <InputControl
+          invalid={invalid}
+          disabled={disabled}
+          required={required}
+          hidden={hidden}
+          variant={variant}
+        >
+          <Flex align="center">
+            <Box position="relative">
+              <InputElement
+                as="input"
+                type="text"
+                id={identifierFrom}
+                name={identifierFrom}
+                value={from}
+                {...rest}
+                placeholder={placeholderFrom}
+                onChange={onChangeFrom}
+                ref={ref}
+              />
+              <InputLabel raised={!!from} htmlFor={identifierFrom}>
+                {labelFrom}
+              </InputLabel>
+            </Box>
+            <Box position="relative">
+              <InputElement
+                as="input"
+                type="text"
+                id={identifierTo}
+                name={identifierTo}
+                value={to}
+                {...rest}
+                placeholder={placeholderTo}
+                onChange={onChangeTo}
+                ref={ref}
+              />
+              <InputLabel raised={!!to} htmlFor={identifierTo}>
+                {labelTo}
+              </InputLabel>
+            </Box>
+            {icon && <Icon size="small" mx={4} type={icon} />}
+          </Flex>
         </InputControl>
       </Box>
     );

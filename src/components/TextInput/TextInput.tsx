@@ -16,6 +16,9 @@ export type TextInputProps = NativeAttributes<'input'> & {
   /** The label that is associated with this input */
   label: string;
 
+  /** The variant of the input that decides the colors */
+  variant?: 'solid' | 'outline';
+
   /** Whether the input has an invalid value */
   invalid?: boolean;
 
@@ -28,18 +31,41 @@ export type TextInputProps = NativeAttributes<'input'> & {
   /** The icon present on the input  */
   icon?: IconProps['type'];
 
+  /** The icon alignment  */
+  iconAlignment?: 'left' | 'right';
+
   /** Additional icon props  */
   iconProps?: TextIconProps;
 };
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
-  { label, invalid, required, disabled, id, hidden, name, icon, iconProps = {}, value, ...rest },
+  {
+    label,
+    invalid,
+    required,
+    disabled,
+    id,
+    hidden,
+    name,
+    icon,
+    iconProps = {},
+    variant = 'outline',
+    iconAlignment = 'right',
+    value,
+    ...rest
+  },
   ref
 ) {
   const identifier = id || name || slugify(label);
 
   return (
-    <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
+    <InputControl
+      variant={variant}
+      invalid={invalid}
+      disabled={disabled}
+      required={required}
+      hidden={hidden}
+    >
       <Flex align="center" position="relative">
         <InputElement
           as="input"
@@ -48,17 +74,30 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           name={name}
           value={value}
           truncated
-          pr={icon && 10}
+          pl={icon && iconAlignment === 'left' ? 42 : null}
+          pr={icon && iconAlignment === 'right' && 10}
           position="relative"
           zIndex={2}
           {...rest}
           ref={ref}
         />
-        <InputLabel raised={!!value} htmlFor={identifier}>
+        <InputLabel
+          raised={!!value}
+          htmlFor={identifier}
+          left={icon && iconAlignment === 'left' ? 26 : null}
+        >
           {label}
         </InputLabel>
         {icon && (
-          <Icon zIndex={1} position="absolute" size="small" right={4} type={icon} {...iconProps} />
+          <Icon
+            zIndex={1}
+            position="absolute"
+            size="small"
+            left={iconAlignment === 'left' ? 3 : null}
+            right={iconAlignment === 'right' ? 4 : null}
+            type={icon}
+            {...iconProps}
+          />
         )}
       </Flex>
     </InputControl>

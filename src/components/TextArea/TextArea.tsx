@@ -8,6 +8,9 @@ export type TextAreaProps = NativeAttributes<'textarea'> & {
   /** The label that is associated with this textaera */
   label: string;
 
+  /** The variant of the input that decides the colors */
+  variant?: 'solid' | 'outline';
+
   /** Whether the textarea has an invalid value */
   invalid?: boolean;
 
@@ -19,13 +22,19 @@ export type TextAreaProps = NativeAttributes<'textarea'> & {
 };
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
-  { label, invalid, required, disabled, hidden, id, name, value, ...rest },
+  { label, invalid, required, disabled, hidden, id, name, value, variant = 'outline', ...rest },
   ref
 ) {
   const identifier = id || name || slugify(label);
 
   return (
-    <InputControl invalid={invalid} disabled={disabled} required={required} hidden={hidden}>
+    <InputControl
+      variant={variant}
+      invalid={invalid}
+      disabled={disabled}
+      required={required}
+      hidden={hidden}
+    >
       <InputElement
         as={TextareaAutosize}
         id={identifier}

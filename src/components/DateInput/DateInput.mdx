@@ -21,6 +21,29 @@ const DateInputExample = () => {
 <DateInputExample />;
 ```
 
+It support a "solid" color mode
+
+```typescript jsx
+const DateInputExample = () => {
+  const [date, setDate] = React.useState();
+  return (
+    <Box>
+      <Box>
+        <DateInput
+          variant="solid"
+          onChange={setDate}
+          value={date}
+          placeholder="Enter a date"
+          label="Start date"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateInputExample />;
+```
+
 It also supports manipulating the given time
 
 ```typescript jsx

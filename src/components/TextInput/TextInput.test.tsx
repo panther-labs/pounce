@@ -32,6 +32,12 @@ it('renders with icons', async () => {
         iconProps={{ color: 'navyblue-100' }}
       />
       <TextInput
+        iconAlignment="left"
+        label="Text input with left icon"
+        icon="calendar"
+        iconProps={{ color: 'navyblue-100' }}
+      />
+      <TextInput
         label="Text input caret"
         icon="caret-down"
         iconProps={{ color: 'navyblue-300', size: 'x-small' }}

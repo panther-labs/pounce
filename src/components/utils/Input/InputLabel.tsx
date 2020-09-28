@@ -3,7 +3,7 @@ import { useInputContext } from './InputContext';
 import Box, { BoxProps, NativeAttributes } from '../../Box';
 
 export type InputLabelProps = NativeAttributes<'label'> &
-  Pick<BoxProps, 'visuallyHidden'> & {
+  Pick<BoxProps, 'visuallyHidden' | 'left'> & {
     /**  Whether the label should be raised up or not. Defaults to `true` */
     raised?: boolean;
   };
