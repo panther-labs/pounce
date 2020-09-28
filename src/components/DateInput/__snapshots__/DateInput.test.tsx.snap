@@ -531,7 +531,6 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   padding-right: 16px;
   color: #bdbdbd;
   top: 0;
-  left: 0;
   position: absolute;
   transform-origin: center left;
   -webkit-transform: translate(6px, 4px) scale(0.65);
