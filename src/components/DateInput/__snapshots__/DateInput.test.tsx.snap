@@ -52,6 +52,7 @@ exports[`DateInput allows passing a custom format 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
+  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -252,6 +253,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
+  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -627,6 +629,7 @@ exports[`DateInput can be solid 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
+  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -854,6 +857,7 @@ exports[`DateInput opens the month picker 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
+  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -1054,6 +1058,7 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
+  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -1254,6 +1259,7 @@ exports[`DateInput renders 1`] = `
   vertical-align: top;
   width: 100%;
   height: 100%;
+  padding-left: 16px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;

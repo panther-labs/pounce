@@ -74,7 +74,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           name={name}
           value={value}
           truncated
-          pl={icon && iconAlignment === 'left' && 42}
+          pl={icon && iconAlignment === 'left' ? 42 : null}
           pr={icon && iconAlignment === 'right' && 10}
           position="relative"
           zIndex={2}

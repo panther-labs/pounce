@@ -38,6 +38,12 @@ const InputControl: React.FC<InputControlProps> = ({
     [invalid, variant, disabled, required, hidden]
   );
 
+  const borderColor = React.useMemo(() => {
+    if (invalid) {
+      return 'red-300';
+    }
+    return variant === 'outline' ? 'navyblue-300' : 'navyblue-400';
+  }, [variant, invalid]);
   return (
     <Box
       minHeight={47}
@@ -46,7 +52,7 @@ const InputControl: React.FC<InputControlProps> = ({
       transition="border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
       backgroundColor={variant === 'outline' ? 'transparent' : 'navyblue-400'}
       borderRadius="medium"
-      borderColor={invalid ? 'red-300' : variant === 'outline' ? 'navyblue-300' : 'navyblue-400'}
+      borderColor={borderColor}
       aria-disabled={disabled}
       aria-hidden={hidden}
       hidden={hidden}
