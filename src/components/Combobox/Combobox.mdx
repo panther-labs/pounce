@@ -83,3 +83,25 @@ const Example2 = () => {
 
 <Example2 />;
 ```
+
+A Combobox can have "solid" variant:
+
+```typescript jsx
+const Example4 = () => {
+  const [selectedItems, updateSelectedItems] = React.useState(null);
+  return (
+    <Box width={0.3}>
+      <Combobox
+        variant="solid"
+        label="Choose a car manufacturer"
+        items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+        onChange={updateSelectedItems}
+        value={selectedItems}
+        placeholder="Search for a manufacturer"
+      />
+    </Box>
+  );
+};
+
+<Example4 />;
+```
