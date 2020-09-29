@@ -24,6 +24,7 @@ export type DoubleTextInputProps = Omit<TextInputProps, 'label' | 'placeholder'>
   placeholderTo?: string;
 
   /** The `from` value for the double text input*/
+
   from?: string | ReadonlyArray<string> | number;
 
   /** The `to` value for the double text input*/
