@@ -10,6 +10,7 @@ const colors = {
   'navyblue-100': '#86a3c3',
   'navyblue-200': '#4f627c',
   'navyblue-300': '#3e516b',
+  'navyblue-350': '#30415C',
   'navyblue-400': '#23344e',
   'navyblue-500': '#1d2a3f',
   'navyblue-600': '#192231',
