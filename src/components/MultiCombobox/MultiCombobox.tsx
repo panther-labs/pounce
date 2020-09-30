@@ -18,6 +18,9 @@ export type MultiComboboxProps<T> = {
   /** The label associated with this dropdown form element */
   label: string;
 
+  /** The variant of the component that decides the colors */
+  variant?: 'solid' | 'outline';
+
   /** Whether the label should get visually hidden */
   hideLabel?: boolean;
 
@@ -114,6 +117,7 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
 function MultiCombobox<Item>({
   onChange,
   value,
+  variant = 'outline',
   items,
   disableItem = () => false,
   searchable = false,
@@ -130,6 +134,15 @@ function MultiCombobox<Item>({
   hidden,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
+  const getVariant = React.useCallback(
+    isOpen => {
+      if (variant === 'solid') {
+        return 'solid';
+      }
+      return isOpen ? 'solid' : 'outline';
+    },
+    [variant]
+  );
   const removeItem = (item: any) => {
     onChange(value.filter(i => i !== item));
   };
@@ -141,6 +154,7 @@ function MultiCombobox<Item>({
   };
 
   const itemsPt = hideLabel ? 3 : '19px';
+
   return (
     <Downshift<Item>
       stateReducer={stateReducer}
@@ -162,6 +176,7 @@ function MultiCombobox<Item>({
         selectedItem,
         selectItem,
       }) => {
+        const multiComboboxVariant = getVariant(isOpen);
         // If it's a multicombobox we DON'T WANT t oinclude the results already selected and also
         // we want to make sure that the results get filtered by the search term of the user
         const nonSelectedItems = items.filter(
@@ -262,7 +277,7 @@ function MultiCombobox<Item>({
               <InputControl
                 invalid={invalid}
                 disabled={disabled}
-                variant={isOpen && items.length ? 'solid' : 'outline'}
+                variant={multiComboboxVariant}
                 hidden={hidden}
               >
                 {value.length > 0 && (

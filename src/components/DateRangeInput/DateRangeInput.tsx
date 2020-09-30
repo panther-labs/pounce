@@ -87,7 +87,11 @@ const convertToDayjs = (value: Date[]): Dayjs[] => {
 };
 
 const DateRangeInput: React.FC<
-  DateRangeInputProps & Omit<TextInputProps, 'value' | 'onChange' | 'label' | 'placeholder'>
+  DateRangeInputProps &
+    Omit<
+      TextInputProps,
+      'value' | 'onChange' | 'label' | 'placeholder' | 'icon' | 'iconProps' | 'iconAlignment'
+    >
 > = ({
   value,
   format = 'MM/DD/YYYY',

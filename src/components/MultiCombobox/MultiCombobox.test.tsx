@@ -23,6 +23,11 @@ describe('MultiCombobox', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('renders with variant="solid"', () => {
+    const { container } = renderWithTheme(<ControlledMultiCombobox variant="solid" />);
+    expect(container).toMatchSnapshot();
+  });
+
   it('works without being searchable', async () => {
     const { getByText, getByPlaceholderText, getAllByRole } = renderWithTheme(
       <ControlledMultiCombobox />

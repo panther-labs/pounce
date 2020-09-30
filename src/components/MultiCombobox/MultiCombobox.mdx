@@ -130,3 +130,26 @@ const Example4 = () => {
 
 <Example4 />;
 ```
+
+A MultiCombobox can have "solid" variant:
+
+```typescript jsx
+const Example5 = () => {
+  const [selectedItems, updateSelectedItems] = React.useState([]);
+  return (
+    <Box width={0.3}>
+      <MultiCombobox
+        searchable
+        variant="solid"
+        label="Choose a car manufacturer"
+        items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+        onChange={updateSelectedItems}
+        value={selectedItems}
+        placeholder="Search for a manufacturer"
+      />
+    </Box>
+  );
+};
+
+<Example5 />;
+```

@@ -19,6 +19,9 @@ export type ComboboxProps<T> = {
   /** The id of the combobox */
   id?: string;
 
+  /** The variant of the component that decides the colors */
+  variant?: 'solid' | 'outline';
+
   /** The label that is associated with this combobox */
   label: string;
 
@@ -80,6 +83,7 @@ function Combobox<Item>({
   onChange,
   value,
   items,
+  variant = 'outline',
   searchable = false,
   label = '',
   hideLabel,
@@ -101,6 +105,15 @@ function Combobox<Item>({
   // plus some focus/blur events that are tied to the searchable behaviour (see below)
   const [inputValue, setInputValue] = React.useState('');
 
+  const getVariant = React.useCallback(
+    isOpen => {
+      if (variant === 'solid') {
+        return 'solid';
+      }
+      return isOpen ? 'solid' : 'outline';
+    },
+    [variant]
+  );
   React.useLayoutEffect(() => {
     setInputValue(safeItemToString(value));
   }, [value]);
@@ -127,6 +140,7 @@ function Combobox<Item>({
       }) => {
         let results = items;
 
+        const comboboxVariant = getVariant(isOpen);
         // If it's searchable, only filter results by search term when the searching
         // functionality is available.
         if (searchable) {
@@ -178,7 +192,7 @@ function Combobox<Item>({
                 invalid={invalid}
                 disabled={disabled}
                 required={required}
-                variant={isOpen ? 'solid' : 'outline'}
+                variant={comboboxVariant}
                 hidden={hidden}
               >
                 <InputElement
