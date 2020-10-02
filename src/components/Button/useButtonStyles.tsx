@@ -95,12 +95,12 @@ const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) 
 const getSizeButtonStyles = (size: ButtonProps['size']): AbstractButtonProps => {
   switch (size) {
     case 'small':
-      return { px: 5, py: '3px', fontSize: 'small' };
+      return { px: 5, height: 24, fontSize: 'small' };
     case 'medium':
-      return { px: 5, py: '6px', fontSize: 'small-medium' };
+      return { px: 5, height: 32, fontSize: 'small-medium' };
     case 'large':
     default:
-      return { px: 5, py: 3, fontSize: 'medium-large' };
+      return { px: 5, height: 46, fontSize: 'medium-large' };
   }
 };
 
