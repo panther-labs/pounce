@@ -6,7 +6,7 @@ import AbstractButton from '../AbstractButton';
 
 export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size of the icon button */
-  size?: 'small' | 'large';
+  size?: 'small' | 'medium' | 'large';
 
   /** The text associated with the icon button */
   'aria-label': string;
@@ -54,7 +54,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(f
       {...rest}
       ref={ref}
     >
-      <Icon type={icon} size="small" display="block" />
+      <Icon type={icon} size={size} />
     </AbstractButton>
   );
 });

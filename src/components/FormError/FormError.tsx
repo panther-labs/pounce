@@ -20,7 +20,7 @@ const FormError: React.FC<FormErrorProps> = ({ children, ...rest }) => {
       role="alert"
       {...rest}
     >
-      <Icon size="small" type="warning" mr={1} flex="0 0 auto" />
+      <Icon size="medium" type="warning" mr={1} flex="0 0 auto" />
       {children}
     </Text>
   );

@@ -11,7 +11,7 @@ export interface IconProps extends BoxProps<'svg'> {
   color?: BoxProps['color'];
 
   /** The size of the icon. Can be 18px or 24px */
-  size?: 'x-small' | 'small' | 'large';
+  size?: 'x-small' | 'small' | 'medium' | 'large';
 }
 
 /** An simple SVG element exported as a React component. It renders a simple <svg> */
@@ -23,12 +23,19 @@ export const Icon = React.forwardRef<SVGElement & HTMLElement, IconProps>(functi
   const viewBox = icons[type]?.viewBox || '0 0 24 24';
 
   let sizeInPx;
-  if (size === 'x-small') {
-    sizeInPx = 12;
-  } else if (size === 'small') {
-    sizeInPx = 20;
-  } else {
-    sizeInPx = 24;
+  switch (size) {
+    case 'x-small':
+      sizeInPx = 12;
+      break;
+    case 'small':
+      sizeInPx = 16;
+      break;
+    case 'medium':
+      sizeInPx = 20;
+      break;
+    case 'large':
+    default:
+      sizeInPx = 24;
   }
 
   return (

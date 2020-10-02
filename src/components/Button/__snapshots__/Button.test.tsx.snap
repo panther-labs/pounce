@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders \`large\` size correctly 1`] = `
+.pounce-0 {
+  width: auto;
+  outline: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 46px;
+  font-size: 0.938rem;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.pounce-0:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-0:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-0:active,
+.pounce-0[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+<div>
+  <button
+    class="pounce-0"
+    type="button"
+  >
+    Test
+  </button>
+</div>
+`;
+
+exports[`Button renders \`medium\` size correctly 1`] = `
+.pounce-0 {
+  width: auto;
+  outline: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 32px;
+  font-size: 0.813rem;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.pounce-0:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-0:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-0:active,
+.pounce-0[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+<div>
+  <button
+    class="pounce-0"
+    type="button"
+  >
+    Test
+  </button>
+</div>
+`;
+
+exports[`Button renders \`small\` size correctly 1`] = `
+.pounce-0 {
+  width: auto;
+  outline: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 24px;
+  font-size: 0.75rem;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.pounce-0:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-0:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-0:active,
+.pounce-0[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+<div>
+  <button
+    class="pounce-0"
+    type="button"
+  >
+    Test
+  </button>
+</div>
+`;

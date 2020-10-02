@@ -143,7 +143,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
         <Flex align="center" justify="space-between" p={4}>
           <IconButton
             onClick={onPreviousMonth}
-            size="small"
+            size="medium"
             icon="arrow-back"
             aria-label="Go to previous month"
           />
@@ -152,7 +152,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
           </Box>
           <IconButton
             onClick={onNextMonth}
-            size="small"
+            size="medium"
             icon="arrow-forward"
             aria-label="Go to next month"
           />
@@ -181,10 +181,10 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
 
         <Flex align="center" justify="center" borderTop="1px solid" borderColor="navyblue-300">
           <Flex align="center" justify="center" p={3} spacing={3}>
-            <Button onClick={onCancel} size="small" variantColor="gray">
+            <Button onClick={onCancel} size="medium" variantColor="gray">
               Cancel
             </Button>
-            <Button disabled={!currentDate} onClick={onApply} size="small">
+            <Button disabled={!currentDate} onClick={onApply} size="medium">
               Apply
             </Button>
           </Flex>

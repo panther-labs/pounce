@@ -70,6 +70,18 @@ export const getGhostButtonStyles = (theme: Theme, variantColor: ButtonColorVari
   };
 };
 
+const getSizeButtonStyles = (size: IconButtonProps['size']): AbstractButtonProps => {
+  switch (size) {
+    case 'small':
+      return { height: 24, width: 24 };
+    case 'medium':
+      return { height: 32, width: 32 };
+    case 'large':
+    default:
+      return { height: 46, width: 46 };
+  }
+};
+
 const useIconButtonStyles = ({
   variantColor,
   variant,
@@ -77,7 +89,7 @@ const useIconButtonStyles = ({
 }: UseIconButtonStyles): AbstractButtonProps => {
   const theme = useTheme();
 
-  const styles = React.useMemo(() => {
+  const variantStyles = React.useMemo(() => {
     switch (variant) {
       case 'ghost':
         return getGhostButtonStyles(theme, variantColor);
@@ -91,10 +103,13 @@ const useIconButtonStyles = ({
     }
   }, [variantColor, variant]);
 
+  const sizeStyles = getSizeButtonStyles(size);
+
   return {
-    p: size === 'small' ? 1 : 3,
     outline: 'none',
-    ...styles,
+    lineHeight: 'none',
+    ...sizeStyles,
+    ...variantStyles,
   } as AbstractButtonProps;
 };
 

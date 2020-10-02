@@ -7,7 +7,7 @@ import Icon, { IconProps } from '../Icon';
 
 export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size (height) of the button */
-  size?: 'small' | 'large';
+  size?: 'small' | 'medium' | 'large';
 
   /** The variant of the button that decides the colors */
   variant?: 'solid' | 'outline';
@@ -64,6 +64,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
   ref
 ) {
   const styles = useButtonStyles({ variantColor, variant, size });
+  const iconSize = size === 'large' ? 'medium' : 'small';
 
   return (
     <AbstractButton
@@ -75,12 +76,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
       ref={ref}
     >
       {icon && iconAlignment === 'left' && !loading && (
-        <Icon size="small" ml={-1} mr={2} type={icon} />
+        <Icon size={iconSize} ml={-1} mr={2} type={icon} />
       )}
       {loading && <Spinner size="small" mr={2} />}
       {children}
       {icon && iconAlignment === 'right' && !loading && (
-        <Icon size="small" mr={-1} ml={3} type={icon} />
+        <Icon size={iconSize} mr={-1} ml={3} type={icon} />
       )}
     </AbstractButton>
   );

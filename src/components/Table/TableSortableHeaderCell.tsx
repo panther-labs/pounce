@@ -37,7 +37,7 @@ const TableSortableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, Tab
           >
             <Icon
               type="chevron-down"
-              size="small"
+              size="medium"
               transition="all 0.075s linear"
               transform={`rotate(${sortDir === 'ascending' ? 180 : 0}deg)`}
               opacity={isActive ? 1 : 0}
