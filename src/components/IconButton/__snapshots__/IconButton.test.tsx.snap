@@ -1,14 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IconButton renders \`large\` size correctly 1`] = `
+exports[`IconButton renders \`circle\` variantBorderStyle correctly 1`] = `
+.pounce-0 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+}
+
 .pounce-1 {
   outline: none;
   line-height: 1;
+  border-radius: 99999px;
   height: 46px;
   width: 46px;
   -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.pounce-1:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-1:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-1:active,
+.pounce-1[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+<div>
+  <button
+    aria-label="Test"
+    aria-pressed="false"
+    class="pounce-1"
+    type="button"
+  >
+    <svg
+      class="pounce-0"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20 13.1429H13.1429V20H10.8571V13.1429H4V10.8571H10.8571V4H13.1429V10.8571H20V13.1429Z"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`IconButton renders \`large\` size correctly 1`] = `
+.pounce-1 {
+  outline: none;
+  line-height: 1;
   border-radius: 4px;
+  height: 46px;
+  width: 46px;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border: 1px solid;
   border-color: #0081c5;
   background-color: #0081c5;
@@ -69,11 +134,11 @@ exports[`IconButton renders \`medium\` size correctly 1`] = `
 .pounce-1 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
   background-color: #0081c5;
@@ -134,11 +199,11 @@ exports[`IconButton renders \`small\` size correctly 1`] = `
 .pounce-1 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 24px;
   width: 24px;
   -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  border-radius: 4px;
   border: 1px solid;
   border-color: #0081c5;
   background-color: #0081c5;
@@ -172,6 +237,71 @@ exports[`IconButton renders \`small\` size correctly 1`] = `
   flex-shrink: 0;
   width: 16px;
   height: 16px;
+  color: currentColor;
+}
+
+<div>
+  <button
+    aria-label="Test"
+    aria-pressed="false"
+    class="pounce-1"
+    type="button"
+  >
+    <svg
+      class="pounce-0"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20 13.1429H13.1429V20H10.8571V13.1429H4V10.8571H10.8571V4H13.1429V10.8571H20V13.1429Z"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`IconButton renders \`square\` variantBorderStyle correctly 1`] = `
+.pounce-1 {
+  outline: none;
+  line-height: 1;
+  border-radius: 4px;
+  height: 46px;
+  width: 46px;
+  -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border: 1px solid;
+  border-color: #0081c5;
+  background-color: #0081c5;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.pounce-1:hover {
+  background-color: #0a8bcf;
+  border-color: #0a8bcf;
+}
+
+.pounce-1:focus {
+  background-color: #0a8bcf;
+  border-color: #55d6ff;
+}
+
+.pounce-1:active,
+.pounce-1[data-active=true] {
+  background-color: #0077bb;
+  border-color: #0077bb;
+}
+
+.pounce-0 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
   color: currentColor;
 }
 
