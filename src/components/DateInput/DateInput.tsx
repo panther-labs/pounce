@@ -181,10 +181,10 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
 
         <Flex align="center" justify="center" borderTop="1px solid" borderColor="navyblue-300">
           <Flex align="center" justify="center" p={3} spacing={3}>
-            <Button onClick={onCancel} size="small" variantColor="gray">
+            <Button onClick={onCancel} size="medium" variantColor="gray">
               Cancel
             </Button>
-            <Button disabled={!currentDate} onClick={onApply} size="small">
+            <Button disabled={!currentDate} onClick={onApply} size="medium">
               Apply
             </Button>
           </Flex>
