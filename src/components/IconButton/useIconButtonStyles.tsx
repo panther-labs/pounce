@@ -1,19 +1,20 @@
 import React from 'react';
 import { addOpacity, lightenDarkenColor } from '../../utils/helpers';
 import { AbstractButtonProps } from '../AbstractButton';
-import { getSolidButtonStyles, getThemeColor } from '../Button/useButtonStyles';
+import { getThemeColor } from '../Button/useButtonStyles';
 import useTheme from '../../utils/useTheme';
 import { IconButtonProps } from './IconButton';
 import { Theme } from '../../theme';
 import { ButtonProps } from '../Button';
 
 type ButtonColorVariant = ButtonProps['variantColor'];
-type UseIconButtonStyles = Required<Pick<IconButtonProps, 'variantColor' | 'variant' | 'size'>>;
+type UseIconButtonStyles = Required<
+  Pick<IconButtonProps, 'variantColor' | 'variant' | 'size' | 'variantBorder'>
+>;
 
 export const getUnstyledButtonStyles = (theme: Theme) => {
   return {
     _focus: {
-      borderRadius: 'circle' as const,
       backgroundColor: addOpacity(theme.colors.white, 0.1),
     },
   };
@@ -29,7 +30,6 @@ const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) 
 
   return {
     transition: 'border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
-    borderRadius: 'circle' as const,
     border: '1px solid',
     borderColor: themeColor,
     backgroundColor: 'transparent',
@@ -54,7 +54,6 @@ export const getGhostButtonStyles = (theme: Theme, variantColor: ButtonColorVari
 
   return {
     transition: 'background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
-    borderRadius: 'circle' as const,
     border: '1px solid',
     borderColor: 'transparent',
     backgroundColor: 'transparent',
@@ -66,6 +65,34 @@ export const getGhostButtonStyles = (theme: Theme, variantColor: ButtonColorVari
     },
     _active: {
       backgroundColor: themeColor,
+    },
+  };
+};
+
+export const getSolidButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
+  const themeColorKey = getThemeColor(variantColor);
+  const themeColor = theme.colors[themeColorKey];
+
+  const hoverColor = lightenDarkenColor(themeColor, 10);
+  const activeColor = lightenDarkenColor(themeColor, -10);
+  const focusBorderColor = lightenDarkenColor(themeColor, 85);
+
+  return {
+    transition: 'border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms', // prettier-ignore
+    border: '1px solid',
+    borderColor: themeColor,
+    backgroundColor: themeColor,
+    _hover: {
+      backgroundColor: hoverColor,
+      borderColor: hoverColor,
+    },
+    _focus: {
+      backgroundColor: hoverColor,
+      borderColor: focusBorderColor,
+    },
+    _active: {
+      backgroundColor: activeColor,
+      borderColor: activeColor,
     },
   };
 };
@@ -82,8 +109,22 @@ const getSizeButtonStyles = (size: IconButtonProps['size']): AbstractButtonProps
   }
 };
 
+const getVariantBorderButtonStyles = (
+  variantBorder: IconButtonProps['variantBorder']
+): AbstractButtonProps => {
+  switch (variantBorder) {
+    case 'circle':
+      return { borderRadius: 'circle' };
+    case 'square':
+    default: {
+      return { borderRadius: 'medium' };
+    }
+  }
+};
+
 const useIconButtonStyles = ({
   variantColor,
+  variantBorder,
   variant,
   size,
 }: UseIconButtonStyles): AbstractButtonProps => {
@@ -104,12 +145,14 @@ const useIconButtonStyles = ({
   }, [variantColor, variant]);
 
   const sizeStyles = getSizeButtonStyles(size);
+  const borderStyles = getVariantBorderButtonStyles(variantBorder);
 
   return {
     outline: 'none',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    ...borderStyles,
     ...sizeStyles,
     ...variantStyles,
   } as AbstractButtonProps;
