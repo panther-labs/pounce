@@ -92,7 +92,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           <Icon
             zIndex={1}
             position="absolute"
-            size="small"
+            size="medium"
             left={iconAlignment === 'left' ? 3 : null}
             right={iconAlignment === 'right' ? 4 : null}
             type={icon}

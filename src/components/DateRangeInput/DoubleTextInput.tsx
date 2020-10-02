@@ -127,7 +127,7 @@ const DoubleTextInput = React.forwardRef<HTMLInputElement, DoubleTextInputProps>
                 {labelTo}
               </InputLabel>
             </Box>
-            {icon && <Icon size="small" mx={4} type={icon} />}
+            {icon && <Icon size="medium" mx={4} type={icon} />}
           </Flex>
         </InputControl>
       </Box>

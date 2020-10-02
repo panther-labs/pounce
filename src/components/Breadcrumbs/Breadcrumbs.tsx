@@ -50,7 +50,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, ...rest }) => {
                   type="chevron-right"
                   mx={2}
                   color="blue-300"
-                  size="small"
+                  size="medium"
                   role="presentation"
                 />
               )}
