@@ -256,7 +256,7 @@ const DateRangeInput: React.FC<
             <Flex align="center" justify="space-between" px={4} py={22} position="relative">
               <Box position="absolute" left={4}>
                 <IconButton
-                  size="small"
+                  size="medium"
                   onClick={onPreviousMonth}
                   icon="arrow-back"
                   aria-label="Go to previous month"
@@ -271,7 +271,7 @@ const DateRangeInput: React.FC<
               <Box position="absolute" right={4}>
                 <IconButton
                   onClick={onNextMonth}
-                  size="small"
+                  size="medium"
                   icon="arrow-forward"
                   aria-label="Go to next month"
                 />
