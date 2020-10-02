@@ -2,28 +2,49 @@ An Iconbutton can be solid and have different sizes:
 
 ```typescript jsx
 <Box>
-  <SimpleGrid columns={2} gap={4} mb={2}>
+  <SimpleGrid columns={3} gap={4} mb={2}>
     <Box>
       <IconButton size="small" icon="user" aria-label="User" />
     </Box>
     <Box>
       <IconButton size="small" icon="user" variantColor="teal" aria-label="User" />
     </Box>
+    <Box>
+      <IconButton
+        size="small"
+        icon="user"
+        variantColor="violet"
+        variantBorderStyle="circle"
+        aria-label="User"
+      />
+    </Box>
   </SimpleGrid>
-  <SimpleGrid columns={2} gap={4} mb={2}>
+  <SimpleGrid columns={3} gap={4} mb={2}>
     <Box>
       <IconButton size="medium" icon="user" aria-label="User" />
     </Box>
     <Box>
       <IconButton size="medium" icon="user" variantColor="teal" aria-label="User" />
     </Box>
+    <Box>
+      <IconButton
+        size="medium"
+        icon="user"
+        variantColor="violet"
+        variantBorderStyle="circle"
+        aria-label="User"
+      />
+    </Box>
   </SimpleGrid>
-  <SimpleGrid columns={2} gap={4}>
+  <SimpleGrid columns={3} gap={4}>
     <Box>
       <IconButton icon="user" aria-label="User" />
     </Box>
     <Box>
       <IconButton icon="user" variantColor="teal" aria-label="User" />
+    </Box>
+    <Box>
+      <IconButton icon="user" variantColor="violet" variantBorderStyle="circle" aria-label="User" />
     </Box>
   </SimpleGrid>
 </Box>
@@ -34,9 +55,22 @@ An IconButton can be `ghost`:
 ```typescript jsx
 <SimpleGrid columns={4} gap={4}>
   <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue" />
-  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="teal" />
+  <IconButton
+    variant="ghost"
+    icon="user"
+    aria-label="User"
+    variantColor="teal"
+    variantBorderStyle="circle"
+  />
   <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue" active />
-  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="teal" active />
+  <IconButton
+    variant="ghost"
+    icon="user"
+    aria-label="User"
+    variantColor="teal"
+    variantBorderStyle="circle"
+    active
+  />
 </SimpleGrid>
 ```
 
@@ -45,9 +79,22 @@ An IconButton can be `outline`:
 ```typescript jsx
 <SimpleGrid columns={4} gap={4}>
   <IconButton variant="outline" icon="user" aria-label="User" variantColor="navyblue" />
-  <IconButton variant="outline" icon="user" aria-label="User" variantColor="teal" />
+  <IconButton
+    variant="outline"
+    icon="user"
+    aria-label="User"
+    variantColor="teal"
+    variantBorderStyle="circle"
+  />
   <IconButton variant="outline" icon="user" aria-label="User" variantColor="navyblue" active />
-  <IconButton variant="outline" icon="user" aria-label="User" variantColor="teal" active />
+  <IconButton
+    variant="outline"
+    icon="user"
+    aria-label="User"
+    variantColor="teal"
+    variantBorderStyle="circle"
+    active
+  />
 </SimpleGrid>
 ```
 
@@ -56,5 +103,6 @@ An IconButton can have no styling:
 ```typescript jsx
 <SimpleGrid columns={4} gap={4}>
   <IconButton variant="unstyled" icon="user" aria-label="User" />
+  <IconButton variant="unstyled" icon="user" aria-label="User" variantBorderStyle="circle" />
 </SimpleGrid>
 ```
