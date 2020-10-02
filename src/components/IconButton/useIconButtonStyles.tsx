@@ -149,9 +149,7 @@ const useIconButtonStyles = ({
 
   return {
     outline: 'none',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    lineHeight: 'none',
     ...borderStyles,
     ...sizeStyles,
     ...variantStyles,

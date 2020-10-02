@@ -125,9 +125,6 @@ const useButtonStyles = ({
 
   return {
     outline: 'none',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     ...sizeStyles,
     ...variantStyles,
   } as AbstractButtonProps;
