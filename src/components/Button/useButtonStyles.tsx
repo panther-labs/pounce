@@ -92,6 +92,18 @@ const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) 
   };
 };
 
+const getSizeButtonStyles = (size: ButtonProps['size']): AbstractButtonProps => {
+  switch (size) {
+    case 'small':
+      return { px: 5, py: '3px', fontSize: 'small' };
+    case 'medium':
+      return { px: 5, py: '6px', fontSize: 'small-medium' };
+    case 'large':
+    default:
+      return { px: 5, py: 3, fontSize: 'medium-large' };
+  }
+};
+
 const useButtonStyles = ({
   variantColor,
   variant,
@@ -99,7 +111,7 @@ const useButtonStyles = ({
 }: UseButtonStylesProps): AbstractButtonProps => {
   const theme = useTheme();
 
-  const styles = React.useMemo(() => {
+  const variantStyles = React.useMemo(() => {
     switch (variant) {
       case 'outline':
         return getOutlineButtonStyles(theme, variantColor);
@@ -109,12 +121,12 @@ const useButtonStyles = ({
     }
   }, [variantColor, variant]);
 
+  const sizeStyles = getSizeButtonStyles(size);
+
   return {
-    px: 5,
-    py: size === 'large' ? 3 : '6px',
-    fontSize: size === 'large' ? 'medium-large' : 'small-medium',
     outline: 'none',
-    ...styles,
+    ...sizeStyles,
+    ...variantStyles,
   } as AbstractButtonProps;
 };
 

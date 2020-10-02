@@ -7,7 +7,7 @@ import Icon, { IconProps } from '../Icon';
 
 export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size (height) of the button */
-  size?: 'small' | 'large';
+  size?: 'small' | 'medium' | 'large';
 
   /** The variant of the button that decides the colors */
   variant?: 'solid' | 'outline';
