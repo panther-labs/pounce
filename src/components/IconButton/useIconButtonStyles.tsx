@@ -107,7 +107,9 @@ const useIconButtonStyles = ({
 
   return {
     outline: 'none',
-    lineHeight: 'none',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     ...sizeStyles,
     ...variantStyles,
   } as AbstractButtonProps;
