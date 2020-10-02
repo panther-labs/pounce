@@ -22,4 +22,20 @@ describe('IconButton', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('renders `square` variantBorderStyle correctly', () => {
+    const { container } = renderWithTheme(
+      <IconButton variantBorderStyle="square" icon="add" aria-label="Test" />
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('renders `circle` variantBorderStyle correctly', () => {
+    const { container } = renderWithTheme(
+      <IconButton variantBorderStyle="circle" icon="add" aria-label="Test" />
+    );
+
+    expect(container).toMatchSnapshot();
+  });
 });

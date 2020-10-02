@@ -30,7 +30,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
     | 'navyblue';
 
   /** The border style of the button  */
-  variantBorder?: 'square' | 'circle';
+  variantBorderStyle?: 'square' | 'circle';
 
   /** Whether the button is disabled */
   disabled?: boolean;
@@ -46,7 +46,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
   {
     variantColor = 'blue',
-    variantBorder = 'square',
+    variantBorderStyle = 'square',
     active = false,
     variant = 'solid',
     size = 'large',
@@ -55,7 +55,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(f
   },
   ref
 ) {
-  const styles = useIconButtonStyles({ variantColor, variant, variantBorder, size });
+  const styles = useIconButtonStyles({ variantColor, variant, variantBorderStyle, size });
 
   return (
     <AbstractButton

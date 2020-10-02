@@ -9,7 +9,7 @@ import { ButtonProps } from '../Button';
 
 type ButtonColorVariant = ButtonProps['variantColor'];
 type UseIconButtonStyles = Required<
-  Pick<IconButtonProps, 'variantColor' | 'variant' | 'size' | 'variantBorder'>
+  Pick<IconButtonProps, 'variantColor' | 'variant' | 'size' | 'variantBorderStyle'>
 >;
 
 export const getUnstyledButtonStyles = (theme: Theme) => {
@@ -109,10 +109,10 @@ const getSizeButtonStyles = (size: IconButtonProps['size']): AbstractButtonProps
   }
 };
 
-const getVariantBorderButtonStyles = (
-  variantBorder: IconButtonProps['variantBorder']
+const getBorderStyles = (
+  variantBorderStyle: IconButtonProps['variantBorderStyle']
 ): AbstractButtonProps => {
-  switch (variantBorder) {
+  switch (variantBorderStyle) {
     case 'circle':
       return { borderRadius: 'circle' };
     case 'square':
@@ -124,7 +124,7 @@ const getVariantBorderButtonStyles = (
 
 const useIconButtonStyles = ({
   variantColor,
-  variantBorder,
+  variantBorderStyle,
   variant,
   size,
 }: UseIconButtonStyles): AbstractButtonProps => {
@@ -145,7 +145,7 @@ const useIconButtonStyles = ({
   }, [variantColor, variant]);
 
   const sizeStyles = getSizeButtonStyles(size);
-  const borderStyles = getVariantBorderButtonStyles(variantBorder);
+  const borderStyles = getBorderStyles(variantBorderStyle);
 
   return {
     outline: 'none',
