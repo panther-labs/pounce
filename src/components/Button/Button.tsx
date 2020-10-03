@@ -5,7 +5,7 @@ import useButtonStyles from './useButtonStyles';
 import Spinner from '../Spinner';
 import Icon, { IconProps } from '../Icon';
 
-export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
+export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as'> {
   /** The size (height) of the button */
   size?: 'small' | 'medium' | 'large';
 
