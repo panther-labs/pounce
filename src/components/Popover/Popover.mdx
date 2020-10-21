@@ -26,6 +26,32 @@ A popover can have a custom trigger:
 </Popover>
 ```
 
+A popover can have custom content:
+
+```tsx
+const Example = () => {
+  const [selectedItem, updateSelectedItem] = React.useState(null);
+  return (
+    <Popover>
+      <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+      <PopoverContent>
+        <Box width={300}>
+          <Combobox
+            label="Choose a car manufacturer"
+            items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+            onChange={updateSelectedItem}
+            value={selectedItem}
+            placeholder="Select a manufacturer"
+          />
+        </Box>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
+<Example />;
+```
+
 A popover can have an alignment:
 
 ```tsx
@@ -54,12 +80,19 @@ A popover expose its internals for customized use cases:
 
 ```tsx
 <Popover>
-  {({ isOpen }) => (
+  {({ isOpen, close }) => (
     <React.Fragment>
       <PopoverTrigger as={Button} variantColor={isOpen ? 'violet' : 'teal'}>
         Click Me
       </PopoverTrigger>
-      <PopoverContent alignment="bottom-center">Hello from Pounce JS</PopoverContent>
+      <PopoverContent alignment="bottom-center">
+        <Text fontSize="medium" mb={2}>
+          Hello from Pounce JS
+        </Text>
+        <Button onClick={close} size="medium">
+          Click to close
+        </Button>
+      </PopoverContent>
     </React.Fragment>
   )}
 </Popover>
