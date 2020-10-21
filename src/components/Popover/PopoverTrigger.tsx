@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentWithAs, forwardRefWithAs, useForkedRef } from '@reach/utils';
+import { ComponentWithAs, forwardRefWithAs, useForkedRef, wrapEvent } from '@reach/utils';
 import { NativeAttributes } from '../../system';
 import { usePopoverContext } from './Popover';
 
@@ -15,36 +15,11 @@ const PopoverTrigger = forwardRefWithAs<PopoverTriggerProps, 'button'>(function 
   // merge internal + passed prop together
   const ref = useForkedRef(triggerRef, forwardedRef);
 
-  // Toggle Popover on click (mousedown)
-  const handleMouseDown = React.useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      toggle();
-      if (onMouseDown) {
-        onMouseDown(event);
-      }
-    },
-    [onMouseDown, toggle]
-  );
-
-  // Toggle on Enter keypress (keydown)
-  const handleKeyDown = React.useCallback(
-    (event: React.KeyboardEvent<HTMLButtonElement>) => {
-      if (event.key === 'Enter') {
-        toggle();
-      }
-
-      if (onKeyDown) {
-        onKeyDown(event);
-      }
-    },
-    [onKeyDown, toggle]
-  );
-
   return (
     <Comp
       ref={ref}
-      onMouseDown={handleMouseDown}
-      onKeyDown={handleKeyDown}
+      onMouseDown={wrapEvent(onMouseDown, toggle)}
+      onKeyDown={wrapEvent(onKeyDown, ({ key }) => key === 'Enter' && toggle())}
       aria-describedby={popoverId}
       {...rest}
     />
