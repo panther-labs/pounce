@@ -46,7 +46,7 @@ const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, popoverId, c
 
   return (
     <PopoverContext.Provider value={contextValue}>
-      {typeof children === 'function' ? children(contextValue) : children}
+      {typeof children === 'function' ? children({ isOpen, open, close, toggle }) : children}
     </PopoverContext.Provider>
   );
 };
