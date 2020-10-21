@@ -38,10 +38,11 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     const popoverAlignment = usePopoverContentAlignment({ alignment, offset });
     const { popoverId, isOpen, triggerRef, popoverRef, close } = usePopoverContext();
 
-    // Close on clicks outside
+    // Close on clicks outside. We only want to close if a click occurred outside the popover
+    // and its trigger. We also add `capture` events to avoid some race conditions on window-attached
+    // events
     React.useEffect(() => {
       const listener = (event: MouseEvent) => {
-        // We on want to close only if a click occurred outside the popover and its trigger
         const clickTarget = event.target as Element;
         if (
           isOpen &&
@@ -70,7 +71,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
       [close]
     );
 
-    // When it opens, it should immediately get focus
+    // When the popoover opens, it should immediately get focus
     React.useEffect(() => {
       window.requestAnimationFrame(() => {
         if (isOpen && popoverRef.current) {
