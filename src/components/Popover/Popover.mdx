@@ -1,0 +1,62 @@
+Popover is a non-modal dialog that floats around a trigger. It's used to display contextual information to the user, and should be paired with a clickable trigger element.
+
+A popover is comprised of 3 elements:
+
+- A `Popoup`
+- A `PopupTrigger`
+- A `PopupContent`
+
+and are all required items for the popup to appear.
+
+A popover can be simple:
+
+```tsx
+<Popover>
+  <PopoverTrigger>Click Me</PopoverTrigger>
+  <PopoverContent>Hello</PopoverContent>
+</Popover>
+```
+
+A popover can have a custom trigger:
+
+```tsx
+<Popover>
+  <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+  <PopoverContent>Hello</PopoverContent>
+</Popover>
+```
+
+A popover can have an alignment:
+
+```tsx
+<Popover>
+  <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+  <PopoverContent alignment="bottom-center">Hello from Pounce JS</PopoverContent>
+</Popover>
+```
+
+A popover can have a custom offset (gap) from its trigger:
+
+```tsx
+<Popover>
+  <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+  <PopoverContent alignment="right-center" offset={[60, 0]}>
+    First Hello from Pounce JS
+    <br />
+    Second Hello from Pounce JS
+    <br />
+    Third Hello from Pounce JS
+  </PopoverContent>
+</Popover>
+```
+
+A popover be visible by default:
+
+```tsx
+<Popover isOpen>
+  <PopoverTrigger as={Button} variantColor="teal">
+    Click Me
+  </PopoverTrigger>
+  <PopoverContent alignment="bottom-center">Hello from Pounce JS</PopoverContent>
+</Popover>
+```

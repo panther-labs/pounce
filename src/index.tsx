@@ -65,6 +65,7 @@ export { default as Link } from './components/Link';
 export { default as NumberInput } from './components/NumberInput';
 export { default as MultiCombobox } from './components/MultiCombobox';
 export { default as Modal } from './components/Modal';
+export * from './components/Popover';
 export { default as Radio } from './components/Radio';
 export { default as SideSheet } from './components/SideSheet';
 export { default as Snackbar } from './components/Snackbar';
