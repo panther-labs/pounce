@@ -50,11 +50,26 @@ A popover can have a custom offset (gap) from its trigger:
 </Popover>
 ```
 
+A popover expose its internals for customized use cases:
+
+```tsx
+<Popover>
+  {({ isOpen }) => (
+    <React.Fragment>
+      <PopoverTrigger as={Button} variantColor={isOpen ? 'violet' : 'teal'}>
+        Click Me
+      </PopoverTrigger>
+      <PopoverContent alignment="bottom-center">Hello from Pounce JS</PopoverContent>
+    </React.Fragment>
+  )}
+</Popover>
+```
+
 A popover be visible by default:
 
 ```tsx
 <Popover isOpen>
-  <PopoverTrigger as={Button} variantColor="teal">
+  <PopoverTrigger as={Button} variantColor="red">
     Click Me
   </PopoverTrigger>
   <PopoverContent alignment="bottom-center">Hello from Pounce JS</PopoverContent>
