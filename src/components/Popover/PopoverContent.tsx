@@ -36,7 +36,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     forwardedRef
   ) {
     const popoverAlignment = usePopoverContentAlignment({ alignment, offset });
-    const { isOpen, triggerRef, popoverRef, close } = usePopoverContext();
+    const { popoverId, isOpen, triggerRef, popoverRef, close } = usePopoverContext();
 
     // Close on clicks outside
     React.useEffect(() => {
@@ -99,6 +99,8 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
                 style={styles}
                 targetRef={triggerRef}
                 position={popoverAlignment}
+                role="tooltip"
+                id={popoverId}
               >
                 <Card
                   p={6}

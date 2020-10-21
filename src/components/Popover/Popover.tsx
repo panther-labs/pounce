@@ -6,9 +6,15 @@ export interface PopoverProps {
    * Whether the popover should be initially open
    */
   isOpen?: boolean;
+
+  /**
+   * The id of the popover. Helps setting up aria controls between popover content & trigger
+   */
+  popoverId?: string;
 }
 
 interface PopoverContext {
+  popoverId?: string;
   isOpen: boolean;
   toggle: () => void;
   open: () => void;
@@ -21,12 +27,13 @@ interface PopoverContext {
 const PopoverContext = React.createContext<PopoverContext>(undefined);
 const usePopoverContext = () => React.useContext(PopoverContext);
 
-const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, children }) => {
+const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, popoverId, children }) => {
   const { isOpen, close, open, toggle } = useDisclosure({ isOpen: isInitiallyOpen });
   const triggerRef = React.useRef(null);
   const popoverRef = React.useRef(null);
   const contextValue = React.useMemo(
     () => ({
+      popoverId,
       triggerRef,
       popoverRef,
       open,
@@ -34,7 +41,7 @@ const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, children }) 
       toggle,
       isOpen,
     }),
-    [triggerRef, popoverRef, close, toggle, isOpen]
+    [popoverId, triggerRef, popoverRef, close, toggle, isOpen]
   );
 
   return (

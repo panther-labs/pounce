@@ -10,7 +10,7 @@ const PopoverTrigger = forwardRefWithAs<PopoverTriggerProps, 'button'>(function 
   forwardedRef
 ) {
   // get the ref that we should store this trigger under
-  const { triggerRef, toggle } = usePopoverContext();
+  const { popoverId, triggerRef, toggle } = usePopoverContext();
 
   // merge internal + passed prop together
   const ref = useForkedRef(triggerRef, forwardedRef);
@@ -40,7 +40,15 @@ const PopoverTrigger = forwardRefWithAs<PopoverTriggerProps, 'button'>(function 
     [onKeyDown, toggle]
   );
 
-  return <Comp ref={ref} onMouseDown={handleMouseDown} onKeyDown={handleKeyDown} {...rest} />;
+  return (
+    <Comp
+      ref={ref}
+      onMouseDown={handleMouseDown}
+      onKeyDown={handleKeyDown}
+      aria-describedby={popoverId}
+      {...rest}
+    />
+  );
 });
 
 export default React.memo(PopoverTrigger) as ComponentWithAs<'button', PopoverTriggerProps>;
