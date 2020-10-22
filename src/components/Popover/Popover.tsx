@@ -2,13 +2,6 @@ import React from 'react';
 import useDisclosure from '../../utils/useDisclosure';
 import { useId } from '@reach/auto-id';
 
-export interface PopoverProps {
-  /**
-   * Whether the popover should be initially open
-   */
-  isOpen?: boolean;
-}
-
 interface PopoverContext {
   popoverId?: string;
   isOpen: boolean;
@@ -17,6 +10,22 @@ interface PopoverContext {
   close: () => void;
   triggerRef: React.RefObject<HTMLElement>;
   popoverRef: React.RefObject<HTMLElement>;
+}
+
+export interface PopoverProps {
+  /**
+   * Whether the popover should be initially open
+   */
+  isOpen?: boolean;
+
+  /**
+   * @ignore
+   */
+  children:
+    | React.ReactNode
+    | ((
+        renderProps: Pick<PopoverContext, 'isOpen' | 'open' | 'close' | 'toggle'>
+      ) => React.ReactNode);
 }
 
 // @ts-ignore
@@ -43,6 +52,7 @@ const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, children }) 
 
   return (
     <PopoverContext.Provider value={contextValue}>
+      {/* @ts-ignore */}
       {typeof children === 'function' ? children({ isOpen, open, close, toggle }) : children}
     </PopoverContext.Provider>
   );
