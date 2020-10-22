@@ -1,16 +1,12 @@
 import React from 'react';
 import useDisclosure from '../../utils/useDisclosure';
+import { useId } from '@reach/auto-id';
 
 export interface PopoverProps {
   /**
    * Whether the popover should be initially open
    */
   isOpen?: boolean;
-
-  /**
-   * The id of the popover. Helps setting up aria controls between popover content & trigger
-   */
-  popoverId?: string;
 }
 
 interface PopoverContext {
@@ -27,10 +23,11 @@ interface PopoverContext {
 const PopoverContext = React.createContext<PopoverContext>(undefined);
 const usePopoverContext = () => React.useContext(PopoverContext);
 
-const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, popoverId, children }) => {
+const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, children }) => {
   const { isOpen, close, open, toggle } = useDisclosure({ isOpen: isInitiallyOpen });
   const triggerRef = React.useRef(null);
   const popoverRef = React.useRef(null);
+  const popoverId = useId();
   const contextValue = React.useMemo(
     () => ({
       popoverId,
