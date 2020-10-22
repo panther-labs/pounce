@@ -2,11 +2,11 @@ import React, { ReactNode } from 'react';
 import ReachUIPopover from '@reach/popover';
 import { useForkedRef } from '@reach/utils';
 import { animated, useTransition } from 'react-spring';
-import Card from '../Card';
 import { usePopoverContext } from './Popover';
 import usePopoverContentAlignment from './usePopoverContentAlignment';
 import useOutsideClick from '../../utils/useOutsideClick';
 import useEscapeKey from '../../utils/useEscapeKey';
+import Box from '../Box';
 
 const defaultOffset = [0, 12] as [number, number];
 const AnimatedPopover = animated(ReachUIPopover);
@@ -82,17 +82,9 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
                 role="tooltip"
                 id={popoverId}
               >
-                <Card
-                  p={6}
-                  ref={ref}
-                  tabIndex={0}
-                  outline="none"
-                  shadow="dark300"
-                  {...escapeKeyHandlers}
-                  {...rest}
-                >
+                <Box ref={ref} tabIndex={0} outline="none" {...escapeKeyHandlers} {...rest}>
                   {children}
-                </Card>
+                </Box>
               </AnimatedPopover>
             )
         )}
