@@ -1,0 +1,122 @@
+Popover is a non-modal dialog that floats around a trigger. It's used to display contextual information to the user, and should be paired with a clickable trigger element.
+
+A popover is comprised of 3 elements:
+
+- A `Popoup`
+- A `PopupTrigger`
+- A `PopupContent`
+
+and are all required items for the popup to appear.
+
+A popover can be simple:
+
+```tsx
+<Popover>
+  <PopoverTrigger>Click Me</PopoverTrigger>
+  <PopoverContent>
+    <Card p={6}>Hello</Card>
+  </PopoverContent>
+</Popover>
+```
+
+A popover can have a custom trigger:
+
+```tsx
+<Popover>
+  <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+  <PopoverContent>
+    <Card p={6}>Hello</Card>
+  </PopoverContent>
+</Popover>
+```
+
+A popover can have custom content:
+
+```tsx
+const Example = () => {
+  const [selectedItem, updateSelectedItem] = React.useState(null);
+  return (
+    <Popover>
+      <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+      <PopoverContent>
+        <Card p={6} width={300}>
+          <Combobox
+            label="Choose a car manufacturer"
+            items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+            onChange={updateSelectedItem}
+            value={selectedItem}
+            placeholder="Select a manufacturer"
+          />
+        </Card>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
+<Example />;
+```
+
+A popover can have an alignment:
+
+```tsx
+<Popover>
+  <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+  <PopoverContent alignment="bottom-center">
+    <Card p={6}>Hello from Pounce JS</Card>
+  </PopoverContent>
+</Popover>
+```
+
+A popover can have a custom offset (gap) from its trigger:
+
+```tsx
+<Popover>
+  <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+  <PopoverContent alignment="right-center" offset={[60, 0]}>
+    <Card p={6}>
+      First Hello from Pounce JS
+      <br />
+      Second Hello from Pounce JS
+      <br />
+      Third Hello from Pounce JS
+    </Card>
+  </PopoverContent>
+</Popover>
+```
+
+A popover expose its internals for customized use cases:
+
+```tsx
+<Popover>
+  {({ isOpen, close }) => (
+    <React.Fragment>
+      <PopoverTrigger as={Button} variantColor={isOpen ? 'violet' : 'teal'}>
+        Click Me
+      </PopoverTrigger>
+      <PopoverContent alignment="bottom-center">
+        <Card p={6}>
+          <Text fontSize="medium" mb={2}>
+            Hello from Pounce JS
+          </Text>
+          <Button onClick={close} size="medium">
+            Click to close
+          </Button>
+        </Card>
+      </PopoverContent>
+    </React.Fragment>
+  )}
+</Popover>
+```
+
+A popover be visible by default:
+
+```tsx
+<Popover isOpen>
+  <PopoverTrigger as={Button} variantColor="red">
+    Click Me
+  </PopoverTrigger>
+  <PopoverContent alignment="bottom-center">
+    <Card p={6}>Hello from Pounce JS</Card>
+  </PopoverContent>
+</Popover>
+```
