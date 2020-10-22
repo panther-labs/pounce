@@ -52,7 +52,8 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     // Close popover on clicks outside
     useOutsideClick({
       elements: [popoverRef.current, triggerRef.current],
-      callback: React.useCallback(() => isOpen && close(), [isOpen, close]),
+      callback: () => isOpen && close(),
+      disabled: !isOpen,
     });
 
     // Close on ESC key presses

@@ -3,9 +3,10 @@ import React from 'react';
 interface UseOutsideClickProps {
   elements: (HTMLElement | null)[];
   callback: (event: MouseEvent) => void;
+  disabled?: boolean;
 }
 
-const useOutsideClick = ({ elements, callback }: UseOutsideClickProps) => {
+const useOutsideClick = ({ elements, callback, disabled = false }: UseOutsideClickProps) => {
   // Invoke a callback on clicks outside of those elements. We also add `capture` events to avoid
   // some race conditions on window-attached events
   React.useEffect(() => {
@@ -16,11 +17,15 @@ const useOutsideClick = ({ elements, callback }: UseOutsideClickProps) => {
       }
     };
 
-    window.addEventListener('mousedown', listener, { capture: true });
+    if (!disabled) {
+      window.addEventListener('mousedown', listener, { capture: true });
+    }
     return () => {
-      window.removeEventListener('mousedown', listener, { capture: true });
+      if (!disabled) {
+        window.removeEventListener('mousedown', listener, { capture: true });
+      }
     };
-  }, [callback, ...elements]);
+  }, [callback, disabled, ...elements]);
 };
 
 export default useOutsideClick;
