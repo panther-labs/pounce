@@ -2,7 +2,7 @@ import React from 'react';
 import { renderWithTheme } from 'test-utils';
 import Popover from './Popover';
 import PopoverTrigger from './PopoverTrigger';
-import PopoverMenu from './PopoverMenu';
+import PopoverMenu from './PopoverContent';
 import Button from '../Button';
 
 describe('Popover', () => {
