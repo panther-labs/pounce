@@ -1,5 +1,26 @@
 import { PopoverContentProps } from './PopoverContent';
-import { Position, getCollisions } from '@reach/popover';
+import { Position } from '@reach/popover';
+import { PRect } from '@reach/rect';
+
+function getCollisions(targetRect: PRect, popoverRect: PRect) {
+  const collisions = {
+    top: targetRect.top - popoverRect.height < 0,
+    right: window.innerWidth < targetRect.left + popoverRect.width,
+    bottom: window.innerHeight < targetRect.bottom + popoverRect.height,
+    left: targetRect.left + targetRect.width - popoverRect.width < 0,
+  };
+  const directionRight = !collisions.right && collisions.left;
+  const directionLeft = !collisions.left && collisions.right;
+  const directionUp = !collisions.top && collisions.bottom;
+  const directionDown = !collisions.bottom && collisions.top;
+
+  return {
+    directionRight,
+    directionLeft,
+    directionUp,
+    directionDown,
+  };
+}
 
 export const positionBottomLeft = (offset: [number, number]): Position => (
   targetRect,
