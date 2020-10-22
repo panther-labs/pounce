@@ -5,6 +5,8 @@ import { animated, useTransition } from 'react-spring';
 import Card from '../Card';
 import { usePopoverContext } from './Popover';
 import usePopoverContentAlignment from './usePopoverContentAlignment';
+import useOutsideClick from '../../utils/useOutsideClick';
+import useEscapeKey from '../../utils/useEscapeKey';
 
 const defaultOffset = [0, 12] as [number, number];
 const AnimatedPopover = animated(ReachUIPopover);
@@ -38,39 +40,6 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     const popoverAlignment = usePopoverContentAlignment({ alignment, offset });
     const { popoverId, isOpen, triggerRef, popoverRef, close } = usePopoverContext();
 
-    // Close on clicks outside. We only want to close if a click occurred outside the popover
-    // and its trigger. We also add `capture` events to avoid some race conditions on window-attached
-    // events
-    React.useEffect(() => {
-      const listener = (event: MouseEvent) => {
-        const clickTarget = event.target as Element;
-        if (
-          isOpen &&
-          popoverRef.current &&
-          triggerRef.current &&
-          !popoverRef.current.contains(clickTarget) &&
-          !triggerRef.current.contains(clickTarget)
-        ) {
-          close();
-        }
-      };
-
-      window.addEventListener('mousedown', listener, { capture: true });
-      return () => {
-        window.removeEventListener('mousedown', listener, { capture: true });
-      };
-    }, [isOpen, close, popoverRef.current]);
-
-    // Close on ESC key presses
-    const handleKeyDown = React.useCallback(
-      ({ key }: React.KeyboardEvent) => {
-        if (key === 'Escape') {
-          close();
-        }
-      },
-      [close]
-    );
-
     // When the popoover opens, it should immediately get focus
     React.useEffect(() => {
       window.requestAnimationFrame(() => {
@@ -79,6 +48,15 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
         }
       });
     }, [isOpen, popoverRef.current]);
+
+    // Close popover on clicks outside
+    useOutsideClick({
+      elements: [popoverRef.current, triggerRef.current],
+      callback: React.useCallback(() => isOpen && close(), [isOpen, close]),
+    });
+
+    // Close on ESC key presses
+    const escapeKeyHandlers = useEscapeKey({ callback: close });
 
     // merge internal + passed prop together
     const ref = useForkedRef(popoverRef, forwardedRef);
@@ -106,10 +84,10 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
                 <Card
                   p={6}
                   ref={ref}
-                  onKeyDown={handleKeyDown}
                   tabIndex={0}
                   outline="none"
                   shadow="dark300"
+                  {...escapeKeyHandlers}
                   {...rest}
                 >
                   {children}
