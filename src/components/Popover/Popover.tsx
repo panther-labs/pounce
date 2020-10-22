@@ -19,6 +19,11 @@ export interface PopoverProps {
   isOpen?: boolean;
 
   /**
+   * The id of the popover. Helps setting up aria controls between popover content & trigger
+   */
+  id?: string;
+
+  /**
    * @ignore
    */
   children:
@@ -32,11 +37,11 @@ export interface PopoverProps {
 const PopoverContext = React.createContext<PopoverContext>(undefined);
 const usePopoverContext = () => React.useContext(PopoverContext);
 
-const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, children }) => {
+const Popover: React.FC<PopoverProps> = ({ isOpen: isInitiallyOpen, id, children }) => {
   const { isOpen, close, open, toggle } = useDisclosure({ isOpen: isInitiallyOpen });
   const triggerRef = React.useRef(null);
   const popoverRef = React.useRef(null);
-  const popoverId = useId();
+  const popoverId = useId(id);
   const contextValue = React.useMemo(
     () => ({
       popoverId,
