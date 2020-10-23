@@ -8,7 +8,6 @@ import useOutsideClick from '../../utils/useOutsideClick';
 import useEscapeKey from '../../utils/useEscapeKey';
 import Box from '../Box';
 
-const defaultOffset = [0, 12] as [number, number];
 const AnimatedPopover = animated(ReachUIPopover);
 
 export interface PopoverContentProps {
@@ -17,14 +16,19 @@ export interface PopoverContentProps {
    *
    * @default left
    */
-  alignment?: 'bottom-left' | 'bottom-center' | 'bottom-right' | 'left-center' | 'right-center';
-
-  /**
-   * The spacing between the trigger and the popover in px, for the horizontal & vertical axis
-   *
-   * @default [0, 12]
-   */
-  offset?: [number, number];
+  alignment?:
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right'
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'left-bottom'
+    | 'left-center'
+    | 'left-top'
+    | 'right-bottom'
+    | 'right-center'
+    | 'right-top';
 
   /**
    * @ignore
@@ -33,11 +37,8 @@ export interface PopoverContentProps {
 }
 
 const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
-  function PopoverContent(
-    { alignment = 'bottom-left', offset = defaultOffset, children, ...rest },
-    forwardedRef
-  ) {
-    const popoverAlignment = usePopoverContentAlignment({ alignment, offset });
+  function PopoverContent({ alignment = 'bottom-left', children, ...rest }, forwardedRef) {
+    const popoverAlignment = usePopoverContentAlignment(alignment);
     const { popoverId, isOpen, triggerRef, popoverRef, close } = usePopoverContext();
 
     // When the popoover opens, it should immediately get focus
