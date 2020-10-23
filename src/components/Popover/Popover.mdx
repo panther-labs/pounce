@@ -38,7 +38,7 @@ const Example = () => {
   return (
     <Popover>
       <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent alignment="left-center">
         <Card p={6} width={300}>
           <Combobox
             label="Choose a car manufacturer"
@@ -67,13 +67,13 @@ A popover can have an alignment:
 </Popover>
 ```
 
-A popover can have a custom offset (gap) from its trigger:
+A popover can have a spacing from its trigger through the use of `margin`:
 
 ```tsx
 <Popover>
   <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
   <PopoverContent alignment="right-center" offset={[60, 0]}>
-    <Card p={6}>
+    <Card p={6} mx={5}>
       First Hello from Pounce JS
       <br />
       Second Hello from Pounce JS

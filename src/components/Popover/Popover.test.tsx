@@ -35,17 +35,6 @@ describe('Popover', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('matches snapshot with offset', () => {
-    const { container } = renderWithTheme(
-      <Popover isOpen id="test">
-        <PopoverTrigger as={Button}>Click me</PopoverTrigger>
-        <PopoverMenu offset={[10, 10]}>Boom! I am the popup</PopoverMenu>
-      </Popover>
-    );
-
-    expect(container).toMatchSnapshot();
-  });
-
   it('matches snapshot with alignment', () => {
     const { container } = renderWithTheme(
       <Popover isOpen id="test">

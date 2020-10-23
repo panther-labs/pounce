@@ -1,157 +1,192 @@
+import React from 'react';
 import { PopoverContentProps } from './PopoverContent';
 import { Position } from '@reach/popover';
 import { PRect } from '@reach/rect';
 
-function getCollisions(targetRect: PRect, popoverRect: PRect) {
-  const collisions = {
-    top: targetRect.top - popoverRect.height < 0,
-    right: window.innerWidth < targetRect.left + popoverRect.width,
-    bottom: window.innerHeight < targetRect.bottom + popoverRect.height,
-    left: targetRect.left + targetRect.width - popoverRect.width < 0,
-  };
-  const directionRight = !collisions.right && collisions.left;
-  const directionLeft = !collisions.left && collisions.right;
-  const directionUp = !collisions.top && collisions.bottom;
-  const directionDown = !collisions.bottom && collisions.top;
+type AlignmentValue = Required<PopoverContentProps>['alignment'];
+type ForcedDirection = {
+  forcedRightwards: boolean;
+  forcedLeftwards: boolean;
+  forcedUpwards: boolean;
+  forcedDownwards: boolean;
+};
+type PositionFunction = (
+  targetRect: PRect,
+  popoverRect: PRect,
+  direction: ForcedDirection
+) => string;
+
+function getForcedDirection(
+  targetRect: PRect,
+  popoverRect: PRect,
+  alignment: AlignmentValue
+): ForcedDirection {
+  let collisions;
+
+  const isHorizontalAlignment = alignment.startsWith('left') || alignment.startsWith('right');
+  if (isHorizontalAlignment) {
+    collisions = {
+      top: targetRect.top + targetRect.height < popoverRect.height,
+      right: window.innerWidth < targetRect.right + popoverRect.width,
+      bottom: window.innerHeight < targetRect.top + popoverRect.height,
+      left: targetRect.left < popoverRect.width,
+    };
+  } else {
+    collisions = {
+      top: targetRect.top - popoverRect.height < 0,
+      right: window.innerWidth < targetRect.left + popoverRect.width,
+      bottom: window.innerHeight < targetRect.bottom + popoverRect.height,
+      left: targetRect.left + targetRect.width - popoverRect.width < 0,
+    };
+  }
 
   return {
-    directionRight,
-    directionLeft,
-    directionUp,
-    directionDown,
+    forcedRightwards: !collisions.right && collisions.left,
+    forcedLeftwards: !collisions.left && collisions.right,
+    forcedUpwards: !collisions.top && collisions.bottom,
+    forcedDownwards: !collisions.bottom && collisions.top,
   };
 }
 
-export const positionBottomLeft = (offset: [number, number]): Position => (
-  targetRect,
-  popoverRect
-) => {
-  if (!targetRect || !popoverRect) {
-    return {};
-  }
+const leftAlignmentLeft: PositionFunction = (targetRect, popoverRect, direction) =>
+  direction.forcedRightwards
+    ? `${targetRect.right + window.pageXOffset}px`
+    : `${targetRect.left + window.pageXOffset - popoverRect.width}px`;
 
-  const { directionRight, directionUp } = getCollisions(targetRect, popoverRect);
-  return {
-    left: directionRight
-      ? `${targetRect.right - popoverRect.width + window.pageXOffset - offset[0]}px`
-      : `${targetRect.left + window.pageXOffset + offset[0]}px`,
-    top: directionUp
-      ? `${targetRect.top - popoverRect.height + window.pageYOffset - offset[1]}px`
-      : `${targetRect.top + targetRect.height + window.pageYOffset + offset[1]}px`,
-  };
+const rightAlignmentLeft: PositionFunction = (targetRect, popoverRect, direction) =>
+  direction.forcedLeftwards
+    ? `${targetRect.left + window.pageXOffset - popoverRect.width}px`
+    : `${targetRect.right + window.pageXOffset}px`;
+
+const bottomAlignmentTop: PositionFunction = (targetRect, popoverRect, direction) =>
+  direction.forcedUpwards
+    ? `${targetRect.top - popoverRect.height + window.pageYOffset}px`
+    : `${targetRect.top + targetRect.height + window.pageYOffset}px`;
+
+const topAlignmentTop: PositionFunction = (targetRect, popoverRect, direction) =>
+  direction.forcedDownwards
+    ? `${targetRect.top + targetRect.height + window.pageYOffset}px`
+    : `${targetRect.top - popoverRect.height + window.pageYOffset}px`;
+
+const horizontalTopAlignmentTop: PositionFunction = (targetRect, popoverRect, direction) =>
+  direction.forcedDownwards
+    ? `${targetRect.top + window.pageYOffset}px`
+    : `${targetRect.bottom - popoverRect.height + window.pageYOffset}px`;
+
+const horizontalBottomAlignmentTop: PositionFunction = (targetRect, popoverRect, direction) =>
+  direction.forcedUpwards
+    ? `${targetRect.bottom - popoverRect.height + window.pageYOffset}px`
+    : `${targetRect.top + window.pageYOffset}px`;
+
+const horizontalCenterAlignmentTop: PositionFunction = (targetRect, popoverRect, direction) => {
+  if (direction.forcedUpwards) {
+    return `${targetRect.bottom - popoverRect.height + window.pageYOffset}px`;
+  }
+  if (direction.forcedDownwards) {
+    return `${targetRect.top + window.pageYOffset}px`;
+  }
+  return `${
+    targetRect.bottom - popoverRect.height / 2 - targetRect.height / 2 + window.pageYOffset
+  }px`;
 };
 
-export const positionBottomCenter = (offset: [number, number]): Position => (
-  targetRect,
-  popoverRect
-) => {
-  if (!targetRect || !popoverRect) {
-    return {};
+const verticalLeftAlignmentLeft: PositionFunction = (targetRect, popoverRect, direction) =>
+  direction.forcedRightwards
+    ? `${targetRect.left + window.pageXOffset}px`
+    : `${targetRect.right - popoverRect.width + window.pageXOffset}px`;
+
+const verticalRightAlignmentLeft: PositionFunction = (targetRect, popoverRect, direction) =>
+  direction.forcedLeftwards
+    ? `${targetRect.right - popoverRect.width + window.pageXOffset}px`
+    : `${targetRect.left + window.pageXOffset}px`;
+
+const verticalCenterAlignmentLeft: PositionFunction = (targetRect, popoverRect, direction) => {
+  if (direction.forcedLeftwards) {
+    return `${targetRect.right - popoverRect.width + window.pageXOffset}px`;
+  }
+  if (direction.forcedRightwards) {
+    return `${targetRect.right - targetRect.width + window.pageXOffset}px`;
   }
 
-  const { directionLeft, directionUp } = getCollisions(targetRect, popoverRect);
-  return {
-    left: directionLeft
-      ? `${targetRect.left + window.pageXOffset + offset[0]}px`
-      : `${
-          targetRect.right -
-          popoverRect.width / 2 -
-          targetRect.width / 2 +
-          window.pageXOffset +
-          offset[0]
-        }px`,
-    top: directionUp
-      ? `${targetRect.top - popoverRect.height + window.pageYOffset - offset[1]}px`
-      : `${targetRect.top + targetRect.height + window.pageYOffset + offset[1]}px`,
-  };
+  return `${
+    targetRect.right - popoverRect.width / 2 - targetRect.width / 2 + window.pageXOffset
+  }px`;
 };
 
-export const positionBottomRight = (offset: [number, number]): Position => (
-  targetRect,
-  popoverRect
-) => {
-  if (!targetRect || !popoverRect) {
-    return {};
-  }
+const usePopoverAlignment = (alignment: AlignmentValue): Position => {
+  return React.useCallback(
+    (targetRect, popoverRect) => {
+      if (!targetRect || !popoverRect) {
+        return {};
+      }
 
-  const { directionLeft, directionUp } = getCollisions(targetRect, popoverRect);
-  return {
-    left: directionLeft
-      ? `${targetRect.left + window.pageXOffset + offset[0]}px`
-      : `${targetRect.right - popoverRect.width + window.pageXOffset - offset[0]}px`,
-    top: directionUp
-      ? `${targetRect.top - popoverRect.height + window.pageYOffset - offset[1]}px`
-      : `${targetRect.top + targetRect.height + window.pageYOffset + offset[1]}px`,
-  };
-};
-
-export const positionLeftCenter = (offset: [number, number]): Position => (
-  targetRect,
-  popoverRect
-) => {
-  if (!targetRect || !popoverRect) {
-    return {};
-  }
-
-  const { directionRight, directionUp } = getCollisions(targetRect, popoverRect);
-  return {
-    left: directionRight
-      ? `${targetRect.right + window.pageXOffset + offset[0]}px`
-      : `${targetRect.left + window.pageXOffset - popoverRect.width - offset[0]}px`,
-    top: directionUp
-      ? `${targetRect.bottom - popoverRect.height + window.pageYOffset - offset[1]}px`
-      : `${
-          targetRect.bottom -
-          popoverRect.height / 2 -
-          targetRect.height / 2 +
-          window.pageYOffset +
-          offset[1]
-        }px`,
-  };
-};
-
-export const positionRightCenter = (offset: [number, number]): Position => (
-  targetRect,
-  popoverRect
-) => {
-  if (!targetRect || !popoverRect) {
-    return {};
-  }
-
-  const { directionLeft, directionUp } = getCollisions(targetRect, popoverRect);
-  return {
-    left: directionLeft
-      ? `${targetRect.left + window.pageXOffset - popoverRect.width - offset[0]}px`
-      : `${targetRect.right + window.pageXOffset + offset[0]}px`,
-    top: directionUp
-      ? `${targetRect.bottom - popoverRect.height + window.pageYOffset - offset[1]}px`
-      : `${
-          targetRect.bottom -
-          popoverRect.height / 2 -
-          targetRect.height / 2 +
-          window.pageYOffset +
-          offset[1]
-        }px`,
-  };
-};
-
-const usePopoverAlignment = ({
-  alignment,
-  offset,
-}: Required<Pick<PopoverContentProps, 'alignment' | 'offset'>>): Position => {
-  switch (alignment) {
-    case 'bottom-left':
-      return positionBottomLeft(offset);
-    case 'bottom-center':
-      return positionBottomCenter(offset);
-    case 'left-center':
-      return positionLeftCenter(offset);
-    case 'right-center':
-      return positionRightCenter(offset);
-    case 'bottom-right':
-    default:
-      return positionBottomRight(offset);
-  }
+      const direction = getForcedDirection(targetRect, popoverRect, alignment);
+      switch (alignment) {
+        case 'left-bottom':
+          return {
+            left: leftAlignmentLeft(targetRect, popoverRect, direction),
+            top: horizontalBottomAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'left-center':
+          return {
+            left: leftAlignmentLeft(targetRect, popoverRect, direction),
+            top: horizontalCenterAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'left-top':
+          return {
+            left: leftAlignmentLeft(targetRect, popoverRect, direction),
+            top: horizontalTopAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'top-left':
+          return {
+            left: verticalLeftAlignmentLeft(targetRect, popoverRect, direction),
+            top: topAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'top-center':
+          return {
+            left: verticalCenterAlignmentLeft(targetRect, popoverRect, direction),
+            top: topAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'top-right':
+          return {
+            left: verticalRightAlignmentLeft(targetRect, popoverRect, direction),
+            top: topAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'right-bottom':
+          return {
+            left: rightAlignmentLeft(targetRect, popoverRect, direction),
+            top: horizontalBottomAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'right-center':
+          return {
+            left: rightAlignmentLeft(targetRect, popoverRect, direction),
+            top: horizontalCenterAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'right-top':
+          return {
+            left: rightAlignmentLeft(targetRect, popoverRect, direction),
+            top: horizontalTopAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'bottom-left':
+          return {
+            left: verticalLeftAlignmentLeft(targetRect, popoverRect, direction),
+            top: bottomAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'bottom-center':
+          return {
+            left: verticalCenterAlignmentLeft(targetRect, popoverRect, direction),
+            top: bottomAlignmentTop(targetRect, popoverRect, direction),
+          };
+        case 'bottom-right':
+        default:
+          return {
+            left: verticalRightAlignmentLeft(targetRect, popoverRect, direction),
+            top: bottomAlignmentTop(targetRect, popoverRect, direction),
+          };
+      }
+    },
+    [alignment]
+  );
 };
 
 export default usePopoverAlignment;
