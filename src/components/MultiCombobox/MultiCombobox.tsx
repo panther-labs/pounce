@@ -258,7 +258,8 @@ function MultiCombobox<Item>({
             const items = (clipboardData
               .replace(/\r?\n/g, ',')
               .split(',')
-              .map(str => str.trim()) as unknown) as Item[];
+              .map(str => str.trim())
+              .filter(Boolean) as unknown) as Item[];
 
             if (items.length > 1) {
               // Prevent the text from actually being pasted to the underlying input
