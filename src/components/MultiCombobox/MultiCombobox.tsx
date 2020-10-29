@@ -84,7 +84,7 @@ export type MultiComboboxProps<T> = {
    * A function that runs before a custom item is added by the user. If it returns `true`, then this
    * item will be added to the selection. If not, then this item won't be added
    * */
-  validateAddition?: (userEnteredInput: string) => boolean;
+  validateAddition?: (userEnteredInput: string, existing: T[]) => boolean;
 };
 
 const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<any>) => {
@@ -176,8 +176,12 @@ function MultiCombobox<Item>({
         selectedItem,
         selectItem,
       }) => {
+        const processUserValue = (inputVal: string | null) => (inputVal || '').trim();
+        const validateUserValue = (inputVal: string) =>
+          inputVal !== '' && validateAddition(inputVal, value);
+
         const multiComboboxVariant = getVariant(isOpen);
-        // If it's a multicombobox we DON'T WANT t oinclude the results already selected and also
+        // If it's a multicombobox we DON'T WANT to include the results already selected and also
         // we want to make sure that the results get filtered by the search term of the user
         const nonSelectedItems = items.filter(
           item => !value.map(itemToString).includes(itemToString(item))
@@ -226,25 +230,24 @@ function MultiCombobox<Item>({
 
             // Allow the user to add custom selections if both `searchable` and `allowAdditions`
             // have a truthy value
-            const trimmedInputValue = (inputValue || '').trim();
-            if (
-              (event.key === 'Enter' || event.key === ',') &&
-              allowAdditions &&
-              trimmedInputValue
-            ) {
+            if ((event.key === 'Enter' || event.key === ',') && allowAdditions) {
               event.preventDefault();
 
               // By default validateAddition always returns true. Can be overriden by the user
               // for fine-grained addition
-              if (validateAddition && validateAddition(trimmedInputValue)) {
-                selectItem((inputValue as unknown) as Item, { inputValue: '', isOpen: true });
+              const processedUserValue = processUserValue(inputValue);
+              if (validateUserValue(processedUserValue)) {
+                selectItem((processedUserValue as unknown) as Item, {
+                  inputValue: '',
+                  isOpen: true,
+                });
               }
             }
           },
           onBlur: () => {
-            const trimmedInputValue = (inputValue || '').trim();
-            if (allowAdditions && trimmedInputValue) {
-              selectItem((trimmedInputValue as unknown) as Item, { inputValue: '' });
+            const processedUserValue = processUserValue(inputValue);
+            if (allowAdditions && validateUserValue(processedUserValue)) {
+              selectItem((processedUserValue as unknown) as Item, { inputValue: '' });
             }
           },
           onPaste: (e: React.ClipboardEvent<HTMLInputElement>) => {
@@ -258,7 +261,8 @@ function MultiCombobox<Item>({
             const items = (clipboardData
               .replace(/\r?\n/g, ',')
               .split(',')
-              .map(str => str.trim()) as unknown) as Item[];
+              .map(processUserValue)
+              .filter(validateUserValue) as unknown) as Item[];
 
             if (items.length > 1) {
               // Prevent the text from actually being pasted to the underlying input
