@@ -9,16 +9,20 @@ interface UseOutsideClickProps {
 const useOutsideClick = ({ refs, callback, disabled = false }: UseOutsideClickProps) => {
   // Invoke a callback on clicks outside of those elements. We also add `capture` events to avoid
   // some race conditions on window-attached events
-  React.useEffect(() => {
-    const listener = (event: MouseEvent) => {
+
+  const listener = React.useCallback(
+    (event: MouseEvent) => {
       const isOutsideClick = refs.every(
         ref => ref.current && !ref.current.contains(event.target as Element)
       );
       if (isOutsideClick) {
         callback(event);
       }
-    };
+    },
+    [callback, ...refs]
+  );
 
+  React.useEffect(() => {
     if (!disabled) {
       window.addEventListener('mousedown', listener, { capture: true });
     }
@@ -27,7 +31,7 @@ const useOutsideClick = ({ refs, callback, disabled = false }: UseOutsideClickPr
         window.removeEventListener('mousedown', listener, { capture: true });
       }
     };
-  }, [callback, disabled, ...refs]);
+  }, [listener, disabled]);
 };
 
 export default useOutsideClick;
