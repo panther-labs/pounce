@@ -48,11 +48,11 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
           popoverRef.current.focus();
         }
       });
-    }, [isOpen, popoverRef.current]);
+    }, [isOpen, popoverRef]);
 
     // Close popover on clicks outside
     useOutsideClick({
-      elements: [popoverRef.current, triggerRef.current],
+      refs: [popoverRef, triggerRef],
       callback: () => isOpen && close(),
       disabled: !isOpen,
     });
