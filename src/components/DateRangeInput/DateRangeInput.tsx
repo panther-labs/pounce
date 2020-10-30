@@ -11,6 +11,8 @@ import TimePicker from '../DateInput/TimePicker';
 import Month from '../DateInput/Month';
 import { TextInputProps } from '../TextInput';
 import { noop, getDates } from '../../utils/helpers';
+import useEscapeKey from '../../utils/useEscapeKey';
+import useOutsideClick from '../../utils/useOutsideClick';
 
 export interface DateRangeInputProps {
   /**
@@ -114,8 +116,7 @@ const DateRangeInput: React.FC<
 
   const [open, setOpen] = useState(false);
   const ref = React.useRef(null);
-
-  const nextMonth = currentMonth.add(1, 'month');
+  const targetRef = React.useRef(null);
 
   const onCancel = useCallback(() => {
     setCurrentRange(prevDateRange);
@@ -140,6 +141,7 @@ const DateRangeInput: React.FC<
     },
     [currentMonth, setCurrentMonth]
   );
+
   const onPreviousMonth = useCallback(
     e => {
       e.preventDefault();
@@ -148,6 +150,16 @@ const DateRangeInput: React.FC<
     },
     [currentMonth, setCurrentMonth]
   );
+
+  // Close on ESC key presses
+  useEscapeKey({ ref, callback: onCancel, disabled: !open });
+
+  // Close popover on clicks outside
+  useOutsideClick({
+    refs: [ref, targetRef],
+    callback: onCancel,
+    disabled: !open,
+  });
 
   const formatDate = useCallback(
     (values, key) => {
@@ -224,8 +236,9 @@ const DateRangeInput: React.FC<
     [setCurrentRange, currentDateRange]
   );
 
+  const nextMonth = currentMonth.add(1, 'month');
   return (
-    <Box position="relative" zIndex={1} ref={ref}>
+    <Box position="relative" zIndex={1} ref={targetRef}>
       <Box onClick={onExpand} cursor="pointer">
         <DoubleTextInput
           {...rest}
@@ -243,7 +256,7 @@ const DateRangeInput: React.FC<
           icon="calendar"
         />
       </Box>
-      <DateWrapper targetRef={ref} alignment={alignment} isExpanded={open}>
+      <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={open}>
         <Flex justify="columns">
           {withPresets && (
             <Presets
