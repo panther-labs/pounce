@@ -58,7 +58,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     });
 
     // Close on ESC key presses
-    const escapeKeyHandlers = useEscapeKey({ callback: close });
+    useEscapeKey({ ref: popoverRef, callback: close, disabled: !isOpen });
 
     // merge internal + passed prop together
     const ref = useForkedRef(popoverRef, forwardedRef);
@@ -83,7 +83,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
                 role="tooltip"
                 id={popoverId}
               >
-                <Box ref={ref} tabIndex={0} outline="none" {...escapeKeyHandlers} {...rest}>
+                <Box ref={ref} tabIndex={0} outline="none" {...rest}>
                   {children}
                 </Box>
               </AnimatedPopover>
