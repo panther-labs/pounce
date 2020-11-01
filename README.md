@@ -167,6 +167,11 @@ declare module 'pouncejs' {
 
 This way the `my-icon` value will be available in all Components that use icons.
 
+
+### SSR
+
+SSR works out of the box with PounceJS. There's no need to anything in your NextJS or custom-SSR app to enable it.
+
 ### Performance
 
 Pounce is on its beta phase right now, which means that the performance is constantly getting tuned.
