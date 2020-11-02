@@ -74,7 +74,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   const [currentDate, setCurrentDate] = useState(value);
   const [prevDate, setPrevDate] = useState(value);
 
-  const { isOpen, open, close, toggle } = useDisclosure();
+  const { isOpen, open, close } = useDisclosure();
 
   const onNextMonth = useCallback(
     e => {
@@ -151,7 +151,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
           aria-label="Toggle picker"
           size="medium"
           icon="calendar"
-          onClick={toggle}
+          onClick={isOpen ? onCancel : open}
         />
       </Box>
       <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={isOpen}>

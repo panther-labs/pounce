@@ -115,7 +115,7 @@ const DateRangeInput: React.FC<
   const [currentMonth, setCurrentMonth] = useState(datesFormatted[0]);
   const [prevDateRange, setPrevDateRange] = useState(value);
 
-  const { isOpen, open, close, toggle } = useDisclosure();
+  const { isOpen, open, close } = useDisclosure();
   const ref = React.useRef(null);
   const targetRef = React.useRef(null);
 
@@ -255,7 +255,7 @@ const DateRangeInput: React.FC<
           aria-label="Toggle picker"
           size="medium"
           icon="calendar"
-          onClick={toggle}
+          onClick={isOpen ? onCancel : open}
         />
       </Box>
       <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={isOpen}>
