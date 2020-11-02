@@ -8,7 +8,7 @@ import {
 import { useTransition, animated } from 'react-spring';
 import Box, { BoxProps } from '../Box';
 
-const AnimatedReachMenuPopover = animated(ReachMenuPopover);
+const AnimatedPopover = animated(ReachMenuPopover);
 
 export interface DropdownMenuProps {
   /** The position of the menu */
@@ -37,13 +37,7 @@ export const DropdownMenu = React.forwardRef<
       {transitions.map(
         ({ item, key, props: styles }) =>
           item && (
-            <AnimatedReachMenuPopover
-              key={key}
-              style={styles}
-              position={position}
-              ref={ref}
-              hidden={false}
-            >
+            <AnimatedPopover key={key} style={styles} position={position} ref={ref} hidden={false}>
               <Box
                 as={ReachMenuItems}
                 bg="navyblue-300"
@@ -57,7 +51,7 @@ export const DropdownMenu = React.forwardRef<
               >
                 {children}
               </Box>
-            </AnimatedReachMenuPopover>
+            </AnimatedPopover>
           )
       )}
     </React.Fragment>

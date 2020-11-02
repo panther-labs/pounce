@@ -44,7 +44,7 @@ const App = () => (
 ```html
 <link
   rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=DM+Sans:400,500,700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
 />
 ```
 
@@ -166,6 +166,11 @@ declare module 'pouncejs' {
 ```
 
 This way the `my-icon` value will be available in all Components that use icons.
+
+
+### SSR
+
+SSR works out of the box with PounceJS. There's no need to anything in your NextJS or custom-SSR app to enable it.
 
 ### Performance
 

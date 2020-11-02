@@ -159,4 +159,35 @@ describe('MultiCombobox', () => {
     });
     expect(queryAllByRole('tag')).toHaveLength(3);
   });
+
+  it("doesn't allow empty values to be added manually", async () => {
+    const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
+      <ControlledMultiCombobox searchable allowAdditions />
+    );
+
+    const input = getByPlaceholderText('Select manufacturers');
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
+
+    fireEvent.change(input, { target: { value: '  ' } });
+    fireEvent.keyDown(input, { key: ',' });
+
+    fireEvent.change(input, { target: { value: '  ' } });
+    fireEvent.keyDown(input, { key: 'Enter' });
+
+    fireEvent.blur(input);
+    expect(queryAllByRole('tag')).toHaveLength(0);
+  });
+
+  it("doesn't allow empty values being pasted", async () => {
+    const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
+      <ControlledMultiCombobox searchable allowAdditions />
+    );
+
+    const input = getByPlaceholderText('Select manufacturers');
+
+    fireEvent.paste(input, {
+      clipboardData: { getData: () => 'Random Value 1\r\n\r\n\r\nRandom Value 2' },
+    });
+    expect(queryAllByRole('tag')).toHaveLength(2);
+  });
 });
