@@ -1,6 +1,6 @@
 import React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
-import { chunk } from 'lodash';
+import chunk from 'lodash/chunk';
 import Flex from '../Flex';
 import Box from '../Box';
 import Day from './Day';
