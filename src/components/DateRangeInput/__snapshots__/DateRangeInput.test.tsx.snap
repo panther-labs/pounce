@@ -138,18 +138,10 @@ exports[`allows changing time options in 24h mode 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -406,18 +398,10 @@ exports[`allows passing a custom format 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -674,18 +658,10 @@ exports[`allows selecting a date range 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -942,18 +918,10 @@ exports[`allows selecting a preset 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -1210,18 +1178,10 @@ exports[`opens the month picker 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -1459,18 +1419,10 @@ exports[`opens the month picker with empty value 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -1746,18 +1698,10 @@ exports[`opens the month picker with placement 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -2014,18 +1958,10 @@ exports[`renders 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -2255,18 +2191,10 @@ exports[`renders with solid coloring 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {
@@ -2550,18 +2478,10 @@ exports[`renders with time options 1`] = `
 }
 
 .pounce-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: absolute;
+  top: 8px;
   right: 12px;
-  top: 0;
-  bottom: 0;
+  z-index: 2;
 }
 
 .pounce-11 {

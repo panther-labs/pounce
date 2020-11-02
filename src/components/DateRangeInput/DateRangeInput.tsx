@@ -153,13 +153,13 @@ const DateRangeInput: React.FC<
   );
 
   // Close on ESC key presses
-  useEscapeKey({ ref, callback: onCancel, disabled: !open });
+  useEscapeKey({ ref, callback: onCancel, disabled: !isOpen });
 
   // Close popover on clicks outside
   useOutsideClick({
     refs: [ref, targetRef],
     callback: onCancel,
-    disabled: !open,
+    disabled: !isOpen,
   });
 
   const formatDate = useCallback(
@@ -249,7 +249,7 @@ const DateRangeInput: React.FC<
           autoComplete="off"
         />
       </Box>
-      <Flex align="center" position="absolute" right={3} top={0} bottom={0}>
+      <Box position="absolute" top={2} right={3} zIndex={2}>
         <IconButton
           variant="unstyled"
           aria-label="Toggle picker"
@@ -257,7 +257,7 @@ const DateRangeInput: React.FC<
           icon="calendar"
           onClick={toggle}
         />
-      </Flex>
+      </Box>
       <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={isOpen}>
         <Flex justify="columns">
           {withPresets && (
