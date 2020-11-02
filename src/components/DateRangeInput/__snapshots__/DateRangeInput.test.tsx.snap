@@ -1,20 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`allows changing time options in 24h mode 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -25,15 +21,15 @@ exports[`allows changing time options in 24h mode 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -41,7 +37,7 @@ exports[`allows changing time options in 24h mode 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -141,7 +137,41 @@ exports[`allows changing time options in 24h mode 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -150,25 +180,23 @@ exports[`allows changing time options in 24h mode 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -212,38 +240,45 @@ exports[`allows changing time options in 24h mode 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`allows passing a custom format 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -254,15 +289,15 @@ exports[`allows passing a custom format 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -270,7 +305,7 @@ exports[`allows passing a custom format 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -370,7 +405,41 @@ exports[`allows passing a custom format 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -379,25 +448,23 @@ exports[`allows passing a custom format 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -441,38 +508,45 @@ exports[`allows passing a custom format 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`allows selecting a date range 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -483,15 +557,15 @@ exports[`allows selecting a date range 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -499,7 +573,7 @@ exports[`allows selecting a date range 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -599,7 +673,41 @@ exports[`allows selecting a date range 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -608,25 +716,23 @@ exports[`allows selecting a date range 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -670,38 +776,45 @@ exports[`allows selecting a date range 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`allows selecting a preset 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -712,15 +825,15 @@ exports[`allows selecting a preset 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -728,7 +841,7 @@ exports[`allows selecting a preset 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -828,7 +941,41 @@ exports[`allows selecting a preset 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -837,25 +984,23 @@ exports[`allows selecting a preset 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -899,38 +1044,45 @@ exports[`allows selecting a preset 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`opens the month picker 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -941,15 +1093,15 @@ exports[`opens the month picker 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -957,7 +1109,7 @@ exports[`opens the month picker 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1057,7 +1209,41 @@ exports[`opens the month picker 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -1066,25 +1252,23 @@ exports[`opens the month picker 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -1128,38 +1312,45 @@ exports[`opens the month picker 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`opens the month picker with empty value 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -1170,15 +1361,15 @@ exports[`opens the month picker with empty value 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -1186,7 +1377,7 @@ exports[`opens the month picker with empty value 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1267,7 +1458,41 @@ exports[`opens the month picker with empty value 1`] = `
   border-radius: 4px;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -1276,8 +1501,6 @@ exports[`opens the month picker with empty value 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 .pounce-1 {
@@ -1301,19 +1524,19 @@ exports[`opens the month picker with empty value 1`] = `
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -1357,38 +1580,45 @@ exports[`opens the month picker with empty value 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`opens the month picker with placement 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -1399,15 +1629,15 @@ exports[`opens the month picker with placement 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -1415,7 +1645,7 @@ exports[`opens the month picker with placement 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1515,7 +1745,41 @@ exports[`opens the month picker with placement 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -1524,25 +1788,23 @@ exports[`opens the month picker with placement 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -1586,38 +1848,45 @@ exports[`opens the month picker with placement 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`renders 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -1628,15 +1897,15 @@ exports[`renders 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -1644,7 +1913,7 @@ exports[`renders 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1744,7 +2013,41 @@ exports[`renders 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -1753,25 +2056,23 @@ exports[`renders 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -1815,38 +2116,45 @@ exports[`renders 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`renders with solid coloring 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1946,7 +2254,41 @@ exports[`renders with solid coloring 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -1955,11 +2297,9 @@ exports[`renders with solid coloring 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -1970,15 +2310,15 @@ exports[`renders with solid coloring 1`] = `
   border-color: #23344e;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -1988,19 +2328,19 @@ exports[`renders with solid coloring 1`] = `
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -2044,38 +2384,45 @@ exports[`renders with solid coloring 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`renders with time options 1`] = `
-.pounce-11 {
+.pounce-13 {
   position: relative;
   z-index: 1;
-}
-
-.pounce-10 {
-  cursor: pointer;
 }
 
 .pounce-2 {
   position: relative;
 }
 
-.pounce-8 {
+.pounce-7 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -2086,15 +2433,15 @@ exports[`renders with time options 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-8:hover {
+.pounce-7:hover {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within {
+.pounce-7:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-8:focus-within label {
+.pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -2102,7 +2449,7 @@ exports[`renders with time options 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-7 {
+.pounce-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2202,7 +2549,41 @@ exports[`renders with time options 1`] = `
   font-weight: 500;
 }
 
-.pounce-6 {
+.pounce-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+}
+
+.pounce-11 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-11:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-10 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -2211,25 +2592,23 @@ exports[`renders with time options 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 <div>
   <div
-    class="pounce-11"
+    class="pounce-13"
   >
     <div
-      class="pounce-10"
+      class="pounce-9"
     >
       <fieldset
         class="pounce-2"
       >
         <div
-          class="pounce-8"
+          class="pounce-7"
         >
           <div
-            class="pounce-7"
+            class="pounce-6"
           >
             <div
               class="pounce-2"
@@ -2273,18 +2652,29 @@ exports[`renders with time options 1`] = `
                 To date
               </label>
             </div>
-            <svg
-              class="pounce-6"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-              />
-            </svg>
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      class="pounce-12"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-11"
+        type="button"
+      >
+        <svg
+          class="pounce-10"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>

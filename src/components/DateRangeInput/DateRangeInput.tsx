@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
-import { IconButton } from '../../index';
+import IconButton from '../IconButton';
 import Box from '../Box';
 import Presets from './Presets';
 import Flex from '../Flex';
@@ -13,6 +13,7 @@ import { TextInputProps } from '../TextInput';
 import { noop, getDates } from '../../utils/helpers';
 import useEscapeKey from '../../utils/useEscapeKey';
 import useOutsideClick from '../../utils/useOutsideClick';
+import useDisclosure from '../../utils/useDisclosure';
 
 export interface DateRangeInputProps {
   /**
@@ -114,23 +115,23 @@ const DateRangeInput: React.FC<
   const [currentMonth, setCurrentMonth] = useState(datesFormatted[0]);
   const [prevDateRange, setPrevDateRange] = useState(value);
 
-  const [open, setOpen] = useState(false);
+  const { isOpen, open, close, toggle } = useDisclosure();
   const ref = React.useRef(null);
   const targetRef = React.useRef(null);
 
   const onCancel = useCallback(() => {
     setCurrentRange(prevDateRange);
-    setOpen(false);
-  }, [setOpen, prevDateRange, setCurrentRange]);
+    close();
+  }, [close, prevDateRange, setCurrentRange]);
 
   const onApply = useCallback(
     e => {
       e.preventDefault();
       setPrevDateRange(currentDateRange);
       onChange(currentDateRange);
-      setOpen(false);
+      close;
     },
-    [setOpen, setPrevDateRange, onChange, currentDateRange]
+    [close, setPrevDateRange, onChange, currentDateRange]
   );
 
   const onNextMonth = useCallback(
@@ -169,13 +170,6 @@ const DateRangeInput: React.FC<
       return values[key] ? dayjs(values[key]).format(format) : '';
     },
     [format]
-  );
-  const onExpand = useCallback(
-    e => {
-      e.preventDefault();
-      setOpen(true);
-    },
-    [setOpen]
   );
 
   const onDaySelect = useCallback(
@@ -239,7 +233,7 @@ const DateRangeInput: React.FC<
   const nextMonth = currentMonth.add(1, 'month');
   return (
     <Box position="relative" zIndex={1} ref={targetRef}>
-      <Box onClick={onExpand} cursor="pointer">
+      <Box onClick={open}>
         <DoubleTextInput
           {...rest}
           variant={variant}
@@ -253,10 +247,18 @@ const DateRangeInput: React.FC<
           onChangeTo={noop}
           readOnly
           autoComplete="off"
-          icon="calendar"
         />
       </Box>
-      <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={open}>
+      <Flex align="center" position="absolute" right={3} top={0} bottom={0}>
+        <IconButton
+          variant="unstyled"
+          aria-label="Toggle picker"
+          size="medium"
+          icon="calendar"
+          onClick={toggle}
+        />
+      </Flex>
+      <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={isOpen}>
         <Flex justify="columns">
           {withPresets && (
             <Presets

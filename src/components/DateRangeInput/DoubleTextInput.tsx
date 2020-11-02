@@ -2,7 +2,6 @@ import React, { ChangeEventHandler } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
 import { slugify } from '../../utils/helpers';
-import Icon, { IconProps } from '../Icon';
 import { TextInputProps } from '../TextInput';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import { noop } from '../../utils/helpers';
@@ -38,9 +37,6 @@ export type DoubleTextInputProps = Omit<TextInputProps, 'label' | 'placeholder'>
 
   /** Whether the input is disabled or not */
   disabled?: boolean;
-
-  /** The icon present on the input  */
-  icon?: IconProps['type'];
 };
 
 const getIdentifier = (
@@ -71,7 +67,6 @@ const DoubleTextInput = React.forwardRef<HTMLInputElement, DoubleTextInputProps>
       hidden,
       name,
       variant = 'outline',
-      icon,
       from,
       to,
       placeholderFrom,
@@ -127,7 +122,6 @@ const DoubleTextInput = React.forwardRef<HTMLInputElement, DoubleTextInputProps>
                 {labelTo}
               </InputLabel>
             </Box>
-            {icon && <Icon size="medium" mx={4} type={icon} />}
           </Flex>
         </InputControl>
       </Box>
