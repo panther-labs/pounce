@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
-import { IconButton } from '../../index';
+import IconButton from '../IconButton';
 import Box from '../Box';
 import Presets from './Presets';
 import Flex from '../Flex';
@@ -11,6 +11,9 @@ import TimePicker from '../DateInput/TimePicker';
 import Month from '../DateInput/Month';
 import { TextInputProps } from '../TextInput';
 import { noop, getDates } from '../../utils/helpers';
+import useEscapeKey from '../../utils/useEscapeKey';
+import useOutsideClick from '../../utils/useOutsideClick';
+import useDisclosure from '../../utils/useDisclosure';
 
 export interface DateRangeInputProps {
   /**
@@ -112,24 +115,23 @@ const DateRangeInput: React.FC<
   const [currentMonth, setCurrentMonth] = useState(datesFormatted[0]);
   const [prevDateRange, setPrevDateRange] = useState(value);
 
-  const [open, setOpen] = useState(false);
+  const { isOpen, open, close } = useDisclosure();
   const ref = React.useRef(null);
-
-  const nextMonth = currentMonth.add(1, 'month');
+  const targetRef = React.useRef(null);
 
   const onCancel = useCallback(() => {
     setCurrentRange(prevDateRange);
-    setOpen(false);
-  }, [setOpen, prevDateRange, setCurrentRange]);
+    close();
+  }, [close, prevDateRange, setCurrentRange]);
 
   const onApply = useCallback(
     e => {
       e.preventDefault();
       setPrevDateRange(currentDateRange);
       onChange(currentDateRange);
-      setOpen(false);
+      close;
     },
-    [setOpen, setPrevDateRange, onChange, currentDateRange]
+    [close, setPrevDateRange, onChange, currentDateRange]
   );
 
   const onNextMonth = useCallback(
@@ -140,6 +142,7 @@ const DateRangeInput: React.FC<
     },
     [currentMonth, setCurrentMonth]
   );
+
   const onPreviousMonth = useCallback(
     e => {
       e.preventDefault();
@@ -149,6 +152,16 @@ const DateRangeInput: React.FC<
     [currentMonth, setCurrentMonth]
   );
 
+  // Close on ESC key presses
+  useEscapeKey({ ref, callback: onCancel, disabled: !isOpen });
+
+  // Close popover on clicks outside
+  useOutsideClick({
+    refs: [ref, targetRef],
+    callback: onCancel,
+    disabled: !isOpen,
+  });
+
   const formatDate = useCallback(
     (values, key) => {
       if (!values || !Array.isArray(values)) {
@@ -157,13 +170,6 @@ const DateRangeInput: React.FC<
       return values[key] ? dayjs(values[key]).format(format) : '';
     },
     [format]
-  );
-  const onExpand = useCallback(
-    e => {
-      e.preventDefault();
-      setOpen(true);
-    },
-    [setOpen]
   );
 
   const onDaySelect = useCallback(
@@ -224,9 +230,10 @@ const DateRangeInput: React.FC<
     [setCurrentRange, currentDateRange]
   );
 
+  const nextMonth = currentMonth.add(1, 'month');
   return (
-    <Box position="relative" zIndex={1} ref={ref}>
-      <Box onClick={onExpand} cursor="pointer">
+    <Box position="relative" zIndex={1} ref={targetRef}>
+      <Box onClick={open}>
         <DoubleTextInput
           {...rest}
           variant={variant}
@@ -240,10 +247,18 @@ const DateRangeInput: React.FC<
           onChangeTo={noop}
           readOnly
           autoComplete="off"
-          icon="calendar"
         />
       </Box>
-      <DateWrapper targetRef={ref} alignment={alignment} isExpanded={open}>
+      <Box position="absolute" top={2} right={3} zIndex={2}>
+        <IconButton
+          variant="unstyled"
+          aria-label="Toggle picker"
+          size="medium"
+          icon="calendar"
+          onClick={isOpen ? onCancel : open}
+        />
+      </Box>
+      <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={isOpen}>
         <Flex justify="columns">
           {withPresets && (
             <Presets

@@ -9,6 +9,9 @@ import DateWrapper from './DateWrapper';
 import TextInput, { TextInputProps } from '../TextInput';
 import TimePicker from './TimePicker';
 import { noop } from '../../utils/helpers';
+import useDisclosure from '../../utils/useDisclosure';
+import useEscapeKey from '../../utils/useEscapeKey';
+import useOutsideClick from '../../utils/useOutsideClick';
 
 export interface DateInputProps {
   /**
@@ -65,12 +68,13 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   ...rest
 }) => {
   const ref = React.useRef(null);
+  const targetRef = React.useRef(null);
   const dateFormatted = value ? dayjs(value) : dayjs();
   const [currentMonth, setCurrentMonth] = useState(dateFormatted);
   const [currentDate, setCurrentDate] = useState(value);
   const [prevDate, setPrevDate] = useState(value);
 
-  const [open, setOpen] = useState(false);
+  const { isOpen, open, close } = useDisclosure();
 
   const onNextMonth = useCallback(
     e => {
@@ -80,6 +84,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
     },
     [currentMonth, setCurrentMonth]
   );
+
   const onPreviousMonth = useCallback(
     e => {
       e.preventDefault();
@@ -91,25 +96,17 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
 
   const onCancel = useCallback(() => {
     setCurrentDate(prevDate);
-    setOpen(false);
-  }, [setOpen, prevDate, setCurrentDate]);
+    close();
+  }, [close, prevDate, setCurrentDate]);
 
   const onApply = useCallback(
     e => {
       e.preventDefault();
       setPrevDate(currentDate);
       onChange(currentDate);
-      setOpen(false);
+      close();
     },
-    [setOpen, setPrevDate, onChange, currentDate]
-  );
-
-  const onExpand = useCallback(
-    e => {
-      e.preventDefault();
-      setOpen(true);
-    },
-    [setOpen]
+    [close, setPrevDate, onChange, currentDate]
   );
 
   const onDaySelect = useCallback(
@@ -125,21 +122,39 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
     setCurrentDate(timeUpdated.toDate());
   }, []);
 
+  // Close on ESC key presses
+  useEscapeKey({ ref, callback: onCancel, disabled: !isOpen });
+
+  // Close popover on clicks outside
+  useOutsideClick({
+    refs: [ref, targetRef],
+    callback: onCancel,
+    disabled: !isOpen,
+  });
+
   return (
-    <Box position="relative" ref={ref}>
-      <Box onClick={onExpand} cursor="pointer">
-        <TextInput
-          {...rest}
-          variant={variant}
-          value={currentDate ? dayjs(currentDate).format(format) : ''}
-          autoComplete="off"
+    <Box position="relative" ref={targetRef}>
+      <TextInput
+        {...rest}
+        variant={variant}
+        value={currentDate ? dayjs(currentDate).format(format) : ''}
+        onClick={open}
+        autoComplete="off"
+        aria-autocomplete="none"
+        tabIndex={-1}
+        readOnly
+      />
+
+      <Box position="absolute" top={2} right={3} zIndex={2}>
+        <IconButton
+          variant="unstyled"
+          aria-label="Toggle picker"
+          size="medium"
           icon="calendar"
-          aria-autocomplete="none"
-          tabIndex={-1}
-          readOnly
+          onClick={isOpen ? onCancel : open}
         />
       </Box>
-      <DateWrapper targetRef={ref} alignment={alignment} isExpanded={open}>
+      <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={isOpen}>
         <Flex align="center" justify="space-between" p={4}>
           <IconButton
             onClick={onPreviousMonth}

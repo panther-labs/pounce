@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme, fireEvent } from 'test-utils';
+import { renderWithTheme, fireEvent, waitForElementToBeRemoved } from 'test-utils';
 import mockDate from 'mockdate';
 import dayjs from 'dayjs';
 import DateInput from './DateInput';
@@ -128,5 +128,44 @@ describe('DateInput', () => {
     await fireEvent.click(submitBtn);
 
     expect(mock).toHaveBeenCalled();
+  });
+
+  it('closes on an outside click', async () => {
+    const mock = jest.fn();
+    const { container, findByLabelText, findByText } = await renderWithTheme(
+      <DateInput label="test" value={new Date()} onChange={mock} />
+    );
+
+    // Open the date input components
+    fireEvent.click(await findByLabelText('test'));
+
+    const dateHeader = await findByText('September 2020');
+    expect(dateHeader).toBeInTheDocument();
+
+    fireEvent.mouseDown(container);
+
+    await waitForElementToBeRemoved(dateHeader);
+    expect(dateHeader).not.toBeInTheDocument();
+  });
+
+  it('toggles when the calendar icon is clicked', async () => {
+    const mock = jest.fn();
+    const { container, findByText } = await renderWithTheme(
+      <DateInput label="test" value={new Date()} onChange={mock} />
+    );
+    const calendarIconButton = container.querySelector(
+      '[aria-label="Toggle picker"]'
+    ) as HTMLButtonElement;
+
+    // Open the date input components
+    fireEvent.click(calendarIconButton);
+
+    const dateHeader = await findByText('September 2020');
+    expect(dateHeader).toBeInTheDocument();
+
+    fireEvent.click(calendarIconButton);
+
+    await waitForElementToBeRemoved(dateHeader);
+    expect(dateHeader).not.toBeInTheDocument();
   });
 });

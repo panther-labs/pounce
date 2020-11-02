@@ -2,6 +2,7 @@ import React from 'react';
 import { renderWithTheme, fireEvent } from 'test-utils';
 import mockDate from 'mockdate';
 import dayjs from 'dayjs';
+import { waitForElementToBeRemoved } from 'test-utils';
 import DateRangeInput from './DateRangeInput';
 
 const month = 10;
@@ -274,4 +275,23 @@ it('allows selecting a date range', async () => {
 
   expect(mock).toHaveBeenCalled();
   expect(container).toMatchSnapshot();
+});
+
+it('closes on an outside click', async () => {
+  const mock = jest.fn();
+  const { container, findByLabelText, findByText } = await renderWithTheme(
+    <DateRangeInput {...props} onChange={mock} />
+  );
+  const input = await findByLabelText('From date');
+
+  // Open the date input components
+  fireEvent.click(input);
+
+  const dateHeader = await findByText('November 2020');
+  expect(dateHeader).toBeInTheDocument();
+
+  fireEvent.mouseDown(container);
+
+  await waitForElementToBeRemoved(dateHeader);
+  expect(dateHeader).not.toBeInTheDocument();
 });
