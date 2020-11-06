@@ -129,7 +129,7 @@ const DateRangeInput: React.FC<
       e.preventDefault();
       setPrevDateRange(currentDateRange);
       onChange(currentDateRange);
-      close;
+      close();
     },
     [close, setPrevDateRange, onChange, currentDateRange]
   );
