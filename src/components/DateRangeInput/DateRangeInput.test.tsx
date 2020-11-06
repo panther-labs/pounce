@@ -295,3 +295,44 @@ it('closes on an outside click', async () => {
   await waitForElementToBeRemoved(dateHeader);
   expect(dateHeader).not.toBeInTheDocument();
 });
+
+it('closes when a selection is applied', async () => {
+  const mock = jest.fn();
+  const { findByLabelText, getByText } = await renderWithTheme(
+    <DateRangeInput {...props} onChange={mock} />
+  );
+
+  // Open the date input components
+  fireEvent.click(await findByLabelText('From date'));
+  fireEvent.click(await findByLabelText('Su Nov 01 2020'));
+  fireEvent.click(await findByLabelText('Mo Nov 30 2020'));
+
+  const dateHeader = getByText('November 2020');
+  expect(dateHeader).toBeInTheDocument();
+
+  fireEvent.click(getByText('Apply'));
+
+  await waitForElementToBeRemoved(dateHeader);
+  expect(dateHeader).not.toBeInTheDocument();
+});
+
+it('toggles when the calendar icon is clicked', async () => {
+  const mock = jest.fn();
+  const { container, findByText } = await renderWithTheme(
+    <DateRangeInput {...props} onChange={mock} />
+  );
+  const calendarIconButton = container.querySelector(
+    '[aria-label="Toggle picker"]'
+  ) as HTMLButtonElement;
+
+  // Open the date input components
+  fireEvent.click(calendarIconButton);
+
+  const dateHeader = await findByText('November 2020');
+  expect(dateHeader).toBeInTheDocument();
+
+  fireEvent.click(calendarIconButton);
+
+  await waitForElementToBeRemoved(dateHeader);
+  expect(dateHeader).not.toBeInTheDocument();
+});

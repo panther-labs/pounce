@@ -130,6 +130,25 @@ describe('DateInput', () => {
     expect(mock).toHaveBeenCalled();
   });
 
+  it('closes when a selection is applied', async () => {
+    const mock = jest.fn();
+    const { getByLabelText, findByLabelText, findByText, getByText } = await renderWithTheme(
+      <DateInput label="test" value={date.toDate()} onChange={mock} />
+    );
+
+    // Open the date input components
+    fireEvent.click(getByLabelText('test'));
+    fireEvent.click(await findByLabelText('Su Nov 01 2020'));
+
+    const dateHeader = await findByText('November 2020');
+    expect(dateHeader).toBeInTheDocument();
+
+    fireEvent.click(getByText('Apply'));
+
+    await waitForElementToBeRemoved(dateHeader);
+    expect(dateHeader).not.toBeInTheDocument();
+  });
+
   it('closes on an outside click', async () => {
     const mock = jest.fn();
     const { container, findByLabelText, findByText } = await renderWithTheme(
