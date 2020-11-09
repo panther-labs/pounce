@@ -72,6 +72,18 @@ export const isBrowser = typeof window !== 'undefined' && typeof window.document
 
 export const noop = (): void => {};
 
+export const isEmpty = (value?: string | number | readonly string[] | undefined): boolean => {
+  if (value === null || value === undefined) {
+    return true;
+  }
+
+  if (typeof value === 'string' && value === '') {
+    return true;
+  }
+
+  return false;
+};
+
 /**
  * A function that generates a preset with dynamic dates.
  * @returns {Object} An object with Dayjs presets
