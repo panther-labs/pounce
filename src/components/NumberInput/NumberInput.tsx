@@ -1,6 +1,6 @@
 import React from 'react';
 import { NativeAttributes } from '../Box';
-import { slugify, noop } from '../../utils/helpers';
+import { slugify, noop, isEmpty } from '../../utils/helpers';
 import { typedMemo } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import AbstractButton from '../AbstractButton';
@@ -111,7 +111,7 @@ function NumberInput({
         ref={_ref}
         {...inputNumberProps}
       />
-      <InputLabel raised={value !== undefined} htmlFor={identifier}>
+      <InputLabel raised={!isEmpty(value)} htmlFor={identifier}>
         {label}
       </InputLabel>
       <Flex
