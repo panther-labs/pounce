@@ -1,4 +1,4 @@
-import { isEmpty, addOpacity, lightenDarkenColor, slugify } from './helpers';
+import { isEmptyValue, addOpacity, lightenDarkenColor, slugify } from './helpers';
 
 it('addOpacity', () => {
   expect(addOpacity('#86a3c3', 0.1)).toMatchInlineSnapshot(`"rgba(134,163,195,0.1)"`);
@@ -20,14 +20,20 @@ it('lightenDarkenColor', () => {
   expect(slugify('-----hello---world------')).toMatchInlineSnapshot(`"hello-world"`);
 });
 
-it('isEmpty', () => {
-  expect(isEmpty(undefined)).toBeTruthy();
-  expect(isEmpty(null)).toBeTruthy();
-  expect(isEmpty('')).toBeTruthy();
-  expect(isEmpty('    ')).toBeFalsy();
-  expect(isEmpty('1  ')).toBeFalsy();
-  expect(isEmpty('1')).toBeFalsy();
-  expect(isEmpty(0)).toBeFalsy();
-  expect(isEmpty(1)).toBeFalsy();
-  expect(isEmpty(2)).toBeFalsy();
+it('isEmptyValue', () => {
+  expect(isEmptyValue(undefined)).toBeTruthy();
+  expect(isEmptyValue(null)).toBeTruthy();
+  expect(isEmptyValue('')).toBeTruthy();
+  expect(isEmptyValue([])).toBeTruthy();
+  expect(isEmptyValue({})).toBeTruthy();
+
+  expect(isEmptyValue('    ')).toBeFalsy();
+  expect(isEmptyValue('1  ')).toBeFalsy();
+  expect(isEmptyValue('1')).toBeFalsy();
+
+  expect(isEmptyValue(['1'])).toBeFalsy();
+  expect(isEmptyValue({ a: '1' })).toBeFalsy();
+  expect(isEmptyValue(0)).toBeFalsy();
+  expect(isEmptyValue(1)).toBeFalsy();
+  expect(isEmptyValue(2)).toBeFalsy();
 });

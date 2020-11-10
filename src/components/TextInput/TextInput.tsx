@@ -1,6 +1,6 @@
 import React from 'react';
 import { NativeAttributes } from '../Box';
-import { slugify, isEmpty } from '../../utils/helpers';
+import { slugify, isEmptyValue } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import Icon, { IconProps } from '../Icon';
 import Flex from '../Flex';
@@ -81,7 +81,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           ref={ref}
         />
         <InputLabel
-          raised={!isEmpty(value)}
+          raised={!isEmptyValue(value)}
           htmlFor={identifier}
           left={icon && iconAlignment === 'left' ? 26 : null}
         >
