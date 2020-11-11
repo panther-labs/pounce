@@ -59,6 +59,30 @@ describe('MultiCombobox', () => {
     expect(getAllByRole('tag')).toHaveLength(2);
   });
 
+  it('allows users to clear all items when items are more than 5', async () => {
+    const {
+      getByText,
+      getByPlaceholderText,
+      getAllByRole,
+      queryByText,
+      queryAllByRole,
+    } = renderWithTheme(<ControlledMultiCombobox />);
+
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
+    fireClickAndMouseEvents(await getByText('Toyota'));
+    fireClickAndMouseEvents(await getByText('Ford'));
+    fireClickAndMouseEvents(await getByText('Mercedes'));
+    fireClickAndMouseEvents(await getByText('Chevrolet'));
+    fireClickAndMouseEvents(await getByText('Hammer'));
+
+    expect(await queryByText('Clear all')).not.toBeInTheDocument();
+    fireClickAndMouseEvents(await getByText('Dodge'));
+    expect(await queryByText('Clear all')).toBeInTheDocument();
+    expect(getAllByRole('tag')).toHaveLength(6);
+    fireClickAndMouseEvents(await getByText('Clear all'));
+    expect(queryAllByRole('tag')).toHaveLength(0);
+  });
+
   it("it doesn't allow custom additions by default", async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
       <ControlledMultiCombobox searchable />

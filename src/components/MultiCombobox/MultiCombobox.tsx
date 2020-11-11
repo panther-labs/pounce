@@ -10,6 +10,8 @@ import { InputControl, InputLabel, InputElement, InputElementProps } from '../ut
 import Tag from './Tag';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
+import AbstractButton from '../AbstractButton';
+import Text from '../Text';
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -151,6 +153,10 @@ function MultiCombobox<Item>({
     if (item !== null) {
       onChange([...value, item]);
     }
+  };
+
+  const clearItems = () => {
+    onChange([]);
   };
 
   const itemsPt = hideLabel ? 3 : '19px';
@@ -298,6 +304,22 @@ function MultiCombobox<Item>({
                     ))}
                   </Flex>
                 )}
+                {value.length > 5 && (
+                  <AbstractButton
+                    color="teal-300"
+                    zIndex={2}
+                    position="absolute"
+                    bottom={0}
+                    right={18}
+                    mb={1}
+                    onClick={clearItems}
+                  >
+                    <Text fontSize="small" fontStyle="italic" textDecoration="underline">
+                      Clear all
+                    </Text>
+                  </AbstractButton>
+                )}
+
                 <InputElement
                   as="input"
                   type="text"
