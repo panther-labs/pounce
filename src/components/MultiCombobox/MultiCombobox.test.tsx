@@ -71,24 +71,23 @@ describe('MultiCombobox', () => {
     expect(getAllByRole('tag')).toHaveLength(2);
   });
 
-  it('allows users to clear all items when items are more than 5', async () => {
+  it('allows users to clear all items when selected items are 4 or more', async () => {
     const {
       getByText,
       getByPlaceholderText,
       getAllByRole,
       queryByText,
       queryAllByRole,
-    } = renderWithTheme(<ControlledMultiCombobox />);
+    } = renderWithTheme(<ControlledMultiCombobox canClearAllAfter={4} />);
 
     fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
     fireClickAndMouseEvents(await getByText('Toyota'));
     fireClickAndMouseEvents(await getByText('Ford'));
     fireClickAndMouseEvents(await getByText('Mercedes'));
-    fireClickAndMouseEvents(await getByText('Chevrolet'));
-
     expect(await queryByText('Clear all')).not.toBeInTheDocument();
-    fireClickAndMouseEvents(await getByText('Dodge'));
+    fireClickAndMouseEvents(await getByText('Chevrolet'));
     expect(await queryByText('Clear all')).toBeInTheDocument();
+    fireClickAndMouseEvents(await getByText('Dodge'));
     expect(getAllByRole('tag')).toHaveLength(5);
     fireClickAndMouseEvents(await getByText('Clear all'));
     expect(queryAllByRole('tag')).toHaveLength(0);

@@ -88,7 +88,8 @@ export type MultiComboboxProps<T> = {
   validateAddition?: (userEnteredInput: string, existing: T[]) => boolean;
 
   /**
-   *
+   * This variable is used to determine if and when we are going show users the ability to clear
+   * everything they have added to the MultiCombobox
    */
   canClearAllAfter?: number;
 };
@@ -136,7 +137,7 @@ function MultiCombobox<Item>({
   validateAddition = () => true,
   maxHeight = 300,
   maxResults,
-  canClearAllAfter = 5,
+  canClearAllAfter,
   invalid,
   hidden,
   ...rest
