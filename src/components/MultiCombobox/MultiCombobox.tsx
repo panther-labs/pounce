@@ -11,7 +11,6 @@ import Tag from './Tag';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 import AbstractButton from '../AbstractButton';
-import Text from '../Text';
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -87,6 +86,11 @@ export type MultiComboboxProps<T> = {
    * item will be added to the selection. If not, then this item won't be added
    * */
   validateAddition?: (userEnteredInput: string, existing: T[]) => boolean;
+
+  /**
+   *
+   */
+  canClearAllAfter?: number;
 };
 
 const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<any>) => {
@@ -132,6 +136,7 @@ function MultiCombobox<Item>({
   validateAddition = () => true,
   maxHeight = 300,
   maxResults,
+  canClearAllAfter = 5,
   invalid,
   hidden,
   ...rest
@@ -155,7 +160,7 @@ function MultiCombobox<Item>({
     }
   };
 
-  const clearItems = () => {
+  const clearSelectedItems = () => {
     onChange([]);
   };
 
@@ -304,7 +309,7 @@ function MultiCombobox<Item>({
                     ))}
                   </Flex>
                 )}
-                {value.length > 5 && (
+                {canClearAllAfter && value.length >= canClearAllAfter && (
                   <AbstractButton
                     color="teal-300"
                     zIndex={2}
@@ -312,11 +317,12 @@ function MultiCombobox<Item>({
                     bottom={0}
                     right={18}
                     mb={1}
-                    onClick={clearItems}
+                    onClick={clearSelectedItems}
+                    fontStyle="italic"
+                    textDecoration="underline"
+                    fontSize="small"
                   >
-                    <Text fontSize="small" fontStyle="italic" textDecoration="underline">
-                      Clear all
-                    </Text>
+                    Clear all
                   </AbstractButton>
                 )}
 

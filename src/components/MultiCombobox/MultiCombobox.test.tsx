@@ -28,6 +28,17 @@ describe('MultiCombobox', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('renders with clear all option', async () => {
+    const { container, getByText, getByPlaceholderText } = renderWithTheme(
+      <ControlledMultiCombobox canClearAllAfter={2} />
+    );
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
+    fireClickAndMouseEvents(await getByText('Toyota'));
+    expect(container).toMatchSnapshot();
+    fireClickAndMouseEvents(await getByText('Ford'));
+    expect(container).toMatchSnapshot();
+  });
+
   it('works without being searchable', async () => {
     const { getByText, getByPlaceholderText, getAllByRole } = renderWithTheme(
       <ControlledMultiCombobox />
