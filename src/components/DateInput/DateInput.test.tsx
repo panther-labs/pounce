@@ -90,6 +90,18 @@ describe('DateInput', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('allows selecting a date with time options in 24h mode', async () => {
+    const mock = jest.fn();
+    const { findByLabelText, container } = await renderWithTheme(
+      <DateInput label="test" mode="24h" value={date.toDate()} withTime onChange={mock} />
+    );
+    const input = await findByLabelText('test');
+
+    // Open the date input components
+    await fireEvent.click(input);
+    expect(container).toMatchSnapshot();
+  });
+
   it('allows selecting a date with time options in 12h mode', async () => {
     const mock = jest.fn();
     const { findByLabelText, container } = await renderWithTheme(

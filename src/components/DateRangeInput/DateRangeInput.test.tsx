@@ -202,6 +202,52 @@ it('allows changing time options in 12h mode', async () => {
   expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 07:22 AM');
 });
 
+it.only('allows changing time options in 24h mode', async () => {
+  const mock = jest.fn();
+  const endDate = end.add(3, 'hour').minute(59);
+
+  const { findByLabelText, getByLabelText, findByText, findByTestId } = await renderWithTheme(
+    <DateRangeInput
+      value={[start.toDate(), endDate.toDate()]}
+      id="test-hours"
+      mode="24h"
+      labelStart="From date"
+      labelEnd="To date"
+      withTime
+      onChange={mock}
+    />
+  );
+  const input = await findByLabelText('From date');
+  // Open the date input components
+  await fireEvent.click(input);
+
+  const endingHours = await getByLabelText('To Time Hours', { selector: 'input' });
+  const endingMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
+
+  expect(endingHours.value).toBe('04');
+  expect(endingMinutes.value).toBe('59');
+
+  await fireEvent.focus(endingHours);
+  const twelve = await findByTestId('to-time-hours-00');
+  await fireEvent.click(twelve);
+
+  await fireEvent.focus(endingMinutes);
+  const fiftyMinutes = await findByTestId('to-time-minutes-22');
+  await fireEvent.click(fiftyMinutes);
+
+  const submitBtn = await findByText('Apply');
+  await fireEvent.click(submitBtn);
+  expect(mock).toHaveBeenCalled();
+
+  const starting = dayjs(mock.mock.calls[0][0][0]);
+  const ending = dayjs(mock.mock.calls[0][0][1]);
+
+  // Format and assert dates without timezones in order to make it work
+  // across workstations and the CI
+  expect(starting.format('DD/MM/YYYY HH:mm A')).toBe('01/11/2020 01:02 AM');
+  expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 00:22 AM');
+});
+
 it('allows passing a custom format', async () => {
   const mock = jest.fn();
   const format = 'M MMM YYYY D dd';
