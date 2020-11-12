@@ -6,7 +6,8 @@ import { slugify } from '../../utils/helpers';
 
 const getHourItems = (mode: string) => {
   const limit = mode === '12h' ? 12 : 24;
-  return Array.from(Array(limit), (_, i) => `0${i + 1}`.slice(-2));
+  const gap = mode === '12h' ? 1 : 0;
+  return Array.from(Array(limit), (_, i) => `0${i + gap}`.slice(-2));
 };
 
 const minsItems = Array.from(Array(60), (_, i) => `0${i}`.slice(-2));
@@ -36,6 +37,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
   const periodLabel = React.useMemo(() => `${label} Period`.trim(), [label]);
 
   const hourItems = getHourItems(mode);
+
   const onChangeHours = React.useCallback(
     hour => {
       const d = dayjs(date).hour(hour);
