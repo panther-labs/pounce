@@ -85,12 +85,11 @@ describe('MultiCombobox', () => {
     fireClickAndMouseEvents(await getByText('Ford'));
     fireClickAndMouseEvents(await getByText('Mercedes'));
     fireClickAndMouseEvents(await getByText('Chevrolet'));
-    fireClickAndMouseEvents(await getByText('Hammer'));
 
     expect(await queryByText('Clear all')).not.toBeInTheDocument();
     fireClickAndMouseEvents(await getByText('Dodge'));
     expect(await queryByText('Clear all')).toBeInTheDocument();
-    expect(getAllByRole('tag')).toHaveLength(6);
+    expect(getAllByRole('tag')).toHaveLength(5);
     fireClickAndMouseEvents(await getByText('Clear all'));
     expect(queryAllByRole('tag')).toHaveLength(0);
   });
