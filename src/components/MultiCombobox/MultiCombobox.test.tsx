@@ -36,6 +36,7 @@ describe('MultiCombobox', () => {
     fireClickAndMouseEvents(await getByText('Toyota'));
     expect(container).toMatchSnapshot();
     fireClickAndMouseEvents(await getByText('Ford'));
+    expect(await getByText('Clear all')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
