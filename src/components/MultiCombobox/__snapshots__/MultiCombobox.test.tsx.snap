@@ -445,8 +445,8 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   <div
     aria-expanded="true"
     aria-haspopup="listbox"
-    aria-labelledby="downshift-0-label"
-    aria-owns="downshift-0-menu"
+    aria-labelledby="downshift-2-label"
+    aria-owns="downshift-2-menu"
     class="pounce-8"
     role="combobox"
   >
@@ -484,14 +484,14 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         </ul>
         <input
           aria-autocomplete="list"
-          aria-controls="downshift-0-menu"
+          aria-controls="downshift-2-menu"
           aria-disabled="false"
           aria-invalid="false"
-          aria-labelledby="downshift-0-label"
+          aria-labelledby="downshift-2-label"
           aria-readonly="true"
           autocomplete="off"
           class="pounce-4"
-          id="downshift-0-input"
+          id="downshift-2-input"
           placeholder=""
           readonly=""
           type="text"
@@ -499,8 +499,8 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         />
         <label
           class="pounce-5"
-          for="downshift-0-input"
-          id="downshift-0-label"
+          for="downshift-2-input"
+          id="downshift-2-label"
         >
           Choose a car manufacturer
         </label>
@@ -516,15 +516,15 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       </svg>
     </div>
     <ul
-      aria-labelledby="downshift-0-label"
+      aria-labelledby="downshift-2-label"
       class="pounce-9"
-      id="downshift-0-menu"
+      id="downshift-2-menu"
       role="listbox"
     />
     <ul
-      aria-labelledby="downshift-0-label"
+      aria-labelledby="downshift-2-label"
       class="pounce-17"
-      id="downshift-0-menu"
+      id="downshift-2-menu"
       role="listbox"
       style="transform: scale(1, 1); opacity: 1;"
     >
@@ -532,7 +532,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-10"
-        id="downshift-0-item-0"
+        id="downshift-2-item-0"
         role="option"
       >
         Ford
@@ -541,7 +541,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-10"
-        id="downshift-0-item-1"
+        id="downshift-2-item-1"
         role="option"
       >
         Chevrolet
@@ -550,7 +550,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-10"
-        id="downshift-0-item-2"
+        id="downshift-2-item-2"
         role="option"
       >
         BMW
@@ -559,7 +559,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-10"
-        id="downshift-0-item-3"
+        id="downshift-2-item-3"
         role="option"
       >
         Mercedes
@@ -568,7 +568,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-10"
-        id="downshift-0-item-4"
+        id="downshift-2-item-4"
         role="option"
       >
         Hammer
@@ -577,7 +577,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-10"
-        id="downshift-0-item-5"
+        id="downshift-2-item-5"
         role="option"
       >
         Dodge
@@ -586,7 +586,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-10"
-        id="downshift-0-item-6"
+        id="downshift-2-item-6"
         role="option"
       >
         Audi
@@ -859,8 +859,8 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   <div
     aria-expanded="true"
     aria-haspopup="listbox"
-    aria-labelledby="downshift-0-label"
-    aria-owns="downshift-0-menu"
+    aria-labelledby="downshift-2-label"
+    aria-owns="downshift-2-menu"
     class="pounce-12"
     role="combobox"
   >
@@ -925,14 +925,14 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         </button>
         <input
           aria-autocomplete="list"
-          aria-controls="downshift-0-menu"
+          aria-controls="downshift-2-menu"
           aria-disabled="false"
           aria-invalid="false"
-          aria-labelledby="downshift-0-label"
+          aria-labelledby="downshift-2-label"
           aria-readonly="true"
           autocomplete="off"
           class="pounce-8"
-          id="downshift-0-input"
+          id="downshift-2-input"
           placeholder=""
           readonly=""
           type="text"
@@ -940,8 +940,8 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         />
         <label
           class="pounce-9"
-          for="downshift-0-input"
-          id="downshift-0-label"
+          for="downshift-2-input"
+          id="downshift-2-label"
         >
           Choose a car manufacturer
         </label>
@@ -957,15 +957,15 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       </svg>
     </div>
     <ul
-      aria-labelledby="downshift-0-label"
+      aria-labelledby="downshift-2-label"
       class="pounce-13"
-      id="downshift-0-menu"
+      id="downshift-2-menu"
       role="listbox"
     />
     <ul
-      aria-labelledby="downshift-0-label"
+      aria-labelledby="downshift-2-label"
       class="pounce-20"
-      id="downshift-0-menu"
+      id="downshift-2-menu"
       role="listbox"
       style="transform: scale(1, 1); opacity: 1;"
     >
@@ -973,7 +973,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-14"
-        id="downshift-0-item-0"
+        id="downshift-2-item-0"
         role="option"
       >
         Chevrolet
@@ -982,7 +982,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-14"
-        id="downshift-0-item-1"
+        id="downshift-2-item-1"
         role="option"
       >
         BMW
@@ -991,7 +991,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-14"
-        id="downshift-0-item-2"
+        id="downshift-2-item-2"
         role="option"
       >
         Mercedes
@@ -1000,7 +1000,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-14"
-        id="downshift-0-item-3"
+        id="downshift-2-item-3"
         role="option"
       >
         Hammer
@@ -1009,7 +1009,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-14"
-        id="downshift-0-item-4"
+        id="downshift-2-item-4"
         role="option"
       >
         Dodge
@@ -1018,836 +1018,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         aria-disabled="false"
         aria-selected="false"
         class="pounce-14"
-        id="downshift-0-item-5"
-        role="option"
-      >
-        Audi
-      </li>
-    </ul>
-  </div>
-</div>
-`;
-
-exports[`MultiCombobox renders with clear all option" 1`] = `
-.pounce-8 {
-  position: relative;
-}
-
-.pounce-7 {
-  display: inline-block;
-  vertical-align: sub;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  color: currentColor;
-  position: absolute;
-  pointer-events: none;
-  margin-top: auto;
-  margin-bottom: auto;
-  top: 0;
-  bottom: 0;
-  right: 16px;
-}
-
-.pounce-6 {
-  min-height: 47px;
-  position: relative;
-  border: 1px solid;
-  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  background-color: #23344e;
-  border-radius: 4px;
-  border-color: #23344e;
-}
-
-.pounce-6:hover {
-  border-color: #0081c5;
-}
-
-.pounce-6:focus-within {
-  border-color: #0081c5;
-}
-
-.pounce-6:focus-within label {
-  font-weight: 500;
-  -webkit-transform: translate(6px, 4px) scale(0.65);
-  -moz-transform: translate(6px, 4px) scale(0.65);
-  -ms-transform: translate(6px, 4px) scale(0.65);
-  transform: translate(6px, 4px) scale(0.65);
-}
-
-.pounce-17 {
-  margin-top: -3px;
-  border: 1px solid;
-  border-left-color: #0081c5;
-  border-right-color: #0081c5;
-  border-bottom-color: #0081c5;
-  border-top-color: #23344e;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-color: #3e516b;
-  z-index: 10;
-  position: absolute;
-  width: 100%;
-  max-height: 300px;
-  overflow: auto;
-}
-
-.pounce-10 {
-  cursor: pointer;
-  font-size: 0.875rem;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 16px;
-  padding-right: 16px;
-  -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  position: relative;
-  background-color: #3e516b;
-}
-
-.pounce-10[aria-selected=true],
-[data-selected]>.pounce-10 {
-  background-color: #23344e;
-}
-
-.pounce-10::after {
-  content: url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' );
-  display: none;
-  position: absolute;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-content;
-  height: fit-content;
-  top: 0;
-  right: 16px;
-  bottom: 0;
-  margin: auto 0;
-}
-
-.pounce-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding-left: 12px;
-  padding-right: 40px;
-  padding-top: 19px;
-  padding-bottom: 2px;
-}
-
-.pounce-2 {
-  background-color: #0081c5;
-  border-radius: 40px;
-  cursor: default;
-  padding-left: 8px;
-  padding-right: 8px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  z-index: 1;
-  margin: 4px;
-}
-
-.pounce-1 {
-  margin-left: 8px;
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: transparent;
-  -webkit-transition: all 0.1s linear;
-  transition: all 0.1s linear;
-}
-
-.pounce-0 {
-  display: inline-block;
-  vertical-align: sub;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 12px;
-  height: 12px;
-  color: currentColor;
-}
-
-.pounce-4 {
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 20px;
-  padding-bottom: 8px;
-  position: absolute;
-  color: #f6f6f6;
-  font-size: 0.875rem;
-  font-weight: 500;
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-}
-
-.pounce-4::-webkit-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-4::-moz-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-4:-ms-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-4::placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-4:focus::-webkit-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-4:focus::-moz-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-4:focus:-ms-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-4:focus::placeholder {
-  opacity: 0.4;
-}
-
-.pounce-4:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
-  border-radius: 4px;
-}
-
-.pounce-5 {
-  pointer-events: none;
-  font-size: 0.875rem;
-  padding-left: 16px;
-  padding-right: 16px;
-  color: #bdbdbd;
-  top: 0;
-  left: 0;
-  position: absolute;
-  transform-origin: center left;
-  -webkit-transform: translate(6px, 4px) scale(0.65);
-  -moz-transform: translate(6px, 4px) scale(0.65);
-  -ms-transform: translate(6px, 4px) scale(0.65);
-  transform: translate(6px, 4px) scale(0.65);
-  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-<div>
-  <div
-    aria-expanded="true"
-    aria-haspopup="listbox"
-    aria-labelledby="downshift-0-label"
-    aria-owns="downshift-0-menu"
-    class="pounce-8"
-    role="combobox"
-  >
-    <div
-      class="pounce-8"
-    >
-      <div
-        aria-disabled="false"
-        class="pounce-6"
-      >
-        <ul
-          class="pounce-3"
-        >
-          <li
-            class="pounce-2"
-            role="tag"
-          >
-            Toyota
-            <button
-              aria-label="Remove"
-              class="pounce-1"
-              type="button"
-            >
-              <svg
-                class="pounce-0"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
-                />
-              </svg>
-            </button>
-          </li>
-        </ul>
-        <input
-          aria-autocomplete="list"
-          aria-controls="downshift-0-menu"
-          aria-disabled="false"
-          aria-invalid="false"
-          aria-labelledby="downshift-0-label"
-          aria-readonly="true"
-          autocomplete="off"
-          class="pounce-4"
-          id="downshift-0-input"
-          placeholder=""
-          readonly=""
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-5"
-          for="downshift-0-input"
-          id="downshift-0-label"
-        >
-          Choose a car manufacturer
-        </label>
-      </div>
-      <svg
-        class="pounce-7"
-        role="presentation"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M7 14L12 9L17 14H7Z"
-        />
-      </svg>
-    </div>
-    <ul
-      aria-labelledby="downshift-0-label"
-      class="pounce-9"
-      id="downshift-0-menu"
-      role="listbox"
-    />
-    <ul
-      aria-labelledby="downshift-0-label"
-      class="pounce-17"
-      id="downshift-0-menu"
-      role="listbox"
-      style="transform: scale(1, 1); opacity: 1;"
-    >
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-10"
-        id="downshift-0-item-0"
-        role="option"
-      >
-        Ford
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-10"
-        id="downshift-0-item-1"
-        role="option"
-      >
-        Chevrolet
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-10"
-        id="downshift-0-item-2"
-        role="option"
-      >
-        BMW
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-10"
-        id="downshift-0-item-3"
-        role="option"
-      >
-        Mercedes
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-10"
-        id="downshift-0-item-4"
-        role="option"
-      >
-        Hammer
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-10"
-        id="downshift-0-item-5"
-        role="option"
-      >
-        Dodge
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-10"
-        id="downshift-0-item-6"
-        role="option"
-      >
-        Audi
-      </li>
-    </ul>
-  </div>
-</div>
-`;
-
-exports[`MultiCombobox renders with clear all option" 2`] = `
-.pounce-12 {
-  position: relative;
-}
-
-.pounce-11 {
-  display: inline-block;
-  vertical-align: sub;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  color: currentColor;
-  position: absolute;
-  pointer-events: none;
-  margin-top: auto;
-  margin-bottom: auto;
-  top: 0;
-  bottom: 0;
-  right: 16px;
-}
-
-.pounce-10 {
-  min-height: 47px;
-  position: relative;
-  border: 1px solid;
-  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  background-color: #23344e;
-  border-radius: 4px;
-  border-color: #23344e;
-}
-
-.pounce-10:hover {
-  border-color: #0081c5;
-}
-
-.pounce-10:focus-within {
-  border-color: #0081c5;
-}
-
-.pounce-10:focus-within label {
-  font-weight: 500;
-  -webkit-transform: translate(6px, 4px) scale(0.65);
-  -moz-transform: translate(6px, 4px) scale(0.65);
-  -ms-transform: translate(6px, 4px) scale(0.65);
-  transform: translate(6px, 4px) scale(0.65);
-}
-
-.pounce-20 {
-  margin-top: -3px;
-  border: 1px solid;
-  border-left-color: #0081c5;
-  border-right-color: #0081c5;
-  border-bottom-color: #0081c5;
-  border-top-color: #23344e;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-color: #3e516b;
-  z-index: 10;
-  position: absolute;
-  width: 100%;
-  max-height: 300px;
-  overflow: auto;
-}
-
-.pounce-14 {
-  cursor: pointer;
-  font-size: 0.875rem;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 16px;
-  padding-right: 16px;
-  -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  position: relative;
-  background-color: #3e516b;
-}
-
-.pounce-14[aria-selected=true],
-[data-selected]>.pounce-14 {
-  background-color: #23344e;
-}
-
-.pounce-14::after {
-  content: url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' );
-  display: none;
-  position: absolute;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-content;
-  height: fit-content;
-  top: 0;
-  right: 16px;
-  bottom: 0;
-  margin: auto 0;
-}
-
-.pounce-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding-left: 12px;
-  padding-right: 40px;
-  padding-top: 19px;
-  padding-bottom: 2px;
-}
-
-.pounce-2 {
-  background-color: #0081c5;
-  border-radius: 40px;
-  cursor: default;
-  padding-left: 8px;
-  padding-right: 8px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  z-index: 1;
-  margin: 4px;
-}
-
-.pounce-1 {
-  margin-left: 8px;
-  cursor: pointer;
-  color: #f6f6f6;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: transparent;
-  -webkit-transition: all 0.1s linear;
-  transition: all 0.1s linear;
-}
-
-.pounce-0 {
-  display: inline-block;
-  vertical-align: sub;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 12px;
-  height: 12px;
-  color: currentColor;
-}
-
-.pounce-8 {
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 20px;
-  padding-bottom: 8px;
-  position: absolute;
-  color: #f6f6f6;
-  font-size: 0.875rem;
-  font-weight: 500;
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-}
-
-.pounce-8::-webkit-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-8::-moz-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-8:-ms-input-placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-8::placeholder {
-  opacity: 0;
-  color: #f6f6f6;
-  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-8:focus::-webkit-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-8:focus::-moz-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-8:focus:-ms-input-placeholder {
-  opacity: 0.4;
-}
-
-.pounce-8:focus::placeholder {
-  opacity: 0.4;
-}
-
-.pounce-8:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
-  border-radius: 4px;
-}
-
-.pounce-9 {
-  pointer-events: none;
-  font-size: 0.875rem;
-  padding-left: 16px;
-  padding-right: 16px;
-  color: #bdbdbd;
-  top: 0;
-  left: 0;
-  position: absolute;
-  transform-origin: center left;
-  -webkit-transform: translate(6px, 4px) scale(0.65);
-  -moz-transform: translate(6px, 4px) scale(0.65);
-  -ms-transform: translate(6px, 4px) scale(0.65);
-  transform: translate(6px, 4px) scale(0.65);
-  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-}
-
-.pounce-7 {
-  color: #35c6ab;
-  z-index: 2;
-  position: absolute;
-  bottom: 0;
-  right: 18px;
-  margin-bottom: 4px;
-  font-style: italic;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-size: 0.75rem;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: all 0.1s linear;
-  transition: all 0.1s linear;
-}
-
-<div>
-  <div
-    aria-expanded="true"
-    aria-haspopup="listbox"
-    aria-labelledby="downshift-0-label"
-    aria-owns="downshift-0-menu"
-    class="pounce-12"
-    role="combobox"
-  >
-    <div
-      class="pounce-12"
-    >
-      <div
-        aria-disabled="false"
-        class="pounce-10"
-      >
-        <ul
-          class="pounce-6"
-        >
-          <li
-            class="pounce-2"
-            role="tag"
-          >
-            Toyota
-            <button
-              aria-label="Remove"
-              class="pounce-1"
-              type="button"
-            >
-              <svg
-                class="pounce-0"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
-                />
-              </svg>
-            </button>
-          </li>
-          <li
-            class="pounce-2"
-            role="tag"
-          >
-            Ford
-            <button
-              aria-label="Remove"
-              class="pounce-1"
-              type="button"
-            >
-              <svg
-                class="pounce-0"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
-                />
-              </svg>
-            </button>
-          </li>
-        </ul>
-        <button
-          class="pounce-7"
-          type="button"
-        >
-          Clear all
-        </button>
-        <input
-          aria-autocomplete="list"
-          aria-controls="downshift-0-menu"
-          aria-disabled="false"
-          aria-invalid="false"
-          aria-labelledby="downshift-0-label"
-          aria-readonly="true"
-          autocomplete="off"
-          class="pounce-8"
-          id="downshift-0-input"
-          placeholder=""
-          readonly=""
-          type="text"
-          value=""
-        />
-        <label
-          class="pounce-9"
-          for="downshift-0-input"
-          id="downshift-0-label"
-        >
-          Choose a car manufacturer
-        </label>
-      </div>
-      <svg
-        class="pounce-11"
-        role="presentation"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M7 14L12 9L17 14H7Z"
-        />
-      </svg>
-    </div>
-    <ul
-      aria-labelledby="downshift-0-label"
-      class="pounce-13"
-      id="downshift-0-menu"
-      role="listbox"
-    />
-    <ul
-      aria-labelledby="downshift-0-label"
-      class="pounce-20"
-      id="downshift-0-menu"
-      role="listbox"
-      style="transform: scale(1, 1); opacity: 1;"
-    >
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-0-item-0"
-        role="option"
-      >
-        Chevrolet
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-0-item-1"
-        role="option"
-      >
-        BMW
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-0-item-2"
-        role="option"
-      >
-        Mercedes
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-0-item-3"
-        role="option"
-      >
-        Hammer
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-0-item-4"
-        role="option"
-      >
-        Dodge
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-0-item-5"
+        id="downshift-2-item-5"
         role="option"
       >
         Audi
