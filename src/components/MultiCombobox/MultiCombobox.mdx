@@ -131,6 +131,54 @@ const Example4 = () => {
 <Example4 />;
 ```
 
+A MultiCombobox can have a clear all option after a number of values are added (in example 4):
+
+```typescript jsx
+const Example5 = () => {
+  const [selectedItems, updateSelectedItems] = React.useState([
+    'Toyota',
+    'Ford',
+    'Chevrolet',
+    'BMW',
+  ]);
+  const [selectedMoto, updateSelectedMoto] = React.useState([
+    'Benelli',
+    'Ducati',
+    'BMW',
+    'Moto Guzzi',
+  ]);
+  return (
+    <>
+      <Box width={0.4} mr={4}>
+        <MultiCombobox
+          searchable
+          label="Choose a car manufacturer"
+          items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
+          onChange={updateSelectedItems}
+          value={selectedItems}
+          placeholder="Search for a manufacturer"
+          canClearAllAfter={4}
+        />
+      </Box>
+      <Box width={0.4}>
+        <MultiCombobox
+          label="Choose a car manufacturer"
+          hideLabel
+          variant="solid"
+          placeholder="Choose a motorcycle manufacturer"
+          items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
+          onChange={updateSelectedMoto}
+          value={selectedMoto}
+          canClearAllAfter={4}
+        />
+      </Box>
+    </>
+  );
+};
+
+<Example5 />;
+```
+
 A MultiCombobox can have "solid" variant:
 
 ```typescript jsx
