@@ -8,7 +8,7 @@ describe('Icon', () => {
       <>
         <Icon size="x-small" type="brackets" aria-label="Test brackets" />
         <Icon size="small" type="add" aria-label="Test" />
-        <Icon size="medium" type="arrow-up" aria-label="Test arrow" />
+        <Icon size="medium" type="arrow-back" aria-label="Test arrow" />
         <Icon size="large" type="timer" aria-label="Test timer" />
       </>
     );
