@@ -61,14 +61,27 @@ An input can be disabled:
 <TextInput label="Name" name="hi" disabled placeholder="Type something..." value="Disabled Value" />
 ```
 
+An input can have a `type="number"`:
+
+```typescript jsx
+<TextInput
+  label="Name with number"
+  type="number"
+  variant="solid"
+  name="hi"
+  placeholder="Type something..."
+  value="9"
+/>
+```
+
 An input can be "solid":
 
 ```typescript jsx
 <TextInput
-  label="Name"
+  label="Name with variant"
   variant="solid"
   name="hi"
   placeholder="Type something..."
-  value="Disabled Value"
+  value="Solid"
 />
 ```

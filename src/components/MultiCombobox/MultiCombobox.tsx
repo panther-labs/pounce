@@ -10,6 +10,7 @@ import { InputControl, InputLabel, InputElement, InputElementProps } from '../ut
 import Tag from './Tag';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
+import AbstractButton from '../AbstractButton';
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -85,6 +86,12 @@ export type MultiComboboxProps<T> = {
    * item will be added to the selection. If not, then this item won't be added
    * */
   validateAddition?: (userEnteredInput: string, existing: T[]) => boolean;
+
+  /**
+   * This variable is used to determine if and when we are going show users the ability to clear
+   * everything they have added to the MultiCombobox
+   */
+  canClearAllAfter?: number;
 };
 
 const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<any>) => {
@@ -130,6 +137,7 @@ function MultiCombobox<Item>({
   validateAddition = () => true,
   maxHeight = 300,
   maxResults,
+  canClearAllAfter,
   invalid,
   hidden,
   ...rest
@@ -151,6 +159,10 @@ function MultiCombobox<Item>({
     if (item !== null) {
       onChange([...value, item]);
     }
+  };
+
+  const clearSelectedItems = () => {
+    onChange([]);
   };
 
   const itemsPt = hideLabel ? 3 : '19px';
@@ -298,6 +310,23 @@ function MultiCombobox<Item>({
                     ))}
                   </Flex>
                 )}
+                {canClearAllAfter && value.length >= canClearAllAfter && (
+                  <AbstractButton
+                    color="teal-300"
+                    zIndex={2}
+                    position="absolute"
+                    bottom={0}
+                    right={18}
+                    mb={1}
+                    onClick={clearSelectedItems}
+                    fontStyle="italic"
+                    textDecoration="underline"
+                    fontSize="small"
+                  >
+                    Clear all
+                  </AbstractButton>
+                )}
+
                 <InputElement
                   as="input"
                   type="text"

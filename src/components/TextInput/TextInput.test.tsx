@@ -7,6 +7,13 @@ it('renders', async () => {
   expect(container).toMatchSnapshot();
 });
 
+it('renders with different type', async () => {
+  const { container } = await renderWithTheme(
+    <TextInput label="Num input" type="number" value="0" />
+  );
+  expect(container).toMatchSnapshot();
+});
+
 it('renders with disabled option', async () => {
   const { container } = await renderWithTheme(<TextInput label="Text input disabled" disabled />);
   expect(container).toMatchSnapshot();

@@ -6,3 +6,29 @@ You can easily render a standalone icon:
 
 You should use <a href="/#/IconButton">IconButton</a> if you would like to add
 user interractions to this icon
+
+Icons available by Pounce
+
+```typescript jsx
+const Icons = () => {
+  const { icons } = useTheme();
+  return (
+    <SimpleGrid spacing={2} columns={20}>
+      {Object.keys(icons).map(iconKey => (
+        <Tooltip
+          content={
+            <Text>
+              Icon key is: <strong>`{iconKey}`</strong>{' '}
+            </Text>
+          }
+          key={iconKey}
+        >
+          <Icon type={iconKey} size="large" />
+        </Tooltip>
+      ))}
+    </SimpleGrid>
+  );
+};
+
+<Icons />;
+```
