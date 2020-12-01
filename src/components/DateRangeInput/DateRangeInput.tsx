@@ -259,7 +259,7 @@ const DateRangeInput: React.FC<
         />
       </Box>
       <DateWrapper ref={ref} targetRef={targetRef} alignment={alignment} isExpanded={isOpen}>
-        <Flex justify="columns">
+        <Flex>
           {withPresets && (
             <Presets
               setCurrentMonth={setCurrentMonth}
@@ -316,28 +316,23 @@ const DateRangeInput: React.FC<
             {withTime && (
               <Flex
                 align="center"
-                justify="center"
+                justify="space-between"
                 borderTop="1px solid"
                 borderColor="navyblue-300"
                 p={4}
-                spacing={8}
               >
-                <Flex align="center" justify="center" spacing={3}>
-                  <TimePicker
-                    label="From Time"
-                    mode={mode}
-                    onTimeUpdate={onStartTimeUpdate}
-                    date={currentDateRange && currentDateRange[0]}
-                  />
-                </Flex>
-                <Flex align="center" justify="center" spacing={3}>
-                  <TimePicker
-                    mode={mode}
-                    label="To Time"
-                    onTimeUpdate={onEndTimeUpdate}
-                    date={currentDateRange && currentDateRange[1]}
-                  />
-                </Flex>
+                <TimePicker
+                  label="From Time"
+                  mode={mode}
+                  onTimeUpdate={onStartTimeUpdate}
+                  date={currentDateRange && currentDateRange[0]}
+                />
+                <TimePicker
+                  mode={mode}
+                  label="To Time"
+                  onTimeUpdate={onEndTimeUpdate}
+                  date={currentDateRange && currentDateRange[1]}
+                />
               </Flex>
             )}
 

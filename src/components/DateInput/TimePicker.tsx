@@ -3,6 +3,7 @@ import dayjs, { Dayjs } from 'dayjs';
 import Box from '../Box';
 import Combobox from '../Combobox';
 import { slugify } from '../../utils/helpers';
+import Flex from '../Flex';
 
 const getHourItems = (mode: string) => {
   const limit = mode === '12h' ? 12 : 24;
@@ -11,6 +12,7 @@ const getHourItems = (mode: string) => {
 
 const minsItems = Array.from(Array(60), (_, i) => `0${i}`.slice(-2));
 const periodItems = ['AM', 'PM'];
+const inputStyles = { input: { maxWidth: 75 } };
 
 interface TimePickerProps {
   date?: Date;
@@ -62,14 +64,14 @@ const TimePicker: React.FC<TimePickerProps> = ({
   );
 
   return (
-    <>
+    <Flex align="center" justify="center" spacing={3} sx={inputStyles}>
       {label && !is12Hours && (
         <Box
           as="label"
           flexShrink={0}
           fontWeight="bold"
           role="status"
-          pr={4}
+          pr={2}
           htmlFor={slugify(hoursLabel)}
         >
           {label}
@@ -105,7 +107,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
           value={period}
         />
       )}
-    </>
+    </Flex>
   );
 };
 
