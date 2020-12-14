@@ -1,6 +1,6 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
-import { getItemSpacingProps } from './utils';
+import { useItemSpacingProps } from './utils';
 
 export type FlexProps = Omit<BoxProps, 'display'> & {
   /** An alias for `flexDirection` */
@@ -38,9 +38,21 @@ export type FlexProps = Omit<BoxProps, 'display'> & {
  * wrapper around a certain layout
  */
 export const Flex = React.forwardRef<HTMLElement, FlexProps>(function Flex(props, ref) {
-  const { direction, justify, align, inline, wrap, spacing, shrink, grow, basis, ...rest } = props;
+  const {
+    direction,
+    justify,
+    align,
+    inline,
+    wrap,
+    spacing,
+    shrink,
+    grow,
+    basis,
+    sx,
+    ...rest
+  } = props;
 
-  const itemSpacingProps = getItemSpacingProps(spacing, direction || rest.flexDirection);
+  const itemSpacingProps = useItemSpacingProps(spacing, direction || rest.flexDirection, sx);
   return (
     <Box
       display={inline ? 'inline-flex' : 'flex'}

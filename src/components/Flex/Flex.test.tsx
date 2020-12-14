@@ -9,6 +9,11 @@ describe('Flex', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('can specify both `sx` and custom spacing', async () => {
+    const { container } = await render(<Flex sx={{ input: { maxWidth: 5 } }} spacing={1} />);
+    expect(container).toMatchSnapshot();
+  });
+
   it('works along with Box', async () => {
     const { container } = await render(
       <Flex alignItems="center">

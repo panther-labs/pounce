@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Flex can specify both \`sx\` and custom spacing 1`] = `
+.pounce-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pounce-0 input {
+  max-width: 5px;
+}
+
+.pounce-0>*:not(:last-child) {
+  margin-right: 4px;
+}
+
+<div>
+  <div
+    class="pounce-0"
+  />
+</div>
+`;
+
 exports[`Flex renders 1`] = `
 .pounce-0 {
   display: -webkit-box;
