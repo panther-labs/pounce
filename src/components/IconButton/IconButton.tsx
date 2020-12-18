@@ -4,7 +4,7 @@ import useIconButtonStyles from './useIconButtonStyles';
 import { BoxProps, NativeAttributes } from '../Box';
 import AbstractButton from '../AbstractButton';
 
-export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as'> {
+export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size of the icon button */
   size?: 'small' | 'medium' | 'large';
 
