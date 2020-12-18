@@ -1,20 +1,25 @@
+import React from 'react';
 import { FlexProps } from './Flex';
 
-export const getItemSpacingProps = (
+export const useItemSpacingProps = (
   spacing: FlexProps['margin'],
-  direction: FlexProps['direction']
+  direction: FlexProps['direction'],
+  sx: FlexProps['sx']
 ): Partial<FlexProps> => {
-  if (!spacing) {
-    return {};
-  }
+  return React.useMemo(() => {
+    if (!spacing) {
+      return sx;
+    }
 
-  const isFlexColumn = direction && (direction as string).includes('column');
-  return {
-    sx: {
-      '& > *:not(:last-child)': {
-        marginRight: isFlexColumn ? undefined : spacing,
-        marginBottom: isFlexColumn ? spacing : undefined,
+    const isFlexColumn = direction && (direction as string).includes('column');
+    return {
+      sx: {
+        ...sx,
+        '& > *:not(:last-child)': {
+          marginRight: isFlexColumn ? undefined : spacing,
+          marginBottom: isFlexColumn ? spacing : undefined,
+        },
       },
-    },
-  };
+    };
+  }, [spacing, direction, sx]);
 };

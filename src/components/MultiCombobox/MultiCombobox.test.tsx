@@ -28,6 +28,18 @@ describe('MultiCombobox', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('renders with clear all option', async () => {
+    const { container, getByText, getByPlaceholderText } = renderWithTheme(
+      <ControlledMultiCombobox canClearAllAfter={2} />
+    );
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
+    fireClickAndMouseEvents(await getByText('Toyota'));
+    expect(container).toMatchSnapshot();
+    fireClickAndMouseEvents(await getByText('Ford'));
+    expect(await getByText('Clear all')).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
+  });
+
   it('works without being searchable', async () => {
     const { getByText, getByPlaceholderText, getAllByRole } = renderWithTheme(
       <ControlledMultiCombobox />
@@ -57,6 +69,28 @@ describe('MultiCombobox', () => {
     fireClickAndMouseEvents(await getByText('Ford'));
 
     expect(getAllByRole('tag')).toHaveLength(2);
+  });
+
+  it('allows users to clear all items when selected items are 4 or more', async () => {
+    const {
+      getByText,
+      getByPlaceholderText,
+      getAllByRole,
+      queryByText,
+      queryAllByRole,
+    } = renderWithTheme(<ControlledMultiCombobox canClearAllAfter={4} />);
+
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
+    fireClickAndMouseEvents(await getByText('Toyota'));
+    fireClickAndMouseEvents(await getByText('Ford'));
+    fireClickAndMouseEvents(await getByText('Mercedes'));
+    expect(await queryByText('Clear all')).not.toBeInTheDocument();
+    fireClickAndMouseEvents(await getByText('Chevrolet'));
+    expect(await queryByText('Clear all')).toBeInTheDocument();
+    fireClickAndMouseEvents(await getByText('Dodge'));
+    expect(getAllByRole('tag')).toHaveLength(5);
+    fireClickAndMouseEvents(await getByText('Clear all'));
+    expect(queryAllByRole('tag')).toHaveLength(0);
   });
 
   it("it doesn't allow custom additions by default", async () => {

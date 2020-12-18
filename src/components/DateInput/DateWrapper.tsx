@@ -12,41 +12,30 @@ interface DateWrapperProps {
 
 const AnimatedPopover = animated(Popover);
 
-const DateWrapper: React.FC<DateWrapperProps> = ({
-  children,
-  isExpanded,
-  targetRef,
-  alignment = 'left',
-}) => {
-  const position = useDropdownAlignment({ alignment });
-  const transitions = useTransition(isExpanded, null, {
-    from: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
-    enter: { transform: 'translate3d(0, 0, 0)', opacity: 1, pointerEvents: 'auto' },
-    leave: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
-    config: { duration: 250 },
-  });
-  return (
-    <>
-      {transitions.map(
-        ({ item, key, props: styles }) =>
-          item && (
-            <AnimatedPopover targetRef={targetRef} position={position} key={key} style={styles}>
-              <Card
-                position="absolute"
-                boxShadow="dark300"
-                // ugly hack to prevent overlapping popovers due to
-                right={alignment === 'right' && '100%'}
-                mt={4}
-                top={0}
-                zIndex={10}
-              >
-                {children}
-              </Card>
-            </AnimatedPopover>
-          )
-      )}
-    </>
-  );
-};
+const DateWrapper = React.forwardRef<HTMLElement, React.PropsWithChildren<DateWrapperProps>>(
+  function DateWrapper({ children, isExpanded, targetRef, alignment = 'left' }, ref) {
+    const position = useDropdownAlignment({ alignment });
+    const transitions = useTransition(isExpanded, null, {
+      from: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
+      enter: { transform: 'translate3d(0, 0, 0)', opacity: 1, pointerEvents: 'auto' },
+      leave: { transform: 'translate3d(0, -10px, 0)', opacity: 0, pointerEvents: 'none' },
+      config: { duration: 250 },
+    });
+    return (
+      <>
+        {transitions.map(
+          ({ item, key, props: styles }) =>
+            item && (
+              <AnimatedPopover targetRef={targetRef} position={position} key={key} style={styles}>
+                <Card ref={ref} boxShadow="dark300" my={4} zIndex={10}>
+                  {children}
+                </Card>
+              </AnimatedPopover>
+            )
+        )}
+      </>
+    );
+  }
+);
 
 export default DateWrapper;

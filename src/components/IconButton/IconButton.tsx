@@ -27,6 +27,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
     | 'red'
     | 'gray'
     | 'darkgray'
+    | 'darkblue'
     | 'navyblue';
 
   /** The border style of the button  */

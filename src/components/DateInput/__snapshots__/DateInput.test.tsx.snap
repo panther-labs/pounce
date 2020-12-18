@@ -1,15 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateInput allows passing a custom format 1`] = `
-.pounce-6 {
+.pounce-7 {
   position: relative;
 }
 
-.pounce-5 {
-  cursor: pointer;
-}
-
-.pounce-4 {
+.pounce-3 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -20,15 +16,15 @@ exports[`DateInput allows passing a custom format 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-4:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -36,7 +32,7 @@ exports[`DateInput allows passing a custom format 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-3 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -53,7 +49,6 @@ exports[`DateInput allows passing a custom format 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
-  padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -140,7 +135,33 @@ exports[`DateInput allows passing a custom format 1`] = `
   font-weight: 500;
 }
 
-.pounce-2 {
+.pounce-6 {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+}
+
+.pounce-5 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-5:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -149,68 +170,68 @@ exports[`DateInput allows passing a custom format 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
 }
 
 <div>
   <div
-    class="pounce-6"
+    class="pounce-7"
   >
     <div
-      class="pounce-5"
+      class="pounce-3"
     >
       <div
-        class="pounce-4"
+        class="pounce-2"
       >
-        <div
-          class="pounce-3"
+        <input
+          aria-autocomplete="none"
+          aria-invalid="false"
+          aria-readonly="true"
+          autocomplete="off"
+          class="pounce-0"
+          id="test"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value="11 Nov 2020 1 Su"
+        />
+        <label
+          class="pounce-1"
+          for="test"
         >
-          <input
-            aria-autocomplete="none"
-            aria-invalid="false"
-            aria-readonly="true"
-            autocomplete="off"
-            class="pounce-0"
-            id="test"
-            readonly=""
-            tabindex="-1"
-            type="text"
-            value="11 Nov 2020 1 Su"
-          />
-          <label
-            class="pounce-1"
-            for="test"
-          >
-            test
-          </label>
-          <svg
-            class="pounce-2"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-            />
-          </svg>
-        </div>
+          test
+        </label>
       </div>
+    </div>
+    <div
+      class="pounce-6"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-5"
+        type="button"
+      >
+        <svg
+          class="pounce-4"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`DateInput allows selecting a date with time options 1`] = `
-.pounce-6 {
+.pounce-7 {
   position: relative;
 }
 
-.pounce-5 {
-  cursor: pointer;
-}
-
-.pounce-4 {
+.pounce-3 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -221,15 +242,15 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-4:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -237,7 +258,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-3 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -254,7 +275,6 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
-  padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -341,7 +361,33 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   font-weight: 500;
 }
 
-.pounce-2 {
+.pounce-6 {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+}
+
+.pounce-5 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-5:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -350,68 +396,68 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
 }
 
 <div>
   <div
-    class="pounce-6"
+    class="pounce-7"
   >
     <div
-      class="pounce-5"
+      class="pounce-3"
     >
       <div
-        class="pounce-4"
+        class="pounce-2"
       >
-        <div
-          class="pounce-3"
+        <input
+          aria-autocomplete="none"
+          aria-invalid="false"
+          aria-readonly="true"
+          autocomplete="off"
+          class="pounce-0"
+          id="test"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value="11/01/2020"
+        />
+        <label
+          class="pounce-1"
+          for="test"
         >
-          <input
-            aria-autocomplete="none"
-            aria-invalid="false"
-            aria-readonly="true"
-            autocomplete="off"
-            class="pounce-0"
-            id="test"
-            readonly=""
-            tabindex="-1"
-            type="text"
-            value="11/01/2020"
-          />
-          <label
-            class="pounce-1"
-            for="test"
-          >
-            test
-          </label>
-          <svg
-            class="pounce-2"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-            />
-          </svg>
-        </div>
+          test
+        </label>
       </div>
+    </div>
+    <div
+      class="pounce-6"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-5"
+        type="button"
+      >
+        <svg
+          class="pounce-4"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
-.pounce-6 {
+.pounce-7 {
   position: relative;
 }
 
-.pounce-5 {
-  cursor: pointer;
-}
-
-.pounce-4 {
+.pounce-3 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -422,15 +468,15 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-4:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -438,7 +484,7 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-3 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -455,7 +501,6 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
-  padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -542,7 +587,33 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   font-weight: 500;
 }
 
-.pounce-2 {
+.pounce-6 {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+}
+
+.pounce-5 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-5:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -551,68 +622,294 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
 }
 
 <div>
   <div
-    class="pounce-6"
+    class="pounce-7"
   >
     <div
-      class="pounce-5"
+      class="pounce-3"
     >
       <div
-        class="pounce-4"
+        class="pounce-2"
       >
-        <div
-          class="pounce-3"
+        <input
+          aria-autocomplete="none"
+          aria-invalid="false"
+          aria-readonly="true"
+          autocomplete="off"
+          class="pounce-0"
+          id="test"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value="11/01/2020"
+        />
+        <label
+          class="pounce-1"
+          for="test"
         >
-          <input
-            aria-autocomplete="none"
-            aria-invalid="false"
-            aria-readonly="true"
-            autocomplete="off"
-            class="pounce-0"
-            id="test"
-            readonly=""
-            tabindex="-1"
-            type="text"
-            value="11/01/2020"
-          />
-          <label
-            class="pounce-1"
-            for="test"
-          >
-            test
-          </label>
-          <svg
-            class="pounce-2"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-            />
-          </svg>
-        </div>
+          test
+        </label>
       </div>
+    </div>
+    <div
+      class="pounce-6"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-5"
+        type="button"
+      >
+        <svg
+          class="pounce-4"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DateInput allows selecting a date with time options in 24h mode 1`] = `
+.pounce-7 {
+  position: relative;
+}
+
+.pounce-3 {
+  min-height: 47px;
+  position: relative;
+  border: 1px solid;
+  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
+}
+
+.pounce-3:hover {
+  border-color: #0081c5;
+}
+
+.pounce-3:focus-within {
+  border-color: #0081c5;
+}
+
+.pounce-3:focus-within label {
+  font-weight: 500;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.pounce-0 {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-0::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-0:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+.pounce-1 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-6 {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+}
+
+.pounce-5 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-5:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
+  display: inline-block;
+  vertical-align: sub;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+}
+
+<div>
+  <div
+    class="pounce-7"
+  >
+    <div
+      class="pounce-3"
+    >
+      <div
+        class="pounce-2"
+      >
+        <input
+          aria-autocomplete="none"
+          aria-invalid="false"
+          aria-readonly="true"
+          autocomplete="off"
+          class="pounce-0"
+          id="test"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value="11/01/2020"
+        />
+        <label
+          class="pounce-1"
+          for="test"
+        >
+          test
+        </label>
+      </div>
+    </div>
+    <div
+      class="pounce-6"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-5"
+        type="button"
+      >
+        <svg
+          class="pounce-4"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`DateInput can be solid 1`] = `
-.pounce-6 {
+.pounce-7 {
   position: relative;
 }
 
-.pounce-5 {
-  cursor: pointer;
-}
-
-.pounce-3 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -629,7 +926,6 @@ exports[`DateInput can be solid 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
-  padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -716,7 +1012,33 @@ exports[`DateInput can be solid 1`] = `
   font-weight: 500;
 }
 
-.pounce-2 {
+.pounce-6 {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+}
+
+.pounce-5 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-5:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -725,12 +1047,9 @@ exports[`DateInput can be solid 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
 }
 
-.pounce-4 {
+.pounce-3 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -741,15 +1060,15 @@ exports[`DateInput can be solid 1`] = `
   border-color: #23344e;
 }
 
-.pounce-4:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -759,61 +1078,64 @@ exports[`DateInput can be solid 1`] = `
 
 <div>
   <div
-    class="pounce-6"
+    class="pounce-7"
   >
     <div
-      class="pounce-5"
+      class="pounce-3"
     >
       <div
-        class="pounce-4"
+        class="pounce-2"
       >
-        <div
-          class="pounce-3"
+        <input
+          aria-autocomplete="none"
+          aria-invalid="false"
+          aria-readonly="true"
+          autocomplete="off"
+          class="pounce-0"
+          id="test"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value="11/01/2020"
+        />
+        <label
+          class="pounce-1"
+          for="test"
         >
-          <input
-            aria-autocomplete="none"
-            aria-invalid="false"
-            aria-readonly="true"
-            autocomplete="off"
-            class="pounce-0"
-            id="test"
-            readonly=""
-            tabindex="-1"
-            type="text"
-            value="11/01/2020"
-          />
-          <label
-            class="pounce-1"
-            for="test"
-          >
-            test
-          </label>
-          <svg
-            class="pounce-2"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-            />
-          </svg>
-        </div>
+          test
+        </label>
       </div>
+    </div>
+    <div
+      class="pounce-6"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-5"
+        type="button"
+      >
+        <svg
+          class="pounce-4"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`DateInput opens the month picker 1`] = `
-.pounce-6 {
+.pounce-7 {
   position: relative;
 }
 
-.pounce-5 {
-  cursor: pointer;
-}
-
-.pounce-4 {
+.pounce-3 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -824,15 +1146,15 @@ exports[`DateInput opens the month picker 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-4:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -840,7 +1162,7 @@ exports[`DateInput opens the month picker 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-3 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -857,7 +1179,6 @@ exports[`DateInput opens the month picker 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
-  padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -944,7 +1265,33 @@ exports[`DateInput opens the month picker 1`] = `
   font-weight: 500;
 }
 
-.pounce-2 {
+.pounce-6 {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+}
+
+.pounce-5 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-5:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -953,68 +1300,68 @@ exports[`DateInput opens the month picker 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
 }
 
 <div>
   <div
-    class="pounce-6"
+    class="pounce-7"
   >
     <div
-      class="pounce-5"
+      class="pounce-3"
     >
       <div
-        class="pounce-4"
+        class="pounce-2"
       >
-        <div
-          class="pounce-3"
+        <input
+          aria-autocomplete="none"
+          aria-invalid="false"
+          aria-readonly="true"
+          autocomplete="off"
+          class="pounce-0"
+          id="test"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value="11/01/2020"
+        />
+        <label
+          class="pounce-1"
+          for="test"
         >
-          <input
-            aria-autocomplete="none"
-            aria-invalid="false"
-            aria-readonly="true"
-            autocomplete="off"
-            class="pounce-0"
-            id="test"
-            readonly=""
-            tabindex="-1"
-            type="text"
-            value="11/01/2020"
-          />
-          <label
-            class="pounce-1"
-            for="test"
-          >
-            test
-          </label>
-          <svg
-            class="pounce-2"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-            />
-          </svg>
-        </div>
+          test
+        </label>
       </div>
+    </div>
+    <div
+      class="pounce-6"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-5"
+        type="button"
+      >
+        <svg
+          class="pounce-4"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`DateInput opens the month picker with alignment 1`] = `
-.pounce-6 {
+.pounce-7 {
   position: relative;
 }
 
-.pounce-5 {
-  cursor: pointer;
-}
-
-.pounce-4 {
+.pounce-3 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -1025,15 +1372,15 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-4:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -1041,7 +1388,7 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-3 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1058,7 +1405,6 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
-  padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -1145,7 +1491,33 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   font-weight: 500;
 }
 
-.pounce-2 {
+.pounce-6 {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+}
+
+.pounce-5 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-5:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -1154,68 +1526,68 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
 }
 
 <div>
   <div
-    class="pounce-6"
+    class="pounce-7"
   >
     <div
-      class="pounce-5"
+      class="pounce-3"
     >
       <div
-        class="pounce-4"
+        class="pounce-2"
       >
-        <div
-          class="pounce-3"
+        <input
+          aria-autocomplete="none"
+          aria-invalid="false"
+          aria-readonly="true"
+          autocomplete="off"
+          class="pounce-0"
+          id="test"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value="11/01/2020"
+        />
+        <label
+          class="pounce-1"
+          for="test"
         >
-          <input
-            aria-autocomplete="none"
-            aria-invalid="false"
-            aria-readonly="true"
-            autocomplete="off"
-            class="pounce-0"
-            id="test"
-            readonly=""
-            tabindex="-1"
-            type="text"
-            value="11/01/2020"
-          />
-          <label
-            class="pounce-1"
-            for="test"
-          >
-            test
-          </label>
-          <svg
-            class="pounce-2"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-            />
-          </svg>
-        </div>
+          test
+        </label>
       </div>
+    </div>
+    <div
+      class="pounce-6"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-5"
+        type="button"
+      >
+        <svg
+          class="pounce-4"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 `;
 
 exports[`DateInput renders 1`] = `
-.pounce-6 {
+.pounce-7 {
   position: relative;
 }
 
-.pounce-5 {
-  cursor: pointer;
-}
-
-.pounce-4 {
+.pounce-3 {
   min-height: 47px;
   position: relative;
   border: 1px solid;
@@ -1226,15 +1598,15 @@ exports[`DateInput renders 1`] = `
   border-color: #3e516b;
 }
 
-.pounce-4:hover {
+.pounce-3:hover {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within {
+.pounce-3:focus-within {
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within label {
+.pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
   -moz-transform: translate(6px, 4px) scale(0.65);
@@ -1242,7 +1614,7 @@ exports[`DateInput renders 1`] = `
   transform: translate(6px, 4px) scale(0.65);
 }
 
-.pounce-3 {
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1259,7 +1631,6 @@ exports[`DateInput renders 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
-  padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -1346,7 +1717,33 @@ exports[`DateInput renders 1`] = `
   font-weight: 500;
 }
 
-.pounce-2 {
+.pounce-6 {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+}
+
+.pounce-5 {
+  outline: none;
+  line-height: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-5:focus {
+  border-radius: 99999px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
@@ -1355,53 +1752,57 @@ exports[`DateInput renders 1`] = `
   width: 20px;
   height: 20px;
   color: currentColor;
-  z-index: 1;
-  position: absolute;
-  right: 16px;
 }
 
 <div>
   <div
-    class="pounce-6"
+    class="pounce-7"
   >
     <div
-      class="pounce-5"
+      class="pounce-3"
     >
       <div
-        class="pounce-4"
+        class="pounce-2"
       >
-        <div
-          class="pounce-3"
+        <input
+          aria-autocomplete="none"
+          aria-invalid="false"
+          aria-readonly="true"
+          autocomplete="off"
+          class="pounce-0"
+          id="test"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value="11/01/2020"
+        />
+        <label
+          class="pounce-1"
+          for="test"
         >
-          <input
-            aria-autocomplete="none"
-            aria-invalid="false"
-            aria-readonly="true"
-            autocomplete="off"
-            class="pounce-0"
-            id="test"
-            readonly=""
-            tabindex="-1"
-            type="text"
-            value="11/01/2020"
-          />
-          <label
-            class="pounce-1"
-            for="test"
-          >
-            test
-          </label>
-          <svg
-            class="pounce-2"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
-            />
-          </svg>
-        </div>
+          test
+        </label>
       </div>
+    </div>
+    <div
+      class="pounce-6"
+    >
+      <button
+        aria-label="Toggle picker"
+        aria-pressed="false"
+        class="pounce-5"
+        type="button"
+      >
+        <svg
+          class="pounce-4"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4 L18,4 L18,2 L16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>

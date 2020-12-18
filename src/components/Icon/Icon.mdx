@@ -6,3 +6,45 @@ You can easily render a standalone icon:
 
 You should use <a href="/#/IconButton">IconButton</a> if you would like to add
 user interractions to this icon
+
+Icons available by Pounce
+
+```typescript jsx
+const Icons = () => {
+  const { icons } = useTheme();
+  const [term, setSearchTerm] = React.useState('');
+  return (
+    <Box>
+      <Box mb={5}>
+        <TextInput
+          label="Search Icons"
+          value={term}
+          placeholder="Search Pounce Icons"
+          onChange={e => setSearchTerm(e.target.value)}
+          icon="search"
+        />
+      </Box>
+      <SimpleGrid spacing={2} columns={20}>
+        {Object.keys(icons)
+          .filter(iconKey => {
+            return iconKey.toLocaleLowerCase().includes(term.toLocaleLowerCase());
+          })
+          .map(iconKey => (
+            <Tooltip
+              content={
+                <Text>
+                  Icon key is: <strong>`{iconKey}`</strong>{' '}
+                </Text>
+              }
+              key={iconKey}
+            >
+              <Icon type={iconKey} size="large" />
+            </Tooltip>
+          ))}
+      </SimpleGrid>
+    </Box>
+  );
+};
+
+<Icons />;
+```
