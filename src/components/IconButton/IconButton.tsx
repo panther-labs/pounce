@@ -47,7 +47,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
   {
     variantColor = 'blue',
-    variantBorderStyle = 'circle',
+    variantBorderStyle = 'square',
     active = false,
     variant = 'solid',
     size = 'large',
