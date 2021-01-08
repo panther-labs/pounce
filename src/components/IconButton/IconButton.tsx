@@ -17,7 +17,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
   /** The style of the icon button */
   variant?: 'solid' | 'ghost' | 'outline' | 'unstyled';
 
-  /** The color scheme of the button for solid variants */
+  /** The color scheme of the button */
   variantColor?:
     | 'blue'
     | 'violet'
@@ -29,6 +29,9 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
     | 'darkgray'
     | 'darkblue'
     | 'navyblue';
+
+  /** The border style of the button  */
+  variantBorderStyle?: 'square' | 'circle';
 
   /** Whether the button is disabled */
   disabled?: boolean;
@@ -42,10 +45,18 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
 
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
-  { variantColor = 'blue', active = false, variant = 'solid', size = 'large', icon, ...rest },
+  {
+    variantColor = 'blue',
+    variantBorderStyle = 'square',
+    active = false,
+    variant = 'solid',
+    size = 'large',
+    icon,
+    ...rest
+  },
   ref
 ) {
-  const styles = useIconButtonStyles({ variantColor, variant, size });
+  const styles = useIconButtonStyles({ variantColor, variant, variantBorderStyle, size });
 
   return (
     <AbstractButton
