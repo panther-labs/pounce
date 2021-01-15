@@ -63,7 +63,7 @@ const Modal: React.FC<ModalProps> = ({
                   style={{ outline: 'none', ...styles }}
                   {...rest}
                 >
-                  <Card minWidth="400px" maxWidth="700px" position="relative" boxShadow="dark200">
+                  <Card minWidth="400px" position="relative" boxShadow="dark200">
                     {title && (
                       <Box as="header" borderBottom="1px solid" borderColor="navyblue-300" py={6}>
                         <Heading as="h4" size="x-small" textAlign="center" id={slugify(title)}>
