@@ -10,6 +10,8 @@ const shouldForwardPropSystemProps = createShouldForwardProp([
   'visibility',
   'transform',
   'cursor',
+  'minRows',
+  'maxRows',
 ]);
 
 export const shouldForwardProp = (prop: string) =>
