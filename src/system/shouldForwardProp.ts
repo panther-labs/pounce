@@ -1,18 +1,16 @@
 import { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
 
-const nativeProps = ['nativeWidth', 'nativeHeight'];
+const otherProps = ['nativeWidth', 'nativeHeight', 'minRows', 'maxRows'];
 
 // extend the forwarded props by stuff that styled-system doesn't deal with
-const shouldForwardPropSystemProps = createShouldForwardProp([
+const shouldForwardSystemProp = createShouldForwardProp([
   ...props,
   'textDecoration',
   'pointerEvents',
   'visibility',
   'transform',
   'cursor',
-  'minRows',
-  'maxRows',
 ]);
 
 export const shouldForwardProp = (prop: string) =>
-  nativeProps.includes(prop) ? true : shouldForwardPropSystemProps(prop);
+  otherProps.includes(prop) ? true : shouldForwardSystemProp(prop);
