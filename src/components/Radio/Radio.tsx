@@ -4,7 +4,7 @@ import useRadioStyles from './useRadioStyles';
 
 export type RadioProps = NativeAttributes<'input'> & {
   /** The label associated with the Radio. Appears on the right. */
-  label: string;
+  label?: string;
 
   /** Whether the checkbox is currently disabled */
   disabled?: boolean;
