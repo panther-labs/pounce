@@ -126,9 +126,16 @@ const DateRangeInput: React.FC<
 
   const onApply = useCallback(
     e => {
+      // To avoid inconsistent results round the start and end dates to the
+      // nearest minute (or day if the time picker is disabled)
+      const timeUnit = withTime ? 'minute' : 'day';
+      const startEndDates = [
+        dayjs(currentDateRange[0]).startOf(timeUnit).toDate(),
+        dayjs(currentDateRange[1]).endOf(timeUnit).toDate(),
+      ];
       e.preventDefault();
-      setPrevDateRange(currentDateRange);
-      onChange(currentDateRange);
+      setPrevDateRange(startEndDates);
+      onChange(startEndDates);
       close();
     },
     [close, setPrevDateRange, onChange, currentDateRange]
