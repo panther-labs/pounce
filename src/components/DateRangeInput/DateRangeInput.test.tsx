@@ -248,6 +248,72 @@ it.only('allows changing time options in 24h mode', async () => {
   expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 00:22 AM');
 });
 
+it.only('rounds start and end dates by minute', async () => {
+  const mock = jest.fn();
+  const endDate = end.add(3, 'hour').minute(59);
+
+  const { findByLabelText, getByLabelText, findByText, findByTestId } = await renderWithTheme(
+    <DateRangeInput
+      value={[start.toDate(), endDate.toDate()]}
+      id="test-hours"
+      mode="24h"
+      labelStart="From date"
+      labelEnd="To date"
+      withTime
+      onChange={mock}
+    />
+  );
+  const input = await findByLabelText('From date');
+  // Open the date input components
+  await fireEvent.click(input);
+
+  const endingHours = await getByLabelText('To Time Hours', { selector: 'input' });
+  const endingMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
+
+  await fireEvent.focus(endingHours);
+  const twelve = await findByTestId('to-time-hours-12');
+  await fireEvent.click(twelve);
+
+  await fireEvent.focus(endingMinutes);
+  const thirtyMinutes = await findByTestId('to-time-minutes-30');
+  await fireEvent.click(thirtyMinutes);
+
+  const submitBtn = await findByText('Apply');
+  await fireEvent.click(submitBtn);
+  expect(mock).toHaveBeenCalledWith([
+    start.startOf('minute').toDate(),
+    endDate.hour(12).minute(30).endOf('minute').toDate(),
+  ]);
+});
+
+it.only('rounds start and end dates by day', async () => {
+  const mock = jest.fn();
+  const endDate = end.add(3, 'hour').minute(59);
+
+  const { findByLabelText, getAllByRole, findByText } = await renderWithTheme(
+    <DateRangeInput
+      value={[start.toDate(), endDate.toDate()]}
+      id="test-hours"
+      mode="24h"
+      labelStart="From date"
+      labelEnd="To date"
+      withTime={false}
+      onChange={mock}
+    />
+  );
+  const input = await findByLabelText('From date');
+  // Open the date input components
+  await fireEvent.click(input);
+  const novTwentyFirst = getAllByRole('button', { name: /21/i })[0];
+  fireEvent.click(novTwentyFirst);
+  const submitBtn = await findByText('Apply');
+  await fireEvent.click(submitBtn);
+  expect(mock).toHaveBeenCalledWith([
+    start.startOf('day').toDate(),
+    endDate.date(21).endOf('day').toDate(),
+  ]);
+});
+
 it('allows passing a custom format', async () => {
   const mock = jest.fn();
   const format = 'M MMM YYYY D dd';
