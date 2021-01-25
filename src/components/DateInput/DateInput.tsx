@@ -110,12 +110,14 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   );
 
   const onDaySelect = useCallback(
-    dateChanged => {
-      const currentDate = dayjs(value);
-      const updated = dateChanged.hour(currentDate.hour()).minute(currentDate.minute());
+    (dateChanged: Dayjs) => {
+      const updated = dayjs(currentDate)
+        .year(dateChanged.year())
+        .month(dateChanged.month())
+        .date(dateChanged.date());
       setCurrentDate(updated.toDate());
     },
-    [setCurrentDate]
+    [currentDate, setCurrentDate]
   );
 
   const onTimeUpdate = useCallback(timeUpdated => {
