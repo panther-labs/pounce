@@ -51,7 +51,7 @@ const Day: React.FC<DayProps> = ({
       return false;
     }
     const [start, end] = daysSelected;
-    return (start && date.isSame(start, 'date')) || (end && date.isSame(end, 'date'));
+    return !!((start && date.isSame(start, 'date')) || (end && date.isSame(end, 'date')));
   }, [date, daysSelected]);
 
   const isWithinRange = React.useMemo(() => {
@@ -59,7 +59,7 @@ const Day: React.FC<DayProps> = ({
       return false;
     }
     const [start, end] = daysSelected;
-    return start && end && date.isAfter(start, 'date') && date.isBefore(end, 'date');
+    return !!(start && end && date.isAfter(start, 'date') && date.isBefore(end, 'date'));
   }, [date, daysSelected]);
 
   return (

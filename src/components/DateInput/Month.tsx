@@ -16,7 +16,7 @@ const DAYS = [
   { abbr: 'Mo', name: 'Monday' },
   { abbr: 'Tu', name: 'Tuesday' },
   { abbr: 'We', name: 'Wednesday' },
-  { abbr: 'Th', name: 'Thurdsday' },
+  { abbr: 'Th', name: 'Thursday' },
   { abbr: 'Fr', name: 'Friday' },
   { abbr: 'Sa', name: 'Saturday' },
   { abbr: 'Su', name: 'Sunday' },

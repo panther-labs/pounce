@@ -23,7 +23,7 @@ const props = {
   id: 'test',
   labelStart: 'From date',
   labelEnd: 'To date',
-  value: [start.toDate(), end.toDate()],
+  value: [start.toDate(), end.toDate()] as [Date, Date],
 };
 
 it('renders', async () => {

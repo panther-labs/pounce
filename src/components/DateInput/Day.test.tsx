@@ -22,20 +22,14 @@ describe('Day', () => {
 
   it('renders a cell selected', async () => {
     const { container } = await renderWithTheme(
-      <Day daySelected={date} day={day} month={month} year={year} />
+      <Day daysSelected={[date]} day={day} month={month} year={year} />
     );
     expect(container).toMatchSnapshot();
   });
 
   it('renders a selected date', async () => {
     const { container } = await renderWithTheme(
-      <Day
-        daySelected={date}
-        day={day}
-        month={month}
-        year={year}
-        dayRangeSelected={[date, endDate]}
-      />
+      <Day daysSelected={[date, endDate]} day={day} month={month} year={year} />
     );
     expect(container).toMatchSnapshot();
   });

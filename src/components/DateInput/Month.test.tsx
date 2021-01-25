@@ -16,7 +16,7 @@ describe('Month', () => {
 
   it('renders with a selected day', async () => {
     const { container } = await renderWithTheme(
-      <Month daySelected={date} month={month} year={year} />
+      <Month daysSelected={[date]} month={month} year={year} />
     );
     expect(container).toMatchSnapshot();
   });
@@ -24,7 +24,7 @@ describe('Month', () => {
   it('allows selecting a date', async () => {
     const mock = jest.fn();
     const { findByLabelText } = await renderWithTheme(
-      <Month daySelected={date} month={month} year={year} onDaySelect={mock} />
+      <Month daysSelected={[date]} month={month} year={year} onDaySelect={mock} />
     );
     const cell = await findByLabelText('Su Nov 01 2020');
     const btn = cell.querySelector('button');
