@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import Box from '../Box';
 import Flex from '../Flex';
 import Button from '../Button';
@@ -72,7 +72,6 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   const dateFormatted = value ? dayjs(value) : dayjs();
   const [currentMonth, setCurrentMonth] = useState(dateFormatted);
   const [currentDate, setCurrentDate] = useState(value);
-  const [prevDate, setPrevDate] = useState(value);
 
   const { isOpen, open, close } = useDisclosure();
 
@@ -95,18 +94,17 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   );
 
   const onCancel = useCallback(() => {
-    setCurrentDate(prevDate);
+    setCurrentDate(value);
     close();
-  }, [close, prevDate, setCurrentDate]);
+  }, [close, value, setCurrentDate]);
 
   const onApply = useCallback(
     e => {
       e.preventDefault();
-      setPrevDate(currentDate);
       onChange(currentDate);
       close();
     },
-    [close, setPrevDate, onChange, currentDate]
+    [close, onChange, currentDate]
   );
 
   const onDaySelect = useCallback(
