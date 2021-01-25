@@ -8,8 +8,7 @@ import { noop } from '../../utils/helpers';
 export interface MonthProps {
   year: number;
   month: number;
-  daySelected?: Dayjs;
-  dayRangeSelected?: Dayjs[];
+  daysSelected?: [Dayjs?, Dayjs?];
   onDaySelect?: (date: Dayjs) => void;
 }
 
@@ -30,13 +29,7 @@ const getWeekCount = (year: number, month: number): number => {
   return Math.ceil((daysCount + add) / 7);
 };
 
-const Month: React.FC<MonthProps> = ({
-  year,
-  month,
-  daySelected,
-  dayRangeSelected,
-  onDaySelect = noop,
-}) => {
+const Month: React.FC<MonthProps> = ({ year, month, daysSelected, onDaySelect = noop }) => {
   const weeks = React.useMemo(() => {
     const weekCount = getWeekCount(year, month);
     const monthDate = dayjs().month(month).year(year).date(1);
@@ -85,8 +78,7 @@ const Month: React.FC<MonthProps> = ({
               {week.map((day, dayIndex) => (
                 <Day
                   onDaySelect={onDaySelect}
-                  dayRangeSelected={dayRangeSelected}
-                  daySelected={daySelected}
+                  daysSelected={daysSelected}
                   year={year}
                   month={month}
                   day={day}

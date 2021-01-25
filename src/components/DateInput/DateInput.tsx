@@ -179,7 +179,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
         <Box px={4} pb={4}>
           <Month
             onDaySelect={onDaySelect}
-            daySelected={currentDate && dayjs(currentDate)}
+            daysSelected={currentDate && [dayjs(currentDate)]}
             year={currentMonth.year()}
             month={currentMonth.month()}
           />
