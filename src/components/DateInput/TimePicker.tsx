@@ -42,25 +42,28 @@ const TimePicker: React.FC<TimePickerProps> = ({
 
   const onChangeHours = React.useCallback(
     hour => {
-      const d = dayjs(date).hour(hour);
-      onTimeUpdate(d);
-    },
-    [date, onTimeUpdate]
-  );
-  const onChangeMinutes = React.useCallback(
-    minutes => {
-      const d = dayjs(date).minute(minutes);
-      onTimeUpdate(d);
+      let hourOfDay = parseInt(hour);
+      if (mode === '12h') {
+        if (period === 'AM') {
+          hourOfDay = hourOfDay === 12 ? 0 : hourOfDay;
+        } else {
+          hourOfDay = hourOfDay === 12 ? 12 : hourOfDay + 12;
+        }
+      }
+      onTimeUpdate(day.hour(hourOfDay));
     },
     [date, onTimeUpdate]
   );
 
+  const onChangeMinutes = React.useCallback(minutes => onTimeUpdate(day.minute(minutes)), [
+    date,
+    onTimeUpdate,
+  ]);
+
   const onChangePeriod = React.useCallback(
     period => {
       const diff = period === 'AM' ? -12 : 12;
-      const d = dayjs(date);
-      const newDate = dayjs(date).hour(d.hour() + diff);
-      onTimeUpdate(newDate);
+      onTimeUpdate(day.hour(day.hour() + diff));
     },
     [date, onTimeUpdate]
   );
