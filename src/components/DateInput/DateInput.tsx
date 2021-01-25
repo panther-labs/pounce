@@ -101,7 +101,11 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   const onApply = useCallback(
     e => {
       e.preventDefault();
-      onChange(currentDate);
+      onChange(
+        dayjs(currentDate)
+          .startOf(withTime ? 'minute' : 'day')
+          .toDate()
+      );
       close();
     },
     [close, onChange, currentDate]
