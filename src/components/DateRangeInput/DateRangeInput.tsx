@@ -191,7 +191,10 @@ const DateRangeInput: React.FC<
         }
       }
 
-      return setCurrentRange([currentDateRange[0], dateChanged.toDate()]);
+      return setCurrentRange([
+        currentDateRange[0],
+        dateChanged.hour(end.hour()).minute(end.minute()).toDate(),
+      ]);
     },
     [setCurrentRange, currentDateRange]
   );
