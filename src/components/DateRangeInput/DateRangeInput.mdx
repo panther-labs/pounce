@@ -207,3 +207,41 @@ const DateRangeExample = () => {
 
 <DateRangeExample />;
 ```
+
+It supports "utc" timezone
+
+```typescript jsx
+const format = 'MM/DD/YYYY HH:mm A';
+const DateRangeExample = () => {
+  const [dates, setDates] = React.useState([]);
+
+  const onChange = React.useCallback(changed => {
+    setDates(changed);
+  });
+  return (
+    <Box>
+      <Box mb={2}>
+        From {dates[0] ? dates[0].toISOString() : '-'} to {dates[1] ? dates[1].toISOString() : '-'}
+      </Box>
+      <Box>
+        <DateRangeInput
+          withTime
+          timezone="utc"
+          alignment="right"
+          withPresets
+          labelStart="From"
+          labelEnd="To"
+          placeholderStart="From date with range"
+          placeholderEnd="To date with range"
+          format={format}
+          onChange={setDates}
+          value={dates}
+          id="hello-date-range-with-range"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateRangeExample />;
+```
