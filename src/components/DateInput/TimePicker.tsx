@@ -1,8 +1,8 @@
 import React from 'react';
-import dayjs, { Dayjs } from 'dayjs';
+import { Dayjs } from 'dayjs';
 import Box from '../Box';
 import Combobox from '../Combobox';
-import { slugify } from '../../utils/helpers';
+import { now, slugify } from '../../utils/helpers';
 import Flex from '../Flex';
 
 const getHourItems = (mode: string) => {
@@ -16,10 +16,11 @@ const periodItems = ['AM', 'PM'];
 const inputStyles = { input: { maxWidth: 75 } };
 
 interface TimePickerProps {
-  date?: Date;
+  date?: Dayjs;
   label?: string;
   mode?: '12h' | '24h';
   onTimeUpdate: (date?: Dayjs) => void;
+  timezone: 'local' | 'utc';
 }
 
 const TimePicker: React.FC<TimePickerProps> = ({
@@ -27,9 +28,10 @@ const TimePicker: React.FC<TimePickerProps> = ({
   onTimeUpdate,
   mode = '24h',
   label = '',
+  timezone = 'local',
 }) => {
   const is12Hours = mode === '12h';
-  const day = dayjs(date);
+  const day = date || now(timezone);
   const hour = is12Hours ? day.format('hh') : day.format('HH');
   const min = day.format('mm');
   const period = day.format('A');

@@ -10,6 +10,7 @@ export interface MonthProps {
   month: number;
   daysSelected?: [Dayjs?, Dayjs?];
   onDaySelect?: (date: Dayjs) => void;
+  timezone: 'local' | 'utc';
 }
 
 const DAYS = [
@@ -29,7 +30,13 @@ const getWeekCount = (year: number, month: number): number => {
   return Math.ceil((daysCount + add) / 7);
 };
 
-const Month: React.FC<MonthProps> = ({ year, month, daysSelected, onDaySelect = noop }) => {
+const Month: React.FC<MonthProps> = ({
+  year,
+  month,
+  daysSelected,
+  timezone,
+  onDaySelect = noop,
+}) => {
   const weeks = React.useMemo(() => {
     const weekCount = getWeekCount(year, month);
     const monthDate = dayjs().month(month).year(year).date(1);
@@ -83,6 +90,7 @@ const Month: React.FC<MonthProps> = ({ year, month, daysSelected, onDaySelect = 
                   month={month}
                   day={day}
                   isLastRow={weeks.length === monthIndex + 1}
+                  timezone={timezone}
                   key={
                     // eslint-disable-next-line
                     `${year}-${month}-${monthIndex}-${dayIndex}-week`

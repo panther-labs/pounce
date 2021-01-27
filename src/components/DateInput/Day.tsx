@@ -2,8 +2,8 @@ import React from 'react';
 import Box from '../Box';
 import AbstractButton from '../AbstractButton';
 import Cell from './Cell';
-import dayjs, { Dayjs } from 'dayjs';
-import { noop } from '../../utils/helpers';
+import { Dayjs } from 'dayjs';
+import { noop, now } from '../../utils/helpers';
 
 export interface DayProps {
   day?: number;
@@ -11,6 +11,7 @@ export interface DayProps {
   month: number;
   year: number;
   daysSelected?: [Dayjs?, Dayjs?];
+  timezone: 'local' | 'utc';
   onDaySelect?: (date: Dayjs) => void;
 }
 
@@ -20,6 +21,7 @@ const Day: React.FC<DayProps> = ({
   year,
   isLastRow,
   daysSelected,
+  timezone = 'local',
   onDaySelect = noop,
 }) => {
   if (!day) {
@@ -34,7 +36,11 @@ const Day: React.FC<DayProps> = ({
       />
     );
   }
-  const date = React.useMemo(() => dayjs().month(month).date(day).year(year), [year, day, month]);
+
+  const date = React.useMemo(() => {
+    return now(timezone).month(month).date(day).year(year);
+  }, [year, day, month]);
+
   const onDaySelectClick = React.useCallback(
     e => {
       e.preventDefault();

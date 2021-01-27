@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import dayjs, { Dayjs } from 'dayjs';
+import { Dayjs } from 'dayjs';
 import IconButton from '../IconButton';
 import Box from '../Box';
 import Presets from './Presets';
@@ -10,7 +10,7 @@ import DateWrapper from '../DateInput/DateWrapper';
 import TimePicker from '../DateInput/TimePicker';
 import Month from '../DateInput/Month';
 import { TextInputProps } from '../TextInput';
-import { noop } from '../../utils/helpers';
+import { dateToDayjs, noop, now } from '../../utils/helpers';
 import useEscapeKey from '../../utils/useEscapeKey';
 import useOutsideClick from '../../utils/useOutsideClick';
 import useDisclosure from '../../utils/useDisclosure';
@@ -69,6 +69,11 @@ export interface DateRangeInputProps {
   value?: [Date?, Date?];
 
   /**
+   * Specifies the timezone that will be used when selecting dates
+   */
+  timezone: 'local' | 'utc';
+
+  /**
    * A callback for whenever the value of the chosen date range changes.
    *
    * `(dates: [Date, Date]) => void`
@@ -80,16 +85,8 @@ export interface DateRangeInputProps {
 /**
  * Converts the provided Dates into Dayjs objects, if they exist
  */
-const dateToDayjs = (value: [Date?, Date?]): [Dayjs?, Dayjs?] => {
-  return [value[0] ? dayjs(value[0]) : undefined, value[1] ? dayjs(value[1]) : undefined];
-};
-
-/**
- * Converts the provided Dates into Dayjs objects, if dates are not provided
- * dayjs objects are initialized with the current date
- */
-const convertToDayjs = (value: [Date?, Date?]): [Dayjs, Dayjs] => {
-  return [dayjs(value[0]), dayjs(value[1])];
+const datesToDayjs = (value: [Date?, Date?], timezone: 'local' | 'utc'): [Dayjs?, Dayjs?] => {
+  return [dateToDayjs(value[0], timezone), dateToDayjs(value[1], timezone)];
 };
 
 const DateRangeInput: React.FC<
@@ -111,30 +108,33 @@ const DateRangeInput: React.FC<
   labelEnd,
   placeholderStart,
   placeholderEnd,
+  timezone = 'local',
   ...rest
 }) => {
-  const datesFormatted = convertToDayjs(value);
-  const [currentDateRange, setCurrentRange] = useState(value);
-  const [currentMonth, setCurrentMonth] = useState(datesFormatted[0]);
+  const [currentDateRange, setCurrentRange] = useState(datesToDayjs(value, timezone));
+  const [currentMonth, setCurrentMonth] = useState(currentDateRange[0] || now(timezone));
 
   const { isOpen, open, close } = useDisclosure();
   const ref = React.useRef(null);
   const targetRef = React.useRef(null);
 
   const onCancel = useCallback(() => {
-    setCurrentRange(value);
+    setCurrentRange(datesToDayjs(value, timezone));
     close();
-  }, [close]);
+  }, [value, timezone, setCurrentRange, close]);
 
   const onApply = useCallback(
     e => {
+      if (!currentDateRange[0] || !currentDateRange[1]) {
+        return;
+      }
       // To avoid inconsistent results round the start and end dates to the
       // nearest minute (or day if the time picker is disabled)
       const timeUnit = withTime ? 'minute' : 'day';
       e.preventDefault();
       onChange([
-        dayjs(currentDateRange[0]).startOf(timeUnit).toDate(),
-        dayjs(currentDateRange[1]).endOf(timeUnit).toDate(),
+        currentDateRange[0].startOf(timeUnit).toDate(),
+        currentDateRange[1].endOf(timeUnit).toDate(),
       ]);
       close();
     },
@@ -172,55 +172,53 @@ const DateRangeInput: React.FC<
   const onDaySelect = useCallback(
     (dateChanged: Dayjs) => {
       if (!currentDateRange[0]) {
-        return setCurrentRange([dateChanged.toDate()]);
+        return setCurrentRange([dateChanged]);
       }
 
-      const start = dayjs(currentDateRange[0]);
-      const end = dayjs(currentDateRange[1]);
+      const start = currentDateRange[0];
+      const end = currentDateRange[1];
 
+      if (!start) {
+        return setCurrentRange([dateChanged]);
+      }
+      if (!end) {
+        return setCurrentRange([start, dateChanged]);
+      }
       if (dateChanged.isBefore(start, 'date') || start.isSame(end, 'date')) {
-        return setCurrentRange([dateChanged.hour(start.hour()).minute(start.minute()).toDate()]);
+        return setCurrentRange([dateChanged.hour(start.hour()).minute(start.minute())]);
       }
 
-      if (currentDateRange[1]) {
-        if (dateChanged.isAfter(start, 'date') && dateChanged.isBefore(end, 'date')) {
-          return setCurrentRange([
-            dateChanged.hour(start.hour()).minute(start.minute()).toDate(),
-            currentDateRange[1],
-          ]);
-        }
+      if (dateChanged.isAfter(start, 'date') && dateChanged.isBefore(end, 'date')) {
+        return setCurrentRange([dateChanged.hour(start.hour()).minute(start.minute()), end]);
       }
 
-      return setCurrentRange([
-        currentDateRange[0],
-        dateChanged.hour(end.hour()).minute(end.minute()).toDate(),
-      ]);
+      return setCurrentRange([start, dateChanged.hour(end.hour()).minute(end.minute())]);
     },
     [setCurrentRange, currentDateRange]
   );
 
   const isDisabled = useCallback(
-    () => currentDateRange.length < 2 && !currentDateRange.some(date => !date),
+    () => currentDateRange.length < 2 || currentDateRange.some(date => !date),
     [currentDateRange]
   );
 
   const onPresetSelect = useCallback(
     ([start, end]: [Dayjs, Dayjs]) => {
-      setCurrentRange([start.toDate(), end.toDate()]);
+      setCurrentRange([start, end]);
     },
     [setCurrentRange]
   );
 
   const onStartTimeUpdate = useCallback(
     timeUpdated => {
-      return setCurrentRange([timeUpdated.toDate(), currentDateRange[1]]);
+      return setCurrentRange([timeUpdated, currentDateRange[1]]);
     },
     [setCurrentRange, currentDateRange]
   );
 
   const onEndTimeUpdate = useCallback(
     timeUpdated => {
-      return setCurrentRange([currentDateRange[0], timeUpdated.toDate()]);
+      return setCurrentRange([currentDateRange[0], timeUpdated]);
     },
     [setCurrentRange, currentDateRange]
   );
@@ -232,8 +230,8 @@ const DateRangeInput: React.FC<
         <DoubleTextInput
           {...rest}
           variant={variant}
-          from={currentDateRange[0] ? dayjs(currentDateRange[0]).format(format) : ''}
-          to={currentDateRange[1] ? dayjs(currentDateRange[1]).format(format) : ''}
+          from={currentDateRange[0] ? currentDateRange[0].format(format) : ''}
+          to={currentDateRange[1] ? currentDateRange[1].format(format) : ''}
           labelFrom={labelStart}
           labelTo={labelEnd}
           placeholderFrom={placeholderStart}
@@ -258,8 +256,9 @@ const DateRangeInput: React.FC<
           {withPresets && (
             <Presets
               setCurrentMonth={setCurrentMonth}
+              timezone={timezone}
               onSelect={onPresetSelect}
-              currentDateRange={convertToDayjs(currentDateRange)}
+              currentDateRange={currentDateRange}
             />
           )}
           <Box>
@@ -292,17 +291,19 @@ const DateRangeInput: React.FC<
                 <Box>
                   <Month
                     onDaySelect={onDaySelect}
-                    daysSelected={dateToDayjs(currentDateRange)}
+                    daysSelected={currentDateRange}
                     year={currentMonth.year()}
                     month={currentMonth.month()}
+                    timezone={timezone}
                   />
                 </Box>
                 <Box>
                   <Month
                     onDaySelect={onDaySelect}
-                    daysSelected={dateToDayjs(currentDateRange)}
+                    daysSelected={currentDateRange}
                     year={nextMonth.year()}
                     month={nextMonth.month()}
+                    timezone={timezone}
                   />
                 </Box>
               </Flex>
@@ -321,12 +322,14 @@ const DateRangeInput: React.FC<
                   mode={mode}
                   onTimeUpdate={onStartTimeUpdate}
                   date={currentDateRange[0]}
+                  timezone={timezone}
                 />
                 <TimePicker
                   mode={mode}
                   label="To Time"
                   onTimeUpdate={onEndTimeUpdate}
                   date={currentDateRange[1]}
+                  timezone={timezone}
                 />
               </Flex>
             )}
