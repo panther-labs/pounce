@@ -71,7 +71,7 @@ export interface DateRangeInputProps {
   /**
    * Specifies the timezone that will be used when selecting dates
    */
-  timezone: 'local' | 'utc';
+  timezone?: 'local' | 'utc';
 
   /**
    * A callback for whenever the value of the chosen date range changes.

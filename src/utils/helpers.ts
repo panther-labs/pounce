@@ -103,7 +103,7 @@ export const dateToDayjs = (value: Date | undefined, timezone: 'local' | 'utc' =
   if (!value) {
     return undefined;
   }
-  return timezone === 'local' ? dayjs() : dayjs(value).utc();
+  return timezone === 'local' ? dayjs(value) : dayjs(value).utc();
 };
 
 /**
