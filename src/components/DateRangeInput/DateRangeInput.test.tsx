@@ -247,6 +247,52 @@ it.only('allows changing time options in 24h mode', async () => {
   expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 00:22 AM');
 });
 
+it.only('is disabled when start date is after end date', async () => {
+  const mock = jest.fn();
+  const endDate = start.add(3, 'hour').minute(59);
+
+  const {
+    findByLabelText,
+    getAllByRole,
+    findByText,
+    getByLabelText,
+    findByTestId,
+  } = await renderWithTheme(
+    <DateRangeInput
+      value={[start.toDate(), endDate.toDate()]}
+      id="test-hours"
+      mode="24h"
+      labelStart="From date"
+      labelEnd="To date"
+      withTime={true}
+      onChange={mock}
+    />
+  );
+  // Open the date input components
+  const input = await findByLabelText('From date');
+  await fireEvent.click(input);
+
+  const submitBtn = await findByText('Apply');
+  // Apply button is enabled as long as end date is after start date
+  expect(submitBtn).not.toHaveAttribute('disabled');
+
+  // Set start date later than end date
+  const novFirst = getAllByRole('button', { name: /1/i })[0];
+  fireEvent.click(novFirst);
+
+  const startHours = await getByLabelText('From Time Hours', { selector: 'input' });
+  const startMinutes = await getByLabelText('From Time Minutes', { selector: 'input' });
+
+  await fireEvent.focus(startHours);
+  const one = await findByTestId('from-time-hours-12');
+  await fireEvent.click(one);
+
+  await fireEvent.focus(startMinutes);
+  const oneMinute = await findByTestId('from-time-minutes-40');
+  await fireEvent.click(oneMinute);
+  expect(submitBtn).toHaveAttribute('disabled');
+});
+
 it.only('rounds start and end dates by minute', async () => {
   const mock = jest.fn();
   const endDate = end.add(3, 'hour').minute(59);

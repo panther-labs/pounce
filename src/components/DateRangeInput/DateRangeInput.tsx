@@ -198,7 +198,10 @@ const DateRangeInput: React.FC<
   );
 
   const isDisabled = useCallback(
-    () => currentDateRange.length < 2 || currentDateRange.some(date => !date),
+    () =>
+      !currentDateRange[0] ||
+      !currentDateRange[1] ||
+      currentDateRange[0].isAfter(currentDateRange[1], withTime ? 'minute' : 'day'),
     [currentDateRange]
   );
 
