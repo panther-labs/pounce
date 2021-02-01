@@ -1,6 +1,8 @@
 import { Theme } from '../theme';
 import React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 
 /** A boolean denoting whether we are in a development environment */
 export const __DEV__ = process.env.NODE_ENV !== 'production';
@@ -95,11 +97,31 @@ export const isEmptyValue = (
 };
 
 /**
+ * Converts the provided date to a Dayjs object
+ */
+export const dateToDayjs = (value: Date | undefined, timezone: 'local' | 'utc' = 'local') => {
+  if (!value) {
+    return undefined;
+  }
+  return timezone === 'local' ? dayjs(value) : dayjs(value).utc();
+};
+
+/**
+ * Get the current date time.
+ * @returns {Dayjs} a Dayjs object
+ */
+export const now = (timezone: 'local' | 'utc' = 'local') => {
+  return timezone === 'local' ? dayjs() : dayjs().utc();
+};
+
+/**
  * A function that generates a preset with dynamic dates.
  * @returns {Object} An object with Dayjs presets
  */
 
-export const getDates = (): {
+export const getDates = (
+  timezone: 'local' | 'utc' = 'local'
+): {
   now: Dayjs;
   lastDay: Dayjs;
   lastWeek: Dayjs;
@@ -108,15 +130,15 @@ export const getDates = (): {
   lastThreeMonths: Dayjs;
   lastSixMonths: Dayjs;
 } => {
-  const now = dayjs();
-  const lastDay = now.subtract(1, 'day');
-  const lastWeek = now.subtract(1, 'week');
-  const lastMonth = now.subtract(1, 'month');
-  const nextMonth = now.subtract(1, 'month');
-  const lastThreeMonths = now.subtract(3, 'month');
-  const lastSixMonths = now.subtract(6, 'month');
+  const dateNow = now(timezone);
+  const lastDay = dateNow.subtract(1, 'day');
+  const lastWeek = dateNow.subtract(1, 'week');
+  const lastMonth = dateNow.subtract(1, 'month');
+  const nextMonth = dateNow.subtract(1, 'month');
+  const lastThreeMonths = dateNow.subtract(3, 'month');
+  const lastSixMonths = dateNow.subtract(6, 'month');
   return {
-    now,
+    now: dateNow,
     nextMonth,
     lastDay,
     lastWeek,

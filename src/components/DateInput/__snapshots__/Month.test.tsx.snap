@@ -172,7 +172,7 @@ exports[`Month renders 1`] = `
       >
         <abbr
           class="pounce-0"
-          title="Thurdsday"
+          title="Thursday"
         >
           Th
         </abbr>
@@ -1043,7 +1043,7 @@ exports[`Month renders with a selected day 1`] = `
       >
         <abbr
           class="pounce-0"
-          title="Thurdsday"
+          title="Thursday"
         >
           Th
         </abbr>

@@ -2,16 +2,16 @@ import React from 'react';
 import Box from '../Box';
 import AbstractButton from '../AbstractButton';
 import Cell from './Cell';
-import dayjs, { Dayjs } from 'dayjs';
-import { noop } from '../../utils/helpers';
+import { Dayjs } from 'dayjs';
+import { noop, now } from '../../utils/helpers';
 
 export interface DayProps {
   day?: number;
   isLastRow?: boolean;
   month: number;
   year: number;
-  daySelected?: Dayjs;
-  dayRangeSelected?: Dayjs[];
+  daysSelected?: [Dayjs?, Dayjs?];
+  timezone: 'local' | 'utc';
   onDaySelect?: (date: Dayjs) => void;
 }
 
@@ -19,9 +19,9 @@ const Day: React.FC<DayProps> = ({
   day,
   month,
   year,
-  daySelected,
   isLastRow,
-  dayRangeSelected,
+  daysSelected,
+  timezone = 'local',
   onDaySelect = noop,
 }) => {
   if (!day) {
@@ -36,7 +36,11 @@ const Day: React.FC<DayProps> = ({
       />
     );
   }
-  const date = React.useMemo(() => dayjs().month(month).date(day).year(year), [year, day, month]);
+
+  const date = React.useMemo(() => {
+    return now(timezone).month(month).date(day).year(year);
+  }, [year, day, month]);
+
   const onDaySelectClick = React.useCallback(
     e => {
       e.preventDefault();
@@ -46,29 +50,23 @@ const Day: React.FC<DayProps> = ({
   );
 
   const isSelected = React.useMemo(() => {
-    if (!daySelected && !dayRangeSelected) {
+    if (!daysSelected) {
       return false;
     }
     if (!date) {
       return false;
     }
+    const [start, end] = daysSelected;
+    return !!((start && date.isSame(start, 'date')) || (end && date.isSame(end, 'date')));
+  }, [date, daysSelected]);
 
-    if (daySelected) {
-      return date.isSame(daySelected, 'date');
-    }
-    // @ts-ignore
-    const [start, end] = dayRangeSelected;
-    return (start && date.isSame(start, 'date')) || (end && date.isSame(end, 'date'));
-  }, [date, daySelected, dayRangeSelected]);
-
-  const isWithinRange = React.useCallback(() => {
-    if (!dayRangeSelected) {
+  const isWithinRange = React.useMemo(() => {
+    if (!daysSelected) {
       return false;
     }
-    // @ts-ignore
-    const [start, end] = dayRangeSelected;
-    return start && date.isAfter(start, 'date') && end && date.isBefore(end, 'date');
-  }, [date, dayRangeSelected]);
+    const [start, end] = daysSelected;
+    return !!(start && end && date.isAfter(start, 'date') && date.isBefore(end, 'date'));
+  }, [date, daysSelected]);
 
   return (
     <Cell
@@ -79,7 +77,7 @@ const Day: React.FC<DayProps> = ({
       position="relative"
       aria-label={date.format('dd MMM DD YYYY')}
       role="gridcell"
-      aria-busy={isWithinRange()}
+      aria-busy={isWithinRange}
       aria-selected={isSelected}
     >
       <Box aria-placeholder="true" tabIndex={-1} pointerEvents="none" />

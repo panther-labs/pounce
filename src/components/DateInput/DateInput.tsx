@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import Box from '../Box';
 import Flex from '../Flex';
 import Button from '../Button';
@@ -8,7 +8,7 @@ import { IconButton } from '../../index';
 import DateWrapper from './DateWrapper';
 import TextInput, { TextInputProps } from '../TextInput';
 import TimePicker from './TimePicker';
-import { noop } from '../../utils/helpers';
+import { noop, dateToDayjs, now } from '../../utils/helpers';
 import useDisclosure from '../../utils/useDisclosure';
 import useEscapeKey from '../../utils/useEscapeKey';
 import useOutsideClick from '../../utils/useOutsideClick';
@@ -42,6 +42,11 @@ export interface DateInputProps {
   value?: Date;
 
   /**
+   * Specifies the timezone that will be used when selecting a date
+   */
+  timezone?: 'local' | 'utc';
+
+  /**
    * A callback for whenever the value of the chosen date changes.
    *
    * `(date: Date | null) => void`
@@ -65,15 +70,13 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   mode = '24h',
   variant = 'outline',
   onChange = noop,
+  timezone = 'local',
   ...rest
 }) => {
   const ref = React.useRef(null);
   const targetRef = React.useRef(null);
-  const dateFormatted = value ? dayjs(value) : dayjs();
-  const [currentMonth, setCurrentMonth] = useState(dateFormatted);
-  const [currentDate, setCurrentDate] = useState(value);
-  const [prevDate, setPrevDate] = useState(value);
-
+  const [currentDate, setCurrentDate] = useState(dateToDayjs(value, timezone));
+  const [currentMonth, setCurrentMonth] = useState(currentDate || now(timezone));
   const { isOpen, open, close } = useDisclosure();
 
   const onNextMonth = useCallback(
@@ -95,31 +98,38 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   );
 
   const onCancel = useCallback(() => {
-    setCurrentDate(prevDate);
+    setCurrentDate(dateToDayjs(value, timezone));
     close();
-  }, [close, prevDate, setCurrentDate]);
+  }, [close, value, timezone, setCurrentDate]);
 
   const onApply = useCallback(
     e => {
+      if (!currentDate) {
+        return;
+      }
       e.preventDefault();
-      setPrevDate(currentDate);
-      onChange(currentDate);
+      onChange(currentDate.startOf(withTime ? 'minute' : 'day').toDate());
       close();
     },
-    [close, setPrevDate, onChange, currentDate]
+    [close, onChange, currentDate]
   );
 
   const onDaySelect = useCallback(
-    dateChanged => {
-      const currentDate = dayjs(value);
-      const updated = dateChanged.hour(currentDate.hour()).minute(currentDate.minute());
-      setCurrentDate(updated.toDate());
+    (dateChanged: Dayjs) => {
+      let updated = dateChanged;
+      if (currentDate) {
+        updated = dayjs(currentDate)
+          .year(dateChanged.year())
+          .month(dateChanged.month())
+          .date(dateChanged.date());
+      }
+      setCurrentDate(updated);
     },
-    [setCurrentDate]
+    [currentDate, setCurrentDate]
   );
 
   const onTimeUpdate = useCallback(timeUpdated => {
-    setCurrentDate(timeUpdated.toDate());
+    setCurrentDate(timeUpdated);
   }, []);
 
   // Close on ESC key presses
@@ -137,7 +147,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
       <TextInput
         {...rest}
         variant={variant}
-        value={currentDate ? dayjs(currentDate).format(format) : ''}
+        value={currentDate ? currentDate.format(format) : ''}
         onClick={open}
         autoComplete="off"
         aria-autocomplete="none"
@@ -175,9 +185,10 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
         <Box px={4} pb={4}>
           <Month
             onDaySelect={onDaySelect}
-            daySelected={currentDate && dayjs(currentDate)}
+            daysSelected={currentDate && [currentDate]}
             year={currentMonth.year()}
             month={currentMonth.month()}
+            timezone={timezone}
           />
         </Box>
         {withTime && (
@@ -189,7 +200,13 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
             p={4}
           >
             <Flex align="center" justify="center" spacing={3}>
-              <TimePicker label="Time" mode={mode} onTimeUpdate={onTimeUpdate} date={currentDate} />
+              <TimePicker
+                label="Time"
+                mode={mode}
+                onTimeUpdate={onTimeUpdate}
+                timezone={timezone}
+                date={currentDate}
+              />
             </Flex>
           </Flex>
         )}

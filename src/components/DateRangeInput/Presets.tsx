@@ -7,8 +7,9 @@ import AbstractButton from '../AbstractButton';
 type OnSelectCallback = (date: [Dayjs, Dayjs]) => void;
 type OnCurrentMonthSelect = React.Dispatch<React.SetStateAction<Dayjs>>;
 interface PresetsProps {
-  currentDateRange?: Dayjs[];
+  currentDateRange?: [Dayjs?, Dayjs?];
   setCurrentMonth: OnCurrentMonthSelect;
+  timezone: 'local' | 'utc';
   onSelect: (dates: [Dayjs, Dayjs]) => void;
 }
 
@@ -31,7 +32,7 @@ const ListItem: React.FC<ListItemProps> = ({ selected, onSelect, ...rest }) => (
   </Box>
 );
 
-const options = [
+const getOptions = (timezone: 'local' | 'utc') => [
   {
     id: 'last_day',
     label: 'Last 24 Hours',
@@ -39,7 +40,7 @@ const options = [
       e: React.MouseEvent
     ): void => {
       e.preventDefault();
-      const { lastDay, nextMonth, now } = getDates();
+      const { lastDay, nextMonth, now } = getDates(timezone);
       setCurrentMonth(nextMonth);
       callback([lastDay, now]);
     },
@@ -51,7 +52,7 @@ const options = [
       e: React.MouseEvent
     ): void => {
       e.preventDefault();
-      const { lastWeek, nextMonth, now } = getDates();
+      const { lastWeek, nextMonth, now } = getDates(timezone);
       setCurrentMonth(nextMonth);
       callback([lastWeek, now]);
     },
@@ -63,7 +64,7 @@ const options = [
       e: React.MouseEvent
     ): void => {
       e.preventDefault();
-      const { lastMonth, nextMonth, now } = getDates();
+      const { lastMonth, nextMonth, now } = getDates(timezone);
       setCurrentMonth(nextMonth);
       callback([lastMonth, now]);
     },
@@ -75,7 +76,7 @@ const options = [
       e: React.MouseEvent
     ): void => {
       e.preventDefault();
-      const { lastThreeMonths, nextMonth, now } = getDates();
+      const { lastThreeMonths, nextMonth, now } = getDates(timezone);
       setCurrentMonth(nextMonth);
       callback([lastThreeMonths, now]);
     },
@@ -87,7 +88,7 @@ const options = [
       e: React.MouseEvent
     ): void => {
       e.preventDefault();
-      const { lastSixMonths, nextMonth, now } = getDates();
+      const { lastSixMonths, nextMonth, now } = getDates(timezone);
       setCurrentMonth(nextMonth);
       callback([lastSixMonths, now]);
     },
@@ -101,9 +102,16 @@ const options = [
   },
 ];
 
-const Presets: React.FC<PresetsProps> = ({ currentDateRange = [], onSelect, setCurrentMonth }) => {
+const Presets: React.FC<PresetsProps> = ({
+  currentDateRange = [],
+  timezone,
+  onSelect,
+  setCurrentMonth,
+}) => {
   const selected: string = React.useMemo(() => {
-    const { now, lastDay, lastWeek, lastMonth, lastThreeMonths, lastSixMonths } = getDates();
+    const { now, lastDay, lastWeek, lastMonth, lastThreeMonths, lastSixMonths } = getDates(
+      timezone
+    );
     const [start, end] = currentDateRange;
     if (!start || !end) {
       return 'custom';
@@ -137,7 +145,7 @@ const Presets: React.FC<PresetsProps> = ({ currentDateRange = [], onSelect, setC
     <Box borderRight="1px solid" borderColor="navyblue-300">
       <Box p={6} width="140px">
         <Box as="ol">
-          {options.map(opt => (
+          {getOptions(timezone).map(opt => (
             <ListItem
               aria-label={opt.label}
               onSelect={opt.onSelectPreset(onSelect, setCurrentMonth)}

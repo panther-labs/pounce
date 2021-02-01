@@ -1,8 +1,7 @@
 import React from 'react';
-import { renderWithTheme, fireEvent } from 'test-utils';
+import { renderWithTheme, fireEvent, waitForElementToBeRemoved } from 'test-utils';
 import mockDate from 'mockdate';
 import dayjs from 'dayjs';
-import { waitForElementToBeRemoved } from 'test-utils';
 import DateRangeInput from './DateRangeInput';
 
 const month = 10;
@@ -23,7 +22,7 @@ const props = {
   id: 'test',
   labelStart: 'From date',
   labelEnd: 'To date',
-  value: [start.toDate(), end.toDate()],
+  value: [start.toDate(), end.toDate()] as [Date, Date],
 };
 
 it('renders', async () => {
@@ -248,6 +247,52 @@ it.only('allows changing time options in 24h mode', async () => {
   expect(ending.format('DD/MM/YYYY HH:mm A')).toBe('11/11/2020 00:22 AM');
 });
 
+it.only('is disabled when start date is after end date', async () => {
+  const mock = jest.fn();
+  const endDate = start.add(3, 'hour').minute(59);
+
+  const {
+    findByLabelText,
+    getAllByRole,
+    findByText,
+    getByLabelText,
+    findByTestId,
+  } = await renderWithTheme(
+    <DateRangeInput
+      value={[start.toDate(), endDate.toDate()]}
+      id="test-hours"
+      mode="24h"
+      labelStart="From date"
+      labelEnd="To date"
+      withTime={true}
+      onChange={mock}
+    />
+  );
+  // Open the date input components
+  const input = await findByLabelText('From date');
+  await fireEvent.click(input);
+
+  const submitBtn = await findByText('Apply');
+  // Apply button is enabled as long as end date is after start date
+  expect(submitBtn).not.toHaveAttribute('disabled');
+
+  // Set start date later than end date
+  const novFirst = getAllByRole('button', { name: /1/i })[0];
+  fireEvent.click(novFirst);
+
+  const startHours = await getByLabelText('From Time Hours', { selector: 'input' });
+  const startMinutes = await getByLabelText('From Time Minutes', { selector: 'input' });
+
+  await fireEvent.focus(startHours);
+  const one = await findByTestId('from-time-hours-12');
+  await fireEvent.click(one);
+
+  await fireEvent.focus(startMinutes);
+  const oneMinute = await findByTestId('from-time-minutes-40');
+  await fireEvent.click(oneMinute);
+  expect(submitBtn).toHaveAttribute('disabled');
+});
+
 it.only('rounds start and end dates by minute', async () => {
   const mock = jest.fn();
   const endDate = end.add(3, 'hour').minute(59);
@@ -312,6 +357,122 @@ it.only('rounds start and end dates by day', async () => {
     start.startOf('day').toDate(),
     endDate.date(21).endOf('day').toDate(),
   ]);
+});
+
+it.only('allows selecting dates with utc timezone', async () => {
+  const mock = jest.fn();
+  const startDate = dayjs('2020-10-03T12:00:00.000Z');
+  const endDate = dayjs('2020-10-12T15:00:00.000Z');
+
+  const {
+    findByLabelText,
+    getAllByRole,
+    findByText,
+    getByLabelText,
+    findByTestId,
+  } = await renderWithTheme(
+    <DateRangeInput
+      value={[startDate.toDate(), endDate.toDate()]}
+      id="test-hours"
+      mode="24h"
+      labelStart="From date"
+      timezone="utc"
+      labelEnd="To date"
+      withTime={true}
+      onChange={mock}
+    />
+  );
+  const input = await findByLabelText('From date');
+  // Open the date input components
+  await fireEvent.click(input);
+  // Change the end date to NOV-21-2020
+  const novTwentyFirst = getAllByRole('button', { name: /21/i })[0];
+  fireEvent.click(novTwentyFirst);
+  const endingHours = await getByLabelText('To Time Hours', { selector: 'input' });
+  const endingMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
+
+  // Change hour to 14H
+  await fireEvent.focus(endingHours);
+  const two = await findByTestId('to-time-hours-14');
+  await fireEvent.click(two);
+  // Change minutes to 20M
+  await fireEvent.focus(endingMinutes);
+  const twenty = await findByTestId('to-time-minutes-20');
+  await fireEvent.click(twenty);
+  const submitBtn = await findByText('Apply');
+  await fireEvent.click(submitBtn);
+  expect(mock).toHaveBeenCalledWith([
+    startDate.utc().startOf('minute').toDate(),
+    endDate.utc().date(21).hour(14).minute(20).endOf('minute').toDate(),
+  ]);
+});
+
+it.only('selects a preset when using utc', async () => {
+  const mock = jest.fn();
+  const { findByLabelText, findByText } = await renderWithTheme(
+    <DateRangeInput {...props} value={[]} timezone="utc" onChange={mock} withPresets />
+  );
+  const input = await findByLabelText('From date');
+
+  // Open the date input components
+  await fireEvent.click(input);
+
+  const preset = await findByLabelText('Last 3 Months');
+  const submitBtn = await findByText('Apply');
+
+  await fireEvent.click(preset);
+  await fireEvent.click(submitBtn);
+
+  expect(mock).toHaveBeenCalled();
+  // Since the presets are dynamic and based on the current date we need to ensure
+  // that the appropriate range is selected
+  const start = dayjs(mock.mock.calls[0][0][0]);
+  const end = dayjs(mock.mock.calls[0][0][1]);
+
+  // Seven days including the last whole day( because time picker is disabled)
+  const oneDayInMillis = 24 * 60 * 60 * 1000;
+  const sevenDaysInMillis = oneDayInMillis * 92 + (oneDayInMillis - 1);
+  expect(start.isBefore(end)).toBe(true);
+  expect(end.diff(start)).toBe(sevenDaysInMillis);
+  expect(start.toISOString()).toEqual(dayjs().utc().add(-92, 'day').startOf('day').toISOString());
+  expect(end.toISOString()).toEqual(dayjs().utc().endOf('day').toISOString());
+});
+
+it.only('selects a preset when using utc and time picker is enabled', async () => {
+  const mock = jest.fn();
+  const { findByLabelText, findByText } = await renderWithTheme(
+    <DateRangeInput
+      {...props}
+      value={[]}
+      timezone="utc"
+      withTime={true}
+      onChange={mock}
+      withPresets
+    />
+  );
+  const input = await findByLabelText('From date');
+
+  // Open the date input components
+  await fireEvent.click(input);
+
+  const preset = await findByLabelText('Last Week');
+  const submitBtn = await findByText('Apply');
+
+  await fireEvent.click(preset);
+  await fireEvent.click(submitBtn);
+
+  expect(mock).toHaveBeenCalled();
+  // Since the presets are dynamic and based on the current date we need to ensure
+  // that the appropriate range is selected
+  const start = dayjs(mock.mock.calls[0][0][0]);
+  const end = dayjs(mock.mock.calls[0][0][1]);
+
+  // Seven days including the last whole minute( because time picker is enabled)
+  const sevenDaysInMillis = 24 * 60 * 60 * 1000 * 7 + (1000 * 60 - 1);
+  expect(start.isBefore(end)).toBe(true);
+  expect(end.diff(start)).toBe(sevenDaysInMillis);
+  expect(start.toISOString()).toEqual(dayjs().utc().add(-7, 'day').toISOString());
+  expect(end.toISOString()).toEqual(dayjs().utc().endOf('minute').toISOString());
 });
 
 it('allows passing a custom format', async () => {

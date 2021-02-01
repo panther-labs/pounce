@@ -1,8 +1,8 @@
 import React from 'react';
-import dayjs, { Dayjs } from 'dayjs';
+import { Dayjs } from 'dayjs';
 import Box from '../Box';
 import Combobox from '../Combobox';
-import { slugify } from '../../utils/helpers';
+import { now, slugify } from '../../utils/helpers';
 import Flex from '../Flex';
 
 const getHourItems = (mode: string) => {
@@ -16,10 +16,11 @@ const periodItems = ['AM', 'PM'];
 const inputStyles = { input: { maxWidth: 75 } };
 
 interface TimePickerProps {
-  date?: Date;
+  date?: Dayjs;
   label?: string;
   mode?: '12h' | '24h';
   onTimeUpdate: (date?: Dayjs) => void;
+  timezone: 'local' | 'utc';
 }
 
 const TimePicker: React.FC<TimePickerProps> = ({
@@ -27,9 +28,10 @@ const TimePicker: React.FC<TimePickerProps> = ({
   onTimeUpdate,
   mode = '24h',
   label = '',
+  timezone = 'local',
 }) => {
   const is12Hours = mode === '12h';
-  const day = dayjs(date);
+  const day = date || now(timezone);
   const hour = is12Hours ? day.format('hh') : day.format('HH');
   const min = day.format('mm');
   const period = day.format('A');
@@ -42,25 +44,28 @@ const TimePicker: React.FC<TimePickerProps> = ({
 
   const onChangeHours = React.useCallback(
     hour => {
-      const d = dayjs(date).hour(hour);
-      onTimeUpdate(d);
-    },
-    [date, onTimeUpdate]
-  );
-  const onChangeMinutes = React.useCallback(
-    minutes => {
-      const d = dayjs(date).minute(minutes);
-      onTimeUpdate(d);
+      let hourOfDay = parseInt(hour);
+      if (mode === '12h') {
+        if (period === 'AM') {
+          hourOfDay = hourOfDay === 12 ? 0 : hourOfDay;
+        } else {
+          hourOfDay = hourOfDay === 12 ? 12 : hourOfDay + 12;
+        }
+      }
+      onTimeUpdate(day.hour(hourOfDay));
     },
     [date, onTimeUpdate]
   );
 
+  const onChangeMinutes = React.useCallback(minutes => onTimeUpdate(day.minute(minutes)), [
+    date,
+    onTimeUpdate,
+  ]);
+
   const onChangePeriod = React.useCallback(
     period => {
       const diff = period === 'AM' ? -12 : 12;
-      const d = dayjs(date);
-      const newDate = dayjs(date).hour(d.hour() + diff);
-      onTimeUpdate(newDate);
+      onTimeUpdate(day.hour(day.hour() + diff));
     },
     [date, onTimeUpdate]
   );

@@ -8,16 +8,16 @@ import { noop } from '../../utils/helpers';
 export interface MonthProps {
   year: number;
   month: number;
-  daySelected?: Dayjs;
-  dayRangeSelected?: Dayjs[];
+  daysSelected?: [Dayjs?, Dayjs?];
   onDaySelect?: (date: Dayjs) => void;
+  timezone: 'local' | 'utc';
 }
 
 const DAYS = [
   { abbr: 'Mo', name: 'Monday' },
   { abbr: 'Tu', name: 'Tuesday' },
   { abbr: 'We', name: 'Wednesday' },
-  { abbr: 'Th', name: 'Thurdsday' },
+  { abbr: 'Th', name: 'Thursday' },
   { abbr: 'Fr', name: 'Friday' },
   { abbr: 'Sa', name: 'Saturday' },
   { abbr: 'Su', name: 'Sunday' },
@@ -33,8 +33,8 @@ const getWeekCount = (year: number, month: number): number => {
 const Month: React.FC<MonthProps> = ({
   year,
   month,
-  daySelected,
-  dayRangeSelected,
+  daysSelected,
+  timezone,
   onDaySelect = noop,
 }) => {
   const weeks = React.useMemo(() => {
@@ -85,12 +85,12 @@ const Month: React.FC<MonthProps> = ({
               {week.map((day, dayIndex) => (
                 <Day
                   onDaySelect={onDaySelect}
-                  dayRangeSelected={dayRangeSelected}
-                  daySelected={daySelected}
+                  daysSelected={daysSelected}
                   year={year}
                   month={month}
                   day={day}
                   isLastRow={weeks.length === monthIndex + 1}
+                  timezone={timezone}
                   key={
                     // eslint-disable-next-line
                     `${year}-${month}-${monthIndex}-${dayIndex}-week`
