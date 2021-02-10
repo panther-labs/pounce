@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
-import { filter as fuzzySearch } from 'fuzzaldrin';
+//import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
-import MenuItem from '../utils/MenuItem';
 import Icon from '../Icon';
 import Flex from '../Flex';
 import { InputControl, InputLabel, InputElement, InputElementProps } from '../utils/Input';
@@ -11,6 +10,12 @@ import Tag from './Tag';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 import AbstractButton from '../AbstractButton';
+import MenuItemGroup from './MenuItemGroup';
+
+export type TreeNode<T> = {
+  label: string;
+  subItems: Array<T | TreeNode<T>>;
+};
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -25,8 +30,8 @@ export type MultiComboboxProps<T> = {
   /** Whether the label should get visually hidden */
   hideLabel?: boolean;
 
-  /** A list of entries that the dropdown will have as options */
-  items: T[];
+  /** A list of entries that the dropdown will have as options. */
+  items: Array<T | TreeNode<T>>;
 
   /**
    * A function that converts the an item to a string. This is the value that the dropdown will
@@ -136,7 +141,7 @@ function MultiCombobox<Item>({
   allowAdditions = false,
   validateAddition = () => true,
   maxHeight = 300,
-  maxResults,
+  //maxResults,
   canClearAllAfter,
   invalid,
   hidden,
@@ -164,6 +169,18 @@ function MultiCombobox<Item>({
   const clearSelectedItems = () => {
     onChange([]);
   };
+
+  // TODO: Find an elegant way to Flatten the nested items
+  // const flattenItems = (array: Item[], item: Item | TreeNode<Item>): Item[] => {
+  //   if ('label' in item) {
+  //     return array.concat(flattenItems(array, item.children));
+  //   }
+  //   return array.push(item);
+  // };
+
+  // const availableItems = useMemo(() => {
+  //   const a = flattenItems([], items[0]);
+  // }, []);
 
   const itemsPt = hideLabel ? 3 : '19px';
 
@@ -193,21 +210,22 @@ function MultiCombobox<Item>({
           inputVal !== '' && validateAddition(inputVal, value);
 
         const multiComboboxVariant = getVariant(isOpen);
+        // TODO: Same as above
         // If it's a multicombobox we DON'T WANT to include the results already selected and also
         // we want to make sure that the results get filtered by the search term of the user
-        const nonSelectedItems = items.filter(
-          item => !value.map(itemToString).includes(itemToString(item))
-        );
+        // const nonSelectedItems = items.filter(
+        //   item => !value.map(itemToString).includes(itemToString(item))
+        // );
 
         // From the non-selected items, make sure to filter the ones that match the user's
         // search term. To do that we convert our items to their string representations
-        const strResults = fuzzySearch(nonSelectedItems.map(itemToString), inputValue || '');
+        // const strResults = fuzzySearch(nonSelectedItems.map(itemToString), inputValue || '');
 
         // and then convert those strings back to the original shape of the items, while making
         // sure to only display a (potentially) limited number of them
-        const results = items
-          .filter(item => strResults.includes(itemToString(item)))
-          .slice(0, maxResults);
+        // const results = items
+        //   .filter(item => strResults.includes(itemToString(item)))
+        //   .slice(0, maxResults);
 
         // Only show the items that have not been selected
 
@@ -353,20 +371,17 @@ function MultiCombobox<Item>({
             <Menu
               as="ul"
               maxHeight={maxHeight}
-              isOpen={isOpen && results.length > 0}
+              // TODO: Same as above
+              isOpen={isOpen && items.length > 0}
               {...getMenuProps()}
             >
-              {results.map(item => (
-                <MenuItem
-                  {...getItemProps({ item, disabled: disableItem(item) })}
-                  as="li"
-                  listStyle="none"
-                  key={itemToString(item)}
-                  selected={item === selectedItem}
-                >
-                  {itemToString(item)}
-                </MenuItem>
-              ))}
+              <MenuItemGroup
+                items={items}
+                disableItem={disableItem}
+                getItemProps={getItemProps}
+                itemToString={itemToString}
+                selectedItem={selectedItem}
+              />
             </Menu>
           </Box>
         );

@@ -201,3 +201,79 @@ const Example5 = () => {
 
 <Example5 />;
 ```
+
+A MultiCombobox can have arbitrary nested items:
+
+```typescript jsx
+const Example6 = () => {
+  const [selectedCar, updateSelectedCar] = React.useState([]);
+  const [selectedMoto, updateSelectedMoto] = React.useState([]);
+  return (
+    <>
+      <Box width={0.4} mr={4}>
+        <MultiCombobox
+          label="Choose a car"
+          items={[
+            {
+              label: 'Toyota',
+              subItems: [
+                { label: 'Compact', subItems: ['Yaris', 'Aygo'] },
+                { label: 'Family', subItems: ['Auris', 'Corolla'] },
+              ],
+            },
+            {
+              label: 'Ford',
+              subItems: [
+                { label: 'Trucks', subItems: ['Ranger', 'Raptor'] },
+                { label: 'Compact', subItems: ['Focus', 'Fiesta'] },
+              ],
+            },
+            'Chevrolet',
+            'BMW',
+            'Mercedes',
+            'Hammer',
+            'Dodge',
+            'Audi',
+          ]}
+          onChange={updateSelectedCar}
+          value={selectedCar}
+          placeholder="Select manufacturers"
+        />
+      </Box>
+      <Box width={0.5}>
+        <MultiCombobox
+          label="Choose a car manufacturer"
+          hideLabel
+          placeholder="Choose a motorcycle manufacturer"
+          items={[
+            {
+              label: 'Ducatti',
+              subItems: ['Monster', 'Panigale'],
+            },
+            {
+              label: 'Honda',
+              subItems: ['Cbr 1000', 'Vfr 1200'],
+            },
+            {
+              label: 'Yamaha',
+              subItems: ['Fazer', 'R1', 'R6'],
+            },
+            {
+              label: 'Suzuki',
+              subItems: ['Gsxr', 'Intruder'],
+            },
+            {
+              label: 'Kawasaki',
+              subItems: ['Ninja 1000', 'Ninja 400', 'Ninja 600', 'Vulkan', 'H2r'],
+            },
+          ]}
+          onChange={updateSelectedMoto}
+          value={selectedMoto}
+        />
+      </Box>
+    </>
+  );
+};
+
+<Example6 />;
+```
