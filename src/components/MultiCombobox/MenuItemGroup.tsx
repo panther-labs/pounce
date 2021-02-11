@@ -4,7 +4,6 @@ import Text from '../Text';
 import Box from '../Box';
 import MenuItem from '../utils/MenuItem';
 import { TreeNode } from './MultiCombobox';
-import { typedMemo } from '../../utils/helpers';
 
 interface MenuItemGroupProps<T> {
   items: Array<T | TreeNode<T>>;
@@ -39,7 +38,7 @@ function MenuItemGroup<Item>({
           }
 
           return (
-            <Box as="li" listStyle="none">
+            <Box as="li" key={item.label} listStyle="none">
               <Text
                 position="sticky"
                 top={(depth - 1) * 50}
@@ -77,4 +76,4 @@ function MenuItemGroup<Item>({
   );
 }
 
-export default typedMemo(MenuItemGroup);
+export default MenuItemGroup;

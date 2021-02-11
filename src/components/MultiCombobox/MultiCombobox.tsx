@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { useMemo } from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
-//import { filter as fuzzySearch } from 'fuzzaldrin';
+import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
 import Icon from '../Icon';
 import Flex from '../Flex';
@@ -41,7 +41,7 @@ export type MultiComboboxProps<T> = {
   itemToString?: (item: T) => string;
 
   /**
-   * A function that accepts an item as a parameteer and returns `true` if the item should be
+   * A function that accepts an item as a parameter and returns `true` if the item should be
    * disabled or `false` otherwise. Defaults to `() => false`.
    */
   disableItem?: (item: T) => boolean;
@@ -123,6 +123,57 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
 };
 
 /**
+ * Function that recursively flattens the provided array of Menu Items.
+ *
+ * @param items An array that contains sub-array items
+ * @returns A new array with all sub-array items concatenated into it
+ */
+const flattenItems = <T,>(items: Array<T | TreeNode<T>>): T[] => {
+  const flatItems: T[] = [];
+  items.forEach(item => {
+    if (typeof item === 'object' && 'label' in item) {
+      flatItems.push(...flattenItems(item.subItems));
+    } else {
+      flatItems.push(item);
+    }
+  });
+
+  return flatItems;
+};
+
+/**
+ * Function that recursively filters the provided array of Menu Items.
+ *
+ * @param items An array that contains sub-array items
+ * @param allowedItemNames Array containing the names of the items that should be filtered
+ * @param itemToString A function that converts an item to a string.
+ * @returns A new array containing only the filtered elements
+ */
+const filterItems = <T,>(
+  items: Array<T | TreeNode<T>>,
+  allowedItemNames: string[],
+  itemToString: (item: T) => string
+): Array<T | TreeNode<T>> => {
+  const availableItems: Array<T | TreeNode<T>> = [];
+  items.forEach(item => {
+    if (typeof item === 'object' && 'label' in item) {
+      const subItems = filterItems(item.subItems, allowedItemNames, itemToString);
+      if (subItems.length > 0) {
+        availableItems.push({
+          label: item.label,
+          subItems,
+        });
+      }
+    } else {
+      if (allowedItemNames.includes(itemToString(item))) {
+        availableItems.push(item);
+      }
+    }
+  });
+  return availableItems;
+};
+
+/**
  * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenerever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
@@ -141,7 +192,7 @@ function MultiCombobox<Item>({
   allowAdditions = false,
   validateAddition = () => true,
   maxHeight = 300,
-  //maxResults,
+  maxResults,
   canClearAllAfter,
   invalid,
   hidden,
@@ -170,17 +221,9 @@ function MultiCombobox<Item>({
     onChange([]);
   };
 
-  // TODO: Find an elegant way to Flatten the nested items
-  // const flattenItems = (array: Item[], item: Item | TreeNode<Item>): Item[] => {
-  //   if ('label' in item) {
-  //     return array.concat(flattenItems(array, item.children));
-  //   }
-  //   return array.push(item);
-  // };
-
-  // const availableItems = useMemo(() => {
-  //   const a = flattenItems([], items[0]);
-  // }, []);
+  const availableItems = useMemo(() => {
+    return flattenItems(items);
+  }, [items]);
 
   const itemsPt = hideLabel ? 3 : '19px';
 
@@ -210,23 +253,23 @@ function MultiCombobox<Item>({
           inputVal !== '' && validateAddition(inputVal, value);
 
         const multiComboboxVariant = getVariant(isOpen);
-        // TODO: Same as above
+
         // If it's a multicombobox we DON'T WANT to include the results already selected and also
         // we want to make sure that the results get filtered by the search term of the user
-        // const nonSelectedItems = items.filter(
-        //   item => !value.map(itemToString).includes(itemToString(item))
-        // );
+        const nonSelectedItems = availableItems.filter(
+          item => !value.map(itemToString).includes(itemToString(item))
+        );
 
         // From the non-selected items, make sure to filter the ones that match the user's
         // search term. To do that we convert our items to their string representations
-        // const strResults = fuzzySearch(nonSelectedItems.map(itemToString), inputValue || '');
+        const strResults = fuzzySearch(nonSelectedItems.map(itemToString), inputValue || '').slice(
+          0,
+          maxResults
+        );
 
         // and then convert those strings back to the original shape of the items, while making
         // sure to only display a (potentially) limited number of them
-        // const results = items
-        //   .filter(item => strResults.includes(itemToString(item)))
-        //   .slice(0, maxResults);
-
+        const filteredItems = filterItems(items, strResults, itemToString);
         // Only show the items that have not been selected
 
         // We add 2 types of additional data to the input that is going to be renders:
@@ -371,12 +414,11 @@ function MultiCombobox<Item>({
             <Menu
               as="ul"
               maxHeight={maxHeight}
-              // TODO: Same as above
-              isOpen={isOpen && items.length > 0}
+              isOpen={isOpen && filteredItems.length > 0}
               {...getMenuProps()}
             >
               <MenuItemGroup
-                items={items}
+                items={filteredItems}
                 disableItem={disableItem}
                 getItemProps={getItemProps}
                 itemToString={itemToString}
