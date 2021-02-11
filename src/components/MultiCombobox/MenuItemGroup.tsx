@@ -44,6 +44,7 @@ function MenuItemGroup<Item>({
                 top={(depth - 1) * 50}
                 pl={depth * 4}
                 zIndex={9999 - depth}
+                truncated
                 fontWeight="bold"
                 textTransform="uppercase"
                 backgroundColor="navyblue-350"
