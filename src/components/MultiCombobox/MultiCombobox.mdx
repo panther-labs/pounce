@@ -202,77 +202,71 @@ const Example5 = () => {
 <Example5 />;
 ```
 
-A MultiCombobox can have arbitrary nested items:
+A MultiCombobox can have grouped items:
 
 ```typescript jsx
 const Example6 = () => {
   const [selectedCar, updateSelectedCar] = React.useState([]);
   const [selectedMoto, updateSelectedMoto] = React.useState([]);
   return (
-    <>
-      <Box width={0.4} mr={4}>
-        <MultiCombobox
-          label="Choose a car"
-          searchable
-          items={[
-            {
-              label: 'Toyota',
-              subItems: [
-                { label: 'Compact', subItems: ['Yaris', 'Aygo'] },
-                { label: 'Family', subItems: ['Auris', 'Corolla'] },
-              ],
-            },
-            {
-              label: 'Ford',
-              subItems: [
-                { label: 'Trucks', subItems: ['Ranger', 'Raptor'] },
-                { label: 'Compact', subItems: ['Focus', 'Fiesta'] },
-              ],
-            },
-            'Chevrolet',
-            'BMW',
-            'Mercedes',
-            'Hammer',
-            'Dodge',
-            'Audi',
-          ]}
-          onChange={updateSelectedCar}
-          value={selectedCar}
-          placeholder="Select cars"
-        />
-      </Box>
-      <Box width={0.5}>
-        <MultiCombobox
-          label="Choose a motorcycle"
-          hideLabel
-          placeholder="Choose a motorcycle"
-          items={[
-            {
-              label: 'Ducatti',
-              subItems: ['Monster', 'Panigale'],
-            },
-            {
-              label: 'Honda',
-              subItems: ['Cbr 1000', 'Vfr 1200'],
-            },
-            {
-              label: 'Yamaha',
-              subItems: ['Fazer', 'R1', 'R6'],
-            },
-            {
-              label: 'Suzuki',
-              subItems: ['Gsxr', 'Intruder'],
-            },
-            {
-              label: 'Kawasaki',
-              subItems: ['Ninja 1000', 'Ninja 400', 'Ninja 600', 'Vulkan', 'H2r'],
-            },
-          ]}
-          onChange={updateSelectedMoto}
-          value={selectedMoto}
-        />
-      </Box>
-    </>
+    <Box width={0.3}>
+      <MultiCombobox
+        label="Choose a motorcycle"
+        searchable
+        placeholder="Choose a motorcycle"
+        itemToString={item => item.value}
+        itemToGroup={item => item.category}
+        items={[
+          {
+            category: 'Ducatti',
+            value: 'Monster',
+          },
+          {
+            category: 'Ducatti',
+            value: 'Multistrada',
+          },
+          {
+            category: 'Ducatti',
+            value: 'Panigale',
+          },
+          {
+            category: 'Honda',
+            value: 'Cbr 1000',
+          },
+          {
+            category: 'Honda',
+            value: 'Vfr 1200',
+          },
+          {
+            category: 'Honda',
+            value: 'Lead',
+          },
+          {
+            category: 'Yamaha',
+            value: 'Fazer',
+          },
+          {
+            category: 'Yamaha',
+            value: 'R1',
+          },
+
+          {
+            category: 'Yamaha',
+            value: 'Yzf 250',
+          },
+          {
+            category: 'Suzuki',
+            value: 'Gsxr',
+          },
+          {
+            category: 'Kawasaki',
+            value: 'Ninja 1000',
+          },
+        ]}
+        onChange={updateSelectedMoto}
+        value={selectedMoto}
+      />
+    </Box>
   );
 };
 
