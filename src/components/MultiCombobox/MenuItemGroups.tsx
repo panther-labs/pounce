@@ -5,14 +5,13 @@ import Box from '../Box';
 import MenuItem from '../utils/MenuItem';
 import { typedMemo } from '../../utils/helpers';
 import groupBy from 'lodash/groupBy';
-import map from 'lodash/map';
 
 interface MenuItemGroupProps<T> {
   items: T[];
   disableItem: (item: T) => boolean;
   getItemProps: (options: GetItemPropsOptions<T>) => T;
   itemToString: (item: T) => string;
-  itemToGroup: (item: T) => keyof T;
+  itemToGroup: (item: T) => string;
   selectedItem?: T | null;
 }
 
@@ -29,8 +28,8 @@ function MenuItemGroups<Item>({
 
   return (
     <>
-      {map(groupedItems, (items, key) => (
-        <Box as="li" key={key} listStyle="none">
+      {Object.entries(groupedItems).map(([groupName, items]) => (
+        <Box aria-label={`Group ${groupName}`} as="li" key={groupName} listStyle="none">
           <Text
             position="sticky"
             top={0}
@@ -41,7 +40,7 @@ function MenuItemGroups<Item>({
             textTransform="uppercase"
             backgroundColor="navyblue-350"
           >
-            {key}
+            {groupName}
           </Text>
           <Box as="ul">
             {items.map(item => (
