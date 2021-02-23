@@ -1,6 +1,4 @@
-import { Tabs as ReachTabs, TabsProps as ReachTabsProps } from '@reach/tabs';
+import { Tabs } from '@reach/tabs';
 
-export const Tabs = ReachTabs;
-export type TabsProps = ReachTabsProps;
-
+export { Tabs, TabsProps, TabsOrientation } from '@reach/tabs';
 export default Tabs;
