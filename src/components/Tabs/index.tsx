@@ -4,7 +4,9 @@ export { default as Tab } from './Tab';
 export { default as TabPanels } from './TabPanels';
 export { default as TabPanel } from './TabPanel';
 
-export type { TabsProps, TabsOrientation } from './Tabs';
+export type { TabsProps } from './Tabs';
 export type { TabListProps } from './TabList';
 export type { TabProps } from './Tab';
 export type { TabPanelsProps } from './TabPanels';
+
+export { TabsOrientation } from './Tabs';
