@@ -209,64 +209,109 @@ const Example6 = () => {
   const [selectedCar, updateSelectedCar] = React.useState([]);
   const [selectedMoto, updateSelectedMoto] = React.useState([]);
   return (
-    <Box width={0.5}>
-      <MultiCombobox
-        label="Choose a motorcycle"
-        searchable
-        placeholder="Choose a motorcycle"
-        itemToString={item => item.value}
-        itemToGroup={item => item.category}
-        items={[
-          {
-            category: 'Ducatti',
-            value: 'Monster',
-          },
-          {
-            category: 'Ducatti',
-            value: 'Multistrada',
-          },
-          {
-            category: 'Ducatti',
-            value: 'Panigale',
-          },
-          {
-            category: 'Honda',
-            value: 'Cbr 1000',
-          },
-          {
-            category: 'Honda',
-            value: 'Vfr 1200',
-          },
-          {
-            category: 'Honda',
-            value: 'Lead',
-          },
-          {
-            category: 'Yamaha',
-            value: 'Fazer',
-          },
-          {
-            category: 'Yamaha',
-            value: 'R1',
-          },
+    <>
+      <Box width={0.4} mr={3}>
+        <MultiCombobox
+          label="Choose a motorcycle"
+          searchable
+          placeholder="Choose a motorcycle"
+          itemToString={item => item.value}
+          itemToGroup={item => item.category}
+          items={[
+            {
+              category: 'Ducatti',
+              value: 'Monster',
+            },
+            {
+              category: 'Ducatti',
+              value: 'Multistrada',
+            },
+            {
+              category: 'Ducatti',
+              value: 'Panigale',
+            },
+            {
+              category: 'Honda',
+              value: 'Cbr 1000',
+            },
+            {
+              category: 'Honda',
+              value: 'Vfr 1200',
+            },
+            {
+              category: 'Honda',
+              value: 'Lead',
+            },
+            {
+              category: 'Yamaha',
+              value: 'Fazer',
+            },
+            {
+              category: 'Yamaha',
+              value: 'R1',
+            },
 
-          {
-            category: 'Yamaha',
-            value: 'Yzf 250',
-          },
-          {
-            category: 'Suzuki',
-            value: 'Gsxr',
-          },
-          {
-            category: 'Kawasaki',
-            value: 'Ninja 1000',
-          },
-        ]}
-        onChange={updateSelectedMoto}
-        value={selectedMoto}
-      />
-    </Box>
+            {
+              category: 'Yamaha',
+              value: 'Yzf 250',
+            },
+            {
+              category: 'Suzuki',
+              value: 'Gsxr',
+            },
+            {
+              category: 'Kawasaki',
+              value: 'Ninja 1000',
+            },
+          ]}
+          onChange={updateSelectedMoto}
+          value={selectedMoto}
+        />
+      </Box>
+      <Box width={0.4}>
+        <MultiCombobox
+          label="Choose a car"
+          searchable
+          placeholder="Choose a car"
+          itemToString={item => item.value}
+          itemToGroup={item => item.category}
+          items={[
+            {
+              category: 'Toyota',
+              value: 'Corolla',
+            },
+            {
+              category: 'Toyota',
+              value: 'Yaris',
+            },
+            {
+              category: 'Ford',
+              value: 'Focus',
+            },
+            {
+              category: 'Ford',
+              value: 'Fiesta',
+            },
+            {
+              category: 'Ford',
+              value: 'Ranger',
+            },
+            {
+              category: 'Honda',
+              value: 'Lead',
+            },
+            {
+              value: 'Custom Ultra Wheel',
+            },
+            {
+              value: 'Custom Ultra Motor sports',
+            },
+          ]}
+          onChange={updateSelectedCar}
+          value={selectedCar}
+        />
+      </Box>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { renderWithTheme, fireClickAndMouseEvents, fireEvent } from 'test-utils';
+import { renderWithTheme, fireClickAndMouseEvents, fireEvent, within } from 'test-utils';
 import React from 'react';
 import MultiCombobox, { MultiComboboxProps } from './index';
 
@@ -231,7 +231,7 @@ describe('MultiCombobox', () => {
   });
 
   it('works with grouped items', async () => {
-    const { getByText, getByPlaceholderText } = renderWithTheme(
+    const { getByText, getByPlaceholderText, container } = renderWithTheme(
       <ControlledMultiCombobox
         itemToGroup={i => i.manufacturer}
         itemToString={i => i.value}
@@ -244,15 +244,19 @@ describe('MultiCombobox', () => {
     );
 
     fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
-    const toyotaGroup = getByText('Toyota');
-    const fordGroup = getByText('Ford');
-    expect(toyotaGroup).toBeInTheDocument();
+    const fordGroup = container.querySelector('[aria-label="Group Ford"]');
     expect(fordGroup).toBeInTheDocument();
+    const toyotaGroup = container.querySelector('[aria-label="Group Toyota"]');
+    expect(toyotaGroup).toBeInTheDocument();
 
-    expect(getByText('Yaris')).toBeInTheDocument();
-    expect(getByText('Auris')).toBeInTheDocument();
-    expect(getByText('Focus')).toBeInTheDocument();
+    const { getByText: getByTextInToyotaGroup } = within(toyotaGroup);
+    expect(getByTextInToyotaGroup('Yaris')).toBeInTheDocument();
+    expect(getByTextInToyotaGroup('Auris')).toBeInTheDocument();
 
+    const { getByText: getByTextInFordGroup } = within(fordGroup);
+    expect(getByTextInFordGroup('Focus')).toBeInTheDocument();
+
+    // Make sure that a group is removed from dom when it is empty
     fireClickAndMouseEvents(await getByText('Focus'));
     expect(fordGroup).not.toBeInTheDocument();
     expect(toyotaGroup).toBeInTheDocument();
