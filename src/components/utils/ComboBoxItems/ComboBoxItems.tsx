@@ -40,7 +40,10 @@ function ComboBoxItems<Item>({
                     as="li"
                     listStyle="none"
                     key={rest.itemToString(item)}
-                    selected={item === rest.selectedItem}
+                    selected={
+                      !!rest.selectedItem &&
+                      rest.itemToString(item) === rest.itemToString(rest.selectedItem)
+                    }
                   >
                     {rest.itemToString(item)}
                   </MenuItem>
@@ -72,7 +75,10 @@ function ComboBoxItems<Item>({
                   listStyle="none"
                   grouped
                   key={rest.itemToString(item)}
-                  selected={item === rest.selectedItem}
+                  selected={
+                    !!rest.selectedItem &&
+                    rest.itemToString(item) === rest.itemToString(rest.selectedItem)
+                  }
                 >
                   {rest.itemToString(item)}
                 </MenuItem>

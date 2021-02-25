@@ -2,18 +2,30 @@ import { renderWithTheme, fireClickAndMouseEvents, fireEvent, within } from 'tes
 import React from 'react';
 import MultiCombobox, { MultiComboboxProps } from './index';
 
-const items = ['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi'];
+type Item = { value: string; category: string };
 
-const ControlledMultiCombobox = <T,>(props: Partial<MultiComboboxProps<T>>) => {
-  const [selectedManufacturer, updateSelectedManufacturer] = React.useState<T[]>([]);
+const items = [
+  { value: 'Toyota', category: 'Normal' },
+  { value: 'Ford', category: 'Normal' },
+  { value: 'Chevrolet', category: 'Luxury' },
+  { value: 'BMW', category: 'Luxury' },
+  { value: 'Mercedes', category: 'Luxury' },
+  { value: 'Hammer', category: 'Luxury' },
+  { value: 'Dodge', category: 'Luxury' },
+  { value: 'Audi', category: 'Luxury' },
+];
+
+const ControlledMultiCombobox: React.FC<Partial<MultiComboboxProps<Item>>> = props => {
+  const [selectedManufacturer, updateSelectedManufacturer] = React.useState<Item[]>([]);
 
   return (
-    <MultiCombobox<T>
+    <MultiCombobox
       label="Choose a car manufacturer"
       onChange={updateSelectedManufacturer}
       value={selectedManufacturer}
       placeholder="Select manufacturers"
-      items={props.items}
+      items={items}
+      itemToString={item => item.value}
       {...props}
     />
   );
@@ -21,20 +33,18 @@ const ControlledMultiCombobox = <T,>(props: Partial<MultiComboboxProps<T>>) => {
 
 describe('MultiCombobox', () => {
   it('renders', () => {
-    const { container } = renderWithTheme(<ControlledMultiCombobox items={items} />);
+    const { container } = renderWithTheme(<ControlledMultiCombobox />);
     expect(container).toMatchSnapshot();
   });
 
   it('renders with variant="solid"', () => {
-    const { container } = renderWithTheme(
-      <ControlledMultiCombobox items={items} variant="solid" />
-    );
+    const { container } = renderWithTheme(<ControlledMultiCombobox variant="solid" />);
     expect(container).toMatchSnapshot();
   });
 
   it('renders with clear all option', async () => {
     const { container, getByText, getByPlaceholderText } = renderWithTheme(
-      <ControlledMultiCombobox items={items} canClearAllAfter={2} />
+      <ControlledMultiCombobox canClearAllAfter={2} />
     );
     fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
     fireClickAndMouseEvents(await getByText('Toyota'));
@@ -46,7 +56,7 @@ describe('MultiCombobox', () => {
 
   it('works without being searchable', async () => {
     const { getByText, getByPlaceholderText, getAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} />
+      <ControlledMultiCombobox />
     );
 
     fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
@@ -58,7 +68,7 @@ describe('MultiCombobox', () => {
 
   it('works while searchable', async () => {
     const { getByText, getByPlaceholderText, getAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable />
+      <ControlledMultiCombobox searchable />
     );
 
     const input = getByPlaceholderText('Select manufacturers');
@@ -82,7 +92,7 @@ describe('MultiCombobox', () => {
       getAllByRole,
       queryByText,
       queryAllByRole,
-    } = renderWithTheme(<ControlledMultiCombobox items={items} canClearAllAfter={4} />);
+    } = renderWithTheme(<ControlledMultiCombobox canClearAllAfter={4} />);
 
     fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
     fireClickAndMouseEvents(await getByText('Toyota'));
@@ -99,7 +109,7 @@ describe('MultiCombobox', () => {
 
   it("it doesn't allow custom additions by default", async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable />
+      <ControlledMultiCombobox searchable />
     );
 
     const input = getByPlaceholderText('Select manufacturers');
@@ -112,7 +122,7 @@ describe('MultiCombobox', () => {
 
   it('works while allowing custom values', async () => {
     const { getByPlaceholderText, getAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable allowAdditions />
+      <ControlledMultiCombobox searchable allowAdditions />
     );
 
     const input = getByPlaceholderText('Select manufacturers');
@@ -129,7 +139,6 @@ describe('MultiCombobox', () => {
   it('correctly filters custom values when specified', async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
       <ControlledMultiCombobox
-        items={items}
         searchable
         allowAdditions
         validateAddition={text => text.includes('pounce')}
@@ -150,7 +159,7 @@ describe('MultiCombobox', () => {
 
   it("doesn't tokenize value on blur when custom values are disallowed", async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable />
+      <ControlledMultiCombobox searchable />
     );
 
     const input = getByPlaceholderText('Select manufacturers') as HTMLInputElement;
@@ -164,7 +173,7 @@ describe('MultiCombobox', () => {
 
   it('tokenizes value on blur when custom values are allowed', async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable allowAdditions />
+      <ControlledMultiCombobox searchable allowAdditions />
     );
 
     const input = getByPlaceholderText('Select manufacturers');
@@ -177,7 +186,7 @@ describe('MultiCombobox', () => {
 
   it('does not auto-tokenize a single pasted value', async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable allowAdditions />
+      <ControlledMultiCombobox searchable allowAdditions />
     );
 
     const input = getByPlaceholderText('Select manufacturers');
@@ -188,7 +197,7 @@ describe('MultiCombobox', () => {
 
   it("auto-tokenizes a pasted value that's separated with commas or newlines", async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable allowAdditions />
+      <ControlledMultiCombobox searchable allowAdditions />
     );
 
     const input = getByPlaceholderText('Select manufacturers');
@@ -201,7 +210,7 @@ describe('MultiCombobox', () => {
 
   it("doesn't allow empty values to be added manually", async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable allowAdditions />
+      <ControlledMultiCombobox searchable allowAdditions />
     );
 
     const input = getByPlaceholderText('Select manufacturers');
@@ -219,7 +228,7 @@ describe('MultiCombobox', () => {
 
   it("doesn't allow empty values being pasted", async () => {
     const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox items={items} searchable allowAdditions />
+      <ControlledMultiCombobox searchable allowAdditions />
     );
 
     const input = getByPlaceholderText('Select manufacturers');
@@ -231,34 +240,27 @@ describe('MultiCombobox', () => {
   });
 
   it('works with grouped items', async () => {
-    const { getByText, getByPlaceholderText, container } = renderWithTheme(
-      <ControlledMultiCombobox
-        itemToGroup={i => i.manufacturer}
-        itemToString={i => i.value}
-        items={[
-          { manufacturer: 'Toyota', value: 'Yaris' },
-          { manufacturer: 'Toyota', value: 'Auris' },
-          { manufacturer: 'Ford', value: 'Focus' },
-        ]}
-      />
+    const { getByPlaceholderText, container } = renderWithTheme(
+      <ControlledMultiCombobox itemToGroup={i => i.category} itemToString={i => i.value} />
     );
 
     fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
-    const fordGroup = container.querySelector('[aria-label="Group Ford"]');
-    expect(fordGroup).toBeInTheDocument();
-    const toyotaGroup = container.querySelector('[aria-label="Group Toyota"]');
-    expect(toyotaGroup).toBeInTheDocument();
+    const normalGroup = container.querySelector('[aria-label="Group Normal"]');
+    expect(normalGroup).toBeInTheDocument();
+    const luxuryGroup = container.querySelector('[aria-label="Group Luxury"]');
+    expect(luxuryGroup).toBeInTheDocument();
 
-    const { getByText: getByTextInToyotaGroup } = within(toyotaGroup);
-    expect(getByTextInToyotaGroup('Yaris')).toBeInTheDocument();
-    expect(getByTextInToyotaGroup('Auris')).toBeInTheDocument();
+    const { getByText: getByTextInLuxuryGroup } = within(luxuryGroup);
+    expect(getByTextInLuxuryGroup('BMW')).toBeInTheDocument();
 
-    const { getByText: getByTextInFordGroup } = within(fordGroup);
-    expect(getByTextInFordGroup('Focus')).toBeInTheDocument();
+    const { getByText: getByTextInNormalGroup } = within(normalGroup);
+    const toyota = getByTextInNormalGroup('Toyota');
+    const ford = getByTextInNormalGroup('Ford');
 
     // Make sure that a group is removed from dom when it is empty
-    fireClickAndMouseEvents(await getByText('Focus'));
-    expect(fordGroup).not.toBeInTheDocument();
-    expect(toyotaGroup).toBeInTheDocument();
+    fireClickAndMouseEvents(ford);
+    fireClickAndMouseEvents(toyota);
+    expect(normalGroup).not.toBeInTheDocument();
+    expect(luxuryGroup).toBeInTheDocument();
   });
 });

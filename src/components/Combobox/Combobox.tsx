@@ -3,11 +3,11 @@ import React from 'react';
 import Downshift from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
-import MenuItem from '../utils/MenuItem';
 import Icon from '../Icon';
 import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
-import { typedMemo, slugify, __DEV__ } from '../../utils/helpers';
+import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
+import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
 
 export type ComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -34,6 +34,11 @@ export type ComboboxProps<T> = {
    * so it should be unique (which should be by default since you wouldn't want to expose duplicate
    * values to the user) */
   itemToString?: (item: T) => string;
+
+  /**
+   * A function used to group the Menu Items.
+   */
+  itemToGroup?: (item: T) => string | undefined;
 
   /**
    * A function that accepts an item as a parameteer and returns `true` if the item should be
@@ -90,6 +95,7 @@ function Combobox<Item>({
   disabled = false,
   disableItem = () => false,
   itemToString = item => String(item),
+  itemToGroup,
   maxHeight = 300,
   maxResults,
   invalid,
@@ -225,18 +231,14 @@ function Combobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
-              {results.map(item => (
-                <MenuItem
-                  {...getItemProps({ item, disabled: disableItem(item) })}
-                  as="li"
-                  data-testid={__DEV__ ? slugify(label + '-' + itemToString(item)) : undefined}
-                  listStyle="none"
-                  key={itemToString(item)}
-                  selected={item === selectedItem}
-                >
-                  {itemToString(item)}
-                </MenuItem>
-              ))}
+              <ComboBoxItems
+                items={results}
+                disableItem={disableItem}
+                getItemProps={getItemProps}
+                itemToString={itemToString}
+                itemToGroup={itemToGroup}
+                selectedItem={selectedItem}
+              />
             </Menu>
           </Box>
         );
