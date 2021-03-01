@@ -314,7 +314,7 @@ function MultiCombobox<Item>({
                       minWidth="60px"
                       position={isOpen && searchable ? 'relative' : 'initial'}
                     >
-                      {isOpen && (
+                      {isOpen && searchable && (
                         <InputElement
                           as="span"
                           px={2}
