@@ -24,9 +24,6 @@ function ComboBoxItems<Item>({
   ...rest
 }: ComboBoxItemsProps<Item>): React.ReactElement<ComboBoxItemsProps<Item>> {
   const groupedItems = React.useMemo(() => {
-    if (!itemToGroup) {
-      return [];
-    }
     return groupBy(items, itemToGroup);
   }, [items, itemToGroup]);
 
