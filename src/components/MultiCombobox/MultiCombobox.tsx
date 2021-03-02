@@ -3,7 +3,6 @@ import React from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
-import MenuItem from '../utils/MenuItem';
 import Icon from '../Icon';
 import Flex from '../Flex';
 import { InputControl, InputLabel, InputElement, InputElementProps } from '../utils/Input';
@@ -11,6 +10,7 @@ import Tag from './Tag';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 import AbstractButton from '../AbstractButton';
+import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -36,7 +36,12 @@ export type MultiComboboxProps<T> = {
   itemToString?: (item: T) => string;
 
   /**
-   * A function that accepts an item as a parameteer and returns `true` if the item should be
+   * A function used to group the Menu Items.
+   */
+  itemToGroup?: (item: T) => string;
+
+  /**
+   * A function that accepts an item as a parameter and returns `true` if the item should be
    * disabled or `false` otherwise. Defaults to `() => false`.
    */
   disableItem?: (item: T) => boolean;
@@ -133,6 +138,7 @@ function MultiCombobox<Item>({
   disabled = false,
   placeholder = '',
   itemToString = item => String(item),
+  itemToGroup,
   allowAdditions = false,
   validateAddition = () => true,
   maxHeight = 300,
@@ -356,17 +362,14 @@ function MultiCombobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
-              {results.map(item => (
-                <MenuItem
-                  {...getItemProps({ item, disabled: disableItem(item) })}
-                  as="li"
-                  listStyle="none"
-                  key={itemToString(item)}
-                  selected={item === selectedItem}
-                >
-                  {itemToString(item)}
-                </MenuItem>
-              ))}
+              <ComboBoxItems
+                items={results}
+                disableItem={disableItem}
+                getItemProps={getItemProps}
+                itemToString={itemToString}
+                itemToGroup={itemToGroup}
+                selectedItem={selectedItem}
+              />
             </Menu>
           </Box>
         );

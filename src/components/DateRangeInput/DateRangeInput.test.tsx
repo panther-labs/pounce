@@ -108,7 +108,7 @@ it('allows changing time options in 24h mode', async () => {
     findByLabelText,
     getByLabelText,
     findByText,
-    findByTestId,
+    getByRole,
   } = await renderWithTheme(
     <DateRangeInput
       value={[start.toDate(), endDate.toDate()]}
@@ -134,11 +134,11 @@ it('allows changing time options in 24h mode', async () => {
   expect(container).toMatchSnapshot();
 
   await fireEvent.focus(endingHours);
-  const sixOhClock = await findByTestId('to-time-hours-16');
+  const sixOhClock = getByRole('option', { name: /16/i });
   await fireEvent.click(sixOhClock);
 
   await fireEvent.focus(endingMinutes);
-  const fiftyMinutes = await findByTestId('to-time-minutes-50');
+  const fiftyMinutes = getByRole('option', { name: /50/i });
   await fireEvent.click(fiftyMinutes);
 
   const submitBtn = await findByText('Apply');
@@ -157,7 +157,7 @@ it('allows changing time options in 12h mode', async () => {
   const mock = jest.fn();
   const endDate = end.add(3, 'hour').minute(59);
 
-  const { findByLabelText, getByLabelText, findByText, findByTestId } = await renderWithTheme(
+  const { findByLabelText, getByLabelText, findByText, getByRole } = await renderWithTheme(
     <DateRangeInput
       value={[start.toDate(), endDate.toDate()]}
       id="test-hours"
@@ -181,12 +181,12 @@ it('allows changing time options in 12h mode', async () => {
   expect(endingPeriod.value).toBe('AM');
 
   await fireEvent.focus(endingHours);
-  const sixOhClock = await findByTestId('to-time-hours-07');
-  await fireEvent.click(sixOhClock);
+  const sevenOhClock = getByRole('option', { name: /07/i });
+  await fireEvent.click(sevenOhClock);
 
   await fireEvent.focus(endingMinutes);
-  const fiftyMinutes = await findByTestId('to-time-minutes-22');
-  await fireEvent.click(fiftyMinutes);
+  const twentyTwoMinutes = getByRole('option', { name: /22/i });
+  await fireEvent.click(twentyTwoMinutes);
 
   const submitBtn = await findByText('Apply');
   await fireEvent.click(submitBtn);
@@ -205,7 +205,7 @@ it.only('allows changing time options in 24h mode', async () => {
   const mock = jest.fn();
   const endDate = end.add(3, 'hour').minute(59);
 
-  const { findByLabelText, getByLabelText, findByText, findByTestId } = await renderWithTheme(
+  const { findByLabelText, getByLabelText, findByText, getByRole } = await renderWithTheme(
     <DateRangeInput
       value={[start.toDate(), endDate.toDate()]}
       id="test-hours"
@@ -227,11 +227,12 @@ it.only('allows changing time options in 24h mode', async () => {
   expect(endingMinutes.value).toBe('59');
 
   await fireEvent.focus(endingHours);
-  const twelve = await findByTestId('to-time-hours-00');
+  const twelve = getByRole('option', { name: /00/i });
   await fireEvent.click(twelve);
 
   await fireEvent.focus(endingMinutes);
-  const fiftyMinutes = await findByTestId('to-time-minutes-22');
+  const fiftyMinutes = getByRole('option', { name: /22/i });
+
   await fireEvent.click(fiftyMinutes);
 
   const submitBtn = await findByText('Apply');
@@ -256,7 +257,7 @@ it.only('is disabled when start date is after end date', async () => {
     getAllByRole,
     findByText,
     getByLabelText,
-    findByTestId,
+    getByRole,
   } = await renderWithTheme(
     <DateRangeInput
       value={[start.toDate(), endDate.toDate()]}
@@ -284,12 +285,13 @@ it.only('is disabled when start date is after end date', async () => {
   const startMinutes = await getByLabelText('From Time Minutes', { selector: 'input' });
 
   await fireEvent.focus(startHours);
-  const one = await findByTestId('from-time-hours-12');
+  const one = getByRole('option', { name: /12/i });
+
   await fireEvent.click(one);
 
   await fireEvent.focus(startMinutes);
-  const oneMinute = await findByTestId('from-time-minutes-40');
-  await fireEvent.click(oneMinute);
+  const fourtyMinutes = getByRole('option', { name: /40/i });
+  await fireEvent.click(fourtyMinutes);
   expect(submitBtn).toHaveAttribute('disabled');
 });
 
@@ -297,7 +299,7 @@ it.only('rounds start and end dates by minute', async () => {
   const mock = jest.fn();
   const endDate = end.add(3, 'hour').minute(59);
 
-  const { findByLabelText, getByLabelText, findByText, findByTestId } = await renderWithTheme(
+  const { findByLabelText, getByLabelText, findByText, getByRole } = await renderWithTheme(
     <DateRangeInput
       value={[start.toDate(), endDate.toDate()]}
       id="test-hours"
@@ -316,11 +318,11 @@ it.only('rounds start and end dates by minute', async () => {
   const endingMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
 
   await fireEvent.focus(endingHours);
-  const twelve = await findByTestId('to-time-hours-12');
+  const twelve = getByRole('option', { name: /12/i });
   await fireEvent.click(twelve);
 
   await fireEvent.focus(endingMinutes);
-  const thirtyMinutes = await findByTestId('to-time-minutes-30');
+  const thirtyMinutes = getByRole('option', { name: /30/i });
   await fireEvent.click(thirtyMinutes);
 
   const submitBtn = await findByText('Apply');
@@ -369,7 +371,7 @@ it.only('allows selecting dates with utc timezone', async () => {
     getAllByRole,
     findByText,
     getByLabelText,
-    findByTestId,
+    getByRole,
   } = await renderWithTheme(
     <DateRangeInput
       value={[startDate.toDate(), endDate.toDate()]}
@@ -393,11 +395,11 @@ it.only('allows selecting dates with utc timezone', async () => {
 
   // Change hour to 14H
   await fireEvent.focus(endingHours);
-  const two = await findByTestId('to-time-hours-14');
+  const two = getByRole('option', { name: /14/i });
   await fireEvent.click(two);
   // Change minutes to 20M
   await fireEvent.focus(endingMinutes);
-  const twenty = await findByTestId('to-time-minutes-20');
+  const twenty = getByRole('option', { name: /20/i });
   await fireEvent.click(twenty);
   const submitBtn = await findByText('Apply');
   await fireEvent.click(submitBtn);
