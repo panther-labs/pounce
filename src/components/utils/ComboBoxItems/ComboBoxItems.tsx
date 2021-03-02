@@ -10,7 +10,7 @@ interface ComboBoxItemsProps<T> {
   disableItem: (item: T) => boolean;
   getItemProps: (options: GetItemPropsOptions<T>) => T;
   itemToString: (item: T) => string;
-  itemToGroup?: (item: T) => string | undefined;
+  itemToGroup?: (item: T) => string;
   selectedItem?: T | null;
 }
 
@@ -20,73 +20,74 @@ interface ComboBoxItemsProps<T> {
  */
 function ComboBoxItems<Item>({
   items,
-  itemToGroup = () => undefined,
+  itemToGroup,
   ...rest
 }: ComboBoxItemsProps<Item>): React.ReactElement<ComboBoxItemsProps<Item>> {
   const groupedItems = React.useMemo(() => {
+    if (!itemToGroup) {
+      return [];
+    }
     return groupBy(items, itemToGroup);
   }, [items, itemToGroup]);
 
+  if (!itemToGroup) {
+    return (
+      <>
+        {items.map(item => {
+          return (
+            <MenuItem
+              {...rest.getItemProps({ item, disabled: rest.disableItem(item) })}
+              as="li"
+              listStyle="none"
+              key={rest.itemToString(item)}
+              selected={
+                !!rest.selectedItem &&
+                rest.itemToString(item) === rest.itemToString(rest.selectedItem)
+              }
+            >
+              {rest.itemToString(item)}
+            </MenuItem>
+          );
+        })}
+      </>
+    );
+  }
+
   return (
     <>
-      {Object.entries(groupedItems).map(([groupName, items]) => {
-        if (groupName === 'undefined') {
-          return (
-            <React.Fragment key={groupName}>
-              {items.map(item => {
-                return (
-                  <MenuItem
-                    {...rest.getItemProps({ item, disabled: rest.disableItem(item) })}
-                    as="li"
-                    listStyle="none"
-                    key={rest.itemToString(item)}
-                    selected={
-                      !!rest.selectedItem &&
-                      rest.itemToString(item) === rest.itemToString(rest.selectedItem)
-                    }
-                  >
-                    {rest.itemToString(item)}
-                  </MenuItem>
-                );
-              })}
-            </React.Fragment>
-          );
-        }
-
-        return (
-          <Box aria-label={`Group ${groupName}`} as="li" key={groupName} listStyle="none">
-            <Text
-              position="sticky"
-              top={0}
-              pl={4}
-              py={4}
-              zIndex={1}
-              fontWeight="bold"
-              textTransform="uppercase"
-              backgroundColor="navyblue-350"
-            >
-              {groupName}
-            </Text>
-            <Box as="ul" role="listbox">
-              {items.map(item => (
-                <MenuItem
-                  {...rest.getItemProps({ item, disabled: rest.disableItem(item) })}
-                  as="li"
-                  listStyle="none"
-                  grouped
-                  key={rest.itemToString(item)}
-                  selected={
-                    !!rest.selectedItem &&
-                    rest.itemToString(item) === rest.itemToString(rest.selectedItem)
-                  }
-                >
-                  {rest.itemToString(item)}
-                </MenuItem>
-              ))}
-            </Box>
+      {Object.entries(groupedItems).map(([groupName, items]) => (
+        <Box aria-label={`Group ${groupName}`} as="li" key={groupName} listStyle="none">
+          <Text
+            position="sticky"
+            top={0}
+            pl={4}
+            py={4}
+            zIndex={1}
+            fontWeight="bold"
+            textTransform="uppercase"
+            backgroundColor="navyblue-350"
+          >
+            {groupName}
+          </Text>
+          <Box as="ul" role="listbox">
+            {items.map(item => (
+              <MenuItem
+                {...rest.getItemProps({ item, disabled: rest.disableItem(item) })}
+                as="li"
+                listStyle="none"
+                nested
+                key={rest.itemToString(item)}
+                selected={
+                  !!rest.selectedItem &&
+                  rest.itemToString(item) === rest.itemToString(rest.selectedItem)
+                }
+              >
+                {rest.itemToString(item)}
+              </MenuItem>
+            ))}
           </Box>
-        );
-      })}
+        </Box>
+      ))}
     </>
   );
 }

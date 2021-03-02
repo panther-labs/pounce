@@ -38,7 +38,7 @@ export type ComboboxProps<T> = {
   /**
    * A function used to group the Menu Items.
    */
-  itemToGroup?: (item: T) => string | undefined;
+  itemToGroup?: (item: T) => string;
 
   /**
    * A function that accepts an item as a parameteer and returns `true` if the item should be
