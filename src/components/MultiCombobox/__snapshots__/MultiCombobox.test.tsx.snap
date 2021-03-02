@@ -57,7 +57,6 @@ exports[`MultiCombobox renders 1`] = `
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  min-width: 60px;
   position: initial;
 }
 
@@ -266,7 +265,6 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  min-width: 60px;
   position: initial;
 }
 
@@ -681,7 +679,6 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  min-width: 60px;
   position: initial;
 }
 
@@ -1131,7 +1128,6 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  min-width: 60px;
   position: initial;
 }
 
