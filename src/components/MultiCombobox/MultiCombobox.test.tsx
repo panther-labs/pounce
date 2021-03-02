@@ -1,17 +1,31 @@
-import { renderWithTheme, fireClickAndMouseEvents, fireEvent } from 'test-utils';
+import { renderWithTheme, fireClickAndMouseEvents, fireEvent, within } from 'test-utils';
 import React from 'react';
 import MultiCombobox, { MultiComboboxProps } from './index';
 
-const ControlledMultiCombobox: React.FC<Partial<MultiComboboxProps<string>>> = props => {
-  const [selectedManufacturer, updateSelectedManufacturer] = React.useState<string[]>([]);
+type Item = { value: string; category: string };
+
+const items = [
+  { value: 'Toyota', category: 'Normal' },
+  { value: 'Ford', category: 'Normal' },
+  { value: 'Chevrolet', category: 'Luxury' },
+  { value: 'BMW', category: 'Luxury' },
+  { value: 'Mercedes', category: 'Luxury' },
+  { value: 'Hammer', category: 'Luxury' },
+  { value: 'Dodge', category: 'Luxury' },
+  { value: 'Audi', category: 'Luxury' },
+];
+
+const ControlledMultiCombobox: React.FC<Partial<MultiComboboxProps<Item>>> = props => {
+  const [selectedManufacturer, updateSelectedManufacturer] = React.useState<Item[]>([]);
 
   return (
-    <MultiCombobox<string>
+    <MultiCombobox
       label="Choose a car manufacturer"
-      items={['Toyota', 'Ford', 'Chevrolet', 'BMW', 'Mercedes', 'Hammer', 'Dodge', 'Audi']}
       onChange={updateSelectedManufacturer}
       value={selectedManufacturer}
       placeholder="Select manufacturers"
+      items={items}
+      itemToString={item => item.value}
       {...props}
     />
   );
@@ -223,5 +237,30 @@ describe('MultiCombobox', () => {
       clipboardData: { getData: () => 'Random Value 1\r\n\r\n\r\nRandom Value 2' },
     });
     expect(queryAllByRole('tag')).toHaveLength(2);
+  });
+
+  it('works with grouped items', async () => {
+    const { getByPlaceholderText, container } = renderWithTheme(
+      <ControlledMultiCombobox itemToGroup={i => i.category} itemToString={i => i.value} />
+    );
+
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
+    const normalGroup = container.querySelector('[aria-label="Group Normal"]');
+    expect(normalGroup).toBeInTheDocument();
+    const luxuryGroup = container.querySelector('[aria-label="Group Luxury"]');
+    expect(luxuryGroup).toBeInTheDocument();
+
+    const { getByText: getByTextInLuxuryGroup } = within(luxuryGroup);
+    expect(getByTextInLuxuryGroup('BMW')).toBeInTheDocument();
+
+    const { getByText: getByTextInNormalGroup } = within(normalGroup);
+    const toyota = getByTextInNormalGroup('Toyota');
+    const ford = getByTextInNormalGroup('Ford');
+
+    // Make sure that a group is removed from dom when it is empty
+    fireClickAndMouseEvents(ford);
+    fireClickAndMouseEvents(toyota);
+    expect(normalGroup).not.toBeInTheDocument();
+    expect(luxuryGroup).toBeInTheDocument();
   });
 });
