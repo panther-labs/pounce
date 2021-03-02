@@ -224,7 +224,7 @@ function MultiCombobox<Item>({
             placeholder: !value.length ? placeholder : '',
           }),
           ...(searchable && {
-            placeholder: hideLabel && value.length && !isOpen ? '' : placeholder,
+            placeholder: (hideLabel && value.length && !isOpen) || value.length ? '' : placeholder,
             p: isOpen ? 1 : null,
           }),
           position: 'absolute',
@@ -311,7 +311,6 @@ function MultiCombobox<Item>({
                       as="li"
                       maxWidth="100%"
                       flexGrow={1}
-                      minWidth="60px"
                       position={isOpen && searchable ? 'relative' : 'initial'}
                     >
                       {isOpen && searchable && (
