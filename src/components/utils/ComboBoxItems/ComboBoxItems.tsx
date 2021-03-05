@@ -11,7 +11,7 @@ interface ComboBoxItemsProps<T> {
   getItemProps: (options: GetItemPropsOptions<T>) => T;
   itemToString: (item: T) => string;
   itemToGroup?: (item: T) => string;
-  selectedItem?: T | null;
+  selectedItems?: T[];
 }
 
 /**
@@ -21,7 +21,10 @@ interface ComboBoxItemsProps<T> {
 function ComboBoxItems<Item>({
   items,
   itemToGroup,
-  ...rest
+  getItemProps,
+  itemToString,
+  disableItem,
+  selectedItems,
 }: ComboBoxItemsProps<Item>): React.ReactElement<ComboBoxItemsProps<Item>> {
   const groupedItems = React.useMemo(() => {
     return groupBy(items, itemToGroup);
@@ -33,16 +36,16 @@ function ComboBoxItems<Item>({
         {items.map(item => {
           return (
             <MenuItem
-              {...rest.getItemProps({ item, disabled: rest.disableItem(item) })}
+              {...getItemProps({ item, disabled: disableItem(item) })}
               as="li"
               listStyle="none"
-              key={rest.itemToString(item)}
+              key={itemToString(item)}
               selected={
-                !!rest.selectedItem &&
-                rest.itemToString(item) === rest.itemToString(rest.selectedItem)
+                !!selectedItems &&
+                selectedItems.map(item => itemToString(item)).includes(itemToString(item))
               }
             >
-              {rest.itemToString(item)}
+              {itemToString(item)}
             </MenuItem>
           );
         })}
@@ -69,17 +72,17 @@ function ComboBoxItems<Item>({
           <Box as="ul" role="listbox">
             {items.map(item => (
               <MenuItem
-                {...rest.getItemProps({ item, disabled: rest.disableItem(item) })}
+                {...getItemProps({ item, disabled: disableItem(item) })}
                 as="li"
                 listStyle="none"
                 nested
-                key={rest.itemToString(item)}
+                key={itemToString(item)}
                 selected={
-                  !!rest.selectedItem &&
-                  rest.itemToString(item) === rest.itemToString(rest.selectedItem)
+                  !!selectedItems &&
+                  selectedItems.map(item => itemToString(item)).includes(itemToString(item))
                 }
               >
-                {rest.itemToString(item)}
+                {itemToString(item)}
               </MenuItem>
             ))}
           </Box>

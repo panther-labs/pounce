@@ -123,7 +123,7 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
 };
 
 /**
- * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenerever you would
+ * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
 function MultiCombobox<Item>({
@@ -161,10 +161,16 @@ function MultiCombobox<Item>({
     onChange(value.filter(i => i !== item));
   };
 
-  const addSelectedItem = (item: any) => {
-    if (item !== null) {
-      onChange([...value, item]);
+  const toggleItem = (item: any) => {
+    if (item === null) {
+      return;
     }
+    const items = value.filter(i => itemToString(i) !== itemToString(item));
+    if (items.length === value.length) {
+      items.push(item);
+    }
+
+    return onChange(items);
   };
 
   const clearSelectedItems = () => {
@@ -176,7 +182,7 @@ function MultiCombobox<Item>({
   return (
     <Downshift<Item>
       stateReducer={stateReducer}
-      onChange={addSelectedItem}
+      onChange={toggleItem}
       selectedItem={null}
       itemToString={item => (item ? itemToString(item) : '')}
       initialInputValue=""
@@ -191,7 +197,6 @@ function MultiCombobox<Item>({
         isOpen,
         toggleMenu,
         openMenu,
-        selectedItem,
         selectItem,
       }) => {
         const processUserValue = (inputVal: string | null) => (inputVal || '').trim();
@@ -199,15 +204,10 @@ function MultiCombobox<Item>({
           inputVal !== '' && validateAddition(inputVal, value);
 
         const multiComboboxVariant = getVariant(isOpen);
-        // If it's a multicombobox we DON'T WANT to include the results already selected and also
-        // we want to make sure that the results get filtered by the search term of the user
-        const nonSelectedItems = items.filter(
-          item => !value.map(itemToString).includes(itemToString(item))
-        );
 
         // From the non-selected items, make sure to filter the ones that match the user's
         // search term. To do that we convert our items to their string representations
-        const strResults = fuzzySearch(nonSelectedItems.map(itemToString), inputValue || '');
+        const strResults = fuzzySearch(items.map(itemToString), inputValue || '');
 
         // and then convert those strings back to the original shape of the items, while making
         // sure to only display a (potentially) limited number of them
@@ -389,7 +389,7 @@ function MultiCombobox<Item>({
                 getItemProps={getItemProps}
                 itemToString={itemToString}
                 itemToGroup={itemToGroup}
-                selectedItem={selectedItem}
+                selectedItems={value}
               />
             </Menu>
           </Box>

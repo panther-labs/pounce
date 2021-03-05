@@ -237,7 +237,7 @@ function Combobox<Item>({
                 getItemProps={getItemProps}
                 itemToString={itemToString}
                 itemToGroup={itemToGroup}
-                selectedItem={selectedItem}
+                selectedItems={selectedItem ? [selectedItem] : undefined}
               />
             </Menu>
           </Box>
