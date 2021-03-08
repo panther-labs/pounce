@@ -157,20 +157,23 @@ function MultiCombobox<Item>({
     },
     [variant]
   );
-  const removeItem = (item: any) => {
+
+  const removeItem = (item: Item) => {
     onChange(value.filter(i => i !== item));
   };
 
-  const toggleItem = (item: any) => {
+  const handleChange = (item: Item | Item[] | null) => {
     if (item === null) {
       return;
     }
-    const items = value.filter(i => itemToString(i) !== itemToString(item));
-    if (items.length === value.length) {
-      items.push(item);
+    const changedItems = Array.isArray(item) ? item : [item];
+    // If items are already added, remove them from the selected items list
+    if (changedItems.every(item => value.map(itemToString).includes(itemToString(item)))) {
+      return onChange(value.filter(i => !changedItems.map(itemToString).includes(itemToString(i))));
     }
-
-    return onChange(items);
+    // Append non existing items to the list of selected items
+    const newItems = changedItems.filter(i => !value.map(itemToString).includes(itemToString(i)));
+    return onChange([...value, ...newItems]);
   };
 
   const clearSelectedItems = () => {
@@ -180,11 +183,11 @@ function MultiCombobox<Item>({
   const itemsPt = hideLabel ? 3 : '19px';
 
   return (
-    <Downshift<Item>
+    <Downshift<Item | Item[]>
       stateReducer={stateReducer}
-      onChange={toggleItem}
+      onChange={handleChange}
       selectedItem={null}
-      itemToString={item => (item ? itemToString(item) : '')}
+      itemToString={item => (item && !Array.isArray(item) ? itemToString(item) : '')}
       initialInputValue=""
     >
       {({
@@ -205,17 +208,21 @@ function MultiCombobox<Item>({
 
         const multiComboboxVariant = getVariant(isOpen);
 
-        // From the non-selected items, make sure to filter the ones that match the user's
-        // search term. To do that we convert our items to their string representations
-        const strResults = fuzzySearch(items.map(itemToString), inputValue || '');
-
-        // and then convert those strings back to the original shape of the items, while making
-        // sure to only display a (potentially) limited number of them
-        const results = items
-          .filter(item => strResults.includes(itemToString(item)))
-          .slice(0, maxResults);
-
-        // Only show the items that have not been selected
+        let results = items.slice(0, maxResults);
+        // If it's searchable, only filter results by search term when the searching
+        // functionality is available.
+        if (searchable) {
+          // Make sure to filter the items that match the user's
+          // search term. To do that we convert our items to their string representations.
+          results = fuzzySearch(
+            items.map(i => ({
+              searchString: itemToGroup ? `${itemToGroup(i)}${itemToString(i)}` : itemToString(i),
+              item: i,
+            })),
+            inputValue || '',
+            { key: 'searchString', maxResults }
+          ).map(i => i.item);
+        }
 
         // We add 2 types of additional data to the input that is going to be renders:
         // 1. A handler for the `Delete` button, so that you can delete tokens with a single key
@@ -390,6 +397,7 @@ function MultiCombobox<Item>({
                 itemToString={itemToString}
                 itemToGroup={itemToGroup}
                 selectedItems={value}
+                allowMultipleSelection
               />
             </Menu>
           </Box>

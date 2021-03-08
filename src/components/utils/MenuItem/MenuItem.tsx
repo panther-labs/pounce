@@ -12,6 +12,12 @@ interface MenuItemProps extends NativeAttributes<'div'> {
   /** Whether the item is nested in a group or not */
   nested?: boolean;
 
+  /** The background color of the menu item */
+  backgroundColor?: keyof Theme['colors'];
+
+  /** The background color when the item is selected */
+  selectedBackgroundColor?: keyof Theme['colors'];
+
   /** @ignore */
   children: React.ReactNode;
 }
@@ -20,10 +26,18 @@ interface MenuItemProps extends NativeAttributes<'div'> {
  * A MenuItem is simply an entry in a list of menu options or dropdown options. In general, this
  * should be used only on autocompletes, comboboxes & menus.
  */
-const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, nested, children, ...rest }) => {
-  let backgroundColor: keyof Theme['colors'] = 'navyblue-300';
+const MenuItem: React.FC<MenuItemProps> = ({
+  selected,
+  disabled,
+  nested,
+  backgroundColor = 'navyblue-300',
+  selectedBackgroundColor = 'navyblue-500',
+  children,
+  ...rest
+}) => {
+  let bgColor = backgroundColor;
   if (selected) {
-    backgroundColor = 'navyblue-500';
+    bgColor = selectedBackgroundColor;
   }
 
   return (
@@ -35,7 +49,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, nested, childre
       pr={!selected ? 4 : 10}
       transition="background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
       position="relative"
-      backgroundColor={backgroundColor}
+      backgroundColor={bgColor}
       aria-disabled={disabled}
       _selected={{
         backgroundColor: 'navyblue-400',
@@ -58,4 +72,4 @@ const MenuItem: React.FC<MenuItemProps> = ({ selected, disabled, nested, childre
   );
 };
 
-export default React.memo(MenuItem);
+export default MenuItem;
