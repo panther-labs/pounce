@@ -121,9 +121,23 @@ describe('MultiCombobox', () => {
   });
 
   it('works while allowing custom values', async () => {
-    const { getByPlaceholderText, getAllByRole } = renderWithTheme(
-      <ControlledMultiCombobox searchable allowAdditions />
-    );
+    const ComboBox = () => {
+      const [selectedManufacturer, updateSelectedManufacturer] = React.useState<string[]>([]);
+
+      return (
+        <MultiCombobox
+          label="Choose a car manufacturer"
+          onChange={updateSelectedManufacturer}
+          value={selectedManufacturer}
+          placeholder="Select manufacturers"
+          items={['Toyota', 'Ford']}
+          searchable
+          allowAdditions
+        />
+      );
+    };
+
+    const { getByPlaceholderText, getAllByRole } = renderWithTheme(<ComboBox />);
 
     const input = getByPlaceholderText('Select manufacturers');
     fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
@@ -239,8 +253,8 @@ describe('MultiCombobox', () => {
     expect(queryAllByRole('tag')).toHaveLength(2);
   });
 
-  it('works with grouped items', async () => {
-    const { getByPlaceholderText, container } = renderWithTheme(
+  it('works when selecting grouped items', async () => {
+    const { getByPlaceholderText, queryAllByRole, container } = renderWithTheme(
       <ControlledMultiCombobox itemToGroup={i => i.category} itemToString={i => i.value} />
     );
 
@@ -251,16 +265,65 @@ describe('MultiCombobox', () => {
     expect(luxuryGroup).toBeInTheDocument();
 
     const { getByText: getByTextInLuxuryGroup } = within(luxuryGroup);
-    expect(getByTextInLuxuryGroup('BMW')).toBeInTheDocument();
+    const bmw = getByTextInLuxuryGroup('BMW');
 
     const { getByText: getByTextInNormalGroup } = within(normalGroup);
     const toyota = getByTextInNormalGroup('Toyota');
     const ford = getByTextInNormalGroup('Ford');
 
-    // Make sure that a group is removed from dom when it is empty
     fireClickAndMouseEvents(ford);
     fireClickAndMouseEvents(toyota);
-    expect(normalGroup).not.toBeInTheDocument();
-    expect(luxuryGroup).toBeInTheDocument();
+    fireClickAndMouseEvents(bmw);
+    expect(queryAllByRole('tag')).toHaveLength(3);
+
+    fireClickAndMouseEvents(toyota);
+    fireClickAndMouseEvents(bmw);
+    expect(queryAllByRole('tag')).toHaveLength(1);
+  });
+
+  it('works when selecting and removing groups', async () => {
+    const { getByPlaceholderText, getByText, queryAllByRole } = renderWithTheme(
+      <ControlledMultiCombobox itemToGroup={i => i.category} itemToString={i => i.value} />
+    );
+
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
+    const normal = getByText('Normal');
+    const luxury = getByText('Luxury');
+    // Make sure that all items are added when selecting groups
+    fireClickAndMouseEvents(normal);
+    expect(queryAllByRole('tag')).toHaveLength(items.filter(i => i.category === 'Normal').length);
+    fireClickAndMouseEvents(luxury);
+    expect(queryAllByRole('tag')).toHaveLength(items.length);
+    // Make sure that items are removed when deselecting groups
+    fireClickAndMouseEvents(luxury);
+    expect(queryAllByRole('tag')).toHaveLength(items.filter(i => i.category === 'Normal').length);
+    fireClickAndMouseEvents(normal);
+    expect(queryAllByRole('tag')).toHaveLength(0);
+  });
+
+  it('searches both items and group names', async () => {
+    const { getByPlaceholderText, getAllByRole, getByText, queryAllByRole } = renderWithTheme(
+      <ControlledMultiCombobox
+        itemToGroup={i => i.category}
+        searchable
+        itemToString={i => i.value}
+      />
+    );
+    const input = getByPlaceholderText('Select manufacturers');
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturers'));
+
+    fireEvent.change(input, { target: { value: 'Fo' } });
+    // Expected two tags here, the actual item and the group item
+    expect(getAllByRole('option')).toHaveLength(2);
+
+    fireClickAndMouseEvents(getByText('Ford'));
+    expect(getAllByRole('tag')).toHaveLength(1);
+
+    // Search 'Normal' category
+    fireEvent.change(input, { target: { value: 'Norm' } });
+    expect(getAllByRole('option')).toHaveLength(3);
+
+    fireClickAndMouseEvents(getByText('Normal'));
+    expect(queryAllByRole('tag')).toHaveLength(items.filter(i => i.category === 'Normal').length);
   });
 });
