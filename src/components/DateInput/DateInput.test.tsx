@@ -149,7 +149,7 @@ describe('DateInput', () => {
       findByLabelText,
       findByText,
       getAllByRole,
-      findByTestId,
+      getByRole,
       getByLabelText,
     } = await renderWithTheme(
       <DateInput label="test" timezone="utc" withTime value={utcDate.toDate()} onChange={mock} />
@@ -167,12 +167,12 @@ describe('DateInput', () => {
     // Change hour to 14H
     const hours = await getByLabelText('Time Hours', { selector: 'input' });
     await fireEvent.focus(hours);
-    const two = await findByTestId('time-hours-14');
+    const two = getByRole('option', { name: /14/i });
     await fireEvent.click(two);
     // Change minutes to 20M
     const minutes = await getByLabelText('Time Minutes', { selector: 'input' });
     await fireEvent.focus(minutes);
-    const twenty = await findByTestId('time-minutes-20');
+    const twenty = getByRole('option', { name: /20/i });
     await fireEvent.click(twenty);
     const submitBtn = await findByText('Apply');
 
