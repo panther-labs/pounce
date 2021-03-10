@@ -150,16 +150,17 @@ function Combobox<Item>({
         // If it's searchable, only filter results by search term when the searching
         // functionality is available.
         if (searchable) {
-          // Make sure to filter the items that match the user's
-          // search term. To do that we convert our items to their string representations.
-          results = fuzzySearch(
-            items.map(i => ({
-              searchString: itemToGroup ? `${itemToGroup(i)}${itemToString(i)}` : itemToString(i),
-              item: i,
-            })),
-            inputValue || '',
-            { key: 'searchString', maxResults }
-          ).map(i => i.item);
+          // We map the items to a new type in order to feed it to the fuzzySearch generic function.
+          const itemsToSearch = items.map(i => ({
+            // Contains the string representation of the item that will be tested.
+            searchString: itemToGroup ? `${itemToGroup(i)}${itemToString(i)}` : itemToString(i),
+            // Include the actual item in the object so we can map it back after we are done with the search.
+            item: i,
+          }));
+          results = fuzzySearch(itemsToSearch, inputValue || '', {
+            key: 'searchString',
+            maxResults,
+          }).map(i => i.item);
         }
 
         // We add 2 types of additional data to the input that is going to be renders:

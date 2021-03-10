@@ -94,10 +94,9 @@ function ComboBoxItems<Item>({
                   listStyle="none"
                   nested
                   key={itemToString(item)}
-                  selected={
-                    !!selectedItems &&
-                    selectedItems.map(item => itemToString(item)).includes(itemToString(item))
-                  }
+                  selected={selectedItems
+                    ?.map(item => itemToString(item))
+                    .includes(itemToString(item))}
                 >
                   {itemToString(item)}
                 </MenuItem>
