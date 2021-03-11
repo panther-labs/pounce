@@ -441,15 +441,25 @@ exports[`MultiCombobox renders with clear all option 1`] = `
 }
 
 .pounce-12::after {
-  content: url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' );
-  display: none;
+  content: "";
+  border: 1px solid;
+  border-color: #86a3c3;
+  border-radius: 2px;
   position: absolute;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-content;
-  height: fit-content;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   top: 0;
   right: 16px;
   bottom: 0;
@@ -510,14 +520,24 @@ exports[`MultiCombobox renders with clear all option 1`] = `
 
 .pounce-11::after {
   content: url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' );
-  display: block;
+  border: 1px solid;
+  border-color: #0081c5;
+  border-radius: 2px;
   position: absolute;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-content;
-  height: fit-content;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   top: 0;
   right: 16px;
   bottom: 0;
@@ -898,15 +918,25 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 }
 
 .pounce-17::after {
-  content: url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' );
-  display: none;
+  content: "";
+  border: 1px solid;
+  border-color: #86a3c3;
+  border-radius: 2px;
   position: absolute;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-content;
-  height: fit-content;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   top: 0;
   right: 16px;
   bottom: 0;
@@ -967,14 +997,24 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 
 .pounce-15::after {
   content: url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' );
-  display: block;
+  border: 1px solid;
+  border-color: #0081c5;
+  border-radius: 2px;
   position: absolute;
-  width: -webkit-fit-content;
-  width: -moz-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-content;
-  height: fit-content;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   top: 0;
   right: 16px;
   bottom: 0;
@@ -982,18 +1022,15 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 }
 
 .pounce-9 {
-  color: #35c6ab;
-  z-index: 2;
-  position: absolute;
-  bottom: 0;
-  right: 18px;
-  margin-bottom: 4px;
-  font-style: italic;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-size: 0.75rem;
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #0081c5;
+  font-size: 0.563rem;
   cursor: pointer;
-  background-color: transparent;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
@@ -1083,7 +1120,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
           class="pounce-9"
           type="button"
         >
-          Clear all
+          Clear All
         </button>
         <label
           class="pounce-10"
