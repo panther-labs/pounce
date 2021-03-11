@@ -347,20 +347,15 @@ function MultiCombobox<Item>({
                     </Box>
                   </>
                 </Flex>
-                {canClearAllAfter && value.length >= canClearAllAfter && (
+                {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (
                   <AbstractButton
-                    color="teal-300"
-                    zIndex={2}
-                    position="absolute"
-                    bottom={0}
-                    right={18}
-                    mb={1}
+                    width="100%"
+                    py={1}
+                    backgroundColor="blue-400"
+                    fontSize="2x-small"
                     onClick={clearSelectedItems}
-                    fontStyle="italic"
-                    textDecoration="underline"
-                    fontSize="small"
                   >
-                    Clear all
+                    Clear All
                   </AbstractButton>
                 )}
 

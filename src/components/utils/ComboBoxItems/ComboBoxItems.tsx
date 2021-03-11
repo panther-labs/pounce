@@ -47,6 +47,7 @@ function ComboBoxItems<Item>({
                 !!selectedItems &&
                 selectedItems.map(item => itemToString(item)).includes(itemToString(item))
               }
+              withCheckMark={allowMultipleSelection}
             >
               {itemToString(item)}
             </MenuItem>
@@ -82,6 +83,7 @@ function ComboBoxItems<Item>({
                 }
                 backgroundColor="navyblue-350"
                 selectedBackgroundColor="navyblue-600"
+                withCheckMark={allowMultipleSelection}
               >
                 {groupName}
               </MenuItem>
@@ -97,6 +99,7 @@ function ComboBoxItems<Item>({
                   selected={selectedItems
                     ?.map(item => itemToString(item))
                     .includes(itemToString(item))}
+                  withCheckMark={allowMultipleSelection}
                 >
                   {itemToString(item)}
                 </MenuItem>

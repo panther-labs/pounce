@@ -18,6 +18,9 @@ interface MenuItemProps extends NativeAttributes<'div'> {
   /** The background color when the item is selected */
   selectedBackgroundColor?: keyof Theme['colors'];
 
+  /** Whether a check mark icon should be displayed when the item is selected */
+  withCheckMark?: boolean;
+
   /** @ignore */
   children: React.ReactNode;
 }
@@ -32,6 +35,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   nested,
   backgroundColor = 'navyblue-300',
   selectedBackgroundColor = 'navyblue-500',
+  withCheckMark,
   children,
   ...rest
 }) => {
@@ -54,17 +58,26 @@ const MenuItem: React.FC<MenuItemProps> = ({
       _selected={{
         backgroundColor: 'navyblue-400',
       }}
-      _after={{
-        content: `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`,
-        display: selected ? 'block' : 'none',
-        position: 'absolute',
-        width: 'fit-content',
-        height: 'fit-content',
-        top: 0,
-        right: 4,
-        bottom: 0,
-        margin: 'auto 0',
-      }}
+      {...(withCheckMark && {
+        _after: {
+          content: selected
+            ? `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`
+            : `""`,
+          border: '1px solid',
+          borderColor: selected ? 'blue-400' : 'navyblue-100',
+          borderRadius: 'small',
+          position: 'absolute',
+          width: '20px',
+          height: '20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          top: 0,
+          right: 4,
+          bottom: 0,
+          margin: 'auto 0',
+        },
+      })}
       {...rest}
     >
       {children}
