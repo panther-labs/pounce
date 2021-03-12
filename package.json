@@ -42,7 +42,7 @@
     "@types/styled-system__css": "^5.0.8",
     "@types/styled-system__should-forward-prop": "^5.1.0",
     "cross-env": "^7.0.2",
-    "dayjs": "^1.8.23",
+    "dayjs": "^1.10.4",
     "downshift": "^5.0.5",
     "fuzzaldrin": "^2.1.0",
     "jest-axe": "^3.5.0",
