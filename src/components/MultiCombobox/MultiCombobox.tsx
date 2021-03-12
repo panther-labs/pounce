@@ -3,7 +3,6 @@ import React from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
-import MenuItem from '../utils/MenuItem';
 import Icon from '../Icon';
 import Flex from '../Flex';
 import { InputControl, InputLabel, InputElement, InputElementProps } from '../utils/Input';
@@ -11,6 +10,7 @@ import Tag from './Tag';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 import AbstractButton from '../AbstractButton';
+import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -36,7 +36,12 @@ export type MultiComboboxProps<T> = {
   itemToString?: (item: T) => string;
 
   /**
-   * A function that accepts an item as a parameteer and returns `true` if the item should be
+   * A function used to group the Menu Items.
+   */
+  itemToGroup?: (item: T) => string;
+
+  /**
+   * A function that accepts an item as a parameter and returns `true` if the item should be
    * disabled or `false` otherwise. Defaults to `() => false`.
    */
   disableItem?: (item: T) => boolean;
@@ -133,6 +138,7 @@ function MultiCombobox<Item>({
   disabled = false,
   placeholder = '',
   itemToString = item => String(item),
+  itemToGroup,
   allowAdditions = false,
   validateAddition = () => true,
   maxHeight = 300,
@@ -222,13 +228,12 @@ function MultiCombobox<Item>({
             onMouseDown: toggleMenu,
             readOnly: true,
             placeholder: !value.length ? placeholder : '',
-            position: !value.length ? 'static' : 'absolute',
           }),
           ...(searchable && {
-            placeholder,
-            mt: (isOpen && value.length) || (isOpen && value.length && allowAdditions) ? -4 : 0,
-            position: isOpen || (isOpen && value.length && allowAdditions) ? 'static' : 'absolute',
+            placeholder: (hideLabel && value.length && !isOpen) || value.length ? '' : placeholder,
+            p: isOpen ? 1 : null,
           }),
+          position: 'absolute',
           width: '100%',
           height: '100%',
           top: 0,
@@ -296,8 +301,8 @@ function MultiCombobox<Item>({
                 variant={multiComboboxVariant}
                 hidden={hidden}
               >
-                {value.length > 0 && (
-                  <Flex as="ul" wrap="wrap" pl={3} pr={10} pt={itemsPt} pb="2px">
+                <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
+                  <>
                     {value.map(selectedItem => (
                       <Tag
                         as="li"
@@ -308,8 +313,32 @@ function MultiCombobox<Item>({
                         {itemToString(selectedItem)}
                       </Tag>
                     ))}
-                  </Flex>
-                )}
+                    <Box
+                      as="li"
+                      maxWidth="100%"
+                      flexGrow={1}
+                      position={isOpen && searchable ? 'relative' : 'initial'}
+                    >
+                      {isOpen && searchable && (
+                        <InputElement
+                          as="span"
+                          px={2}
+                          py={0}
+                          standalone={hideLabel}
+                          visibility="hidden"
+                          whiteSpace="pre"
+                        >
+                          {inputValue}
+                        </InputElement>
+                      )}
+                      <InputElement
+                        type="text"
+                        standalone={hideLabel}
+                        {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
+                      />
+                    </Box>
+                  </>
+                </Flex>
                 {canClearAllAfter && value.length >= canClearAllAfter && (
                   <AbstractButton
                     color="teal-300"
@@ -327,13 +356,11 @@ function MultiCombobox<Item>({
                   </AbstractButton>
                 )}
 
-                <InputElement
-                  as="input"
-                  type="text"
-                  standalone={hideLabel}
-                  {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
-                />
-                <InputLabel visuallyHidden={hideLabel} raised={!!value.length} {...getLabelProps()}>
+                <InputLabel
+                  visuallyHidden={hideLabel}
+                  raised={!!value.length || isOpen}
+                  {...getLabelProps()}
+                >
                   {label}
                 </InputLabel>
               </InputControl>
@@ -356,17 +383,14 @@ function MultiCombobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
-              {results.map(item => (
-                <MenuItem
-                  {...getItemProps({ item, disabled: disableItem(item) })}
-                  as="li"
-                  listStyle="none"
-                  key={itemToString(item)}
-                  selected={item === selectedItem}
-                >
-                  {itemToString(item)}
-                </MenuItem>
-              ))}
+              <ComboBoxItems
+                items={results}
+                disableItem={disableItem}
+                getItemProps={getItemProps}
+                itemToString={itemToString}
+                itemToGroup={itemToGroup}
+                selectedItem={selectedItem}
+              />
             </Menu>
           </Box>
         );
