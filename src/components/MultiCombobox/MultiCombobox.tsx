@@ -123,7 +123,7 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
 };
 
 /**
- * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenerever you would
+ * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
 function MultiCombobox<Item>({
@@ -157,14 +157,23 @@ function MultiCombobox<Item>({
     },
     [variant]
   );
-  const removeItem = (item: any) => {
+
+  const removeItem = (item: Item) => {
     onChange(value.filter(i => i !== item));
   };
 
-  const addSelectedItem = (item: any) => {
-    if (item !== null) {
-      onChange([...value, item]);
+  const handleChange = (item: Item | Item[] | null) => {
+    if (item === null) {
+      return;
     }
+    const changedItems = Array.isArray(item) ? item : [item];
+    // If items are already added, remove them from the selected items list
+    if (changedItems.every(item => value.map(itemToString).includes(itemToString(item)))) {
+      return onChange(value.filter(i => !changedItems.map(itemToString).includes(itemToString(i))));
+    }
+    // Append non existing items to the list of selected items
+    const newItems = changedItems.filter(i => !value.map(itemToString).includes(itemToString(i)));
+    return onChange([...value, ...newItems]);
   };
 
   const clearSelectedItems = () => {
@@ -174,11 +183,11 @@ function MultiCombobox<Item>({
   const itemsPt = hideLabel ? 3 : '19px';
 
   return (
-    <Downshift<Item>
+    <Downshift<Item | Item[]>
       stateReducer={stateReducer}
-      onChange={addSelectedItem}
+      onChange={handleChange}
       selectedItem={null}
-      itemToString={item => (item ? itemToString(item) : '')}
+      itemToString={item => (item && !Array.isArray(item) ? itemToString(item) : '')}
       initialInputValue=""
     >
       {({
@@ -191,7 +200,6 @@ function MultiCombobox<Item>({
         isOpen,
         toggleMenu,
         openMenu,
-        selectedItem,
         selectItem,
       }) => {
         const processUserValue = (inputVal: string | null) => (inputVal || '').trim();
@@ -199,23 +207,23 @@ function MultiCombobox<Item>({
           inputVal !== '' && validateAddition(inputVal, value);
 
         const multiComboboxVariant = getVariant(isOpen);
-        // If it's a multicombobox we DON'T WANT to include the results already selected and also
-        // we want to make sure that the results get filtered by the search term of the user
-        const nonSelectedItems = items.filter(
-          item => !value.map(itemToString).includes(itemToString(item))
-        );
 
-        // From the non-selected items, make sure to filter the ones that match the user's
-        // search term. To do that we convert our items to their string representations
-        const strResults = fuzzySearch(nonSelectedItems.map(itemToString), inputValue || '');
-
-        // and then convert those strings back to the original shape of the items, while making
-        // sure to only display a (potentially) limited number of them
-        const results = items
-          .filter(item => strResults.includes(itemToString(item)))
-          .slice(0, maxResults);
-
-        // Only show the items that have not been selected
+        let results = items.slice(0, maxResults);
+        // If it's searchable, only filter results by search term when the searching
+        // functionality is available.
+        if (searchable) {
+          // We map the items to a new type in order to feed it to the fuzzySearch generic function.
+          const itemsToSearch = items.map(i => ({
+            // Contains the string representation of the item that will be tested.
+            searchString: itemToGroup ? `${itemToGroup(i)}${itemToString(i)}` : itemToString(i),
+            // Include the actual item in the object so we can map it back after we are done with the search.
+            item: i,
+          }));
+          results = fuzzySearch(itemsToSearch, inputValue || '', {
+            key: 'searchString',
+            maxResults,
+          }).map(i => i.item);
+        }
 
         // We add 2 types of additional data to the input that is going to be renders:
         // 1. A handler for the `Delete` button, so that you can delete tokens with a single key
@@ -339,20 +347,15 @@ function MultiCombobox<Item>({
                     </Box>
                   </>
                 </Flex>
-                {canClearAllAfter && value.length >= canClearAllAfter && (
+                {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (
                   <AbstractButton
-                    color="teal-300"
-                    zIndex={2}
-                    position="absolute"
-                    bottom={0}
-                    right={18}
-                    mb={1}
+                    width="100%"
+                    py={1}
+                    backgroundColor="blue-400"
+                    fontSize="2x-small"
                     onClick={clearSelectedItems}
-                    fontStyle="italic"
-                    textDecoration="underline"
-                    fontSize="small"
                   >
-                    Clear all
+                    Clear All
                   </AbstractButton>
                 )}
 
@@ -389,7 +392,8 @@ function MultiCombobox<Item>({
                 getItemProps={getItemProps}
                 itemToString={itemToString}
                 itemToGroup={itemToGroup}
-                selectedItem={selectedItem}
+                selectedItems={value}
+                allowMultipleSelection
               />
             </Menu>
           </Box>

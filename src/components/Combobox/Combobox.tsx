@@ -144,22 +144,24 @@ function Combobox<Item>({
         openMenu,
         closeMenu,
       }) => {
-        let results = items;
-
         const comboboxVariant = getVariant(isOpen);
+
+        let results = items.slice(0, maxResults);
         // If it's searchable, only filter results by search term when the searching
         // functionality is available.
         if (searchable) {
-          const strResults = fuzzySearch(results.map(itemToString), inputValue);
-
-          // convert those strings back to the original shape of the items, while making
-          // sure to only display a (potentially) limited number of them
-          results = items
-            .filter(item => strResults.includes(itemToString(item)))
-            .slice(0, maxResults);
+          // We map the items to a new type in order to feed it to the fuzzySearch generic function.
+          const itemsToSearch = items.map(i => ({
+            // Contains the string representation of the item that will be tested.
+            searchString: itemToGroup ? `${itemToGroup(i)}${itemToString(i)}` : itemToString(i),
+            // Include the actual item in the object so we can map it back after we are done with the search.
+            item: i,
+          }));
+          results = fuzzySearch(itemsToSearch, inputValue || '', {
+            key: 'searchString',
+            maxResults,
+          }).map(i => i.item);
         }
-
-        // Only show the items that have not been selected
 
         // We add 2 types of additional data to the input that is going to be renders:
         // 1. When the combobox is not searchable, we make the input "behave" like a div. We
@@ -237,7 +239,7 @@ function Combobox<Item>({
                 getItemProps={getItemProps}
                 itemToString={itemToString}
                 itemToGroup={itemToGroup}
-                selectedItem={selectedItem}
+                selectedItems={selectedItem ? [selectedItem] : undefined}
               />
             </Menu>
           </Box>
