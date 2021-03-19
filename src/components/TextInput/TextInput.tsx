@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeAttributes } from '../Box';
+import Box, { NativeAttributes } from '../Box';
 import { slugify, isEmptyValue } from '../../utils/helpers';
 import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import Icon, { IconProps } from '../Icon';
@@ -15,6 +15,9 @@ export type TextIconProps = {
 export type TextInputProps = NativeAttributes<'input'> & {
   /** The label that is associated with this input */
   label: string;
+
+  /** The decorating prefix used for  decorating issues*/
+  prefix?: string;
 
   /** The variant of the input that decides the colors */
   variant?: 'solid' | 'outline';
@@ -45,6 +48,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
     required,
     disabled,
     id,
+    prefix,
     hidden,
     name,
     icon,
@@ -57,6 +61,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
   ref
 ) {
   const identifier = id || name || slugify(label);
+  const isEmpty = isEmptyValue(value);
   return (
     <InputControl
       variant={variant}
@@ -66,6 +71,25 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
       hidden={hidden}
     >
       <Flex align="center" position="relative">
+        {prefix && (
+          <Box
+            data-prefix
+            fontSize="medium"
+            fontWeight="medium"
+            as="span"
+            height="100%"
+            color="navyblue-100"
+            pt={5}
+            pl={4}
+            pb={2}
+            position="relative"
+            opacity={isEmpty ? 0 : 1}
+            visibility={isEmpty ? 'hidden' : 'visible'}
+            transition="opacity,visibility 400ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
+          >
+            {prefix}
+          </Box>
+        )}
         <InputElement
           as="input"
           type="text"
@@ -73,7 +97,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           name={name}
           value={value}
           truncated
-          pl={icon && iconAlignment === 'left' ? 42 : null}
+          pl={icon && iconAlignment === 'left' ? 42 : prefix ? 0 : null}
           pr={icon && iconAlignment === 'right' && 10}
           position="relative"
           zIndex={2}
@@ -81,7 +105,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           ref={ref}
         />
         <InputLabel
-          raised={!isEmptyValue(value)}
+          raised={!isEmpty}
           htmlFor={identifier}
           left={icon && iconAlignment === 'left' ? 26 : null}
         >

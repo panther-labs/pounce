@@ -85,3 +85,23 @@ An input can be "solid":
   value="Solid"
 />
 ```
+
+An input can have a prefix:
+
+```typescript jsx
+const ExamplePrefix = () => {
+  const [value, setValue] = React.useState('');
+  return (
+    <TextInput
+      label="Name with prefix"
+      prefix="Pounce."
+      name="hi"
+      placeholder="Type something..."
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  );
+};
+
+<ExamplePrefix />;
+```
