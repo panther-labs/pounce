@@ -29,6 +29,13 @@ it('renders with required option', async () => {
   expect(container).toMatchSnapshot();
 });
 
+it('renders with prefix', async () => {
+  const { container } = await renderWithTheme(
+    <TextInput prefix="Custom" label="Text input required" required />
+  );
+  expect(container).toMatchSnapshot();
+});
+
 it('renders with icons', async () => {
   const { container } = await renderWithTheme(
     <>
