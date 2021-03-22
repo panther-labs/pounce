@@ -73,6 +73,11 @@ export interface PseudoSelectors {
    */
   _grabbed?: SxProp;
   /**
+   * Styles to apply when the text content of an HTML node is empty (i.e. no child content exists`)
+   * - CSS selector `&:empty`
+   */
+  _empty?: SxProp;
+  /**
    * Styles to apply when the ARIA attribute `aria-expanded` is `true`
    * - CSS selector `&[aria-expanded=true]`
    */
@@ -147,6 +152,7 @@ export const pseudoSelectors: Record<keyof PseudoSelectors, string> = {
   _focus: '&:focus',
   _focusWithin: '&:focus-within',
   _visited: '&:visited',
+  _empty: '&:empty',
   _even: '&:nth-of-type(even)',
   _odd: '&:nth-of-type(odd)',
   _disabled: '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover', // prettier-ignore
