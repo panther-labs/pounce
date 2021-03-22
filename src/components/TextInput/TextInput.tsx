@@ -73,7 +73,6 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
       <Flex align="center" position="relative">
         {prefix && (
           <Box
-            data-prefix
             fontSize="medium"
             fontWeight="medium"
             as="span"
@@ -82,7 +81,6 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
             pt={5}
             pl={4}
             pb={2}
-            position="relative"
             opacity={isEmpty ? 0 : 1}
             visibility={isEmpty ? 'hidden' : 'visible'}
             transition="opacity,visibility 400ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"

@@ -20,7 +20,7 @@ exports[`can be disabled 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-2:focus-within [data-prefix] {
+.pounce-2:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -225,7 +225,7 @@ exports[`can be invalid 1`] = `
   border-color: #d64242;
 }
 
-.pounce-2:focus-within [data-prefix] {
+.pounce-2:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -297,7 +297,7 @@ exports[`can be required 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-2:focus-within [data-prefix] {
+.pounce-2:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -440,7 +440,7 @@ exports[`renders 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-2:focus-within [data-prefix] {
+.pounce-2:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -669,7 +669,7 @@ exports[`renders a solid textarea 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-2:focus-within [data-prefix] {
+.pounce-2:focus-within span {
   opacity: 1;
   visibility: visible;
 }

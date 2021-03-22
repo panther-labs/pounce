@@ -24,7 +24,7 @@ exports[`MultiCombobox renders 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within [data-prefix] {
+.pounce-4:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -381,7 +381,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within [data-prefix] {
+.pounce-7:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -862,7 +862,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   border-color: #0081c5;
 }
 
-.pounce-11:focus-within [data-prefix] {
+.pounce-11:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1403,7 +1403,7 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within [data-prefix] {
+.pounce-4:focus-within span {
   opacity: 1;
   visibility: visible;
 }

@@ -20,7 +20,7 @@ exports[`renders 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -180,7 +180,7 @@ exports[`renders with different type 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -340,7 +340,7 @@ exports[`renders with disabled option 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -503,7 +503,7 @@ exports[`renders with icons 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within [data-prefix] {
+.pounce-4:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -986,7 +986,7 @@ exports[`renders with invalid option 1`] = `
   border-color: #d64242;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1062,7 +1062,7 @@ exports[`renders with prefix 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-4:focus-within [data-prefix] {
+.pounce-4:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1096,13 +1096,13 @@ exports[`renders with prefix 1`] = `
   top: 0;
   position: absolute;
   transform-origin: center left;
-  -webkit-transform: translate(0, 14px) scale(1);
-  -moz-transform: translate(0, 14px) scale(1);
-  -ms-transform: translate(0, 14px) scale(1);
-  transform: translate(0, 14px) scale(1);
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .pounce-0 {
@@ -1113,9 +1113,8 @@ exports[`renders with prefix 1`] = `
   padding-top: 20px;
   padding-left: 16px;
   padding-bottom: 8px;
-  position: relative;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   -webkit-transition: opacity,visibility 400ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity,visibility 400ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
@@ -1201,7 +1200,6 @@ exports[`renders with prefix 1`] = `
     >
       <span
         class="pounce-0"
-        data-prefix="true"
       >
         Custom
       </span>
@@ -1209,16 +1207,16 @@ exports[`renders with prefix 1`] = `
         aria-invalid="false"
         aria-required="true"
         class="pounce-1"
-        id="text-input-required"
+        id="text-input"
         required=""
         type="text"
-        value=""
+        value="Test with Prefix"
       />
       <label
         class="pounce-2"
-        for="text-input-required"
+        for="text-input"
       >
-        Text input required
+        Text input
       </label>
     </div>
   </div>
@@ -1245,7 +1243,7 @@ exports[`renders with required option 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }

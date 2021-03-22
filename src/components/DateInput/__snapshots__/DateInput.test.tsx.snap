@@ -24,7 +24,7 @@ exports[`DateInput allows passing a custom format 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -254,7 +254,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -484,7 +484,7 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -714,7 +714,7 @@ exports[`DateInput allows selecting a date with time options in 24h mode 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1083,7 +1083,7 @@ exports[`DateInput can be solid 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1174,7 +1174,7 @@ exports[`DateInput opens the month picker 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1404,7 +1404,7 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1634,7 +1634,7 @@ exports[`DateInput renders 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-3:focus-within [data-prefix] {
+.pounce-3:focus-within span {
   opacity: 1;
   visibility: visible;
 }

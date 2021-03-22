@@ -24,7 +24,7 @@ exports[`renders 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within [data-prefix] {
+.pounce-7:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -212,7 +212,7 @@ exports[`renders with disabled option 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within [data-prefix] {
+.pounce-7:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -405,7 +405,7 @@ exports[`renders with icons 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within [data-prefix] {
+.pounce-7:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -689,7 +689,7 @@ exports[`renders with individual values 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within [data-prefix] {
+.pounce-7:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -949,7 +949,7 @@ exports[`renders with invalid option 1`] = `
   border-color: #d64242;
 }
 
-.pounce-7:focus-within [data-prefix] {
+.pounce-7:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1057,7 +1057,7 @@ exports[`renders with placeholders 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within [data-prefix] {
+.pounce-7:focus-within span {
   opacity: 1;
   visibility: visible;
 }
@@ -1247,7 +1247,7 @@ exports[`renders with required option 1`] = `
   border-color: #0081c5;
 }
 
-.pounce-7:focus-within [data-prefix] {
+.pounce-7:focus-within span {
   opacity: 1;
   visibility: visible;
 }

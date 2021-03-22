@@ -61,7 +61,7 @@ const InputControl: React.FC<InputControlProps> = ({
       }}
       _focusWithin={{
         borderColor: !invalid ? 'blue-400' : undefined,
-        '[data-prefix]': {
+        span: {
           opacity: 1,
           visibility: 'visible',
         },
