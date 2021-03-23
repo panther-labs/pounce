@@ -24,6 +24,11 @@ exports[`MultiCombobox renders 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-4:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-4:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -61,7 +66,6 @@ exports[`MultiCombobox renders 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -269,7 +273,6 @@ exports[`MultiCombobox renders with clear all option 1`] = `
 }
 
 .pounce-3 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -376,6 +379,11 @@ exports[`MultiCombobox renders with clear all option 1`] = `
 
 .pounce-7:focus-within {
   border-color: #0081c5;
+}
+
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
 }
 
 .pounce-7:focus-within label {
@@ -746,7 +754,6 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 }
 
 .pounce-6 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -853,6 +860,11 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 
 .pounce-11:focus-within {
   border-color: #0081c5;
+}
+
+.pounce-11:focus-within span {
+  opacity: 1;
+  visibility: visible;
 }
 
 .pounce-11:focus-within label {
@@ -1264,7 +1276,6 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -1390,6 +1401,11 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
 
 .pounce-4:focus-within {
   border-color: #0081c5;
+}
+
+.pounce-4:focus-within span {
+  opacity: 1;
+  visibility: visible;
 }
 
 .pounce-4:focus-within label {

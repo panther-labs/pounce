@@ -20,6 +20,11 @@ exports[`renders 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-3:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -41,7 +46,6 @@ exports[`renders 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -176,6 +180,11 @@ exports[`renders with different type 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-3:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -197,7 +206,6 @@ exports[`renders with different type 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -332,6 +340,11 @@ exports[`renders with disabled option 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-3:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -353,7 +366,6 @@ exports[`renders with disabled option 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -491,6 +503,11 @@ exports[`renders with icons 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-4:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-4:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -530,7 +547,6 @@ exports[`renders with icons 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -632,7 +648,6 @@ exports[`renders with icons 1`] = `
 }
 
 .pounce-10 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 42px;
@@ -889,7 +904,6 @@ exports[`renders with invalid option 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -972,6 +986,11 @@ exports[`renders with invalid option 1`] = `
   border-color: #d64242;
 }
 
+.pounce-3:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-3:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -1023,6 +1042,187 @@ exports[`renders with invalid option 1`] = `
 </div>
 `;
 
+exports[`renders with prefix 1`] = `
+.pounce-4 {
+  min-height: 47px;
+  position: relative;
+  border: 1px solid;
+  -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  background-color: transparent;
+  border-radius: 4px;
+  border-color: #3e516b;
+}
+
+.pounce-4:hover {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within {
+  border-color: #0081c5;
+}
+
+.pounce-4:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pounce-4:focus-within label {
+  font-weight: 500;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+}
+
+.pounce-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.pounce-2 {
+  pointer-events: none;
+  font-size: 0.875rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #bdbdbd;
+  top: 0;
+  position: absolute;
+  transform-origin: center left;
+  -webkit-transform: translate(6px, 4px) scale(0.65);
+  -moz-transform: translate(6px, 4px) scale(0.65);
+  -ms-transform: translate(6px, 4px) scale(0.65);
+  transform: translate(6px, 4px) scale(0.65);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-0 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  height: 100%;
+  color: #86a3c3;
+  padding-top: 20px;
+  padding-left: 16px;
+  padding-bottom: 8px;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity,visibility 400ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity,visibility 400ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+
+.pounce-1 {
+  width: 100%;
+  height: 100%;
+  padding-left: 0;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  position: relative;
+  color: #f6f6f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pounce-1::-webkit-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-1::-moz-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-1:-ms-input-placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-1::placeholder {
+  opacity: 0;
+  color: #f6f6f6;
+  -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+}
+
+.pounce-1:focus::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-1:focus::-moz-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-1:focus:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.pounce-1:focus::placeholder {
+  opacity: 0.4;
+}
+
+.pounce-1:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #192231 inset;
+  -webkit-text-fill-color: #f6f6f6;
+  border-radius: 4px;
+}
+
+<div>
+  <div
+    class="pounce-4"
+  >
+    <div
+      class="pounce-3"
+    >
+      <span
+        class="pounce-0"
+      >
+        Custom
+      </span>
+      <input
+        aria-invalid="false"
+        aria-required="true"
+        class="pounce-1"
+        id="text-input"
+        required=""
+        type="text"
+        value="Test with Prefix"
+      />
+      <label
+        class="pounce-2"
+        for="text-input"
+      >
+        Text input
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders with required option 1`] = `
 .pounce-3 {
   min-height: 47px;
@@ -1041,6 +1241,11 @@ exports[`renders with required option 1`] = `
 
 .pounce-3:focus-within {
   border-color: #0081c5;
+}
+
+.pounce-3:focus-within span {
+  opacity: 1;
+  visibility: visible;
 }
 
 .pounce-3:focus-within label {
@@ -1064,7 +1269,6 @@ exports[`renders with required option 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
