@@ -1,7 +1,11 @@
 import { keyframes } from '@emotion/react';
+import { Keyframes } from '@emotion/serialize';
 import { FadeInProps } from './FadeIn';
 
-export const generateKeyframes = (from: FadeInProps['from'], offset: FadeInProps['offset']) => {
+export const generateKeyframes = (
+  from: FadeInProps['from'],
+  offset: FadeInProps['offset']
+): Keyframes => {
   if (from === 'center') {
     return keyframes`
       0% { opacity: 0; }
