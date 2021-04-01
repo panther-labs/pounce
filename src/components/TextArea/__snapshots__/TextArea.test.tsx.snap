@@ -80,6 +80,8 @@ exports[`can be disabled 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -192,6 +194,8 @@ exports[`can be invalid 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -224,6 +228,10 @@ exports[`can be invalid 1`] = `
   border-radius: 4px;
   border-color: #d64242;
 }
+
+
+
+
 
 .pounce-2:focus-within span {
   opacity: 1;
@@ -356,6 +364,8 @@ exports[`can be required 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -500,6 +510,8 @@ exports[`renders 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -608,6 +620,8 @@ exports[`renders a solid textarea 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;

@@ -115,6 +115,8 @@ exports[`MultiCombobox renders 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -173,6 +175,8 @@ exports[`MultiCombobox renders 1`] = `
   bottom: 0;
   right: 16px;
 }
+
+
 
 <div>
   <div
@@ -322,6 +326,8 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-3:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -361,6 +367,8 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   bottom: 0;
   right: 16px;
 }
+
+
 
 .pounce-7 {
   min-height: 47px;
@@ -803,6 +811,8 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-6:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -842,6 +852,8 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   bottom: 0;
   right: 16px;
 }
+
+
 
 .pounce-11 {
   min-height: 47px;
@@ -1325,6 +1337,8 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -1383,6 +1397,8 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
   bottom: 0;
   right: 16px;
 }
+
+
 
 .pounce-4 {
   min-height: 47px;
