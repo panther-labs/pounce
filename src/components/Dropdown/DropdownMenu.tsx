@@ -43,7 +43,7 @@ export const DropdownMenu = React.forwardRef<
               position={position}
               ref={ref}
               hidden={false}
-              as={ReachMenuPopover}
+              as={'div'}
             >
               <Box
                 as={ReachMenuItems}
