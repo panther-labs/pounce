@@ -95,6 +95,10 @@ exports[`can be invalid 1`] = `
   border-color: #d64242;
 }
 
+
+
+
+
 .pounce-0:focus-within span {
   opacity: 1;
   visibility: visible;

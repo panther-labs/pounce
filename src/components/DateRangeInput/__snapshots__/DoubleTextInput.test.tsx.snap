@@ -95,6 +95,8 @@ exports[`renders 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -282,6 +284,8 @@ exports[`renders with disabled option 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -475,6 +479,8 @@ exports[`renders with icons 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -760,6 +766,8 @@ exports[`renders with individual values 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -916,6 +924,8 @@ exports[`renders with invalid option 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -948,6 +958,10 @@ exports[`renders with invalid option 1`] = `
   border-radius: 4px;
   border-color: #d64242;
 }
+
+
+
+
 
 .pounce-7:focus-within span {
   opacity: 1;
@@ -1127,6 +1141,8 @@ exports[`renders with placeholders 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -1317,6 +1333,8 @@ exports[`renders with required option 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;

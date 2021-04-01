@@ -99,6 +99,8 @@ exports[`DateInput allows passing a custom format 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -328,6 +330,8 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -559,6 +563,8 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -789,6 +795,8 @@ exports[`DateInput allows selecting a date with time options in 24h mode 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -986,6 +994,8 @@ exports[`DateInput can be solid 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -1249,6 +1259,8 @@ exports[`DateInput opens the month picker 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -1479,6 +1491,8 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -1708,6 +1722,8 @@ exports[`DateInput renders 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
