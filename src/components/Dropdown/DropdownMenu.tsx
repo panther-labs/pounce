@@ -19,7 +19,7 @@ export interface DropdownMenuProps {
 }
 
 export const DropdownMenu = React.forwardRef<
-  HTMLElement,
+  HTMLDivElement,
   React.PropsWithChildren<DropdownMenuProps>
 >(function DropdownMenu({ alignment = 'right', transform, children }, ref) {
   const position = useDropdownAlignment({ alignment });
@@ -37,7 +37,14 @@ export const DropdownMenu = React.forwardRef<
       {transitions.map(
         ({ item, key, props: styles }) =>
           item && (
-            <AnimatedPopover key={key} style={styles} position={position} ref={ref} hidden={false}>
+            <AnimatedPopover
+              key={key}
+              style={styles}
+              position={position}
+              ref={ref}
+              hidden={false}
+              as={'div'}
+            >
               <Box
                 as={ReachMenuItems}
                 bg="navyblue-300"

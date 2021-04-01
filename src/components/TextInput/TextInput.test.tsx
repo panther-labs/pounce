@@ -29,6 +29,16 @@ it('renders with required option', async () => {
   expect(container).toMatchSnapshot();
 });
 
+it('renders with prefix', async () => {
+  const { container, getByText, getByLabelText } = await renderWithTheme(
+    <TextInput prefix="Custom" label="Text input" value="Test with Prefix" required />
+  );
+  const inputWithPrefix = getByLabelText('Text input');
+  expect(inputWithPrefix.value).toBe('Test with Prefix');
+  expect(getByText('Custom')).toBeInTheDocument();
+  expect(container).toMatchSnapshot();
+});
+
 it('renders with icons', async () => {
   const { container } = await renderWithTheme(
     <>

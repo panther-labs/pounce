@@ -330,10 +330,11 @@ function MultiCombobox<Item>({
                       {isOpen && searchable && (
                         <InputElement
                           as="span"
-                          px={2}
+                          px={1}
                           py={0}
                           standalone={hideLabel}
                           visibility="hidden"
+                          color="transparent"
                           whiteSpace="pre"
                         >
                           {inputValue}

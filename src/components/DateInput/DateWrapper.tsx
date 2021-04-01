@@ -12,7 +12,7 @@ interface DateWrapperProps {
 
 const AnimatedPopover = animated(Popover);
 
-const DateWrapper = React.forwardRef<HTMLElement, React.PropsWithChildren<DateWrapperProps>>(
+const DateWrapper = React.forwardRef<HTMLDivElement, React.PropsWithChildren<DateWrapperProps>>(
   function DateWrapper({ children, isExpanded, targetRef, alignment = 'left' }, ref) {
     const position = useDropdownAlignment({ alignment });
     const transitions = useTransition(isExpanded, null, {
@@ -26,7 +26,13 @@ const DateWrapper = React.forwardRef<HTMLElement, React.PropsWithChildren<DateWr
         {transitions.map(
           ({ item, key, props: styles }) =>
             item && (
-              <AnimatedPopover targetRef={targetRef} position={position} key={key} style={styles}>
+              <AnimatedPopover
+                targetRef={targetRef}
+                position={position}
+                key={key}
+                style={styles}
+                as={'div'}
+              >
                 <Card ref={ref} boxShadow="dark300" my={4} zIndex={10}>
                   {children}
                 </Card>
