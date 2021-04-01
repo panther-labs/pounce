@@ -20,10 +20,10 @@
     "dist"
   ],
   "dependencies": {
-    "@emotion/react": "^11.0.0-next.12",
+    "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@juggle/resize-observer": "^3.2.0",
-    "@reach/auto-id": "^0.11.2",
+    "@reach/auto-id": "^0.13.0",
     "@reach/dialog": "^0.11.2",
     "@reach/menu-button": "^0.11.2",
     "@reach/popover": "^0.11.2",
