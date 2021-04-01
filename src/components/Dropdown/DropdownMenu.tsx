@@ -37,9 +37,14 @@ export const DropdownMenu = React.forwardRef<
       {transitions.map(
         ({ item, key, props: styles }) =>
           item && (
-            // FIXME: TS complains about missing as property, it seems there is an open issue with menu button type here -> https://github.com/reach/reach-ui/issues/724
-            // @ts-ignore
-            <AnimatedPopover key={key} style={styles} position={position} ref={ref} hidden={false}>
+            <AnimatedPopover
+              key={key}
+              style={styles}
+              position={position}
+              ref={ref}
+              hidden={false}
+              as={ReachMenuPopover}
+            >
               <Box
                 as={ReachMenuItems}
                 bg="navyblue-300"
