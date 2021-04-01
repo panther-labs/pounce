@@ -82,6 +82,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
                 position={popoverAlignment}
                 role="tooltip"
                 id={popoverId}
+                as={'div'}
               >
                 <Box ref={ref} tabIndex={0} outline="none" {...rest}>
                   {children}
