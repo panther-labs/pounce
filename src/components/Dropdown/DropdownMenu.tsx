@@ -37,7 +37,14 @@ export const DropdownMenu = React.forwardRef<
       {transitions.map(
         ({ item, key, props: styles }) =>
           item && (
-            <AnimatedPopover key={key} style={styles} position={position} ref={ref} hidden={false}>
+            <AnimatedPopover
+              key={key}
+              style={styles}
+              position={position}
+              ref={ref}
+              hidden={false}
+              as={ReachMenuPopover}
+            >
               <Box
                 as={ReachMenuItems}
                 bg="navyblue-300"
