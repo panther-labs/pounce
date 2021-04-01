@@ -21,6 +21,8 @@ exports[`Day renders a cell selected 1`] = `
   top: 0;
 }
 
+
+
 .pounce-2[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
 .pounce-2[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
 .pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
@@ -49,10 +51,14 @@ exports[`Day renders a cell selected 1`] = `
   background-color: rgba(134,163,195,0.2);
 }
 
+
+
 .pounce-2[aria-disabled='true']+.pounce-2[aria-busy='true'] [aria-relevant] {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+
+
 
 .pounce-2[aria-busy='true']:last-of-type [aria-relevant] {
   border-top-right-radius: 4px;
@@ -133,6 +139,8 @@ exports[`Day renders a cell when date is present 1`] = `
   top: 0;
 }
 
+
+
 .pounce-2[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
 .pounce-2[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
 .pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
@@ -161,10 +169,14 @@ exports[`Day renders a cell when date is present 1`] = `
   background-color: rgba(134,163,195,0.2);
 }
 
+
+
 .pounce-2[aria-disabled='true']+.pounce-2[aria-busy='true'] [aria-relevant] {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+
+
 
 .pounce-2[aria-busy='true']:last-of-type [aria-relevant] {
   border-top-right-radius: 4px;
@@ -245,6 +257,8 @@ exports[`Day renders a disabled cell 1`] = `
   top: 0;
 }
 
+
+
 .pounce-0[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
 .pounce-0[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
 .pounce-0[aria-selected='true']+.pounce-0[aria-selected='true'] [aria-placeholder] {
@@ -273,10 +287,14 @@ exports[`Day renders a disabled cell 1`] = `
   background-color: rgba(134,163,195,0.2);
 }
 
+
+
 .pounce-0[aria-disabled='true']+.pounce-0[aria-busy='true'] [aria-relevant] {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+
+
 
 .pounce-0[aria-busy='true']:last-of-type [aria-relevant] {
   border-top-right-radius: 4px;
@@ -321,6 +339,8 @@ exports[`Day renders a selected date 1`] = `
   top: 0;
 }
 
+
+
 .pounce-2[aria-busy='true']+[aria-selected='true'] [aria-placeholder],
 .pounce-2[aria-selected='true']+[aria-busy='true'] [aria-placeholder],
 .pounce-2[aria-selected='true']+.pounce-2[aria-selected='true'] [aria-placeholder] {
@@ -349,10 +369,14 @@ exports[`Day renders a selected date 1`] = `
   background-color: rgba(134,163,195,0.2);
 }
 
+
+
 .pounce-2[aria-disabled='true']+.pounce-2[aria-busy='true'] [aria-relevant] {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+
+
 
 .pounce-2[aria-busy='true']:last-of-type [aria-relevant] {
   border-top-right-radius: 4px;
