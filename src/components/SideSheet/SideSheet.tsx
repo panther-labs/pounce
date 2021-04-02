@@ -42,8 +42,9 @@ const SideSheet: React.FC<SideSheetProps> = ({ children, open, onClose, ...rest 
               isOpen={item}
               onDismiss={onClose}
               style={{ overflow: 'visible', opacity: styles.opacity }}
+              as={'div'}
             >
-              <AnimatedDialogContent {...rest} style={{ outline: 'none', ...styles }}>
+              <AnimatedDialogContent {...rest} style={{ outline: 'none', ...styles }} as={'div'}>
                 <Box
                   p={10}
                   minWidth="560px"
