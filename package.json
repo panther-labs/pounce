@@ -30,6 +30,7 @@
     "@reach/popover": "^0.13.2",
     "@reach/tabs": "^0.13.0",
     "@reach/tooltip": "^0.13.2",
+    "@reach/utils": "^0.14.0",
     "@styled-system/css": "^5.1.5",
     "@styled-system/should-forward-prop": "^5.1.5",
     "@types/fuzzaldrin": "^2.1.2",
