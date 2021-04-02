@@ -45,6 +45,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               style={{ ...styles, zIndex: 1, position: 'absolute' }}
               ref={ref}
               position={positionRight}
+              as={'div'}
               label={
                 <Box
                   borderRadius="medium"
