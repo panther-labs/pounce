@@ -56,11 +56,13 @@ const Modal: React.FC<ModalProps> = ({
               isOpen={item}
               onDismiss={onClose}
               style={{ overflow: 'visible', opacity: styles.opacity }}
+              as={'div'}
             >
               <Flex justify="center" align="center" height="100%">
                 <AnimatedDialogContent
                   aria-labelledby={title ? slugify(title) : undefined}
                   style={{ outline: 'none', ...styles }}
+                  as={'div'}
                   {...rest}
                 >
                   <Card minWidth="400px" position="relative" boxShadow="dark200">
