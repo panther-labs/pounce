@@ -42,7 +42,7 @@
     "@types/react-textarea-autosize": "^4.3.5",
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__css": "^5.0.15",
-    "@types/styled-system__should-forward-prop": "^5.1.0",
+    "@types/styled-system__should-forward-prop": "^5.1.2",
     "cross-env": "^7.0.2",
     "dayjs": "^1.10.4",
     "downshift": "^5.0.5",
