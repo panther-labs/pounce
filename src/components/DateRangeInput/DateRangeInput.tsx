@@ -9,6 +9,7 @@ import DoubleTextInput from './DoubleTextInput';
 import DateWrapper from '../DateInput/DateWrapper';
 import TimePicker from '../DateInput/TimePicker';
 import Month from '../DateInput/Month';
+import ClearButton from '../DateInput/ClearButton';
 import { TextInputProps } from '../TextInput';
 import { dateToDayjs, noop, now } from '../../utils/helpers';
 import useEscapeKey from '../../utils/useEscapeKey';
@@ -24,6 +25,11 @@ export interface DateRangeInputProps {
    * The format displayed in the input elements
    */
   format?: string;
+
+  /**
+   * A flag that allows clearing the values
+   */
+  disableReset?: boolean;
 
   /**
    * Date range input format for time picker
@@ -79,7 +85,7 @@ export interface DateRangeInputProps {
    * `(dates: [Date, Date]) => void`
    *
    */
-  onChange: (date: [Date, Date]) => void;
+  onChange: (date: [Date?, Date?]) => void;
 }
 
 /**
@@ -101,6 +107,7 @@ const DateRangeInput: React.FC<
   mode = '24h',
   withTime,
   variant = 'outline',
+  disableReset = false,
   withPresets,
   onChange = noop,
   labelStart,
@@ -123,9 +130,13 @@ const DateRangeInput: React.FC<
     close();
   }, [value, timezone, setCurrentRange, close]);
 
+  const resetLabel = React.useMemo(() => (withTime ? 'Clear Dates & Time' : 'Clear Dates'), [
+    withTime,
+  ]);
+
   const onApply = useCallback(
     e => {
-      if (!currentDateRange[0] || !currentDateRange[1]) {
+      if ((!currentDateRange[0] || !currentDateRange[1]) && disableReset) {
         return;
       }
       // To avoid inconsistent results round the start and end dates to the
@@ -133,8 +144,8 @@ const DateRangeInput: React.FC<
       const timeUnit = withTime ? 'minute' : 'day';
       e.preventDefault();
       onChange([
-        currentDateRange[0].startOf(timeUnit).toDate(),
-        currentDateRange[1].endOf(timeUnit).toDate(),
+        currentDateRange[0] ? currentDateRange[0].startOf(timeUnit).toDate() : undefined,
+        currentDateRange[1] ? currentDateRange[1].endOf(timeUnit).toDate() : undefined,
       ]);
       close();
     },
@@ -197,13 +208,18 @@ const DateRangeInput: React.FC<
     [setCurrentRange, currentDateRange]
   );
 
-  const isDisabled = useCallback(
-    () =>
+  const onClear = useCallback(() => setCurrentRange([undefined, undefined]), [setCurrentRange]);
+
+  const isDisabled = React.useMemo(() => {
+    if (!currentDateRange[0] && !currentDateRange[1] && !disableReset) {
+      return false;
+    }
+    return (
       !currentDateRange[0] ||
       !currentDateRange[1] ||
-      currentDateRange[0].isAfter(currentDateRange[1], withTime ? 'minute' : 'day'),
-    [currentDateRange]
-  );
+      currentDateRange[0].isAfter(currentDateRange[1], withTime ? 'minute' : 'day')
+    );
+  }, [currentDateRange, disableReset]);
 
   const onPresetSelect = useCallback(
     ([start, end]: [Dayjs, Dayjs]) => {
@@ -337,12 +353,30 @@ const DateRangeInput: React.FC<
               </Flex>
             )}
 
-            <Flex align="center" justify="center" borderTop="1px solid" borderColor="navyblue-300">
-              <Flex align="center" justify="center" p={3} spacing={3}>
+            <Flex
+              align="center"
+              spacing={3}
+              justify={disableReset && 'center'}
+              borderTop="1px solid"
+              p={3}
+              borderColor="navyblue-300"
+            >
+              {!disableReset && (
+                <Box align="center" justifySelf="flex-start">
+                  <ClearButton onClick={onClear}>{resetLabel}</ClearButton>
+                </Box>
+              )}
+              <Flex
+                align="center"
+                justifySelf={!disableReset && 'flex-end'}
+                ml={!disableReset && 'auto'}
+                justify="center"
+                spacing={3}
+              >
                 <Button onClick={onCancel} size="medium" variantColor="gray">
                   Cancel
                 </Button>
-                <Button disabled={isDisabled()} onClick={onApply} size="medium">
+                <Button disabled={isDisabled} onClick={onApply} size="medium">
                   Apply
                 </Button>
               </Flex>
