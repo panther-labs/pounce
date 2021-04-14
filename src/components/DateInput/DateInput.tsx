@@ -8,6 +8,7 @@ import { IconButton } from '../../index';
 import DateWrapper from './DateWrapper';
 import TextInput, { TextInputProps } from '../TextInput';
 import TimePicker from './TimePicker';
+import ClearButton from './ClearButton';
 import { noop, dateToDayjs, now } from '../../utils/helpers';
 import useDisclosure from '../../utils/useDisclosure';
 import useEscapeKey from '../../utils/useEscapeKey';
@@ -27,6 +28,11 @@ export interface DateInputProps {
    * A flag that dictates if the component should allow manipulating time
    */
   withTime?: boolean;
+
+  /**
+   * A flag that allows clearing the values
+   */
+  disableReset?: boolean;
 
   /** The variant of the component that decides the colors */
   variant?: 'solid' | 'outline';
@@ -68,6 +74,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   alignment,
   withTime,
   mode = '24h',
+  disableReset = false,
   variant = 'outline',
   onChange = noop,
   timezone = 'local',
@@ -77,6 +84,9 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   const targetRef = React.useRef(null);
   const [currentDate, setCurrentDate] = useState(dateToDayjs(value, timezone));
   const [currentMonth, setCurrentMonth] = useState(currentDate || now(timezone));
+  const resetLabel = React.useMemo(() => (withTime ? 'Clear Date & Time' : 'Clear Date'), [
+    withTime,
+  ]);
   const { isOpen, open, close } = useDisclosure();
 
   const onNextMonth = useCallback(
@@ -102,16 +112,20 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
     close();
   }, [close, value, timezone, setCurrentDate]);
 
+  const onClear = useCallback(() => setCurrentDate(undefined), [setCurrentDate]);
+
   const onApply = useCallback(
     e => {
-      if (!currentDate) {
+      if (!currentDate && disableReset) {
         return;
       }
       e.preventDefault();
-      onChange(currentDate.startOf(withTime ? 'minute' : 'day').toDate());
+      onChange(
+        !currentDate ? currentDate : currentDate.startOf(withTime ? 'minute' : 'day').toDate()
+      );
       close();
     },
-    [close, onChange, currentDate]
+    [close, onChange, currentDate, disableReset]
   );
 
   const onDaySelect = useCallback(
@@ -216,11 +230,16 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
             <Button onClick={onCancel} size="medium" variantColor="gray">
               Cancel
             </Button>
-            <Button disabled={!currentDate} onClick={onApply} size="medium">
+            <Button disabled={!currentDate && disableReset} onClick={onApply} size="medium">
               Apply
             </Button>
           </Flex>
         </Flex>
+        {!disableReset && (
+          <Flex align="center" justify="center" pb={3}>
+            <ClearButton onClick={onClear}>{resetLabel}</ClearButton>
+          </Flex>
+        )}
       </DateWrapper>
     </Box>
   );
