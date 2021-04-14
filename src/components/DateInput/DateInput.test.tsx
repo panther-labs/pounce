@@ -142,6 +142,34 @@ describe('DateInput', () => {
     expect(mock).toHaveBeenCalled();
   });
 
+  it('allows clearing', async () => {
+    const mock = jest.fn();
+    const { findByLabelText, findByText } = await renderWithTheme(
+      <DateInput label="test" value={date.toDate()} onChange={mock} />
+    );
+    const input = await findByLabelText('test');
+
+    // Open the date input components
+    await fireEvent.click(input);
+
+    expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
+    const cell = await findByLabelText('Su Nov 01 2020');
+    const submitBtn = await findByText('Apply');
+    const clear = await findByText('Clear Date');
+
+    await fireEvent.click(cell);
+    await fireEvent.click(submitBtn);
+
+    expect(mock).toHaveBeenLastCalledWith(new Date('2020-10-31T22:00:00.000Z'));
+
+    await fireEvent.click(input);
+
+    expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
+    await fireEvent.click(clear);
+    await fireEvent.click(submitBtn);
+    expect(mock).toHaveBeenLastCalledWith(undefined);
+  });
+
   it('allows selecting date and time with utc timezone', async () => {
     const mock = jest.fn();
     const utcDate = dayjs('2020-11-03T12:00:00.000Z').utc();
