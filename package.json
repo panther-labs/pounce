@@ -43,7 +43,7 @@
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__css": "^5.0.15",
     "@types/styled-system__should-forward-prop": "^5.1.2",
-    "cross-env": "^7.0.2",
+    "cross-env": "^7.0.3",
     "dayjs": "^1.10.4",
     "downshift": "^5.0.5",
     "fuzzaldrin": "^2.1.0",
