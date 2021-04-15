@@ -6,8 +6,11 @@ Any extra prop that you specify will be given to the underlying input element of
 ---
 
 ```typescript jsx
+const today = new Date();
+const tomorrow = new Date();
+tomorrow.setDate(today.getDate() + 1);
 const DateRangeExample = () => {
-  const [dates, setDates] = React.useState([]);
+  const [dates, setDates] = React.useState([today, tomorrow]);
 
   const onChange = React.useCallback(changed => {
     setDates(changed);
@@ -45,7 +48,8 @@ const DateRangeExample = () => {
       <Box mb={2}>
         {dates && (
           <span>
-            From {dates[0].toLocaleDateString()} to {dates[1].toLocaleDateString()}
+            From {dates[0] && dates[0].toLocaleDateString()} to{' '}
+            {dates[1] && dates[1].toLocaleDateString()}
           </span>
         )}
       </Box>
@@ -109,8 +113,8 @@ const DateRangeExample = () => {
   return (
     <Box>
       <Box mb={2}>
-        From {dates[0].toLocaleDateString()} {dates[0].toLocaleTimeString()} to{' '}
-        {dates[1].toLocaleDateString()} {dates[1].toLocaleTimeString()}
+        From {dates[0] && dates[0].toLocaleDateString()} {dates[0] && dates[0].toLocaleTimeString()}{' '}
+        to {dates[1] && dates[1].toLocaleDateString()} {dates[1] && dates[1].toLocaleTimeString()}
       </Box>
       <Box>
         <DateRangeInput
@@ -144,8 +148,8 @@ const DateRangeExample = () => {
   return (
     <Box>
       <Box mb={2}>
-        From {dates[0].toLocaleDateString()} {dates[0].toLocaleTimeString()} to{' '}
-        {dates[1].toLocaleDateString()} {dates[1].toLocaleTimeString()}
+        From {dates[0] && dates[0].toLocaleDateString()} {dates[0] && dates[0].toLocaleTimeString()}{' '}
+        to {dates[1] && dates[1].toLocaleDateString()} {dates[1] && dates[1].toLocaleTimeString()}
       </Box>
       <Box>
         <DateRangeInput
@@ -182,8 +186,8 @@ const DateRangeExample = () => {
   return (
     <Box>
       <Box mb={2}>
-        From {dates[0].toLocaleDateString()} {dates[0].toLocaleTimeString()} to{' '}
-        {dates[1].toLocaleDateString()} {dates[1].toLocaleTimeString()}
+        From {dates[0] && dates[0].toLocaleDateString()} {dates[0] && dates[0].toLocaleTimeString()}{' '}
+        to {dates[1] && dates[1].toLocaleDateString()} {dates[1] && dates[1].toLocaleTimeString()}
       </Box>
       <Box>
         <DateRangeInput
@@ -265,6 +269,7 @@ const DateRangeExample = () => {
         <DateRangeInput
           disableReset
           alignment="right"
+          withTime
           withPresets
           labelStart="From"
           labelEnd="To"

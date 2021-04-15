@@ -746,7 +746,7 @@ exports[`DateRangeInput allows selecting a date range 1`] = `
                 name="test-from"
                 readonly=""
                 type="text"
-                value="11/01/2020"
+                value="11/03/2020"
               />
               <label
                 class="pounce-1"

@@ -12,6 +12,7 @@ import ClearButton from './ClearButton';
 import { noop, dateToDayjs, now } from '../../utils/helpers';
 import useDisclosure from '../../utils/useDisclosure';
 import useEscapeKey from '../../utils/useEscapeKey';
+import usePrevious from '../../utils/usePrevious';
 import useOutsideClick from '../../utils/useOutsideClick';
 
 export interface DateInputProps {
@@ -87,7 +88,16 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   const resetLabel = React.useMemo(() => (withTime ? 'Clear Date & Time' : 'Clear Date'), [
     withTime,
   ]);
+
   const { isOpen, open, close } = useDisclosure();
+  const previousDate = usePrevious(dateToDayjs(value, timezone));
+
+  const isDisabled = React.useMemo(() => {
+    if (dayjs.isDayjs(currentDate) && dayjs.isDayjs(previousDate)) {
+      return currentDate.isSame(previousDate, withTime ? 'minute' : 'day');
+    }
+    return currentDate === previousDate;
+  }, [currentDate, previousDate]);
 
   const onNextMonth = useCallback(
     e => {
@@ -112,17 +122,12 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
     close();
   }, [close, value, timezone, setCurrentDate]);
 
-  const onClear = useCallback(() => setCurrentDate(undefined), [setCurrentDate]);
+  const onClear = useCallback(() => setCurrentDate(dateToDayjs(undefined)), [setCurrentDate]);
 
   const onApply = useCallback(
     e => {
-      if (!currentDate && disableReset) {
-        return;
-      }
       e.preventDefault();
-      onChange(
-        !currentDate ? currentDate : currentDate.startOf(withTime ? 'minute' : 'day').toDate()
-      );
+      onChange(currentDate?.startOf(withTime ? 'minute' : 'day').toDate());
       close();
     },
     [close, onChange, currentDate, disableReset]
@@ -230,7 +235,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
             <Button onClick={onCancel} size="medium" variantColor="gray">
               Cancel
             </Button>
-            <Button disabled={!currentDate && disableReset} onClick={onApply} size="medium">
+            <Button disabled={isDisabled} onClick={onApply} size="medium">
               Apply
             </Button>
           </Flex>

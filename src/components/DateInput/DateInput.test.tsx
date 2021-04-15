@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme, fireEvent, waitForElementToBeRemoved } from 'test-utils';
+import { renderWithTheme, fireEvent, waitForElementToBeRemoved, waitFor, within } from 'test-utils';
 import mockDate from 'mockdate';
 import dayjs from 'dayjs';
 import DateInput from './DateInput';
@@ -124,22 +124,27 @@ describe('DateInput', () => {
 
   it('allows selecting a date', async () => {
     const mock = jest.fn();
-    const { findByLabelText, findByText } = await renderWithTheme(
-      <DateInput label="test" value={date.toDate()} onChange={mock} />
+    const utcDate = dayjs('2020-11-02T00:00:00.000Z').utc();
+    const { findByLabelText, getByLabelText, findByText } = await renderWithTheme(
+      <DateInput label="test" timezone="utc" value={utcDate.toDate()} onChange={mock} />
     );
     const input = await findByLabelText('test');
-
-    // Open the date input components
     await fireEvent.click(input);
 
-    expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
-    const cell = await findByLabelText('Su Nov 01 2020');
+    expect(await findByLabelText('Tu Nov 03 2020')).toBeInTheDocument();
+
+    const cell = within(await getByLabelText('Tu Nov 03 2020')).getByRole('button');
     const submitBtn = await findByText('Apply');
 
+    await waitFor(() => expect(submitBtn).toHaveAttribute('disabled'));
+
     await fireEvent.click(cell);
+    await waitFor(() => expect(submitBtn).not.toHaveAttribute('disabled'));
+
     await fireEvent.click(submitBtn);
 
     expect(mock).toHaveBeenCalled();
+    expect(mock).toHaveBeenLastCalledWith(dayjs('2020-11-03T00:00:00.000Z').utc().toDate());
   });
 
   it('allows clearing', async () => {
@@ -153,20 +158,15 @@ describe('DateInput', () => {
     await fireEvent.click(input);
 
     expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
-    const cell = await findByLabelText('Su Nov 01 2020');
     const submitBtn = await findByText('Apply');
     const clear = await findByText('Clear Date');
 
-    await fireEvent.click(cell);
-    await fireEvent.click(submitBtn);
-
-    expect(mock).toHaveBeenLastCalledWith(new Date('2020-10-31T22:00:00.000Z'));
-
-    await fireEvent.click(input);
-
-    expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
+    await waitFor(() => expect(submitBtn).toHaveAttribute('disabled'));
     await fireEvent.click(clear);
+    await waitFor(() => expect(submitBtn).not.toHaveAttribute('disabled'));
+
     await fireEvent.click(submitBtn);
+
     expect(mock).toHaveBeenLastCalledWith(undefined);
   });
 
@@ -214,18 +214,21 @@ describe('DateInput', () => {
 
   it('closes when a selection is applied', async () => {
     const mock = jest.fn();
-    const { getByLabelText, findByLabelText, findByText, getByText } = await renderWithTheme(
+    const { getByLabelText, findByText } = await renderWithTheme(
       <DateInput label="test" value={date.toDate()} onChange={mock} />
     );
 
     // Open the date input components
     fireEvent.click(getByLabelText('test'));
-    fireEvent.click(await findByLabelText('Su Nov 01 2020'));
 
     const dateHeader = await findByText('November 2020');
     expect(dateHeader).toBeInTheDocument();
+    const cell = within(await getByLabelText('Tu Nov 03 2020')).getByRole('button');
+    fireEvent.click(cell);
+    const submitBtn = await findByText('Apply');
+    await waitFor(() => expect(submitBtn).not.toHaveAttribute('disabled'));
 
-    fireEvent.click(getByText('Apply'));
+    fireEvent.click(submitBtn);
 
     await waitForElementToBeRemoved(dateHeader);
     expect(dateHeader).not.toBeInTheDocument();

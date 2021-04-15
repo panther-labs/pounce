@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme, fireEvent, waitForElementToBeRemoved } from 'test-utils';
+import { renderWithTheme, fireEvent, waitForElementToBeRemoved, waitFor, within } from 'test-utils';
 import mockDate from 'mockdate';
 import dayjs from 'dayjs';
 import DateRangeInput from './DateRangeInput';
@@ -222,7 +222,9 @@ describe('DateRangeInput', () => {
     const input = await findByLabelText('From date');
     // Open the date input components
     await fireEvent.click(input);
+    const submitBtn = await findByText('Apply');
 
+    await waitFor(() => expect(submitBtn).toHaveAttribute('disabled'));
     const endingHours = await getByLabelText('To Time Hours', { selector: 'input' });
     const endingMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
 
@@ -238,7 +240,7 @@ describe('DateRangeInput', () => {
 
     await fireEvent.click(fiftyMinutes);
 
-    const submitBtn = await findByText('Apply');
+    await waitFor(() => expect(submitBtn).not.toHaveAttribute('disabled'));
     await fireEvent.click(submitBtn);
     expect(mock).toHaveBeenCalled();
 
@@ -278,14 +280,14 @@ describe('DateRangeInput', () => {
 
     const submitBtn = await findByText('Apply');
     // Apply button is enabled as long as end date is after start date
-    expect(submitBtn).not.toHaveAttribute('disabled');
+    expect(submitBtn).toHaveAttribute('disabled');
 
     // Set start date later than end date
     const novFirst = getAllByRole('button', { name: /1/i })[0];
     fireEvent.click(novFirst);
 
-    const startHours = await getByLabelText('From Time Hours', { selector: 'input' });
-    const startMinutes = await getByLabelText('From Time Minutes', { selector: 'input' });
+    const startHours = await getByLabelText('To Time Hours', { selector: 'input' });
+    const startMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
 
     await fireEvent.focus(startHours);
     const one = getByRole('option', { name: /12/i });
@@ -295,7 +297,7 @@ describe('DateRangeInput', () => {
     await fireEvent.focus(startMinutes);
     const fourtyMinutes = getByRole('option', { name: /40/i });
     await fireEvent.click(fourtyMinutes);
-    expect(submitBtn).toHaveAttribute('disabled');
+    await waitFor(() => expect(submitBtn).not.toHaveAttribute('disabled'));
   });
 
   it('rounds start and end dates by minute', async () => {
@@ -532,7 +534,7 @@ describe('DateRangeInput', () => {
 
   it('allows selecting a date range', async () => {
     const mock = jest.fn();
-    const { container, findByLabelText, findByText } = await renderWithTheme(
+    const { container, findByLabelText, findByText, getByLabelText } = await renderWithTheme(
       <DateRangeInput {...props} onChange={mock} />
     );
     const input = await findByLabelText('From date');
@@ -541,28 +543,19 @@ describe('DateRangeInput', () => {
     await fireEvent.click(input);
 
     expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
-    const cellStart = await findByLabelText('Su Nov 01 2020');
-    const cellEnd = await findByLabelText('Mo Nov 30 2020');
+    const cellStart = within(await getByLabelText('Mo Nov 02 2020')).getByRole('button');
+    const cellEnd = within(await getByLabelText('Tu Nov 03 2020')).getByRole('button');
+
     const submitBtn = await findByText('Apply');
 
     await fireEvent.click(cellStart);
     await fireEvent.click(cellEnd);
+
+    await waitFor(() => expect(submitBtn).not.toHaveAttribute('disabled'));
     await fireEvent.click(submitBtn);
 
     expect(mock).toHaveBeenCalled();
     expect(container).toMatchSnapshot();
-  });
-
-  it('allows clearing the selection when `withTime` is applied', async () => {
-    const mock = jest.fn();
-    const { findByLabelText, findByText } = await renderWithTheme(
-      <DateRangeInput {...props} withTime onChange={mock} />
-    );
-
-    const input = await findByLabelText('From date');
-    await fireEvent.click(input);
-    expect(await findByLabelText('Su Nov 01 2020')).toBeInTheDocument();
-    expect(await findByText('Clear Dates & Time')).toBeInTheDocument();
   });
 
   it('allows clearing the selection', async () => {
@@ -612,17 +605,21 @@ describe('DateRangeInput', () => {
 
   it('closes when a selection is applied', async () => {
     const mock = jest.fn();
-    const { findByLabelText, getByText } = await renderWithTheme(
+    const { findByLabelText, getByText, getByLabelText } = await renderWithTheme(
       <DateRangeInput {...props} onChange={mock} />
     );
 
     // Open the date input components
     fireEvent.click(await findByLabelText('From date'));
-    fireEvent.click(await findByLabelText('Su Nov 01 2020'));
-    fireEvent.click(await findByLabelText('Mo Nov 30 2020'));
 
     const dateHeader = getByText('November 2020');
     expect(dateHeader).toBeInTheDocument();
+
+    const cellStart = within(await getByLabelText('Mo Nov 02 2020')).getByRole('button');
+    const cellEnd = within(await getByLabelText('Tu Nov 03 2020')).getByRole('button');
+
+    fireEvent.click(cellStart);
+    fireEvent.click(cellEnd);
 
     fireEvent.click(getByText('Apply'));
 

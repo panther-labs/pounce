@@ -13,6 +13,7 @@ import ClearButton from '../DateInput/ClearButton';
 import { TextInputProps } from '../TextInput';
 import { dateToDayjs, noop, now } from '../../utils/helpers';
 import useEscapeKey from '../../utils/useEscapeKey';
+import usePrevious from '../../utils/usePrevious';
 import useOutsideClick from '../../utils/useOutsideClick';
 import useDisclosure from '../../utils/useDisclosure';
 
@@ -95,6 +96,8 @@ const datesToDayjs = (value: [Date?, Date?], timezone: 'local' | 'utc'): [Dayjs?
   return [dateToDayjs(value[0], timezone), dateToDayjs(value[1], timezone)];
 };
 
+const areDatesUndefined = (dates?: [Dayjs?, Dayjs?]) => !!dates && dates.every(date => !date);
+
 const DateRangeInput: React.FC<
   DateRangeInputProps &
     Omit<
@@ -122,6 +125,7 @@ const DateRangeInput: React.FC<
   const [currentMonth, setCurrentMonth] = useState(currentDateRange[0] || now(timezone));
 
   const { isOpen, open, close } = useDisclosure();
+  const previousDateRange = usePrevious(datesToDayjs(value, timezone));
   const ref = React.useRef(null);
   const targetRef = React.useRef(null);
 
@@ -136,9 +140,6 @@ const DateRangeInput: React.FC<
 
   const onApply = useCallback(
     e => {
-      if ((!currentDateRange[0] || !currentDateRange[1]) && disableReset) {
-        return;
-      }
       // To avoid inconsistent results round the start and end dates to the
       // nearest minute (or day if the time picker is disabled)
       const timeUnit = withTime ? 'minute' : 'day';
@@ -211,16 +212,22 @@ const DateRangeInput: React.FC<
   const onClear = useCallback(() => setCurrentRange([undefined, undefined]), [setCurrentRange]);
 
   const isDisabled = React.useMemo(() => {
-    if (!currentDateRange[0] && !currentDateRange[1] && !disableReset) {
-      return false;
+    if (areDatesUndefined(previousDateRange) && areDatesUndefined(currentDateRange)) {
+      return true;
     }
-    return (
-      !currentDateRange[0] ||
-      !currentDateRange[1] ||
-      currentDateRange[0].isAfter(currentDateRange[1], withTime ? 'minute' : 'day')
-    );
-  }, [currentDateRange, disableReset]);
+    if (currentDateRange[0] && !currentDateRange[1]) {
+      return true;
+    }
 
+    return currentDateRange.every((date, index) => {
+      return (
+        previousDateRange &&
+        previousDateRange[index] &&
+        // @ts-ignore
+        date?.isSame(previousDateRange[index], withTime ? 'minute' : 'day')
+      );
+    });
+  }, [currentDateRange, previousDateRange]);
   const onPresetSelect = useCallback(
     ([start, end]: [Dayjs, Dayjs]) => {
       setCurrentRange([start, end]);
