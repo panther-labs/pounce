@@ -221,6 +221,7 @@ const DateRangeInput: React.FC<
 
     return currentDateRange.every((date, index) => {
       return (
+        date &&
         previousDateRange &&
         previousDateRange[index] &&
         (date as Dayjs).isSame(previousDateRange[index] as Dayjs, withTime ? 'minute' : 'day')
