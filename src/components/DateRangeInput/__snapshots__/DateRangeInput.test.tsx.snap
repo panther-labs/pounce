@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`allows changing time options in 24h mode 1`] = `
+exports[`DateRangeInput allows changing time options in 24h mode 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -29,6 +31,11 @@ exports[`allows changing time options in 24h mode 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -49,7 +56,6 @@ exports[`allows changing time options in 24h mode 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -95,6 +101,8 @@ exports[`allows changing time options in 24h mode 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -147,6 +155,7 @@ exports[`allows changing time options in 24h mode 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -159,7 +168,6 @@ exports[`allows changing time options in 24h mode 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -260,11 +268,13 @@ exports[`allows changing time options in 24h mode 1`] = `
 </div>
 `;
 
-exports[`allows passing a custom format 1`] = `
+exports[`DateRangeInput allows passing a custom format 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -289,6 +299,11 @@ exports[`allows passing a custom format 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -309,7 +324,6 @@ exports[`allows passing a custom format 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -355,6 +369,8 @@ exports[`allows passing a custom format 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -407,6 +423,7 @@ exports[`allows passing a custom format 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -419,7 +436,6 @@ exports[`allows passing a custom format 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -520,11 +536,13 @@ exports[`allows passing a custom format 1`] = `
 </div>
 `;
 
-exports[`allows selecting a date range 1`] = `
+exports[`DateRangeInput allows selecting a date range 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -549,6 +567,11 @@ exports[`allows selecting a date range 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -569,7 +592,6 @@ exports[`allows selecting a date range 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -615,6 +637,8 @@ exports[`allows selecting a date range 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -667,6 +691,7 @@ exports[`allows selecting a date range 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -679,7 +704,6 @@ exports[`allows selecting a date range 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -722,7 +746,7 @@ exports[`allows selecting a date range 1`] = `
                 name="test-from"
                 readonly=""
                 type="text"
-                value="11/01/2020"
+                value="11/03/2020"
               />
               <label
                 class="pounce-1"
@@ -780,11 +804,13 @@ exports[`allows selecting a date range 1`] = `
 </div>
 `;
 
-exports[`allows selecting a preset 1`] = `
+exports[`DateRangeInput allows selecting a preset 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -809,6 +835,11 @@ exports[`allows selecting a preset 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -829,7 +860,6 @@ exports[`allows selecting a preset 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -875,6 +905,8 @@ exports[`allows selecting a preset 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -927,6 +959,7 @@ exports[`allows selecting a preset 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -939,7 +972,6 @@ exports[`allows selecting a preset 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -1040,11 +1072,13 @@ exports[`allows selecting a preset 1`] = `
 </div>
 `;
 
-exports[`opens the month picker 1`] = `
+exports[`DateRangeInput opens the month picker 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -1069,6 +1103,11 @@ exports[`opens the month picker 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -1089,7 +1128,6 @@ exports[`opens the month picker 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -1135,6 +1173,8 @@ exports[`opens the month picker 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -1187,6 +1227,7 @@ exports[`opens the month picker 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -1199,7 +1240,6 @@ exports[`opens the month picker 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -1300,11 +1340,13 @@ exports[`opens the month picker 1`] = `
 </div>
 `;
 
-exports[`opens the month picker with empty value 1`] = `
+exports[`DateRangeInput opens the month picker with empty value 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -1329,6 +1371,11 @@ exports[`opens the month picker with empty value 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -1349,7 +1396,6 @@ exports[`opens the month picker with empty value 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -1396,6 +1442,8 @@ exports[`opens the month picker with empty value 1`] = `
   font-weight: 500;
 }
 
+
+
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
 }
@@ -1428,6 +1476,7 @@ exports[`opens the month picker with empty value 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -1440,7 +1489,6 @@ exports[`opens the month picker with empty value 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -1560,11 +1608,13 @@ exports[`opens the month picker with empty value 1`] = `
 </div>
 `;
 
-exports[`opens the month picker with placement 1`] = `
+exports[`DateRangeInput opens the month picker with placement 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -1589,6 +1639,11 @@ exports[`opens the month picker with placement 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -1609,7 +1664,6 @@ exports[`opens the month picker with placement 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -1655,6 +1709,8 @@ exports[`opens the month picker with placement 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -1707,6 +1763,7 @@ exports[`opens the month picker with placement 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -1719,7 +1776,6 @@ exports[`opens the month picker with placement 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -1820,11 +1876,13 @@ exports[`opens the month picker with placement 1`] = `
 </div>
 `;
 
-exports[`renders 1`] = `
+exports[`DateRangeInput renders 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -1849,6 +1907,11 @@ exports[`renders 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -1869,7 +1932,6 @@ exports[`renders 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -1915,6 +1977,8 @@ exports[`renders 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -1967,6 +2031,7 @@ exports[`renders 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -1979,7 +2044,6 @@ exports[`renders 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -2080,11 +2144,13 @@ exports[`renders 1`] = `
 </div>
 `;
 
-exports[`renders with solid coloring 1`] = `
+exports[`DateRangeInput renders with solid coloring 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -2102,7 +2168,6 @@ exports[`renders with solid coloring 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -2148,6 +2213,8 @@ exports[`renders with solid coloring 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -2200,6 +2267,7 @@ exports[`renders with solid coloring 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -2212,7 +2280,6 @@ exports[`renders with solid coloring 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
@@ -2246,6 +2313,11 @@ exports[`renders with solid coloring 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -2340,11 +2412,13 @@ exports[`renders with solid coloring 1`] = `
 </div>
 `;
 
-exports[`renders with time options 1`] = `
+exports[`DateRangeInput renders with time options 1`] = `
 .pounce-13 {
   position: relative;
   z-index: 1;
 }
+
+
 
 .pounce-2 {
   position: relative;
@@ -2369,6 +2443,11 @@ exports[`renders with time options 1`] = `
   border-color: #0081c5;
 }
 
+.pounce-7:focus-within span {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pounce-7:focus-within label {
   font-weight: 500;
   -webkit-transform: translate(6px, 4px) scale(0.65);
@@ -2389,7 +2468,6 @@ exports[`renders with time options 1`] = `
 }
 
 .pounce-0 {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   padding-left: 16px;
@@ -2435,6 +2513,8 @@ exports[`renders with time options 1`] = `
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
 }
+
+
 
 .pounce-0:focus::-webkit-input-placeholder {
   opacity: 0.4;
@@ -2487,6 +2567,7 @@ exports[`renders with time options 1`] = `
 .pounce-11 {
   outline: none;
   line-height: 1;
+  border-radius: 4px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -2499,7 +2580,6 @@ exports[`renders with time options 1`] = `
 }
 
 .pounce-11:focus {
-  border-radius: 99999px;
   background-color: rgba(255,255,255,0.1);
 }
 
