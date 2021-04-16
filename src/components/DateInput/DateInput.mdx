@@ -149,3 +149,30 @@ const DateInputExample = () => {
 
 <DateInputExample />;
 ```
+
+It supports disabling clearing
+
+```typescript jsx
+const DateInputExample = () => {
+  const [date, setDate] = React.useState();
+  return (
+    <Box>
+      <Box mb={4}>Selected date is {date ? date.toISOString() : ''}</Box>
+      <Box>
+        <DateInput
+          disableReset
+          withTime
+          variant="solid"
+          onChange={setDate}
+          value={date}
+          format="MM/DD/YYYY HH:mm A"
+          placeholder="Enter a date"
+          label="Start date"
+        />
+      </Box>
+    </Box>
+  );
+};
+
+<DateInputExample />;
+```
