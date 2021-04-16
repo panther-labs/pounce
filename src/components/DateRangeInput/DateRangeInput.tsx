@@ -223,8 +223,7 @@ const DateRangeInput: React.FC<
       return (
         previousDateRange &&
         previousDateRange[index] &&
-        // @ts-ignore
-        date?.isSame(previousDateRange[index], withTime ? 'minute' : 'day')
+        (date as Dayjs).isSame(previousDateRange[index] as Dayjs, withTime ? 'minute' : 'day')
       );
     });
   }, [currentDateRange, previousDateRange]);
