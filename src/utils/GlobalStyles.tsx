@@ -213,6 +213,7 @@ const GlobalStyles: React.FC = () => {
       z-index: 10;
     }
     [data-reach-dialog-overlay] {
+      z-index: 10;
       background: hsla(0, 0%, 0%, 0.33);
       position: fixed;
       top: 0;
