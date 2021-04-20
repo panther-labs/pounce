@@ -14,12 +14,15 @@ export const TabList = React.forwardRef<HTMLDivElement, TabListProps>(function T
   return (
     // @ts-ignore Typing is wrong on @reach-ui, allowing only div | undefined for `as`
     <ReachTabList as={Flex} ref={ref} flexWrap="wrap" {...rest}>
-      {React.Children.map(children, (child, index) =>
-        React.cloneElement(child as React.ReactElement, {
-          isSelected: selectedIndex === index,
-          isFocused: focusedIndex === index,
-        })
-      )}
+      {React.Children.map(children, (child, index) => {
+        if (child) {
+          return React.cloneElement(child as React.ReactElement, {
+            isSelected: selectedIndex === index,
+            isFocused: focusedIndex === index,
+          });
+        }
+        return null;
+      })}
     </ReachTabList>
   );
 });
