@@ -9,9 +9,12 @@ const TabPanels = React.forwardRef<HTMLDivElement, TabPanelsProps>(function TabP
 ) {
   return (
     <ReachTabPanels ref={ref} {...rest}>
-      {React.Children.map(children, (child, index) =>
-        React.cloneElement(child as React.ReactElement, { index })
-      )}
+      {React.Children.map(children, (child, index) => {
+        if (child) {
+          return React.cloneElement(child as React.ReactElement, { index });
+        }
+        return null;
+      })}
     </ReachTabPanels>
   );
 });
