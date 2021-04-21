@@ -1,14 +1,14 @@
 import React from 'react';
+import { useId } from '@reach/auto-id';
 import Box from '../../Box';
 import Flex from '../../Flex';
 import IconButton from '../../IconButton';
 import Icon from '../../Icon';
-import { slugify } from '../../../utils/helpers';
 import useAlertStyles from './useAlertStyles';
 
 export interface ControlledAlertProps {
   /** The main text of the the alert */
-  title: string;
+  title?: string;
 
   /** Whether the alert is visible */
   open: boolean;
@@ -45,7 +45,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
     ref
   ) {
     const { backgroundColor, icon } = useAlertStyles({ variant });
-    const id = slugify(title);
+    const id = useId();
 
     if (!open) {
       return null;
@@ -62,25 +62,32 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
         backgroundColor={backgroundColor}
         {...rest}
       >
-        <Flex as="header" align="center" fontSize="large">
-          <Icon type={icon} mr={2} size="large" />
-          <Box
-            as="h4"
-            fontWeight={description ? 'bold' : 'normal'}
-            flexGrow={1}
-            mr="auto"
-            id={`${id}-title`}
-          >
-            {title}
-          </Box>
-          {discardable && (
-            <Box my={-3} mr={-3} ml={3}>
-              <IconButton aria-label="Discard" variant="unstyled" icon="close" onClick={onClose} />
+        {title && (
+          <Flex as="header" align="center" fontSize="large">
+            <Icon type={icon} mr={2} size="large" />
+            <Box
+              as="h4"
+              fontWeight={description ? 'bold' : 'normal'}
+              flexGrow={1}
+              mr="auto"
+              id={`${id}-title`}
+            >
+              {title}
             </Box>
-          )}
-        </Flex>
+            {discardable && (
+              <Box my={-3} mr={-3} ml={3}>
+                <IconButton
+                  aria-label="Discard"
+                  variant="unstyled"
+                  icon="close"
+                  onClick={onClose}
+                />
+              </Box>
+            )}
+          </Flex>
+        )}
         {description && (
-          <Box as="p" fontStyle="italic" mt={3} fontSize="medium">
+          <Box as="p" fontStyle="italic" mt={title ? 3 : 0} fontSize="medium">
             {description}
           </Box>
         )}

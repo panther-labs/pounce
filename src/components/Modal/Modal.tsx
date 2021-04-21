@@ -1,11 +1,11 @@
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
+import { useId } from '@reach/auto-id';
 import Box from '../Box';
 import Card from '../Card';
 import Heading from '../Heading';
 import Flex from '../Flex';
-import { slugify } from '../../utils/helpers';
 import IconButton from '../IconButton';
 
 const AnimatedDialogOverlay = animated(DialogOverlay);
@@ -19,7 +19,7 @@ export interface ModalProps {
   onClose: () => void;
 
   /**  The title to add to the modal  */
-  title?: string;
+  title?: string | React.ReactElement;
 
   /** Whether to render a close button or not */
   showCloseButton?: boolean;
@@ -46,6 +46,7 @@ const Modal: React.FC<ModalProps> = ({
     leave: { transform: 'translate3d(0, 25px, 0)', opacity: 0, pointerEvents: 'none' },
   });
 
+  const id = useId();
   return (
     <React.Fragment>
       {transitions.map(
@@ -60,7 +61,7 @@ const Modal: React.FC<ModalProps> = ({
             >
               <Flex justify="center" align="center" height="100%">
                 <AnimatedDialogContent
-                  aria-labelledby={title ? slugify(title) : undefined}
+                  aria-labelledby={id}
                   style={{ outline: 'none', ...styles }}
                   as={'div'}
                   {...rest}
@@ -68,7 +69,7 @@ const Modal: React.FC<ModalProps> = ({
                   <Card minWidth="400px" position="relative" boxShadow="dark200">
                     {title && (
                       <Box as="header" borderBottom="1px solid" borderColor="navyblue-300" py={6}>
-                        <Heading as="h4" size="x-small" textAlign="center" id={slugify(title)}>
+                        <Heading as="h4" size="x-small" textAlign="center" id={id}>
                           {title}
                         </Heading>
                       </Box>
