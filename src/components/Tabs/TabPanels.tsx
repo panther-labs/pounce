@@ -9,9 +9,9 @@ const TabPanels = React.forwardRef<HTMLDivElement, TabPanelsProps>(function TabP
 ) {
   return (
     <ReachTabPanels ref={ref} {...rest}>
-      {React.Children.toArray(children)
-        .filter(Boolean)
-        .map((child, index) => React.cloneElement(child as React.ReactElement, { index }))}
+      {React.Children.toArray(children).map((child, index) =>
+        React.cloneElement(child as React.ReactElement, { index })
+      )}
     </ReachTabPanels>
   );
 });
