@@ -49,8 +49,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
       cursor="pointer"
       fontSize="medium"
       py={4}
+      pr={4}
       pl={nested ? 22 : 4}
-      pr={!selected ? 4 : 10}
       transition="background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
       position="relative"
       backgroundColor={bgColor}
@@ -58,7 +58,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
       _selected={{
         backgroundColor: 'navyblue-400',
       }}
+      wordBreak="break-all"
       {...(withCheckMark && {
+        pr: 10,
         _after: {
           content: selected
             ? `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`

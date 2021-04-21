@@ -443,12 +443,13 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   font-size: 0.875rem;
   padding-top: 16px;
   padding-bottom: 16px;
+  padding-right: 40px;
   padding-left: 16px;
-  padding-right: 16px;
   -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #3e516b;
+  word-break: break-all;
 }
 
 .pounce-12[aria-selected=true],
@@ -483,6 +484,14 @@ exports[`MultiCombobox renders with clear all option 1`] = `
 }
 
 .pounce-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #0081c5;
   border-radius: 40px;
   cursor: default;
@@ -490,6 +499,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   padding-right: 8px;
   font-size: 0.75rem;
   font-weight: 500;
+  word-break: break-all;
   z-index: 1;
   margin: 4px;
 }
@@ -521,12 +531,13 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   font-size: 0.875rem;
   padding-top: 16px;
   padding-bottom: 16px;
-  padding-left: 16px;
   padding-right: 40px;
+  padding-left: 16px;
   -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #1d2a3f;
+  word-break: break-all;
 }
 
 .pounce-11[aria-selected=true],
@@ -928,12 +939,13 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   font-size: 0.875rem;
   padding-top: 16px;
   padding-bottom: 16px;
+  padding-right: 40px;
   padding-left: 16px;
-  padding-right: 16px;
   -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #3e516b;
+  word-break: break-all;
 }
 
 .pounce-17[aria-selected=true],
@@ -968,6 +980,14 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 }
 
 .pounce-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #0081c5;
   border-radius: 40px;
   cursor: default;
@@ -975,6 +995,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   padding-right: 8px;
   font-size: 0.75rem;
   font-weight: 500;
+  word-break: break-all;
   z-index: 1;
   margin: 4px;
 }
@@ -1006,12 +1027,13 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   font-size: 0.875rem;
   padding-top: 16px;
   padding-bottom: 16px;
-  padding-left: 16px;
   padding-right: 40px;
+  padding-left: 16px;
   -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #1d2a3f;
+  word-break: break-all;
 }
 
 .pounce-15[aria-selected=true],
