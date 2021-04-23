@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { ResizeObserver } from '@juggle/resize-observer';
 import { animated, useTransition } from 'react-spring';
@@ -80,21 +80,30 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     React.Reducer<SnackbarStateShape[], SnackbarStateAction>
   >(snackbarStateReducer, []);
 
-  const pushSnackbar = (props: SnackbarPublicProps) => {
-    const id = generateSnackbarId();
-    dispatch({ type: PUSH_SNACKBAR, payload: { id, props } });
-    return id;
-  };
+  const pushSnackbar = React.useCallback(
+    (props: SnackbarPublicProps) => {
+      const id = generateSnackbarId();
+      dispatch({ type: PUSH_SNACKBAR, payload: { id, props } });
+      return id;
+    },
+    [dispatch]
+  );
 
-  const updateSnackbar = (id: string, props: SnackbarPublicProps) => {
-    dispatch({ type: UPDATE_SNACKBAR, payload: { id, props } });
-    return id;
-  };
+  const updateSnackbar = React.useCallback(
+    (id: string, props: SnackbarPublicProps) => {
+      dispatch({ type: UPDATE_SNACKBAR, payload: { id, props } });
+      return id;
+    },
+    [dispatch]
+  );
 
-  const removeSnackbar = (id: SnackbarStateShape['id']) => {
-    dispatch({ type: REMOVE_SNACKBAR, payload: { id } });
-    return id;
-  };
+  const removeSnackbar = React.useCallback(
+    (id: SnackbarStateShape['id']) => {
+      dispatch({ type: REMOVE_SNACKBAR, payload: { id } });
+      return id;
+    },
+    [dispatch]
+  );
 
   const [ref, { height }] = useMeasure({ debounce: 100, scroll: false, polyfill: ResizeObserver });
 
@@ -145,7 +154,9 @@ export const SnackbarProvider: React.FC = ({ children }) => {
   };
 
   const contextPayload = React.useMemo(() => ({ pushSnackbar, updateSnackbar, removeSnackbar }), [
-    snackbars,
+    pushSnackbar,
+    updateSnackbar,
+    removeSnackbar,
   ]);
 
   return (
@@ -160,4 +171,4 @@ export const SnackbarProvider: React.FC = ({ children }) => {
 export const SnackbarConsumer = SnackbarContext.Consumer;
 
 /** An alternative to the consumer component through hooks */
-export const useSnackbar = () => useContext(SnackbarContext);
+export const useSnackbar = () => React.useContext(SnackbarContext);
