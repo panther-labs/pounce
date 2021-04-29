@@ -3,7 +3,8 @@ import React from 'react';
 import Downshift from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
-import Icon from '../Icon';
+import Flex from '../Flex';
+import IconButton from '../IconButton';
 import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
@@ -216,16 +217,25 @@ function Combobox<Item>({
                   {label}
                 </InputLabel>
               </InputControl>
-              <Icon
+              <Flex
                 opacity={disabled ? 0.3 : 1}
-                type={isOpen ? 'caret-up' : 'caret-down'}
                 position="absolute"
-                pointerEvents="none"
-                my="auto"
                 top={0}
                 bottom={0}
-                right={4}
-              />
+                right={2}
+                align="center"
+                justify="center"
+                pointerEvents={isOpen ? 'auto' : 'none'}
+              >
+                <IconButton
+                  tabIndex={-1}
+                  icon={isOpen ? 'caret-up' : 'caret-down'}
+                  size="medium"
+                  aria-label="Toggle Menu"
+                  onClick={() => closeMenu()}
+                  variant="unstyled"
+                />
+              </Flex>
             </Box>
             <Menu
               as="ul"
