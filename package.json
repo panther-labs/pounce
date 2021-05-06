@@ -26,7 +26,7 @@
     "@juggle/resize-observer": "^3.3.0",
     "@reach/auto-id": "^0.14.0",
     "@reach/dialog": "^0.14.0",
-    "@reach/menu-button": "^0.14.0",
+    "@reach/menu-button": "^0.15.0",
     "@reach/popover": "^0.14.0",
     "@reach/tabs": "^0.14.0",
     "@reach/tooltip": "^0.14.0",
