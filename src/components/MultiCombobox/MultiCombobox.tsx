@@ -3,7 +3,7 @@ import React from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
-import Icon from '../Icon';
+import IconButton from '../IconButton';
 import Flex from '../Flex';
 import { InputControl, InputLabel, InputElement, InputElementProps } from '../utils/Input';
 import Tag from './Tag';
@@ -368,17 +368,26 @@ function MultiCombobox<Item>({
                   {label}
                 </InputLabel>
               </InputControl>
-
               {items.length > 0 && (
-                <Icon
-                  type={isOpen ? 'caret-up' : 'caret-down'}
+                <Flex
+                  opacity={disabled ? 0.3 : 1}
                   position="absolute"
-                  pointerEvents="none"
-                  my="auto"
                   top={0}
                   bottom={0}
-                  right={4}
-                />
+                  right={2}
+                  align="center"
+                  justify="center"
+                  pointerEvents={isOpen ? 'auto' : 'none'}
+                >
+                  <IconButton
+                    tabIndex={-1}
+                    icon={isOpen ? 'caret-up' : 'caret-down'}
+                    size="medium"
+                    aria-label="Toggle Menu"
+                    onClick={() => toggleMenu({ inputValue: '' })}
+                    variant="unstyled"
+                  />
+                </Flex>
               )}
             </Box>
             <Menu
