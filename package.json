@@ -28,7 +28,7 @@
     "@reach/dialog": "^0.14.0",
     "@reach/menu-button": "^0.14.0",
     "@reach/popover": "^0.14.0",
-    "@reach/tabs": "^0.14.0",
+    "@reach/tabs": "^0.15.0",
     "@reach/tooltip": "^0.14.0",
     "@reach/utils": "^0.14.0",
     "@styled-system/css": "^5.1.5",
