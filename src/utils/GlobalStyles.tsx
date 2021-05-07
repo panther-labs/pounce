@@ -194,7 +194,7 @@ const GlobalStyles: React.FC = () => {
     input[type='number'] {
       -webkit-appearance: textfield;
       -moz-appearance: textfield;
-      appearance: initial;
+      appearance: textfield;
     }
     input[type='number']::-webkit-inner-spin-button,
     input[type='number']::-webkit-outer-spin-button {
