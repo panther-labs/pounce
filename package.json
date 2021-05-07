@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "@emotion/react": "^11.1.5",
-    "@emotion/serialize": "^1.0.1",
+    "@emotion/serialize": "^1.0.2",
     "@emotion/styled": "^11.1.5",
     "@juggle/resize-observer": "^3.3.0",
     "@reach/auto-id": "^0.15.0",
