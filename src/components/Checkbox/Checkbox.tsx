@@ -11,16 +11,19 @@ export type CheckboxProps = NativeAttributes<'input'> & {
 
   /**  Whether the input has an invalid value or not */
   invalid?: boolean;
+
+  /**  Whether the input state cannot be determined in binary terms */
+  indeterminate?: boolean;
 };
 
 /**
  *  Your bread & butter checkbox element. Nothing new here
  *  */
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
-  { checked, label, disabled, readOnly, invalid, hidden, ...rest },
+  { checked, label, disabled, readOnly, invalid, indeterminate, hidden, ...rest },
   ref
 ) {
-  const checkboxStyles = useCheckboxStyles({ invalid, checked });
+  const checkboxStyles = useCheckboxStyles({ invalid, checked, indeterminate });
 
   if (!label && !(rest['aria-label'] || rest['aria-labelledby'])) {
     console.error(
