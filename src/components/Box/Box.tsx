@@ -1,5 +1,5 @@
 import React from 'react';
-import { pounce, NativeAttributes, PounceComponentProps } from '../../system';
+import { NativeAttributes, PounceComponentProps } from '../../system';
 import { __DEV__ } from '../../utils/helpers';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -10,8 +10,9 @@ export type { NativeAttributes };
  * Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes.
  * */
-const Box: React.FC<BoxProps> = ({ children, position, display, background }) => {
-  return <div style={{ display, position, background }}>{children}</div>;
+// @ts-nocheck
+const Box: React.FC<BoxProps> = ({ children }) => {
+  return <div>{children}</div>;
 };
 
 // FIXME: This overrides the fact that the box is a `div`. Components implementing this will warn us
