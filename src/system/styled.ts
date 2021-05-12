@@ -1,9 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import { shouldForwardProp } from './shouldForwardProp';
-import { stylingProps, SystemProps } from './system';
-import { pseudoProps } from './pseudo';
-import { sxProp, truncateProp, visuallyHiddenProp } from './utility';
+import { SystemProps } from './system';
 
 export type NativeAttributes<El extends React.ElementType> = Omit<
   React.ComponentPropsWithRef<El>,
@@ -12,14 +8,3 @@ export type NativeAttributes<El extends React.ElementType> = Omit<
 
 export type PounceComponentProps<Element extends React.ElementType> = NativeAttributes<Element> &
   SystemProps;
-
-export const pounce = <T extends keyof JSX.IntrinsicElements>(tag: T) =>
-  styled(tag, {
-    shouldForwardProp,
-  })`
-  ${stylingProps}
-  ${pseudoProps}
-  ${sxProp}
-  ${truncateProp}
-  ${visuallyHiddenProp}
-` as React.FC<PounceComponentProps<T>>;

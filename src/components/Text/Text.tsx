@@ -1,7 +1,8 @@
 import React from 'react';
+import { PounceComponentProps } from '../../system';
 import { __DEV__ } from '../../utils/helpers';
 
-export type TextProps = React.ComponentProps<'p'>;
+export type TextProps<T extends React.ElementType = any> = PounceComponentProps<T>;
 
 /**
  * Extends <a href="/#/Box">Box</a>
