@@ -25,9 +25,9 @@ const useCheckboxStyles = ({ invalid, checked, indeterminate }: UseCheckboxStyle
         },
       },
       _before: {
-        content: indeterminate
-          ? `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 18" fill="white"><path d="M20 13.8571V13.1429H4V10.8571H10.1429V10.8571H20V13.1429Z"/></svg>' )`
-          : `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`,
+        content: checked
+          ? `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' )`
+          : `url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 18" fill="white"><path d="M20 13.8571V13.1429H4V10.8571H10.1429V10.8571H20V13.1429Z"/></svg>' )`,
         display: 'block',
         position: 'absolute',
         width: 'fit-content',

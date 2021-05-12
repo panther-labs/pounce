@@ -4,6 +4,7 @@ const Example = () => {
   const [isCheckedB, setCheckedB] = React.useState(false);
   const [isCheckedC, setCheckedC] = React.useState(false);
   const [isCheckedD, setCheckedD] = React.useState(false);
+  const [isCheckedE, setCheckedE] = React.useState(false);
   return (
     <Box>
       <Box>
@@ -29,12 +30,17 @@ const Example = () => {
         />
       </Box>
       <Box>
-        <Checkbox indeterminate label="Indeterminate" />
+        <Checkbox
+          checked={isCheckedD}
+          indeterminate
+          label="Indeterminate"
+          onChange={e => setCheckedD(e.target.checked)}
+        />
       </Box>
       <Box>
         <Checkbox
-          checked={isCheckedD}
-          onChange={e => setCheckedD(e.target.checked)}
+          checked={isCheckedE}
+          onChange={e => setCheckedE(e.target.checked)}
           label="Disabled"
           disabled
         />
