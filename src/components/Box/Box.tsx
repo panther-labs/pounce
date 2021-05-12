@@ -11,8 +11,8 @@ export type { NativeAttributes };
  * it also supports all the native HTML attributes.
  * */
 // @ts-nocheck
-const Box: React.FC<BoxProps> = ({ children }) => {
-  return <div>{children}</div>;
+const Box: React.FC<BoxProps> = ({ children, as: As }) => {
+  return <As>{children}</As>;
 };
 
 // FIXME: This overrides the fact that the box is a `div`. Components implementing this will warn us
