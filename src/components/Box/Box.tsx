@@ -10,7 +10,9 @@ export type { NativeAttributes };
  * Responsive box-model layout component. Apart from the defined props,
  * it also supports all the native HTML attributes.
  * */
-const Box = pounce('div');
+const Box: React.FC<BoxProps> = ({ children, position, display, background }) => {
+  return <div style={{ display, position, background }}>{children}</div>;
+};
 
 // FIXME: This overrides the fact that the box is a `div`. Components implementing this will warn us
 //  that they can't implement `<Box>` when they themselves are not a div. We should ideally fix that

@@ -4,7 +4,9 @@ import { __DEV__ } from '../../utils/helpers';
 
 export type AbstractButtonProps = React.ComponentProps<typeof AbstractButton>;
 
-export const AbstractButton = pounce('button');
+export const AbstractButton: React.FC<AbstractButtonProps> = ({ children }) => {
+  return <button>{children}</button>;
+};
 
 // The component should render a button by default, with some default styles
 AbstractButton.defaultProps = {

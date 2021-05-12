@@ -1,3 +1,4 @@
+import React from 'react';
 import { __DEV__ } from '../../utils/helpers';
 import { pounce } from '../../system';
 
@@ -10,7 +11,9 @@ export type TextProps = React.ComponentProps<typeof Text>;
  * heading or a title, this component is what you need.
  *
  * */
-const Text = pounce('p');
+const Text: React.FC<TextProps> = ({ children }) => {
+  return <p>{children}</p>;
+};
 
 export default Text;
 
