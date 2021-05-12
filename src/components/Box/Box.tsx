@@ -11,9 +11,12 @@ export type { NativeAttributes };
  * it also supports all the native HTML attributes.
  * */
 // @ts-nocheck
-const Box: React.FC<BoxProps> = ({ children, as: As = 'div' }) => {
-  return <As>{children}</As>;
-};
+const Box = React.forwardRef<HTMLElement, BoxProps>(function Box(
+  { children, as: As = 'div' },
+  ref
+) {
+  return <As ref={ref}>{children}</As>;
+});
 
 // FIXME: This overrides the fact that the box is a `div`. Components implementing this will warn us
 //  that they can't implement `<Box>` when they themselves are not a div. We should ideally fix that
