@@ -2,7 +2,6 @@ import React from 'react';
 import { Tab as ReachTab } from '@reach/tabs';
 import AbstractButton from '../AbstractButton';
 import { NativeAttributes } from '../Box';
-import { ComponentWithAs } from '@reach/utils';
 
 type TabRenderProps = {
   /** Whether the tab is selected */
@@ -33,6 +32,6 @@ const Tab = (React.forwardRef<HTMLButtonElement, PrivateTabProps>(function Tab(
       {content}
     </ReachTab>
   );
-}) as unknown) as ComponentWithAs<'button', TabProps>;
+}) as unknown) as React.ForwardRefRenderFunction<'button', TabProps>;
 
 export default React.memo(Tab);
