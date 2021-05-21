@@ -1,5 +1,6 @@
 import React from 'react';
-import { useComposedRefs } from '@reach/utils';
+import { useComposedRefs, composeEventHandlers } from '@reach/utils';
+import type * as Polymorphic from '@reach/utils/polymorphic';
 import { NativeAttributes } from '../../system';
 import { usePopoverContext } from './Popover';
 
@@ -8,7 +9,7 @@ export type PopoverTriggerProps = NativeAttributes<'button'>;
 const PopoverTrigger = React.forwardRef<
   HTMLElement,
   PopoverTriggerProps & { as: React.ElementType }
->(function PopoverTrigger({ as: Comp = 'button', ...rest }, forwardedRef) {
+>(function PopoverTrigger({ as: Comp = 'button', onMouseDown, onKeyDown, ...rest }, forwardedRef) {
   // get the ref that we should store this trigger under
   const { popoverId, triggerRef, toggle } = usePopoverContext();
 
@@ -18,15 +19,15 @@ const PopoverTrigger = React.forwardRef<
   return (
     <Comp
       ref={ref}
-      onMouseDown={toggle}
-      onKeyDown={({ key }: { key: string }) => key === 'Enter' && toggle()}
+      onMouseDown={composeEventHandlers(onMouseDown, toggle)}
+      onKeyDown={composeEventHandlers(
+        onKeyDown,
+        ({ key }: { key: string }) => key === 'Enter' && toggle()
+      )}
       aria-describedby={popoverId}
       {...rest}
     />
   );
-});
+}) as Polymorphic.ForwardRefComponent<'button', PopoverTriggerProps & { as: React.ElementType }>;
 
-export default React.memo(PopoverTrigger) as React.ForwardRefRenderFunction<
-  'button',
-  PopoverTriggerProps & { as: React.ElementType }
->;
+export default React.memo(PopoverTrigger);
