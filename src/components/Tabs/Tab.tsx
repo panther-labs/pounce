@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tab as ReachTab } from '@reach/tabs';
+import type * as Polymorphic from '@reach/utils/polymorphic';
 import AbstractButton from '../AbstractButton';
 import { NativeAttributes } from '../Box';
 
@@ -32,6 +33,6 @@ const Tab = (React.forwardRef<HTMLButtonElement, PrivateTabProps>(function Tab(
       {content}
     </ReachTab>
   );
-}) as unknown) as React.ForwardRefRenderFunction<'button', TabProps>;
+}) as unknown) as Polymorphic.ForwardRefComponent<'button', TabProps>;
 
 export default React.memo(Tab);
