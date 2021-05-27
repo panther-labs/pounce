@@ -28,6 +28,9 @@ const PopoverTrigger = React.forwardRef<
       {...rest}
     />
   );
-}) as Polymorphic.ForwardRefComponent<'button', PopoverTriggerProps & { as: React.ElementType }>;
+}) as Polymorphic.ForwardRefComponent<
+  React.ElementType,
+  PopoverTriggerProps & { as: React.ElementType }
+>;
 
 export default React.memo(PopoverTrigger);
