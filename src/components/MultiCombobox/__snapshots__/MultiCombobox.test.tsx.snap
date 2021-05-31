@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MultiCombobox renders 1`] = `
-.pounce-6 {
+.pounce-8 {
   position: relative;
 }
 
@@ -158,22 +158,55 @@ exports[`MultiCombobox renders 1`] = `
   font-weight: 400;
 }
 
+.pounce-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 8px;
+  pointer-events: none;
+}
+
+.pounce-6 {
+  outline: none;
+  line-height: 1;
+  border-radius: 4px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-6:focus {
+  background-color: rgba(255,255,255,0.1);
+}
+
 .pounce-5 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: currentColor;
-  position: absolute;
-  pointer-events: none;
-  margin-top: auto;
-  margin-bottom: auto;
-  top: 0;
-  bottom: 0;
-  right: 16px;
 }
 
 
@@ -183,11 +216,11 @@ exports[`MultiCombobox renders 1`] = `
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="downshift-0-label"
-    class="pounce-6"
+    class="pounce-8"
     role="combobox"
   >
     <div
-      class="pounce-6"
+      class="pounce-8"
     >
       <div
         aria-disabled="false"
@@ -223,19 +256,31 @@ exports[`MultiCombobox renders 1`] = `
           Choose a car manufacturer
         </label>
       </div>
-      <svg
-        class="pounce-5"
-        role="presentation"
-        viewBox="0 0 24 24"
+      <div
+        class="pounce-7"
       >
-        <path
-          d="M7 10L12 15L17 10H7Z"
-        />
-      </svg>
+        <button
+          aria-label="Toggle Menu"
+          aria-pressed="false"
+          class="pounce-6"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="pounce-5"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10L12 15L17 10H7Z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
     <ul
       aria-labelledby="downshift-0-label"
-      class="pounce-7"
+      class="pounce-9"
       id="downshift-0-menu"
       role="listbox"
     />
@@ -244,7 +289,7 @@ exports[`MultiCombobox renders 1`] = `
 `;
 
 exports[`MultiCombobox renders with clear all option 1`] = `
-.pounce-9 {
+.pounce-11 {
   position: relative;
 }
 
@@ -350,22 +395,34 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   border-radius: 4px;
 }
 
+.pounce-9 {
+  outline: none;
+  line-height: 1;
+  border-radius: 4px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-9:focus {
+  background-color: rgba(255,255,255,0.1);
+}
+
 .pounce-8 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: currentColor;
-  position: absolute;
-  pointer-events: none;
-  margin-top: auto;
-  margin-bottom: auto;
-  top: 0;
-  bottom: 0;
-  right: 16px;
 }
 
 
@@ -421,7 +478,28 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   font-weight: 500;
 }
 
-.pounce-19 {
+.pounce-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 8px;
+  pointer-events: auto;
+}
+
+.pounce-21 {
   margin-top: -3px;
   border: 1px solid;
   border-left-color: #0081c5;
@@ -438,7 +516,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   overflow: auto;
 }
 
-.pounce-12 {
+.pounce-14 {
   cursor: pointer;
   font-size: 0.875rem;
   padding-top: 16px;
@@ -452,12 +530,12 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   word-break: break-all;
 }
 
-.pounce-12[aria-selected=true],
-[data-selected]>.pounce-12 {
+.pounce-14[aria-selected=true],
+[data-selected]>.pounce-14 {
   background-color: #23344e;
 }
 
-.pounce-12::after {
+.pounce-14::after {
   content: "";
   border: 1px solid;
   border-color: #86a3c3;
@@ -526,7 +604,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   color: currentColor;
 }
 
-.pounce-11 {
+.pounce-13 {
   cursor: pointer;
   font-size: 0.875rem;
   padding-top: 16px;
@@ -540,12 +618,12 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   word-break: break-all;
 }
 
-.pounce-11[aria-selected=true],
-[data-selected]>.pounce-11 {
+.pounce-13[aria-selected=true],
+[data-selected]>.pounce-13 {
   background-color: #23344e;
 }
 
-.pounce-11::after {
+.pounce-13::after {
   content: url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' );
   border: 1px solid;
   border-color: #0081c5;
@@ -577,11 +655,11 @@ exports[`MultiCombobox renders with clear all option 1`] = `
     aria-haspopup="listbox"
     aria-labelledby="downshift-2-label"
     aria-owns="downshift-2-menu"
-    class="pounce-9"
+    class="pounce-11"
     role="combobox"
   >
     <div
-      class="pounce-9"
+      class="pounce-11"
     >
       <div
         aria-disabled="false"
@@ -639,25 +717,37 @@ exports[`MultiCombobox renders with clear all option 1`] = `
           Choose a car manufacturer
         </label>
       </div>
-      <svg
-        class="pounce-8"
-        role="presentation"
-        viewBox="0 0 24 24"
+      <div
+        class="pounce-10"
       >
-        <path
-          d="M7 14L12 9L17 14H7Z"
-        />
-      </svg>
+        <button
+          aria-label="Toggle Menu"
+          aria-pressed="false"
+          class="pounce-9"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="pounce-8"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 14L12 9L17 14H7Z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
     <ul
       aria-labelledby="downshift-2-label"
-      class="pounce-10"
+      class="pounce-12"
       id="downshift-2-menu"
       role="listbox"
     />
     <ul
       aria-labelledby="downshift-2-label"
-      class="pounce-19"
+      class="pounce-21"
       id="downshift-2-menu"
       role="listbox"
       style="transform: scale(1, 1); opacity: 1;"
@@ -665,7 +755,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-11"
+        class="pounce-13"
         id="downshift-2-item-0"
         role="option"
       >
@@ -674,7 +764,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-12"
+        class="pounce-14"
         id="downshift-2-item-1"
         role="option"
       >
@@ -683,7 +773,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-12"
+        class="pounce-14"
         id="downshift-2-item-2"
         role="option"
       >
@@ -692,7 +782,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-12"
+        class="pounce-14"
         id="downshift-2-item-3"
         role="option"
       >
@@ -701,7 +791,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-12"
+        class="pounce-14"
         id="downshift-2-item-4"
         role="option"
       >
@@ -710,7 +800,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-12"
+        class="pounce-14"
         id="downshift-2-item-5"
         role="option"
       >
@@ -719,7 +809,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-12"
+        class="pounce-14"
         id="downshift-2-item-6"
         role="option"
       >
@@ -728,7 +818,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-12"
+        class="pounce-14"
         id="downshift-2-item-7"
         role="option"
       >
@@ -740,7 +830,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
 `;
 
 exports[`MultiCombobox renders with clear all option 2`] = `
-.pounce-13 {
+.pounce-15 {
   position: relative;
 }
 
@@ -846,22 +936,34 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   border-radius: 4px;
 }
 
+.pounce-13 {
+  outline: none;
+  line-height: 1;
+  border-radius: 4px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-13:focus {
+  background-color: rgba(255,255,255,0.1);
+}
+
 .pounce-12 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: currentColor;
-  position: absolute;
-  pointer-events: none;
-  margin-top: auto;
-  margin-bottom: auto;
-  top: 0;
-  bottom: 0;
-  right: 16px;
 }
 
 
@@ -917,7 +1019,28 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   font-weight: 500;
 }
 
-.pounce-23 {
+.pounce-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 8px;
+  pointer-events: auto;
+}
+
+.pounce-25 {
   margin-top: -3px;
   border: 1px solid;
   border-left-color: #0081c5;
@@ -934,7 +1057,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   overflow: auto;
 }
 
-.pounce-17 {
+.pounce-19 {
   cursor: pointer;
   font-size: 0.875rem;
   padding-top: 16px;
@@ -948,12 +1071,12 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   word-break: break-all;
 }
 
-.pounce-17[aria-selected=true],
-[data-selected]>.pounce-17 {
+.pounce-19[aria-selected=true],
+[data-selected]>.pounce-19 {
   background-color: #23344e;
 }
 
-.pounce-17::after {
+.pounce-19::after {
   content: "";
   border: 1px solid;
   border-color: #86a3c3;
@@ -1022,7 +1145,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   color: currentColor;
 }
 
-.pounce-15 {
+.pounce-17 {
   cursor: pointer;
   font-size: 0.875rem;
   padding-top: 16px;
@@ -1036,12 +1159,12 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   word-break: break-all;
 }
 
-.pounce-15[aria-selected=true],
-[data-selected]>.pounce-15 {
+.pounce-17[aria-selected=true],
+[data-selected]>.pounce-17 {
   background-color: #23344e;
 }
 
-.pounce-15::after {
+.pounce-17::after {
   content: url( 'data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 20 18" fill="white"><path d="M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42L7 14.17z" /></svg>' );
   border: 1px solid;
   border-color: #0081c5;
@@ -1087,11 +1210,11 @@ exports[`MultiCombobox renders with clear all option 2`] = `
     aria-haspopup="listbox"
     aria-labelledby="downshift-2-label"
     aria-owns="downshift-2-menu"
-    class="pounce-13"
+    class="pounce-15"
     role="combobox"
   >
     <div
-      class="pounce-13"
+      class="pounce-15"
     >
       <div
         aria-disabled="false"
@@ -1176,25 +1299,37 @@ exports[`MultiCombobox renders with clear all option 2`] = `
           Choose a car manufacturer
         </label>
       </div>
-      <svg
-        class="pounce-12"
-        role="presentation"
-        viewBox="0 0 24 24"
+      <div
+        class="pounce-14"
       >
-        <path
-          d="M7 14L12 9L17 14H7Z"
-        />
-      </svg>
+        <button
+          aria-label="Toggle Menu"
+          aria-pressed="false"
+          class="pounce-13"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="pounce-12"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 14L12 9L17 14H7Z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
     <ul
       aria-labelledby="downshift-2-label"
-      class="pounce-14"
+      class="pounce-16"
       id="downshift-2-menu"
       role="listbox"
     />
     <ul
       aria-labelledby="downshift-2-label"
-      class="pounce-23"
+      class="pounce-25"
       id="downshift-2-menu"
       role="listbox"
       style="transform: scale(1, 1); opacity: 1;"
@@ -1202,7 +1337,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-15"
+        class="pounce-17"
         id="downshift-2-item-0"
         role="option"
       >
@@ -1211,7 +1346,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-15"
+        class="pounce-17"
         id="downshift-2-item-1"
         role="option"
       >
@@ -1220,7 +1355,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-17"
+        class="pounce-19"
         id="downshift-2-item-2"
         role="option"
       >
@@ -1229,7 +1364,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-17"
+        class="pounce-19"
         id="downshift-2-item-3"
         role="option"
       >
@@ -1238,7 +1373,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-17"
+        class="pounce-19"
         id="downshift-2-item-4"
         role="option"
       >
@@ -1247,7 +1382,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-17"
+        class="pounce-19"
         id="downshift-2-item-5"
         role="option"
       >
@@ -1256,7 +1391,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-17"
+        class="pounce-19"
         id="downshift-2-item-6"
         role="option"
       >
@@ -1265,7 +1400,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
       <li
         aria-disabled="false"
         aria-selected="false"
-        class="pounce-17"
+        class="pounce-19"
         id="downshift-2-item-7"
         role="option"
       >
@@ -1277,7 +1412,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 `;
 
 exports[`MultiCombobox renders with variant="solid" 1`] = `
-.pounce-6 {
+.pounce-8 {
   position: relative;
 }
 
@@ -1402,22 +1537,55 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
   font-weight: 400;
 }
 
+.pounce-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 8px;
+  pointer-events: none;
+}
+
+.pounce-6 {
+  outline: none;
+  line-height: 1;
+  border-radius: 4px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #f6f6f6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.pounce-6:focus {
+  background-color: rgba(255,255,255,0.1);
+}
+
 .pounce-5 {
   display: inline-block;
   vertical-align: sub;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: currentColor;
-  position: absolute;
-  pointer-events: none;
-  margin-top: auto;
-  margin-bottom: auto;
-  top: 0;
-  bottom: 0;
-  right: 16px;
 }
 
 
@@ -1459,11 +1627,11 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="downshift-1-label"
-    class="pounce-6"
+    class="pounce-8"
     role="combobox"
   >
     <div
-      class="pounce-6"
+      class="pounce-8"
     >
       <div
         aria-disabled="false"
@@ -1499,19 +1667,31 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
           Choose a car manufacturer
         </label>
       </div>
-      <svg
-        class="pounce-5"
-        role="presentation"
-        viewBox="0 0 24 24"
+      <div
+        class="pounce-7"
       >
-        <path
-          d="M7 10L12 15L17 10H7Z"
-        />
-      </svg>
+        <button
+          aria-label="Toggle Menu"
+          aria-pressed="false"
+          class="pounce-6"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="pounce-5"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10L12 15L17 10H7Z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
     <ul
       aria-labelledby="downshift-1-label"
-      class="pounce-7"
+      class="pounce-9"
       id="downshift-1-menu"
       role="listbox"
     />

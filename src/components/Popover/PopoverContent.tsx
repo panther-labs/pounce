@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import ReachUIPopover from '@reach/popover';
-import { useForkedRef } from '@reach/utils';
+import { useComposedRefs } from '@reach/utils';
 import { animated, useTransition } from 'react-spring';
 import { usePopoverContext } from './Popover';
 import usePopoverContentAlignment from './usePopoverContentAlignment';
@@ -61,7 +61,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     useEscapeKey({ ref: popoverRef, callback: close, disabled: !isOpen });
 
     // merge internal + passed prop together
-    const ref = useForkedRef(popoverRef, forwardedRef);
+    const ref = useComposedRefs(popoverRef, forwardedRef);
 
     const transitions = useTransition(isOpen, null, {
       from: { transform: 'translate3d(0, 10px, 0)', opacity: 0, pointerEvents: 'none' },
