@@ -115,6 +115,7 @@
     "jest-extended": "^0.11.5",
     "lint-staged": "^10.1.0",
     "mockdate": "^3.0.2",
+    "path-parse": "^1.0.7",
     "prettier": "^2.0.5",
     "react": "^16.11.0",
     "react-docgen-typescript": "^1.16.3",
