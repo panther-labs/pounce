@@ -58,8 +58,12 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
   },
+  "resolutions": {
+    "path-parse": "^1.0.7"
+  },
   "scripts": {
     "clean": "rimraf dist",
+    "preinstall": "npx npm-force-resolutions",
     "start": "npx styleguidist server",
     "test": "jest --config jest/config.js",
     "test:watch": "npm run test -- --watch",
