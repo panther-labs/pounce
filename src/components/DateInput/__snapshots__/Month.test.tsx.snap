@@ -38,7 +38,6 @@ exports[`Month renders 1`] = `
 }
 
 .pounce-24 {
-  -webkit-display: table-row;
   display: table-row;
 }
 
@@ -917,7 +916,6 @@ exports[`Month renders with a selected day 1`] = `
 }
 
 .pounce-24 {
-  -webkit-display: table-row;
   display: table-row;
 }
 
