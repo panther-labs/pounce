@@ -18,13 +18,13 @@ type PounceIcons = typeof icons;
 export interface Theme extends StyledSystemTheme {
   fontSizes: typeof typography['fontSizes'];
   lineHeights: typeof typography['lineHeights'];
-  space: CSS.MarginProperty<number | string>[];
+  space: CSS.Property.Margin<number | string>[];
   fontWeights: typeof typography['fontWeights'];
   letterSpacings: typeof typography['letterSpacings'];
   fonts: { [key in fontFamilies]: string };
   colors: typeof colors;
   radii: { [key in radii]: number };
-  shadows: { [key in shadows]: CSS.BoxShadowProperty };
+  shadows: { [key in shadows]: CSS.Property.BoxShadow };
   icons: Record<keyof (PounceIcons & CustomIcons), { path: JSX.Element; viewBox?: string }>;
 }
 
