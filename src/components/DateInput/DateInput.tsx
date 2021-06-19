@@ -92,6 +92,12 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
   const { isOpen, open, close } = useDisclosure();
   const previousDate = usePrevious(dateToDayjs(value, timezone));
 
+  // Handles value & timezone updates outside of the component (i.e. a form has re-initialized or
+  // has updated its values as a result of an API call)
+  React.useEffect(() => {
+    setCurrentDate(dateToDayjs(value, timezone));
+  }, [value, timezone]);
+
   const isDisabled = React.useMemo(() => {
     if (dayjs.isDayjs(currentDate) && dayjs.isDayjs(previousDate)) {
       return currentDate.isSame(previousDate, withTime ? 'minute' : 'day');
