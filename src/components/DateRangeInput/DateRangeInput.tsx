@@ -16,7 +16,6 @@ import useEscapeKey from '../../utils/useEscapeKey';
 import usePrevious from '../../utils/usePrevious';
 import useOutsideClick from '../../utils/useOutsideClick';
 import useDisclosure from '../../utils/useDisclosure';
-import useMounted from '../../utils/useMounted';
 
 export interface DateRangeInputProps {
   /**
@@ -128,16 +127,13 @@ const DateRangeInput: React.FC<
   const { isOpen, open, close } = useDisclosure();
   const previousDateRange = usePrevious(datesToDayjs(value, timezone));
 
-  const isMounted = useMounted();
   const ref = React.useRef(null);
   const targetRef = React.useRef(null);
 
   // Handles value & timezone updates outside of the component (i.e. a form has re-initialized or
   // has updated its values as a result of an API call)
   React.useEffect(() => {
-    if (isMounted) {
-      setCurrentRange(datesToDayjs(value, timezone));
-    }
+    setCurrentRange(datesToDayjs(value, timezone));
   }, [value, timezone]);
 
   const onCancel = useCallback(() => {
