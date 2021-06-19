@@ -647,4 +647,26 @@ describe('DateRangeInput', () => {
     await waitForElementToBeRemoved(dateHeader);
     expect(dateHeader).not.toBeInTheDocument();
   });
+
+  it('updates when the `value` prop updates externally', async () => {
+    const mock = jest.fn();
+    const { getByLabelText, rerender } = await renderWithTheme(
+      <DateRangeInput {...props} onChange={mock} />
+    );
+
+    const fromDateInput = getByLabelText(props.labelStart);
+    const toDateInput = getByLabelText(props.labelEnd);
+
+    expect(fromDateInput).toHaveValue(start.format('MM/DD/YYYY'));
+    expect(toDateInput).toHaveValue(end.format('MM/DD/YYYY'));
+
+    const newStart = start.add(2, 'minutes');
+    const newEnd = start.add(2, 'days');
+    const newValue = [newStart.toDate(), newEnd.toDate()] as [Date, Date];
+
+    rerender(<DateRangeInput {...props} value={newValue} onChange={mock} />);
+
+    expect(fromDateInput).toHaveValue(newStart.format('MM/DD/YYYY'));
+    expect(toDateInput).toHaveValue(newEnd.format('MM/DD/YYYY'));
+  });
 });

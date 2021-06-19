@@ -272,4 +272,24 @@ describe('DateInput', () => {
     await waitForElementToBeRemoved(dateHeader);
     expect(dateHeader).not.toBeInTheDocument();
   });
+
+  it('updates when the `value` prop updates externally', async () => {
+    const mock = jest.fn();
+    const value = new Date();
+    const valueInDayjs = dayjs(value);
+
+    const { getByLabelText, rerender } = await renderWithTheme(
+      <DateInput label="test" value={value} onChange={mock} />
+    );
+
+    const input = getByLabelText('test');
+    expect(input).toHaveValue(valueInDayjs.format('MM/DD/YYYY'));
+
+    const newValueInDayjs = valueInDayjs.add(2, 'minutes');
+    const newValue = newValueInDayjs.toDate();
+
+    rerender(<DateInput label="test" value={newValue} onChange={mock} />);
+
+    expect(input).toHaveValue(newValueInDayjs.format('MM/DD/YYYY'));
+  });
 });
