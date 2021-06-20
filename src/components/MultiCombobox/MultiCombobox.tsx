@@ -99,6 +99,22 @@ export type MultiComboboxProps<T> = {
   canClearAllAfter?: number;
 };
 
+function flattenObject(ob: Array<any> | { [k: string]: any }): string[] {
+  if (Array.isArray(ob)) {
+    return ob.map(val => flattenObject(val)).flat();
+  }
+  if (ob.constructor !== Object) {
+    return [''];
+  }
+
+  const items: Array<string> = [];
+  Object.keys(ob).forEach(k => {
+    const recursed = flattenObject(ob[k]);
+    items.push(...recursed.map(item => `${k}${item !== '' ? `.${item}` : ''}`));
+  });
+  return items;
+}
+
 const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<any>) => {
   switch (changes.type) {
     case Downshift.stateChangeTypes.keyDownEnter:
@@ -282,21 +298,34 @@ function MultiCombobox<Item>({
             }
 
             // Get clipboard data and split them based on newline and/or commas
-            const clipboardData = e.clipboardData.getData('Text');
-            const items = (clipboardData
-              .replace(/\r?\n/g, ',')
-              .split(',')
-              .map(processUserValue)
-              .filter(validateUserValue) as unknown) as Item[];
+            const clipboardData = e.clipboardData.getData('Text').trim();
 
-            if (items.length > 1) {
-              // Prevent the text from actually being pasted to the underlying input
-              e.preventDefault();
-              e.stopPropagation();
+            const setItems = (items: string[]) => {
+              if (items.length > 1) {
+                // Prevent the text from actually being pasted to the underlying input
+                e.preventDefault();
+                e.stopPropagation();
 
-              // extend existing values with new ones
-              onChange([...value, ...items]);
+                // extend existing values with new ones
+                onChange(
+                  ([...items].map(processUserValue).filter(validateUserValue) as unknown) as Item[]
+                );
+              }
+            };
+
+            // convert JSON-style data to something prettier
+            if (clipboardData[0] === '{' || clipboardData[0] === '[') {
+              try {
+                const parsed = JSON.parse(clipboardData);
+
+                setItems(flattenObject(parsed));
+                return;
+              } catch (e) {
+                // no error -- user input just isn't a JSON object
+              }
             }
+
+            setItems(clipboardData.replace(/\r?\n/g, ',').split(','));
           },
         };
 
