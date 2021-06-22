@@ -126,8 +126,15 @@ const DateRangeInput: React.FC<
 
   const { isOpen, open, close } = useDisclosure();
   const previousDateRange = usePrevious(datesToDayjs(value, timezone));
+
   const ref = React.useRef(null);
   const targetRef = React.useRef(null);
+
+  // Handles value & timezone updates outside of the component (i.e. a form has re-initialized or
+  // has updated its values as a result of an API call)
+  React.useEffect(() => {
+    setCurrentRange(datesToDayjs(value, timezone));
+  }, [value, timezone]);
 
   const onCancel = useCallback(() => {
     setCurrentRange(datesToDayjs(value, timezone));
@@ -193,9 +200,15 @@ const DateRangeInput: React.FC<
       if (!start) {
         return setCurrentRange([dateChanged]);
       }
+
       if (!end) {
+        if (dateChanged.isBefore(start, 'date')) {
+          return setCurrentRange([dateChanged.hour(start.hour()).minute(start.minute()), start]);
+        }
+
         return setCurrentRange([start, dateChanged]);
       }
+
       if (dateChanged.isBefore(start, 'date') || start.isSame(end, 'date')) {
         return setCurrentRange([dateChanged.hour(start.hour()).minute(start.minute())]);
       }
@@ -209,7 +222,9 @@ const DateRangeInput: React.FC<
     [setCurrentRange, currentDateRange]
   );
 
-  const onClear = useCallback(() => setCurrentRange([undefined, undefined]), [setCurrentRange]);
+  const onClear = useCallback(() => {
+    setCurrentRange([undefined, undefined]);
+  }, [setCurrentRange]);
 
   const isDisabled = React.useMemo(() => {
     if (areDatesUndefined(previousDateRange) && areDatesUndefined(currentDateRange)) {
@@ -228,6 +243,7 @@ const DateRangeInput: React.FC<
       );
     });
   }, [currentDateRange, previousDateRange]);
+
   const onPresetSelect = useCallback(
     ([start, end]: [Dayjs, Dayjs]) => {
       setCurrentRange([start, end]);
