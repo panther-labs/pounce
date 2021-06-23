@@ -253,6 +253,24 @@ describe('MultiCombobox', () => {
     expect(queryAllByRole('tag')).toHaveLength(2);
   });
 
+  it("appends and doesn't replace when pasting", async () => {
+    const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
+      <ControlledMultiCombobox searchable allowAdditions />
+    );
+
+    const input = getByPlaceholderText('Select manufacturers');
+
+    fireEvent.paste(input, {
+      clipboardData: { getData: () => 'Random Value 1\r\n\r\n\r\nRandom Value 2' },
+    });
+    expect(queryAllByRole('tag')).toHaveLength(2);
+
+    fireEvent.paste(input, {
+      clipboardData: { getData: () => 'Random Value 3\r\n\r\n\r\nRandom Value 4' },
+    });
+    expect(queryAllByRole('tag')).toHaveLength(4);
+  });
+
   it('works when selecting grouped items', async () => {
     const { getByPlaceholderText, queryAllByRole, container } = renderWithTheme(
       <ControlledMultiCombobox itemToGroup={i => i.category} itemToString={i => i.value} />

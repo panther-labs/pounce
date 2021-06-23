@@ -307,9 +307,12 @@ function MultiCombobox<Item>({
                 e.stopPropagation();
 
                 // extend existing values with new ones
-                onChange(
-                  ([...items].map(processUserValue).filter(validateUserValue) as unknown) as Item[]
-                );
+                onChange([
+                  ...value,
+                  ...(([...items]
+                    .map(processUserValue)
+                    .filter(validateUserValue) as unknown) as Item[]),
+                ]);
               }
             };
 
