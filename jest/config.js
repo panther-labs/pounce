@@ -1,4 +1,13 @@
+const fromPairs = require('lodash/fromPairs');
 const { defaults } = require('jest-config');
+const tsconfig = require('../tsconfig.json');
+
+const moduleNameMapperFromTSPaths = fromPairs(
+  Object.entries(tsconfig.compilerOptions.paths).map(([alias, [aliasedPath]]) => [
+    `^${alias.replace(/\*/, '(.*)')}`,
+    `<rootDir>/${aliasedPath.replace(/\*/, '$1')}`,
+  ])
+);
 
 module.exports = {
   rootDir: '../',
@@ -7,7 +16,5 @@ module.exports = {
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   setupFilesAfterEnv: ['<rootDir>/jest/setup.ts'],
   verbose: true,
-  moduleNameMapper: {
-    'test-utils': '<rootDir>/jest/utils',
-  },
+  moduleNameMapper: moduleNameMapperFromTSPaths,
 };

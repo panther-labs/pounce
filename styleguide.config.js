@@ -1,6 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const shouldForwardProp = require('@styled-system/should-forward-prop');
+const fromPairs = require('lodash/fromPairs');
+const tsconfig = require('./tsconfig.json');
+
+const aliasMapperFromTSPaths = fromPairs(
+  Object.entries(tsconfig.compilerOptions.paths).map(([alias, [aliasedPath]]) => [
+    alias.replace(/\/\*/, ''),
+    path.resolve(__dirname, aliasedPath.replace(/\*/, '')),
+  ])
+);
 
 module.exports = {
   require: [path.join(__dirname, 'styleguide.setup.js')],
@@ -50,12 +59,7 @@ module.exports = {
     },
     resolve: {
       extensions: ['.tsx', '.ts'],
-      alias: {
-        system: path.resolve(__dirname, 'src/system'),
-        theme: path.resolve(__dirname, 'src/theme'),
-        components: path.resolve(__dirname, 'src/components/'),
-        utils: path.resolve(__dirname, 'src/utils/'),
-      },
+      alias: aliasMapperFromTSPaths,
     },
   },
 };
