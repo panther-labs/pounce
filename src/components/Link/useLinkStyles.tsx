@@ -1,5 +1,5 @@
 import { LinkProps } from './Link';
-import { BoxProps } from '../Box';
+import { BoxProps } from 'components/Box';
 
 type UseLinkStyles = Pick<LinkProps, 'variant'>;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import useDisclosure from '../../utils/useDisclosure';
+import useDisclosure from 'utils/useDisclosure';
 import { useId } from '@reach/auto-id';
 
 interface PopoverContext {

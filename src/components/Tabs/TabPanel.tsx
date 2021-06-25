@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabPanel as ReachTabPanel, useTabsContext } from '@reach/tabs';
-import Box from '../Box';
+import Box from 'components/Box';
 
 type TabPanelProps = {
   /**

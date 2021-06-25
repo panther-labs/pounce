@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { ResizeObserver } from '@juggle/resize-observer';
 import { animated, useTransition } from 'react-spring';
 import useMeasure from 'react-use-measure';
-import Flex from '../Flex';
-import Snackbar, { SnackbarProps } from '../Snackbar';
-import { isBrowser } from '../../utils/helpers';
-import Box from '../Box';
+import Flex from 'components/Flex';
+import Snackbar, { SnackbarProps } from 'components/Snackbar';
+import { isBrowser } from 'utils/helpers';
+import Box from 'components/Box';
 
 type SnackbarContextValue = {
   pushSnackbar: (props: SnackbarPublicProps) => string;

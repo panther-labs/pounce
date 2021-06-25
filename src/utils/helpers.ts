@@ -1,4 +1,4 @@
-import { Theme } from '../theme';
+import { Theme } from 'theme';
 import React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import utc from 'dayjs/plugin/utc';

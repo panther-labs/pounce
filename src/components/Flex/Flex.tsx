@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 import { useItemSpacingProps } from './utils';
 
 export type FlexProps = Omit<BoxProps, 'display'> & {

@@ -1,8 +1,8 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
-import { NativeAttributes } from '../Box';
-import { InputControl, InputElement, InputLabel } from '../utils/Input';
-import { slugify } from '../../utils/helpers';
+import { NativeAttributes } from 'components/Box';
+import { InputControl, InputElement, InputLabel } from 'components/utils/Input';
+import { slugify } from 'utils/helpers';
 
 export type TextAreaProps = NativeAttributes<'textarea'> & {
   /** The label that is associated with this textaera */

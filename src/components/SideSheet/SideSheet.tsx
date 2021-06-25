@@ -1,7 +1,7 @@
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
-import Box from '../Box';
-import IconButton from '../IconButton';
+import Box from 'components/Box';
+import IconButton from 'components/IconButton';
 import { DialogContent, DialogOverlay } from '@reach/dialog';
 
 const AnimatedDialogOverlay = animated(DialogOverlay);

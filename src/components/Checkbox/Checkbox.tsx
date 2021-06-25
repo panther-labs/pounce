@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { NativeAttributes } from '../Box';
+import Box, { NativeAttributes } from 'components/Box';
 import useCheckboxStyles from './useCheckboxStyles';
 
 export type CheckboxProps = NativeAttributes<'input'> & {

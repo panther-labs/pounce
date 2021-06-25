@@ -1,7 +1,7 @@
 import React from 'react';
-import { Theme } from '../../theme';
+import { Theme } from 'theme';
 import useBadgeStyles from './useBadgeStyles';
-import Box from '../Box';
+import Box from 'components/Box';
 
 export interface BadgeProps {
   /** The color theme of the badge */

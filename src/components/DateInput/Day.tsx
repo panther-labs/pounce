@@ -1,9 +1,9 @@
 import React from 'react';
-import Box from '../Box';
-import AbstractButton from '../AbstractButton';
+import Box from 'components/Box';
+import AbstractButton from 'components/AbstractButton';
 import Cell from './Cell';
 import { Dayjs } from 'dayjs';
-import { noop, now } from '../../utils/helpers';
+import { noop, now } from 'utils/helpers';
 
 export interface DayProps {
   day?: number;

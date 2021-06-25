@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 import useLinkStyles from './useLinkStyles';
 
 export interface LinkProps extends Omit<BoxProps<'a'>, 'color'> {

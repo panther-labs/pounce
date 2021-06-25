@@ -1,8 +1,8 @@
 import React from 'react';
-import Icon, { IconProps } from '../Icon';
+import Icon, { IconProps } from 'components/Icon';
 import useIconButtonStyles from './useIconButtonStyles';
-import { BoxProps, NativeAttributes } from '../Box';
-import AbstractButton from '../AbstractButton';
+import { BoxProps, NativeAttributes } from 'components/Box';
+import AbstractButton from 'components/AbstractButton';
 
 export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size of the icon button */

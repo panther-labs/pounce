@@ -1,19 +1,19 @@
 import React, { useState, useCallback } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
-import Box from '../Box';
-import Flex from '../Flex';
-import Button from '../Button';
+import Box from 'components/Box';
+import Flex from 'components/Flex';
+import Button from 'components/Button';
 import Month from './Month';
-import { IconButton } from '../../index';
+import IconButton from 'components/IconButton';
 import DateWrapper from './DateWrapper';
-import TextInput, { TextInputProps } from '../TextInput';
+import TextInput, { TextInputProps } from 'components/TextInput';
 import TimePicker from './TimePicker';
 import ClearButton from './ClearButton';
-import { noop, dateToDayjs, now } from '../../utils/helpers';
-import useDisclosure from '../../utils/useDisclosure';
-import useEscapeKey from '../../utils/useEscapeKey';
-import usePrevious from '../../utils/usePrevious';
-import useOutsideClick from '../../utils/useOutsideClick';
+import { noop, dateToDayjs, now } from 'utils/helpers';
+import useDisclosure from 'utils/useDisclosure';
+import useEscapeKey from 'utils/useEscapeKey';
+import usePrevious from 'utils/usePrevious';
+import useOutsideClick from 'utils/useOutsideClick';
 
 export interface DateInputProps {
   /**

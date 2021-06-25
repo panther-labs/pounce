@@ -48,5 +48,14 @@ module.exports = {
         },
       ],
     },
+    resolve: {
+      extensions: ['.tsx', '.ts'],
+      alias: {
+        system: path.resolve(__dirname, 'src/system'),
+        theme: path.resolve(__dirname, 'src/theme'),
+        components: path.resolve(__dirname, 'src/components/'),
+        utils: path.resolve(__dirname, 'src/utils/'),
+      },
+    },
   },
 };

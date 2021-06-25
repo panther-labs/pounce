@@ -1,8 +1,8 @@
 import React from 'react';
-import { BoxProps } from '../Box';
-import { addOpacity } from '../../utils/helpers';
+import { BoxProps } from 'components/Box';
+import { addOpacity } from 'utils/helpers';
 import { CheckboxProps } from './Checkbox';
-import useTheme from '../../utils/useTheme';
+import useTheme from 'utils/useTheme';
 
 type UseCheckboxStyles = Pick<CheckboxProps, 'invalid' | 'checked' | 'indeterminate'>;
 

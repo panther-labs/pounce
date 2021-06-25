@@ -1,8 +1,8 @@
 import React from 'react';
-import { BoxProps } from '../Box';
-import { addOpacity } from '../../utils/helpers';
+import { BoxProps } from 'components/Box';
+import { addOpacity } from 'utils/helpers';
 import { RadioProps } from './Radio';
-import useTheme from '../../utils/useTheme';
+import useTheme from 'utils/useTheme';
 
 type UseRadioStyles = Pick<RadioProps, 'invalid' | 'checked'>;
 

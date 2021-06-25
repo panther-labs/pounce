@@ -1,4 +1,4 @@
-import { BoxProps } from '../Box';
+import { BoxProps } from 'components/Box';
 import { HeadingProps } from './Heading';
 
 type UseHeadingStyles = Pick<HeadingProps, 'size'>;

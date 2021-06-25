@@ -1,5 +1,5 @@
 import React from 'react';
-import Text, { TextProps } from '../Text';
+import Text, { TextProps } from 'components/Text';
 
 export interface FormHelperTextProps extends TextProps {
   id: string; // we require `id` to remind people to associate it with an `aria-describedby`

@@ -1,8 +1,8 @@
 import React from 'react';
-import Flex from '../Flex';
-import Icon from '../Icon';
-import Box from '../Box';
-import Link, { LinkProps } from '../Link';
+import Flex from 'components/Flex';
+import Icon from 'components/Icon';
+import Box from 'components/Box';
+import Link, { LinkProps } from 'components/Link';
 
 export interface BreadcrumbItem {
   /** The URL that this Breadcrumbs should navigate to when clicked */

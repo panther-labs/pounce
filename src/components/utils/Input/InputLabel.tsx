@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInputContext } from './InputContext';
-import Box, { BoxProps, NativeAttributes } from '../../Box';
+import Box, { BoxProps, NativeAttributes } from 'components/Box';
 
 export type InputLabelProps = NativeAttributes<'label'> &
   Pick<BoxProps, 'visuallyHidden' | 'left'> & {

@@ -1,8 +1,8 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 
-import useTheme from '../../utils/useTheme';
-import { addOpacity } from '../../utils/helpers';
+import useTheme from 'utils/useTheme';
+import { addOpacity } from 'utils/helpers';
 
 const Cell: React.FC<BoxProps> = props => {
   const theme = useTheme();

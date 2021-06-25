@@ -6,7 +6,7 @@ import {
   useMenuButtonContext as useDropdownContext,
 } from '@reach/menu-button';
 import { useTransition, animated } from 'react-spring';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 
 const AnimatedPopover = animated(ReachMenuPopover);
 

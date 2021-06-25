@@ -1,9 +1,9 @@
 import React from 'react';
-import Box, { NativeAttributes } from '../Box';
-import { slugify, isEmptyValue } from '../../utils/helpers';
-import { InputControl, InputElement, InputLabel } from '../utils/Input';
-import Icon, { IconProps } from '../Icon';
-import Flex from '../Flex';
+import Box, { NativeAttributes } from 'components/Box';
+import { slugify, isEmptyValue } from 'utils/helpers';
+import { InputControl, InputElement, InputLabel } from 'components/utils/Input';
+import Icon, { IconProps } from 'components/Icon';
+import Flex from 'components/Flex';
 
 export type TextIconProps = {
   color?: IconProps['color'];

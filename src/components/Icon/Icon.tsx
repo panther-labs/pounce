@@ -1,7 +1,7 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
-import useTheme from '../../utils/useTheme';
-import { Theme } from '../../theme';
+import Box, { BoxProps } from 'components/Box';
+import useTheme from 'utils/useTheme';
+import { Theme } from 'theme';
 
 export interface IconProps extends BoxProps<'svg'> {
   /** The icon that you want to show */

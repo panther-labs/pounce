@@ -1,5 +1,5 @@
 import React from 'react';
-import AbstractButton, { AbstractButtonProps } from '../AbstractButton';
+import AbstractButton, { AbstractButtonProps } from 'components/AbstractButton';
 
 const TextButton: React.FC<AbstractButtonProps> = props => {
   return (

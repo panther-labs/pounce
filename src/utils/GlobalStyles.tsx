@@ -1,6 +1,6 @@
 import React from 'react';
 import { Global, css, useTheme } from '@emotion/react';
-import { pseudoSelectors } from '../system';
+import { pseudoSelectors } from 'system';
 
 const GlobalStyles: React.FC = () => {
   const theme = useTheme();

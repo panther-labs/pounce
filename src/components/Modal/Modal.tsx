@@ -2,11 +2,11 @@ import React from 'react';
 import { animated, useTransition } from 'react-spring';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { useId } from '@reach/auto-id';
-import Box from '../Box';
-import Card from '../Card';
-import Heading from '../Heading';
-import Flex from '../Flex';
-import IconButton from '../IconButton';
+import Box from 'components/Box';
+import Card from 'components/Card';
+import Heading from 'components/Heading';
+import Flex from 'components/Flex';
+import IconButton from 'components/IconButton';
 
 const AnimatedDialogOverlay = animated(DialogOverlay);
 const AnimatedDialogContent = animated(DialogContent);

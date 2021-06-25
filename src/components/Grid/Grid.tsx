@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 
 export type GridProps = Omit<BoxProps, 'display'> & {
   /** An alias for the `gridTemplateColumns` property */

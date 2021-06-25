@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTransition, animated } from 'react-spring';
-import Box from '../../Box';
+import Box from 'components/Box';
 
 const AnimatedBox = animated(Box);
 

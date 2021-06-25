@@ -1,7 +1,7 @@
 import React from 'react';
-import Flex from '../Flex';
-import Box from '../Box';
-import Icon from '../Icon';
+import Flex from 'components/Flex';
+import Box from 'components/Box';
+import Icon from 'components/Icon';
 import TableHeaderCell, { TableHeaderCellProps } from './TableHeaderCell';
 
 const sortableHoverStyle = {

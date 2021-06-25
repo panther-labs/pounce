@@ -1,6 +1,6 @@
 import React from 'react';
-import Box, { NativeAttributes } from '../Box';
-import Flex from '../Flex';
+import Box, { NativeAttributes } from 'components/Box';
+import Flex from 'components/Flex';
 
 export type SwitchProps = NativeAttributes<'input'> & {
   /** Whether the checkbox is currently disabled */

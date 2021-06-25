@@ -1,6 +1,6 @@
 import React from 'react';
 import * as StyledSystem from 'styled-system';
-import Grid, { GridProps } from '../Grid';
+import Grid, { GridProps } from 'components/Grid';
 import { countToColumns, widthToColumns } from './utils';
 
 export interface SimpleGridProps extends GridProps {

@@ -1,11 +1,11 @@
 import React from 'react';
-import { NativeAttributes } from '../Box';
-import { slugify, noop, isEmptyValue } from '../../utils/helpers';
-import { typedMemo } from '../../utils/helpers';
-import { InputControl, InputElement, InputLabel } from '../utils/Input';
-import AbstractButton from '../AbstractButton';
-import Icon from '../Icon';
-import Flex from '../Flex';
+import { NativeAttributes } from 'components/Box';
+import { slugify, noop, isEmptyValue } from 'utils/helpers';
+import { typedMemo } from 'utils/helpers';
+import { InputControl, InputElement, InputLabel } from 'components/utils/Input';
+import AbstractButton from 'components/AbstractButton';
+import Icon from 'components/Icon';
+import Flex from 'components/Flex';
 
 export type NumberInputProps = NativeAttributes<'input'> & {
   /** Callback when the number changes */

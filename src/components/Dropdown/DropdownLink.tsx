@@ -1,7 +1,7 @@
 import React from 'react';
 import { MenuLink as ReachMenuLink, MenuLinkProps as ReachMenuLinkProps } from '@reach/menu-button';
 import type * as Polymorphic from '@reach/utils/polymorphic';
-import MenuItem from '../utils/MenuItem/MenuItem';
+import MenuItem from 'components/utils/MenuItem';
 
 export type DropdownLinkProps = ReachMenuLinkProps;
 

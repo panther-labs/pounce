@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps, NativeAttributes } from '../Box';
+import Box, { BoxProps, NativeAttributes } from 'components/Box';
 
 export interface TableProps extends NativeAttributes<'table'> {
   /** The table layout. Defaults to `auto` */

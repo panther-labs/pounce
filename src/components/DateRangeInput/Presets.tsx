@@ -1,8 +1,8 @@
 import React from 'react';
 import { Dayjs } from 'dayjs';
-import { getDates } from '../../utils/helpers';
-import Box from '../Box';
-import AbstractButton from '../AbstractButton';
+import { getDates } from 'utils/helpers';
+import Box from 'components/Box';
+import AbstractButton from 'components/AbstractButton';
 
 type OnSelectCallback = (date: [Dayjs, Dayjs]) => void;
 type OnCurrentMonthSelect = React.Dispatch<React.SetStateAction<Dayjs>>;

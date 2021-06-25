@@ -1,6 +1,6 @@
 import React from 'react';
-import ControlledAlert, { ControlledAlertProps } from '../utils/ControlledAlert';
-import Collapse from '../Collapse';
+import ControlledAlert, { ControlledAlertProps } from 'components/utils/ControlledAlert';
+import Collapse from 'components/Collapse';
 
 export type AlertProps = Omit<ControlledAlertProps, 'open' | 'onClose'> & { onClose?: () => void };
 

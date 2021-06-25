@@ -1,8 +1,8 @@
 import React from 'react';
 import { useInputContext } from './InputContext';
-import { NativeAttributes } from '../../Box';
-import Box, { BoxProps } from '../../Box';
-import useTheme from '../../../utils/useTheme';
+import { NativeAttributes } from 'components/Box';
+import Box, { BoxProps } from 'components/Box';
+import useTheme from 'utils/useTheme';
 
 type StandaloneInputElementProps = {
   /**

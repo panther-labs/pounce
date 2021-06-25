@@ -2,7 +2,7 @@ import React from 'react';
 import { useTooltip, TooltipPopup } from '@reach/tooltip';
 import { useTransition, animated } from 'react-spring';
 import { positionRight } from './utils';
-import Box from '../Box';
+import Box from 'components/Box';
 
 const AnimatedTooltipPopup = animated(TooltipPopup);
 
