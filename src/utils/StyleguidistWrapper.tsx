@@ -1,5 +1,5 @@
 import React from 'react';
-import Flex from '../components/Flex';
+import Flex from 'components/Flex';
 import ThemeProvider from './ThemeProvider';
 
 const StyleguidistWrapper: React.FC = ({ children }) => (

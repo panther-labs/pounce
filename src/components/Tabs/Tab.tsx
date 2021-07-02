@@ -1,8 +1,8 @@
 import React from 'react';
 import { Tab as ReachTab } from '@reach/tabs';
 import type * as Polymorphic from '@reach/utils/polymorphic';
-import AbstractButton from '../AbstractButton';
-import { NativeAttributes } from '../Box';
+import AbstractButton from 'components/AbstractButton';
+import { NativeAttributes } from 'components/Box';
 
 type TabRenderProps = {
   /** Whether the tab is selected */

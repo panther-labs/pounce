@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 import { generateKeyframes } from './utils';
 
 export interface FadeInProps extends Pick<BoxProps, 'as'> {

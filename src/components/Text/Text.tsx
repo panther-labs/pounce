@@ -1,5 +1,5 @@
-import { __DEV__ } from '../../utils/helpers';
-import { pounce } from '../../system';
+import { __DEV__ } from 'utils/helpers';
+import { pounce } from 'system';
 
 export type TextProps = React.ComponentProps<typeof Text>;
 

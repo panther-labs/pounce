@@ -1,6 +1,6 @@
 import React from 'react';
-import { pounce } from '../../system';
-import { __DEV__ } from '../../utils/helpers';
+import { pounce } from 'system';
+import { __DEV__ } from 'utils/helpers';
 
 export type AbstractButtonProps = React.ComponentProps<typeof AbstractButton>;
 

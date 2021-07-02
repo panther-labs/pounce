@@ -1,9 +1,9 @@
 import React from 'react';
 import { useId } from '@reach/auto-id';
-import Box from '../../Box';
-import Flex from '../../Flex';
-import IconButton from '../../IconButton';
-import Icon from '../../Icon';
+import Box from 'components/Box';
+import Flex from 'components/Flex';
+import IconButton from 'components/IconButton';
+import Icon from 'components/Icon';
 import useAlertStyles from './useAlertStyles';
 
 export interface ControlledAlertProps {

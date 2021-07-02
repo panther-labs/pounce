@@ -1,7 +1,7 @@
 import React from 'react';
 import { useComposedRefs, composeEventHandlers } from '@reach/utils';
 import type * as Polymorphic from '@reach/utils/polymorphic';
-import { NativeAttributes } from '../../system';
+import { NativeAttributes } from 'system';
 import { usePopoverContext } from './Popover';
 
 export type PopoverTriggerProps = NativeAttributes<'button'>;

@@ -2,7 +2,7 @@ import React from 'react';
 import useMeasure from 'react-use-measure';
 import { ResizeObserver } from '@juggle/resize-observer';
 import { animated, useTransition } from 'react-spring';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 
 const AnimatedBox = animated(Box);
 

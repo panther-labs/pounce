@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { NativeAttributes } from '../Box';
+import Box, { NativeAttributes } from 'components/Box';
 
 export type TableBodyProps = NativeAttributes<'tbody'>;
 

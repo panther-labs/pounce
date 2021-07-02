@@ -1,10 +1,10 @@
 import React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import chunk from 'lodash/chunk';
-import Flex from '../Flex';
-import Box from '../Box';
+import Flex from 'components/Flex';
+import Box from 'components/Box';
 import Day from './Day';
-import { noop } from '../../utils/helpers';
+import { noop } from 'utils/helpers';
 export interface MonthProps {
   year: number;
   month: number;

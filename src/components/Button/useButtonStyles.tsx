@@ -1,9 +1,9 @@
 import React from 'react';
-import { AbstractButtonProps } from '../AbstractButton';
+import { AbstractButtonProps } from 'components/AbstractButton';
 import { ButtonProps } from './Button';
-import { Theme } from '../../theme';
-import { lightenDarkenColor } from '../../utils/helpers';
-import useTheme from '../../utils/useTheme';
+import { Theme } from 'theme';
+import { lightenDarkenColor } from 'utils/helpers';
+import useTheme from 'utils/useTheme';
 
 type ThemeColor = keyof Theme['colors'];
 type ButtonColorVariant = ButtonProps['variantColor'];

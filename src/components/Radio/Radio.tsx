@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { NativeAttributes } from '../Box';
+import Box, { NativeAttributes } from 'components/Box';
 import useRadioStyles from './useRadioStyles';
 
 export type RadioProps = NativeAttributes<'input'> & {

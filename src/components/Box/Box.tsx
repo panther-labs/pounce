@@ -1,6 +1,6 @@
 import React from 'react';
-import { pounce, NativeAttributes, PounceComponentProps } from '../../system';
-import { __DEV__ } from '../../utils/helpers';
+import { pounce, NativeAttributes, PounceComponentProps } from 'system';
+import { __DEV__ } from 'utils/helpers';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type BoxProps<T extends React.ElementType = any> = PounceComponentProps<T>;

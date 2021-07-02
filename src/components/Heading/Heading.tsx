@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 import useHeadingStyles from './useHeadingStyles';
 
 export interface HeadingProps extends BoxProps<'h1'> {

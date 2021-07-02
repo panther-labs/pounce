@@ -1,11 +1,11 @@
 import React from 'react';
-import { addOpacity, lightenDarkenColor } from '../../utils/helpers';
-import { AbstractButtonProps } from '../AbstractButton';
-import { getThemeColor } from '../Button/useButtonStyles';
-import useTheme from '../../utils/useTheme';
+import { addOpacity, lightenDarkenColor } from 'utils/helpers';
+import { AbstractButtonProps } from 'components/AbstractButton';
+import { getThemeColor } from 'components/Button/useButtonStyles';
+import useTheme from 'utils/useTheme';
 import { IconButtonProps } from './IconButton';
-import { Theme } from '../../theme';
-import { ButtonProps } from '../Button';
+import { Theme } from 'theme';
+import { ButtonProps } from 'components/Button';
 
 type ButtonColorVariant = ButtonProps['variantColor'];
 type UseIconButtonStyles = Required<

@@ -1,10 +1,10 @@
 import React, { ChangeEventHandler } from 'react';
-import Box from '../Box';
-import Flex from '../Flex';
-import { slugify } from '../../utils/helpers';
-import { TextInputProps } from '../TextInput';
-import { InputControl, InputElement, InputLabel } from '../utils/Input';
-import { noop } from '../../utils/helpers';
+import Box from 'components/Box';
+import Flex from 'components/Flex';
+import { slugify } from 'utils/helpers';
+import { TextInputProps } from 'components/TextInput';
+import { InputControl, InputElement, InputLabel } from 'components/utils/Input';
+import { noop } from 'utils/helpers';
 
 export type DoubleTextInputProps = Omit<TextInputProps, 'label' | 'placeholder'> & {
   /** The `from` label for the double text input*/

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Dayjs } from 'dayjs';
-import Box from '../Box';
-import Combobox from '../Combobox';
-import { now, slugify } from '../../utils/helpers';
-import Flex from '../Flex';
+import Box from 'components/Box';
+import Combobox from 'components/Combobox';
+import { now, slugify } from 'utils/helpers';
+import Flex from 'components/Flex';
 
 const getHourItems = (mode: string) => {
   const limit = mode === '12h' ? 12 : 24;

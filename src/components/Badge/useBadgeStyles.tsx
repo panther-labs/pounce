@@ -1,5 +1,5 @@
 import { BadgeProps } from './Badge';
-import { FlexProps } from '../Flex';
+import { FlexProps } from 'components/Flex';
 
 type UseBadgeStylesProps = Pick<BadgeProps, 'variant' | 'color'>;
 type UseBadgeStylesPayload = Partial<FlexProps>;

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
-import Box, { BoxProps } from '../Box';
-import { Theme } from '../../theme';
+import Box, { BoxProps } from 'components/Box';
+import { Theme } from 'theme';
 
 export interface SpinnerProps extends BoxProps<'svg'> {
   /** Delay after which spinner should be visible. */

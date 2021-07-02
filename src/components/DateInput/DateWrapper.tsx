@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '../Card';
+import Card from 'components/Card';
 import { useTransition, animated } from 'react-spring';
-import useDropdownAlignment from '../Dropdown/useDropdownAlignment';
+import useDropdownAlignment from 'components/Dropdown/useDropdownAlignment';
 import Popover from '@reach/popover';
 
 interface DateWrapperProps {

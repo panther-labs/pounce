@@ -1,10 +1,10 @@
 import React from 'react';
 import { GetItemPropsOptions } from 'downshift';
 import groupBy from 'lodash/groupBy';
-import Box from '../../Box';
-import MenuItem from '../MenuItem';
+import Box from 'components/Box';
+import MenuItem from 'components/utils/MenuItem';
 
-interface ComboBoxItemsProps<T> {
+interface ComboboxItemsProps<T> {
   items: T[];
   disableItem: (item: T) => boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -20,7 +20,7 @@ interface ComboBoxItemsProps<T> {
  * Acts as a wrapper of MenuItems in a list of dropdown options,
  * to allow grouping.
  */
-function ComboBoxItems<Item>({
+function ComboboxItems<Item>({
   items,
   itemToGroup,
   getItemProps,
@@ -28,7 +28,7 @@ function ComboBoxItems<Item>({
   disableItem,
   selectedItems,
   allowMultipleSelection,
-}: ComboBoxItemsProps<Item>): React.ReactElement<ComboBoxItemsProps<Item>> {
+}: ComboboxItemsProps<Item>): React.ReactElement<ComboboxItemsProps<Item>> {
   const groupedItems = React.useMemo(() => {
     return groupBy(items, itemToGroup);
   }, [items, itemToGroup]);
@@ -112,4 +112,4 @@ function ComboBoxItems<Item>({
   );
 }
 
-export default ComboBoxItems;
+export default ComboboxItems;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Theme } from '../../../theme';
-import Box, { NativeAttributes } from '../../Box';
+import { Theme } from 'theme';
+import Box, { NativeAttributes } from 'components/Box';
 
 interface MenuItemProps extends NativeAttributes<'div'> {
   /** Whether the current item is currently selected **/

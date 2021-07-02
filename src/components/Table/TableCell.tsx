@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps, NativeAttributes } from '../Box';
+import Box, { BoxProps, NativeAttributes } from 'components/Box';
 import { useTable } from './Table';
 
 export type TableCellProps = Pick<BoxProps, 'truncated' | 'color' | 'width' | 'maxWidth'> &

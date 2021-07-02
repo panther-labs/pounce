@@ -1,9 +1,9 @@
 import * as React from 'react';
-import AbstractButton from '../AbstractButton';
-import { BoxProps, NativeAttributes } from '../Box';
+import AbstractButton from 'components/AbstractButton';
+import { BoxProps, NativeAttributes } from 'components/Box';
 import useButtonStyles from './useButtonStyles';
-import Spinner from '../Spinner';
-import Icon, { IconProps } from '../Icon';
+import Spinner from 'components/Spinner';
+import Icon, { IconProps } from 'components/Icon';
 
 export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size (height) of the button */

@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 
 export interface DividerProps extends BoxProps {
   /** The direction of the divider */

@@ -1,7 +1,7 @@
-import Icon from '../Icon';
+import Icon from 'components/Icon';
 import React from 'react';
-import AbstractButton from '../AbstractButton';
-import Flex, { FlexProps } from '../Flex';
+import AbstractButton from 'components/AbstractButton';
+import Flex, { FlexProps } from 'components/Flex';
 
 export interface TagProps extends FlexProps {
   /**

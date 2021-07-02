@@ -9,8 +9,8 @@ import {
 import Popover from './Popover';
 import PopoverTrigger from './PopoverTrigger';
 import PopoverMenu from './PopoverContent';
-import Button from '../Button';
-import Text from '../Text';
+import Button from 'components/Button';
+import Text from 'components/Text';
 
 describe('Popover', () => {
   it('matches snapshot when closed', () => {

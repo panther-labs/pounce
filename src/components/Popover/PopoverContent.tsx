@@ -4,9 +4,9 @@ import { useComposedRefs } from '@reach/utils';
 import { animated, useTransition } from 'react-spring';
 import { usePopoverContext } from './Popover';
 import usePopoverContentAlignment from './usePopoverContentAlignment';
-import useOutsideClick from '../../utils/useOutsideClick';
-import useEscapeKey from '../../utils/useEscapeKey';
-import Box from '../Box';
+import useOutsideClick from 'utils/useOutsideClick';
+import useEscapeKey from 'utils/useEscapeKey';
+import Box from 'components/Box';
 
 const AnimatedPopover = animated(ReachUIPopover);
 

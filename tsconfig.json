@@ -12,7 +12,11 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "test-utils": ["jest/utils"]
+      "test-utils": ["jest/utils"],
+      "system": ["src/system"],
+      "theme": ["src/theme"],
+      "components/*": ["src/components/*"],
+      "utils/*": ["src/utils/*"]
     }
   },
   "include": ["src/**/*"],

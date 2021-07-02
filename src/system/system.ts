@@ -1,7 +1,7 @@
 import React from 'react';
 import * as StyledSystem from 'styled-system';
 import * as H from 'history';
-import { Theme } from '../theme';
+import { Theme } from 'theme';
 import { UtilityProps } from './utility';
 import { PseudoProps } from './pseudo';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box';
+import Box, { BoxProps } from 'components/Box';
 
 export type CardProps = Omit<BoxProps, 'bg' | 'background' | 'backgroundColor' | 'borderRadius'> & {
   /** Whether the card should be light blue-navy or dark blue-navy */

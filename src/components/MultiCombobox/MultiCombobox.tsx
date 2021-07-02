@@ -2,15 +2,15 @@
 import React from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
-import Box from '../Box';
-import IconButton from '../IconButton';
-import Flex from '../Flex';
-import { InputControl, InputLabel, InputElement, InputElementProps } from '../utils/Input';
+import Box from 'components/Box';
+import IconButton from 'components/IconButton';
+import Flex from 'components/Flex';
+import { InputControl, InputLabel, InputElement, InputElementProps } from 'components/utils/Input';
 import Tag from './Tag';
-import { typedMemo } from '../../utils/helpers';
-import Menu from '../utils/Menu';
-import AbstractButton from '../AbstractButton';
-import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
+import { typedMemo } from 'utils/helpers';
+import Menu from 'components/utils/Menu';
+import AbstractButton from 'components/AbstractButton';
+import ComboBoxItems from 'components/utils/ComboboxItems';
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */

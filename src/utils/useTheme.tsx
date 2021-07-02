@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeContext } from '@emotion/react';
-import { Theme } from '../theme';
+import { Theme } from 'theme';
 
 /**
  * A React hook that allows to retrieve the theme within a functional component

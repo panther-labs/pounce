@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from '../Icon';
-import Text, { TextProps } from '../Text';
+import Icon from 'components/Icon';
+import Text, { TextProps } from 'components/Text';
 
 export type FormErrorProps = TextProps;
 

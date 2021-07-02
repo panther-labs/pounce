@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'test-utils';
 import Flex from './Flex';
-import Box from '../Box';
+import Box from 'components/Box';
 
 describe('Flex', () => {
   it('renders', async () => {

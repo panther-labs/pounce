@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { NativeAttributes } from '../Box';
+import Box, { NativeAttributes } from 'components/Box';
 import { useTable } from './Table';
 
 export interface TableRowProps extends NativeAttributes<'tr'> {

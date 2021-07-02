@@ -1,5 +1,5 @@
 import React from 'react';
-import ControlledAlert, { ControlledAlertProps } from '../utils/ControlledAlert';
+import ControlledAlert, { ControlledAlertProps } from 'components/utils/ControlledAlert';
 
 export interface SnackbarProps extends Omit<ControlledAlertProps, 'open' | 'onClose'> {
   /** The number of milliseconds that this snackbar will show until it automatically disappears
