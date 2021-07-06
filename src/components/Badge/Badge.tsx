@@ -1,6 +1,8 @@
 import React from 'react';
 import { Theme } from '../../theme';
 import Box from '../Box';
+import { addOpacity } from '../../utils/helpers';
+import useTheme from '../../utils/useTheme';
 
 export interface BadgeProps {
   /** The color theme of the badge */
@@ -14,12 +16,13 @@ export interface BadgeProps {
 
 /** A badge is simply a visual label to accompany & characterize a certain text*/
 const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
-  { color = 'white', children, size = 'medium', ...rest },
+  { color, children, size = 'medium', ...rest },
   ref
 ) {
+  const theme = useTheme();
+
   return (
     <Box
-      position="relative"
       display="flex"
       role="status"
       aria-atomic="true"
@@ -31,7 +34,7 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       border="1px solid"
       borderRadius="small"
       borderColor={color}
-      backgroundColor="transparent"
+      backgroundColor={addOpacity(theme.colors[color], 0.3)}
       alignItems="center"
       justifyContent="center"
       fontSize="small"
@@ -39,8 +42,7 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       px="6px"
       {...rest}
     >
-      <Box position="absolute" bg={color} opacity={0.3} top={0} bottom={0} left={0} right={0} />
-      <Box zIndex={1}>{children}</Box>
+      {children}
     </Box>
   );
 });

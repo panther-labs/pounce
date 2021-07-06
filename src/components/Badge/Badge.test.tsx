@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, act, waitFor, AxeResults } from 'test-utils';
+import { renderWithTheme, act, waitFor, AxeResults } from 'test-utils';
 import { axe } from 'jest-axe';
 
 import Badge from './Badge';
 
 it('renders', () => {
-  const { container } = render(
+  const { container } = renderWithTheme(
     <>
       <Badge color="red-300">INFO</Badge>
       <Badge color="teal-500">LOW</Badge>
@@ -16,7 +16,7 @@ it('renders', () => {
 });
 
 it('aligns with a11y', async () => {
-  const { container } = render(
+  const { container } = renderWithTheme(
     <>
       <Badge color="red-300">INFO</Badge>
       <Badge color="teal-500">LOW</Badge>

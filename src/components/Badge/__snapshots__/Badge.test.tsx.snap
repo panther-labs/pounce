@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders 1`] = `
-.pounce-2 {
-  position: relative;
+.pounce-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12,11 +11,11 @@ exports[`renders 1`] = `
   width: -moz-fit-content;
   width: fit-content;
   text-align: center;
-  font-weight: normal;
+  font-weight: 400;
   border: 1px solid;
-  border-radius: small;
-  border-color: red-300;
-  background-color: transparent;
+  border-radius: 2px;
+  border-color: #d64242;
+  background-color: rgba(214,66,66,0.3);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -25,29 +24,14 @@ exports[`renders 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-size: small;
+  font-size: 0.75rem;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 6px;
   padding-right: 6px;
-}
-
-.pounce-0 {
-  position: absolute;
-  background-color: red-300;
-  opacity: 0.3;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .pounce-1 {
-  z-index: 1;
-}
-
-.pounce-5 {
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57,11 +41,11 @@ exports[`renders 1`] = `
   width: -moz-fit-content;
   width: fit-content;
   text-align: center;
-  font-weight: normal;
+  font-weight: 400;
   border: 1px solid;
-  border-radius: small;
-  border-color: teal-500;
-  background-color: transparent;
+  border-radius: 2px;
+  border-color: #09a084;
+  background-color: rgba(9,160,132,0.3);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -70,25 +54,14 @@ exports[`renders 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-size: small;
+  font-size: 0.75rem;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 6px;
   padding-right: 6px;
 }
 
-.pounce-3 {
-  position: absolute;
-  background-color: teal-500;
-  opacity: 0.3;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.pounce-8 {
-  position: relative;
+.pounce-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -98,11 +71,11 @@ exports[`renders 1`] = `
   width: -moz-fit-content;
   width: fit-content;
   text-align: center;
-  font-weight: normal;
+  font-weight: 400;
   border: 1px solid;
-  border-radius: small;
-  border-color: blue-400;
-  background-color: transparent;
+  border-radius: 2px;
+  border-color: #0081c5;
+  background-color: rgba(0,129,197,0.3);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -111,65 +84,34 @@ exports[`renders 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-size: small;
+  font-size: 0.75rem;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 6px;
   padding-right: 6px;
-}
-
-.pounce-6 {
-  position: absolute;
-  background-color: blue-400;
-  opacity: 0.3;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 <div>
   <div
     aria-atomic="true"
+    class="pounce-0"
+    role="status"
+  >
+    INFO
+  </div>
+  <div
+    aria-atomic="true"
+    class="pounce-1"
+    role="status"
+  >
+    LOW
+  </div>
+  <div
+    aria-atomic="true"
     class="pounce-2"
     role="status"
   >
-    <div
-      class="pounce-0"
-    />
-    <div
-      class="pounce-1"
-    >
-      INFO
-    </div>
-  </div>
-  <div
-    aria-atomic="true"
-    class="pounce-5"
-    role="status"
-  >
-    <div
-      class="pounce-3"
-    />
-    <div
-      class="pounce-1"
-    >
-      LOW
-    </div>
-  </div>
-  <div
-    aria-atomic="true"
-    class="pounce-8"
-    role="status"
-  >
-    <div
-      class="pounce-6"
-    />
-    <div
-      class="pounce-1"
-    >
-      WHATEVER
-    </div>
+    WHATEVER
   </div>
 </div>
 `;
