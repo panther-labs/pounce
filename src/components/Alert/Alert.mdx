@@ -3,19 +3,41 @@ Alerts can be simple:
 ```typescript jsx
 <Box width={1}>
   <Box mb={3}>
-    <Alert variant="success" mb={3} title="This is an success alert" />
+    <Alert alertType="success" mb={3} title="This is a success alert" />
   </Box>
   <Box mb={3}>
-    <Alert variant="info" mb={3} title="This is an info alert" />
+    <Alert alertType="info" mb={3} title="This is an info alert" />
   </Box>
   <Box mb={3}>
-    <Alert variant="warning" mb={3} title="This is a warning alert" />
+    <Alert alertType="warning" mb={3} title="This is a warning alert" />
   </Box>
   <Box mb={3}>
-    <Alert variant="error" title="This is an error alert" />
+    <Alert alertType="error" title="This is an error alert" />
   </Box>
   <Box>
-    <Alert variant="default" title="This is an error alert" />
+    <Alert alertType="default" title="This is the default alert" />
+  </Box>
+</Box>
+```
+
+Alerts can be opaque:
+
+```typescript jsx
+<Box width={1}>
+  <Box mb={3}>
+    <Alert alertType="success" variant="opaque" mb={3} title="This is a success alert" />
+  </Box>
+  <Box mb={3}>
+    <Alert alertType="info" variant="opaque" mb={3} title="This is an info alert" />
+  </Box>
+  <Box mb={3}>
+    <Alert alertType="warning" variant="opaque" mb={3} title="This is a warning alert" />
+  </Box>
+  <Box mb={3}>
+    <Alert alertType="error" variant="opaque" title="This is an error alert" />
+  </Box>
+  <Box>
+    <Alert alertType="default" variant="opaque" title="This is the default alert" />
   </Box>
 </Box>
 ```
@@ -26,41 +48,36 @@ Alerts can have descriptions:
 <Box width={1}>
   <Box mb={3}>
     <Alert
-      icon="check"
-      variant="success"
-      title="This is an success alert"
+      alertType="success"
+      title="This is a success alert"
       description="This is a nice description of the title"
     />
   </Box>
   <Box mb={3}>
     <Alert
-      icon="edit"
-      variant="info"
+      alertType="info"
       title="This is an info alert"
       description="This is a nice description of the title"
     />
   </Box>
   <Box mb={3}>
     <Alert
-      icon="warning"
-      variant="warning"
+      alertType="warning"
       title="This is a warning alert"
       description="This is a nice description of the title"
     />
   </Box>
   <Box mb={3}>
     <Alert
-      icon="delete"
-      variant="error"
+      alertType="error"
       title="This is an error alert"
       description="This is a nice description of the title"
     />
   </Box>
   <Box>
     <Alert
-      icon="delete"
-      variant="default"
-      title="This is an error alert"
+      alertType="default"
+      title="This is the default alert"
       description="This is a nice description of the title"
     />
   </Box>
@@ -73,17 +90,15 @@ Alerts can be hidden by the user:
 <Box width={1}>
   <Box mb={3}>
     <Alert
-      icon="check"
-      variant="success"
-      title="This is an success alert"
+      alertType="success"
+      title="This is a success alert"
       description="This is a nice description of the title"
       discardable
     />
   </Box>
   <Box mb={3}>
     <Alert
-      icon="edit"
-      variant="info"
+      alertType="info"
       title="This is an info alert"
       description="This is a nice description of the title"
       discardable
@@ -91,8 +106,7 @@ Alerts can be hidden by the user:
   </Box>
   <Box mb={3}>
     <Alert
-      icon="warning"
-      variant="warning"
+      alertType="warning"
       title="This is a warning alert"
       description="This is a nice description of the title"
       discardable
@@ -100,8 +114,7 @@ Alerts can be hidden by the user:
   </Box>
   <Box mb={3}>
     <Alert
-      icon="delete"
-      variant="error"
+      alertType="error"
       title="This is an error alert"
       description="This is a nice description of the title"
       discardable
@@ -109,8 +122,7 @@ Alerts can be hidden by the user:
   </Box>
   <Box>
     <Alert
-      icon="delete"
-      variant="default"
+      alertType="default"
       title="This is a default alert"
       description="This is a nice description of the title"
       discardable
@@ -125,13 +137,12 @@ Alerts can have actions associated with them:
 <Box>
   <Box mb={3}>
     <Alert
-      icon="delete"
-      variant="default"
-      title="This is a default alert"
+      alertType="warning"
+      title="This is a warning alert"
       description="This is a nice description of the title"
       discardable
       actions={
-        <Button variantColor="red" onClick={() => alert('Boom!')}>
+        <Button alertTypeColor="red" onClick={() => alert('Boom!')}>
           I Alert
         </Button>
       }
@@ -139,9 +150,8 @@ Alerts can have actions associated with them:
   </Box>
   <Box>
     <Alert
-      icon="delete"
-      variant="default"
-      title="This is a default alert"
+      alertType="error"
+      title="This is an error alert"
       description="This is a nice description of the title"
       discardable
       actions={({ close }) => <Button onClick={close}>I Close</Button>}

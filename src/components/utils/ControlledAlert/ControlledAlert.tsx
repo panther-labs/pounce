@@ -17,7 +17,8 @@ export interface ControlledAlertProps {
   onClose: () => void;
 
   /** The style of the ControlledAlert */
-  variant?: 'success' | 'info' | 'warning' | 'error' | 'default';
+  alertType?: 'success' | 'info' | 'warning' | 'error' | 'default';
+  variant: 'default' | 'opaque';
 
   /** A secondary text to further explain the title */
   description?: React.ReactNode;
@@ -37,6 +38,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
       open,
       onClose,
       description,
+      alertType = 'default',
       variant = 'default',
       discardable,
       actions = null,
@@ -44,7 +46,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
     },
     ref
   ) {
-    const { backgroundColor, icon } = useAlertStyles({ variant });
+    const { icon, titleColor, ...styles } = useAlertStyles({ alertType, variant });
     const id = useId();
 
     if (!open) {
@@ -55,19 +57,20 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
       <Box
         ref={ref}
         p={4}
-        borderRadius="large"
         role="dialog"
         aria-labelledby={`${id}-title`}
         aria-describedby={`${id}-description`}
-        backgroundColor={backgroundColor}
+        {...styles}
         {...rest}
       >
         {title && (
           <Flex as="header" align="center" fontSize="large">
-            <Icon type={icon} mr={2} size="large" />
+            {icon && <Icon type={icon} mr={2} size="large" />}
             <Box
               as="h4"
+              color={titleColor}
               fontWeight={description ? 'bold' : 'normal'}
+              fontSize={description ? 'x-large' : 'large'}
               flexGrow={1}
               mr="auto"
               id={`${id}-title`}
