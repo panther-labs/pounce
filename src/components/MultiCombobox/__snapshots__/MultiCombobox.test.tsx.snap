@@ -571,7 +571,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #0081c5;
-  border-radius: 40px;
+  border-radius: 2px;
   cursor: default;
   padding-left: 8px;
   padding-right: 8px;
@@ -1112,7 +1112,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #0081c5;
-  border-radius: 40px;
+  border-radius: 2px;
   cursor: default;
   padding-left: 8px;
   padding-right: 8px;

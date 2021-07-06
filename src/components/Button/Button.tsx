@@ -20,6 +20,7 @@ export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 
     | 'green'
     | 'orange'
     | 'red'
+    | 'lightred'
     | 'gray'
     | 'darkgray'
     | 'darkblue'
