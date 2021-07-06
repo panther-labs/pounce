@@ -17,7 +17,7 @@ const Tag: React.FC<TagProps> = ({ children, onRemove, ...rest }) => (
     align="center"
     role="tag"
     bg="blue-400"
-    borderRadius="pill"
+    borderRadius="small"
     cursor="default"
     px={2}
     fontSize="small"

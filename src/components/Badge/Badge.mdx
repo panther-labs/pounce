@@ -1,26 +1,26 @@
 A Badge should be used to render statuses
 
-A badge can be `solid`:
+A badge can have different colors:
 
 ```typescript jsx
-<SimpleGrid spacing={3} columns={3}>
-  <Badge color="red-300">INFO</Badge>
-  <Badge color="teal-500">LOW</Badge>
-  <Badge color="blue-400">WHATEVER</Badge>
-</SimpleGrid>
+<Flex spacing={2}>
+  <Badge>Primary</Badge>
+  <Badge color="red-300">Red</Badge>
+  <Badge color="blue-400">Blue</Badge>
+</Flex>
 ```
 
-A badge can be `outline`:
+A badge can be `large`:
 
 ```typescript jsx
 <SimpleGrid spacing={3} columns={3}>
-  <Badge color="red-300" variant="outline">
+  <Badge color="red-300" size="large">
     INFO
   </Badge>
-  <Badge color="teal-500" variant="outline">
+  <Badge color="teal-500" size="large">
     LOW
   </Badge>
-  <Badge color="blue-400" variant="outline">
+  <Badge color="blue-400" size="large">
     WHATEVER
   </Badge>
 </SimpleGrid>
