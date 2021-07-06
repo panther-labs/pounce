@@ -30,6 +30,8 @@ export const getThemeColor = (color: ButtonColorVariant): ThemeColor => {
       return 'navyblue-700';
     case 'navyblue':
       return 'navyblue-300';
+    case 'lightblue':
+      return 'blue-300';
     case 'blue':
     default:
       return 'blue-400';

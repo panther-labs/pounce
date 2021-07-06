@@ -24,7 +24,8 @@ export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 
     | 'gray'
     | 'darkgray'
     | 'darkblue'
-    | 'navyblue';
+    | 'navyblue'
+    | 'lightblue';
 
   /** The icon present on the button  */
   icon?: IconProps['type'];
