@@ -105,3 +105,23 @@ const ExamplePrefix = () => {
 
 <ExamplePrefix />;
 ```
+
+An input can have a suffix:
+
+```typescript jsx
+const ExamplePrefix = () => {
+  const [value, setValue] = React.useState('');
+  return (
+    <TextInput
+      label="Domain with suffix"
+      suffix=".example.com"
+      name="hi"
+      placeholder="Type something..."
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  );
+};
+
+<ExamplePrefix />;
+```

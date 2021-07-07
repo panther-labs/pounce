@@ -53,6 +53,7 @@ exports[`DateInput allows passing a custom format 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -285,6 +286,7 @@ exports[`DateInput allows selecting a date with time options 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -517,6 +519,7 @@ exports[`DateInput allows selecting a date with time options in 12h mode 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -749,6 +752,7 @@ exports[`DateInput allows selecting a date with time options in 24h mode 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -949,6 +953,7 @@ exports[`DateInput can be solid 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -1213,6 +1218,7 @@ exports[`DateInput opens the month picker 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -1445,6 +1451,7 @@ exports[`DateInput opens the month picker with alignment 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
@@ -1677,6 +1684,7 @@ exports[`DateInput renders 1`] = `
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
