@@ -39,6 +39,16 @@ it('renders with prefix', async () => {
   expect(container).toMatchSnapshot();
 });
 
+it('renders with suffix', async () => {
+  const { container, getByText, getByLabelText } = await renderWithTheme(
+    <TextInput suffix="Custom" label="Text input" value="Test with Suffix" required />
+  );
+  const inputWithPrefix = getByLabelText('Text input');
+  expect(inputWithPrefix.value).toBe('Test with Suffix');
+  expect(getByText('Custom')).toBeInTheDocument();
+  expect(container).toMatchSnapshot();
+});
+
 it('renders with icons', async () => {
   const { container } = await renderWithTheme(
     <>

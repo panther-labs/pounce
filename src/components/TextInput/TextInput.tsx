@@ -19,6 +19,9 @@ export type TextInputProps = NativeAttributes<'input'> & {
   /** The decorating prefix used for  decorating issues*/
   prefix?: string;
 
+  /** The decorating suffix used for  decorating issues*/
+  suffix?: string;
+
   /** The variant of the input that decides the colors */
   variant?: 'solid' | 'outline';
 
@@ -49,6 +52,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
     disabled,
     id,
     prefix,
+    suffix,
     hidden,
     name,
     icon,
@@ -96,7 +100,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           value={value}
           truncated
           pl={icon && iconAlignment === 'left' ? 42 : prefix ? 0 : null}
-          pr={icon && iconAlignment === 'right' && 10}
+          pr={icon && iconAlignment === 'right' ? 10 : suffix ? 0 : null}
           position="relative"
           zIndex={2}
           {...rest}
@@ -109,6 +113,23 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
         >
           {label}
         </InputLabel>
+        {suffix && (
+          <Box
+            fontSize="medium"
+            fontWeight="medium"
+            as="span"
+            height="100%"
+            color="navyblue-100"
+            pt={5}
+            pr={4}
+            pb={2}
+            opacity={isEmpty ? 0 : 1}
+            visibility={isEmpty ? 'hidden' : 'visible'}
+            transition="opacity,visibility 400ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"
+          >
+            {suffix}
+          </Box>
+        )}
         {icon && (
           <Icon
             zIndex={1}
