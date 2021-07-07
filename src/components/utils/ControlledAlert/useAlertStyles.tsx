@@ -2,8 +2,8 @@ import { ControlledAlertProps } from './ControlledAlert';
 import { addOpacity } from '../../../utils/helpers';
 import useTheme from '../../../utils/useTheme';
 
-type UseControlledAlertStylesProps = Pick<ControlledAlertProps, 'alertType' | 'variant'>;
-type AlertType = UseControlledAlertStylesProps['alertType'];
+type UseControlledAlertStylesProps = Pick<ControlledAlertProps, 'type' | 'variant'>;
+type AlertType = UseControlledAlertStylesProps['type'];
 
 const getAlertTypeColor = (alertType: AlertType) => {
   switch (alertType) {
@@ -34,13 +34,13 @@ const getAlertTypeIcon = (alertType: AlertType) => {
   }
 };
 
-const useAlertStyles = ({ alertType, variant }: UseControlledAlertStylesProps) => {
+const useAlertStyles = ({ type, variant }: UseControlledAlertStylesProps) => {
   const theme = useTheme();
-  const color = getAlertTypeColor(alertType);
+  const color = getAlertTypeColor(type);
   switch (variant) {
     case 'opaque':
       return {
-        icon: getAlertTypeIcon(alertType),
+        icon: getAlertTypeIcon(type),
         border: '1px solid',
         borderColor: color,
         borderRadius: 'large' as const,
@@ -50,7 +50,7 @@ const useAlertStyles = ({ alertType, variant }: UseControlledAlertStylesProps) =
     default:
       return {
         backgroundColor: 'navyblue-400' as const,
-        borderLeft: alertType === 'default' ? 'none' : ('4px solid' as const),
+        borderLeft: type === 'default' ? 'none' : ('4px solid' as const),
         borderRadius: 'small' as const,
         borderLeftColor: color,
         titleColor: color,
