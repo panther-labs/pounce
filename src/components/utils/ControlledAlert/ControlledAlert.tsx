@@ -16,11 +16,11 @@ export interface ControlledAlertProps {
   /** When the alert is discardable, this is the callback that gets fired on discard */
   onClose: () => void;
 
-  /** The alert severity */
-  type?: 'success' | 'info' | 'warning' | 'error' | 'default';
-
   /** The style of the ControlledAlert */
-  variant?: 'default' | 'opaque';
+  variant?: 'success' | 'info' | 'warning' | 'error' | 'default';
+
+  /** The background style of the ControlledAlert */
+  variantBackgroundStyle?: 'solid' | 'transparent';
 
   /** A secondary text to further explain the title */
   description?: React.ReactNode;
@@ -40,15 +40,15 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
       open,
       onClose,
       description,
-      type = 'default',
       variant = 'default',
+      variantBackgroundStyle = 'solid',
       discardable,
       actions = null,
       ...rest
     },
     ref
   ) {
-    const { icon, titleColor, ...styles } = useAlertStyles({ type, variant });
+    const { icon, titleColor, ...styles } = useAlertStyles({ variant, variantBackgroundStyle });
     const id = useId();
 
     if (!open) {
@@ -92,7 +92,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
           </Flex>
         )}
         {description && (
-          <Box as="p" fontStyle="italic" mt={title ? 3 : 0} fontSize="medium">
+          <Box as="p" mt={title ? 3 : 0} fontSize="medium">
             {description}
           </Box>
         )}

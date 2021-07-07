@@ -8,15 +8,19 @@ export interface BadgeProps {
   /** The color theme of the badge */
   color: keyof Theme['colors'];
 
-  /** The size of the Badge. Defaults to `medium`. */
-  size?: 'medium' | 'large';
+  /** Whether the badge should stretch to fill his parent or not */
+  stretch?: boolean;
+
+  /** Whether the Badge should be emphasized or not */
+  emphasized?: boolean;
+
   /** @ignore */
   children: React.ReactNode;
 }
 
 /** A badge is simply a visual label to accompany & characterize a certain text*/
 const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
-  { color, children, size = 'medium', ...rest },
+  { color, children, stretch = false, emphasized = false, ...rest },
   ref
 ) {
   const theme = useTheme();
@@ -28,9 +32,9 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       aria-atomic="true"
       ref={ref}
       cursor="default"
-      width={size === 'medium' ? 'fit-content' : 'auto'}
+      width={stretch ? 'auto' : 'fit-content'}
       textAlign="center"
-      fontWeight={size === 'medium' ? 'normal' : 'bold'}
+      fontWeight={emphasized ? 'bold' : 'normal'}
       border="1px solid"
       borderRadius="small"
       borderColor={color}
