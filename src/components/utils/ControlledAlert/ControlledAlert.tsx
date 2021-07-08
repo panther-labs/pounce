@@ -41,7 +41,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
       onClose,
       description,
       variant = 'default',
-      variantBackgroundStyle = 'solid',
+      variantBackgroundStyle = 'transparent',
       discardable,
       actions = null,
       ...rest

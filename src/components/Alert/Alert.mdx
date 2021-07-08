@@ -1,4 +1,4 @@
-Alerts can be simple:
+Alerts can be transparent:
 
 ```typescript jsx
 <Box width={1}>
@@ -20,43 +20,34 @@ Alerts can be simple:
 </Box>
 ```
 
-Alerts can be transparent:
+Alerts can be solid:
 
 ```typescript jsx
 <Box width={1}>
   <Box mb={3}>
     <Alert
       variant="success"
-      variantBackgroundStyle="transparent"
+      variantBackgroundStyle="solid"
       mb={3}
       title="This is a success alert"
     />
   </Box>
   <Box mb={3}>
-    <Alert
-      variant="info"
-      variantBackgroundStyle="transparent"
-      mb={3}
-      title="This is an info alert"
-    />
+    <Alert variant="info" variantBackgroundStyle="solid" mb={3} title="This is an info alert" />
   </Box>
   <Box mb={3}>
     <Alert
       variant="warning"
-      variantBackgroundStyle="transparent"
+      variantBackgroundStyle="solid"
       mb={3}
       title="This is a warning alert"
     />
   </Box>
   <Box mb={3}>
-    <Alert variant="error" variantBackgroundStyle="transparent" title="This is an error alert" />
+    <Alert variant="error" variantBackgroundStyle="solid" title="This is an error alert" />
   </Box>
   <Box>
-    <Alert
-      variant="default"
-      variantBackgroundStyle="transparent"
-      title="This is the default alert"
-    />
+    <Alert variant="default" variantBackgroundStyle="solid" title="This is the default alert" />
   </Box>
 </Box>
 ```
@@ -110,6 +101,7 @@ Alerts can be hidden by the user:
   <Box mb={3}>
     <Alert
       variant="success"
+      variantBackgroundStyle="solid"
       title="This is a success alert"
       description="This is a nice description of the title"
       discardable
@@ -118,6 +110,7 @@ Alerts can be hidden by the user:
   <Box mb={3}>
     <Alert
       variant="info"
+      variantBackgroundStyle="solid"
       title="This is an info alert"
       description="This is a nice description of the title"
       discardable
@@ -126,6 +119,7 @@ Alerts can be hidden by the user:
   <Box mb={3}>
     <Alert
       variant="warning"
+      variantBackgroundStyle="solid"
       title="This is a warning alert"
       description="This is a nice description of the title"
       discardable
@@ -134,6 +128,7 @@ Alerts can be hidden by the user:
   <Box mb={3}>
     <Alert
       variant="error"
+      variantBackgroundStyle="solid"
       title="This is an error alert"
       description="This is a nice description of the title"
       discardable
@@ -142,6 +137,7 @@ Alerts can be hidden by the user:
   <Box>
     <Alert
       variant="default"
+      variantBackgroundStyle="solid"
       title="This is a default alert"
       description="This is a nice description of the title"
       discardable
@@ -157,6 +153,7 @@ Alerts can have actions associated with them:
   <Box mb={3}>
     <Alert
       variant="warning"
+      variantBackgroundStyle="solid"
       title="This is a warning alert"
       description="This is a nice description of the title"
       actions={<Button onClick={() => alert('Boom!')}>I Alert</Button>}
@@ -165,6 +162,7 @@ Alerts can have actions associated with them:
   <Box>
     <Alert
       variant="error"
+      variantBackgroundStyle="solid"
       title="This is an error alert"
       description="This is a nice description of the title"
       actions={({ close }) => <Button onClick={close}>I Close</Button>}
