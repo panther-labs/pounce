@@ -10,10 +10,13 @@ exports[`renders 1`] = `
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  min-width: 85px;
   text-align: center;
-  font-weight: bold;
-  border-radius: pill;
+  font-weight: 400;
+  text-transform: none;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #d64242;
+  background-color: rgba(214,66,66,0.3);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -22,12 +25,11 @@ exports[`renders 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-size: small;
+  font-size: 0.75rem;
   padding-top: 4px;
   padding-bottom: 4px;
-  padding-left: 32px;
-  padding-right: 32px;
-  background-color: red-300;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .pounce-1 {
@@ -39,10 +41,13 @@ exports[`renders 1`] = `
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  min-width: 85px;
   text-align: center;
-  font-weight: bold;
-  border-radius: pill;
+  font-weight: 400;
+  text-transform: none;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #09a084;
+  background-color: rgba(9,160,132,0.3);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -51,12 +56,11 @@ exports[`renders 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-size: small;
+  font-size: 0.75rem;
   padding-top: 4px;
   padding-bottom: 4px;
-  padding-left: 32px;
-  padding-right: 32px;
-  background-color: teal-500;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .pounce-2 {
@@ -68,10 +72,13 @@ exports[`renders 1`] = `
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  min-width: 85px;
   text-align: center;
-  font-weight: bold;
-  border-radius: pill;
+  font-weight: 400;
+  text-transform: none;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #0081c5;
+  background-color: rgba(0,129,197,0.3);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -80,12 +87,11 @@ exports[`renders 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-size: small;
+  font-size: 0.75rem;
   padding-top: 4px;
   padding-bottom: 4px;
-  padding-left: 32px;
-  padding-right: 32px;
-  background-color: blue-400;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 <div>

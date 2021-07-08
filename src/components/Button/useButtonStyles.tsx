@@ -14,6 +14,8 @@ export const getThemeColor = (color: ButtonColorVariant): ThemeColor => {
       return 'violet-400';
     case 'teal':
       return 'teal-500';
+    case 'lightred':
+      return 'red-300';
     case 'red':
       return 'pink-700';
     case 'orange':
@@ -28,6 +30,8 @@ export const getThemeColor = (color: ButtonColorVariant): ThemeColor => {
       return 'navyblue-700';
     case 'navyblue':
       return 'navyblue-300';
+    case 'lightblue':
+      return 'blue-300';
     case 'blue':
     default:
       return 'blue-400';
