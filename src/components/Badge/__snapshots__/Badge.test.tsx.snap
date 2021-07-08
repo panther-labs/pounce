@@ -12,6 +12,7 @@ exports[`renders 1`] = `
   width: fit-content;
   text-align: center;
   font-weight: 400;
+  text-transform: none;
   border: 1px solid;
   border-radius: 2px;
   border-color: #d64242;
@@ -42,6 +43,7 @@ exports[`renders 1`] = `
   width: fit-content;
   text-align: center;
   font-weight: 400;
+  text-transform: none;
   border: 1px solid;
   border-radius: 2px;
   border-color: #09a084;
@@ -72,6 +74,7 @@ exports[`renders 1`] = `
   width: fit-content;
   text-align: center;
   font-weight: 400;
+  text-transform: none;
   border: 1px solid;
   border-radius: 2px;
   border-color: #0081c5;
