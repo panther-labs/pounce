@@ -35,6 +35,7 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       width={stretch ? 'auto' : 'fit-content'}
       textAlign="center"
       fontWeight={emphasized ? 'bold' : 'normal'}
+      textTransform={emphasized ? 'uppercase' : 'none'}
       border="1px solid"
       borderRadius="small"
       borderColor={color}
