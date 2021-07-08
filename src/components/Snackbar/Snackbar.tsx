@@ -27,7 +27,7 @@ const Snackbar: React.FC<SnackbarProps> = ({ destroy, duration = 6000, ...rest }
     return () => clearTimeout(timeoutRef.current as number);
   }, [duration]);
 
-  return <ControlledAlert {...rest} open onClose={destroy} />;
+  return <ControlledAlert {...rest} open onClose={destroy} variantBackgroundStyle="solid" />;
 };
 
 export default Snackbar;
