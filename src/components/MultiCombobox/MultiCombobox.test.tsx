@@ -253,6 +253,24 @@ describe('MultiCombobox', () => {
     expect(queryAllByRole('tag')).toHaveLength(2);
   });
 
+  it("appends and doesn't replace when pasting", async () => {
+    const { getByPlaceholderText, queryAllByRole } = renderWithTheme(
+      <ControlledMultiCombobox searchable allowAdditions />
+    );
+
+    const input = getByPlaceholderText('Select manufacturers');
+
+    fireEvent.paste(input, {
+      clipboardData: { getData: () => 'Random Value 1\r\n\r\n\r\nRandom Value 2' },
+    });
+    expect(queryAllByRole('tag')).toHaveLength(2);
+
+    fireEvent.paste(input, {
+      clipboardData: { getData: () => 'Random Value 3\r\n\r\n\r\nRandom Value 4' },
+    });
+    expect(queryAllByRole('tag')).toHaveLength(4);
+  });
+
   it('works when selecting grouped items', async () => {
     const { getByPlaceholderText, queryAllByRole, container } = renderWithTheme(
       <ControlledMultiCombobox itemToGroup={i => i.category} itemToString={i => i.value} />
@@ -325,5 +343,81 @@ describe('MultiCombobox', () => {
 
     fireClickAndMouseEvents(getByText('Normal'));
     expect(queryAllByRole('tag')).toHaveLength(items.filter(i => i.category === 'Normal').length);
+  });
+
+  it('handles basic JSON dictionary input', async () => {
+    const onChangeSpy = jest.fn();
+    const callbacks = renderWithTheme(
+      <ControlledMultiCombobox searchable allowAdditions onChange={onChangeSpy} />
+    );
+
+    const input = callbacks.getByPlaceholderText('Select manufacturers');
+    fireEvent.paste(input, {
+      clipboardData: { getData: () => JSON.stringify({ a: 123, b: 456 }) },
+    });
+
+    expect(onChangeSpy).toBeCalledTimes(1);
+
+    const parsedArgs = onChangeSpy.mock.calls[0][0];
+    expect(parsedArgs).toHaveLength(2);
+    expect(parsedArgs).toContain('a');
+    expect(parsedArgs).toContain('b');
+  });
+
+  it('handles nested JSON dictionary input', async () => {
+    const onChangeSpy = jest.fn();
+    const callbacks = renderWithTheme(
+      <ControlledMultiCombobox searchable allowAdditions onChange={onChangeSpy} />
+    );
+
+    const input = callbacks.getByPlaceholderText('Select manufacturers');
+    fireEvent.paste(input, {
+      clipboardData: {
+        getData: () =>
+          JSON.stringify({ a: { c: 123, d: 456 }, b: { x: { y: 888, z: 'four' } }, z: 20 }),
+      },
+    });
+
+    expect(onChangeSpy).toBeCalledTimes(1);
+
+    const parsedArgs = onChangeSpy.mock.calls[0][0];
+    expect(parsedArgs).toHaveLength(5);
+    ['a.c', 'a.d', 'b.x.y', 'b.x.z', 'z'].forEach(k => expect(parsedArgs).toContain(k));
+  });
+
+  it('handles JSON dictionary and array input', async () => {
+    const onChangeSpy = jest.fn();
+    const callbacks = renderWithTheme(
+      <ControlledMultiCombobox searchable allowAdditions onChange={onChangeSpy} />
+    );
+
+    const input = callbacks.getByPlaceholderText('Select manufacturers');
+    fireEvent.paste(input, {
+      clipboardData: {
+        getData: () => JSON.stringify([{ a: { b: 11 }, c: [{ x: 10 }, 15] }]),
+      },
+    });
+
+    expect(onChangeSpy).toBeCalledTimes(1);
+
+    const parsedArgs = onChangeSpy.mock.calls[0][0];
+    expect(parsedArgs).toHaveLength(3);
+    ['a.b', 'c.x', 'c'].forEach(k => expect(parsedArgs).toContain(k));
+  });
+
+  it('handles text input that looks a bit like JSON', async () => {
+    const onChangeSpy = jest.fn();
+    const callbacks = renderWithTheme(
+      <ControlledMultiCombobox searchable allowAdditions onChange={onChangeSpy} />
+    );
+
+    const input = callbacks.getByPlaceholderText('Select manufacturers');
+    fireEvent.paste(input, {
+      clipboardData: {
+        getData: () => "{ this isn't JSON but it kinda looks like it }",
+      },
+    });
+
+    expect(onChangeSpy).toBeCalledTimes(0);
   });
 });
