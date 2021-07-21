@@ -5,10 +5,12 @@ import { filter as fuzzySearch } from 'fuzzaldrin';
 import Box from '../Box';
 import Flex from '../Flex';
 import IconButton from '../IconButton';
+import AbstractButton from '../AbstractButton';
 import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
+import Icon from '../Icon';
 
 export type ComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -79,6 +81,9 @@ export type ComboboxProps<T> = {
 
   /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
   maxHeight?: number;
+
+  /** Whether a clear selection control should be available to the user */
+  withClearSelectionControl?: boolean;
 };
 
 /**
@@ -102,6 +107,7 @@ function Combobox<Item>({
   invalid,
   required,
   hidden,
+  withClearSelectionControl = true,
   ...rest
 }: ComboboxProps<Item>): React.ReactElement<ComboboxProps<Item>> {
   // convert item to a string with a fallback of empty string
@@ -144,6 +150,7 @@ function Combobox<Item>({
         toggleMenu,
         openMenu,
         closeMenu,
+        clearSelection,
       }) => {
         const comboboxVariant = getVariant(isOpen);
 
@@ -243,6 +250,28 @@ function Combobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
+              {withClearSelectionControl && (
+                <Box
+                  as="li"
+                  listStyle="none"
+                  backgroundColor="navyblue-350"
+                  position="sticky"
+                  top={0}
+                >
+                  <AbstractButton
+                    width="100%"
+                    onClick={() => clearSelection()}
+                    fontSize="x-small"
+                    color="teal-200"
+                    _hover={{ textDecoration: 'underline' }}
+                  >
+                    <Flex align="center" spacing={1} py={2} px={4}>
+                      <Icon size="small" type="close-circle" />
+                      <Box as="span">Clear Selection</Box>
+                    </Flex>
+                  </AbstractButton>
+                </Box>
+              )}
               <ComboBoxItems
                 items={results}
                 disableItem={disableItem}
