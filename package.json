@@ -27,7 +27,7 @@
     "@reach/auto-id": "^0.15.2",
     "@reach/dialog": "^0.15.0",
     "@reach/menu-button": "^0.15.3",
-    "@reach/popover": "^0.15.0",
+    "@reach/popover": "^0.15.2",
     "@reach/tabs": "^0.15.0",
     "@reach/tooltip": "^0.15.0",
     "@reach/utils": "^0.15.3",
