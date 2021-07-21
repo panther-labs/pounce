@@ -250,13 +250,14 @@ function Combobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
-              {withClearSelectionControl && (
+              {withClearSelectionControl && selectedItem && (
                 <Box
                   as="li"
                   listStyle="none"
                   backgroundColor="navyblue-350"
                   position="sticky"
                   top={0}
+                  zIndex={1}
                 >
                   <AbstractButton
                     width="100%"
@@ -265,7 +266,7 @@ function Combobox<Item>({
                     color="teal-200"
                     _hover={{ textDecoration: 'underline' }}
                   >
-                    <Flex align="center" spacing={1} py={2} px={4}>
+                    <Flex as="span" align="center" spacing="6px" py="6px" px={4}>
                       <Icon size="small" type="close-circle" />
                       <Box as="span">Clear Selection</Box>
                     </Flex>

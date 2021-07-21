@@ -27,8 +27,21 @@ const ControlledCombobox: React.FC<Partial<ComboboxProps<Item>>> = props => {
 
 describe('Combobox', () => {
   it('renders', () => {
-    const { container } = renderWithTheme(<ControlledCombobox />);
+    const { container, getByText, getByPlaceholderText } = renderWithTheme(<ControlledCombobox />);
     expect(container).toMatchSnapshot();
+
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturer'));
+    expect(container).toMatchSnapshot();
+
+    fireClickAndMouseEvents(getByText('Toyota'));
+    expect(container).toMatchSnapshot();
+  });
+
+  it('doesn\'t render a "clear selection" button when no option is selected', () => {
+    const { queryByText, getByPlaceholderText } = renderWithTheme(<ControlledCombobox />);
+
+    fireClickAndMouseEvents(getByPlaceholderText('Select manufacturer'));
+    expect(queryByText('Clear Selection')).not.toBeInTheDocument();
   });
 
   it('clears selected value when the "clear selection" button is clicked', () => {
