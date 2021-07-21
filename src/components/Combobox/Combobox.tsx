@@ -250,7 +250,7 @@ function Combobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
-              {showClearSelectionControl && selectedItem && (
+              {showClearSelectionControl && selectedItem !== null && (
                 <Box
                   as="li"
                   listStyle="none"
