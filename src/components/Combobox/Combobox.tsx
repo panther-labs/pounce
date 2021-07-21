@@ -83,7 +83,7 @@ export type ComboboxProps<T> = {
   maxHeight?: number;
 
   /** Whether a clear selection control should be available to the user */
-  withClearSelectionControl?: boolean;
+  showClearSelectionControl?: boolean;
 };
 
 /**
@@ -107,7 +107,7 @@ function Combobox<Item>({
   invalid,
   required,
   hidden,
-  withClearSelectionControl = true,
+  showClearSelectionControl = true,
   ...rest
 }: ComboboxProps<Item>): React.ReactElement<ComboboxProps<Item>> {
   // convert item to a string with a fallback of empty string
@@ -250,7 +250,7 @@ function Combobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
-              {withClearSelectionControl && selectedItem && (
+              {showClearSelectionControl && selectedItem && (
                 <Box
                   as="li"
                   listStyle="none"
