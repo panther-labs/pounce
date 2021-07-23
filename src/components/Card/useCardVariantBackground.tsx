@@ -1,12 +1,10 @@
-import React from 'react';
 import { CardProps } from './Card';
-import { Theme } from '../../theme';
 import { BoxProps } from '../Box';
 
-type ThemeColor = keyof Theme['colors'];
+type useCardVariantBackgroundProps = Required<Pick<CardProps, 'variant'>>;
 
-export const getBackgroundColor = (color: CardProps['variant']): ThemeColor => {
-  switch (color) {
+const useCardVariantBackground = ({ variant }: useCardVariantBackgroundProps): BoxProps['bg'] => {
+  switch (variant) {
     case 'darker':
       return 'navyblue-600';
     case 'dark':
@@ -17,12 +15,6 @@ export const getBackgroundColor = (color: CardProps['variant']): ThemeColor => {
     default:
       return 'navyblue-400';
   }
-};
-
-type useCardVariantBackgroundProps = Required<Pick<CardProps, 'variant'>>;
-
-const useCardVariantBackground = ({ variant }: useCardVariantBackgroundProps): BoxProps['bg'] => {
-  return React.useMemo(() => getBackgroundColor(variant), [variant]);
 };
 
 export default useCardVariantBackground;
