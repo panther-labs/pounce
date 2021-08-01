@@ -1,13 +1,11 @@
 import React from 'react';
 import { addOpacity, lightenDarkenColor } from '../../utils/helpers';
 import { AbstractButtonProps } from '../AbstractButton';
-import { getThemeColor } from '../Button/useButtonStyles';
 import useTheme from '../../utils/useTheme';
 import { IconButtonProps } from './IconButton';
 import { Theme } from '../../theme';
-import { ButtonProps } from '../Button';
 
-type ButtonColorVariant = ButtonProps['variantColor'];
+type ThemeColor = keyof Theme['colors'];
 type UseIconButtonStyles = Required<
   Pick<IconButtonProps, 'variantColor' | 'variant' | 'size' | 'variantBorderStyle'>
 >;
@@ -20,9 +18,8 @@ export const getUnstyledButtonStyles = (theme: Theme) => {
   };
 };
 
-const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
-  const themeColorKey = getThemeColor(variantColor);
-  const themeColor = theme.colors[themeColorKey];
+const getOutlineButtonStyles = (theme: Theme, variantColor: ThemeColor) => {
+  const themeColor = theme.colors[variantColor];
 
   const hoverColor = lightenDarkenColor(themeColor, 8);
   const activeColor = lightenDarkenColor(themeColor, -25);
@@ -48,9 +45,8 @@ const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) 
   };
 };
 
-export const getGhostButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
-  const themeColorKey = getThemeColor(variantColor);
-  const themeColor = theme.colors[themeColorKey];
+export const getGhostButtonStyles = (theme: Theme, variantColor: ThemeColor) => {
+  const themeColor = theme.colors[variantColor];
 
   return {
     transition: 'background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
@@ -69,9 +65,8 @@ export const getGhostButtonStyles = (theme: Theme, variantColor: ButtonColorVari
   };
 };
 
-export const getSolidButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
-  const themeColorKey = getThemeColor(variantColor);
-  const themeColor = theme.colors[themeColorKey];
+export const getSolidButtonStyles = (theme: Theme, variantColor: ThemeColor) => {
+  const themeColor = theme.colors[variantColor];
 
   const hoverColor = lightenDarkenColor(themeColor, 10);
   const activeColor = lightenDarkenColor(themeColor, -10);

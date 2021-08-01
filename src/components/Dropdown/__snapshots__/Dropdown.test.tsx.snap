@@ -3,10 +3,10 @@
 exports[`opens 1`] = `
 <div>
   <button
-    aria-controls="menu--3"
+    aria-controls="menu--4"
     aria-haspopup="true"
     data-reach-menu-button=""
-    id="menu-button--menu--3"
+    id="menu-button--menu--4"
     type="button"
   >
     Open me
@@ -17,11 +17,11 @@ exports[`opens 1`] = `
 exports[`opens 2`] = `
 <div>
   <button
-    aria-controls="menu--3"
+    aria-controls="menu--4"
     aria-expanded="true"
     aria-haspopup="true"
     data-reach-menu-button=""
-    id="menu-button--menu--3"
+    id="menu-button--menu--4"
     type="button"
   >
     Open me
@@ -35,7 +35,7 @@ exports[`renders 1`] = `
     aria-controls="menu--1"
     aria-haspopup="true"
     data-reach-menu-button=""
-    id="menu-button--menu"
+    id="menu-button--menu--1"
     type="button"
     variant="outline"
   >

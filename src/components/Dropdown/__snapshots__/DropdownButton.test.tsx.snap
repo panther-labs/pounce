@@ -6,7 +6,7 @@ exports[`renders 1`] = `
     aria-controls="menu--1"
     aria-haspopup="true"
     data-reach-menu-button=""
-    id="menu-button--menu"
+    id="menu-button--menu--1"
     type="button"
     variant="outline"
   >
