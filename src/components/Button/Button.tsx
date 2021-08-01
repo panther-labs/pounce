@@ -57,6 +57,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
 ) {
   const styles = useButtonStyles({ variantColor, variant, size });
   const iconSize = size === 'large' ? 'medium' : 'small';
+  const iconMargin = size === 'large' ? '6px' : 2;
 
   return (
     <AbstractButton
@@ -68,12 +69,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
       ref={ref}
     >
       {icon && iconAlignment === 'left' && !loading && (
-        <Icon size={iconSize} ml={-1} mr={2} type={icon} />
+        <Icon size={iconSize} ml={-1} mr={iconMargin} type={icon} />
       )}
       {loading && <Spinner size="small" mr={2} />}
       {children}
       {icon && iconAlignment === 'right' && !loading && (
-        <Icon size={iconSize} mr={-1} ml={3} type={icon} />
+        <Icon size={iconSize} mr={-1} ml={iconMargin} type={icon} />
       )}
     </AbstractButton>
   );
