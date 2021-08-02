@@ -61,7 +61,7 @@ const SideSheet: React.FC<SideSheetProps> = ({ children, open, onClose, ...rest 
                       icon="close"
                       aria-label="Dismiss Dialog"
                       variant="ghost"
-                      variantColor="navyblue"
+                      variantColor="navyblue-300"
                       onClick={onClose}
                     />
                   </Box>

@@ -4,6 +4,7 @@ import { BoxProps, NativeAttributes } from '../Box';
 import useButtonStyles from './useButtonStyles';
 import Spinner from '../Spinner';
 import Icon, { IconProps } from '../Icon';
+import { Theme } from '../../theme';
 
 export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size (height) of the button */
@@ -13,19 +14,7 @@ export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 
   variant?: 'solid' | 'outline';
 
   /** The color scheme of the button for solid variants */
-  variantColor?:
-    | 'blue'
-    | 'violet'
-    | 'teal'
-    | 'green'
-    | 'orange'
-    | 'red'
-    | 'lightred'
-    | 'gray'
-    | 'darkgray'
-    | 'darkblue'
-    | 'navyblue'
-    | 'lightblue';
+  variantColor?: keyof Theme['colors'];
 
   /** The icon present on the button  */
   icon?: IconProps['type'];
@@ -55,7 +44,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
   {
     size = 'large',
     variant = 'solid',
-    variantColor = 'blue',
+    variantColor = 'blue-400',
     loading = false,
     fullWidth = false,
     iconAlignment = 'left',
@@ -68,6 +57,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
 ) {
   const styles = useButtonStyles({ variantColor, variant, size });
   const iconSize = size === 'large' ? 'medium' : 'small';
+  const iconMargin = size === 'large' ? 2 : '6px';
 
   return (
     <AbstractButton
@@ -79,12 +69,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
       ref={ref}
     >
       {icon && iconAlignment === 'left' && !loading && (
-        <Icon size={iconSize} ml={-1} mr={2} type={icon} />
+        <Icon size={iconSize} ml={-1} mr={iconMargin} type={icon} />
       )}
       {loading && <Spinner size="small" mr={2} />}
       {children}
       {icon && iconAlignment === 'right' && !loading && (
-        <Icon size={iconSize} mr={-1} ml={3} type={icon} />
+        <Icon size={iconSize} mr={-1} ml={iconMargin} type={icon} />
       )}
     </AbstractButton>
   );

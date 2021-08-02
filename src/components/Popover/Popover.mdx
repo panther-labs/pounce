@@ -90,7 +90,7 @@ A popover expose its internals for customized use cases:
 <Popover>
   {({ isOpen, close }) => (
     <React.Fragment>
-      <PopoverTrigger as={Button} variantColor={isOpen ? 'violet' : 'teal'}>
+      <PopoverTrigger as={Button} variantColor={isOpen ? 'violet-400' : 'teal-500'}>
         Click Me
       </PopoverTrigger>
       <PopoverContent alignment="bottom-center">
@@ -112,7 +112,7 @@ A popover be visible by default:
 
 ```tsx
 <Popover isOpen>
-  <PopoverTrigger as={Button} variantColor="red">
+  <PopoverTrigger as={Button} variantColor="pink-700">
     Click Me
   </PopoverTrigger>
   <PopoverContent alignment="bottom-center">

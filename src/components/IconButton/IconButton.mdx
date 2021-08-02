@@ -7,13 +7,13 @@ An Iconbutton can be solid and have different sizes:
       <IconButton size="small" icon="user" aria-label="User" />
     </Box>
     <Box>
-      <IconButton size="small" icon="user" variantColor="teal" aria-label="User" />
+      <IconButton size="small" icon="user" variantColor="teal-500" aria-label="User" />
     </Box>
     <Box>
       <IconButton
         size="small"
         icon="user"
-        variantColor="violet"
+        variantColor="violet-400"
         variantBorderStyle="circle"
         aria-label="User"
       />
@@ -24,13 +24,13 @@ An Iconbutton can be solid and have different sizes:
       <IconButton size="medium" icon="user" aria-label="User" />
     </Box>
     <Box>
-      <IconButton size="medium" icon="user" variantColor="teal" aria-label="User" />
+      <IconButton size="medium" icon="user" variantColor="teal-500" aria-label="User" />
     </Box>
     <Box>
       <IconButton
         size="medium"
         icon="user"
-        variantColor="violet"
+        variantColor="violet-400"
         variantBorderStyle="circle"
         aria-label="User"
       />
@@ -41,10 +41,15 @@ An Iconbutton can be solid and have different sizes:
       <IconButton icon="user" aria-label="User" />
     </Box>
     <Box>
-      <IconButton icon="user" variantColor="teal" aria-label="User" />
+      <IconButton icon="user" variantColor="teal-500" aria-label="User" />
     </Box>
     <Box>
-      <IconButton icon="user" variantColor="violet" variantBorderStyle="circle" aria-label="User" />
+      <IconButton
+        icon="user"
+        variantColor="violet-400"
+        variantBorderStyle="circle"
+        aria-label="User"
+      />
     </Box>
   </SimpleGrid>
 </Box>
@@ -54,20 +59,20 @@ An IconButton can be `ghost`:
 
 ```typescript jsx
 <SimpleGrid columns={4} gap={4}>
-  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue" />
+  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue-300" />
   <IconButton
     variant="ghost"
     icon="user"
     aria-label="User"
-    variantColor="teal"
+    variantColor="teal-500"
     variantBorderStyle="circle"
   />
-  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue" active />
+  <IconButton variant="ghost" icon="user" aria-label="User" variantColor="navyblue-300" active />
   <IconButton
     variant="ghost"
     icon="user"
     aria-label="User"
-    variantColor="teal"
+    variantColor=-500"
     variantBorderStyle="circle"
     active
   />
@@ -78,20 +83,20 @@ An IconButton can be `outline`:
 
 ```typescript jsx
 <SimpleGrid columns={4} gap={4}>
-  <IconButton variant="outline" icon="user" aria-label="User" variantColor="navyblue" />
+  <IconButton variant="outline" icon="user" aria-label="User" variantColor="navyblue-300" />
   <IconButton
     variant="outline"
     icon="user"
     aria-label="User"
-    variantColor="teal"
+    variantColor="teal-500"
     variantBorderStyle="circle"
   />
-  <IconButton variant="outline" icon="user" aria-label="User" variantColor="navyblue" active />
+  <IconButton variant="outline" icon="user" aria-label="User" variantColor="navyblue-300" active />
   <IconButton
     variant="outline"
     icon="user"
     aria-label="User"
-    variantColor="teal"
+    variantColor="teal-500"
     variantBorderStyle="circle"
     active
   />

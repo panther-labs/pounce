@@ -396,7 +396,7 @@ const DateRangeInput: React.FC<
                 justify="center"
                 spacing={3}
               >
-                <Button onClick={onCancel} size="medium" variantColor="gray">
+                <Button onClick={onCancel} size="medium" variantColor="gray-500">
                   Cancel
                 </Button>
                 <Button disabled={isDisabled} onClick={onApply} size="medium">

@@ -3,6 +3,7 @@ import Icon, { IconProps } from '../Icon';
 import useIconButtonStyles from './useIconButtonStyles';
 import { BoxProps, NativeAttributes } from '../Box';
 import AbstractButton from '../AbstractButton';
+import { Theme } from '../../theme';
 
 export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
   /** The size of the icon button */
@@ -18,17 +19,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
   variant?: 'solid' | 'ghost' | 'outline' | 'unstyled';
 
   /** The color scheme of the button */
-  variantColor?:
-    | 'blue'
-    | 'violet'
-    | 'teal'
-    | 'green'
-    | 'orange'
-    | 'red'
-    | 'gray'
-    | 'darkgray'
-    | 'darkblue'
-    | 'navyblue';
+  variantColor?: keyof Theme['colors'];
 
   /** The border style of the button  */
   variantBorderStyle?: 'square' | 'circle';
@@ -46,7 +37,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
   {
-    variantColor = 'blue',
+    variantColor = 'blue-400',
     variantBorderStyle = 'square',
     active = false,
     variant = 'solid',

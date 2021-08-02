@@ -26,9 +26,15 @@ describe('IconButton', () => {
   it('renders `variantColor`  and `variants` correctly', () => {
     const { container } = renderWithTheme(
       <>
-        <IconButton variantColor="teal" variant="solid" size="large" icon="add" aria-label="Test" />
-        <IconButton variantColor="red" variant="ghost" icon="brackets" aria-label="Test red" />
-        <IconButton variantColor="darkblue" icon="timer" aria-label="Test timer" />
+        <IconButton
+          variantColor="teal-500"
+          variant="solid"
+          size="large"
+          icon="add"
+          aria-label="Test"
+        />
+        <IconButton variantColor="pink-700" variant="ghost" icon="brackets" aria-label="Test red" />
+        <IconButton variantColor="navyblue-700" icon="timer" aria-label="Test timer" />
       </>
     );
 

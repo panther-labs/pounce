@@ -80,7 +80,7 @@ const Modal: React.FC<ModalProps> = ({
                           icon="close"
                           aria-label="Dismiss Dialog"
                           variant="ghost"
-                          variantColor="navyblue"
+                          variantColor="navyblue-300"
                           onClick={onClose}
                         />
                       </Box>

@@ -6,43 +6,11 @@ import { lightenDarkenColor } from '../../utils/helpers';
 import useTheme from '../../utils/useTheme';
 
 type ThemeColor = keyof Theme['colors'];
-type ButtonColorVariant = ButtonProps['variantColor'];
-
-export const getThemeColor = (color: ButtonColorVariant): ThemeColor => {
-  switch (color) {
-    case 'violet':
-      return 'violet-400';
-    case 'teal':
-      return 'teal-500';
-    case 'lightred':
-      return 'red-300';
-    case 'red':
-      return 'pink-700';
-    case 'orange':
-      return 'yellow-600';
-    case 'green':
-      return 'green-400';
-    case 'gray':
-      return 'gray-500';
-    case 'darkgray':
-      return 'gray-600';
-    case 'darkblue':
-      return 'navyblue-700';
-    case 'navyblue':
-      return 'navyblue-300';
-    case 'lightblue':
-      return 'blue-300';
-    case 'blue':
-    default:
-      return 'blue-400';
-  }
-};
 
 type UseButtonStylesProps = Required<Pick<ButtonProps, 'variantColor' | 'variant' | 'size'>>;
 
-export const getSolidButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
-  const themeColorKey = getThemeColor(variantColor);
-  const themeColor = theme.colors[themeColorKey];
+export const getSolidButtonStyles = (theme: Theme, variantColor: ThemeColor) => {
+  const themeColor = theme.colors[variantColor];
 
   const hoverColor = lightenDarkenColor(themeColor, 10);
   const activeColor = lightenDarkenColor(themeColor, -10);
@@ -69,9 +37,8 @@ export const getSolidButtonStyles = (theme: Theme, variantColor: ButtonColorVari
   };
 };
 
-const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) => {
-  const themeColorKey = getThemeColor(variantColor);
-  const themeColor = theme.colors[themeColorKey];
+const getOutlineButtonStyles = (theme: Theme, variantColor: ThemeColor) => {
+  const themeColor = theme.colors[variantColor];
 
   const hoverColor = lightenDarkenColor(themeColor, 8);
   const activeColor = lightenDarkenColor(themeColor, -25);
@@ -101,12 +68,12 @@ const getOutlineButtonStyles = (theme: Theme, variantColor: ButtonColorVariant) 
 const getSizeButtonStyles = (size: ButtonProps['size']): AbstractButtonProps => {
   switch (size) {
     case 'small':
-      return { px: 5, height: 24, fontSize: 'small' };
+      return { px: 2, height: 24, fontSize: 'small' };
     case 'medium':
-      return { px: 5, height: 32, fontSize: 'small-medium' };
+      return { px: 3, height: 32, fontSize: 'small-medium' };
     case 'large':
     default:
-      return { px: 5, height: 46, fontSize: 'medium-large' };
+      return { px: 4, height: 46, fontSize: 'medium-large' };
   }
 };
 
