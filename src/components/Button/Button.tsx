@@ -57,7 +57,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
 ) {
   const styles = useButtonStyles({ variantColor, variant, size });
   const iconSize = size === 'large' ? 'medium' : 'small';
-  const iconMargin = size === 'large' ? '6px' : 2;
+  const iconMargin = size === 'large' ? 2 : '6px';
 
   return (
     <AbstractButton
