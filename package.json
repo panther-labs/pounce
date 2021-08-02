@@ -25,7 +25,7 @@
     "@emotion/styled": "^11.3.0",
     "@juggle/resize-observer": "^3.3.1",
     "@reach/auto-id": "^0.15.3",
-    "@reach/dialog": "^0.15.2",
+    "@reach/dialog": "^0.15.3",
     "@reach/menu-button": "^0.15.3",
     "@reach/popover": "^0.15.2",
     "@reach/tabs": "^0.15.2",
