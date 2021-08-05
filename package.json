@@ -29,7 +29,7 @@
     "@reach/menu-button": "^0.15.3",
     "@reach/popover": "^0.15.3",
     "@reach/tabs": "^0.15.2",
-    "@reach/tooltip": "^0.15.2",
+    "@reach/tooltip": "^0.15.3",
     "@reach/utils": "^0.15.3",
     "@styled-system/css": "^5.1.5",
     "@styled-system/should-forward-prop": "^5.1.5",
