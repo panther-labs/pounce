@@ -15,7 +15,7 @@ Documentation is available on [http://pouncejs.surge.sh/](http://pouncejs.surge.
 ## Installation
 
 Pounce heavily depends on Typescript and thus has a limitation of Typescript 3.8.x. Please make
-sure that your project does't use an older version of Typescript.
+sure that your project doesn't use an older version of Typescript.
 
 ```text
 $ npm install pouncejs
@@ -167,10 +167,9 @@ declare module 'pouncejs' {
 
 This way the `my-icon` value will be available in all Components that use icons.
 
-
 ### SSR
 
-SSR works out of the box with PounceJS. There's no need to anything in your NextJS or custom-SSR app to enable it.
+SSR works out of the box with PounceJS. There's no need to add anything in your NextJS or custom-SSR app to enable it.
 
 ### Performance
 
