@@ -58,7 +58,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
       _selected={{
         backgroundColor: 'navyblue-400',
       }}
-      wordBreak="break-all"
       {...(withCheckMark && {
         pr: 10,
         _after: {
