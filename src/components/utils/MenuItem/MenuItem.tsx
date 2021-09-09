@@ -58,6 +58,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       _selected={{
         backgroundColor: 'navyblue-400',
       }}
+      whiteSpace="nowrap"
       {...(withCheckMark && {
         pr: 10,
         _after: {
