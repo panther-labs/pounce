@@ -527,7 +527,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #3e516b;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .pounce-14[aria-selected=true],
@@ -615,7 +615,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #1d2a3f;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .pounce-13[aria-selected=true],
@@ -1068,7 +1068,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #3e516b;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .pounce-19[aria-selected=true],
@@ -1156,7 +1156,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #1d2a3f;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .pounce-17[aria-selected=true],

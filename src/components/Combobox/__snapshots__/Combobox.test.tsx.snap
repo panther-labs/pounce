@@ -465,7 +465,7 @@ exports[`Combobox renders 2`] = `
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #3e516b;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .pounce-8[aria-selected=true],
@@ -772,7 +772,7 @@ exports[`Combobox renders 3`] = `
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #3e516b;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .pounce-13[aria-selected=true],
@@ -865,7 +865,7 @@ exports[`Combobox renders 3`] = `
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
   background-color: #1d2a3f;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .pounce-12[aria-selected=true],
