@@ -16,12 +16,15 @@ export interface DropdownMenuProps {
 
   /** A transform for potentially correcting the alignment */
   transform?: BoxProps['transform'];
+
+  /** An optional minimum width to avoid breaking words to letters */
+  minWidth?: BoxProps['minWidth'];
 }
 
 export const DropdownMenu = React.forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<DropdownMenuProps>
->(function DropdownMenu({ alignment = 'right', transform, children }, ref) {
+>(function DropdownMenu({ alignment = 'right', transform, minWidth, children }, ref) {
   const position = useDropdownAlignment({ alignment });
   const { isExpanded } = useDropdownContext();
 
@@ -55,6 +58,7 @@ export const DropdownMenu = React.forwardRef<
                 overflow="hidden"
                 boxShadow="dark200"
                 transform={transform}
+                minWidth={minWidth}
               >
                 {children}
               </Box>
