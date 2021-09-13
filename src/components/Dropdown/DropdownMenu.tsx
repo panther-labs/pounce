@@ -24,7 +24,7 @@ export interface DropdownMenuProps {
 export const DropdownMenu = React.forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<DropdownMenuProps>
->(function DropdownMenu({ alignment = 'right', transform, minWidth, children }, ref) {
+>(function DropdownMenu({ alignment = 'right', transform, minWidth = '75px', children }, ref) {
   const position = useDropdownAlignment({ alignment });
   const { isExpanded } = useDropdownContext();
 
