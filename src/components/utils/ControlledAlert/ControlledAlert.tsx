@@ -8,7 +8,7 @@ import useAlertStyles from './useAlertStyles';
 
 export interface ControlledAlertProps {
   /** The main text of the the alert */
-  title?: string;
+  title?: React.ReactNode;
 
   /** Whether the alert is visible */
   open: boolean;
