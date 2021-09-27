@@ -27,7 +27,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, ...rest }) => {
 
           return (
             <Flex
-              key={item.href}
+              key={`${item.href}_${item.text}_${index}`}
               as="li"
               alignItems="center"
               fontSize="medium"
