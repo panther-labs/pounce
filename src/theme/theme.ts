@@ -30,7 +30,7 @@ export interface Theme extends StyledSystemTheme {
 
 export const theme: Theme = {
   breakpoints: ['769px', '1366px'],
-  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
+  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 64, 72],
   radii: {
     none: 0,
     small: 2,
