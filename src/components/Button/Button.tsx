@@ -6,7 +6,9 @@ import Spinner from '../Spinner';
 import Icon, { IconProps } from '../Icon';
 import { Theme } from '../../theme';
 
-export interface ButtonProps extends NativeAttributes<'button'>, Pick<BoxProps, 'as' | 'to'> {
+export interface ButtonProps
+  extends NativeAttributes<'button'>,
+    Pick<BoxProps, 'as' | 'to' | 'sx'> {
   /** The size (height) of the button */
   size?: 'small' | 'medium' | 'large';
 
