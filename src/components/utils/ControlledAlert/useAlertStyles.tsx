@@ -43,7 +43,10 @@ const useAlertStyles = ({ variant, variantBackgroundStyle }: UseControlledAlertS
   switch (variantBackgroundStyle) {
     case 'transparent':
       return {
+        p: 2,
+        align: 'center',
         icon: getAlertVariantIcon(variant),
+        iconColor: color,
         border: '1px solid',
         borderColor: color,
         borderRadius: 'large' as const,
@@ -52,6 +55,7 @@ const useAlertStyles = ({ variant, variantBackgroundStyle }: UseControlledAlertS
     case 'solid':
     default:
       return {
+        p: 4,
         backgroundColor: 'navyblue-400' as const,
         borderLeft: variant === 'default' ? 'none' : ('4px solid' as const),
         borderRadius: 'small' as const,
