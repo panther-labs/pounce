@@ -1,5 +1,6 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
+import H from '../H';
 import useHeadingStyles from './useHeadingStyles';
 
 export interface HeadingProps extends BoxProps<'h1'> {
@@ -17,7 +18,7 @@ export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(functi
 ) {
   const styles = useHeadingStyles({ size });
 
-  return <Box as="h1" ref={ref} fontWeight="normal" {...styles} {...rest} />;
+  return <Box as={H} ref={ref} fontWeight="normal" {...styles} {...rest} />;
 });
 
 export default Heading;
