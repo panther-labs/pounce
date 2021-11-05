@@ -48,7 +48,10 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
     },
     ref
   ) {
-    const { icon, titleColor, ...styles } = useAlertStyles({ variant, variantBackgroundStyle });
+    const { icon, iconColor, titleColor, ...styles } = useAlertStyles({
+      variant,
+      variantBackgroundStyle,
+    });
     const id = useId();
 
     if (!open) {
@@ -56,52 +59,54 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
     }
 
     return (
-      <Box
+      <Flex
         ref={ref}
-        p={4}
         role="dialog"
         aria-labelledby={`${id}-title`}
         aria-describedby={`${id}-description`}
         {...styles}
         {...rest}
       >
-        {title && (
-          <Flex as="header" align="center" fontSize="large">
-            {icon && <Icon type={icon} mr={2} size="large" />}
-            <Box
-              as="h4"
-              color={titleColor}
-              fontWeight={description ? 'bold' : 'normal'}
-              fontSize={description ? 'x-large' : 'large'}
-              flexGrow={1}
-              mr="auto"
-              id={`${id}-title`}
-            >
-              {title}
-            </Box>
-            {discardable && (
-              <Box my={-3} mr={-3} ml={3}>
-                <IconButton
-                  aria-label="Discard"
-                  variant="unstyled"
-                  icon="close"
-                  onClick={onClose}
-                />
+        <Flex
+          flexGrow={1}
+          direction={variantBackgroundStyle === 'solid' ? 'column' : 'row'}
+          align={variantBackgroundStyle === 'solid' ? 'flex-start' : 'center'}
+        >
+          <Box>
+            {title && (
+              <Flex as="header" align="center" fontSize="large">
+                {icon && <Icon type={icon} mr={2} color={iconColor} size="large" />}
+                <Box
+                  as="h4"
+                  color={titleColor}
+                  fontWeight={description ? 'bold' : 'normal'}
+                  fontSize={description ? 'x-large' : 'large'}
+                  flexGrow={1}
+                  mr="auto"
+                  id={`${id}-title`}
+                >
+                  {title}
+                </Box>
+              </Flex>
+            )}
+            {description && (
+              <Box as="p" mt={title ? 3 : 0} fontSize="medium">
+                {description}
               </Box>
             )}
-          </Flex>
-        )}
-        {description && (
-          <Box as="p" mt={title ? 3 : 0} fontSize="medium">
-            {description}
+          </Box>
+          {actions && (
+            <Flex mt={variantBackgroundStyle === 'solid' ? 6 : 0} mr={0} ml="auto">
+              {typeof actions === 'function' ? actions({ close }) : actions}
+            </Flex>
+          )}
+        </Flex>
+        {discardable && (
+          <Box my={-2} mr={-2} ml={2}>
+            <IconButton aria-label="Discard" variant="unstyled" icon="close" onClick={onClose} />
           </Box>
         )}
-        {actions && (
-          <Flex mt={6} justify="flex-end" as="footer">
-            {typeof actions === 'function' ? actions({ close }) : actions}
-          </Flex>
-        )}
-      </Box>
+      </Flex>
     );
   }
 );
