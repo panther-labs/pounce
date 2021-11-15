@@ -7,9 +7,10 @@ import Link, { LinkProps } from '../Link';
 export interface BreadcrumbItem {
   /** The URL that this Breadcrumbs should navigate to when clicked */
   href: string;
-
-  /** The text that should be displayed on this particular Breadcrumb */
-  text: string;
+  /** The text that should be displayed on this particular Breadcrumb
+   * text can be: numbers, strings, elements or an array (or fragment) containing these types.
+   */
+  text: React.ReactNode;
 }
 
 export interface BreadcrumbProps extends Pick<LinkProps, 'as'> {
