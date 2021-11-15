@@ -3,12 +3,16 @@ By default the Breadcrumbs will render anchor tags (`a`):
 ```typescript jsx
 const items = [
   {
-    text: 'First page',
+    title: 'First page',
     href: '/#/Box',
   },
   {
-    text: 'Second page',
+    title: 'Second page',
     href: '/#/Flex',
+  },
+  {
+    title: <MyCustomTitle />,
+    href: '/#/MyCustomTitle',
   },
 ];
 
