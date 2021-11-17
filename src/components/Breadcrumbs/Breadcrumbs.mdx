@@ -3,41 +3,18 @@ By default the Breadcrumbs will render anchor tags (`a`):
 ```typescript jsx
 const items = [
   {
-    text: 'First page',
+    children: 'First page',
     href: '/#/Box',
   },
   {
-    text: 'Second page',
+    children: 'Second page',
     href: '/#/Flex',
+  },
+  {
+    children: <MyCustomTitle />,
+    href: '/#/MyCustomTitle',
   },
 ];
 
 <Breadcrumbs items={items} />;
-```
-
-You can easily override that by providing your own custom renderer:
-
-```typescript jsx
-const items = [
-  {
-    text: 'I am not',
-    href: '/#/Table',
-  },
-  {
-    text: 'a Link',
-    href: '/#/Box',
-  },
-  {
-    text: 'I am simply',
-    href: '/#/Flex',
-  },
-  {
-    text: 'a pretty div',
-    href: '/#/Dropdown',
-  },
-];
-
-const itemRenderer = item => <div>{item.text}</div>;
-
-<Breadcrumbs items={items} itemRenderer={itemRenderer} />;
 ```
