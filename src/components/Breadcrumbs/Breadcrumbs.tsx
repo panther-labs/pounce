@@ -7,19 +7,14 @@ import Link, { LinkProps } from '../Link';
 export interface BreadcrumbItem {
   /** The URL that this Breadcrumbs should navigate to when clicked */
   href: string;
-  /** Title is the text that should be displayed on this particular Breadcrumb
-   * element can be: numbers, strings, elements or an array (or fragment) containing these types.
+  /** The react node that will be displayed on this particular Breadcrumb
+   * children can be: numbers, strings, elements or an array (or fragment) containing these types.
    */
-  title: React.ReactNode;
-  /**
-   * @deprecated use node property instead.
-   * The text that should be displayed on this particular Breadcrumb
-   */
-  text?: string;
+  children: React.ReactNode;
 }
 
 export interface BreadcrumbProps extends Pick<LinkProps, 'as'> {
-  /** A list of `BreadcrumbsItem` objects ( `{href,title,text}` ) that will construct the Breadcrumb */
+  /** A list of `BreadcrumbsItem` objects ( `{href,children}` ) that will construct the Breadcrumb */
   items: BreadcrumbItem[];
 }
 
@@ -49,8 +44,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, ...rest }) => {
                 data-active={isLastBreadcrumb ? true : undefined}
                 {...rest}
               >
-                {/* TODO: remove item.text  */}
-                {item.title || item.text}
+                {item.children}
               </Link>
               {!isLastBreadcrumb && (
                 <Icon
