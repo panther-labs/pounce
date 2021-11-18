@@ -77,12 +77,12 @@ function NumberInput({
   const stepUp = React.useCallback(() => {
     _ref.current?.stepUp();
     _onChange(_ref.current?.value);
-  }, [_ref, setInputNumberValue]);
+  }, [_ref, _onChange, setInputNumberValue]);
 
   const stepDown = React.useCallback(() => {
     _ref.current?.stepDown();
     _onChange(_ref.current?.value);
-  }, [_ref, setInputNumberValue]);
+  }, [_ref, _onChange, setInputNumberValue]);
 
   const identifier = id || name || slugify(label);
 
