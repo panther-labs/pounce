@@ -1,6 +1,6 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
-import { HeadingLevelContext } from './H';
+import { HeadingLevelContext } from '../H';
 
 /**
  * Increases the heading level of all `H` components inside it by 1.
