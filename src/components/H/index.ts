@@ -1,2 +1,1 @@
-export { default } from './H';
-export { default as Section } from './Section';
+export { default, HeadingLevelContext } from './H';

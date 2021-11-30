@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderWithTheme } from '../../../jest/utils';
-import H, { Section } from '.';
+import H from '.';
+import Section from '../Section';
 
 describe('H', () => {
   it('renders as a h2 by default', () => {
@@ -47,20 +48,6 @@ describe('H', () => {
     expect(getByText('h5').tagName).toEqual('H5');
     expect(getByText('h6').tagName).toEqual('H6');
     expect(getByText('still h6').tagName).toEqual('H6');
-  });
-
-  it('allows increasing heading levels individually', () => {
-    const { getByText } = renderWithTheme(<H increase={2}>h4</H>);
-    expect(getByText('h4').tagName).toEqual('H4');
-  });
-
-  it('does NOT allow increasing heading levels above h6', () => {
-    const { getByText } = renderWithTheme(
-      <Section>
-        <H increase={4}>h6</H>
-      </Section>
-    );
-    expect(getByText('h6').tagName).toEqual('H6');
   });
 
   it('allows increasing the heading context with custom markup', () => {
