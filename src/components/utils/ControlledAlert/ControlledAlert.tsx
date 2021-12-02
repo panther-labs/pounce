@@ -74,13 +74,13 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
         >
           <Box>
             {title && (
-              <Flex as="header" align="center" fontSize="large">
+              <Flex as="header" align="center">
                 {icon && <Icon type={icon} mr={2} color={iconColor} size="large" />}
                 <Box
-                  as="h4"
+                  as="h2"
                   color={titleColor}
                   fontWeight={description ? 'bold' : 'normal'}
-                  fontSize={description ? 'x-large' : 'large'}
+                  fontSize={description ? 'large' : 'medium'}
                   flexGrow={1}
                   mr="auto"
                   id={`${id}-title`}
