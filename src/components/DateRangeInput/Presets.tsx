@@ -22,8 +22,8 @@ const ListItem: React.FC<ListItemProps> = ({ selected, onSelect, ...rest }) => (
   <Box as="li" mb={6}>
     <AbstractButton
       color="navyblue-100"
-      _selected={{ color: 'gray-50' }}
-      _hover={{ color: 'gray-50' }}
+      _selected={{ color: 'white-200' }}
+      _hover={{ color: 'white-200' }}
       aria-selected={selected}
       onClick={onSelect}
       fontSize="medium"

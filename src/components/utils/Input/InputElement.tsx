@@ -31,28 +31,28 @@ const InputElement = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         pt={pt}
         pb={pb}
         position="relative"
-        color="gray-50"
+        color="white-200"
         fontSize="medium"
         fontWeight="medium"
         backgroundColor="transparent"
         border={0}
         _placeholder={{
           opacity: standalone ? 1 : 0,
-          color: standalone ? 'gray-300' : 'gray-50',
+          color: standalone ? 'gray-300' : 'white-200',
           transition: 'opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
           fontWeight: standalone ? 'normal' : 'medium',
         }}
         _focus={{
           '::placeholder': {
             opacity: 0.4,
-            color: standalone ? 'gray-50' : undefined,
+            color: standalone ? 'white-200' : undefined,
             fontWeight: standalone ? 'medium' : undefined,
           },
         }}
         // @ts-ignore `WebkitBoxShadow` and `WebkitTextFillColor` are not part of the TS CSS typings
         _autofill={{
           WebkitBoxShadow: `0 0 0 30px ${theme.colors['navyblue-600']} inset`,
-          WebkitTextFillColor: theme.colors['gray-50'],
+          WebkitTextFillColor: theme.colors['white-200'],
           borderRadius: 'medium',
         }}
         disabled={disabled}
