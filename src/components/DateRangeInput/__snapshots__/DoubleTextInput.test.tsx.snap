@@ -13,15 +13,15 @@ exports[`renders 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-7:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within span {
@@ -56,7 +56,7 @@ exports[`renders 1`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -65,7 +65,7 @@ exports[`renders 1`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -73,7 +73,7 @@ exports[`renders 1`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -81,7 +81,7 @@ exports[`renders 1`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -89,7 +89,7 @@ exports[`renders 1`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -115,7 +115,7 @@ exports[`renders 1`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -124,7 +124,7 @@ exports[`renders 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;
@@ -203,15 +203,15 @@ exports[`renders with disabled option 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-7:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within span {
@@ -246,7 +246,7 @@ exports[`renders with disabled option 1`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -255,7 +255,7 @@ exports[`renders with disabled option 1`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -263,7 +263,7 @@ exports[`renders with disabled option 1`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -271,7 +271,7 @@ exports[`renders with disabled option 1`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -279,7 +279,7 @@ exports[`renders with disabled option 1`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -305,7 +305,7 @@ exports[`renders with disabled option 1`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -314,7 +314,7 @@ exports[`renders with disabled option 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;
@@ -398,15 +398,15 @@ exports[`renders with icons 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-7:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within span {
@@ -441,7 +441,7 @@ exports[`renders with icons 1`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -450,7 +450,7 @@ exports[`renders with icons 1`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -458,7 +458,7 @@ exports[`renders with icons 1`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -466,7 +466,7 @@ exports[`renders with icons 1`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -474,7 +474,7 @@ exports[`renders with icons 1`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -500,7 +500,7 @@ exports[`renders with icons 1`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -509,7 +509,7 @@ exports[`renders with icons 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;
@@ -684,15 +684,15 @@ exports[`renders with individual values 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-7:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within span {
@@ -727,7 +727,7 @@ exports[`renders with individual values 1`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -736,7 +736,7 @@ exports[`renders with individual values 1`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -744,7 +744,7 @@ exports[`renders with individual values 1`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -752,7 +752,7 @@ exports[`renders with individual values 1`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -760,7 +760,7 @@ exports[`renders with individual values 1`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -786,7 +786,7 @@ exports[`renders with individual values 1`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -795,7 +795,7 @@ exports[`renders with individual values 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;
@@ -885,7 +885,7 @@ exports[`renders with invalid option 1`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -894,7 +894,7 @@ exports[`renders with invalid option 1`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -902,7 +902,7 @@ exports[`renders with invalid option 1`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -910,7 +910,7 @@ exports[`renders with invalid option 1`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -918,7 +918,7 @@ exports[`renders with invalid option 1`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -944,7 +944,7 @@ exports[`renders with invalid option 1`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -956,7 +956,7 @@ exports[`renders with invalid option 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #d64242;
+  border-color: #D64242;
 }
 
 
@@ -981,7 +981,7 @@ exports[`renders with invalid option 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #d64242;
+  color: #D64242;
   top: 0;
   left: 0;
   position: absolute;
@@ -1060,15 +1060,15 @@ exports[`renders with placeholders 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-7:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within span {
@@ -1103,7 +1103,7 @@ exports[`renders with placeholders 1`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -1112,7 +1112,7 @@ exports[`renders with placeholders 1`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -1120,7 +1120,7 @@ exports[`renders with placeholders 1`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -1128,7 +1128,7 @@ exports[`renders with placeholders 1`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -1136,7 +1136,7 @@ exports[`renders with placeholders 1`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -1162,7 +1162,7 @@ exports[`renders with placeholders 1`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -1171,7 +1171,7 @@ exports[`renders with placeholders 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;
@@ -1252,15 +1252,15 @@ exports[`renders with required option 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-7:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-7:focus-within span {
@@ -1295,7 +1295,7 @@ exports[`renders with required option 1`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -1304,7 +1304,7 @@ exports[`renders with required option 1`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -1312,7 +1312,7 @@ exports[`renders with required option 1`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -1320,7 +1320,7 @@ exports[`renders with required option 1`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -1328,7 +1328,7 @@ exports[`renders with required option 1`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -1354,7 +1354,7 @@ exports[`renders with required option 1`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -1363,7 +1363,7 @@ exports[`renders with required option 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;

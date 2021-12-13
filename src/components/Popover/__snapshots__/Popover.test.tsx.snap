@@ -12,28 +12,28 @@ exports[`Popover matches snapshot when closed 1`] = `
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
-  border-color: #0081c5;
-  background-color: #0081c5;
+  border-color: #11A5F3;
+  background-color: #11A5F3;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .pounce-0:hover {
-  background-color: #0a8bcf;
-  border-color: #0a8bcf;
+  background-color: #1baffd;
+  border-color: #1baffd;
 }
 
 .pounce-0:focus {
-  background-color: #0a8bcf;
-  border-color: #55d6ff;
+  background-color: #1baffd;
+  border-color: #66faff;
 }
 
 .pounce-0:active,
 .pounce-0[data-active=true] {
-  background-color: #0077bb;
-  border-color: #0077bb;
+  background-color: #079be9;
+  border-color: #079be9;
 }
 
 <div>
@@ -59,28 +59,28 @@ exports[`Popover matches snapshot when opened 1`] = `
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
-  border-color: #0081c5;
-  background-color: #0081c5;
+  border-color: #11A5F3;
+  background-color: #11A5F3;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .pounce-0:hover {
-  background-color: #0a8bcf;
-  border-color: #0a8bcf;
+  background-color: #1baffd;
+  border-color: #1baffd;
 }
 
 .pounce-0:focus {
-  background-color: #0a8bcf;
-  border-color: #55d6ff;
+  background-color: #1baffd;
+  border-color: #66faff;
 }
 
 .pounce-0:active,
 .pounce-0[data-active=true] {
-  background-color: #0077bb;
-  border-color: #0077bb;
+  background-color: #079be9;
+  border-color: #079be9;
 }
 
 <div>
@@ -106,28 +106,28 @@ exports[`Popover matches snapshot with alignment 1`] = `
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border-radius: 4px;
   border: 1px solid;
-  border-color: #0081c5;
-  background-color: #0081c5;
+  border-color: #11A5F3;
+  background-color: #11A5F3;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .pounce-0:hover {
-  background-color: #0a8bcf;
-  border-color: #0a8bcf;
+  background-color: #1baffd;
+  border-color: #1baffd;
 }
 
 .pounce-0:focus {
-  background-color: #0a8bcf;
-  border-color: #55d6ff;
+  background-color: #1baffd;
+  border-color: #66faff;
 }
 
 .pounce-0:active,
 .pounce-0[data-active=true] {
-  background-color: #0077bb;
-  border-color: #0077bb;
+  background-color: #079be9;
+  border-color: #079be9;
 }
 
 <div>

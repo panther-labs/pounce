@@ -39,7 +39,7 @@ const GlobalStyles: React.FC = () => {
     }
 
     html {
-      color: ${theme.colors['gray-50']};
+      color: ${theme.colors['white-200']};
       font-family: ${theme.fonts.primary};
     }
 
