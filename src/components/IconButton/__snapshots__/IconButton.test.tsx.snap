@@ -21,8 +21,8 @@ exports[`IconButton renders \`circle\` variantBorderStyle correctly 1`] = `
   -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border: 1px solid;
-  border-color: #0081C5;
-  background-color: #0081C5;
+  border-color: #11A5F3;
+  background-color: #11A5F3;
   cursor: pointer;
   color: #F6F6F6;
   -webkit-text-decoration: none;
@@ -30,19 +30,19 @@ exports[`IconButton renders \`circle\` variantBorderStyle correctly 1`] = `
 }
 
 .pounce-1:hover {
-  background-color: #0a8bcf;
-  border-color: #0a8bcf;
+  background-color: #1baffd;
+  border-color: #1baffd;
 }
 
 .pounce-1:focus {
-  background-color: #0a8bcf;
-  border-color: #55d6ff;
+  background-color: #1baffd;
+  border-color: #66faff;
 }
 
 .pounce-1:active,
 .pounce-1[data-active=true] {
-  background-color: #0077bb;
-  border-color: #0077bb;
+  background-color: #079be9;
+  border-color: #079be9;
 }
 
 <div>
@@ -75,8 +75,8 @@ exports[`IconButton renders \`large\` size correctly 1`] = `
   -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border: 1px solid;
-  border-color: #0081C5;
-  background-color: #0081C5;
+  border-color: #11A5F3;
+  background-color: #11A5F3;
   cursor: pointer;
   color: #F6F6F6;
   -webkit-text-decoration: none;
@@ -84,19 +84,19 @@ exports[`IconButton renders \`large\` size correctly 1`] = `
 }
 
 .pounce-1:hover {
-  background-color: #0a8bcf;
-  border-color: #0a8bcf;
+  background-color: #1baffd;
+  border-color: #1baffd;
 }
 
 .pounce-1:focus {
-  background-color: #0a8bcf;
-  border-color: #55d6ff;
+  background-color: #1baffd;
+  border-color: #66faff;
 }
 
 .pounce-1:active,
 .pounce-1[data-active=true] {
-  background-color: #0077bb;
-  border-color: #0077bb;
+  background-color: #079be9;
+  border-color: #079be9;
 }
 
 .pounce-0 {
@@ -140,8 +140,8 @@ exports[`IconButton renders \`medium\` size correctly 1`] = `
   -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border: 1px solid;
-  border-color: #0081C5;
-  background-color: #0081C5;
+  border-color: #11A5F3;
+  background-color: #11A5F3;
   cursor: pointer;
   color: #F6F6F6;
   -webkit-text-decoration: none;
@@ -149,19 +149,19 @@ exports[`IconButton renders \`medium\` size correctly 1`] = `
 }
 
 .pounce-1:hover {
-  background-color: #0a8bcf;
-  border-color: #0a8bcf;
+  background-color: #1baffd;
+  border-color: #1baffd;
 }
 
 .pounce-1:focus {
-  background-color: #0a8bcf;
-  border-color: #55d6ff;
+  background-color: #1baffd;
+  border-color: #66faff;
 }
 
 .pounce-1:active,
 .pounce-1[data-active=true] {
-  background-color: #0077bb;
-  border-color: #0077bb;
+  background-color: #079be9;
+  border-color: #079be9;
 }
 
 .pounce-0 {
@@ -205,8 +205,8 @@ exports[`IconButton renders \`small\` size correctly 1`] = `
   -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border: 1px solid;
-  border-color: #0081C5;
-  background-color: #0081C5;
+  border-color: #11A5F3;
+  background-color: #11A5F3;
   cursor: pointer;
   color: #F6F6F6;
   -webkit-text-decoration: none;
@@ -214,19 +214,19 @@ exports[`IconButton renders \`small\` size correctly 1`] = `
 }
 
 .pounce-1:hover {
-  background-color: #0a8bcf;
-  border-color: #0a8bcf;
+  background-color: #1baffd;
+  border-color: #1baffd;
 }
 
 .pounce-1:focus {
-  background-color: #0a8bcf;
-  border-color: #55d6ff;
+  background-color: #1baffd;
+  border-color: #66faff;
 }
 
 .pounce-1:active,
 .pounce-1[data-active=true] {
-  background-color: #0077bb;
-  border-color: #0077bb;
+  background-color: #079be9;
+  border-color: #079be9;
 }
 
 .pounce-0 {
@@ -270,8 +270,8 @@ exports[`IconButton renders \`square\` variantBorderStyle correctly 1`] = `
   -webkit-transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   border: 1px solid;
-  border-color: #0081C5;
-  background-color: #0081C5;
+  border-color: #11A5F3;
+  background-color: #11A5F3;
   cursor: pointer;
   color: #F6F6F6;
   -webkit-text-decoration: none;
@@ -279,19 +279,19 @@ exports[`IconButton renders \`square\` variantBorderStyle correctly 1`] = `
 }
 
 .pounce-1:hover {
-  background-color: #0a8bcf;
-  border-color: #0a8bcf;
+  background-color: #1baffd;
+  border-color: #1baffd;
 }
 
 .pounce-1:focus {
-  background-color: #0a8bcf;
-  border-color: #55d6ff;
+  background-color: #1baffd;
+  border-color: #66faff;
 }
 
 .pounce-1:active,
 .pounce-1[data-active=true] {
-  background-color: #0077bb;
-  border-color: #0077bb;
+  background-color: #079be9;
+  border-color: #079be9;
 }
 
 .pounce-0 {
