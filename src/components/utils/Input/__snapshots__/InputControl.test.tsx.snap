@@ -9,15 +9,15 @@ exports[`can be disabled 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-0:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within span {
@@ -50,15 +50,15 @@ exports[`can be hidden 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-0:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within span {
@@ -92,7 +92,7 @@ exports[`can be invalid 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #d64242;
+  border-color: #D64242;
 }
 
 
@@ -128,15 +128,15 @@ exports[`can be required 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-0:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within span {
@@ -168,15 +168,15 @@ exports[`can be solid 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-0:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within span {
@@ -208,15 +208,15 @@ exports[`renders 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-0:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-0:focus-within span {
