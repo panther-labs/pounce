@@ -464,6 +464,11 @@ const icons = {
   play: {
     path: <path d="M8 5V19L19 12L8 5Z" />,
   },
+  stop: {
+    path: (
+      <path d="M5 4h14c.5523 0 1 .44772 1 1v14c0 .5523-.4477 1-1 1H5c-.55228 0-1-.4477-1-1V5c0-.55228.44772-1 1-1Z" />
+    ),
+  },
   pencil: {
     path: (
       <React.Fragment>
