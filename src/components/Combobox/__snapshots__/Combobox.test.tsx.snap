@@ -13,15 +13,15 @@ exports[`Combobox renders 1`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-2:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-2:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-2:focus-within span {
@@ -45,7 +45,7 @@ exports[`Combobox renders 1`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -58,7 +58,7 @@ exports[`Combobox renders 1`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -66,7 +66,7 @@ exports[`Combobox renders 1`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -74,7 +74,7 @@ exports[`Combobox renders 1`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -82,7 +82,7 @@ exports[`Combobox renders 1`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -108,7 +108,7 @@ exports[`Combobox renders 1`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -117,7 +117,7 @@ exports[`Combobox renders 1`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;
@@ -159,7 +159,7 @@ exports[`Combobox renders 1`] = `
   height: 32px;
   width: 32px;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: transparent;
@@ -266,7 +266,7 @@ exports[`Combobox renders 2`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -279,7 +279,7 @@ exports[`Combobox renders 2`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -287,7 +287,7 @@ exports[`Combobox renders 2`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -295,7 +295,7 @@ exports[`Combobox renders 2`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -303,7 +303,7 @@ exports[`Combobox renders 2`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -329,7 +329,7 @@ exports[`Combobox renders 2`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -338,7 +338,7 @@ exports[`Combobox renders 2`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;
@@ -359,7 +359,7 @@ exports[`Combobox renders 2`] = `
   height: 32px;
   width: 32px;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: transparent;
@@ -390,17 +390,17 @@ exports[`Combobox renders 2`] = `
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-  background-color: #23344e;
+  background-color: #23344E;
   border-radius: 4px;
-  border-color: #23344e;
+  border-color: #23344E;
 }
 
 .pounce-2:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-2:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-2:focus-within span {
@@ -440,13 +440,13 @@ exports[`Combobox renders 2`] = `
 .pounce-11 {
   margin-top: -3px;
   border: 1px solid;
-  border-left-color: #0081c5;
-  border-right-color: #0081c5;
-  border-bottom-color: #0081c5;
-  border-top-color: #23344e;
+  border-left-color: #0081C5;
+  border-right-color: #0081C5;
+  border-bottom-color: #0081C5;
+  border-top-color: #23344E;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-color: #3e516b;
+  background-color: #3E516B;
   z-index: 10;
   position: absolute;
   width: 100%;
@@ -464,13 +464,13 @@ exports[`Combobox renders 2`] = `
   -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
-  background-color: #3e516b;
+  background-color: #3E516B;
   word-break: break-all;
 }
 
 .pounce-8[aria-selected=true],
 [data-selected]>.pounce-8 {
-  background-color: #23344e;
+  background-color: #23344E;
 }
 
 <div>
@@ -592,15 +592,15 @@ exports[`Combobox renders 3`] = `
   transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   background-color: transparent;
   border-radius: 4px;
-  border-color: #3e516b;
+  border-color: #3E516B;
 }
 
 .pounce-2:hover {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-2:focus-within {
-  border-color: #0081c5;
+  border-color: #0081C5;
 }
 
 .pounce-2:focus-within span {
@@ -624,7 +624,7 @@ exports[`Combobox renders 3`] = `
   padding-top: 20px;
   padding-bottom: 8px;
   position: relative;
-  color: #f6f6f6;
+  color: #F6F6F6;
   font-size: 0.875rem;
   font-weight: 500;
   background-color: transparent;
@@ -637,7 +637,7 @@ exports[`Combobox renders 3`] = `
 
 .pounce-0::-webkit-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -645,7 +645,7 @@ exports[`Combobox renders 3`] = `
 
 .pounce-0::-moz-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -653,7 +653,7 @@ exports[`Combobox renders 3`] = `
 
 .pounce-0:-ms-input-placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -661,7 +661,7 @@ exports[`Combobox renders 3`] = `
 
 .pounce-0::placeholder {
   opacity: 0;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   font-weight: 500;
@@ -687,7 +687,7 @@ exports[`Combobox renders 3`] = `
 
 .pounce-0:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #192231 inset;
-  -webkit-text-fill-color: #f6f6f6;
+  -webkit-text-fill-color: #F6F6F6;
   border-radius: 4px;
 }
 
@@ -719,7 +719,7 @@ exports[`Combobox renders 3`] = `
   height: 32px;
   width: 32px;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: transparent;
@@ -747,13 +747,13 @@ exports[`Combobox renders 3`] = `
 .pounce-15 {
   margin-top: -3px;
   border: 1px solid;
-  border-left-color: #0081c5;
-  border-right-color: #0081c5;
-  border-bottom-color: #0081c5;
-  border-top-color: #23344e;
+  border-left-color: #0081C5;
+  border-right-color: #0081C5;
+  border-bottom-color: #0081C5;
+  border-top-color: #23344E;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-color: #3e516b;
+  background-color: #3E516B;
   z-index: 10;
   position: absolute;
   width: 100%;
@@ -771,13 +771,13 @@ exports[`Combobox renders 3`] = `
   -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
-  background-color: #3e516b;
+  background-color: #3E516B;
   word-break: break-all;
 }
 
 .pounce-13[aria-selected=true],
 [data-selected]>.pounce-13 {
-  background-color: #23344e;
+  background-color: #23344E;
 }
 
 .pounce-1 {
@@ -785,7 +785,7 @@ exports[`Combobox renders 3`] = `
   font-size: 0.875rem;
   padding-left: 16px;
   padding-right: 16px;
-  color: #bdbdbd;
+  color: #BDBDBD;
   top: 0;
   left: 0;
   position: absolute;
@@ -810,7 +810,7 @@ exports[`Combobox renders 3`] = `
 .pounce-10 {
   width: 100%;
   font-size: 0.625rem;
-  color: #56e3c9;
+  color: #56E3C9;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -864,13 +864,13 @@ exports[`Combobox renders 3`] = `
   -webkit-transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
   position: relative;
-  background-color: #1d2a3f;
+  background-color: #1D2A3F;
   word-break: break-all;
 }
 
 .pounce-12[aria-selected=true],
 [data-selected]>.pounce-12 {
-  background-color: #23344e;
+  background-color: #23344E;
 }
 
 <div>
