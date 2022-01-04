@@ -9,17 +9,6 @@ describe('H', () => {
     expect(getByText('Hello').tagName).toEqual('H2');
   });
 
-  it('increases levels when within a Section', () => {
-    const { container, getByText } = renderWithTheme(
-      <Section>
-        <H>h3</H>
-      </Section>
-    );
-
-    expect(container.querySelector('h2')).not.toBeInTheDocument();
-    expect(getByText('h3').tagName).toEqual('H3');
-  });
-
   it('does not render above an h6', () => {
     const { getByText } = renderWithTheme(
       <div>
