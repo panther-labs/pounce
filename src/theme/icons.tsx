@@ -308,6 +308,15 @@ const icons = {
       </g>
     ),
   },
+  file: {
+    path: (
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.1667 2L20 8.66667V22H18L6 21.999V22H4V2H14.1667ZM6 3.999V19.999L18 20V10H13V4L6 3.999Z"
+      />
+    ),
+  },
   filter: {
     path: <path d="M10 18H14V16H10V18ZM3 6V8H21V6H3ZM6 13H18V11H6V13Z" />,
   },
