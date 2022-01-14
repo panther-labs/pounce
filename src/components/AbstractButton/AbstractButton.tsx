@@ -10,7 +10,7 @@ export const AbstractButton = pounce('button');
 AbstractButton.defaultProps = {
   type: 'button',
   cursor: 'pointer',
-  color: 'gray-50' as const,
+  color: 'white-200' as const,
   textDecoration: 'none',
   backgroundColor: 'transparent' as const,
   transition: 'all 0.1s linear',

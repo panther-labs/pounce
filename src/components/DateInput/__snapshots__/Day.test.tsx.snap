@@ -10,7 +10,7 @@ exports[`Day renders a cell selected 1`] = `
 }
 
 .pounce-2 [aria-relevant]:hover {
-  background-color: #11a5f3;
+  background-color: #11A5F3;
 }
 
 .pounce-2 [aria-placeholder] {
@@ -43,7 +43,7 @@ exports[`Day renders a cell selected 1`] = `
 }
 
 .pounce-2[aria-selected='true'] [aria-relevant] {
-  background-color: #0081c5;
+  background-color: #0081C5;
 }
 
 .pounce-2[aria-busy='true'] [aria-relevant] {
@@ -86,7 +86,7 @@ exports[`Day renders a cell selected 1`] = `
   width: 37px;
   height: 37px;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: transparent;
@@ -128,7 +128,7 @@ exports[`Day renders a cell when date is present 1`] = `
 }
 
 .pounce-2 [aria-relevant]:hover {
-  background-color: #11a5f3;
+  background-color: #11A5F3;
 }
 
 .pounce-2 [aria-placeholder] {
@@ -161,7 +161,7 @@ exports[`Day renders a cell when date is present 1`] = `
 }
 
 .pounce-2[aria-selected='true'] [aria-relevant] {
-  background-color: #0081c5;
+  background-color: #0081C5;
 }
 
 .pounce-2[aria-busy='true'] [aria-relevant] {
@@ -204,7 +204,7 @@ exports[`Day renders a cell when date is present 1`] = `
   width: 37px;
   height: 37px;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: transparent;
@@ -246,7 +246,7 @@ exports[`Day renders a disabled cell 1`] = `
 }
 
 .pounce-0 [aria-relevant]:hover {
-  background-color: #11a5f3;
+  background-color: #11A5F3;
 }
 
 .pounce-0 [aria-placeholder] {
@@ -279,7 +279,7 @@ exports[`Day renders a disabled cell 1`] = `
 }
 
 .pounce-0[aria-selected='true'] [aria-relevant] {
-  background-color: #0081c5;
+  background-color: #0081C5;
 }
 
 .pounce-0[aria-busy='true'] [aria-relevant] {
@@ -328,7 +328,7 @@ exports[`Day renders a selected date 1`] = `
 }
 
 .pounce-2 [aria-relevant]:hover {
-  background-color: #11a5f3;
+  background-color: #11A5F3;
 }
 
 .pounce-2 [aria-placeholder] {
@@ -361,7 +361,7 @@ exports[`Day renders a selected date 1`] = `
 }
 
 .pounce-2[aria-selected='true'] [aria-relevant] {
-  background-color: #0081c5;
+  background-color: #0081C5;
 }
 
 .pounce-2[aria-busy='true'] [aria-relevant] {
@@ -404,7 +404,7 @@ exports[`Day renders a selected date 1`] = `
   width: 37px;
   height: 37px;
   cursor: pointer;
-  color: #f6f6f6;
+  color: #F6F6F6;
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: transparent;

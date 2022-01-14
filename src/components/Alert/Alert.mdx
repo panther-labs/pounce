@@ -3,13 +3,31 @@ Alerts can be transparent:
 ```typescript jsx
 <Box width={1}>
   <Box mb={3}>
-    <Alert variant="success" mb={3} title="This is a success alert" />
+    <Alert variant="success" title="This is a success alert" />
   </Box>
   <Box mb={3}>
-    <Alert variant="info" mb={3} title="This is an info alert" />
+    <Alert
+      variant="info"
+      actions={
+        <Flex spacing={2}>
+          <Button
+            size="medium"
+            variant="outline"
+            variantColor="gray-300"
+            onClick={() => alert('Boom!')}
+          >
+            I Alert
+          </Button>
+          <Button size="medium" onClick={() => alert('Boom!')}>
+            I Alert
+          </Button>
+        </Flex>
+      }
+      title="This is an info alert"
+    />
   </Box>
   <Box mb={3}>
-    <Alert variant="warning" mb={3} title="This is a warning alert" />
+    <Alert variant="warning" title="This is a warning alert" />
   </Box>
   <Box mb={3}>
     <Alert variant="error" title="This is an error alert" />
@@ -99,22 +117,10 @@ Alerts can be hidden by the user:
 ```typescript jsx
 <Box width={1}>
   <Box mb={3}>
-    <Alert
-      variant="success"
-      variantBackgroundStyle="solid"
-      title="This is a success alert"
-      description="This is a nice description of the title"
-      discardable
-    />
+    <Alert variant="success" title="This is a success alert" discardable />
   </Box>
   <Box mb={3}>
-    <Alert
-      variant="info"
-      variantBackgroundStyle="solid"
-      title="This is an info alert"
-      description="This is a nice description of the title"
-      discardable
-    />
+    <Alert variant="info" title="This is an info alert" discardable />
   </Box>
   <Box mb={3}>
     <Alert
@@ -149,24 +155,58 @@ Alerts can be hidden by the user:
 Alerts can have actions associated with them:
 
 ```typescript jsx
-<Box>
+<Box width={1}>
+  <Box mb={3}>
+    <Alert
+      variant="info"
+      actions={
+        <Flex spacing={2}>
+          <Button
+            size="medium"
+            variant="outline"
+            variantColor="gray-300"
+            onClick={() => alert('Boom!')}
+          >
+            I Alert
+          </Button>
+          <Button size="medium" onClick={() => alert('Boom!')}>
+            I Alert
+          </Button>
+        </Flex>
+      }
+      title="This is an info alert"
+    />
+  </Box>
   <Box mb={3}>
     <Alert
       variant="warning"
-      variantBackgroundStyle="solid"
       title="This is a warning alert"
-      description="This is a nice description of the title"
-      actions={<Button onClick={() => alert('Boom!')}>I Alert</Button>}
+      actions={
+        <Button size="medium" onClick={() => alert('Boom!')}>
+          I Alert
+        </Button>
+      }
     />
   </Box>
-  <Box>
-    <Alert
-      variant="error"
-      variantBackgroundStyle="solid"
-      title="This is an error alert"
-      description="This is a nice description of the title"
-      actions={({ close }) => <Button onClick={close}>I Close</Button>}
-    />
-  </Box>
+  <Flex spacing={4}>
+    <Box width="50%" mb={3}>
+      <Alert
+        variant="warning"
+        variantBackgroundStyle="solid"
+        title="This is a warning alert"
+        description="This is a nice description of the title"
+        actions={<Button onClick={() => alert('Boom!')}>I Alert</Button>}
+      />
+    </Box>
+    <Box width="50%">
+      <Alert
+        variant="error"
+        variantBackgroundStyle="solid"
+        title="This is an error alert"
+        description="This is a nice description of the title"
+        actions={({ close }) => <Button onClick={close}>I Close</Button>}
+      />
+    </Box>
+  </Flex>
 </Box>
 ```
