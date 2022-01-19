@@ -1,13 +1,13 @@
 import React from 'react';
 import { renderWithTheme } from '../../../jest/utils';
-import H from '.';
 import Article from '../Article';
+import Heading from '../Heading';
 
 describe('Article', () => {
   it('increases heading levels by 1', () => {
     const { container, getByText } = renderWithTheme(
       <Article>
-        <H>h3</H>
+        <Heading>h3</Heading>
       </Article>
     );
 

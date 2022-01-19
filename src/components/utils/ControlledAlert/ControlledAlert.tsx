@@ -4,7 +4,7 @@ import Box from '../../Box';
 import Flex from '../../Flex';
 import IconButton from '../../IconButton';
 import Icon from '../../Icon';
-import H from '../../H';
+import Heading from '../../Heading';
 import useAlertStyles from './useAlertStyles';
 
 export interface ControlledAlertProps {
@@ -78,7 +78,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
               <Flex as="header" align="center">
                 {icon && <Icon type={icon} mr={2} color={iconColor} size="large" />}
                 <Box
-                  as={H}
+                  as={Heading}
                   color={titleColor}
                   fontWeight={description ? 'bold' : 'normal'}
                   fontSize={description ? 'large' : 'medium'}

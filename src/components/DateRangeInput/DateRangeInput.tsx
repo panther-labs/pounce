@@ -5,7 +5,7 @@ import Box from '../Box';
 import Presets from './Presets';
 import Flex from '../Flex';
 import Button from '../Button';
-import H from '../H';
+import Heading from '../Heading';
 import DoubleTextInput from './DoubleTextInput';
 import DateWrapper from '../DateInput/DateWrapper';
 import TimePicker from '../DateInput/TimePicker';
@@ -314,10 +314,10 @@ const DateRangeInput: React.FC<
                   aria-label="Go to previous month"
                 />
               </Box>
-              <Box as={H} fontSize="medium" fontWeight="bold" width="50%" textAlign="center">
+              <Box as={Heading} fontSize="medium" fontWeight="bold" width="50%" textAlign="center">
                 {currentMonth.format('MMMM YYYY')}
               </Box>
-              <Box as={H} fontSize="medium" fontWeight="bold" width="50%" textAlign="center">
+              <Box as={Heading} fontSize="medium" fontWeight="bold" width="50%" textAlign="center">
                 {nextMonth.format('MMMM YYYY')}
               </Box>
               <Box position="absolute" right={4}>

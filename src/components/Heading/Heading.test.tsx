@@ -1,28 +1,33 @@
 import React from 'react';
 import { renderWithTheme } from '../../../jest/utils';
-import H from '.';
+import Heading from '.';
 import Section from '../Section';
 
-describe('H', () => {
+describe('Heading', () => {
   it('renders as a h2 by default', () => {
-    const { getByText } = renderWithTheme(<H>Hello</H>);
+    const { getByText } = renderWithTheme(<Heading>Hello</Heading>);
     expect(getByText('Hello').tagName).toEqual('H2');
+  });
+
+  it('allows rendering a h1', () => {
+    const { getByText } = renderWithTheme(<Heading as="h1">Hello</Heading>);
+    expect(getByText('Hello').tagName).toEqual('H1');
   });
 
   it('does not render above an h6', () => {
     const { getByText } = renderWithTheme(
       <div>
-        <H>h2</H>
+        <Heading>h2</Heading>
         <Section>
-          <H>h3</H>
+          <Heading>h3</Heading>
           <Section>
-            <H>h4</H>
+            <Heading>h4</Heading>
             <Section>
-              <H>h5</H>
+              <Heading>h5</Heading>
               <Section>
-                <H>h6</H>
+                <Heading>h6</Heading>
                 <Section>
-                  <H>still h6</H>
+                  <Heading>still h6</Heading>
                 </Section>
               </Section>
             </Section>
@@ -42,7 +47,7 @@ describe('H', () => {
   it('allows increasing the heading context with custom markup', () => {
     const { container, getByText } = renderWithTheme(
       <Section as="header">
-        <H>h3</H>
+        <Heading>h3</Heading>
       </Section>
     );
     expect(container.querySelector('header')).toBeInTheDocument();

@@ -1,9 +1,9 @@
 import React from 'react';
 import Box, { BoxProps } from '../Box';
-import { HeadingLevelContext } from '../H';
+import { HeadingLevelContext } from '../Heading';
 
 /**
- * Increases the heading level of all `H` components inside it by 1.
+ * Increases the heading level of all `Heading` components inside it by 1.
  */
 export const Section: React.FC<BoxProps<'section'>> = ({ children, as = 'section', ...rest }) => {
   const level = React.useContext(HeadingLevelContext);

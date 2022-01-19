@@ -58,7 +58,6 @@ export { default as FormError } from './components/FormError';
 export { default as FormHelperText } from './components/FormHelperText';
 export { default as Grid } from './components/Grid';
 export { default as SimpleGrid } from './components/SimpleGrid';
-export { default as H } from './components/H';
 export { default as Heading } from './components/Heading';
 export { default as Icon } from './components/Icon';
 export { default as Img } from './components/Img';

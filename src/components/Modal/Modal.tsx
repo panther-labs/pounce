@@ -7,7 +7,6 @@ import Card from '../Card';
 import Heading from '../Heading';
 import Flex from '../Flex';
 import IconButton from '../IconButton';
-import H from '../H';
 
 const AnimatedDialogOverlay = animated(DialogOverlay);
 const AnimatedDialogContent = animated(DialogContent);
@@ -70,7 +69,7 @@ const Modal: React.FC<ModalProps> = ({
                   <Card minWidth="400px" position="relative" boxShadow="dark200">
                     {title && (
                       <Box as="header" borderBottom="1px solid" borderColor="navyblue-300" py={6}>
-                        <Heading as={H} size="x-small" textAlign="center" id={id}>
+                        <Heading as={Heading} size="x-small" textAlign="center" id={id}>
                           {title}
                         </Heading>
                       </Box>
