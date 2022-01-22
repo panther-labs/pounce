@@ -1,4 +1,5 @@
 import React from 'react';
+import { theme } from '../../theme';
 import Box, { NativeAttributes } from '../Box';
 import Flex from '../Flex';
 
@@ -17,6 +18,12 @@ export type SwitchProps = NativeAttributes<'input'> & {
 
   /** The text to show when the switch is unchecked */
   uncheckedText?: string;
+};
+
+const switchFocusStyles = {
+  '& .pill': {
+    outline: `1px solid ${theme.colors['white']}`,
+  },
 };
 
 /**
@@ -54,13 +61,16 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
       aria-disabled={disabled}
       hidden={hidden}
       aria-hidden={hidden}
+      _focusWithin={switchFocusStyles}
     >
       {label && (
         <Box as="span" userSelect="none" mr={2}>
           {label}
         </Box>
       )}
+
       <Flex
+        className="pill"
         position="relative"
         align="center"
         borderRadius="pill"
@@ -84,11 +94,15 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           userSelect="none"
           mx="7px"
           position="absolute"
+          // Remove the checked / unchecked text from screenreader output, since
+          // screenreaders already announce the checkbox state.
+          aria-hidden="true"
           left={checked ? 0 : undefined}
           right={!checked ? 0 : undefined}
         >
           {checked ? checkedText : uncheckedText}
         </Box>
+
         <Box
           ref={ref}
           as="input"
