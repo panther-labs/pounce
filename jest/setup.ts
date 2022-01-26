@@ -11,6 +11,11 @@ import 'jest-extended';
 import 'jest-axe/extend-expect';
 import { matchers, createSerializer } from 'jest-emotion';
 
+// jest-dom does not properly implement this method and this workaround
+// keeps the test runner from throwing warnings
+const { getComputedStyle } = window;
+window.getComputedStyle = elt => getComputedStyle(elt);
+
 // Add the custom matchers provided by 'jest-emotion'
 expect.extend(matchers);
 
