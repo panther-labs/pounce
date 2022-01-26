@@ -22,9 +22,7 @@ export type SwitchProps = NativeAttributes<'input'> & {
 };
 
 const switchFocusStyles = {
-  '& .pill': {
-    outline: `1px solid ${theme.colors['blue-200']}`,
-  },
+  outline: `1px solid ${theme.colors['blue-200']}`,
 };
 
 /**
@@ -64,7 +62,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
       aria-disabled={disabled}
       hidden={hidden}
       aria-hidden={hidden}
-      _focusWithin={switchFocusStyles}
     >
       {label && (
         <Box as="label" userSelect="none" mr={2} htmlFor={inputId}>
@@ -73,7 +70,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
       )}
 
       <Flex
-        className="pill"
         position="relative"
         align="center"
         borderRadius="pill"
@@ -82,6 +78,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
         p={1}
         transition="background-color 0.15s linear"
         backgroundColor={invalid ? 'red-300' : checked ? 'blue-400' : 'gray-600'}
+        _focusWithin={switchFocusStyles}
       >
         <Box
           width={21}
@@ -97,9 +94,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           userSelect="none"
           mx="7px"
           position="absolute"
-          // Remove the checked / unchecked text from screenreader output, since
-          // screenreaders already announce the checkbox state.
-          aria-hidden="true"
           left={checked ? 0 : undefined}
           right={!checked ? 0 : undefined}
         >
