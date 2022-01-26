@@ -1,3 +1,4 @@
+import { useId } from '@reach/auto-id';
 import React from 'react';
 import { theme } from '../../theme';
 import Box, { NativeAttributes } from '../Box';
@@ -22,7 +23,7 @@ export type SwitchProps = NativeAttributes<'input'> & {
 
 const switchFocusStyles = {
   '& .pill': {
-    outline: `1px solid ${theme.colors['white']}`,
+    outline: `1px solid ${theme.colors['blue-200']}`,
   },
 };
 
@@ -40,10 +41,12 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
     invalid,
     readOnly,
     hidden,
+    id,
     ...rest
   },
   ref
 ) {
+  const inputId = useId(id);
   if (!label && !(rest['aria-label'] || rest['aria-labelledby'])) {
     console.error(
       'The `label` prop was omitted without providing an `aria-label` or `aria-labelledby` attribute'
@@ -52,7 +55,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
 
   return (
     <Box
-      as="label"
+      as="span"
       display="flex"
       justifyContent="space-between"
       alignItems="center"
@@ -64,7 +67,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
       _focusWithin={switchFocusStyles}
     >
       {label && (
-        <Box as="span" userSelect="none" mr={2}>
+        <Box as="label" userSelect="none" mr={2} htmlFor={inputId}>
           {label}
         </Box>
       )}
@@ -116,6 +119,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           aria-invalid={invalid}
           checked={checked}
           disabled={disabled}
+          id={inputId}
           {...rest}
         />
       </Flex>
