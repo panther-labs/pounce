@@ -255,7 +255,7 @@ describe('DateRangeInput', () => {
 
   it('is disabled when start date is after end date', async () => {
     const mock = jest.fn();
-    const endDate = start.add(3, 'hour').minute(59);
+    const endDate = start.minute(20);
 
     const {
       findByLabelText,
@@ -279,25 +279,18 @@ describe('DateRangeInput', () => {
     await fireEvent.click(input);
 
     const submitBtn = await findByText('Apply');
-    // Apply button is enabled as long as end date is after start date
+    // Apply button is disabled as long as the date is not dirty
     expect(submitBtn).toHaveAttribute('disabled');
 
-    // Set start date later than end date
-    const novFirst = getAllByRole('button', { name: /1/i })[0];
-    fireEvent.click(novFirst);
-
-    const startHours = await getByLabelText('To Time Hours', { selector: 'input' });
-    const startMinutes = await getByLabelText('To Time Minutes', { selector: 'input' });
-
-    await fireEvent.focus(startHours);
-    const one = getByRole('option', { name: /12/i });
-
-    await fireEvent.click(one);
-
+    const startMinutes = await getByLabelText('From Time Minutes', { selector: 'input' });
+    // Set a valid start date (before end date), apply button should be enabled
     await fireEvent.focus(startMinutes);
-    const fourtyMinutes = getByRole('option', { name: /40/i });
-    await fireEvent.click(fourtyMinutes);
+    await fireEvent.click(getByRole('option', { name: /00/i }));
     await waitFor(() => expect(submitBtn).not.toHaveAttribute('disabled'));
+    // Set start date after end date, apply button should be disabled
+    await fireEvent.focus(startMinutes);
+    await fireEvent.click(getAllByRole('option', { name: /40/i })[0]);
+    await waitFor(() => expect(submitBtn).toHaveAttribute('disabled'));
   });
 
   it('rounds start and end dates by minute', async () => {

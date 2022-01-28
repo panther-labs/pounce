@@ -230,7 +230,11 @@ const DateRangeInput: React.FC<
     if (areDatesUndefined(previousDateRange) && areDatesUndefined(currentDateRange)) {
       return true;
     }
-    if (currentDateRange[0] && !currentDateRange[1]) {
+    if (
+      currentDateRange[0] &&
+      (!currentDateRange[1] ||
+        currentDateRange[0].isAfter(currentDateRange[1], withTime ? 'minute' : 'day'))
+    ) {
       return true;
     }
 
