@@ -14,16 +14,19 @@ export interface BadgeProps {
   /** Whether the Badge should be emphasized or not */
   emphasized?: boolean;
 
+  /** The size of the Badge. Defaults to `medium`. */
+  size?: 'small' | 'medium';
   /** @ignore */
   children: React.ReactNode;
 }
 
 /** A badge is simply a visual label to accompany & characterize a certain text*/
 const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
-  { color, children, stretch = false, emphasized = false, ...rest },
+  { color, children, stretch = false, size = 'medium', emphasized = false, ...rest },
   ref
 ) {
   const theme = useTheme();
+  const hasMediumSize = size === 'medium';
 
   return (
     <Box
@@ -42,9 +45,9 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       backgroundColor={addOpacity(theme.colors[color], 0.3)}
       alignItems="center"
       justifyContent="center"
-      fontSize="small"
-      py={1}
-      px="6px"
+      fontSize={hasMediumSize ? 'small' : 'x-small'}
+      py={hasMediumSize ? 1 : 0}
+      px={hasMediumSize ? '6px' : 1}
       {...rest}
     >
       {children}

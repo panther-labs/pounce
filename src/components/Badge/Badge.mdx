@@ -10,7 +10,20 @@ A badge can have different colors:
 </Flex>
 ```
 
-A badge can be `large`:
+A badge can have different sizes:
+
+```typescript jsx
+<Flex spacing={2}>
+  <Badge color="blue-400" size="small">
+    Small
+  </Badge>
+  <Badge color="blue-400" size="medium">
+    Medium
+  </Badge>
+</Flex>
+```
+
+A badge can be `emphasized`:
 
 ```typescript jsx
 <SimpleGrid spacing={3} columns={3}>
