@@ -109,6 +109,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           width="100%"
           top={0}
           left={0}
+          margin="auto"
           opacity={0}
           type="checkbox"
           readOnly={readOnly}
