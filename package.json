@@ -122,6 +122,6 @@
     "react-styleguidist": "^11.1.7",
     "rimraf": "^2.6.3",
     "typescript": "^3.9.5",
-    "webpack": "^4.42.1"
+    "webpack": "^5.67.0"
   }
 }
