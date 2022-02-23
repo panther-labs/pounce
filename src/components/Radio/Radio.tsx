@@ -6,7 +6,7 @@ export type RadioProps = NativeAttributes<'input'> & {
   /** The label associated with the Radio. Appears on the right. */
   label?: string;
 
-  /** The size of the Radio. Defaults to `small`. */
+  /** The size of the Radio. Defaults to `medium`. */
   size?: 'medium' | 'large';
 
   /** Whether the checkbox is currently disabled */
