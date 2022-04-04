@@ -147,6 +147,7 @@ const Example5 = () => {
     'BMW',
     'Moto Guzzi',
   ]);
+
   return (
     <>
       <Box width={0.4} mr={4}>
@@ -164,6 +165,7 @@ const Example5 = () => {
         <MultiCombobox
           label="Choose a car manufacturer"
           hideLabel
+          searchable
           variant="solid"
           placeholder="Choose a motorcycle manufacturer"
           items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
@@ -177,6 +179,83 @@ const Example5 = () => {
 };
 
 <Example5 />;
+```
+
+A MultiCombobox can always show the placeholder.
+NOTE: you likely want to also pass the `hideLabel` prop as well so you don't have both a label and a placeholder showing at the same time
+
+```typescript jsx
+const AlwaysShowPlaceholder = () => {
+  const [selectedMoto, updateSelectedMoto] = React.useState([
+    'Benelli',
+    'Ducati',
+    'BMW',
+    'Moto Guzzi',
+  ]);
+  return (
+    <>
+      <Box width={0.4}>
+        <MultiCombobox
+          label="Filter columns"
+          variant="solid"
+          placeholder={`Filtered Columns (${selectedMoto.length})`}
+          items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
+          onChange={updateSelectedMoto}
+          value={selectedMoto}
+          canClearAllAfter={4}
+          alwaysUsePlaceholder
+        />
+      </Box>
+    </>
+  );
+};
+
+<AlwaysShowPlaceholder />;
+```
+
+A MultiCombobox can render a custom clear all selected element
+
+```typescript jsx
+const RenderClearAll = () => {
+  const [shaunTest, updateShaunTest] = React.useState(['Benelli', 'Ducati', 'BMW', 'Moto Guzzi']);
+  return (
+    <>
+      <Box width={0.4}>
+        <MultiCombobox
+          label="Filter columns"
+          variant="solid"
+          placeholder={`Filtered Columns (${shaunTest.length})`}
+          items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
+          onChange={updateShaunTest}
+          value={shaunTest}
+          canClearAllAfter={4}
+          alwaysUsePlaceholder
+          renderClearAll={({ clearSelectedItems }) => {
+            return (
+              <AbstractButton
+                width="100%"
+                onClick={() => {
+                  console.log('hi');
+                  clearSelectedItems();
+                }}
+                fontSize="x-small"
+                color="teal-200"
+                _hover={{ textDecoration: 'underline' }}
+              >
+                <Flex as="span" align="center" spacing="6px" py="6px" px={4}>
+                  <Icon size="small" type="close-circle" />
+                  <Box as="span">Clear Selection</Box>
+                </Flex>
+              </AbstractButton>
+            );
+          }}
+        />
+      </Box>
+    </>
+  );
+};
+
+<RenderClearAll />;
 ```
 
 A MultiCombobox can have "solid" variant:

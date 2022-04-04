@@ -58,6 +58,12 @@ export type MultiComboboxProps<T> = {
   /** Whether the multi-combobox is required or not */
   required?: boolean;
 
+  /** Always show the placeholder, even when items are selected */
+  alwaysUsePlaceholder?: boolean;
+
+  /** Override the default clear all component.  Passes in the `clearSelectedItems` callback */
+  renderClearAll?: (clearSelectedItems: () => void) => React.ReactNode;
+
   /** Whether the multi-combobox is disabled or not */
   disabled?: boolean;
 
@@ -146,6 +152,8 @@ function MultiCombobox<Item>({
   canClearAllAfter,
   invalid,
   hidden,
+  alwaysUsePlaceholder,
+  renderClearAll,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
   const getVariant = React.useCallback(
@@ -225,7 +233,7 @@ function MultiCombobox<Item>({
           }).map(i => i.item);
         }
 
-        // We add 2 types of additional data to the input that is going to be renders:
+        // We add 2 types of additional data to the input that is going to be rendered:
         // 1. A handler for the `Delete` button, so that you can delete tokens with a single key
         // 3. When the combobox is not searchable, we make the input "behave" like a div. We
         // still want an input though for placeholder, spacings, etc.
@@ -311,16 +319,18 @@ function MultiCombobox<Item>({
               >
                 <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
                   <>
-                    {value.map(selectedItem => (
-                      <Tag
-                        as="li"
-                        key={itemToString(selectedItem)}
-                        m={1}
-                        onRemove={() => removeItem(selectedItem)}
-                      >
-                        {itemToString(selectedItem)}
-                      </Tag>
-                    ))}
+                    {alwaysUsePlaceholder && Boolean(value.length)
+                      ? placeholder
+                      : value.map(selectedItem => (
+                          <Tag
+                            as="li"
+                            key={itemToString(selectedItem)}
+                            m={1}
+                            onRemove={() => removeItem(selectedItem)}
+                          >
+                            {itemToString(selectedItem)}
+                          </Tag>
+                        ))}
                     <Box
                       as="li"
                       maxWidth="100%"
@@ -348,17 +358,22 @@ function MultiCombobox<Item>({
                     </Box>
                   </>
                 </Flex>
-                {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (
-                  <AbstractButton
-                    width="100%"
-                    py={1}
-                    backgroundColor="blue-400"
-                    fontSize="2x-small"
-                    onClick={clearSelectedItems}
-                  >
-                    Clear All
-                  </AbstractButton>
-                )}
+                {isOpen &&
+                  canClearAllAfter &&
+                  value.length >= canClearAllAfter &&
+                  (renderClearAll ? (
+                    renderClearAll(clearSelectedItems)
+                  ) : (
+                    <AbstractButton
+                      width="100%"
+                      py={1}
+                      backgroundColor="blue-400"
+                      fontSize="2x-small"
+                      onClick={clearSelectedItems}
+                    >
+                      Clear All
+                    </AbstractButton>
+                  ))}
 
                 <InputLabel
                   visuallyHidden={hideLabel}
