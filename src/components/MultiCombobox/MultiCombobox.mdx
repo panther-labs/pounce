@@ -216,17 +216,22 @@ A MultiCombobox can render a custom clear all selected element
 
 ```typescript jsx
 const Example7 = () => {
-  const [shaunTest, updateShaunTest] = React.useState(['Benelli', 'Ducati', 'BMW', 'Moto Guzzi']);
+  const [selectedMoto, updateSelectedMoto] = React.useState([
+    'Benelli',
+    'Ducati',
+    'BMW',
+    'Moto Guzzi',
+  ]);
   return (
     <>
       <Box width={0.4}>
         <MultiCombobox
           label="Filter columns"
           variant="solid"
-          placeholder={`Filtered Columns (${shaunTest.length})`}
+          placeholder={`Filtered Columns (${selectedMoto.length})`}
           items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
-          onChange={updateShaunTest}
-          value={shaunTest}
+          onChange={updateSelectedMoto}
+          value={selectedMoto}
           canClearAllAfter={4}
           alwaysUsePlaceholder
           renderClearAll={({ clearSelectedItems }) => {
