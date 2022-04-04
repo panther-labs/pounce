@@ -185,7 +185,7 @@ A MultiCombobox can always show the placeholder.
 NOTE: you likely want to also pass the `hideLabel` prop as well so you don't have both a label and a placeholder showing at the same time
 
 ```typescript jsx
-const AlwaysShowPlaceholder = () => {
+const Example6 = () => {
   const [selectedMoto, updateSelectedMoto] = React.useState([
     'Benelli',
     'Ducati',
@@ -210,13 +210,13 @@ const AlwaysShowPlaceholder = () => {
   );
 };
 
-<AlwaysShowPlaceholder />;
+<Example6 />;
 ```
 
 A MultiCombobox can render a custom clear all selected element
 
 ```typescript jsx
-const RenderClearAll = () => {
+const Example7 = () => {
   const [shaunTest, updateShaunTest] = React.useState(['Benelli', 'Ducati', 'BMW', 'Moto Guzzi']);
   return (
     <>
@@ -255,13 +255,13 @@ const RenderClearAll = () => {
   );
 };
 
-<RenderClearAll />;
+<Example7 />;
 ```
 
 A MultiCombobox can have "solid" variant:
 
 ```typescript jsx
-const Example5 = () => {
+const Example8 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Box width={0.3}>
@@ -278,13 +278,13 @@ const Example5 = () => {
   );
 };
 
-<Example5 />;
+<Example8 />;
 ```
 
 A MultiCombobox can have grouped items:
 
 ```typescript jsx
-const Example6 = () => {
+const Example9 = () => {
   const [selectedCar, updateSelectedCar] = React.useState([]);
   const [selectedMoto, updateSelectedMoto] = React.useState([]);
   return (
@@ -348,5 +348,5 @@ const Example6 = () => {
   );
 };
 
-<Example6 />;
+<Example9 />;
 ```
