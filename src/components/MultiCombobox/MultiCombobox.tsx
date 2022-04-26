@@ -59,9 +59,6 @@ export type MultiComboboxProps<T> = {
   /** Whether the multi-combobox is required or not */
   required?: boolean;
 
-  /** Override the default clear all component.  Passes in the `clearSelectedItems` callback */
-  renderClearAll?: (clearSelectedItems: () => void) => React.ReactNode;
-
   /** Override the default placeholder.  Passes in the `clearSelectedItems` callback */
   renderPlaceHolder?: ({
     itemToString,
@@ -159,7 +156,6 @@ function MultiCombobox<Item>({
   canClearAllAfter,
   invalid,
   hidden,
-  renderClearAll,
   renderPlaceHolder,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
@@ -402,34 +398,29 @@ function MultiCombobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
-              {isOpen &&
-                canClearAllAfter &&
-                value.length >= canClearAllAfter &&
-                (renderClearAll ? (
-                  renderClearAll(clearSelectedItems)
-                ) : (
-                  <Box
-                    as="li"
-                    listStyle="none"
-                    backgroundColor="navyblue-350"
-                    position="sticky"
-                    top={0}
-                    zIndex={1}
+              {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (
+                <Box
+                  as="li"
+                  listStyle="none"
+                  backgroundColor="navyblue-350"
+                  position="sticky"
+                  top={0}
+                  zIndex={1}
+                >
+                  <AbstractButton
+                    width="100%"
+                    onClick={clearSelectedItems}
+                    fontSize="x-small"
+                    color="teal-200"
+                    _hover={{ textDecoration: 'underline' }}
                   >
-                    <AbstractButton
-                      width="100%"
-                      onClick={clearSelectedItems}
-                      fontSize="x-small"
-                      color="teal-200"
-                      _hover={{ textDecoration: 'underline' }}
-                    >
-                      <Flex as="span" align="center" spacing="6px" py="6px" px={4}>
-                        <Icon size="small" type="close-circle" />
-                        <Box as="span">Clear Selection</Box>
-                      </Flex>
-                    </AbstractButton>
-                  </Box>
-                ))}
+                    <Flex as="span" align="center" spacing="6px" py="6px" px={4}>
+                      <Icon size="small" type="close-circle" />
+                      <Box as="span">Clear Selection</Box>
+                    </Flex>
+                  </AbstractButton>
+                </Box>
+              )}
               <ComboBoxItems
                 items={results}
                 disableItem={disableItem}
