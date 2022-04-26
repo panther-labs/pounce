@@ -64,6 +64,15 @@ export type MultiComboboxProps<T> = {
   /** Override the default clear all component.  Passes in the `clearSelectedItems` callback */
   renderClearAll?: (clearSelectedItems: () => void) => React.ReactNode;
 
+  /** Override the default placeholder.  Passes in the `clearSelectedItems` callback */
+  renderPlaceHolder?: ({
+    itemToString,
+    removeItem,
+  }: {
+    itemToString: (item: T) => string;
+    removeItem: (item: T) => void;
+  }) => React.ReactNode;
+
   /** Whether the multi-combobox is disabled or not */
   disabled?: boolean;
 
@@ -152,8 +161,8 @@ function MultiCombobox<Item>({
   canClearAllAfter,
   invalid,
   hidden,
-  alwaysUsePlaceholder,
   renderClearAll,
+  renderPlaceHolder,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
   const getVariant = React.useCallback(
@@ -319,8 +328,8 @@ function MultiCombobox<Item>({
               >
                 <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
                   <>
-                    {alwaysUsePlaceholder && Boolean(value.length)
-                      ? placeholder
+                    {renderPlaceHolder && Boolean(value.length)
+                      ? renderPlaceHolder({ itemToString, removeItem })
                       : value.map(selectedItem => (
                           <Tag
                             as="li"

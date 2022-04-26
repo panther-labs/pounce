@@ -180,8 +180,7 @@ const Example5 = () => {
 <Example5 />;
 ```
 
-A MultiCombobox can always show the placeholder.
-NOTE: you likely want to also pass the `hideLabel` prop as well so you don't have both a label and a placeholder showing at the same time
+A MultiCombobox can have a custom placeholder passed to it
 
 ```typescript jsx
 const Example6 = () => {
@@ -197,7 +196,7 @@ const Example6 = () => {
         <MultiCombobox
           label="Filter columns"
           variant="solid"
-          placeholder={`Filtered Columns (${selectedMoto.length})`}
+          renderPlaceHolder={() => <div>Filtered Columns ({selectedMoto.length})</div>}
           items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
           onChange={updateSelectedMoto}
           value={selectedMoto}
@@ -239,7 +238,6 @@ const Example7 = () => {
               <AbstractButton
                 width="100%"
                 onClick={() => {
-                  console.log('hi');
                   clearSelectedItems();
                 }}
                 fontSize="x-small"
