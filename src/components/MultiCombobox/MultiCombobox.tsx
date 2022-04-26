@@ -58,9 +58,6 @@ export type MultiComboboxProps<T> = {
   /** Whether the multi-combobox is required or not */
   required?: boolean;
 
-  /** Always show the placeholder, even when items are selected */
-  alwaysUsePlaceholder?: boolean;
-
   /** Override the default clear all component.  Passes in the `clearSelectedItems` callback */
   renderClearAll?: (clearSelectedItems: () => void) => React.ReactNode;
 
