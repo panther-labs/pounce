@@ -198,6 +198,7 @@ const Example6 = () => {
           variant="solid"
           renderPlaceHolder={() => <div>Filtered Columns ({selectedMoto.length})</div>}
           items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
+          hideLabel
           onChange={updateSelectedMoto}
           value={selectedMoto}
           canClearAllAfter={4}
@@ -211,59 +212,10 @@ const Example6 = () => {
 <Example6 />;
 ```
 
-A MultiCombobox can render a custom clear all selected element
-
-```typescript jsx
-const Example7 = () => {
-  const [selectedMoto, updateSelectedMoto] = React.useState([
-    'Benelli',
-    'Ducati',
-    'BMW',
-    'Moto Guzzi',
-  ]);
-  return (
-    <>
-      <Box width={0.4}>
-        <MultiCombobox
-          label="Filter columns"
-          variant="solid"
-          placeholder={`Filtered Columns (${selectedMoto.length})`}
-          items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
-          onChange={updateSelectedMoto}
-          value={selectedMoto}
-          canClearAllAfter={4}
-          alwaysUsePlaceholder
-          renderClearAll={({ clearSelectedItems }) => {
-            return (
-              <AbstractButton
-                width="100%"
-                onClick={() => {
-                  clearSelectedItems();
-                }}
-                fontSize="x-small"
-                color="teal-200"
-                _hover={{ textDecoration: 'underline' }}
-              >
-                <Flex as="span" align="center" spacing="6px" py="6px" px={4}>
-                  <Icon size="small" type="close-circle" />
-                  <Box as="span">Clear Selection</Box>
-                </Flex>
-              </AbstractButton>
-            );
-          }}
-        />
-      </Box>
-    </>
-  );
-};
-
-<Example7 />;
-```
-
 A MultiCombobox can have "solid" variant:
 
 ```typescript jsx
-const Example8 = () => {
+const Example7 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Box width={0.3}>
@@ -280,13 +232,13 @@ const Example8 = () => {
   );
 };
 
-<Example8 />;
+<Example7 />;
 ```
 
 A MultiCombobox can have grouped items:
 
 ```typescript jsx
-const Example9 = () => {
+const Example8 = () => {
   const [selectedCar, updateSelectedCar] = React.useState([]);
   const [selectedMoto, updateSelectedMoto] = React.useState([]);
   return (
@@ -350,5 +302,5 @@ const Example9 = () => {
   );
 };
 
-<Example9 />;
+<Example8 />;
 ```

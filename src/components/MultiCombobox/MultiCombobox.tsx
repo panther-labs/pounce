@@ -11,6 +11,7 @@ import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 import AbstractButton from '../AbstractButton';
 import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
+import Icon from '../Icon';
 
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
@@ -364,22 +365,6 @@ function MultiCombobox<Item>({
                     </Box>
                   </>
                 </Flex>
-                {isOpen &&
-                  canClearAllAfter &&
-                  value.length >= canClearAllAfter &&
-                  (renderClearAll ? (
-                    renderClearAll(clearSelectedItems)
-                  ) : (
-                    <AbstractButton
-                      width="100%"
-                      py={1}
-                      backgroundColor="blue-400"
-                      fontSize="2x-small"
-                      onClick={clearSelectedItems}
-                    >
-                      Clear All
-                    </AbstractButton>
-                  ))}
 
                 <InputLabel
                   visuallyHidden={hideLabel}
@@ -417,6 +402,34 @@ function MultiCombobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
+              {isOpen &&
+                canClearAllAfter &&
+                value.length >= canClearAllAfter &&
+                (renderClearAll ? (
+                  renderClearAll(clearSelectedItems)
+                ) : (
+                  <Box
+                    as="li"
+                    listStyle="none"
+                    backgroundColor="navyblue-350"
+                    position="sticky"
+                    top={0}
+                    zIndex={1}
+                  >
+                    <AbstractButton
+                      width="100%"
+                      onClick={clearSelectedItems}
+                      fontSize="x-small"
+                      color="teal-200"
+                      _hover={{ textDecoration: 'underline' }}
+                    >
+                      <Flex as="span" align="center" spacing="6px" py="6px" px={4}>
+                        <Icon size="small" type="close-circle" />
+                        <Box as="span">Clear Selection</Box>
+                      </Flex>
+                    </AbstractButton>
+                  </Box>
+                ))}
               <ComboBoxItems
                 items={results}
                 disableItem={disableItem}
