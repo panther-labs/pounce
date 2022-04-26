@@ -325,7 +325,7 @@ function MultiCombobox<Item>({
               >
                 <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
                   <>
-                    {renderPlaceHolder && Boolean(value.length)
+                    {renderPlaceHolder
                       ? renderPlaceHolder({ itemToString, removeItem })
                       : value.map(selectedItem => (
                           <Tag
