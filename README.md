@@ -75,7 +75,7 @@ const App = () => (
 )
 ```
 
-Make sure to wrap your **entire** app with a `<ThemeProvider>` to avoid un-necessary reconsiliations
+Make sure to wrap your **entire** app with a `<ThemeProvider>` to avoid un-necessary reconciliations
 and to gain in performance.
 
 The next step would be to make sure you have your selected font-family installed. By default,

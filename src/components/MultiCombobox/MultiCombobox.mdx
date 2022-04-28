@@ -180,7 +180,7 @@ const Example5 = () => {
 <Example5 />;
 ```
 
-A MultiCombobox can have a custom placeholder passed to it
+A MultiCombobox can have custom content passed to it
 
 ```typescript jsx
 const Example6 = () => {
@@ -196,7 +196,7 @@ const Example6 = () => {
         <MultiCombobox
           label="Filter columns"
           variant="solid"
-          renderPlaceHolder={() => <div>Filtered Columns ({selectedMoto.length})</div>}
+          renderContent={() => <div>Filtered Columns ({selectedMoto.length})</div>}
           items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
           hideLabel
           onChange={updateSelectedMoto}

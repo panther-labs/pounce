@@ -13,6 +13,12 @@ import AbstractButton from '../AbstractButton';
 import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
 import Icon from '../Icon';
 
+type DefaultContentProps<T> = {
+  itemToString: (item: T) => string;
+  removeItem: (item: T) => void;
+  value: T[];
+};
+
 export type MultiComboboxProps<T> = {
   /** Callback when the selection changes */
   onChange: (value: T[]) => void;
@@ -59,14 +65,8 @@ export type MultiComboboxProps<T> = {
   /** Whether the multi-combobox is required or not */
   required?: boolean;
 
-  /** Override the default placeholder.  Passes in the `clearSelectedItems` callback */
-  renderPlaceHolder?: ({
-    itemToString,
-    removeItem,
-  }: {
-    itemToString: (item: T) => string;
-    removeItem: (item: T) => void;
-  }) => React.ReactNode;
+  /** Override the default tag content */
+  renderContent?: ({ itemToString, removeItem, value }: DefaultContentProps<T>) => React.ReactNode;
 
   /** Whether the multi-combobox is disabled or not */
   disabled?: boolean;
@@ -132,6 +132,14 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
   }
 };
 
+function DefaultContent<T>({ value, itemToString, removeItem }: DefaultContentProps<T>) {
+  return value.map(selectedItem => (
+    <Tag as="li" key={itemToString(selectedItem)} m={1} onRemove={() => removeItem(selectedItem)}>
+      {itemToString(selectedItem)}
+    </Tag>
+  ));
+}
+
 /**
  * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
@@ -156,7 +164,7 @@ function MultiCombobox<Item>({
   canClearAllAfter,
   invalid,
   hidden,
-  renderPlaceHolder,
+  renderContent = DefaultContent,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
   const getVariant = React.useCallback(
@@ -322,18 +330,7 @@ function MultiCombobox<Item>({
               >
                 <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
                   <>
-                    {renderPlaceHolder
-                      ? renderPlaceHolder({ itemToString, removeItem })
-                      : value.map(selectedItem => (
-                          <Tag
-                            as="li"
-                            key={itemToString(selectedItem)}
-                            m={1}
-                            onRemove={() => removeItem(selectedItem)}
-                          >
-                            {itemToString(selectedItem)}
-                          </Tag>
-                        ))}
+                    {renderContent({ itemToString, removeItem, value })}
                     <Box
                       as="li"
                       maxWidth="100%"

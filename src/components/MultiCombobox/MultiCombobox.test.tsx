@@ -327,7 +327,7 @@ describe('MultiCombobox', () => {
     expect(queryAllByRole('tag')).toHaveLength(items.filter(i => i.category === 'Normal').length);
   });
 
-  it('renders a custom placeholder', async () => {
+  it('renders custom content', async () => {
     const ComboBox: React.FC<Partial<MultiComboboxProps<Item>>> = props => {
       const [selectedManufacturer, updateSelectedManufacturer] = React.useState<Item[]>([]);
 
@@ -338,7 +338,7 @@ describe('MultiCombobox', () => {
           value={selectedManufacturer}
           items={items}
           itemToString={item => item.value}
-          renderPlaceHolder={() => <>Custom Placeholder</>}
+          renderContent={() => <>Custom Placeholder</>}
           {...props}
         />
       );
