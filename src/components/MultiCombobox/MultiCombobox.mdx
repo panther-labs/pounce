@@ -147,6 +147,7 @@ const Example5 = () => {
     'BMW',
     'Moto Guzzi',
   ]);
+
   return (
     <>
       <Box width={0.4} mr={4}>
@@ -179,10 +180,42 @@ const Example5 = () => {
 <Example5 />;
 ```
 
+A MultiCombobox can have custom content passed to it
+
+```typescript jsx
+const Example6 = () => {
+  const [selectedMoto, updateSelectedMoto] = React.useState([
+    'Benelli',
+    'Ducati',
+    'BMW',
+    'Moto Guzzi',
+  ]);
+  return (
+    <>
+      <Box width={0.4}>
+        <MultiCombobox
+          label="Filter columns"
+          variant="solid"
+          renderContent={() => <div>Filtered Columns ({selectedMoto.length})</div>}
+          items={['Benelli', 'Ducati', 'BMW', 'Moto Guzzi', 'Piaggio']}
+          hideLabel
+          onChange={updateSelectedMoto}
+          value={selectedMoto}
+          canClearAllAfter={4}
+          alwaysUsePlaceholder
+        />
+      </Box>
+    </>
+  );
+};
+
+<Example6 />;
+```
+
 A MultiCombobox can have "solid" variant:
 
 ```typescript jsx
-const Example5 = () => {
+const Example7 = () => {
   const [selectedItems, updateSelectedItems] = React.useState([]);
   return (
     <Box width={0.3}>
@@ -199,13 +232,13 @@ const Example5 = () => {
   );
 };
 
-<Example5 />;
+<Example7 />;
 ```
 
 A MultiCombobox can have grouped items:
 
 ```typescript jsx
-const Example6 = () => {
+const Example8 = () => {
   const [selectedCar, updateSelectedCar] = React.useState([]);
   const [selectedMoto, updateSelectedMoto] = React.useState([]);
   return (
@@ -269,5 +302,5 @@ const Example6 = () => {
   );
 };
 
-<Example6 />;
+<Example8 />;
 ```
