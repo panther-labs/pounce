@@ -17,6 +17,7 @@ type DefaultContentProps<T> = {
   itemToString: (item: T) => string;
   removeItem: (item: T) => void;
   value: T[];
+  isOpen: boolean;
 };
 
 export type MultiComboboxProps<T> = {
@@ -66,7 +67,12 @@ export type MultiComboboxProps<T> = {
   required?: boolean;
 
   /** Override the default tag content */
-  renderContent?: ({ itemToString, removeItem, value }: DefaultContentProps<T>) => React.ReactNode;
+  renderContent?: ({
+    itemToString,
+    removeItem,
+    value,
+    isOpen,
+  }: DefaultContentProps<T>) => React.ReactNode;
 
   /** Whether the multi-combobox is disabled or not */
   disabled?: boolean;
@@ -330,7 +336,7 @@ function MultiCombobox<Item>({
               >
                 <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
                   <>
-                    {renderContent({ itemToString, removeItem, value })}
+                    {renderContent({ itemToString, removeItem, value, isOpen })}
                     <Box
                       as="li"
                       maxWidth="100%"
