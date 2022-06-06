@@ -29,3 +29,22 @@ Content can be anything as well:
   <Box>Hover me to see a pretty icon</Box>
 </Tooltip>
 ```
+
+The default right-side positioning can be customized:
+
+```typescript jsx
+// Center the tooltip, but collisions will win
+const centered = (triggerRect, tooltipRect) => {
+  const triggerCenter = triggerRect.left + triggerRect.width / 2;
+  const left = triggerCenter - tooltipRect.width / 2;
+  const maxLeft = window.innerWidth - tooltipRect.width - 2;
+  return {
+    left: Math.min(Math.max(2, left), maxLeft) + window.scrollX,
+    top: triggerRect.bottom + 8 + window.scrollY,
+  };
+};
+
+<Tooltip content="hello!" position={centered}>
+  <Box>Hover me for a greeting</Box>
+</Tooltip>;
+```
