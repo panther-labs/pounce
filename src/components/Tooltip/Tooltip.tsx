@@ -12,7 +12,7 @@ export interface TooltipProps {
   content: string | React.ReactElement;
 
   /** The position of the tooltip relative to the content */
-  position: Position;
+  position?: Position;
 
   /** @ignore */
   children: React.ReactElement;
