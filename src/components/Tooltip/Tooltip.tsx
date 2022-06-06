@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTooltip, TooltipPopup } from '@reach/tooltip';
+import { Position } from '@reach/popover';
 import { useTransition, animated } from 'react-spring';
 import { positionRight } from './utils';
 import Box from '../Box';
@@ -10,13 +11,16 @@ export interface TooltipProps {
   /** The string or HTML that the tooltip will show*/
   content: string | React.ReactElement;
 
+  /** The position of the tooltip relative to the content */
+  position?: Position;
+
   /** @ignore */
   children: React.ReactElement;
 }
 
 /** A tooltip is a helper that shows some helping text when hovering or clicking something */
 const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
-  { content, children },
+  { content, position = positionRight, children },
   ref
 ) {
   const [trigger, { triggerRect }, isVisible] = useTooltip();
@@ -44,7 +48,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               key={key}
               style={{ ...styles, zIndex: 11, position: 'absolute' }}
               ref={ref}
-              position={positionRight}
+              position={position}
               as={'div'}
               label={
                 <Box
