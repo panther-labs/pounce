@@ -45,7 +45,17 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(function Table(
   );
   return (
     <TableContext.Provider value={contextValue}>
-      <Box as="table" tableLayout={layout} ref={ref} width={1} {...rest} />
+      <Box
+        as="table"
+        tableLayout={layout}
+        ref={ref}
+        width={1}
+        // Make a new "stacking context" so that any absolute- / sticky-positioned
+        // items (like header rows) will not pollute the global z-index space.
+        position="relative"
+        zIndex={0}
+        {...rest}
+      />
     </TableContext.Provider>
   );
 });
