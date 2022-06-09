@@ -45,7 +45,7 @@
     "@types/styled-system__should-forward-prop": "^5.1.2",
     "cross-env": "^7.0.3",
     "dayjs": "^1.10.6",
-    "downshift": "^5.0.5",
+    "downshift": "^6.0.0",
     "fuzzaldrin": "^2.1.0",
     "lodash": "^4.17.21",
     "react-spring": "^8.0.27",
