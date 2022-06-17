@@ -2,10 +2,10 @@
 import React from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
-import Box from '../Box';
+import Box, { NativeAttributes } from '../Box';
 import IconButton from '../IconButton';
 import Flex from '../Flex';
-import { InputControl, InputLabel, InputElement, InputElementProps } from '../utils/Input';
+import { InputControl, InputLabel, InputElement } from '../utils/Input';
 import Tag from './Tag';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
@@ -20,7 +20,7 @@ type DefaultContentProps<T> = {
   isOpen: boolean;
 };
 
-export type MultiComboboxProps<T> = {
+export type MultiComboboxProps<T> = Omit<NativeAttributes<'input'>, 'value' | 'onChange'> & {
   /** Callback when the selection changes */
   onChange: (value: T[]) => void;
 
@@ -152,6 +152,7 @@ function DefaultContent<T>({ value, itemToString, removeItem }: DefaultContentPr
  */
 function MultiCombobox<Item>({
   onChange,
+  onBlur,
   value,
   variant = 'outline',
   items,
@@ -294,10 +295,13 @@ function MultiCombobox<Item>({
               }
             }
           },
-          onBlur: () => {
+          onBlur: (e: React.FocusEvent<HTMLInputElement>) => {
             const processedUserValue = processUserValue(inputValue);
             if (allowAdditions && validateUserValue(processedUserValue)) {
               selectItem((processedUserValue as unknown) as Item, { inputValue: '' });
+            }
+            if (onBlur) {
+              onBlur(e);
             }
           },
           onPaste: (e: React.ClipboardEvent<HTMLInputElement>) => {
@@ -359,7 +363,7 @@ function MultiCombobox<Item>({
                       <InputElement
                         type="text"
                         standalone={hideLabel}
-                        {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
+                        {...getInputProps(additionalInputProps)}
                       />
                     </Box>
                   </>

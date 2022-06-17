@@ -1,6 +1,7 @@
 import { renderWithTheme, fireClickAndMouseEvents, fireEvent, within } from 'test-utils';
 import React from 'react';
 import MultiCombobox, { MultiComboboxProps } from './index';
+import userEvent from '@testing-library/user-event';
 
 type Item = { value: string; category: string };
 
@@ -346,5 +347,18 @@ describe('MultiCombobox', () => {
 
     const { getByText } = renderWithTheme(<ComboBox />);
     expect(getByText('Custom Placeholder'));
+  });
+
+  it('fires onblur event when the input focus is lost', async () => {
+    const mock = jest.fn();
+    const { getByPlaceholderText } = renderWithTheme(
+      <>
+        <ControlledMultiCombobox searchable canClearAllAfter={2} onBlur={mock} />
+        <input placeholder="another input" />
+      </>
+    );
+    userEvent.click(getByPlaceholderText('Select manufacturers'));
+    userEvent.click(getByPlaceholderText('another input'));
+    expect(mock).toHaveBeenCalledTimes(1);
   });
 });
