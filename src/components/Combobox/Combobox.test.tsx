@@ -1,6 +1,7 @@
 import { renderWithTheme, fireClickAndMouseEvents } from 'test-utils';
 import React from 'react';
 import Combobox, { ComboboxProps } from './index';
+import userEvent from '@testing-library/user-event';
 
 type Item = { value: string; category: string };
 
@@ -61,5 +62,18 @@ describe('Combobox', () => {
 
     fireClickAndMouseEvents(clearSelectionButton);
     expect(selectionInput).not.toHaveValue();
+  });
+
+  it('fires onblur event when the input focus is lost', async () => {
+    const mock = jest.fn();
+    const { getByPlaceholderText } = renderWithTheme(
+      <>
+        <ControlledCombobox onBlur={mock} />
+        <input placeholder="another input" />
+      </>
+    );
+    userEvent.click(getByPlaceholderText('Select manufacturer'));
+    userEvent.click(getByPlaceholderText('another input'));
+    expect(mock).toHaveBeenCalledTimes(1);
   });
 });

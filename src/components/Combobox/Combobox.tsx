@@ -185,6 +185,7 @@ function Combobox<Item>({
             cursor: 'pointer',
             onMouseDown: toggleMenu,
             onFocus: openMenu,
+            onBlur: onBlur,
             readOnly: true,
           }),
           ...(searchable && {
