@@ -1,4 +1,6 @@
+import { useId } from '@reach/auto-id';
 import React from 'react';
+import { theme } from '../../theme';
 import Box, { NativeAttributes } from '../Box';
 import Flex from '../Flex';
 
@@ -19,6 +21,10 @@ export type SwitchProps = NativeAttributes<'input'> & {
   uncheckedText?: string;
 };
 
+const switchFocusStyles = {
+  outline: `1px solid ${theme.colors['blue-200']}`,
+};
+
 /**
  *  A Switch is a typical Checkbox with a different UI. It's mainly used for settings pages, when
  *  enabling or disabling feature
@@ -33,10 +39,12 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
     invalid,
     readOnly,
     hidden,
+    id,
     ...rest
   },
   ref
 ) {
+  const inputId = useId(id);
   if (!label && !(rest['aria-label'] || rest['aria-labelledby'])) {
     console.error(
       'The `label` prop was omitted without providing an `aria-label` or `aria-labelledby` attribute'
@@ -45,7 +53,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
 
   return (
     <Box
-      as="label"
+      as="span"
       display="flex"
       justifyContent="space-between"
       alignItems="center"
@@ -56,10 +64,11 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
       aria-hidden={hidden}
     >
       {label && (
-        <Box as="span" userSelect="none" mr={2}>
+        <Box as="label" userSelect="none" mr={2} htmlFor={inputId}>
           {label}
         </Box>
       )}
+
       <Flex
         position="relative"
         align="center"
@@ -69,6 +78,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
         p={1}
         transition="background-color 0.15s linear"
         backgroundColor={invalid ? 'red-300' : checked ? 'blue-400' : 'gray-600'}
+        _focusWithin={switchFocusStyles}
       >
         <Box
           width={21}
@@ -89,11 +99,17 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
         >
           {checked ? checkedText : uncheckedText}
         </Box>
+
         <Box
           ref={ref}
           as="input"
           cursor="pointer"
           position="absolute"
+          height="100%"
+          width="100%"
+          top={0}
+          left={0}
+          margin="auto"
           opacity={0}
           type="checkbox"
           readOnly={readOnly}
@@ -102,6 +118,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           aria-invalid={invalid}
           checked={checked}
           disabled={disabled}
+          id={inputId}
           {...rest}
         />
       </Flex>

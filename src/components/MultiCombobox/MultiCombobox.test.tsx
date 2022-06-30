@@ -1,6 +1,7 @@
 import { renderWithTheme, fireClickAndMouseEvents, fireEvent, within } from 'test-utils';
 import React from 'react';
 import MultiCombobox, { MultiComboboxProps } from './index';
+import userEvent from '@testing-library/user-event';
 
 type Item = { value: string; category: string };
 
@@ -50,7 +51,7 @@ describe('MultiCombobox', () => {
     fireClickAndMouseEvents(await getByText('Toyota'));
     expect(container).toMatchSnapshot();
     fireClickAndMouseEvents(await getByText('Ford'));
-    expect(await getByText('Clear All')).toBeInTheDocument();
+    expect(await getByText('Clear Selection')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -98,12 +99,12 @@ describe('MultiCombobox', () => {
     fireClickAndMouseEvents(await getByText('Toyota'));
     fireClickAndMouseEvents(await getByText('Ford'));
     fireClickAndMouseEvents(await getByText('Mercedes'));
-    expect(await queryByText('Clear All')).not.toBeInTheDocument();
+    expect(await queryByText('Clear Selection')).not.toBeInTheDocument();
     fireClickAndMouseEvents(await getByText('Chevrolet'));
-    expect(await queryByText('Clear All')).toBeInTheDocument();
+    expect(await queryByText('Clear Selection')).toBeInTheDocument();
     fireClickAndMouseEvents(await getByText('Dodge'));
     expect(getAllByRole('tag')).toHaveLength(5);
-    fireClickAndMouseEvents(await getByText('Clear All'));
+    fireClickAndMouseEvents(await getByText('Clear Selection'));
     expect(queryAllByRole('tag')).toHaveLength(0);
   });
 
@@ -325,5 +326,39 @@ describe('MultiCombobox', () => {
 
     fireClickAndMouseEvents(getByText('Normal'));
     expect(queryAllByRole('tag')).toHaveLength(items.filter(i => i.category === 'Normal').length);
+  });
+
+  it('renders custom content', async () => {
+    const ComboBox: React.FC<Partial<MultiComboboxProps<Item>>> = props => {
+      const [selectedManufacturer, updateSelectedManufacturer] = React.useState<Item[]>([]);
+
+      return (
+        <MultiCombobox
+          label="Choose a car manufacturer"
+          onChange={updateSelectedManufacturer}
+          value={selectedManufacturer}
+          items={items}
+          itemToString={item => item.value}
+          renderContent={() => <>Custom Placeholder</>}
+          {...props}
+        />
+      );
+    };
+
+    const { getByText } = renderWithTheme(<ComboBox />);
+    expect(getByText('Custom Placeholder'));
+  });
+
+  it('fires onblur event when the input focus is lost', async () => {
+    const mock = jest.fn();
+    const { getByPlaceholderText } = renderWithTheme(
+      <>
+        <ControlledMultiCombobox searchable canClearAllAfter={2} onBlur={mock} />
+        <input placeholder="another input" />
+      </>
+    );
+    userEvent.click(getByPlaceholderText('Select manufacturers'));
+    userEvent.click(getByPlaceholderText('another input'));
+    expect(mock).toHaveBeenCalledTimes(1);
   });
 });

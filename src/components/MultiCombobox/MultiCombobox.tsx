@@ -2,17 +2,25 @@
 import React from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
-import Box from '../Box';
+import Box, { NativeAttributes } from '../Box';
 import IconButton from '../IconButton';
 import Flex from '../Flex';
-import { InputControl, InputLabel, InputElement, InputElementProps } from '../utils/Input';
+import { InputControl, InputLabel, InputElement } from '../utils/Input';
 import Tag from './Tag';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 import AbstractButton from '../AbstractButton';
 import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
+import Icon from '../Icon';
 
-export type MultiComboboxProps<T> = {
+type DefaultContentProps<T> = {
+  itemToString: (item: T) => string;
+  removeItem: (item: T) => void;
+  value: T[];
+  isOpen: boolean;
+};
+
+export type MultiComboboxProps<T> = Omit<NativeAttributes<'input'>, 'value' | 'onChange'> & {
   /** Callback when the selection changes */
   onChange: (value: T[]) => void;
 
@@ -57,6 +65,14 @@ export type MultiComboboxProps<T> = {
 
   /** Whether the multi-combobox is required or not */
   required?: boolean;
+
+  /** Override the default tag content */
+  renderContent?: ({
+    itemToString,
+    removeItem,
+    value,
+    isOpen,
+  }: DefaultContentProps<T>) => React.ReactNode;
 
   /** Whether the multi-combobox is disabled or not */
   disabled?: boolean;
@@ -122,12 +138,21 @@ const stateReducer = (state: DownshiftState<any>, changes: StateChangeOptions<an
   }
 };
 
+function DefaultContent<T>({ value, itemToString, removeItem }: DefaultContentProps<T>) {
+  return value.map(selectedItem => (
+    <Tag as="li" key={itemToString(selectedItem)} m={1} onRemove={() => removeItem(selectedItem)}>
+      {itemToString(selectedItem)}
+    </Tag>
+  ));
+}
+
 /**
  * A simple MultiCombobox can be thought of as a typical `<select>` component. Whenever you would
  * use a normal select, you should now pass the `<MultiCombobox>` component.
  */
 function MultiCombobox<Item>({
   onChange,
+  onBlur,
   value,
   variant = 'outline',
   items,
@@ -146,6 +171,7 @@ function MultiCombobox<Item>({
   canClearAllAfter,
   invalid,
   hidden,
+  renderContent = DefaultContent,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
   const getVariant = React.useCallback(
@@ -225,7 +251,7 @@ function MultiCombobox<Item>({
           }).map(i => i.item);
         }
 
-        // We add 2 types of additional data to the input that is going to be renders:
+        // We add 2 types of additional data to the input that is going to be rendered:
         // 1. A handler for the `Delete` button, so that you can delete tokens with a single key
         // 3. When the combobox is not searchable, we make the input "behave" like a div. We
         // still want an input though for placeholder, spacings, etc.
@@ -269,10 +295,13 @@ function MultiCombobox<Item>({
               }
             }
           },
-          onBlur: () => {
+          onBlur: (e: React.FocusEvent<HTMLInputElement>) => {
             const processedUserValue = processUserValue(inputValue);
             if (allowAdditions && validateUserValue(processedUserValue)) {
               selectItem((processedUserValue as unknown) as Item, { inputValue: '' });
+            }
+            if (onBlur) {
+              onBlur(e);
             }
           },
           onPaste: (e: React.ClipboardEvent<HTMLInputElement>) => {
@@ -311,16 +340,7 @@ function MultiCombobox<Item>({
               >
                 <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
                   <>
-                    {value.map(selectedItem => (
-                      <Tag
-                        as="li"
-                        key={itemToString(selectedItem)}
-                        m={1}
-                        onRemove={() => removeItem(selectedItem)}
-                      >
-                        {itemToString(selectedItem)}
-                      </Tag>
-                    ))}
+                    {renderContent({ itemToString, removeItem, value, isOpen })}
                     <Box
                       as="li"
                       maxWidth="100%"
@@ -343,22 +363,11 @@ function MultiCombobox<Item>({
                       <InputElement
                         type="text"
                         standalone={hideLabel}
-                        {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
+                        {...getInputProps(additionalInputProps)}
                       />
                     </Box>
                   </>
                 </Flex>
-                {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (
-                  <AbstractButton
-                    width="100%"
-                    py={1}
-                    backgroundColor="blue-400"
-                    fontSize="2x-small"
-                    onClick={clearSelectedItems}
-                  >
-                    Clear All
-                  </AbstractButton>
-                )}
 
                 <InputLabel
                   visuallyHidden={hideLabel}
@@ -396,6 +405,29 @@ function MultiCombobox<Item>({
               isOpen={isOpen && results.length > 0}
               {...getMenuProps()}
             >
+              {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (
+                <Box
+                  as="li"
+                  listStyle="none"
+                  backgroundColor="navyblue-350"
+                  position="sticky"
+                  top={0}
+                  zIndex={1}
+                >
+                  <AbstractButton
+                    width="100%"
+                    onClick={clearSelectedItems}
+                    fontSize="x-small"
+                    color="teal-200"
+                    _hover={{ textDecoration: 'underline' }}
+                  >
+                    <Flex as="span" align="center" spacing="6px" py="6px" px={4}>
+                      <Icon size="small" type="close-circle" />
+                      <Box as="span">Clear Selection</Box>
+                    </Flex>
+                  </AbstractButton>
+                </Box>
+              )}
               <ComboBoxItems
                 items={results}
                 disableItem={disableItem}

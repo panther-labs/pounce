@@ -6,6 +6,9 @@ export type RadioProps = NativeAttributes<'input'> & {
   /** The label associated with the Radio. Appears on the right. */
   label?: string;
 
+  /** The size of the Radio. Defaults to `medium`. */
+  size?: 'medium' | 'large';
+
   /** Whether the checkbox is currently disabled */
   disabled?: boolean;
 
@@ -18,7 +21,7 @@ export type RadioProps = NativeAttributes<'input'> & {
  *  can pass it as many native attrs as you wish.
  */
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
-  { checked, label, disabled, invalid, hidden, readOnly, ...rest },
+  { checked, label, disabled, invalid, hidden, size = 'medium', readOnly, ...rest },
   ref
 ) {
   const radioStyles = useRadioStyles({ invalid, checked });
@@ -29,8 +32,8 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
       display="inline-flex"
       alignItems="center"
       cursor="pointer"
-      fontSize="medium"
-      fontWeight="medium"
+      fontSize={size === 'medium' ? 'medium' : 'x-large'}
+      fontWeight={size === 'medium' ? 'medium' : 'bold'}
       verticalAlign="top"
       aria-disabled={disabled}
       aria-hidden={hidden}

@@ -92,6 +92,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
         hideLabel
         items={hourItems}
         value={hour}
+        showClearSelectionControl={false}
       />
 
       <Combobox
@@ -102,6 +103,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
         hideLabel
         items={minsItems}
         value={min}
+        showClearSelectionControl={false}
       />
 
       {is12Hours && (
@@ -112,6 +114,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
           hideLabel
           items={periodItems}
           value={period}
+          showClearSelectionControl={false}
         />
       )}
     </Flex>

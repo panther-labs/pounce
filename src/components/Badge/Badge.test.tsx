@@ -31,3 +31,15 @@ it('aligns with a11y', async () => {
     expect(results).toHaveNoViolations();
   });
 });
+
+it('renders `small` size correctly', () => {
+  const { container } = renderWithTheme(<Badge color="red-300" size="small">Small</Badge>); // prettier-ignore
+
+  expect(container).toMatchSnapshot();
+});
+
+it('renders `medium` size correctly', () => {
+  const { container } = renderWithTheme(<Badge color="red-300">Medium</Badge>);
+
+  expect(container).toMatchSnapshot();
+});

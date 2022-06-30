@@ -2,17 +2,17 @@
 import React from 'react';
 import Downshift from 'downshift';
 import { filter as fuzzySearch } from 'fuzzaldrin';
-import Box from '../Box';
+import Box, { NativeAttributes } from '../Box';
 import Flex from '../Flex';
 import IconButton from '../IconButton';
 import AbstractButton from '../AbstractButton';
-import { InputControl, InputElement, InputLabel, InputElementProps } from '../utils/Input';
+import { InputControl, InputElement, InputLabel } from '../utils/Input';
 import { typedMemo } from '../../utils/helpers';
 import Menu from '../utils/Menu';
 import ComboBoxItems from '../utils/ComboBoxItems/ComboBoxItems';
 import Icon from '../Icon';
 
-export type ComboboxProps<T> = {
+export type ComboboxProps<T> = Omit<NativeAttributes<'input'>, 'value' | 'onChange'> & {
   /** Callback when the selection changes */
   onChange: (value: T | null) => void;
 
@@ -92,6 +92,7 @@ export type ComboboxProps<T> = {
  */
 function Combobox<Item>({
   onChange,
+  onBlur,
   value,
   items,
   variant = 'outline',
@@ -184,6 +185,7 @@ function Combobox<Item>({
             cursor: 'pointer',
             onMouseDown: toggleMenu,
             onFocus: openMenu,
+            onBlur: onBlur,
             readOnly: true,
           }),
           ...(searchable && {
@@ -194,9 +196,12 @@ function Combobox<Item>({
               openMenu();
               setInputValue('');
             },
-            onBlur: () => {
+            onBlur: (e: React.FocusEvent<HTMLInputElement>): void => {
               closeMenu();
               setInputValue(safeItemToString(value));
+              if (onBlur) {
+                onBlur(e);
+              }
             },
           }),
         };
@@ -217,7 +222,7 @@ function Combobox<Item>({
                   truncated
                   standalone={hideLabel}
                   pr={8} /* account for absolute position of caret */
-                  {...(getInputProps(additionalInputProps) as Omit<InputElementProps, 'ref'>)}
+                  {...getInputProps(additionalInputProps)}
                 />
 
                 <InputLabel visuallyHidden={hideLabel} raised={value != null} {...getLabelProps()}>
