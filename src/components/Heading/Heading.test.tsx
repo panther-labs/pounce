@@ -17,17 +17,19 @@ describe('Heading', () => {
   it('does not render above an h6', () => {
     const { getByText } = renderWithTheme(
       <div>
-        <Heading>h2</Heading>
         <Section>
-          <Heading>h3</Heading>
+          <Heading>h2</Heading>
           <Section>
-            <Heading>h4</Heading>
+            <Heading>h3</Heading>
             <Section>
-              <Heading>h5</Heading>
+              <Heading>h4</Heading>
               <Section>
-                <Heading>h6</Heading>
+                <Heading>h5</Heading>
                 <Section>
-                  <Heading>still h6</Heading>
+                  <Heading>h6</Heading>
+                  <Section>
+                    <Heading>still h6</Heading>
+                  </Section>
                 </Section>
               </Section>
             </Section>
@@ -46,8 +48,11 @@ describe('Heading', () => {
 
   it('allows increasing the heading context with custom markup', () => {
     const { container, getByText } = renderWithTheme(
-      <Section as="header">
-        <Heading>h3</Heading>
+      <Section>
+        <Heading>h2</Heading>
+        <Section as="header">
+          <Heading>h3</Heading>
+        </Section>
       </Section>
     );
     expect(container.querySelector('header')).toBeInTheDocument();

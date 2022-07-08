@@ -69,7 +69,7 @@ const Modal: React.FC<ModalProps> = ({
                   <Card minWidth="400px" position="relative" boxShadow="dark200">
                     {title && (
                       <Box as="header" borderBottom="1px solid" borderColor="navyblue-300" py={6}>
-                        <Heading as={Heading} size="x-small" textAlign="center" id={id}>
+                        <Heading size="x-small" textAlign="center" id={id}>
                           {title}
                         </Heading>
                       </Box>

@@ -5,13 +5,16 @@ import Heading from '../Heading';
 
 describe('Article', () => {
   it('increases heading levels by 1', () => {
-    const { container, getByText } = renderWithTheme(
+    const { getByText } = renderWithTheme(
       <Article>
-        <Heading>h3</Heading>
+        <Heading>h2</Heading>
+        <Article>
+          <Heading>h3</Heading>
+        </Article>
       </Article>
     );
 
-    expect(container.querySelector('h2')).not.toBeInTheDocument();
+    expect(getByText('h2').tagName).toEqual('H2');
     expect(getByText('h3').tagName).toEqual('H3');
   });
 });
