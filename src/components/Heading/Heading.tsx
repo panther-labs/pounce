@@ -2,7 +2,15 @@ import React from 'react';
 import Box, { BoxProps } from '../Box';
 import useHeadingStyles from './useHeadingStyles';
 
-export interface HeadingProps extends BoxProps<'h1'> {
+// Default heading levels to `h2`:
+//
+// This is so that you can drop `<Heading>` on a page _anywhere_ and it will be
+// semantically correct. Since you should _usually_ only have 1 `h1` on the page,
+// that can be done by explicitly overriding the `as` prop (`<Heading as="h1">`).
+export const DEFAULT_HEADING_LEVEL = 2;
+export const HeadingLevelContext = React.createContext<number | null>(null);
+
+export interface HeadingProps extends BoxProps<'h2'> {
   /** The size of the font */
   size?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large' | '3x-large';
 }
@@ -12,12 +20,16 @@ export interface HeadingProps extends BoxProps<'h1'> {
  * then you can use this
  * */
 export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(function Heading(
-  { size = 'medium', ...rest },
+  { size = 'medium', as, ...rest },
   ref
 ) {
   const styles = useHeadingStyles({ size });
+  const level = React.useContext(HeadingLevelContext);
 
-  return <Box as="h1" ref={ref} fontWeight="normal" {...styles} {...rest} />;
+  // `Math.min` makes sure that the heading level is never above a h6
+  const hTag = ('h' + Math.min(level || DEFAULT_HEADING_LEVEL, 6)) as React.ElementType;
+
+  return <Box as={as || hTag} ref={ref} fontWeight="normal" {...styles} {...rest} />;
 });
 
 export default Heading;

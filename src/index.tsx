@@ -39,6 +39,7 @@ export * from './components/ProgressBar';
 
 export { default as Alert } from './components/Alert';
 export { default as AbstractButton } from './components/AbstractButton';
+export { default as Article } from './components/Article';
 export { default as Badge } from './components/Badge';
 export { default as Box } from './components/Box';
 export { default as Breadcrumbs } from './components/Breadcrumbs';
@@ -67,6 +68,7 @@ export { default as MultiCombobox } from './components/MultiCombobox';
 export { default as Modal } from './components/Modal';
 export * from './components/Popover';
 export { default as Radio } from './components/Radio';
+export { default as Section } from './components/Section';
 export { default as SideSheet } from './components/SideSheet';
 export { default as Snackbar } from './components/Snackbar';
 export { default as Spinner } from './components/Spinner';

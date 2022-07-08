@@ -6,6 +6,7 @@ import Button from '../Button';
 import Month from './Month';
 import { IconButton } from '../../index';
 import DateWrapper from './DateWrapper';
+import Heading from '../Heading';
 import TextInput, { TextInputProps } from '../TextInput';
 import TimePicker from './TimePicker';
 import ClearButton from './ClearButton';
@@ -197,7 +198,7 @@ const DateInput: React.FC<DateInputProps & Omit<TextInputProps, 'value' | 'onCha
             icon="arrow-back"
             aria-label="Go to previous month"
           />
-          <Box as="h4" fontSize="medium" fontWeight="bold" tabIndex="-1">
+          <Box as={Heading} fontSize="medium" fontWeight="bold" tabIndex="-1">
             {currentMonth.format('MMMM YYYY')}
           </Box>
           <IconButton
