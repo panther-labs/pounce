@@ -26,6 +26,7 @@ const colors = {
   'navyblue-600': '#192231',
   'navyblue-700': '#141C2A',
   'navyblue-800': '#0F1623',
+  'navyblue-900': '#0A0F1A',
 
   'blue-100': '#ACE2FF',
   'blue-200': '#7FD3FF',
