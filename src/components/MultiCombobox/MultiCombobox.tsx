@@ -264,7 +264,10 @@ function MultiCombobox<Item>({
             placeholder: !value.length ? placeholder : '',
           }),
           ...(searchable && {
-            placeholder: (hideLabel && value.length && !isOpen) || value.length ? '' : placeholder,
+            placeholder:
+              (hideLabel && value && value.length && !isOpen) || (value && value.length)
+                ? ''
+                : placeholder,
             p: isOpen ? 1 : null,
           }),
           position: 'absolute',
