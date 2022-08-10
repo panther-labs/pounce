@@ -277,11 +277,11 @@ const icons = {
   expand: {
     path: (
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M19 5V11H17V8.327L8.328 17H11V19H5V13H7L6.999 15.5L15.499 7H13V5H19Z" fill="#FEFEFE"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 5V11H17V8.327L8.328 17H11V19H5V13H7L6.999 15.5L15.499 7H13V5H19Z"
       />
-    )
+    ),
   },
   history: {
     path: (
