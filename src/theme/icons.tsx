@@ -274,6 +274,15 @@ const icons = {
   download: {
     path: <path d="M16 13H13V3H11V13H8L12 17L16 13ZM4 19V21H20V19H4Z" />,
   },
+  expand: {
+    path: (
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 5V11H17V8.327L8.328 17H11V19H5V13H7L6.999 15.5L15.499 7H13V5H19Z"
+      />
+    ),
+  },
   history: {
     path: (
       <React.Fragment>
