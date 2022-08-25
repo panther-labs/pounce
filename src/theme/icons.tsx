@@ -628,7 +628,7 @@ const icons = {
       />
     ),
   },
-  'markdown-icon': {
+  markdown: {
     path: (
       <React.Fragment>
         <path
