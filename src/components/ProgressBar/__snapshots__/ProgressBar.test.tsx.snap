@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar renders 1`] = `
+.pounce-2 {
+  width: 100%;
+  position: relative;
+}
+
+.pounce-0 {
+  height: 5px;
+  background-color: white;
+  border-radius: pill;
+  z-index: 0;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-1 {
+  position: absolute;
+  border-radius: pill;
+  bottom: 0;
+  height: 5px;
+  width: 50%;
+  -webkit-transition: width 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: width 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  z-index: 1;
+}
+
+.pounce-3 {
+  height: 10px;
+  background-color: white;
+  border-radius: pill;
+  z-index: 0;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.pounce-4 {
+  position: absolute;
+  border-radius: pill;
+  bottom: 0;
+  height: 10px;
+  width: 50%;
+  -webkit-transition: width 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: width 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  z-index: 1;
+}
+
+.pounce-7 {
+  position: absolute;
+  border-radius: pill;
+  bottom: 0;
+  height: 5px;
+  width: 50%;
+  background-color: teal-400;
+  -webkit-transition: width 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  transition: width 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,background-color 100ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  z-index: 1;
+}
+
+<div>
+  <div
+    class="pounce-2"
+  >
+    <div
+      class="pounce-0"
+    />
+    <div
+      class="pounce-1"
+    />
+  </div>
+  <div
+    class="pounce-2"
+  >
+    <div
+      class="pounce-3"
+    />
+    <div
+      class="pounce-4"
+    />
+  </div>
+  <div
+    class="pounce-2"
+  >
+    <div
+      class="pounce-0"
+    />
+    <div
+      class="pounce-7"
+    />
+  </div>
+</div>
+`;
