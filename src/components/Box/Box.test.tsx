@@ -12,6 +12,19 @@ describe('Box', () => {
     const { container } = await render(<Box truncated />);
     expect(container).toMatchSnapshot();
   });
+
+  it('allows specifying an opacity for the background color', async () => {
+    const { container } = await render(
+      <React.Fragment>
+        <Box backgroundColor="white" backgroundOpacity="0.5" />
+        <Box backgroundColor="white" backgroundOpacity={0.5} />
+        <Box backgroundColor="white" backgroundOpacity="50" />
+        <Box backgroundColor="white" backgroundOpacity={50} />
+      </React.Fragment>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it('allows styling on demand', async () => {
     const { container } = await render(
       <Box color="black" background="red" textTransform="uppercase" />
