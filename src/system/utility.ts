@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import css, { SystemCssProperties } from '@styled-system/css';
 import { StylingProps } from './system';
+import { addOpacity } from '../utils/helpers';
+import colors from '../theme/colors';
 
 export const truncateProp = ({ truncated }: any): any => {
   if (truncated) {
@@ -27,6 +29,27 @@ export const visuallyHiddenProp = ({ visuallyHidden }: any): any => {
   }
 };
 
+export const backgroundOpacityProp = ({
+  backgroundOpacity,
+  backgroundColor,
+}: {
+  backgroundOpacity: number | string;
+  backgroundColor: keyof typeof colors;
+}): any => {
+  if (backgroundOpacity) {
+    // As the value of `backgroundOpacity` we want to be able to parse a lot of alternatives such as: 0.5, "0.5", 50, "50"
+    // Obviously the user can still add values such as "110" or "200", but we can't do much there
+    let bgOpacity =
+      typeof backgroundOpacity === 'string' ? Number(backgroundOpacity) : backgroundOpacity;
+    bgOpacity = bgOpacity > 1 ? bgOpacity / 100 : bgOpacity;
+
+    const bgColor = colors[backgroundColor] ?? colors.inherit;
+    return {
+      backgroundColor: addOpacity(bgColor, bgOpacity),
+    };
+  }
+};
+
 export type SxProp = StylingProps | { [cssSelector: string]: SxProp | undefined };
 export const sxProp = (props: any) => css(props.sx as SystemCssProperties)(props);
 
@@ -39,4 +62,7 @@ export type UtilityProps = {
 
   /** Makes the component invisible to the eye, but still readable by screen readers */
   visuallyHidden?: boolean;
+
+  /** Adds an opacity to the existing `backgroundColor` */
+  backgroundOpacity?: string | number;
 };

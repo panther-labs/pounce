@@ -4,18 +4,18 @@ needs to complete or to denote that something is not properly ready yet
 A ProgressBar can have different colors:
 
 ```typescript jsx
-<Box width={1}>
-  <Box mb={6}>
-    <ProgressBar color="blue-400" progress={0.6} />
-  </Box>
-  <Box>
-    <ProgressBar color="red-300" progress={0.9} />
-  </Box>
-</Box>
+<Flex direction="column" spacing={6} width={1}>
+  <ProgressBar color="blue-400" progress={0.4} />
+  <ProgressBar color="teal-400" progress={0.6} />
+</Flex>
 ```
 
 A ProgressBar can have different thickness:
 
 ```typescript jsx
-<ProgressBar color="blue-400" thickness={2} progress={0.6} />
+<Flex direction="column" spacing={6} width={1}>
+  <ProgressBar color="blue-400" thickness={4} progress={0.4} />
+  <ProgressBar color="teal-400" thickness={6} progress={0.6} />
+  <ProgressBar color="red-400" thickness={8} progress={0.8} />
+</Flex>
 ```
