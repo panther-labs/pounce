@@ -37,7 +37,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
 /** A wrapper that makes an <a href="/#/Icon">Icon<a> component be clickable */
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
   {
-    variantColor = 'blue-300',
+    variantColor = 'blue-400',
     variantBorderStyle = 'square',
     active = false,
     variant = 'solid',
