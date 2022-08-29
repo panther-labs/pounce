@@ -77,7 +77,11 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
         {...styles}
         {...rest}
       >
-        <Flex flexGrow={1} direction={'row'} align={'center'}>
+        <Flex
+          flexGrow={1}
+          direction={variantBackgroundStyle === 'solid' ? 'column' : 'row'}
+          align={variantBackgroundStyle === 'solid' ? 'flex-start' : 'center'}
+        >
           <Box>
             {title && (
               <Flex as="header" align="center">
@@ -96,13 +100,13 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
               </Flex>
             )}
             {description && (
-              <Box as="p" mt={title ? 3 : 0} fontSize="medium">
+              <Box as="p" mt={title ? 3 : 0} color={titleColor} fontSize="medium">
                 {description}
               </Box>
             )}
           </Box>
           {actions && (
-            <Flex mt={0} mr={0} ml="auto">
+            <Flex mt={variantBackgroundStyle === 'solid' ? 6 : 0} mr={0} ml="auto">
               {typeof actions === 'function' ? actions({ close }) : actions}
             </Flex>
           )}

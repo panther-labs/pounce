@@ -160,25 +160,22 @@ export const SnackbarProvider: React.FC = ({ children }) => {
       }
     };
     return ReactDOM.createPortal(
-      <>
+      <Flex
+        position="fixed"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="flex-end"
+        zIndex={9999}
+        {...getPositionProps(transitions[0]?.item?.position)}
+      >
         {transitions.map(({ item: { id, ...snackbarPublicProps }, key, props: styles }) => (
-          <Flex
-            key={'rubbish'}
-            position="fixed"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="flex-end"
-            zIndex={9999}
-            {...getPositionProps(snackbarPublicProps.position)}
-          >
-            <animated.div key={key} style={styles}>
-              <Box pt={3} ref={ref}>
-                <Snackbar destroy={() => removeSnackbar(id)} {...snackbarPublicProps} />
-              </Box>
-            </animated.div>
-          </Flex>
+          <animated.div key={key} style={styles}>
+            <Box pt={3} ref={ref}>
+              <Snackbar destroy={() => removeSnackbar(id)} {...snackbarPublicProps} />
+            </Box>
+          </animated.div>
         ))}
-      </>,
+      </Flex>,
       document.body
     );
   };
