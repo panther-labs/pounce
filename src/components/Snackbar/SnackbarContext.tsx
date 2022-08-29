@@ -143,20 +143,20 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     ) => {
       switch (position) {
         case 'top-left':
-          return { top: 0, left: 4 };
+          return { top: 0, left: 6 };
         case 'top-middle':
           return { top: 0, left: '50%', style: { transform: 'translate(-50%, 0)' } };
         case 'top-right':
-          return { top: 0, right: 4 };
+          return { top: 0, right: 6 };
         case 'bottom-left':
-          return { bottom: 4, left: 4 };
+          return { bottom: 3, left: 6 };
         case 'bottom-middle':
-          return { bottom: 4, left: '50%', style: { transform: 'translate(-50%, 0)' } };
+          return { bottom: 3, left: '50%', style: { transform: 'translate(-50%, 0)' } };
         case 'bottom-right':
-          return { bottom: 4, right: 4 };
+          return { bottom: 3, right: 6 };
         default:
           // bottom-left
-          return { bottom: 4, left: 4 };
+          return { bottom: 3, left: 6 };
       }
     };
     return ReactDOM.createPortal(
