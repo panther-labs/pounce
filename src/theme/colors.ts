@@ -28,6 +28,7 @@ const colors = {
   'navyblue-800': '#0F1623',
   'navyblue-900': '#0A0F1A',
 
+  'blue-400-10': '#E6EFFA', // 10% of blue-400
   'blue-100': '#ACE2FF',
   'blue-200': '#7FD3FF',
   'blue-300': '#11A5F3',
@@ -100,6 +101,7 @@ const colors = {
   'pink-700': '#87374B',
   'pink-800': '#662737',
 
+  'red-500-10': '#FCEDE9', // 10% of red-500
   'red-100': '#FF7577',
   'red-200': '#E85959',
   'red-300': '#D64242',
@@ -118,6 +120,7 @@ const colors = {
   'orange-700': '#713323',
   'orange-800': '#57291D',
 
+  'yellow-500-10': '#FEF7EA', // 10% of yellow-500
   'yellow-100': '#FFDD9B',
   'yellow-200': '#FFCB66',
   'yellow-300': '#FFC147',
@@ -127,6 +130,7 @@ const colors = {
   'yellow-700': '#B35D00',
   'yellow-800': '#804301',
 
+  'green-500-10': '#EAF7EE', // 10% of green-500
   'green-100': '#C9E3A1',
   'green-200': '#ACD46E',
   'green-300': '#98C356',

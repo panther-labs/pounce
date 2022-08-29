@@ -23,6 +23,15 @@ export interface ControlledAlertProps {
   /** The background style of the ControlledAlert */
   variantBackgroundStyle?: 'solid' | 'transparent';
 
+  /** The page position of the Alert (default is bottom right) **/
+  position?:
+    | 'top-left'
+    | 'top-middle'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-middle'
+    | 'bottom-right';
+
   /** A secondary text to further explain the title */
   description?: React.ReactNode;
 
@@ -68,11 +77,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
         {...styles}
         {...rest}
       >
-        <Flex
-          flexGrow={1}
-          direction={variantBackgroundStyle === 'solid' ? 'column' : 'row'}
-          align={variantBackgroundStyle === 'solid' ? 'flex-start' : 'center'}
-        >
+        <Flex flexGrow={1} direction={'row'} align={'center'}>
           <Box>
             {title && (
               <Flex as="header" align="center">
@@ -97,7 +102,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
             )}
           </Box>
           {actions && (
-            <Flex mt={variantBackgroundStyle === 'solid' ? 6 : 0} mr={0} ml="auto">
+            <Flex mt={0} mr={0} ml="auto">
               {typeof actions === 'function' ? actions({ close }) : actions}
             </Flex>
           )}

@@ -131,24 +131,54 @@ export const SnackbarProvider: React.FC = ({ children }) => {
       return null;
     }
 
+    const getPositionProps = (
+      position:
+        | 'top-left'
+        | 'top-middle'
+        | 'top-right'
+        | 'bottom-left'
+        | 'bottom-middle'
+        | 'bottom-right'
+        | undefined
+    ) => {
+      switch (position) {
+        case 'top-left':
+          return { top: 0, left: 4 };
+        case 'top-middle':
+          return { top: 0, left: '50%', style: { transform: 'translate(-50%, 0)' } };
+        case 'top-right':
+          return { top: 0, right: 4 };
+        case 'bottom-left':
+          return { bottom: 4, left: 4 };
+        case 'bottom-middle':
+          return { bottom: 4, left: '50%', style: { transform: 'translate(-50%, 0)' } };
+        case 'bottom-right':
+          return { bottom: 4, right: 4 };
+        default:
+          // bottom-left
+          return { bottom: 4, left: 4 };
+      }
+    };
     return ReactDOM.createPortal(
-      <Flex
-        position="fixed"
-        bottom={3}
-        right={6}
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="flex-end"
-        zIndex={9999}
-      >
+      <>
         {transitions.map(({ item: { id, ...snackbarPublicProps }, key, props: styles }) => (
-          <animated.div key={key} style={styles}>
-            <Box pt={3} ref={ref}>
-              <Snackbar destroy={() => removeSnackbar(id)} {...snackbarPublicProps} />
-            </Box>
-          </animated.div>
+          <Flex
+            key={'rubbish'}
+            position="fixed"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="flex-end"
+            zIndex={9999}
+            {...getPositionProps(snackbarPublicProps.position)}
+          >
+            <animated.div key={key} style={styles}>
+              <Box pt={3} ref={ref}>
+                <Snackbar destroy={() => removeSnackbar(id)} {...snackbarPublicProps} />
+              </Box>
+            </animated.div>
+          </Flex>
         ))}
-      </Flex>,
+      </>,
       document.body
     );
   };
