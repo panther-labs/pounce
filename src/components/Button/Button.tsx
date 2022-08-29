@@ -44,7 +44,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
   {
     size = 'large',
     variant = 'solid',
-    variantColor = 'blue-300',
+    variantColor = 'blue-400',
     loading = false,
     fullWidth = false,
     iconAlignment = 'left',
