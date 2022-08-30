@@ -22,6 +22,29 @@ exports[`Box allows specifying an opacity for the background color 1`] = `
 </div>
 `;
 
+exports[`Box allows specifying an opacity for the border color 1`] = `
+.pounce-0 {
+  border: 1px solid;
+  border-color: white;
+  border-color: rgba(255,255,255,0.5);
+}
+
+<div>
+  <div
+    class="pounce-0"
+  />
+  <div
+    class="pounce-0"
+  />
+  <div
+    class="pounce-0"
+  />
+  <div
+    class="pounce-0"
+  />
+</div>
+`;
+
 exports[`Box allows styling on demand 1`] = `
 .pounce-0 {
   color: black;
