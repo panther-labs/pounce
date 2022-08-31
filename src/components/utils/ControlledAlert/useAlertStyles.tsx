@@ -1,6 +1,7 @@
 import { ControlledAlertProps } from './ControlledAlert';
 import { addOpacity } from '../../../utils/helpers';
 import useTheme from '../../../utils/useTheme';
+import { Theme } from '../../../theme';
 
 type UseControlledAlertStylesProps = Pick<
   ControlledAlertProps,
@@ -8,111 +9,93 @@ type UseControlledAlertStylesProps = Pick<
 >;
 type AlertVariant = UseControlledAlertStylesProps['variant'];
 
-/** Transparent Alert Options **/
-
-const getTransparentAlertVariantColor = (alertVariant: AlertVariant) => {
+const getSolidAlertThemes = (alertVariant: AlertVariant): VariantTheming => {
   switch (alertVariant) {
     case 'success':
-      return 'green-300' as const;
-    case 'info':
-      return 'blue-300' as const;
+      return {
+        color: 'green-500' as const,
+        backgroundColor: 'green-500-10' as const,
+        icon: 'check-circle' as const,
+      };
     case 'warning':
-      return 'yellow-300' as const;
+      return { color: 'yellow-600', backgroundColor: 'yellow-500-10', icon: 'alert-circle-filled' };
     case 'error':
-      return 'red-300' as const;
+      return { color: 'red-400', backgroundColor: 'red-500-10', icon: 'alert-circle-filled' };
+    case 'info':
+      return { color: 'blue-400', backgroundColor: 'blue-400-10', icon: 'info' };
     case 'default':
     default:
-      return 'white' as const;
+      return { color: undefined, backgroundColor: 'gray-100', icon: undefined };
   }
 };
 
-const getTransparentAlertVariantIcon = (alertVariant: AlertVariant) => {
+const getTransparentAlertThemes = (alertVariant: AlertVariant): VariantTheming => {
+  const theme = useTheme();
   switch (alertVariant) {
     case 'success':
-      return 'check-circle' as const;
+      return {
+        color: 'green-300',
+        backgroundColor: addOpacity(theme.colors['green-300'], 0.3),
+        icon: 'check-circle',
+      };
     case 'warning':
-      return 'alert-circle' as const;
+      return {
+        color: 'yellow-300',
+        backgroundColor: addOpacity(theme.colors['yellow-300'], 0.3),
+        icon: 'alert-circle',
+      };
+    case 'error':
+      return {
+        color: 'red-300',
+        backgroundColor: addOpacity(theme.colors['red-300'], 0.3),
+        icon: 'info',
+      };
     case 'info':
+      return {
+        color: 'blue-300',
+        backgroundColor: addOpacity(theme.colors['blue-300'], 0.3),
+        icon: 'info',
+      };
     case 'default':
     default:
-      return 'info' as const;
+      return { color: 'white', backgroundColor: 'gray-100', icon: 'info' };
   }
 };
 
-/** Solid Alert Options **/
-
-const getSolidAlertVariantColor = (alertVariant: AlertVariant) => {
-  switch (alertVariant) {
-    case 'success':
-      return 'green-500' as const;
-    case 'info':
-      return 'blue-400' as const;
-    case 'warning':
-      return 'yellow-600' as const;
-    case 'error':
-      return 'red-400' as const;
-    case 'default':
-    default:
-      return 'blue-400' as const;
-  }
-};
-
-const getSolidAlertVariantBackgroundColors = (alertVariant: AlertVariant) => {
-  switch (alertVariant) {
-    case 'success':
-      return 'green-500-10' as const;
-    case 'info':
-      return 'blue-400-10' as const;
-    case 'warning':
-      return 'yellow-500-10' as const;
-    case 'error':
-      return 'red-500-10' as const;
-    case 'default':
-    default:
-      return 'gray-100' as const;
-  }
-};
-
-const getSolidAlertVariantIcon = (alertVariant: AlertVariant) => {
-  switch (alertVariant) {
-    case 'success':
-      return 'check-circle' as const;
-    case 'warning':
-    case 'error':
-      return 'alert-circle-filled' as const;
-    case 'info':
-      return 'info' as const;
-    case 'default':
-    default:
-      return null;
-  }
+type VariantTheming = {
+  color: keyof Theme['colors'] | undefined;
+  backgroundColor: keyof Theme['colors'];
+  icon: keyof Theme['icons'] | undefined;
 };
 
 const useAlertStyles = ({ variant, variantBackgroundStyle }: UseControlledAlertStylesProps) => {
-  const theme = useTheme();
+  const { color, backgroundColor, icon } =
+    variantBackgroundStyle === 'solid'
+      ? getSolidAlertThemes(variant)
+      : getTransparentAlertThemes(variant);
   switch (variantBackgroundStyle) {
     case 'transparent':
       return {
         p: 2,
         align: 'center',
-        icon: getTransparentAlertVariantIcon(variant),
-        iconColor: getTransparentAlertVariantColor(variant),
+        icon: icon,
+        iconColor: color,
         border: '1px solid',
-        borderColor: getTransparentAlertVariantColor(variant),
+        borderColor: color,
         borderRadius: 'large' as const,
-        backgroundColor: addOpacity(theme.colors[getTransparentAlertVariantColor(variant)], 0.3),
+        backgroundColor: backgroundColor,
       };
     case 'solid':
     default:
       return {
         p: 2,
         align: 'center',
-        icon: getSolidAlertVariantIcon(variant),
-        iconColor: getSolidAlertVariantColor(variant),
+        icon: icon,
+        iconColor: color,
         borderRadius: 'large' as const,
         borderLeft: variant === 'default' ? 'none' : ('4px solid' as const),
-        borderLeftColor: getSolidAlertVariantColor(variant),
-        backgroundColor: getSolidAlertVariantBackgroundColors(variant),
+        borderLeftColor: color,
+        backgroundColor: backgroundColor,
         titleColor: 'black' as const,
       };
   }

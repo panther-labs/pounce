@@ -71,6 +71,15 @@ const SnackbarContext = React.createContext<SnackbarContextValue>({
   updateSnackbar: () => '',
 });
 
+const positionStyles = {
+  'top-left': { top: 0, left: 6 },
+  'top-middle': { top: 0, left: '50%', style: { transform: 'translate(-50%, 0)' } },
+  'top-right': { top: 0, right: 6 },
+  'bottom-left': { bottom: 3, left: 6 },
+  'bottom-middle': { bottom: 3, left: '50%', style: { transform: 'translate(-50%, 0)' } },
+  'bottom-right': { bottom: 3, right: 6 },
+};
+
 /**
  * A component that acts both as a state-manager and provider. It provides access to methods for
  * managing snackbar instances
@@ -131,33 +140,8 @@ export const SnackbarProvider: React.FC = ({ children }) => {
       return null;
     }
 
-    const getPositionProps = (
-      position:
-        | 'top-left'
-        | 'top-middle'
-        | 'top-right'
-        | 'bottom-left'
-        | 'bottom-middle'
-        | 'bottom-right'
-        | undefined
-    ) => {
-      switch (position) {
-        case 'top-left':
-          return { top: 0, left: 6 };
-        case 'top-middle':
-          return { top: 0, left: '50%', style: { transform: 'translate(-50%, 0)' } };
-        case 'top-right':
-          return { top: 0, right: 6 };
-        case 'bottom-left':
-          return { bottom: 3, left: 6 };
-        case 'bottom-middle':
-          return { bottom: 3, left: '50%', style: { transform: 'translate(-50%, 0)' } };
-        case 'bottom-right':
-          return { bottom: 3, right: 6 };
-        default:
-          // bottom-left
-          return { bottom: 3, left: 6 };
-      }
+    const getPositionProps = (position: keyof typeof positionStyles = 'bottom-left') => {
+      return positionStyles[position];
     };
     return ReactDOM.createPortal(
       <Flex
