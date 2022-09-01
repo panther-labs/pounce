@@ -1,5 +1,5 @@
 import { ControlledAlertProps } from './ControlledAlert';
-import { addOpacity } from '../../../utils/helpers';
+import { addOpacity, lightenDarkenColor } from '../../../utils/helpers';
 import useTheme from '../../../utils/useTheme';
 import { Theme } from '../../../theme';
 
@@ -8,21 +8,34 @@ type UseControlledAlertStylesProps = Pick<
   'variant' | 'variantBackgroundStyle'
 >;
 type AlertVariant = UseControlledAlertStylesProps['variant'];
+type ThemeColor = keyof Theme['colors'];
 
 const getSolidAlertThemes = (alertVariant: AlertVariant): VariantTheming => {
+  const theme = useTheme();
+  const getBackgroundColor = (variantColor: ThemeColor) => {
+    return lightenDarkenColor(theme.colors[variantColor], 190) as ThemeColor; // TODO: This is as close as I could get to the proper color, and it's a very yellow green...
+  };
   switch (alertVariant) {
     case 'success':
       return {
         color: 'green-500' as const,
-        backgroundColor: 'green-500-10' as const,
+        backgroundColor: getBackgroundColor('green-500'),
         icon: 'check-circle' as const,
       };
     case 'warning':
-      return { color: 'yellow-600', backgroundColor: 'yellow-500-10', icon: 'alert-circle-filled' };
+      return {
+        color: 'yellow-600',
+        backgroundColor: getBackgroundColor('yellow-500'),
+        icon: 'alert-circle-filled',
+      };
     case 'error':
-      return { color: 'red-400', backgroundColor: 'red-500-10', icon: 'alert-circle-filled' };
+      return {
+        color: 'red-400',
+        backgroundColor: getBackgroundColor('red-500'),
+        icon: 'alert-circle-filled',
+      };
     case 'info':
-      return { color: 'blue-400', backgroundColor: 'blue-400-10', icon: 'info' };
+      return { color: 'blue-400', backgroundColor: getBackgroundColor('blue-400'), icon: 'info' };
     case 'default':
     default:
       return { color: undefined, backgroundColor: 'gray-100', icon: undefined };
