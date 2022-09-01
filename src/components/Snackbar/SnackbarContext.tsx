@@ -115,7 +115,6 @@ export const SnackbarProvider: React.FC = ({ children }) => {
   );
 
   const [ref, { height }] = useMeasure({ debounce: 100, scroll: false, polyfill: ResizeObserver });
-  console.log('height: ', height);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const transitions = useTransition<SnackbarStateShape, any>(
     snackbars,
@@ -145,7 +144,6 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     };
 
     const listOfPositions = Object.keys(positionStyles) as (keyof typeof positionStyles)[];
-    console.log('transitions: ', transitions);
     return ReactDOM.createPortal(
       <>
         {listOfPositions.map(position => (
