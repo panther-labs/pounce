@@ -139,7 +139,7 @@ export const SnackbarProvider: React.FC = ({ children }) => {
       return null;
     }
 
-    const getPositionProps = (position: keyof typeof positionStyles = 'bottom-left') => {
+    const getPositionProps = (position: keyof typeof positionStyles) => {
       return positionStyles[position];
     };
 
@@ -157,7 +157,12 @@ export const SnackbarProvider: React.FC = ({ children }) => {
             {...getPositionProps(position)}
           >
             {transitions
-              .filter(snackbar => snackbar.item.position === position)
+              .filter(snackbar =>
+                // handles multiple toasts in different positions
+                snackbar.item.position
+                  ? snackbar.item.position === position
+                  : position === 'bottom-left'
+              )
               ?.map(({ item: { id, ...snackbarPublicProps }, key, props: styles }) => (
                 <animated.div key={key} style={styles}>
                   <Box pt={3} ref={ref}>
