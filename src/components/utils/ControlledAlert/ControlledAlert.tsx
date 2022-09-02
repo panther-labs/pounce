@@ -23,7 +23,7 @@ export interface ControlledAlertProps {
   /** The background style of the ControlledAlert */
   variantBackgroundStyle?: 'solid' | 'transparent';
 
-  /** The page position of the Alert (default is bottom right) **/
+  /** The page position of the Alert (default is bottom left) **/
   position?:
     | 'top-left'
     | 'top-middle'
@@ -93,6 +93,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
                   fontSize={description ? 'large' : 'medium'}
                   flexGrow={1}
                   mr="auto"
+                  pr={variantBackgroundStyle === 'solid' ? 6 : 0}
                   id={`${id}-title`}
                 >
                   {title}
@@ -113,7 +114,13 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
         </Flex>
         {discardable && (
           <Box my={-2} mr={-2} ml={2}>
-            <IconButton aria-label="Discard" variant="unstyled" icon="close" onClick={onClose} />
+            <IconButton
+              aria-label="Discard"
+              variant="unstyled"
+              variantIconColor={variantBackgroundStyle === 'solid' ? 'black' : undefined}
+              icon="close"
+              onClick={onClose}
+            />
           </Box>
         )}
       </Flex>

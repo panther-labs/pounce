@@ -7,13 +7,16 @@ import { Theme } from '../../theme';
 
 type ThemeColor = keyof Theme['colors'];
 type UseIconButtonStyles = Required<
-  Pick<IconButtonProps, 'variantColor' | 'variant' | 'size' | 'variantBorderStyle'>
+  Pick<
+    IconButtonProps,
+    'variantColor' | 'variantIconColor' | 'variant' | 'size' | 'variantBorderStyle'
+  >
 >;
 
-export const getUnstyledButtonStyles = (theme: Theme) => {
+export const getUnstyledButtonStyles = (theme: Theme, variantIconColor: ThemeColor) => {
   return {
     _focus: {
-      backgroundColor: addOpacity(theme.colors.white, 0.1),
+      backgroundColor: addOpacity(variantIconColor || theme.colors.white, 0.1),
     },
   };
 };
@@ -119,6 +122,7 @@ const getBorderStyles = (
 
 const useIconButtonStyles = ({
   variantColor,
+  variantIconColor,
   variantBorderStyle,
   variant,
   size,
@@ -130,7 +134,7 @@ const useIconButtonStyles = ({
       case 'ghost':
         return getGhostButtonStyles(theme, variantColor);
       case 'unstyled':
-        return getUnstyledButtonStyles(theme);
+        return getUnstyledButtonStyles(theme, variantIconColor);
       case 'outline':
         return getOutlineButtonStyles(theme, variantColor);
       case 'solid':
