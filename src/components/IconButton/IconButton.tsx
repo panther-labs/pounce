@@ -21,7 +21,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
   /** The color scheme of the button */
   variantColor?: keyof Theme['colors'];
 
-  /** The color of the icon for the 'unstyled' variant */
+  /** The color of the icon */
   variantIconColor?: keyof Theme['colors'];
 
   /** The border style of the button  */
