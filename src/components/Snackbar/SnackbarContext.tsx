@@ -7,6 +7,7 @@ import Flex from '../Flex';
 import Snackbar, { SnackbarProps } from '../Snackbar';
 import { isBrowser } from '../../utils/helpers';
 import Box from '../Box';
+import { ControlledAlertProps } from '../utils/ControlledAlert';
 
 type SnackbarContextValue = {
   pushSnackbar: (props: SnackbarPublicProps) => string;
@@ -71,7 +72,7 @@ const SnackbarContext = React.createContext<SnackbarContextValue>({
   updateSnackbar: () => '',
 });
 
-const positionStyles = {
+const positionStyles: { [key in keyof ControlledAlertProps['position']]: Record<string, any> } = {
   'top-left': { top: 0, left: 6 },
   'top-middle': { top: 0, left: '50%', style: { transform: 'translate(-50%, 0)' } },
   'top-right': { top: 0, right: 6 },
