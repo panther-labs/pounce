@@ -58,7 +58,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
     },
     ref
   ) {
-    const { icon, iconColor, titleColor, ...styles } = useAlertStyles({
+    const { icon, iconColor, titleColor, discardButtonColor, ...styles } = useAlertStyles({
       variant,
       variantBackgroundStyle,
     });
@@ -93,7 +93,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
                   fontSize={description ? 'large' : 'medium'}
                   flexGrow={1}
                   mr="auto"
-                  pr={variantBackgroundStyle === 'solid' ? 6 : 0}
+                  pr={6}
                   id={`${id}-title`}
                 >
                   {title}
@@ -117,7 +117,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
             <IconButton
               aria-label="Discard"
               variant="unstyled"
-              variantIconColor={variantBackgroundStyle === 'solid' ? 'black' : undefined}
+              iconColor={discardButtonColor}
               icon="close"
               onClick={onClose}
             />

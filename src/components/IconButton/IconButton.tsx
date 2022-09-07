@@ -22,7 +22,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
   variantColor?: keyof Theme['colors'];
 
   /** The color of the icon */
-  variantIconColor?: keyof Theme['colors'];
+  iconColor?: keyof Theme['colors'];
 
   /** The border style of the button  */
   variantBorderStyle?: 'square' | 'circle';
@@ -41,7 +41,7 @@ export interface IconButtonProps extends NativeAttributes<'button'>, Pick<BoxPro
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
   {
     variantColor = 'blue-400',
-    variantIconColor = 'white',
+    iconColor = 'white',
     variantBorderStyle = 'square',
     active = false,
     variant = 'solid',
@@ -53,7 +53,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(f
 ) {
   const styles = useIconButtonStyles({
     variantColor,
-    variantIconColor,
+    iconColor,
     variant,
     variantBorderStyle,
     size,
@@ -67,7 +67,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(f
       {...rest}
       ref={ref}
     >
-      <Icon color={variantIconColor} type={icon} size={size} />
+      <Icon color={iconColor} type={icon} size={size} />
     </AbstractButton>
   );
 });

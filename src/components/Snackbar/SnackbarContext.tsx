@@ -139,10 +139,6 @@ export const SnackbarProvider: React.FC = ({ children }) => {
       return null;
     }
 
-    const getPositionProps = (position: keyof typeof positionStyles) => {
-      return positionStyles[position];
-    };
-
     const listOfPositions = Object.keys(positionStyles) as (keyof typeof positionStyles)[];
     return ReactDOM.createPortal(
       <>
@@ -154,11 +150,15 @@ export const SnackbarProvider: React.FC = ({ children }) => {
             justifyContent="center"
             alignItems="flex-end"
             zIndex={9999}
-            {...getPositionProps(position)}
+            {...positionStyles[position]}
           >
             {transitions
               .filter(snackbar =>
                 // handles multiple toasts in different positions
+                // The outer loop here loops through the six possible positions for Snackbars.
+                // So this creates a list of all the Snackbars that are supposed to be at this position.
+                // If the snackbar has a position value, filter it into the that position.
+                // If there is no position listed, show it if the current position being filtered is the bottom-left (default position)
                 snackbar.item.position
                   ? snackbar.item.position === position
                   : position === 'bottom-left'

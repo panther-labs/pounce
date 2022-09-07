@@ -96,6 +96,7 @@ const useAlertStyles = ({ variant, variantBackgroundStyle }: UseControlledAlertS
         borderColor: color,
         borderRadius: 'large' as const,
         backgroundColor: backgroundColor,
+        discardButtonColor: undefined,
       };
     case 'solid':
     default:
@@ -109,6 +110,7 @@ const useAlertStyles = ({ variant, variantBackgroundStyle }: UseControlledAlertS
         borderLeftColor: color,
         backgroundColor: backgroundColor,
         titleColor: 'black' as const,
+        discardButtonColor: 'black' as const,
       };
   }
 };
