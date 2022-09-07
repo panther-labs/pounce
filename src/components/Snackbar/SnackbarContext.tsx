@@ -146,6 +146,7 @@ export const SnackbarProvider: React.FC = ({ children }) => {
         {listOfPositions.map(position => (
           <Flex
             key={position}
+            data-testid={`${position}-snackbar-wrapper`}
             position="fixed"
             flexDirection="column"
             justifyContent="center"
