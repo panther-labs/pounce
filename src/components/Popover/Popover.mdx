@@ -30,6 +30,27 @@ A popover can have a custom trigger:
 </Popover>
 ```
 
+A popover can stay open when a click outside of it occurs:
+
+```tsx
+<Popover>
+  {({ close }) => (
+    <React.Fragment>
+      <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
+      <PopoverContent closeOnOutsideClicks={false}>
+        <Card p={6}>
+          Hello. Please click{' '}
+          <Button size="small" onClick={close}>
+            here
+          </Button>{' '}
+          to close
+        </Card>
+      </PopoverContent>
+    </React.Fragment>
+  )}
+</Popover>
+```
+
 A popover can have custom content:
 
 ```tsx
