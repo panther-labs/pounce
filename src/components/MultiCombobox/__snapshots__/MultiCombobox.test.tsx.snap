@@ -206,7 +206,7 @@ exports[`MultiCombobox renders 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 
@@ -422,7 +422,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 
@@ -963,7 +963,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 
@@ -1651,7 +1651,7 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 

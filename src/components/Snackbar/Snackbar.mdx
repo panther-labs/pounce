@@ -56,8 +56,101 @@ const Example = () => {
         })
       }
     >
-      I dissapear faster
+      I disappear faster
     </Button>
+  );
+};
+
+<SnackbarProvider>
+  <Example />
+</SnackbarProvider>;
+```
+
+You can change the position (default is bottom left):
+
+```typescript jsx
+const Example = () => {
+  const { pushSnackbar } = useSnackbar();
+
+  return (
+    <Flex align="center" justify="space-between" direction="column" style={{ width: '100%' }}>
+      <Flex align="center" justify="space-between" direction="row" mb={6} style={{ width: '100%' }}>
+        <Button
+          variant="primary"
+          onClick={() =>
+            pushSnackbar({
+              variant: 'success',
+              title: 'It works!',
+              position: 'top-left',
+            })
+          }
+        >
+          Top Left
+        </Button>
+        <Button
+          variant="primary"
+          onClick={() =>
+            pushSnackbar({
+              variant: 'success',
+              title: 'It works!',
+              position: 'top-middle',
+            })
+          }
+        >
+          Top Middle
+        </Button>
+        <Button
+          variant="primary"
+          onClick={() =>
+            pushSnackbar({
+              variant: 'success',
+              title: 'It works!',
+              position: 'top-right',
+            })
+          }
+        >
+          Top Right
+        </Button>
+      </Flex>
+      <Flex align="center" justify="space-between" direction="row" style={{ width: '100%' }}>
+        <Button
+          variant="primary"
+          onClick={() =>
+            pushSnackbar({
+              variant: 'success',
+              title: 'It works!',
+              position: 'bottom-left',
+            })
+          }
+        >
+          Bottom Left
+        </Button>
+        <Button
+          variant="primary"
+          onClick={() =>
+            pushSnackbar({
+              variant: 'success',
+              title: 'It works!',
+              position: 'bottom-middle',
+            })
+          }
+        >
+          Bottom Middle
+        </Button>
+        <Button
+          variant="primary"
+          onClick={() =>
+            pushSnackbar({
+              variant: 'success',
+              title: 'It works!',
+              position: 'bottom-right',
+            })
+          }
+        >
+          Bottom Right
+        </Button>
+      </Flex>
+    </Flex>
   );
 };
 

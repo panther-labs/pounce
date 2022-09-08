@@ -7,7 +7,7 @@ import { Theme } from '../../theme';
 
 type ThemeColor = keyof Theme['colors'];
 type UseIconButtonStyles = Required<
-  Pick<IconButtonProps, 'variantColor' | 'variant' | 'size' | 'variantBorderStyle'>
+  Pick<IconButtonProps, 'variantColor' | 'iconColor' | 'variant' | 'size' | 'variantBorderStyle'>
 >;
 
 export const getUnstyledButtonStyles = (theme: Theme) => {

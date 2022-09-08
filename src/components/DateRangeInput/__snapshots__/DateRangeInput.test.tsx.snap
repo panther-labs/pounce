@@ -179,7 +179,7 @@ exports[`DateRangeInput allows changing time options in 24h mode 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -447,7 +447,7 @@ exports[`DateRangeInput allows passing a custom format 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -715,7 +715,7 @@ exports[`DateRangeInput allows selecting a date range 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -983,7 +983,7 @@ exports[`DateRangeInput allows selecting a preset 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -1251,7 +1251,7 @@ exports[`DateRangeInput opens the month picker 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -1500,7 +1500,7 @@ exports[`DateRangeInput opens the month picker with empty value 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 .pounce-1 {
@@ -1787,7 +1787,7 @@ exports[`DateRangeInput opens the month picker with placement 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -2055,7 +2055,7 @@ exports[`DateRangeInput renders 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -2291,7 +2291,7 @@ exports[`DateRangeInput renders with solid coloring 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 .pounce-7 {
@@ -2591,7 +2591,7 @@ exports[`DateRangeInput renders with time options 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>

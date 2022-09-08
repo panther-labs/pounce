@@ -179,7 +179,7 @@ exports[`Combobox renders 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 
@@ -379,7 +379,7 @@ exports[`Combobox renders 2`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 
@@ -739,7 +739,7 @@ exports[`Combobox renders 3`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 
