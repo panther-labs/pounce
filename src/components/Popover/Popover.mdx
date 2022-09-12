@@ -37,7 +37,7 @@ A popover can stay open when a click outside of it occurs:
   {({ close }) => (
     <React.Fragment>
       <PopoverTrigger as={Button}>Click Me</PopoverTrigger>
-      <PopoverContent closeOnOutsideClicks={false}>
+      <PopoverContent persistOnOutsideClicks>
         <Card p={6}>
           Hello. Please click{' '}
           <Button size="small" onClick={close}>

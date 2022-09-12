@@ -106,11 +106,11 @@ describe('Popover', () => {
     expect(popup).not.toBeInTheDocument();
   });
 
-  it('closes when a click occurs anywhere outside the popup if `closeOnOutsideClicks` is `true`', async () => {
+  it('closes when a click occurs anywhere outside the popup if `persistOnOutsideClicks` is `false`', async () => {
     const { getByText, container } = renderWithTheme(
       <Popover>
         <PopoverTrigger as={Button}>Click me</PopoverTrigger>
-        <PopoverMenu closeOnOutsideClicks>Boom! I am the popup</PopoverMenu>
+        <PopoverMenu persistOnOutsideClicks={false}>Boom! I am the popup</PopoverMenu>
       </Popover>
     );
 
@@ -128,11 +128,11 @@ describe('Popover', () => {
     expect(popup).not.toBeInTheDocument();
   });
 
-  it('does not close when a click occurs outside the popup if `closeOnOutsideClicks` is `false`', async () => {
+  it('does not close when a click occurs outside the popup if `persistOnOutsideClicks` is `true`', async () => {
     const { getByText, container } = renderWithTheme(
       <Popover>
         <PopoverTrigger as={Button}>Click me</PopoverTrigger>
-        <PopoverMenu closeOnOutsideClicks={false}>Boom! I am the popup</PopoverMenu>
+        <PopoverMenu persistOnOutsideClicks>Boom! I am the popup</PopoverMenu>
       </Popover>
     );
 
