@@ -9,7 +9,7 @@ exports[`IconButton renders \`circle\` variantBorderStyle correctly 1`] = `
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 .pounce-1 {
@@ -107,7 +107,7 @@ exports[`IconButton renders \`large\` size correctly 1`] = `
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -172,7 +172,7 @@ exports[`IconButton renders \`medium\` size correctly 1`] = `
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -237,7 +237,7 @@ exports[`IconButton renders \`small\` size correctly 1`] = `
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -302,7 +302,7 @@ exports[`IconButton renders \`square\` variantBorderStyle correctly 1`] = `
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 <div>
@@ -334,7 +334,7 @@ exports[`IconButton renders \`variantColor\`  and \`variants\` correctly 1`] = `
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  color: currentColor;
+  color: #FFFFFF;
 }
 
 .pounce-1 {

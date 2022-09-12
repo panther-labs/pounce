@@ -23,6 +23,15 @@ export interface ControlledAlertProps {
   /** The background style of the ControlledAlert */
   variantBackgroundStyle?: 'solid' | 'transparent';
 
+  /** The page position of the Alert (default is bottom left) **/
+  position?:
+    | 'top-left'
+    | 'top-middle'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-middle'
+    | 'bottom-right';
+
   /** A secondary text to further explain the title */
   description?: React.ReactNode;
 
@@ -49,7 +58,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
     },
     ref
   ) {
-    const { icon, iconColor, titleColor, ...styles } = useAlertStyles({
+    const { icon, iconColor, titleColor, discardButtonColor, ...styles } = useAlertStyles({
       variant,
       variantBackgroundStyle,
     });
@@ -84,6 +93,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
                   fontSize={description ? 'large' : 'medium'}
                   flexGrow={1}
                   mr="auto"
+                  pr={6}
                   id={`${id}-title`}
                 >
                   {title}
@@ -91,7 +101,7 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
               </Flex>
             )}
             {description && (
-              <Box as="p" mt={title ? 3 : 0} fontSize="medium">
+              <Box as="p" mt={title ? 3 : 0} color={titleColor} fontSize="medium">
                 {description}
               </Box>
             )}
@@ -104,7 +114,13 @@ const ControlledAlert = React.forwardRef<HTMLDivElement, ControlledAlertProps>(
         </Flex>
         {discardable && (
           <Box my={-2} mr={-2} ml={2}>
-            <IconButton aria-label="Discard" variant="unstyled" icon="close" onClick={onClose} />
+            <IconButton
+              aria-label="Discard"
+              variant="unstyled"
+              iconColor={discardButtonColor}
+              icon="close"
+              onClick={onClose}
+            />
           </Box>
         )}
       </Flex>

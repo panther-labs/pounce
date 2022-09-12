@@ -72,7 +72,7 @@ An IconButton can be `ghost`:
     variant="ghost"
     icon="user"
     aria-label="User"
-    variantColor=-500"
+    variantColor="teal-500"
     variantBorderStyle="circle"
     active
   />
@@ -109,5 +109,33 @@ An IconButton can have no styling:
 <SimpleGrid columns={4} gap={4}>
   <IconButton variant="unstyled" icon="user" aria-label="User" />
   <IconButton variant="unstyled" icon="user" aria-label="User" variantBorderStyle="circle" />
+</SimpleGrid>
+```
+
+An IconButton can have a colored icon:
+
+```typescript jsx
+<SimpleGrid columns={4} gap={4}>
+  <IconButton
+    icon="user"
+    variantColor="navyblue-300"
+    variantIconColor="teal-500"
+    aria-label="User"
+  />
+  <IconButton
+    variant="ghost"
+    icon="user"
+    variantColor="navyblue-300"
+    variantIconColor="teal-500"
+    aria-label="User"
+  />
+  <IconButton
+    variant="outline"
+    icon="user"
+    variantColor="navyblue-300"
+    variantIconColor="teal-500"
+    aria-label="User"
+  />
+  <IconButton variant="unstyled" icon="user" aria-label="User" variantIconColor="teal-500" />
 </SimpleGrid>
 ```
