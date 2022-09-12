@@ -31,13 +31,21 @@ export interface PopoverContentProps {
     | 'right-top';
 
   /**
+   * Whether the popover should remain open when a click outside it occurs
+   */
+  persistOnOutsideClicks?: boolean;
+
+  /**
    * @ignore
    */
   children: ReactNode;
 }
 
 const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
-  function PopoverContent({ alignment = 'bottom-left', children, ...rest }, forwardedRef) {
+  function PopoverContent(
+    { alignment = 'bottom-left', children, persistOnOutsideClicks = false, ...rest },
+    forwardedRef
+  ) {
     const popoverAlignment = usePopoverContentAlignment(alignment);
     const { popoverId, isOpen, triggerRef, popoverRef, close } = usePopoverContext();
 
@@ -54,7 +62,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     useOutsideClick({
       refs: [popoverRef, triggerRef],
       callback: () => isOpen && close(),
-      disabled: !isOpen,
+      disabled: persistOnOutsideClicks || !isOpen,
     });
 
     // Close on ESC key presses

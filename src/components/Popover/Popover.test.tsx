@@ -106,11 +106,11 @@ describe('Popover', () => {
     expect(popup).not.toBeInTheDocument();
   });
 
-  it('closes when a click occurs anywhere outside the popup', async () => {
+  it('closes when a click occurs anywhere outside the popup if `persistOnOutsideClicks` is `false`', async () => {
     const { getByText, container } = renderWithTheme(
       <Popover>
         <PopoverTrigger as={Button}>Click me</PopoverTrigger>
-        <PopoverMenu>Boom! I am the popup</PopoverMenu>
+        <PopoverMenu persistOnOutsideClicks={false}>Boom! I am the popup</PopoverMenu>
       </Popover>
     );
 
@@ -126,6 +126,28 @@ describe('Popover', () => {
 
     await waitForElementToBeRemoved(popup);
     expect(popup).not.toBeInTheDocument();
+  });
+
+  it('does not close when a click occurs outside the popup if `persistOnOutsideClicks` is `true`', async () => {
+    const { getByText, container } = renderWithTheme(
+      <Popover>
+        <PopoverTrigger as={Button}>Click me</PopoverTrigger>
+        <PopoverMenu persistOnOutsideClicks>Boom! I am the popup</PopoverMenu>
+      </Popover>
+    );
+
+    const trigger = getByText('Click me');
+
+    fireClickAndMouseEvents(trigger);
+    const popup = getByText('Boom! I am the popup');
+
+    // wait for React to properly assign the refs. This is not an issue in real life since a user
+    // can't do it faster than React (I tried)
+    await waitMs(10);
+    fireEvent.mouseDown(container);
+    await waitMs(10);
+
+    expect(popup).toBeInTheDocument();
   });
 
   it('does NOT close when a click occurs inside the popup', async () => {
