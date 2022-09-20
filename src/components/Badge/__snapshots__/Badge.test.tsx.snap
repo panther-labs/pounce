@@ -204,3 +204,46 @@ exports[`renders 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders a \`solid\` background correctly 1`] = `
+.pounce-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: default;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  font-weight: 400;
+  text-transform: none;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #0081C5;
+  background-color: #0081C5;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+<div>
+  <div
+    aria-atomic="true"
+    class="pounce-0"
+    role="status"
+  >
+    Solid
+  </div>
+</div>
+`;

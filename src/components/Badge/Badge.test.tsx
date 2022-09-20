@@ -43,3 +43,13 @@ it('renders `medium` size correctly', () => {
 
   expect(container).toMatchSnapshot();
 });
+
+it('renders a `solid` background correctly', () => {
+  const { container } = renderWithTheme(
+    <Badge color="blue-400" hasSolidBackground>
+      Solid
+    </Badge>
+  );
+
+  expect(container).toMatchSnapshot();
+});
