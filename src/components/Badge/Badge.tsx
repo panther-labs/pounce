@@ -8,6 +8,9 @@ export interface BadgeProps {
   /** The color theme of the badge */
   color: keyof Theme['colors'];
 
+  /** The badge has a solid background */
+  hasSolidBackground?: boolean;
+
   /** Whether the badge should stretch to fill his parent or not */
   stretch?: boolean;
 
@@ -22,7 +25,15 @@ export interface BadgeProps {
 
 /** A badge is simply a visual label to accompany & characterize a certain text*/
 const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
-  { color, children, stretch = false, size = 'medium', emphasized = false, ...rest },
+  {
+    color,
+    children,
+    stretch = false,
+    size = 'medium',
+    emphasized = false,
+    hasSolidBackground,
+    ...rest
+  },
   ref
 ) {
   const theme = useTheme();
@@ -42,7 +53,7 @@ const Badge = React.forwardRef<HTMLElement, BadgeProps>(function Badge(
       border="1px solid"
       borderRadius="small"
       borderColor={color}
-      backgroundColor={addOpacity(theme.colors[color], 0.3)}
+      backgroundColor={hasSolidBackground ? color : addOpacity(theme.colors[color], 0.3)}
       alignItems="center"
       justifyContent="center"
       fontSize={hasMediumSize ? 'small' : 'x-small'}
