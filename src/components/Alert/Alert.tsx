@@ -21,9 +21,11 @@ const Alert: React.FC<AlertProps> = ({ onClose, disableAnimation = false, ...res
     }
   }, [setOpen, onClose]);
 
-  return disableAnimation ? (
-    <ControlledAlert {...rest} open={open} onClose={handleClose} />
-  ) : (
+  if (disableAnimation) {
+    return <ControlledAlert {...rest} open={open} onClose={handleClose} />;
+  }
+
+  return (
     <Collapse open={open}>
       <ControlledAlert {...rest} open onClose={handleClose} />
     </Collapse>
