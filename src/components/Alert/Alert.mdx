@@ -210,3 +210,25 @@ Alerts can have actions associated with them:
   </Flex>
 </Box>
 ```
+
+Alerts can opt out of the animation functionality:
+
+```typescript jsx
+<Box width={1}>
+  <Box mb={3}>
+    <Alert disableAnimation variant="success" title="This is a success alert" />
+  </Box>
+  <Box mb={3}>
+    <Alert disableAnimation variant="info" title="This is an info alert" />
+  </Box>
+  <Box mb={3}>
+    <Alert disableAnimation variant="warning" title="This is a warning alert" />
+  </Box>
+  <Box mb={3}>
+    <Alert disableAnimation variant="error" title="This is an error alert" discardable />
+  </Box>
+  <Box>
+    <Alert disableAnimation variant="default" title="This is the default alert" discardable />
+  </Box>
+</Box>
+```
