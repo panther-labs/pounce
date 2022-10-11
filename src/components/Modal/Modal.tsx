@@ -26,6 +26,14 @@ export interface ModalProps {
 
   /** The id of the HTML node that contains the text of the modal */
   'aria-describedby'?: string;
+
+  /** Callback fired when user hits "Escape" or clicks outside the dialog.
+   *
+   * When _strictly necessary_, this can be used to prevent a user from closing
+   * the dialog, but otherwise it is important to allow users to close dialogs
+   * for accessibility reasons.
+   */
+  onDismiss?: (event?: React.SyntheticEvent) => void;
 }
 
 /**
@@ -37,6 +45,7 @@ const Modal: React.FC<ModalProps> = ({
   children,
   open,
   onClose,
+  onDismiss,
   showCloseButton,
   ...rest
 }) => {
@@ -55,7 +64,7 @@ const Modal: React.FC<ModalProps> = ({
             <AnimatedDialogOverlay
               key={key}
               isOpen={item}
-              onDismiss={onClose}
+              onDismiss={onDismiss ? onDismiss : onClose}
               style={{ overflow: 'visible', opacity: styles.opacity }}
               as={'div'}
             >
