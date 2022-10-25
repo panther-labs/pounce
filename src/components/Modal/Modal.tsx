@@ -65,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({
               key={key}
               isOpen={item}
               onDismiss={onDismiss ? onDismiss : onClose}
-              style={{ overflow: 'visible', opacity: styles.opacity }}
+              style={{ overflow: 'visible', opacity: styles.opacity, zIndex: 100 }}
               as={'div'}
             >
               <Flex justify="center" align="center" height="100%">
