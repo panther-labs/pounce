@@ -34,6 +34,9 @@ export interface ModalProps {
    * for accessibility reasons.
    */
   onDismiss?: (event?: React.SyntheticEvent) => void;
+
+  /**  The z-index to be applied to the modal overlay. Overrides the default value of 1000  */
+  overlayZIndex?: number;
 }
 
 /**
@@ -47,6 +50,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   onDismiss,
   showCloseButton,
+  overlayZIndex,
   ...rest
 }) => {
   const transitions = useTransition(open, null, {
@@ -65,7 +69,11 @@ const Modal: React.FC<ModalProps> = ({
               key={key}
               isOpen={item}
               onDismiss={onDismiss ? onDismiss : onClose}
-              style={{ overflow: 'visible', opacity: styles.opacity, zIndex: 100 }}
+              style={{
+                overflow: 'visible',
+                opacity: styles.opacity,
+                zIndex: overlayZIndex || 1000,
+              }}
               as={'div'}
             >
               <Flex justify="center" align="center" height="100%">
