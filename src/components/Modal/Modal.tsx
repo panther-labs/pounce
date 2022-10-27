@@ -35,7 +35,10 @@ export interface ModalProps {
    */
   onDismiss?: (event?: React.SyntheticEvent) => void;
 
-  /**  The z-index to be applied to the modal overlay. Overrides the default value of 1000  */
+  /**  
+     * The z-index to be applied to the modal overlay  
+     * @default 1000
+     */
   overlayZIndex?: number;
 }
 
