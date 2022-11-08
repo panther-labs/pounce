@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   onDismiss,
   showCloseButton,
-  overlayZIndex,
+  overlayZIndex = 1000,
   ...rest
 }) => {
   const transitions = useTransition(open, null, {
@@ -76,7 +76,7 @@ const Modal: React.FC<ModalProps> = ({
               style={{
                 overflow: 'visible',
                 opacity: styles.opacity,
-                zIndex: overlayZIndex || 1000,
+                zIndex: overlayZIndex,
               }}
               as={'div'}
             >
