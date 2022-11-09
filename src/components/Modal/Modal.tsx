@@ -34,6 +34,12 @@ export interface ModalProps {
    * for accessibility reasons.
    */
   onDismiss?: (event?: React.SyntheticEvent) => void;
+
+  /**
+   * The z-index to be applied to the modal overlay
+   * @default 1000
+   */
+  overlayZIndex?: number;
 }
 
 /**
@@ -47,6 +53,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   onDismiss,
   showCloseButton,
+  overlayZIndex = 1000,
   ...rest
 }) => {
   const transitions = useTransition(open, null, {
@@ -63,9 +70,14 @@ const Modal: React.FC<ModalProps> = ({
           item && (
             <AnimatedDialogOverlay
               key={key}
+              data-testid="overlay"
               isOpen={item}
               onDismiss={onDismiss ? onDismiss : onClose}
-              style={{ overflow: 'visible', opacity: styles.opacity }}
+              style={{
+                overflow: 'visible',
+                opacity: styles.opacity,
+                zIndex: overlayZIndex,
+              }}
               as={'div'}
             >
               <Flex justify="center" align="center" height="100%">
