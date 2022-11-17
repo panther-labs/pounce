@@ -38,7 +38,7 @@ const visibleCrumbs = mockCrumbs.filter(index => {
 });
 
 describe('Breadcrumbs', () => {
-  it('renders all items without truncation', () => {
+  it('renders breadcrumbs without truncation', () => {
     const { queryAllByRole, queryByLabelText, queryByText } = renderWithTheme(
       <Breadcrumbs items={mockCrumbs} />
     );
