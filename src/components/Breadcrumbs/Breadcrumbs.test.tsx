@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from './index';
-import { renderWithTheme } from '../../../jest/utils';
+import { fireEvent, renderWithTheme, waitFor } from '../../../jest/utils';
 
 const mockCrumbs = [
   {
@@ -54,10 +54,11 @@ describe('Breadcrumbs', () => {
   });
 
   it('renders breadcrumbs with truncation', () => {
-    const { queryAllByRole, queryByLabelText, queryByText } = renderWithTheme(
+    const { queryAllByRole, getByLabelText, queryByText } = renderWithTheme(
       <Breadcrumbs items={mockCrumbs} truncate />
     );
 
+    // verify inital visible state
     visibleCrumbs.forEach(crumb => {
       expect(queryByText(crumb.children)).toBeTruthy();
     });
@@ -65,7 +66,12 @@ describe('Breadcrumbs', () => {
       expect(queryByText(crumb.children)).toBeNull();
     });
     expect(queryAllByRole('presentation')).toHaveLength(3);
-    expect(queryByLabelText('Toggle additional breadcrumbs')).toBeTruthy();
+
+    // toggle truncated menu
+    fireEvent.click(getByLabelText('Toggle additional breadcrumbs'));
+    truncatedCrumbs.forEach(async crumb => {
+      await waitFor(() => expect(queryByText(crumb.children)).toBeTruthy());
+    });
   });
 
   it('renders breadcrumbs without truncation when list length is less than 4', () => {
