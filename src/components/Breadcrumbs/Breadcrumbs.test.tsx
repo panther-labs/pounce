@@ -50,7 +50,7 @@ describe('Breadcrumbs', () => {
     expect(queryAllByRole('presentation')).toHaveLength(mockCrumbs.length - 1);
 
     // verify truncated menu does not exist
-    expect(queryByLabelText('Truncated breadcrumb list toggle')).toBeNull();
+    expect(queryByLabelText('Toggle additional breadcrumbs')).toBeNull();
   });
 
   it('renders breadcrumbs with truncation', () => {
@@ -65,7 +65,7 @@ describe('Breadcrumbs', () => {
       expect(queryByText(crumb.children)).toBeNull();
     });
     expect(queryAllByRole('presentation')).toHaveLength(3);
-    expect(queryByLabelText('Truncated breadcrumb list toggle')).toBeTruthy();
+    expect(queryByLabelText('Toggle additional breadcrumbs')).toBeTruthy();
   });
 
   it('renders breadcrumbs without truncation when list length is less than 4', () => {
@@ -80,6 +80,6 @@ describe('Breadcrumbs', () => {
     expect(queryAllByRole('presentation')).toHaveLength(visibleCrumbs.length - 1);
 
     // verify truncated menu does not exist
-    expect(queryByLabelText('Truncated breadcrumb list toggle')).toBeNull();
+    expect(queryByLabelText('Toggle additional breadcrumbs')).toBeNull();
   });
 });

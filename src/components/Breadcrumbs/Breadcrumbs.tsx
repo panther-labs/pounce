@@ -1,6 +1,6 @@
 import React from 'react';
+import AbstractButton from '../AbstractButton';
 import Box from '../Box';
-import Button from '../Button';
 import Card from '../Card';
 import Flex from '../Flex';
 import Icon from '../Icon';
@@ -81,14 +81,13 @@ const TruncatedBreadcrumbs: React.ElementType = ({ items, ...rest }: ITruncatedB
       {/* truncated crumbs */}
       <Popover>
         {() => (
-          <Flex alignItems="center">
+          <Flex as="li" alignItems="center">
             <PopoverTrigger
-              as={Button}
-              id="truncated-breadcrumb-list"
+              as={AbstractButton}
               variantColor="transparent"
               padding={0}
               height="auto"
-              aria-label="Truncated breadcrumb list toggle"
+              aria-label="Toggle additional breadcrumbs"
             >
               ...
             </PopoverTrigger>
@@ -96,9 +95,14 @@ const TruncatedBreadcrumbs: React.ElementType = ({ items, ...rest }: ITruncatedB
               <Card as="ul" my={1} px={5} pt={5} shadow="dark300" minWidth={180}>
                 {truncatedList.map(item => {
                   return (
-                    <Card key={item.href} minWidth={180} pb={5}>
-                      <BreadcrumbLink crumb={item} showChevron={false} {...rest} />
-                    </Card>
+                    <BreadcrumbLink
+                      key={item.href}
+                      pb={5}
+                      width="100%"
+                      crumb={item}
+                      showChevron={false}
+                      {...rest}
+                    />
                   );
                 })}
               </Card>
@@ -130,7 +134,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ items, truncate = false, ...re
 
   return (
     <Box as="nav" aria-label="Breadcrumbs">
-      <Flex as="ol">
+      <Flex as="ul">
         {truncateBreadcrumbs ? (
           <TruncatedBreadcrumbs items={items} {...rest} />
         ) : (
