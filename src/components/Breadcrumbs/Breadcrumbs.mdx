@@ -11,10 +11,39 @@ const items = [
     href: '/#/Flex',
   },
   {
-    children: <MyCustomTitle />,
-    href: '/#/MyCustomTitle',
+    children: 'Third page',
+    href: '/#/Cell',
   },
 ];
 
 <Breadcrumbs items={items} />;
+```
+
+Breadcrumbs can be truncated when more than 3 items exist:
+
+```typescript jsx
+const items = [
+  {
+    children: 'First page',
+    href: '/#/Box',
+  },
+  {
+    children: 'Second page',
+    href: '/#/Flex',
+  },
+  {
+    children: 'Third page',
+    href: '/#/Modal',
+  },
+  {
+    children: 'Fourth page',
+    href: '/#/Checkbox',
+  },
+  {
+    children: 'Fifth page',
+    href: '/#/Cell',
+  },
+];
+
+<Breadcrumbs items={items} truncate />;
 ```
