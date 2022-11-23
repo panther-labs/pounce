@@ -116,26 +116,21 @@ An IconButton can have a colored icon:
 
 ```typescript jsx
 <SimpleGrid columns={4} gap={4}>
-  <IconButton
-    icon="user"
-    variantColor="navyblue-300"
-    variantIconColor="teal-500"
-    aria-label="User"
-  />
+  <IconButton icon="user" variantColor="navyblue-300" iconColor="teal-500" aria-label="User" />
   <IconButton
     variant="ghost"
     icon="user"
     variantColor="navyblue-300"
-    variantIconColor="teal-500"
+    iconColor="teal-500"
     aria-label="User"
   />
   <IconButton
     variant="outline"
     icon="user"
     variantColor="navyblue-300"
-    variantIconColor="teal-500"
+    iconColor="teal-500"
     aria-label="User"
   />
-  <IconButton variant="unstyled" icon="user" aria-label="User" variantIconColor="teal-500" />
+  <IconButton variant="unstyled" icon="user" aria-label="User" iconColor="teal-500" />
 </SimpleGrid>
 ```
