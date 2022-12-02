@@ -20,7 +20,7 @@ export interface TooltipProps {
   content: string | React.ReactElement;
 
   /** The wrapper that contains the contnet */
-  contentWrapper?: React.ElementType;
+  wrapper?: React.ElementType;
 
   /** The position of the tooltip relative to the content */
   position?: Position;
@@ -30,7 +30,7 @@ export interface TooltipProps {
 }
 /** A tooltip is a helper that shows some helping text when hovering or clicking something */
 const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
-  { content, position = positionRight, contentWrapper = DefaultWrapper, children },
+  { content, position = positionRight, wrapper = DefaultWrapper, children },
   ref
 ) {
   const [trigger, { triggerRect }, isVisible] = useTooltip();
@@ -46,7 +46,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
     trigger,
   ]);
 
-  const ContentWrapper = contentWrapper;
+  const Wrapper = wrapper;
 
   return (
     <React.Fragment>
@@ -62,7 +62,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               ref={ref}
               position={position}
               as={'div'}
-              label={<ContentWrapper>{content}</ContentWrapper>}
+              label={<Wrapper>{content}</Wrapper>}
             />
           )
       )}
