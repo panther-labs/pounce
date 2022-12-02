@@ -30,6 +30,44 @@ Content can be anything as well:
 </Tooltip>
 ```
 
+Content can have a wrapper:
+
+```typescript jsx
+// Create a custom wrapper
+const TooltipWrapper: React.FC = ({ children }) => {
+  return (
+    <Box
+      position="relative"
+      borderRadius="medium"
+      bg="black"
+      p={2}
+      m={2}
+      fontSize="small"
+      boxShadow="dark250"
+      _before={{
+        content: '""',
+        position: 'absolute',
+        right: '100%',
+        top: '50%',
+        borderWidth: '6px',
+        borderStyle: 'solid',
+        borderTopColor: 'transparent',
+        borderRightColor: 'black',
+        borderBottomColor: 'transparent',
+        borderLeftColor: 'transparent',
+        transform: 'translateY(-50%)',
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
+
+<Tooltip content="Lorem ipsum dolor sit amet, consectetur" contentWrapper={TooltipWrapper}>
+  <Box>Hover me to see the new wrapper</Box>
+</Tooltip>;
+```
+
 The default right-side positioning can be customized:
 
 ```typescript jsx
