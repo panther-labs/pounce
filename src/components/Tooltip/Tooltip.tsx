@@ -7,9 +7,20 @@ import Box from '../Box';
 
 const AnimatedTooltipPopup = animated(TooltipPopup);
 
+const DefaultWrapper: React.FC = ({ children }) => {
+  return (
+    <Box borderRadius="medium" bg="navyblue-300" p={4} m={2} fontSize="small" boxShadow="dark250">
+      {children}
+    </Box>
+  );
+};
+
 export interface TooltipProps {
-  /** The string or HTML that the tooltip will show*/
+  /** The string or HTML that the tooltip will show */
   content: string | React.ReactElement;
+
+  /** The wrapper that contains the contnet */
+  wrapper?: React.ElementType;
 
   /** The position of the tooltip relative to the content */
   position?: Position;
@@ -17,10 +28,9 @@ export interface TooltipProps {
   /** @ignore */
   children: React.ReactElement;
 }
-
 /** A tooltip is a helper that shows some helping text when hovering or clicking something */
 const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
-  { content, position = positionRight, children },
+  { content, position = positionRight, wrapper = DefaultWrapper, children },
   ref
 ) {
   const [trigger, { triggerRect }, isVisible] = useTooltip();
@@ -36,6 +46,8 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
     trigger,
   ]);
 
+  const Wrapper = wrapper;
+
   return (
     <React.Fragment>
       {childrenWithHandler}
@@ -50,18 +62,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               ref={ref}
               position={position}
               as={'div'}
-              label={
-                <Box
-                  borderRadius="medium"
-                  bg="navyblue-300"
-                  p={4}
-                  m={2}
-                  fontSize="small"
-                  boxShadow="dark250"
-                >
-                  {content}
-                </Box>
-              }
+              label={<Wrapper>{content}</Wrapper>}
             />
           )
       )}
