@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip matches snapshot for tooltip 1`] = `
+<div>
+  <div
+    class="pounce-0"
+    data-reach-tooltip-trigger=""
+    data-state="tooltip-hidden"
+  >
+    Hover me to see the tooltip
+  </div>
+</div>
+`;
