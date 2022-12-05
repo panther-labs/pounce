@@ -56,7 +56,7 @@ const getTransparentAlertThemes = (alertVariant: AlertVariant): VariantTheming =
       return {
         color: 'red-300',
         backgroundColor: addOpacity(theme.colors['red-300'], 0.3),
-        icon: 'info',
+        icon: 'alert-circle',
       };
     case 'info':
       return {
