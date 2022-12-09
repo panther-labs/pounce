@@ -22,7 +22,10 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function T
       styles = {
         ...styles,
         'tbody > &:nth-of-type(odd)': {
-          backgroundColor: !selected ? ('navyblue-500' as const) : undefined,
+          backgroundColor: !selected ? tableProps.backgroundColorOddRows : undefined,
+        },
+        'tbody > &:nth-of-type(even)': {
+          backgroundColor: !selected ? tableProps.backgroundColor : undefined,
         },
       };
     }

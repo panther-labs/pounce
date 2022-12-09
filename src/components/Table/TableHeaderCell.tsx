@@ -12,7 +12,13 @@ export type TableHeaderCellProps = NativeAttributes<'th'> & {
 
 const TableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, TableHeaderCellProps>(
   function TableHeaderCell({ align = 'left', sortDir, ...rest }, ref) {
-    const { size, stickyHeader } = useTable();
+    const { size, stickyHeader, backgroundColor } = useTable();
+
+    // When a value for backgroundColor has been provided, the header, sticky or otherwise, will be
+    // that value. When a value for backgroundColor has not been provided, and the default value of
+    // `inherit` has been applied, sticky headers will have a `navyblue-300` background color.
+    const headerBackgroundColor =
+      stickyHeader && backgroundColor === 'inherit' ? 'navyblue-300' : backgroundColor;
 
     return (
       <Box
@@ -27,7 +33,7 @@ const TableHeaderCell = React.forwardRef<HTMLTableHeaderCellElement, TableHeader
         aria-sort={sortDir ? sortDir : undefined}
         position={stickyHeader ? 'sticky' : undefined}
         top={stickyHeader ? 0 : undefined}
-        backgroundColor={stickyHeader ? 'navyblue-300' : 'inherit'}
+        backgroundColor={headerBackgroundColor}
         verticalAlign="middle"
         {...rest}
       />
