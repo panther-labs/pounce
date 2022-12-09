@@ -441,3 +441,74 @@ const Example = () => {
 
 <Example />;
 ```
+
+A table can use configured row colors:
+
+```typescript jsx
+// as fetched from the API
+const items = [
+  {
+    id: 1,
+    name: 'AWS DynamoDB Table Encryption Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 2,
+    name: 'AWS DynamoDB Table Encryption Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 3,
+    name: 'AWS DynamoDB Table Encryption Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+  {
+    id: 4,
+    name: 'AWS DynamoDB Table Encryption Enabled',
+    resourceType: 'AWS.DynamoDB.Table.Snapshot',
+    severity: 'CRITICAL',
+    status: 'Failing',
+    lastModified: '28/04/2019',
+  },
+];
+
+const Example = () => {
+  return (
+    <Card width="100%" height={200} overflowY="scroll">
+      <Table backgroundColor="teal-800" backgroundColorOddRows="teal-700" stickyHeader>
+        <Table.Head>
+          <Table.Row>
+            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Resource Type</Table.HeaderCell>
+            <Table.HeaderCell>Severity</Table.HeaderCell>
+            <Table.HeaderCell>Status</Table.HeaderCell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {items.map(item => (
+            <Table.Row key={item.id}>
+              <Table.Cell truncated>{item.name}</Table.Cell>
+              <Table.Cell truncated title={item.resourceType}>
+                {item.resourceType}
+              </Table.Cell>
+              <Table.Cell>{item.severity}</Table.Cell>
+              <Table.Cell>{item.status}</Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Card>
+  );
+};
+
+<Example />;
+```
