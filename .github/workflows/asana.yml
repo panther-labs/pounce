@@ -14,14 +14,12 @@ jobs:
       - uses: panther-labs/github-asana-action@v3.0.4
         name: Adds a comment to the related Asana task whenever a PR has been opened
         with:
-          asana-pat: ${{ secrets.ASANA_PAT }}
           action: 'add-comment'
           text: ${{ format('A Pull Request has been opened {0}', github.event.pull_request.html_url) }}
           is-pinned: true
       - uses: panther-labs/github-asana-action@v3.0.4
         name: Moves the Asana task to "In Review" when the PR is opened
         with:
-          asana-pat: ${{ secrets.ASANA_PAT }}
           action: 'move-section'
           targets: '[{"projectNameRegex": "(S|s)print", "section": "In Review"}]'
 
@@ -32,7 +30,6 @@ jobs:
       - uses: panther-labs/github-asana-action@v3.0.4
         name: Adds a comment to the related Asana task when the PR is closed
         with:
-          asana-pat: ${{ secrets.ASANA_PAT }}
           action: 'add-comment'
           text: ${{ format('A Pull Request is now closed {0}', github.event.pull_request.html_url) }}
 
@@ -40,7 +37,6 @@ jobs:
         name: Closes the related Asana tasks when the PR gets merged
         if: github.event.pull_request.merged
         with:
-          asana-pat: ${{ secrets.ASANA_PAT }}
           action: 'complete-task'
           trigger-phrase-regex: '(C|c)loses'
           is-complete: true
