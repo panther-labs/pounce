@@ -174,6 +174,7 @@ function MultiCombobox<Item>({
   renderContent = DefaultContent,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
+  const menuRef = React.useRef(null);
   const getVariant = React.useCallback(
     isOpen => {
       if (variant === 'solid') {
@@ -406,7 +407,9 @@ function MultiCombobox<Item>({
               as="ul"
               maxHeight={maxHeight}
               isOpen={isOpen && results.length > 0}
-              {...getMenuProps()}
+              // Downshift will generate a warning when a custom ref is passed
+              {...getMenuProps({}, { suppressRefError: true })}
+              ref={menuRef}
             >
               {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (
                 <Box

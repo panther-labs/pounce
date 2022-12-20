@@ -111,6 +111,7 @@ function Combobox<Item>({
   showClearSelectionControl = true,
   ...rest
 }: ComboboxProps<Item>): React.ReactElement<ComboboxProps<Item>> {
+  const menuRef = React.useRef(null);
   // convert item to a string with a fallback of empty string
   const safeItemToString = (item: Item | null) => (item != undefined ? itemToString(item) : '');
 
@@ -253,7 +254,9 @@ function Combobox<Item>({
               as="ul"
               maxHeight={maxHeight}
               isOpen={isOpen && results.length > 0}
-              {...getMenuProps()}
+              // Downshift will generate a warning when a custom ref is passed
+              {...getMenuProps({}, { suppressRefError: true })}
+              ref={menuRef}
             >
               {showClearSelectionControl && selectedItem !== null && (
                 <Box
