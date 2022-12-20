@@ -9,16 +9,39 @@ interface MenuProps {
   maxHeight: number;
 }
 
+function getOffset(el: HTMLElement) {
+  const rect = el.getBoundingClientRect();
+  return {
+    isLeft: rect.left < window.innerWidth / 2,
+    isBottom: rect.top + window.screenY > window.innerHeight / 2,
+  };
+}
+
 const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
   { children, isOpen, maxHeight, ...rest },
   ref
 ) {
+  const [positions, setPositions] = React.useState<{
+    top: string | number | null;
+    right: string | number | null;
+  }>({ top: null, right: null });
+
   const transitions = useTransition(isOpen, null, {
     from: { transform: 'scale(0.9,0.9)', opacity: 0 },
     enter: { transform: 'scale(1, 1)', opacity: 1 },
     leave: { transform: 'scale(0.9, 0.9)', opacity: 0 },
     config: { duration: 150 },
   });
+
+  React.useLayoutEffect(() => {
+    const elementRef = ref as React.MutableRefObject<HTMLElement>;
+    if (elementRef?.current && elementRef?.current.parentNode) {
+      const parentElement = elementRef.current.parentNode as HTMLElement;
+      const { isLeft } = getOffset(parentElement);
+      setPositions({ right: isLeft ? null : 0, top: null });
+    }
+  }, [ref]);
+
   return (
     <React.Fragment>
       {transitions.map(({ item, key, props: styles }) =>
@@ -27,20 +50,20 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
             ref={ref}
             key={key}
             style={styles}
-            mt="-3px"
+            mt="6px"
             border="1px solid"
-            borderLeftColor="blue-400"
-            borderRightColor="blue-400"
-            borderBottomColor="blue-400"
-            borderTopColor="navyblue-400"
+            borderColor="blue-400"
             borderBottomLeftRadius="medium"
             borderBottomRightRadius="medium"
             backgroundColor="navyblue-300"
             zIndex={10}
             position="absolute"
-            width={1}
+            minWidth="100%"
+            width="max-content"
+            maxWidth="40vw"
             maxHeight={maxHeight}
             overflow="auto"
+            right={positions.right}
             {...rest}
           >
             {children}
