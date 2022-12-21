@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  audit_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.2.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+      - name: Audit the installed modules
+        run: npm audit --production
+      - name: Install ci dependencies
+        run: npm ci
+      - name: Run pounce tests
+        run: npm test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.2.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+      - name: Install js dependencies
+        run: npm i
+      - name: Lint project and run TS checks
+        run: npm run validate
+      - name: Build the project
+        run: npm run build
+  release:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.2.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+      - name: Install js dependencies
+        run: npm i
+      - name: Create a new release with proper changelog
+        run: npx semantic-release
+  docs:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.2.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+      - name: Install js dependencies
+        run: npm i
+      - name: Generate documentation pages
+        run: npm run docs
+      - name: Setup documentation deployment
+        run: sudo npm install -g surge@latest
+      - name: Deploy documentation pages
+        run: surge --project .styleguidist --domain pouncejs.surge.sh
