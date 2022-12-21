@@ -13,7 +13,6 @@ function getOffset(el: HTMLElement) {
   const rect = el.getBoundingClientRect();
   return {
     isLeft: rect.left < window.innerWidth / 2,
-    isBottom: rect.top + window.screenY > window.innerHeight / 2,
   };
 }
 
@@ -22,9 +21,8 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
   ref
 ) {
   const [positions, setPositions] = React.useState<{
-    top: string | number | null;
     right: string | number | null;
-  }>({ top: null, right: null });
+  }>({ right: null });
 
   const transitions = useTransition(isOpen, null, {
     from: { transform: 'scale(0.9,0.9)', opacity: 0 },
@@ -38,7 +36,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
     if (elementRef?.current && elementRef?.current.parentNode) {
       const parentElement = elementRef.current.parentNode as HTMLElement;
       const { isLeft } = getOffset(parentElement);
-      setPositions({ right: isLeft ? null : 0, top: null });
+      setPositions({ right: isLeft ? null : 0 });
     }
   }, [ref]);
 
