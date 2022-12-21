@@ -7,6 +7,7 @@ exports[`MultiCombobox renders 1`] = `
 
 .pounce-4 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -429,6 +430,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -970,6 +972,7 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 
 .pounce-10 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -1658,6 +1661,7 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
 
 .pounce-4 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
