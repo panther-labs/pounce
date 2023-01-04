@@ -3,6 +3,7 @@
 exports[`renders 1`] = `
 .pounce-3 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -166,6 +167,7 @@ exports[`renders 1`] = `
 exports[`renders with different type 1`] = `
 .pounce-3 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -329,6 +331,7 @@ exports[`renders with different type 1`] = `
 exports[`renders with disabled option 1`] = `
 .pounce-3 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -495,6 +498,7 @@ exports[`renders with disabled option 1`] = `
 exports[`renders with icons 1`] = `
 .pounce-4 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -994,6 +998,7 @@ exports[`renders with invalid option 1`] = `
 
 .pounce-3 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -1066,6 +1071,7 @@ exports[`renders with invalid option 1`] = `
 exports[`renders with prefix 1`] = `
 .pounce-4 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -1250,6 +1256,7 @@ exports[`renders with prefix 1`] = `
 exports[`renders with required option 1`] = `
 .pounce-3 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -1415,6 +1422,7 @@ exports[`renders with required option 1`] = `
 exports[`renders with suffix 1`] = `
 .pounce-4 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;

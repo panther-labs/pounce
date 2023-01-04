@@ -102,6 +102,8 @@ export type MultiComboboxProps<T> = Omit<NativeAttributes<'input'>, 'value' | 'o
   /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
   maxHeight?: number;
 
+  /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
+  maxContainerHeight?: number;
   /**
    * A function that runs before a custom item is added by the user. If it returns `true`, then this
    * item will be added to the selection. If not, then this item won't be added
@@ -167,6 +169,7 @@ function MultiCombobox<Item>({
   allowAdditions = false,
   validateAddition = () => true,
   maxHeight = 300,
+  maxContainerHeight,
   maxResults,
   canClearAllAfter,
   invalid,
@@ -341,7 +344,16 @@ function MultiCombobox<Item>({
                 variant={multiComboboxVariant}
                 hidden={hidden}
               >
-                <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
+                <Flex
+                  as="ul"
+                  wrap="wrap"
+                  align="baseline"
+                  pl={3}
+                  pr={10}
+                  pt={itemsPt}
+                  pb="2px"
+                  maxHeight={maxContainerHeight}
+                >
                   <>
                     {renderContent({ itemToString, removeItem, value, isOpen })}
                     <Box
