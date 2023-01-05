@@ -178,7 +178,7 @@ function MultiCombobox<Item>({
   renderContent = DefaultContent,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
-  const anchorRef = React.useRef<HTMLElement>(null);
+  const triggerRef = React.useRef<HTMLElement>(null);
 
   const getVariant = React.useCallback(
     isOpen => {
@@ -340,7 +340,7 @@ function MultiCombobox<Item>({
 
         return (
           <Box {...getRootProps()}>
-            <Box position="relative" ref={anchorRef}>
+            <Box position="relative" ref={triggerRef}>
               <InputControl
                 invalid={invalid}
                 disabled={disabled}
@@ -413,7 +413,7 @@ function MultiCombobox<Item>({
               maxHeight={maxHeight}
               maxWidth={maxWidth}
               isOpen={isOpen && results.length > 0}
-              anchorRef={anchorRef}
+              triggerRef={triggerRef}
               {...getMenuProps()}
             >
               {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (

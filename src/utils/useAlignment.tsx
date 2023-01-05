@@ -2,7 +2,7 @@ import React from 'react';
 import { PRect } from '@reach/rect';
 
 export type Position = (
-  anchorElementRect?: PRect | null,
+  triggerElementRect?: PRect | null,
   floatingElementRect?: PRect | null,
   ...unstable_observableNodes: React.ReactNode[]
 ) => React.CSSProperties;
@@ -28,13 +28,13 @@ type ForcedDirection = {
   forcedDownwards: boolean;
 };
 type PositionFunction = (
-  anchorElementRect: PRect,
+  triggerElementRect: PRect,
   floatingElementRect: PRect,
   direction: ForcedDirection
 ) => string;
 
 function getForcedDirection(
-  anchorElementRect: PRect,
+  triggerElementRect: PRect,
   floatingElementRect: PRect,
   alignment: Alignment
 ): ForcedDirection {
@@ -45,26 +45,26 @@ function getForcedDirection(
   if (isHorizontalAlignment) {
     collisions = {
       top:
-        anchorElementRect.top + anchorElementRect.height <
+        triggerElementRect.top + triggerElementRect.height <
         (isCentralAlignment ? floatingElementRect.height / 2 : floatingElementRect.height),
-      right: window.innerWidth < anchorElementRect.right + floatingElementRect.width,
+      right: window.innerWidth < triggerElementRect.right + floatingElementRect.width,
       bottom:
         window.innerHeight <
-        anchorElementRect.top +
+        triggerElementRect.top +
           (isCentralAlignment ? floatingElementRect.height / 2 : floatingElementRect.height),
-      left: anchorElementRect.left < floatingElementRect.width,
+      left: triggerElementRect.left < floatingElementRect.width,
     };
   } else {
     collisions = {
-      top: anchorElementRect.top - floatingElementRect.height < 0,
+      top: triggerElementRect.top - floatingElementRect.height < 0,
       right:
         window.innerWidth <
-        anchorElementRect.left +
+        triggerElementRect.left +
           (isCentralAlignment ? floatingElementRect.width / 2 : floatingElementRect.width),
-      bottom: window.innerHeight < anchorElementRect.bottom + floatingElementRect.height,
+      bottom: window.innerHeight < triggerElementRect.bottom + floatingElementRect.height,
       left:
-        anchorElementRect.left +
-          anchorElementRect.width -
+        triggerElementRect.left +
+          triggerElementRect.width -
           (isCentralAlignment ? floatingElementRect.width / 2 : floatingElementRect.width) <
         0,
     };
@@ -78,170 +78,170 @@ function getForcedDirection(
   };
 }
 
-const leftAlignmentLeft: PositionFunction = (anchorElementRect, floatingElementRect, direction) =>
+const leftAlignmentLeft: PositionFunction = (triggerElementRect, floatingElementRect, direction) =>
   direction.forcedRightwards
-    ? `${anchorElementRect.right + window.pageXOffset}px`
-    : `${anchorElementRect.left + window.pageXOffset - floatingElementRect.width}px`;
+    ? `${triggerElementRect.right + window.pageXOffset}px`
+    : `${triggerElementRect.left + window.pageXOffset - floatingElementRect.width}px`;
 
-const rightAlignmentLeft: PositionFunction = (anchorElementRect, floatingElementRect, direction) =>
+const rightAlignmentLeft: PositionFunction = (triggerElementRect, floatingElementRect, direction) =>
   direction.forcedLeftwards
-    ? `${anchorElementRect.left + window.pageXOffset - floatingElementRect.width}px`
-    : `${anchorElementRect.right + window.pageXOffset}px`;
+    ? `${triggerElementRect.left + window.pageXOffset - floatingElementRect.width}px`
+    : `${triggerElementRect.right + window.pageXOffset}px`;
 
-const bottomAlignmentTop: PositionFunction = (anchorElementRect, floatingElementRect, direction) =>
+const bottomAlignmentTop: PositionFunction = (triggerElementRect, floatingElementRect, direction) =>
   direction.forcedUpwards
-    ? `${anchorElementRect.top - floatingElementRect.height + window.pageYOffset}px`
-    : `${anchorElementRect.top + anchorElementRect.height + window.pageYOffset}px`;
+    ? `${triggerElementRect.top - floatingElementRect.height + window.pageYOffset}px`
+    : `${triggerElementRect.top + triggerElementRect.height + window.pageYOffset}px`;
 
-const topAlignmentTop: PositionFunction = (anchorElementRect, floatingElementRect, direction) =>
+const topAlignmentTop: PositionFunction = (triggerElementRect, floatingElementRect, direction) =>
   direction.forcedDownwards
-    ? `${anchorElementRect.top + anchorElementRect.height + window.pageYOffset}px`
-    : `${anchorElementRect.top - floatingElementRect.height + window.pageYOffset}px`;
+    ? `${triggerElementRect.top + triggerElementRect.height + window.pageYOffset}px`
+    : `${triggerElementRect.top - floatingElementRect.height + window.pageYOffset}px`;
 
 const horizontalTopAlignmentTop: PositionFunction = (
-  anchorElementRect,
+  triggerElementRect,
   floatingElementRect,
   direction
 ) =>
   direction.forcedDownwards
-    ? `${anchorElementRect.top + window.pageYOffset}px`
-    : `${anchorElementRect.bottom - floatingElementRect.height + window.pageYOffset}px`;
+    ? `${triggerElementRect.top + window.pageYOffset}px`
+    : `${triggerElementRect.bottom - floatingElementRect.height + window.pageYOffset}px`;
 
 const horizontalBottomAlignmentTop: PositionFunction = (
-  anchorElementRect,
+  triggerElementRect,
   floatingElementRect,
   direction
 ) =>
   direction.forcedUpwards
-    ? `${anchorElementRect.bottom - floatingElementRect.height + window.pageYOffset}px`
-    : `${anchorElementRect.top + window.pageYOffset}px`;
+    ? `${triggerElementRect.bottom - floatingElementRect.height + window.pageYOffset}px`
+    : `${triggerElementRect.top + window.pageYOffset}px`;
 
 const horizontalCenterAlignmentTop: PositionFunction = (
-  anchorElementRect,
+  triggerElementRect,
   floatingElementRect,
   direction
 ) => {
   if (direction.forcedUpwards) {
-    return `${anchorElementRect.bottom - floatingElementRect.height + window.pageYOffset}px`;
+    return `${triggerElementRect.bottom - floatingElementRect.height + window.pageYOffset}px`;
   }
   if (direction.forcedDownwards) {
-    return `${anchorElementRect.top + window.pageYOffset}px`;
+    return `${triggerElementRect.top + window.pageYOffset}px`;
   }
   return `${
-    anchorElementRect.bottom -
+    triggerElementRect.bottom -
     floatingElementRect.height / 2 -
-    anchorElementRect.height / 2 +
+    triggerElementRect.height / 2 +
     window.pageYOffset
   }px`;
 };
 
 const verticalLeftAlignmentLeft: PositionFunction = (
-  anchorElementRect,
+  triggerElementRect,
   floatingElementRect,
   direction
 ) =>
   direction.forcedRightwards
-    ? `${anchorElementRect.left + window.pageXOffset}px`
-    : `${anchorElementRect.right - floatingElementRect.width + window.pageXOffset}px`;
+    ? `${triggerElementRect.left + window.pageXOffset}px`
+    : `${triggerElementRect.right - floatingElementRect.width + window.pageXOffset}px`;
 
 const verticalRightAlignmentLeft: PositionFunction = (
-  anchorElementRect,
+  triggerElementRect,
   floatingElementRect,
   direction
 ) =>
   direction.forcedLeftwards
-    ? `${anchorElementRect.right - floatingElementRect.width + window.pageXOffset}px`
-    : `${anchorElementRect.left + window.pageXOffset}px`;
+    ? `${triggerElementRect.right - floatingElementRect.width + window.pageXOffset}px`
+    : `${triggerElementRect.left + window.pageXOffset}px`;
 
 const verticalCenterAlignmentLeft: PositionFunction = (
-  anchorElementRect,
+  triggerElementRect,
   floatingElementRect,
   direction
 ) => {
   if (direction.forcedLeftwards) {
-    return `${anchorElementRect.right - floatingElementRect.width + window.pageXOffset}px`;
+    return `${triggerElementRect.right - floatingElementRect.width + window.pageXOffset}px`;
   }
   if (direction.forcedRightwards) {
-    return `${anchorElementRect.right - anchorElementRect.width + window.pageXOffset}px`;
+    return `${triggerElementRect.right - triggerElementRect.width + window.pageXOffset}px`;
   }
 
   return `${
-    anchorElementRect.right -
+    triggerElementRect.right -
     floatingElementRect.width / 2 -
-    anchorElementRect.width / 2 +
+    triggerElementRect.width / 2 +
     window.pageXOffset
   }px`;
 };
 
 const useAlignment = (alignment: Alignment): Position => {
   return React.useCallback(
-    (anchorElementRect, floatingElementRect) => {
-      if (!anchorElementRect || !floatingElementRect) {
+    (triggerElementRect, floatingElementRect) => {
+      if (!triggerElementRect || !floatingElementRect) {
         return {};
       }
 
-      const direction = getForcedDirection(anchorElementRect, floatingElementRect, alignment);
+      const direction = getForcedDirection(triggerElementRect, floatingElementRect, alignment);
       switch (alignment) {
         case 'left-bottom':
           return {
-            left: leftAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: horizontalBottomAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: leftAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: horizontalBottomAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'left-center':
           return {
-            left: leftAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: horizontalCenterAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: leftAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: horizontalCenterAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'left-top':
           return {
-            left: leftAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: horizontalTopAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: leftAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: horizontalTopAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'top-left':
           return {
-            left: verticalLeftAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: topAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: verticalLeftAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: topAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'top-center':
           return {
-            left: verticalCenterAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: topAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: verticalCenterAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: topAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'top-right':
           return {
-            left: verticalRightAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: topAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: verticalRightAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: topAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'right-bottom':
           return {
-            left: rightAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: horizontalBottomAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: rightAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: horizontalBottomAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'right-center':
           return {
-            left: rightAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: horizontalCenterAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: rightAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: horizontalCenterAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'right-top':
           return {
-            left: rightAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: horizontalTopAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: rightAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: horizontalTopAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'bottom-left':
           return {
-            left: verticalLeftAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: bottomAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: verticalLeftAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: bottomAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'bottom-center':
           return {
-            left: verticalCenterAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: bottomAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: verticalCenterAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: bottomAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
         case 'bottom-right':
         default:
           return {
-            left: verticalRightAlignmentLeft(anchorElementRect, floatingElementRect, direction),
-            top: bottomAlignmentTop(anchorElementRect, floatingElementRect, direction),
+            left: verticalRightAlignmentLeft(triggerElementRect, floatingElementRect, direction),
+            top: bottomAlignmentTop(triggerElementRect, floatingElementRect, direction),
           };
       }
     },

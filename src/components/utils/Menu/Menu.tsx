@@ -9,15 +9,15 @@ const AnimatedBox = animated(Box);
 
 interface MenuProps {
   isOpen: boolean;
-  anchorRef: React.RefObject<HTMLElement>;
+  triggerRef: React.RefObject<HTMLElement>;
 }
 
 const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
-  { children, isOpen, anchorRef, ...rest },
+  { children, isOpen, triggerRef, ...rest },
   forwardedRef
 ) {
   const getPositionProperties = useAlignment('bottom-right');
-  const anchorRect = useRect<HTMLElement>(anchorRef, { observe: false });
+  const triggerRect = useRect<HTMLElement>(triggerRef, { observe: false });
 
   const menuRef = React.useRef(null);
   const menuRect = useRect<HTMLDivElement>(menuRef);
@@ -30,7 +30,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
     config: { duration: 150 },
   });
 
-  const positionProperties = getPositionProperties(anchorRect, menuRect);
+  const positionProperties = getPositionProperties(triggerRect, menuRect);
   return (
     <React.Fragment>
       {transitions.map(({ item, key, props: styles }) =>
@@ -46,7 +46,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
             backgroundColor="navyblue-300"
             zIndex={10}
             position="absolute"
-            minWidth={anchorRect?.width}
+            minWidth={triggerRect?.width}
             width="max-content"
             overflowX="hidden"
             overflowY="auto"

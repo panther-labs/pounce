@@ -115,7 +115,7 @@ function Combobox<Item>({
   showClearSelectionControl = true,
   ...rest
 }: ComboboxProps<Item>): React.ReactElement<ComboboxProps<Item>> {
-  const anchorRef = React.useRef(null);
+  const triggerRef = React.useRef(null);
 
   // convert item to a string with a fallback of empty string
   const safeItemToString = (item: Item | null) => (item != undefined ? itemToString(item) : '');
@@ -214,7 +214,7 @@ function Combobox<Item>({
 
         return (
           <Box {...getRootProps()}>
-            <Box position="relative" ref={anchorRef}>
+            <Box position="relative" ref={triggerRef}>
               <InputControl
                 invalid={invalid}
                 disabled={disabled}
@@ -260,7 +260,7 @@ function Combobox<Item>({
               maxHeight={maxHeight}
               maxWidth={maxWidth}
               isOpen={isOpen && results.length > 0}
-              anchorRef={anchorRef}
+              triggerRef={triggerRef}
               {...getMenuProps()}
             >
               {showClearSelectionControl && selectedItem !== null && (
