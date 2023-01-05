@@ -34,7 +34,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     { alignment = 'bottom-left', children, persistOnOutsideClicks = false, ...rest },
     forwardedRef
   ) {
-    const popoverAlignment = useAlignment(alignment);
+    const getPositionProperties = useAlignment(alignment);
     const { popoverId, isOpen, triggerRef, popoverRef, close } = usePopoverContext();
 
     // When the popoover opens, it should immediately get focus
@@ -75,7 +75,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
                 key={key}
                 style={styles}
                 targetRef={triggerRef}
-                position={popoverAlignment}
+                position={getPositionProperties}
                 role="tooltip"
                 id={popoverId}
                 as={'div'}

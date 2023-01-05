@@ -33,7 +33,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
   ref
 ) {
   const [trigger, { triggerRect }, isVisible] = useTooltip();
-  const tooltipAlignment = useAlignment(alignment);
+  const getPositionProperties = useAlignment(alignment);
   const transitions = useTransition(isVisible, null, {
     from: { opacity: 0, transform: 'scale(0.95, 0.95)' },
     enter: { opacity: 1, transform: 'scale(1, 1)' },
@@ -60,7 +60,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               key={key}
               style={{ ...styles, zIndex: 11, position: 'absolute' }}
               ref={ref}
-              position={tooltipAlignment}
+              position={getPositionProperties}
               as={'div'}
               label={<Wrapper>{content}</Wrapper>}
             />
