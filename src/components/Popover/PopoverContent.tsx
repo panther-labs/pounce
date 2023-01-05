@@ -6,7 +6,7 @@ import { usePopoverContext } from './Popover';
 import useOutsideClick from '../../utils/useOutsideClick';
 import useEscapeKey from '../../utils/useEscapeKey';
 import Box from '../Box';
-import useAlignment, { Alignment } from '../../utils/useAlignment';
+import { useAlignmentFunction, Alignment } from '../../utils/useAlignment';
 
 const AnimatedPopover = animated(ReachUIPopover);
 
@@ -34,7 +34,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     { alignment = 'bottom-left', children, persistOnOutsideClicks = false, ...rest },
     forwardedRef
   ) {
-    const getPositionProperties = useAlignment(alignment);
+    const alignmentFunction = useAlignmentFunction(alignment);
     const { popoverId, isOpen, triggerRef, popoverRef, close } = usePopoverContext();
 
     // When the popoover opens, it should immediately get focus
@@ -75,7 +75,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
                 key={key}
                 style={styles}
                 targetRef={triggerRef}
-                position={getPositionProperties}
+                position={alignmentFunction}
                 role="tooltip"
                 id={popoverId}
                 as={'div'}

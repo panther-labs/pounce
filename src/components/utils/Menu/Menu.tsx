@@ -1,9 +1,8 @@
 import React from 'react';
 import { useTransition, animated } from 'react-spring';
 import Box from '../../Box';
-import { useRect } from '@reach/rect';
 import { useComposedRefs } from '@reach/utils';
-import useAlignment from '../../../utils/useAlignment';
+import { useAlignment } from '../../../utils/useAlignment';
 
 const AnimatedBox = animated(Box);
 
@@ -16,12 +15,8 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
   { children, isOpen, triggerRef, ...rest },
   forwardedRef
 ) {
-  const getPositionProperties = useAlignment('bottom-right');
-  const triggerRect = useRect<HTMLElement>(triggerRef, { observe: false });
-
   const menuRef = React.useRef(null);
-  const menuRect = useRect<HTMLDivElement>(menuRef);
-  const ref = useComposedRefs(menuRef, forwardedRef);
+  const positionProperties = useAlignment(triggerRef, menuRef, 'bottom-right');
 
   const transitions = useTransition(isOpen, null, {
     from: { transform: 'scale(0.9,0.9)', opacity: 0 },
@@ -30,13 +25,14 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
     config: { duration: 150 },
   });
 
-  const positionProperties = getPositionProperties(triggerRect, menuRect);
+  // Make sure to include both our current ref and also the forwarded one (in case we it's needed by the parent component
+  const composedRef = useComposedRefs(menuRef, forwardedRef);
   return (
     <React.Fragment>
       {transitions.map(({ item, key, props: styles }) =>
         item ? (
           <AnimatedBox
-            ref={ref}
+            ref={composedRef}
             key={key}
             style={styles}
             mt="6px"
@@ -46,7 +42,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
             backgroundColor="navyblue-300"
             zIndex={10}
             position="absolute"
-            minWidth={triggerRect?.width}
+            minWidth={triggerRef.current?.offsetWidth}
             width="max-content"
             overflowX="hidden"
             overflowY="auto"
@@ -56,7 +52,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
             {children}
           </AnimatedBox>
         ) : (
-          <Box key={key} ref={ref} {...rest} />
+          <Box key={key} ref={composedRef} {...rest} />
         )
       )}
     </React.Fragment>

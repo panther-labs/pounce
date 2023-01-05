@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTooltip, TooltipPopup } from '@reach/tooltip';
 import { useTransition, animated } from 'react-spring';
-import useAlignment, { Alignment } from '../../utils/useAlignment';
+import { useAlignmentFunction, Alignment } from '../../utils/useAlignment';
 import Box from '../Box';
 
 const AnimatedTooltipPopup = animated(TooltipPopup);
@@ -33,7 +33,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
   ref
 ) {
   const [trigger, { triggerRect }, isVisible] = useTooltip();
-  const getPositionProperties = useAlignment(alignment);
+  const alignmentFunction = useAlignmentFunction(alignment);
   const transitions = useTransition(isVisible, null, {
     from: { opacity: 0, transform: 'scale(0.95, 0.95)' },
     enter: { opacity: 1, transform: 'scale(1, 1)' },
@@ -60,7 +60,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               key={key}
               style={{ ...styles, zIndex: 11, position: 'absolute' }}
               ref={ref}
-              position={getPositionProperties}
+              position={alignmentFunction}
               as={'div'}
               label={<Wrapper>{content}</Wrapper>}
             />

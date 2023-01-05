@@ -1,11 +1,11 @@
 import React from 'react';
-import { PRect } from '@reach/rect';
+import { PRect, useRect } from '@reach/rect';
 
-export type Position = (
+export type GetPositionProperties = (
   triggerElementRect?: PRect | null,
   floatingElementRect?: PRect | null,
   ...unstable_observableNodes: React.ReactNode[]
-) => React.CSSProperties;
+) => Pick<React.CSSProperties, 'top' | 'left' | 'bottom' | 'right'>;
 
 export type Alignment =
   | 'bottom-left'
@@ -27,7 +27,7 @@ type ForcedDirection = {
   forcedUpwards: boolean;
   forcedDownwards: boolean;
 };
-type PositionFunction = (
+type AlignmentFunction = (
   triggerElementRect: PRect,
   floatingElementRect: PRect,
   direction: ForcedDirection
@@ -78,27 +78,35 @@ function getForcedDirection(
   };
 }
 
-const leftAlignmentLeft: PositionFunction = (triggerElementRect, floatingElementRect, direction) =>
+const leftAlignmentLeft: AlignmentFunction = (triggerElementRect, floatingElementRect, direction) =>
   direction.forcedRightwards
     ? `${triggerElementRect.right + window.pageXOffset}px`
     : `${triggerElementRect.left + window.pageXOffset - floatingElementRect.width}px`;
 
-const rightAlignmentLeft: PositionFunction = (triggerElementRect, floatingElementRect, direction) =>
+const rightAlignmentLeft: AlignmentFunction = (
+  triggerElementRect,
+  floatingElementRect,
+  direction
+) =>
   direction.forcedLeftwards
     ? `${triggerElementRect.left + window.pageXOffset - floatingElementRect.width}px`
     : `${triggerElementRect.right + window.pageXOffset}px`;
 
-const bottomAlignmentTop: PositionFunction = (triggerElementRect, floatingElementRect, direction) =>
+const bottomAlignmentTop: AlignmentFunction = (
+  triggerElementRect,
+  floatingElementRect,
+  direction
+) =>
   direction.forcedUpwards
     ? `${triggerElementRect.top - floatingElementRect.height + window.pageYOffset}px`
     : `${triggerElementRect.top + triggerElementRect.height + window.pageYOffset}px`;
 
-const topAlignmentTop: PositionFunction = (triggerElementRect, floatingElementRect, direction) =>
+const topAlignmentTop: AlignmentFunction = (triggerElementRect, floatingElementRect, direction) =>
   direction.forcedDownwards
     ? `${triggerElementRect.top + triggerElementRect.height + window.pageYOffset}px`
     : `${triggerElementRect.top - floatingElementRect.height + window.pageYOffset}px`;
 
-const horizontalTopAlignmentTop: PositionFunction = (
+const horizontalTopAlignmentTop: AlignmentFunction = (
   triggerElementRect,
   floatingElementRect,
   direction
@@ -107,7 +115,7 @@ const horizontalTopAlignmentTop: PositionFunction = (
     ? `${triggerElementRect.top + window.pageYOffset}px`
     : `${triggerElementRect.bottom - floatingElementRect.height + window.pageYOffset}px`;
 
-const horizontalBottomAlignmentTop: PositionFunction = (
+const horizontalBottomAlignmentTop: AlignmentFunction = (
   triggerElementRect,
   floatingElementRect,
   direction
@@ -116,7 +124,7 @@ const horizontalBottomAlignmentTop: PositionFunction = (
     ? `${triggerElementRect.bottom - floatingElementRect.height + window.pageYOffset}px`
     : `${triggerElementRect.top + window.pageYOffset}px`;
 
-const horizontalCenterAlignmentTop: PositionFunction = (
+const horizontalCenterAlignmentTop: AlignmentFunction = (
   triggerElementRect,
   floatingElementRect,
   direction
@@ -135,7 +143,7 @@ const horizontalCenterAlignmentTop: PositionFunction = (
   }px`;
 };
 
-const verticalLeftAlignmentLeft: PositionFunction = (
+const verticalLeftAlignmentLeft: AlignmentFunction = (
   triggerElementRect,
   floatingElementRect,
   direction
@@ -144,7 +152,7 @@ const verticalLeftAlignmentLeft: PositionFunction = (
     ? `${triggerElementRect.left + window.pageXOffset}px`
     : `${triggerElementRect.right - floatingElementRect.width + window.pageXOffset}px`;
 
-const verticalRightAlignmentLeft: PositionFunction = (
+const verticalRightAlignmentLeft: AlignmentFunction = (
   triggerElementRect,
   floatingElementRect,
   direction
@@ -153,7 +161,7 @@ const verticalRightAlignmentLeft: PositionFunction = (
     ? `${triggerElementRect.right - floatingElementRect.width + window.pageXOffset}px`
     : `${triggerElementRect.left + window.pageXOffset}px`;
 
-const verticalCenterAlignmentLeft: PositionFunction = (
+const verticalCenterAlignmentLeft: AlignmentFunction = (
   triggerElementRect,
   floatingElementRect,
   direction
@@ -173,7 +181,15 @@ const verticalCenterAlignmentLeft: PositionFunction = (
   }px`;
 };
 
-const useAlignment = (alignment: Alignment): Position => {
+/**
+ * Αccepts an alignment and returns a function that when given 2 Rect instances, will return a  set of positional CSS
+ * properties that the floating element should receive in order for it to be correctly aligned with its trigger element
+ *
+ * ###
+ * This function is only to be used by @reach/ui elements. The one that any element can use is the `useAlignment` one
+ * ###
+ */
+export const useAlignmentFunction = (alignment: Alignment): GetPositionProperties => {
   return React.useCallback(
     (triggerElementRect, floatingElementRect) => {
       if (!triggerElementRect || !floatingElementRect) {
@@ -249,4 +265,18 @@ const useAlignment = (alignment: Alignment): Position => {
   );
 };
 
-export default useAlignment;
+/**
+ * Αccepts a trigger reference, a floating element reference and an alignment and returns a set of positional CSS
+ * properties that the floating element should receive in order for it to be correctly aligned with its trigger element
+ */
+export const useAlignment = (
+  triggerElementRef: React.RefObject<HTMLElement>,
+  floatingElementRef: React.RefObject<HTMLElement>,
+  alignment: Alignment
+) => {
+  const triggerElementRect = useRect(triggerElementRef);
+  const floatingElementRect = useRect(floatingElementRef);
+
+  const alignmentFunction = useAlignmentFunction(alignment);
+  return alignmentFunction(triggerElementRect, floatingElementRect);
+};
