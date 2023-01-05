@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTooltip, TooltipPopup } from '@reach/tooltip';
-import { Position } from '@reach/popover';
 import { useTransition, animated } from 'react-spring';
-import { positionRight } from './utils';
+import useAlignment, { Alignment } from '../../utils/useAlignment';
 import Box from '../Box';
 
 const AnimatedTooltipPopup = animated(TooltipPopup);
@@ -22,18 +21,19 @@ export interface TooltipProps {
   /** The wrapper that contains the contnet */
   wrapper?: React.ElementType;
 
-  /** The position of the tooltip relative to the content */
-  position?: Position;
+  /** The alignment of the tooltip relative to the content */
+  alignment?: Alignment;
 
   /** @ignore */
   children: React.ReactElement;
 }
 /** A tooltip is a helper that shows some helping text when hovering or clicking something */
 const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
-  { content, position = positionRight, wrapper = DefaultWrapper, children },
+  { content, alignment = 'bottom-center', wrapper = DefaultWrapper, children },
   ref
 ) {
   const [trigger, { triggerRect }, isVisible] = useTooltip();
+  const tooltipAlignment = useAlignment(alignment);
   const transitions = useTransition(isVisible, null, {
     from: { opacity: 0, transform: 'scale(0.95, 0.95)' },
     enter: { opacity: 1, transform: 'scale(1, 1)' },
@@ -60,7 +60,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
               key={key}
               style={{ ...styles, zIndex: 11, position: 'absolute' }}
               ref={ref}
-              position={position}
+              position={tooltipAlignment}
               as={'div'}
               label={<Wrapper>{content}</Wrapper>}
             />

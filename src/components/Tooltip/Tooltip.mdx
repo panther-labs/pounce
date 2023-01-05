@@ -34,7 +34,7 @@ Content can have a wrapper:
 
 ```typescript jsx
 // Create a custom wrapper
-const TooltipWrapper: React.FC = ({ children }) => {
+const TooltipWrapper = ({ children }) => {
   return (
     <Box
       position="relative"
@@ -82,7 +82,7 @@ const centered = (triggerRect, tooltipRect) => {
   };
 };
 
-<Tooltip content="hello!" position={centered}>
+<Tooltip content="hello!" alignment="bottom-center">
   <Box>Hover me for a greeting</Box>
 </Tooltip>;
 ```

@@ -79,8 +79,11 @@ export type ComboboxProps<T> = Omit<NativeAttributes<'input'>, 'value' | 'onChan
    * */
   maxResults?: number;
 
-  /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
+  /** The maximum height (in pixels) of the Combobox dropdown. Defaults to 300. */
   maxHeight?: number;
+
+  /** The maximum width (in pixels) of the Combobox dropdown. Defaults to 800. */
+  maxWidth?: number;
 
   /** Whether a clear selection control should be available to the user */
   showClearSelectionControl?: boolean;
@@ -104,6 +107,7 @@ function Combobox<Item>({
   itemToString = item => String(item),
   itemToGroup,
   maxHeight = 300,
+  maxWidth = 800,
   maxResults,
   invalid,
   required,
@@ -111,7 +115,8 @@ function Combobox<Item>({
   showClearSelectionControl = true,
   ...rest
 }: ComboboxProps<Item>): React.ReactElement<ComboboxProps<Item>> {
-  const menuRef = React.useRef(null);
+  const anchorRef = React.useRef(null);
+
   // convert item to a string with a fallback of empty string
   const safeItemToString = (item: Item | null) => (item != undefined ? itemToString(item) : '');
 
@@ -208,8 +213,8 @@ function Combobox<Item>({
         };
 
         return (
-          <Box position="relative" {...getRootProps()}>
-            <Box position="relative">
+          <Box {...getRootProps()}>
+            <Box position="relative" ref={anchorRef}>
               <InputControl
                 invalid={invalid}
                 disabled={disabled}
@@ -253,10 +258,10 @@ function Combobox<Item>({
             <Menu
               as="ul"
               maxHeight={maxHeight}
+              maxWidth={maxWidth}
               isOpen={isOpen && results.length > 0}
-              // Downshift will generate a warning when a custom ref is passed
-              {...getMenuProps({}, { suppressRefError: true })}
-              ref={menuRef}
+              anchorRef={anchorRef}
+              {...getMenuProps()}
             >
               {showClearSelectionControl && selectedItem !== null && (
                 <Box

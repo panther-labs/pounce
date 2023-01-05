@@ -1,28 +1,27 @@
 import React from 'react';
 import { useTransition, animated } from 'react-spring';
 import Box from '../../Box';
+import { useRect } from '@reach/rect';
+import { useComposedRefs } from '@reach/utils';
+import useAlignment from '../../../utils/useAlignment';
 
 const AnimatedBox = animated(Box);
 
 interface MenuProps {
   isOpen: boolean;
-  maxHeight: number;
-}
-
-function getOffset(el: HTMLElement) {
-  const rect = el.getBoundingClientRect();
-  return {
-    isLeft: rect.left < window.innerWidth / 2,
-  };
+  anchorRef: React.RefObject<HTMLElement>;
 }
 
 const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
-  { children, isOpen, maxHeight, ...rest },
-  ref
+  { children, isOpen, anchorRef, ...rest },
+  forwardedRef
 ) {
-  const [positions, setPositions] = React.useState<{
-    right: string | number | null;
-  }>({ right: null });
+  const getPositionProperties = useAlignment('bottom-right');
+  const anchorRect = useRect<HTMLElement>(anchorRef, { observe: false });
+
+  const menuRef = React.useRef(null);
+  const menuRect = useRect<HTMLDivElement>(menuRef);
+  const ref = useComposedRefs(menuRef, forwardedRef);
 
   const transitions = useTransition(isOpen, null, {
     from: { transform: 'scale(0.9,0.9)', opacity: 0 },
@@ -31,15 +30,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
     config: { duration: 150 },
   });
 
-  React.useLayoutEffect(() => {
-    const elementRef = ref as React.MutableRefObject<HTMLElement>;
-    if (elementRef?.current && elementRef?.current.parentNode) {
-      const parentElement = elementRef.current.parentNode as HTMLElement;
-      const { isLeft } = getOffset(parentElement);
-      setPositions({ right: isLeft ? null : 0 });
-    }
-  }, [ref]);
-
+  const positionProperties = getPositionProperties(anchorRect, menuRect);
   return (
     <React.Fragment>
       {transitions.map(({ item, key, props: styles }) =>
@@ -51,17 +42,15 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
             mt="6px"
             border="1px solid"
             borderColor="blue-400"
-            borderBottomLeftRadius="medium"
-            borderBottomRightRadius="medium"
+            borderRadius="medium"
             backgroundColor="navyblue-300"
             zIndex={10}
             position="absolute"
-            minWidth="100%"
+            minWidth={anchorRect?.width}
             width="max-content"
-            maxWidth="40vw"
-            maxHeight={maxHeight}
-            overflow="auto"
-            right={positions.right}
+            overflowX="hidden"
+            overflowY="auto"
+            {...positionProperties}
             {...rest}
           >
             {children}
