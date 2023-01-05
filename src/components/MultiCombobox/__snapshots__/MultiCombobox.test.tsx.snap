@@ -217,12 +217,19 @@ exports[`MultiCombobox renders 1`] = `
   max-width: 800px;
 }
 
+.pounce-10 {
+  position: absolute;
+  z-index: 10;
+  left: 0px;
+  top: 0px;
+}
+
 <div>
   <div
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="downshift-0-label"
-    class="pounce-10"
+    class="pounce-11"
     role="combobox"
   >
     <div
@@ -284,12 +291,16 @@ exports[`MultiCombobox renders 1`] = `
         </button>
       </div>
     </div>
-    <ul
-      aria-labelledby="downshift-0-label"
-      class="pounce-9"
-      id="downshift-0-menu"
-      role="listbox"
-    />
+    <div
+      class="pounce-10"
+    >
+      <ul
+        aria-labelledby="downshift-0-label"
+        class="pounce-9"
+        id="downshift-0-menu"
+        role="listbox"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -438,6 +449,13 @@ exports[`MultiCombobox renders with clear all option 1`] = `
   max-width: 800px;
 }
 
+.pounce-22 {
+  position: absolute;
+  z-index: 10;
+  left: 0px;
+  top: 0px;
+}
+
 .pounce-7 {
   min-height: 47px;
   overflow: auto;
@@ -513,20 +531,17 @@ exports[`MultiCombobox renders with clear all option 1`] = `
 
 .pounce-21 {
   margin-top: 6px;
+  margin-bottom: 6px;
   border: 1px solid;
   border-color: #0081C5;
   border-radius: 4px;
   background-color: #3E516B;
-  z-index: 10;
-  position: absolute;
   min-width: 0;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   overflow-x: hidden;
   overflow-y: auto;
-  left: 0px;
-  top: 0px;
   max-height: 300px;
   max-width: 800px;
 }
@@ -670,7 +685,7 @@ exports[`MultiCombobox renders with clear all option 1`] = `
     aria-haspopup="listbox"
     aria-labelledby="downshift-2-label"
     aria-owns="downshift-2-menu"
-    class="pounce-22"
+    class="pounce-23"
     role="combobox"
   >
     <div
@@ -754,92 +769,96 @@ exports[`MultiCombobox renders with clear all option 1`] = `
         </button>
       </div>
     </div>
-    <ul
-      aria-labelledby="downshift-2-label"
-      class="pounce-12"
-      id="downshift-2-menu"
-      role="listbox"
-    />
-    <ul
-      aria-labelledby="downshift-2-label"
-      class="pounce-21"
-      id="downshift-2-menu"
-      role="listbox"
-      style="transform: scale(1, 1); opacity: 1;"
+    <div
+      class="pounce-22"
     >
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-13"
-        id="downshift-2-item-0"
-        role="option"
+      <ul
+        aria-labelledby="downshift-2-label"
+        class="pounce-12"
+        id="downshift-2-menu"
+        role="listbox"
+      />
+      <ul
+        aria-labelledby="downshift-2-label"
+        class="pounce-21"
+        id="downshift-2-menu"
+        role="listbox"
+        style="transform: scale(1, 1); opacity: 1;"
       >
-        Toyota
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-2-item-1"
-        role="option"
-      >
-        Ford
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-2-item-2"
-        role="option"
-      >
-        Chevrolet
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-2-item-3"
-        role="option"
-      >
-        BMW
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-2-item-4"
-        role="option"
-      >
-        Mercedes
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-2-item-5"
-        role="option"
-      >
-        Hammer
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-2-item-6"
-        role="option"
-      >
-        Dodge
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-14"
-        id="downshift-2-item-7"
-        role="option"
-      >
-        Audi
-      </li>
-    </ul>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-13"
+          id="downshift-2-item-0"
+          role="option"
+        >
+          Toyota
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-14"
+          id="downshift-2-item-1"
+          role="option"
+        >
+          Ford
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-14"
+          id="downshift-2-item-2"
+          role="option"
+        >
+          Chevrolet
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-14"
+          id="downshift-2-item-3"
+          role="option"
+        >
+          BMW
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-14"
+          id="downshift-2-item-4"
+          role="option"
+        >
+          Mercedes
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-14"
+          id="downshift-2-item-5"
+          role="option"
+        >
+          Hammer
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-14"
+          id="downshift-2-item-6"
+          role="option"
+        >
+          Dodge
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-14"
+          id="downshift-2-item-7"
+          role="option"
+        >
+          Audi
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -988,6 +1007,13 @@ exports[`MultiCombobox renders with clear all option 2`] = `
   max-width: 800px;
 }
 
+.pounce-30 {
+  position: absolute;
+  z-index: 10;
+  left: 0px;
+  top: 0px;
+}
+
 .pounce-10 {
   min-height: 47px;
   overflow: auto;
@@ -1063,20 +1089,17 @@ exports[`MultiCombobox renders with clear all option 2`] = `
 
 .pounce-29 {
   margin-top: 6px;
+  margin-bottom: 6px;
   border: 1px solid;
   border-color: #0081C5;
   border-radius: 4px;
   background-color: #3E516B;
-  z-index: 10;
-  position: absolute;
   min-width: 0;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   overflow-x: hidden;
   overflow-y: auto;
-  left: 0px;
-  top: 0px;
   max-height: 300px;
   max-width: 800px;
 }
@@ -1380,123 +1403,127 @@ exports[`MultiCombobox renders with clear all option 2`] = `
         </button>
       </div>
     </div>
-    <ul
-      aria-labelledby="downshift-2-label"
-      class="pounce-15"
-      id="downshift-2-menu"
-      role="listbox"
-    />
-    <ul
-      aria-labelledby="downshift-2-label"
-      class="pounce-29"
-      id="downshift-2-menu"
-      role="listbox"
-      style="transform: scale(1, 1); opacity: 1;"
+    <div
+      class="pounce-30"
     >
-      <li
-        class="pounce-20"
+      <ul
+        aria-labelledby="downshift-2-label"
+        class="pounce-15"
+        id="downshift-2-menu"
+        role="listbox"
+      />
+      <ul
+        aria-labelledby="downshift-2-label"
+        class="pounce-29"
+        id="downshift-2-menu"
+        role="listbox"
+        style="transform: scale(1, 1); opacity: 1;"
       >
-        <button
-          class="pounce-19"
-          type="button"
+        <li
+          class="pounce-20"
         >
-          <span
-            class="pounce-18"
+          <button
+            class="pounce-19"
+            type="button"
           >
-            <svg
-              class="pounce-16"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M0 0h24v24H0z"
-                fill="none"
-              />
-              <path
-                d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm2.828 5.757L12 10.587l-2.828-2.83-1.415 1.415L10.587 12l-2.83 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415z"
-              />
-            </svg>
             <span
-              class="pounce-17"
+              class="pounce-18"
             >
-              Clear Selection
+              <svg
+                class="pounce-16"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path
+                  d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm2.828 5.757L12 10.587l-2.828-2.83-1.415 1.415L10.587 12l-2.83 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415z"
+                />
+              </svg>
+              <span
+                class="pounce-17"
+              >
+                Clear Selection
+              </span>
             </span>
-          </span>
-        </button>
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-21"
-        id="downshift-2-item-0"
-        role="option"
-      >
-        Toyota
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-21"
-        id="downshift-2-item-1"
-        role="option"
-      >
-        Ford
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-23"
-        id="downshift-2-item-2"
-        role="option"
-      >
-        Chevrolet
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-23"
-        id="downshift-2-item-3"
-        role="option"
-      >
-        BMW
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-23"
-        id="downshift-2-item-4"
-        role="option"
-      >
-        Mercedes
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-23"
-        id="downshift-2-item-5"
-        role="option"
-      >
-        Hammer
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-23"
-        id="downshift-2-item-6"
-        role="option"
-      >
-        Dodge
-      </li>
-      <li
-        aria-disabled="false"
-        aria-selected="false"
-        class="pounce-23"
-        id="downshift-2-item-7"
-        role="option"
-      >
-        Audi
-      </li>
-    </ul>
+          </button>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-21"
+          id="downshift-2-item-0"
+          role="option"
+        >
+          Toyota
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-21"
+          id="downshift-2-item-1"
+          role="option"
+        >
+          Ford
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-23"
+          id="downshift-2-item-2"
+          role="option"
+        >
+          Chevrolet
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-23"
+          id="downshift-2-item-3"
+          role="option"
+        >
+          BMW
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-23"
+          id="downshift-2-item-4"
+          role="option"
+        >
+          Mercedes
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-23"
+          id="downshift-2-item-5"
+          role="option"
+        >
+          Hammer
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-23"
+          id="downshift-2-item-6"
+          role="option"
+        >
+          Dodge
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="pounce-23"
+          id="downshift-2-item-7"
+          role="option"
+        >
+          Audi
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -1685,6 +1712,13 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
   max-width: 800px;
 }
 
+.pounce-10 {
+  position: absolute;
+  z-index: 10;
+  left: 0px;
+  top: 0px;
+}
+
 .pounce-4 {
   min-height: 47px;
   overflow: auto;
@@ -1723,7 +1757,7 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="downshift-1-label"
-    class="pounce-10"
+    class="pounce-11"
     role="combobox"
   >
     <div
@@ -1785,12 +1819,16 @@ exports[`MultiCombobox renders with variant="solid" 1`] = `
         </button>
       </div>
     </div>
-    <ul
-      aria-labelledby="downshift-1-label"
-      class="pounce-9"
-      id="downshift-1-menu"
-      role="listbox"
-    />
+    <div
+      class="pounce-10"
+    >
+      <ul
+        aria-labelledby="downshift-1-label"
+        class="pounce-9"
+        id="downshift-1-menu"
+        role="listbox"
+      />
+    </div>
   </div>
 </div>
 `;
