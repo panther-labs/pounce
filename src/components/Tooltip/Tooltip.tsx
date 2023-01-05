@@ -29,7 +29,7 @@ export interface TooltipProps {
 }
 /** A tooltip is a helper that shows some helping text when hovering or clicking something */
 const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(function Tooltip(
-  { content, alignment = 'bottom-center', wrapper = DefaultWrapper, children },
+  { content, alignment = 'right-center', wrapper = DefaultWrapper, children },
   ref
 ) {
   const [trigger, { triggerRect }, isVisible] = useTooltip();

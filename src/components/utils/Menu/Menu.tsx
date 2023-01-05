@@ -28,34 +28,30 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
   // Make sure to include both our current ref and also the forwarded one (in case we it's needed by the parent component
   const composedRef = useComposedRefs(menuRef, forwardedRef);
   return (
-    <React.Fragment>
+    <Box ref={composedRef} position="absolute" zIndex={10} {...positionProperties}>
       {transitions.map(({ item, key, props: styles }) =>
         item ? (
           <AnimatedBox
-            ref={composedRef}
             key={key}
             style={styles}
-            mt="6px"
+            my="6px"
             border="1px solid"
             borderColor="blue-400"
             borderRadius="medium"
             backgroundColor="navyblue-300"
-            zIndex={10}
-            position="absolute"
             minWidth={triggerRef.current?.offsetWidth}
             width="max-content"
             overflowX="hidden"
             overflowY="auto"
-            {...positionProperties}
             {...rest}
           >
             {children}
           </AnimatedBox>
         ) : (
-          <Box key={key} ref={composedRef} {...rest} />
+          <Box key={key} {...rest} />
         )
       )}
-    </React.Fragment>
+    </Box>
   );
 });
 
