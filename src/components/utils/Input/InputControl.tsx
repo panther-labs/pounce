@@ -47,6 +47,7 @@ const InputControl: React.FC<InputControlProps> = ({
   return (
     <Box
       minHeight={47}
+      overflow="auto"
       position="relative"
       border="1px solid"
       transition="border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms"

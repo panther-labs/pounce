@@ -305,6 +305,32 @@ const Example8 = () => {
 <Example8 />;
 ```
 
+A MultiCombobox can have a maxHeight for the combobox
+
+```typescript jsx
+const Example9 = () => {
+  const [selectedItems, updateSelectedItems] = React.useState([
+    'Lorem ipsum dolor, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]);
+  return (
+    <Box width={0.3}>
+      <MultiCombobox
+        allowAdditions
+        searchable
+        maxContainerHeight={100}
+        label="Choose a car manufacturer"
+        items={[]}
+        onChange={updateSelectedItems}
+        value={selectedItems}
+        placeholder="Search for a manufacturer"
+      />
+    </Box>
+  );
+};
+
+<Example9 />;
+```
+
 A MultiCombobox can have lengthy entries that reach `40vw` in the dropdown.
 Dropdown expansion depends the page location of the Combobox:
 

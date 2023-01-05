@@ -14,6 +14,7 @@ exports[`DateRangeInput allows changing time options in 24h mode 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -282,6 +283,7 @@ exports[`DateRangeInput allows passing a custom format 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -550,6 +552,7 @@ exports[`DateRangeInput allows selecting a date range 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -818,6 +821,7 @@ exports[`DateRangeInput allows selecting a preset 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -1086,6 +1090,7 @@ exports[`DateRangeInput opens the month picker 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -1354,6 +1359,7 @@ exports[`DateRangeInput opens the month picker with empty value 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -1622,6 +1628,7 @@ exports[`DateRangeInput opens the month picker with placement 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -1890,6 +1897,7 @@ exports[`DateRangeInput renders 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -2296,6 +2304,7 @@ exports[`DateRangeInput renders with solid coloring 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
@@ -2426,6 +2435,7 @@ exports[`DateRangeInput renders with time options 1`] = `
 
 .pounce-7 {
   min-height: 47px;
+  overflow: auto;
   position: relative;
   border: 1px solid;
   -webkit-transition: border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;

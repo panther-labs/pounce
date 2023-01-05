@@ -102,6 +102,9 @@ export type MultiComboboxProps<T> = Omit<NativeAttributes<'input'>, 'value' | 'o
   /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
   maxHeight?: number;
 
+  /** The maximum height (in pixels) of the MultiCombobox's input. Defaults to 300. */
+  maxContainerHeight?: number;
+
   /** The maximum width (in pixels) of the MultiCombobox dropdown. Defaults to 800. */
   maxWidth?: number;
 
@@ -170,6 +173,7 @@ function MultiCombobox<Item>({
   allowAdditions = false,
   validateAddition = () => true,
   maxHeight = 300,
+  maxContainerHeight,
   maxWidth = 800,
   maxResults,
   canClearAllAfter,
@@ -347,7 +351,16 @@ function MultiCombobox<Item>({
                 variant={multiComboboxVariant}
                 hidden={hidden}
               >
-                <Flex as="ul" wrap="wrap" align="baseline" pl={3} pr={10} pt={itemsPt} pb="2px">
+                <Flex
+                  as="ul"
+                  wrap="wrap"
+                  align="baseline"
+                  pl={3}
+                  pr={10}
+                  pt={itemsPt}
+                  pb="2px"
+                  maxHeight={maxContainerHeight}
+                >
                   <>
                     {renderContent({ itemToString, removeItem, value, isOpen })}
                     <Box
