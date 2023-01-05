@@ -102,8 +102,12 @@ export type MultiComboboxProps<T> = Omit<NativeAttributes<'input'>, 'value' | 'o
   /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
   maxHeight?: number;
 
-  /** The maximum height (in pixels) of the MultiCombobox dropdown. Defaults to 300. */
+  /** The maximum height (in pixels) of the MultiCombobox's input. Defaults to 300. */
   maxContainerHeight?: number;
+
+  /** The maximum width (in pixels) of the MultiCombobox dropdown. Defaults to 800. */
+  maxWidth?: number;
+
   /**
    * A function that runs before a custom item is added by the user. If it returns `true`, then this
    * item will be added to the selection. If not, then this item won't be added
@@ -170,6 +174,7 @@ function MultiCombobox<Item>({
   validateAddition = () => true,
   maxHeight = 300,
   maxContainerHeight,
+  maxWidth = 800,
   maxResults,
   canClearAllAfter,
   invalid,
@@ -177,6 +182,8 @@ function MultiCombobox<Item>({
   renderContent = DefaultContent,
   ...rest
 }: MultiComboboxProps<Item>): React.ReactElement<MultiComboboxProps<Item>> {
+  const triggerRef = React.useRef<HTMLElement>(null);
+
   const getVariant = React.useCallback(
     isOpen => {
       if (variant === 'solid') {
@@ -336,8 +343,8 @@ function MultiCombobox<Item>({
         };
 
         return (
-          <Box position="relative" {...getRootProps()}>
-            <Box position="relative">
+          <Box {...getRootProps()}>
+            <Box position="relative" ref={triggerRef}>
               <InputControl
                 invalid={invalid}
                 disabled={disabled}
@@ -417,7 +424,9 @@ function MultiCombobox<Item>({
             <Menu
               as="ul"
               maxHeight={maxHeight}
+              maxWidth={maxWidth}
               isOpen={isOpen && results.length > 0}
+              triggerRef={triggerRef}
               {...getMenuProps()}
             >
               {isOpen && canClearAllAfter && value.length >= canClearAllAfter && (

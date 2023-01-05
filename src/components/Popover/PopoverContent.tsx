@@ -3,10 +3,10 @@ import ReachUIPopover from '@reach/popover';
 import { useComposedRefs } from '@reach/utils';
 import { animated, useTransition } from 'react-spring';
 import { usePopoverContext } from './Popover';
-import usePopoverContentAlignment from './usePopoverContentAlignment';
 import useOutsideClick from '../../utils/useOutsideClick';
 import useEscapeKey from '../../utils/useEscapeKey';
 import Box from '../Box';
+import { useAlignmentFunction, Alignment } from '../../utils/useAlignment';
 
 const AnimatedPopover = animated(ReachUIPopover);
 
@@ -16,19 +16,7 @@ export interface PopoverContentProps {
    *
    * @default left
    */
-  alignment?:
-    | 'bottom-left'
-    | 'bottom-center'
-    | 'bottom-right'
-    | 'top-left'
-    | 'top-center'
-    | 'top-right'
-    | 'left-bottom'
-    | 'left-center'
-    | 'left-top'
-    | 'right-bottom'
-    | 'right-center'
-    | 'right-top';
+  alignment?: Alignment;
 
   /**
    * Whether the popover should remain open when a click outside it occurs
@@ -46,7 +34,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
     { alignment = 'bottom-left', children, persistOnOutsideClicks = false, ...rest },
     forwardedRef
   ) {
-    const popoverAlignment = usePopoverContentAlignment(alignment);
+    const alignmentFunction = useAlignmentFunction(alignment);
     const { popoverId, isOpen, triggerRef, popoverRef, close } = usePopoverContext();
 
     // When the popoover opens, it should immediately get focus
@@ -87,7 +75,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
                 key={key}
                 style={styles}
                 targetRef={triggerRef}
-                position={popoverAlignment}
+                position={alignmentFunction}
                 role="tooltip"
                 id={popoverId}
                 as={'div'}

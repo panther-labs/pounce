@@ -14,7 +14,7 @@ const TooltipWrapper: React.FC = ({ children }) => {
       m={2}
       fontSize="small"
       boxShadow="dark250"
-      _before={{
+      __before={{
         content: '""',
         position: 'absolute',
         right: '100%',
@@ -44,7 +44,7 @@ describe('Tooltip', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('show the tooltip when we hover', async () => {
+  it('shows the tooltip when we hover', async () => {
     const { getByText, findByText } = renderWithTheme(
       <Tooltip content="Boom! I am the tooltip">
         <Box>Hover me to see the tooltip</Box>
@@ -58,7 +58,7 @@ describe('Tooltip', () => {
     expect(await findByText('Boom! I am the tooltip')).toBeInTheDocument();
   });
 
-  it('show the tooltip for an Icon', async () => {
+  it('shows the tooltip with an Icon', async () => {
     const { getByLabelText, findByText } = renderWithTheme(
       <Tooltip content="Boom! I am the user!">
         <IconButton icon="user" aria-label="See user" />
@@ -72,7 +72,7 @@ describe('Tooltip', () => {
     expect(await findByText('Boom! I am the user!')).toBeInTheDocument();
   });
 
-  it('show the tooltip with a custom content', async () => {
+  it('shows the tooltip with a custom content', async () => {
     const { getByText, findByText } = renderWithTheme(
       <Tooltip content="Lorem ipsum dolor sit amet, consectetur" wrapper={TooltipWrapper}>
         <Box>Hover me to see the new wrapper</Box>
