@@ -1,4 +1,4 @@
-import { renderWithTheme, fireClickAndMouseEvents } from 'test-utils';
+import { renderWithTheme, fireClickAndMouseEvents, waitMs } from 'test-utils';
 import React from 'react';
 import Combobox, { ComboboxProps } from './index';
 import userEvent from '@testing-library/user-event';
@@ -75,5 +75,28 @@ describe('Combobox', () => {
     userEvent.click(getByPlaceholderText('Select manufacturer'));
     userEvent.click(getByPlaceholderText('another input'));
     expect(mock).toHaveBeenCalledTimes(1);
+  });
+
+  it('toggles the dropdown menu by clicking the caret button', async () => {
+    const { getByText, getByPlaceholderText, getByRole, queryByText } = renderWithTheme(
+      <ControlledCombobox searchable />
+    );
+    const toggleMenuButton = getByRole('button', { name: 'Toggle Menu' });
+    userEvent.click(getByPlaceholderText('Select manufacturer'));
+    expect(getByText('Toyota')).toBeInTheDocument();
+    fireClickAndMouseEvents(getByText('Toyota'));
+    await waitMs(300);
+    // Check that menu is closed after selection
+    expect(queryByText('Ford')).not.toBeInTheDocument();
+
+    // Click toggle menu button and expect menu to open
+    fireClickAndMouseEvents(toggleMenuButton);
+    await waitMs(300);
+    expect(queryByText('Ford')).toBeInTheDocument();
+
+    // Click toggle menu button again and expect menu to close
+    fireClickAndMouseEvents(toggleMenuButton);
+    await waitMs(300);
+    expect(queryByText('Ford')).not.toBeInTheDocument();
   });
 });

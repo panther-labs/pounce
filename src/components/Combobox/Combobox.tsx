@@ -116,6 +116,8 @@ function Combobox<Item>({
   ...rest
 }: ComboboxProps<Item>): React.ReactElement<ComboboxProps<Item>> {
   const triggerRef = React.useRef(null);
+  const iconButtonRef = React.useRef<HTMLButtonElement>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   // convert item to a string with a fallback of empty string
   const safeItemToString = (item: Item | null) => (item != undefined ? itemToString(item) : '');
@@ -214,7 +216,31 @@ function Combobox<Item>({
 
         return (
           <Box {...getRootProps()}>
-            <Box position="relative" ref={triggerRef}>
+            <Box
+              position="relative"
+              ref={triggerRef}
+              // We want to allow the menu to be toggled by clicking the IconButton when the
+              // searchable prop is true. This allows users to select an item, then reopen the
+              // menu without having to click outside of the input first.
+              {...(searchable && {
+                onMouseDown: (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                  if (iconButtonRef?.current?.contains(event.target as Element)) {
+                    if (isOpen) {
+                      closeMenu();
+                      setInputValue(safeItemToString(value));
+                    } else {
+                      window.requestAnimationFrame(() => {
+                        openMenu();
+                        // We set the input value to an empty string, then focus the input to
+                        // ensure the currently selected value still shows as the placeholder
+                        setInputValue('');
+                        inputRef?.current?.focus();
+                      });
+                    }
+                  }
+                },
+              })}
+            >
               <InputControl
                 invalid={invalid}
                 disabled={disabled}
@@ -223,6 +249,7 @@ function Combobox<Item>({
                 hidden={hidden}
               >
                 <InputElement
+                  ref={inputRef}
                   as="input"
                   type="text"
                   truncated
@@ -243,14 +270,15 @@ function Combobox<Item>({
                 right={2}
                 align="center"
                 justify="center"
-                pointerEvents={isOpen ? 'auto' : 'none'}
+                {...(!searchable && { pointerEvents: isOpen ? 'auto' : 'none' })}
               >
                 <IconButton
+                  ref={iconButtonRef}
                   tabIndex={-1}
                   icon={isOpen ? 'caret-up' : 'caret-down'}
                   size="medium"
                   aria-label="Toggle Menu"
-                  onClick={() => closeMenu()}
+                  {...(!searchable && { onClick: () => closeMenu() })}
                   variant="unstyled"
                 />
               </Flex>
