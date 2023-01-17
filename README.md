@@ -1,8 +1,9 @@
+#### ⚠️ As of January 2023 this repo is archived and no longer maintained by the Panther team 
+
+
 # Pounce
 
 🐯A Set of Composable React Primitives for Building UI Dashboards
-
-[![CircleCI](https://circleci.com/gh/panther-labs/pounce/tree/master.svg?style=svg)](https://circleci.com/gh/panther-labs/pounce/tree/master)
 
 ## Description
 
